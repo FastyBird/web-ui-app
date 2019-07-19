@@ -1,0 +1,27 @@
+@import "../../../assets/styles/variables";
+
+.fb-sign-header {
+  &__container {
+    margin-bottom: 15px;
+  }
+
+  &__brand {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+  }
+
+  &__brand svg {
+    shape-rendering: geometricPrecision;
+    text-rendering: geometricPrecision;
+    image-rendering: optimizeQuality;
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: $brand-primary;
+  }
+
+  &__brand svg path {
+    fill: $brand-primary;
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../../../../theme/assets/styles/variables";
+
+.fb-desktop-header-button {
+  &__button {
+    border: 0 none;
+    border-radius: 50%;
+    font-size: 30px;
+    line-height: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: $brand-primary;
+    padding: 0px;
+    width: 52px;
+  }
+}

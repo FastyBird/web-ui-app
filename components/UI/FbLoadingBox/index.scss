@@ -1,0 +1,48 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/custom/variables";
+
+.fb-loading-box {
+  &__container {
+    text-align: center;
+    padding: 30px;
+  }
+
+  &__spinner {
+    position: relative;
+    margin: 30px 0 10px;
+    width: $spinner-lg-size;
+    height: $spinner-lg-size;
+    display: inline-block;
+
+    &:before,
+    &:after {
+      border-color: $spinner-border-color;
+      border-radius: 50%;
+      border-style: solid;
+      content: "";
+      left: 0;
+      position: absolute;
+      top: 0;
+      border-width: $spinner-lg-border-width;
+      height: $spinner-lg-size;
+      margin: half(-$spinner-lg-size) 0 0 half(-$spinner-lg-size);
+      width: $spinner-lg-size;
+    }
+
+    &:after {
+      animation: loading-box-spinner-animation 0.6s linear;
+      animation-iteration-count: infinite;
+      border-color: $spinner-primary-color transparent transparent;
+    }
+  }
+}
+
+@keyframes loading-box-spinner-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

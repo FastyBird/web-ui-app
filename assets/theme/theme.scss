@@ -1,0 +1,129 @@
+// Elephant
+@import "./../styles/variables";
+@import "./../styles/colors";
+
+@import "./../styles/bootstrap/variables";
+@import "./../styles/bootstrap/mixins";
+
+@import "./../styles/custom/helpers";
+@import "./../styles/custom/variables";
+@import "./../styles/custom/mixins";
+
+//
+// BOOTSTRAP
+//
+
+// Reset and dependencies
+@import "./../styles/bootstrap/normalize";
+@import "./../styles/bootstrap/print";
+
+// Core CSS
+@import "./../styles/bootstrap/scaffolding";
+@import "./../styles/bootstrap/type";
+@import "./../styles/bootstrap/alerts";
+@import "./../styles/bootstrap/forms";
+
+// Components
+@import "./../styles/bootstrap/list-group";
+
+// Utility classes
+@import "./../styles/bootstrap/utilities";
+@import "./../styles/bootstrap/responsive-utilities";
+
+//
+// ELEPHANT
+//
+
+// Dependencies
+@import "./../styles/custom/icons";
+
+// Core CSS
+@import "./../styles/custom/scaffolding";
+
+// Components
+@import "./../styles/custom/dividers";
+@import "./../styles/custom/list-groups";
+@import "./../styles/custom/spinners";
+@import "./../styles/custom/switches";
+
+// Utility classes
+@import "./../styles/custom/utilities";
+
+//
+// THEME
+//
+
+@import "./grid";
+@import "./toaster";
+@import "./nprogress";
+
+html {
+  height: 100%;
+  -ms-overflow-style: scrollbar;
+}
+
+body {
+  padding-top: 0;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  line-height: 1.538462;
+  color: $gray;
+  background-color: $body-bg;
+
+  div#app {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+}
+
+svg {
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+  image-rendering: optimizeQuality;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+}
+
+//
+// TEXT FORMATTING
+//
+
+@media (max-width: $screen-sm-min) {
+  .text-right-xs {
+    text-align: right;
+  }
+
+  .text-left-xs {
+    text-align: left;
+  }
+
+  .text-center-xs {
+    text-align: center;
+  }
+
+  .text-justify-xs {
+    text-align: justify;
+  }
+}
+
+//
+// MOUSE CURSORS
+//
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}

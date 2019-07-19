@@ -1,0 +1,58 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/custom/variables";
+@import "../../../assets/theme/mixins";
+
+.fb-md-label {
+  &__container {
+    bottom: $md-form-group-padding-vertical;
+    color: $text-color;
+    display: block;
+    font-size: $md-form-control-font-size;
+    font-weight: normal;
+    left: 0;
+    line-height: $md-form-control-line-height;
+    margin-bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: $md-control-label-top;
+    white-space: nowrap;
+    width: 100%;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:after {
+      background-color: $brand-primary;
+      bottom: 0;
+      content: '';
+      height: 2px;
+      left: 45%;
+      position: absolute;
+      transition-duration: 0.2s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      visibility: hidden;
+      width: 10px;
+    }
+
+    &.is-focused {
+      color: $brand-primary;
+
+      &:after {
+        left: 0;
+        visibility: visible;
+        width: 100%;
+      }
+    }
+
+    &.is-focused,
+    &.has-value {
+      font-size: $md-control-label-focused-font-size;
+      top: $md-form-control-padding-vertical;
+      visibility: visible;
+    }
+
+    &.has-error {
+      color: $brand-danger;
+    }
+  }
+}

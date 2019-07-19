@@ -1,0 +1,39 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/custom/variables";
+@import "../../../assets/theme/mixins";
+
+.fb-card {
+  &__container {
+    background-color: $card-bg;
+    //border: 1px solid $card-border;
+    border: none;
+    border-radius: $card-border-radius;
+    box-shadow: $card-box-shadow;
+    display: block;
+    margin-bottom: $card-margin-bottom;
+    position: relative;
+  }
+
+  // Header
+  &__header {
+    background-color: $brand-primary;
+    color: #fff;
+    border-bottom: 1px solid $card-border;
+    padding: $card-padding-horizontal $card-padding-vertical;
+    position: relative;
+
+    @include clearfix;
+
+    &:first-child {
+      @include border-top-radius($card-border-radius-inner);
+    }
+  }
+
+  // Body
+  &__body {
+    padding: $card-padding-vertical;
+    position: relative;
+
+    @include clearfix;
+  }
+}

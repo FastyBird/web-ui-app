@@ -1,0 +1,57 @@
+@import "../../../../theme/assets/styles/variables";
+
+.fb-desktop-header {
+  &__container {
+    color: #fff;
+    background-color: $brand-primary;
+    -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
+    height: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: $layout-sidebar-width;
+    z-index: 1000;
+
+    @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
+      left: $layout-sidebar-collapsed-width;
+    }
+
+    * {
+      color: #fff;
+    }
+
+    h1 {
+      float: left;
+      line-height: 1;
+      padding: 15px 15px 10px 15px;
+      margin: 0;
+      font-size: $font-size-large;
+
+      @media (max-width: $screen-sm-min) {
+        line-height: 1.538462;
+      }
+
+      span,
+      small {
+        margin: 0;
+        padding: 0 0 0 15px;
+        line-height: 22px;
+        display: block;
+      }
+
+      span {
+        font-size: $font-size-large;
+      }
+
+      small {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  &__buttons {
+    float: right;
+    padding-right: 10px;
+  }
+}

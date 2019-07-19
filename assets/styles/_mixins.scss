@@ -1,0 +1,32 @@
+// Mixin to manage breakpoints
+$breakpoints: (
+  'xs': 575.99px,
+  'sm': 767.99px,
+  'md': 991.99px,
+  'lg': 1199.99px,
+  'xl': 1200px
+);
+
+@mixin maximumSize($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (max-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$size}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin minimumSize($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$size}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/custom/variables";
+@import "../../../assets/theme/mixins";
+
+.fb-md-field-container {
+  &__container {
+    margin-bottom: $md-form-group-margin-bottom;
+    padding: $md-form-group-padding-vertical 0;
+    position: relative;
+
+    & & {
+      margin-bottom: -$md-form-group-padding-vertical;
+      margin-top: -$md-form-group-padding-vertical;
+    }
+  }
+
+  &__help {
+    display: block;
+    margin-top: 3px;
+    position: absolute;
+    visibility: visible;
+    width: 100%;
+    text-align: justify;
+  }
+}

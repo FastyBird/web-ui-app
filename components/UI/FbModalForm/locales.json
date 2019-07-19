@@ -1,0 +1,12 @@
+{
+  "en": {
+    "buttons": {
+      "close": {
+        "title": "Close"
+      },
+      "save": {
+        "title": "Save"
+      }
+    }
+  }
+}

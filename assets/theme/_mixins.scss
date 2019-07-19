@@ -1,0 +1,156 @@
+@function sum($values...) {
+  $result: 0;
+  @each $value in $values {
+    $result: $result + $value;
+  }
+  @return $result;
+}
+
+@function half($values...) {
+  @return ceil(sum($values...) / 2);
+}
+
+// User select
+// For selecting text on the page
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select; // IE10+
+  user-select: $select;
+}
+
+// Drop shadows
+//
+// Note: Deprecated `.box-shadow()` as of v3.1.0 since all of Bootstrap's
+// supported browsers that have box shadow capabilities now support it.
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+  box-shadow: $shadow;
+}
+
+// Opacity
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
+}
+
+// Single side border-radius
+
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+// Clearfix
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Grid gutters
+@mixin make-grid-gutters($gutters: $grid-gutters) {
+  $i: 1; $cols: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+
+  @for $i from (1 + 1) through $grid-columns {
+    $cols: "#{$cols}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  }
+
+  @each $modifier, $gutter in $gutters {
+    .row.gutter-#{$modifier} {
+      margin-left:  -($gutter / 2);
+      margin-right: -($gutter / 2);
+
+      & > {
+        #{$cols} {
+          padding-left:  ($gutter / 2);
+          padding-right: ($gutter / 2);
+        }
+      }
+    }
+  }
+}
+
+// Placeholder text
+@mixin placeholder($color: $input-color-placeholder) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+@mixin spinner-size($size, $border-width) {
+  border-width: $border-width;
+  height: $size;
+  margin: half(-$size) 0 0 half(-$size);
+  width: $size;
+}
+
+// Mixin to manage breakpoints
+$breakpoints: (
+        'xs': 575.99px,
+        'sm': 767.99px,
+        'md': 991.99px,
+        'lg': 1199.99px,
+        'xl': 1200px
+);
+
+@mixin maximumSize($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (max-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$size}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin minimumSize($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$size}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

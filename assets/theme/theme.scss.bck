@@ -1,0 +1,90 @@
+@import "variables";
+@import "mixins";
+
+//
+// Bootstrap
+//
+
+@import "./../styles/bootstrap/variables";
+@import "./../styles/bootstrap/mixins";
+
+// Reset and dependencies
+@import "./../styles/bootstrap/normalize";
+@import "./../styles/bootstrap/print";
+
+// Core CSS
+@import "./../styles/bootstrap/scaffolding";
+@import "./../styles/bootstrap/type";
+@import "./../styles/bootstrap/grid";
+
+// Utility classes
+@import "./../styles/bootstrap/utilities";
+@import "./../styles/bootstrap/responsive-utilities";
+
+//
+// Custom
+//
+
+// Core CSS
+@import "./../styles/custom/scaffolding";
+@import "./../styles/custom/grid";
+
+@import "./../styles/colors";
+
+// Utility classes
+@import "./../styles/custom/utilities";
+
+//
+// Theme
+//
+
+html {
+  height: 100%;
+  -ms-overflow-style: scrollbar;
+}
+
+html[data-layout="layout_sign"] {
+  display: table;
+  height: 100%;
+  width: 100%;
+
+  body {
+    display: table-cell;
+    vertical-align: middle;
+
+    #app {
+      height: auto;
+    }
+  }
+}
+
+body {
+  padding-top: 0;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  line-height: 1.538462;
+  color: $gray;
+  background-color: $body-bg;
+
+  div#app {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+  // so we reset that to ensure it behaves more like a standard block element.
+  // See https://github.com/twbs/bootstrap/issues/12359.
+  min-width: 0;
+}

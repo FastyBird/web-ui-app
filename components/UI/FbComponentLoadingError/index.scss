@@ -1,0 +1,9 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/custom/variables";
+
+.fb-component-loading-error {
+  &__container {
+    text-align: center;
+    padding: 30px;
+  }
+}

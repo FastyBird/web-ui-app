@@ -1,0 +1,181 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/theme/mixins";
+
+.fb-user-side-navigation {
+  &__container {
+    position: relative;
+
+    ul {
+      position: absolute;
+      top: auto;
+      bottom: 100%;
+      left: 0;
+      z-index: $zindex-dropdown;
+      display: none; // none by default, but block on "open" of the menu
+      float: left;
+      margin: 2px 0 0; // override default ul
+      margin-left: 10px;
+      margin-bottom: 10px;
+      padding: 5px 0;
+      list-style: none;
+      font-size: $font-size-base;
+      text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+      background-color: #fff;
+      border: 1px solid $gray-lighter;
+      border-radius: $border-radius-base;
+      @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+      background-clip: padding-box;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+      min-width: 160px;
+
+      &:before,
+      &:after {
+        border-color: transparent;
+        border-style: solid;
+        border-width: 8px;
+        content: " ";
+        height: 0;
+        left: 22px;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        bottom: 100%;
+
+        @media (max-width: $screen-md-max) {
+          left: 12px;
+        }
+      }
+
+      &:before {
+        border-top-color: $gray-lighter;
+        top: 100%;
+      }
+
+      &:after {
+        border-top-color: #fff;
+        margin-top: -1px;
+        top: 100%;
+      }
+
+      // Dividers (basically an hr) within the dropdown
+      .divider {
+        height: 1px;
+        overflow: hidden;
+        background-color: $gray-lighter;
+        margin: 5px 2px;
+      }
+
+      // Links within the dropdown menu
+      & > li > a {
+        display: block;
+        padding: 5px 15px;
+        clear: both;
+        font-weight: normal;
+        line-height: $line-height-base;
+        color: $gray-dark;
+        white-space: nowrap; // prevent links from randomly breaking onto new lines
+      }
+
+      // Hover/Focus state
+      & > li > a {
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          color: $component-active-color;
+          background-color: $component-active-bg;
+        }
+      }
+
+      // Active state
+      & > .active > a {
+        &,
+        &:hover,
+        &:focus {
+          color: $component-active-color;
+          text-decoration: none;
+          outline: 0;
+          background-color: $component-active-bg;
+        }
+      }
+    }
+
+    &.open ul {
+      display: block;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    background-image: none;
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    outline: 0 none;
+    padding: 7px 15px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+
+    @media (max-width: $screen-md-max) {
+      text-align: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    div.row > div:first-child {
+      text-align: center;
+    }
+
+    div.row > div:last-child {
+      padding-top: 5px;
+    }
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+
+    @media (max-width: $screen-md-max) {
+      margin: 0 auto;
+    }
+
+    img {
+      margin-top: 1.5px;
+      border-radius: 50%;
+
+      @media (max-width: $screen-md-max) {
+        margin-right: 0;
+      }
+    }
+
+    svg.default {
+      width: 36px;
+      height: 36px;
+      fill: $brand-primary;
+      border-radius: 50%;
+    }
+  }
+
+  &__caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 0;
+    border-top:   $caret-width-base solid \9; // IE8
+    border-right: $caret-width-base solid transparent;
+    border-left:  $caret-width-base solid transparent;
+    border-bottom: $caret-width-base dashed;
+    border-bottom: $caret-width-base solid \9; // IE8
+    content: "";
+  }
+
+  &__version {
+    color: $gray-light;
+    padding: 5px 15px;
+  }
+}

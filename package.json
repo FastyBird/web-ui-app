@@ -1,0 +1,16 @@
+{
+  "name": "@fastybird-com/theme",
+  "version": "1.0.0",
+  "description": "Basic theme for FastyBird apps",
+  "keywords": [
+    "fastybird",
+    "basic ui"
+  ],
+  "author": "FastyBird s.r.o.",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/fastybird/fastybird-app-theme",
+  "repository": {
+    "type": "git",
+    "url": "https://akadlec@bitbucket.org/fastybird/fastybird-app-theme.git"
+  }
+}
