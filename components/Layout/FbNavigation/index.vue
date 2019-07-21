@@ -10,7 +10,7 @@
 
       <template v-for="(subItem, subIndex) in item.items">
         <li
-          v-if="subItem.hasOwnProperty('path') && (!subItem.hasOwnProperty('access') || subItem.access())"
+          v-if="subItem.hasOwnProperty('path') && (!subItem.hasOwnProperty('access') || subItem.access(instance))"
           :key="subIndex"
           :class="[{'active': $route.fullPath === subItem.path}, subItem.meta.hasOwnProperty('class') ? subItem.meta.class : '']"
         >

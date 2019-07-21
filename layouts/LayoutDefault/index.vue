@@ -184,8 +184,8 @@
       _calculateWindowHeight() {
         this.viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 
-        document.body.style.height = `${this.viewportHeight - 50}px`
-        this.minimalContentHeight = this.viewportHeight - 50
+        document.body.style.height = `${this.viewportHeight - 55}px`
+        this.minimalContentHeight = this.viewportHeight - 55
       },
 
     },
