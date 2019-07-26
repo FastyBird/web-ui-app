@@ -17,7 +17,7 @@
           <router-link
             v-if="subItem.path"
             :to="subItem.path"
-            active-class="active"
+            active-class="active"w
           >
             <font-awesome-icon
               :icon="subItem.meta.icon"

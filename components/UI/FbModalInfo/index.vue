@@ -30,6 +30,7 @@
       >
         {{ $t('buttons.close.title') }}
       </fb-button>
+      <template v-else>&nbsp;</template>
     </template>
   </fb-modal-window>
 </template>
