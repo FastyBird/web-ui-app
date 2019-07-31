@@ -1,4 +1,4 @@
-<template web>
+<template>
   <transition
     :name="transitionName"
     :mode="transitionMode"

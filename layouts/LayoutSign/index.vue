@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-sign-layout__container">
     <div class="fb-sign-layout__box">
       <fb-sign-header />

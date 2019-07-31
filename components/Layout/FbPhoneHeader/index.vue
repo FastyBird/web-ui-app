@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div
     v-if="windowSize === 'xs' || windowSize === 'sm'"
     :class="['fb-phone-header__container', {'fb-phone-header__container-hide-shadow': hideShadow}]"

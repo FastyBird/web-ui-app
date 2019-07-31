@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-default-layout__container">
     <fb-phone-header
       :profile="account.username !== null"

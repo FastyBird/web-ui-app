@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-card__container">
     <div
       v-if="slotExists('header')"

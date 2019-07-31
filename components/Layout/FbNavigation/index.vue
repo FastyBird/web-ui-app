@@ -1,4 +1,4 @@
-<template web>
+<template>
   <nav :class="['fb-navigation__container', {'collapse': collapsed && (windowSize === 'xs' || windowSize === 'sm')}]">
     <ul
       v-for="(item, index) in items"

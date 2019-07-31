@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div
     v-if="windowSize !== 'xs' && windowSize !== 'sm'"
     class="fb-desktop-header__container"

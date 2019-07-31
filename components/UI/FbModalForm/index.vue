@@ -1,4 +1,4 @@
-<template web>
+<template>
   <fb-modal-window
     :transparent-bg="transparentBg"
     @close="close"

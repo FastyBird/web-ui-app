@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-sign-footer__container">
     <p v-if="!isSignIn">
       {{ $t('texts.alreadyHaveAccount') }}

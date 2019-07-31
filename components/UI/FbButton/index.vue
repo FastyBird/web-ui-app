@@ -1,4 +1,4 @@
-<template web>
+<template>
   <router-link
     v-if="to !== null"
     :to="to"
@@ -27,17 +27,6 @@
   >
     <slot />
   </button>
-</template>
-
-<template native>
-  <button
-    :type="type"
-    :class="buttonClass"
-    :disabled="disabled"
-    :text="_.get($slots, '[\'default\'][0][\'text\']', 'OK')"
-    role="button"
-    @tap="tapCallback($event)"
-  />
 </template>
 
 <script>

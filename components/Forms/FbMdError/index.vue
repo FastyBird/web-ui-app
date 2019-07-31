@@ -1,4 +1,4 @@
-<template web>
+<template>
   <small class="fb-md-field-error__container">
     {{ error }}
   </small>

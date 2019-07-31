@@ -1,4 +1,4 @@
-<template web>
+<template>
   <label
     v-if="id !== null && label !== null"
     :for="id"

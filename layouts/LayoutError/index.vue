@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-error-layout__container">
     <div class="fb-error-layout__body">
       <router-view />

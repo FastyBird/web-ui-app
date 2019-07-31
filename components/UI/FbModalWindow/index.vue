@@ -1,4 +1,4 @@
-<template web>
+<template>
   <transition name="modal">
     <section
       :class="['fb-modal-window__container', {'transparent': transparentBg}]"

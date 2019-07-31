@@ -1,4 +1,4 @@
-<template web>
+<template>
   <fb-modal-window
     :show-footer="false"
     :show-header="false"

@@ -1,4 +1,4 @@
-<template web>
+<template>
   <router-link
     :to="link"
     class="fb-logo"

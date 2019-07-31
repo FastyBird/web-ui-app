@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-sign-header__container">
     <router-link
       :to="_.get(this, '$coreLinks.signInLnk', '/')"

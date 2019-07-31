@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div
     role="group"
     aria-label="radiobutton-group"

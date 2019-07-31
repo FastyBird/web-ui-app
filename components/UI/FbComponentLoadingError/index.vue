@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-component-loading-error__container">
     <font-awesome-icon
       icon="exclamation-triangle"

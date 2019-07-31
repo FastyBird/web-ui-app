@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-component-loading__container">
     <div class="fb-component-loading__spinner" />
     <p>

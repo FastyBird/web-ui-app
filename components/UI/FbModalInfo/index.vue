@@ -1,4 +1,4 @@
-<template web>
+<template>
   <fb-modal-window
     :show-header="slotExists('header')"
     :transparent-bg="transparentBg"

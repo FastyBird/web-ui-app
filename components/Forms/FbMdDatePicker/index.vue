@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div :class="['date-picker-container', 'flex-center', {'hidden-footer': footer }]">
     <div
       class="date-picker-background flex-center"

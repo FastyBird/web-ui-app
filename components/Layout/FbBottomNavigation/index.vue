@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div
     v-if="items.length && (windowSize === 'xs' || windowSize === 'sm')"
     class="fb-bottom-navigation__container"

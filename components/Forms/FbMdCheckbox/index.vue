@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-md-checkbox__container">
     <label class="fb-md-checkbox__label">
       <input

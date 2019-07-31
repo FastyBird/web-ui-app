@@ -1,4 +1,4 @@
-<template web>
+<template>
   <transition name="bounce">
     <div class="fb-page-loading__container">
       <div class="fb-page-loading__box">

@@ -1,4 +1,4 @@
-<template web>
+<template>
   <fb-md-field-container
     :id="id"
     :name="name"

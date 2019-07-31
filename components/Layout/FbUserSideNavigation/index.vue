@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div
     v-click-outside="blur"
     :class="['fb-user-side-navigation__container', {'open': show}]"

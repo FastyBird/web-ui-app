@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-md-radio__container">
     <label class="fb-md-radio__label">
       <input

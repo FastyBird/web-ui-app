@@ -1,4 +1,4 @@
-<template web>
+<template>
   <div class="fb-md-field-container__container">
     <template v-if="slotExists('left-addon')">
       <slot name="left-addon" />
