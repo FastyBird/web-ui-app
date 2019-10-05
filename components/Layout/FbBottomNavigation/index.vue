@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="items.length && (windowSize === 'xs' || windowSize === 'sm')"
+    v-if="items.length"
     class="fb-bottom-navigation__container"
   >
     <div class="row">
@@ -16,8 +16,8 @@
           size="lg"
           :class="[{'active': isTabActive(item)}]"
         >
-          <font-awesome-icon :icon="_.get(item, 'icon')" />
-          <span>{{ $t(_.get(item, 'name')) }}</span>
+          <font-awesome-icon :icon="_.get(item, 'meta.icon')" />
+          <span>{{ $t(item.meta.label) || item.name }}</span>
         </fb-button>
       </div>
     </div>
@@ -25,8 +25,6 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-
   export default {
 
     name: 'FbBottomNavigation',
@@ -40,18 +38,6 @@
 
     },
 
-    computed: {
-
-      ...mapState({
-        windowSize: state => state.theme.windowSize,
-      }),
-
-      ...mapState({
-        route: state => state.route,
-      }),
-
-    },
-
     methods: {
 
       /**
@@ -62,7 +48,7 @@
        * @returns {Boolean}
        */
       isTabActive(tab) {
-        return this.route.meta.path === this._.get(tab, 'link')
+        return this.$route.path === this._.get(tab, 'link')
       },
 
     },

@@ -21,7 +21,7 @@
       outline: 0;
     }
 
-    @include placeholder($text-color);
+    @include placeholder($gray-lighter);
 
     &[type="number"] {
       -moz-appearance: textfield;

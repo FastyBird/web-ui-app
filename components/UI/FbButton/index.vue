@@ -1,12 +1,12 @@
 <template>
-  <router-link
+  <nuxt-link
     v-if="to !== null"
     :to="to"
     :class="buttonClass"
     role="button"
   >
     <slot />
-  </router-link>
+  </nuxt-link>
 
   <a
     v-else-if="href !== null"

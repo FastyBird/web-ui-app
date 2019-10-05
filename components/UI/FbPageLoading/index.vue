@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import Logo from '../../../assets/images/fastybird_signin.svg'
+  import Logo from '../../../assets/images/fastybird_signin.svg?inline'
 
   export default {
 

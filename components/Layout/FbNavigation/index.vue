@@ -1,5 +1,5 @@
 <template>
-  <nav :class="['fb-navigation__container', {'collapse': collapsed && (windowSize === 'xs' || windowSize === 'sm')}]">
+  <nav :class="['fb-navigation__container', {'collapse': collapsed}]">
     <ul
       v-for="(item, index) in items"
       :key="index"
@@ -10,21 +10,21 @@
 
       <template v-for="(subItem, subIndex) in item.items">
         <li
-          v-if="subItem.hasOwnProperty('path') && (!subItem.hasOwnProperty('access') || subItem.access(instance))"
+          v-if="subItem.hasOwnProperty('link') && (!subItem.hasOwnProperty('access') || subItem.access(instance))"
           :key="subIndex"
-          :class="[{'active': $route.fullPath === subItem.path}, subItem.meta.hasOwnProperty('class') ? subItem.meta.class : '']"
+          :class="[{'active': $route.fullPath === subItem.link}, subItem.meta.hasOwnProperty('class') ? subItem.meta.class : '']"
         >
-          <router-link
-            v-if="subItem.path"
-            :to="subItem.path"
-            active-class="active"w
+          <nuxt-link
+            v-if="subItem.link"
+            :to="subItem.link"
+            active-class="active"
           >
             <font-awesome-icon
               :icon="subItem.meta.icon"
               class="fb-navigation__item-icon"
             />
             <span class="fb-navigation__item-label">{{ $t(subItem.meta.label) || subItem.name }}</span>
-          </router-link>
+          </nuxt-link>
         </li>
 
         <li
@@ -67,7 +67,6 @@
     computed: {
 
       ...mapState({
-        windowSize: state => state.theme.windowSize,
         collapsed: state => state.theme.menu.collapsed.xs,
       }),
 

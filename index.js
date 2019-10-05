@@ -1,9 +1,3 @@
-// Layouts
-import Layout from './layouts/Layout'
-import LayoutDefault from './layouts/LayoutDefault'
-import LayoutSign from './layouts/LayoutSign'
-import LayoutError from './layouts/LayoutError'
-
 // Components
 import FbMdFormCheckbox from './components/Forms/FbMdCheckbox'
 import FbMdFormCheckboxesGroup from './components/Forms/FbMdCheckboxesGroup'
@@ -34,16 +28,7 @@ import ThemeClickOutsideDirective from './directives/ClickOutside'
 
 export default {
 
-  install(Vue, opt) {
-    const options = Object.assign({
-      store: undefined,
-    }, opt)
-
-    Vue.component('Layout', Layout)
-    Vue.component('LayoutDefault', LayoutDefault)
-    Vue.component('LayoutSign', LayoutSign)
-    Vue.component('LayoutError', LayoutError)
-
+  install(Vue) {
     Vue.component('FbMdFormCheckbox', FbMdFormCheckbox)
     Vue.component('FbMdFormCheckboxesGroup', FbMdFormCheckboxesGroup)
     Vue.component('FbMdFormDatePicker', FbMdFormDatePicker)
@@ -65,11 +50,6 @@ export default {
     Vue.mixin(ThemeHelpersMixin)
 
     Vue.directive('clickOutside', ThemeClickOutsideDirective)
-
-    if (options.store !== undefined) {
-      options.store.registerModule('theme', theme)
-      options.store.registerModule('header', header)
-    }
   },
 
 }

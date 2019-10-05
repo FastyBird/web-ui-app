@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="windowSize === 'xs' || windowSize === 'sm'"
-    :class="['fb-phone-header__container', {'fb-phone-header__container-hide-shadow': hideShadow}]"
-  >
+  <div :class="['fb-phone-header__container', {'fb-phone-header__container-hide-shadow': hideShadow}]">
     <div class="fb-phone-header__navbar">
       <div :class="['fb-phone-header__navbar-header', customClass]">
         <fb-logo
@@ -83,12 +80,12 @@
             </li>
             <template v-for="(item, index) in userMenuItems">
               <li
-                v-if="item.hasOwnProperty('path')"
+                v-if="item.hasOwnProperty('link')"
                 :key="index"
               >
-                <router-link :to="item.path">
+                <nuxt-link :to="item.link">
                   {{ $t(item.meta.label) || item.name }}
-                </router-link>
+                </nuxt-link>
               </li>
 
               <li
@@ -176,7 +173,6 @@
     computed: {
 
       ...mapState({
-        windowSize: state => state.theme.windowSize,
         menuCollapsed: state => state.theme.menu.collapsed.xs,
       }),
 
@@ -242,7 +238,7 @@
       },
 
       hideShadow() {
-        return this.hasHiddenShadow()
+        return this.hasHiddenShadow() || !this.menuCollapsed
       },
 
     },
@@ -262,7 +258,6 @@
     methods: {
 
       ...mapActions('theme', {
-        collapseMenu: 'menuCollapse',
         toggleMenu: 'menuToggle',
       }),
 

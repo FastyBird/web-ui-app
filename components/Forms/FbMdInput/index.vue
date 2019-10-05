@@ -40,7 +40,7 @@
 </template>
 
 <script>
-  const FbMdFieldContainer = () => import('../FbMdFieldContainer')
+  import FbMdFieldContainer from '../FbMdFieldContainer'
 
   export default {
 

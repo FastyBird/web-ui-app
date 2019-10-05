@@ -8,10 +8,7 @@
       @keyup.esc="show = false"
       @click.prevent="toggle"
     >
-      <div
-        v-if="windowSize === 'xl'"
-        class="row"
-      >
+      <div class="row hidden-xs hidden-sm hidden-md">
         <div class="col-md-4">
           <div class="fb-user-side-navigation__avatar">
             <template v-if="avatar !== null">
@@ -33,7 +30,7 @@
         </div>
       </div>
 
-      <div v-else>
+      <div class="hidden visible-xs visible-sm visible-md">
         <div class="fb-user-side-navigation__avatar">
           <template v-if="avatar !== null">
             {{ avatar }}
@@ -60,12 +57,12 @@
 
       <template v-for="(item, index) in items">
         <li
-          v-if="item.hasOwnProperty('path')"
+          v-if="item.hasOwnProperty('link')"
           :key="index"
         >
-          <router-link :to="item.path">
+          <nuxt-link :to="item.link">
             {{ item.name }}
-          </router-link>
+          </nuxt-link>
         </li>
 
         <li
@@ -91,9 +88,7 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-
-  import BirdLogo from '../../../assets/images/fastybird_bird.svg'
+  import BirdLogo from '../../../assets/images/fastybird_bird.svg?inline'
 
   import Gravatar from 'vue-gravatar'
 
@@ -145,10 +140,6 @@
     },
 
     computed: {
-
-      ...mapState({
-        windowSize: state => state.theme.windowSize,
-      }),
 
       instance() {
         return this

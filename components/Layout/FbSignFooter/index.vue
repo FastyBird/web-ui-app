@@ -2,32 +2,32 @@
   <div class="fb-sign-footer__container">
     <p v-if="!isSignIn">
       {{ $t('texts.alreadyHaveAccount') }}
-      <router-link :to="_.get(this, '$coreLinks.signInLnk', [])">
+      <nuxt-link :to="_.get(this, '$coreLinks.signInLnk', '/sign-in')">
         {{ $t('buttons.signIn.title') }}
-      </router-link>
+      </nuxt-link>
     </p>
 
     <p v-if="isSignIn">
       {{ $t('texts.withoutAccount') }}
-      <router-link :to="_.get(this, '$coreLinks.signUpLnk', [])">
+      <nuxt-link :to="_.get(this, '$coreLinks.signUpLnk', '/sign-up')">
         {{ $t('buttons.signUp.title') }}
-      </router-link>
+      </nuxt-link>
     </p>
 
     <ul>
       <li>
-        <router-link
+        <nuxt-link
           v-if="isSignIn"
-          :to="_.get(this, '$coreLinks.signUpLnk', [])"
+          :to="_.get(this, '$coreLinks.signUpLnk', '/sing-up')"
         >
           {{ $t('buttons.signUp.title') }}
-        </router-link>
-        <router-link
+        </nuxt-link>
+        <nuxt-link
           v-if="!isSignIn"
-          :to="_.get(this, '$coreLinks.signInLnk', [])"
+          :to="_.get(this, '$coreLinks.signInLnk', '/sign-in')"
         >
           {{ $t('buttons.signIn.title') }}
-        </router-link>
+        </nuxt-link>
       </li>
       <li>|</li>
       <li>
@@ -56,36 +56,16 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-
   export default {
 
     name: 'FbSignFooter',
 
-    data() {
-      return {
-        isSignIn: true,
-      }
-    },
-
     computed: {
 
-      ...mapState({
-        route: state => state.route,
-      }),
-
-    },
-
-    watch: {
-
-      route(val) {
-        this.isSignIn = val.path === this._.get(this, '$coreLinks.signInLnk', null)
+      isSignIn() {
+        return this.$route.path === this._.get(this, '$coreLinks.signInLnk', null)
       },
 
-    },
-
-    created() {
-      this.isSignIn = this.$router.currentRoute.path === this._.get(this, '$coreLinks.signInLnk', null)
     },
 
   }

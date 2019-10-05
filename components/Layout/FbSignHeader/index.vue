@@ -1,16 +1,16 @@
 <template>
   <div class="fb-sign-header__container">
-    <router-link
-      :to="_.get(this, '$coreLinks.signInLnk', '/')"
+    <nuxt-link
+      :to="_.get(this, '$coreLinks.signInLnk', '/sing-in')"
       class="fb-sign-header__brand"
     >
       <logo />
-    </router-link>
+    </nuxt-link>
   </div>
 </template>
 
 <script>
-  import Logo from '../../../assets/images/fastybird_bird.svg'
+  import Logo from '../../../assets/images/fastybird_bird.svg?inline'
 
   export default {
 

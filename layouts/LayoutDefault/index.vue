@@ -97,7 +97,6 @@
       return {
         viewportHeight: null,
         minimalContentHeight: null,
-        prevHeight: 0,
         loadingAnimation: false,
       }
     },

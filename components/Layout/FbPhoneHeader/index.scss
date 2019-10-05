@@ -7,7 +7,6 @@ $navbar-height:       50px;
 .fb-phone-header {
   &__container {
     background-color: #fff;
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
     left: 0;
     right: 0;
     min-height: $navbar-height;
@@ -15,11 +14,6 @@ $navbar-height:       50px;
     top: 0;
     width: 100%;
     z-index: $zindex-layout-header;
-  }
-
-  &__container-hide-shadow {
-    -webkit-box-shadow: none;
-    box-shadow: none;
   }
 
   &__navbar {

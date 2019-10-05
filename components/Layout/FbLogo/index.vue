@@ -1,15 +1,15 @@
 <template>
-  <router-link
+  <nuxt-link
     :to="link"
     class="fb-logo"
     alt="Home"
   >
     <fb-logo-image />
-  </router-link>
+  </nuxt-link>
 </template>
 
 <script>
-  import FbLogoImage from '../../../assets/images/fastybird_row.svg'
+  import FbLogoImage from '../../../assets/images/fastybird_row.svg?inline'
 
   export default {
 

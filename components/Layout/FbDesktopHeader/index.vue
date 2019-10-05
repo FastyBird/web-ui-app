@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="windowSize !== 'xs' && windowSize !== 'sm'"
-    class="fb-desktop-header__container"
-  >
+  <div class="fb-desktop-header__container">
     <h1 v-if="subHeading === null">
       {{ heading }}
     </h1>
@@ -32,7 +29,7 @@
 </template>
 
 <script>
-  import { mapState, mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex'
 
   import ActionButton from './Button'
 
@@ -45,10 +42,6 @@
     },
 
     computed: {
-
-      ...mapState({
-        windowSize: state => state.theme.windowSize,
-      }),
 
       ...mapGetters('header', [
         'hasLeftButton',
