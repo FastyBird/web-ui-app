@@ -12,5 +12,9 @@
   "repository": {
     "type": "git",
     "url": "https://akadlec@bitbucket.org/fastybird/fastybird-app-theme.git"
-  }
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "vue-gravatar": "^1.3.0"
+  },
 }
