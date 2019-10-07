@@ -22,12 +22,6 @@
     background-color: $gray-darker;
     color: #a6a6a6;
 
-    @media (max-width: $screen-sm-max) {
-      box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.5);
-      min-height: 5px;
-      background-color: $brand-primary;
-    }
-
     @media (min-width: $screen-sm-min) {
       display: block;
       float: left;

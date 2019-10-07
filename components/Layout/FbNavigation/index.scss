@@ -46,10 +46,6 @@
         text-decoration: none;
         transition: all $layout-transition-duration;
 
-        @media (max-width: $screen-sm-max) {
-          color: $navbar-inverse-link-color;
-        }
-
         @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
           height: 45px;
           line-height: 45px;
@@ -62,11 +58,6 @@
       > li.hover > a {
         background-color: darken($gray-darker, 3.5%);
         color: $gray-light;
-
-        @media (max-width: $screen-sm-max) {
-          color: $navbar-inverse-link-hover-color;
-          background-color: $navbar-inverse-link-hover-bg;
-        }
 
         :after,
         :after {

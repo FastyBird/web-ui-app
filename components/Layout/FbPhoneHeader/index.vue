@@ -200,7 +200,7 @@
       hasLeftButtonCallback() {
         const button = this.getLeftButton()
 
-        return typeof button.callback === 'function'
+        return typeof this._.get(button, 'callback') === 'function'
       },
 
       leftButton() {
@@ -214,7 +214,7 @@
       hasRightButtonCallback() {
         const button = this.getRightButton()
 
-        return typeof button.callback === 'function'
+        return typeof this._.get(button, 'callback') === 'function'
       },
 
       hasCustomHeading() {
