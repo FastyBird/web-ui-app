@@ -107,7 +107,17 @@
         default: false,
       },
 
+      active: {
+        type: Boolean,
+        default: false,
+      },
+
       disabled: {
+        type: Boolean,
+        default: false,
+      },
+
+      mobile: {
         type: Boolean,
         default: false,
       },
@@ -148,6 +158,14 @@
 
         if (this.size) {
           classes.push(`fb-btn-${this.size}`)
+        }
+
+        if (this.active) {
+          classes.push('active')
+        }
+
+        if (this.mobile) {
+          classes.push('fb-btn-mobile')
         }
 
         return classes

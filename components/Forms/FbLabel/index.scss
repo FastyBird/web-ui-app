@@ -1,0 +1,56 @@
+@import "../../../assets/variables/forms";
+@import "../../../assets/variables/screen";
+@import "../../../assets/mixins/utilities";
+
+.fb-label {
+  &__container {
+    &[data-orientation="inline"] {
+      @media (min-width: $screen-sm-min) {
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+    }
+
+    &[data-orientation="horizontal"] {
+      @media (min-width: $screen-sm-min) {
+        @include gridRow;
+
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: ($padding-vertical + 1); // Default padding plus a border
+      }
+
+      @media (min-width: $screen-md-min) {
+        @include gridRow;
+
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+      }
+
+      &[data-size="lg"] {
+        @media (min-width: $screen-sm-min) {
+          label {
+            padding-top: ($padding-large-vertical + 1);
+            font-size: $font-size-large;
+          }
+        }
+      }
+
+      &[data-size="sm"] {
+        @media (min-width: $screen-sm-min) {
+          label {
+            padding-top: ($padding-small-vertical + 1);
+            font-size: $font-size-small;
+          }
+        }
+      }
+    }
+  }
+}

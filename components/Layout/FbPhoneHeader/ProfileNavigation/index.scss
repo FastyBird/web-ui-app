@@ -1,0 +1,62 @@
+@import "../../../../assets/variables/colors";
+@import "../../../../assets/mixins/utilities";
+
+.fb-phone-header-profile-navigation {
+  &__container {
+    @include box-shadow(0 -2px 2px -2px rgba(0, 0, 0, 0.5));
+
+    nav {
+      background-color: #fff;
+      border-top: none;
+      box-shadow: none;
+      max-height: 500px;
+      overflow: hidden;
+      -moz-transition: max-height 0.5s ease-in-out;
+      -ms-transition: max-height 0.5s ease-in-out;
+      -o-transition: max-height 0.5s ease-in-out;
+      -webkit-transition: max-height 0.5s ease-in-out;
+      transition: max-height 0.5s ease-in-out;
+
+      &.collapse {
+        max-height: 0;
+        display: block;
+      }
+
+      ul {
+        margin: 10px;
+        padding-left: 0; // Override default ul/ol
+        list-style: none;
+
+        @include clearfix;
+
+        > li {
+          position: relative;
+          display: block;
+
+          > a {
+            color: $text-color;
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+
+            &:hover,
+            &:focus {
+              text-decoration: none;
+              color: $link-color;
+              background-color: #fff;
+            }
+          }
+
+          > h4 {
+            color: $text-color;
+            text-align: center;
+          }
+        }
+
+        > li + li > a {
+          border-top: 1px solid darken(#fff, 3.5%);
+        }
+      }
+    }
+  }
+}

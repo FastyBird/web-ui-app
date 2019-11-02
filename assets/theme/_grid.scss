@@ -318,7 +318,7 @@ html {
   margin-left: 91.666667%;
 }
 
-@media (min-width: $screen-xs-min) {
+@media (max-width: $screen-xs-max) {
   .col-xs {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;

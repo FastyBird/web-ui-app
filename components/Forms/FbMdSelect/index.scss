@@ -1,6 +1,5 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
-@import "../../../assets/theme/mixins";
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/forms";
 
 .fb-md-select {
   &__control {
@@ -26,7 +25,7 @@
     }
 
     option {
-      background-color: $panel-bg;
+      background-color: #fff;
       color: $text-color;
     }
 

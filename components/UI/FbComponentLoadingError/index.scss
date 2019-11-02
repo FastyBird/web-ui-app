@@ -1,9 +1,19 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
+@import "../../../assets/variables/colors";
 
 .fb-component-loading-error {
   &__container {
     text-align: center;
     padding: 30px;
+
+    svg {
+      color: $brand-danger;
+      font-size: 5em;
+      margin-bottom: 30px !important;
+      margin-top: 30px !important;
+    }
+
+    p {
+      color: $brand-danger;
+    }
   }
 }

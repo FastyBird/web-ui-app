@@ -1,10 +1,7 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
-@import "../../../assets/theme/mixins";
-
-$btn-border-radius-base:                    3px;
-$btn-border-radius-large:                   4px;
-$btn-border-radius-small:                   3px;
+@import "../../../assets/variables/buttons";
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/screen";
+@import "../../../assets/mixins/utilities";
 
 // Button sizes
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
@@ -161,7 +158,7 @@ $btn-border-radius-small:                   3px;
 
 // Outline variants
 @mixin button-outline-variant($border, $color) {
-  background-color: transparent;
+  background-color: #fff;
   border-color: $border;
   color: $border;
 
@@ -287,11 +284,10 @@ $btn-border-radius-small:                   3px;
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    cursor: $cursor-disabled;
+    cursor: not-allowed;
     @include opacity(.65);
     @include box-shadow(none);
   }
-
 
   &:active,
   &.active {
@@ -489,7 +485,18 @@ a.fb-btn {
 
   .badge-above {
     position: absolute;
-    top: -$badge-height-half;
+    top: -$btn-badge-height-half;
+  }
+}
+
+.fb-btn-mobile {
+  @media (max-width: 767px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    border-top-left-radius: 20px;
   }
 }
 

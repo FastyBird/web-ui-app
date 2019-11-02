@@ -1,0 +1,72 @@
+$gray-base:                             #000; // shades-tints
+$gray-darker:                           #222;
+$gray-dark:                             #444;
+$gray:                                  #777;
+$gray-light:                            #808080;
+$gray-lighter:                          #ddd;
+
+$brand-primary:                         #d9230f;
+$brand-primary-contrast:                #ffffff;
+$brand-success:                         #469408;
+$brand-info:                            #029acf;
+$brand-warning:                         #9b479f;
+$brand-danger:                          #d9831f;
+
+//** Background color for '<body>'.
+$body-bg:                               #fcfcfc;
+
+//** Global text color on '<body>'.
+$text-color:                            $gray;
+
+//** Global textual link color.
+$link-color:                            $brand-primary;
+
+//** Link hover color set via 'darken()' function.
+$link-hover-color:                      $brand-primary;
+
+//** Link hover decoration.
+$link-hover-decoration:                 underline;
+
+$text-muted:                            $gray-light;
+$text-default:                          $gray;
+$text-danger:                           $brand-danger;
+
+$btn-default-color:                     #333 !default;
+$btn-default-bg:                        #fff !default;
+$btn-default-border:                    #ccc !default;
+
+$btn-primary-color:                     #fff !default;
+$btn-primary-bg:                        $brand-primary !default;
+$btn-primary-border:                    darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color:                     #fff !default;
+$btn-success-bg:                        $brand-success !default;
+$btn-success-border:                    darken($btn-success-bg, 5%) !default;
+
+$btn-info-color:                        #fff !default;
+$btn-info-bg:                           $brand-info !default;
+$btn-info-border:                       darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color:                     #fff !default;
+$btn-warning-bg:                        $brand-warning !default;
+$btn-warning-border:                    darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color:                      #fff !default;
+$btn-danger-bg:                         $brand-danger !default;
+$btn-danger-border:                     darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color:               $gray-light !default;
+
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color:                #fff;
+
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:                   $brand-primary;
+
+$link-muted-color:                      $text-color !default;
+$link-muted-hover-color:                $link-color !default;
+$link-muted-hover-decoration:           none !default;
+
+$link-inverted-color:                   #fff !default;
+$link-inverted-hover-color:             #fff !default;
+$link-inverted-hover-decoration:        none !default;

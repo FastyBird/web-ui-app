@@ -1,0 +1,27 @@
+@import "texts";
+
+$btn-border-radius-base:                3px;
+$btn-border-radius-large:               4px;
+$btn-border-radius-small:               3px;
+
+$btn-background-position:               null !default;
+$btn-background-size:                   null !default;
+$btn-box-shadow:                        none !default;
+$btn-outline:                           none !default;
+$btn-text-transform:                    none !default;
+$btn-transition:                        all 0.3s !default;
+
+$btn-active-gradient:                   none !default;
+$btn-active-background-size:            null !default;
+$btn-active-box-shadow:                 none !default;
+
+$btn-pill-border-radius:                10em !default;
+$btn-pill-padding-horizontal:           1.25em !default;
+
+$btn-thick-border-width:                2px !default;
+$btn-thick-font-weight:                 600 !default;
+
+$btn-expander-font-size:                $font-size-small !default;
+$btn-expander-line-height:              half($btn-expander-font-size) !default;
+
+$btn-badge-height-half:                 half(2px, 2px * 2, 11px) !default;

@@ -1,4 +1,4 @@
-@import "../../../assets/styles/variables";
+@import "../../../assets/variables/colors";
 
 .fb-logo {
   float: left;
@@ -16,23 +16,23 @@
   transform: translateX(-50%);
   white-space: nowrap;
   color: #fff;
-}
 
-.fb-logo:hover,
-.fb-logo:focus {
-  text-decoration: none;
-  color: $gray;
-  background-color: transparent;
-}
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $gray;
+    background-color: transparent;
+  }
 
-.fb-logo > svg {
-  display: block;
-  width: auto;
-  height: 30px;
-  margin-top: -5px;
-  fill: #fff;
+  > svg {
+    display: block;
+    width: auto;
+    height: 30px;
+    margin-top: -5px;
+    fill: #fff;
 
-  @media (max-width: 320px) {
-    height: 25px;
+    @media (max-width: 320px) {
+      height: 25px;
+    }
   }
 }

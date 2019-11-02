@@ -1,0 +1,25 @@
+@import "../../../assets/mixins/border.radius";
+
+.fb-radio-group {
+  &__btn-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    label:not(:first-child):not(:last-child)   {
+      border-radius: 0;
+    }
+
+    label:first-child {
+      margin-left: 0;
+
+      &:not(:last-child) {
+        @include border-right-radius(0);
+      }
+    }
+
+    label:last-child:not(:first-child) {
+      @include border-left-radius(0);
+    }
+  }
+}

@@ -1,76 +1,29 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
-@import "../../../assets/theme/mixins";
-
-$navbar-height:       50px;
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/screen";
+@import "../../../assets/mixins/utilities";
 
 .fb-phone-header {
   &__container {
-    background-color: #fff;
+    background-color: $brand-primary;
+    color: $brand-primary-contrast;
     left: 0;
     right: 0;
-    min-height: $navbar-height;
-    position: fixed;
     top: 0;
+    position: fixed;
     width: 100%;
     z-index: $zindex-layout-header;
-  }
-
-  &__navbar {
-    position: relative;
-    min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-    background-color: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 0;
-
-    // Prevent floats from breaking the navbar
-    @include clearfix;
-  }
-
-  &__navbar-header {
-    min-height: $navbar-height;
-    position: relative;
-    color: #fff;
-    background-color: $brand-primary;
 
     @include clearfix;
 
-    * {
-      color: #fff;
+    @media (min-width: $screen-sm-min) {
+      display: none !important;
     }
+  }
 
-    h1 {
-      margin: 8px 0 0 0;
-      display: block;
-      left: 50%;
-      position: absolute;
-      top: 0;
-      -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      transform: translateX(-50%);
-      white-space: nowrap;
-      float: left;
-      font-size: 18px;
-      line-height: 20px;
-      height: $navbar-height;
-      padding: 0;
-      text-align: center;
+  &__row {
+    position: relative;
 
-      span {
-        font-size: $font-size-large;
-      }
-
-      small {
-        font-size: $font-size-small;
-        display: block;
-      }
-    }
-
-    h1.one-row {
-      line-height: 35px;
-    }
+    @include clearfix;
   }
 
   &__button {
@@ -79,190 +32,31 @@ $navbar-height:       50px;
     border: none;
     display: block;
     float: left;
-    height: $navbar-height;
-    line-height: $navbar-height;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
     outline: none;
     overflow: hidden;
     padding: 0;
     position: relative;
-    width: 50px;
     text-align: center;
-    font-size: 200%;
+    font-size: 40px;
 
-    &.toggler {
-      background-color: transparent;
-      background-image: none;
-      border: none;
-      display: block;
-      float: left;
-      height: $navbar-height;
-      line-height: $navbar-height;
-      outline: none;
-      overflow: hidden;
-      padding: 0;
-      position: relative;
-      width: $navbar-height;
+    &-right {
+      float: right;
+    }
 
-      & + & {
-        float: right;
-      }
-
-      .arrow-up {
-        &:before,
-        &:after {
-          border-color: transparent;
-          border-style: solid;
-          border-width: 6px;
-          content: " ";
-          height: 0;
-          pointer-events: none;
-          position: absolute;
-          width: 0;
-          z-index: 15;
-          border-bottom-color: #fff;
-          bottom: 0;
-          transition: bottom 0.3s;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        &:after {
-          margin-bottom: -1px;
-        }
-      }
-
-      .ellipsis {
-        background-color: $btn-primary-color;
-        border-radius: 4px;
-        height: 32px;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition: all 0.2s ease-in-out 0.2s;
-        width: 32px;
-
-        &:before,
-        &:after {
-          background-color: inherit;
-          border-radius: 4px;
-          content: "";
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          transition: all 0.2s ease-in-out 0s;
-          width: 100%;
-        }
-
-        img {
-          background-clip: padding-box;
-          border-radius: 4px;
-          display: block;
-          height: 32px;
-          line-height: 32px-height;
-          opacity: 1;
-          position: relative;
-          text-align: center;
-          transition: all 0.2s ease-in-out 0.4s;
-          width: 32px;
-          z-index: 3;
-          background-color: #fff;
-          border: 1px solid #fff;
-        }
-      }
-
-      &.toggler.collapsed .arrow-up:before,
-      &.toggler.collapsed .arrow-up:after {
-        bottom: -8px;
-      }
-
-      &.toggler.collapsed .ellipsis {
-        height: 4px;
-        width:  4px;
-
-        &:before,
-        &:after {
-          transition-delay: 0.4s;
-        }
-
-        // Vertical dots
-        &:before {
-          top: - 8px;
-        }
-
-        &:after {
-          top: 8px;
-        }
-
-        img {
-          opacity: 0;
-          transition-delay: 0s;
-        }
-      }
+    &-small {
+      height: 30px;
+      width: 30px;
+      line-height: 30px;
+      font-size: 20px;
     }
   }
 
-  &__button + &__button {
-    float: right;
-  }
-
-  &__user-navigation {
-    -webkit-box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, 0.5);
-
-    nav {
-      border-top: none;
-      box-shadow: none;
-      max-height: 500px;
-      /* overflow set to hidden to hide the expanded text */
-      overflow: hidden;
-      /* all style changes will ease-in-out for 1s */
-      -moz-transition: max-height 0.5s ease-in-out;
-      -ms-transition: max-height 0.5s ease-in-out;
-      -o-transition: max-height 0.5s ease-in-out;
-      -webkit-transition: max-height 0.5s ease-in-out;
-      transition: max-height 0.5s ease-in-out;
-
-      &.collapse {
-        max-height: 0;
-        display: block;
-      }
-
-      ul {
-        margin: 10px;
-        padding-left: 0; // Override default ul/ol
-        list-style: none;
-
-        @include clearfix;
-
-        > li {
-          position: relative;
-          display: block;
-
-          > a {
-            color: $text-color;
-            position: relative;
-            display: block;
-            padding: 10px 15px;
-
-            &:hover,
-            &:focus {
-              text-decoration: none;
-              color: $link-color;
-              background-color: #fff;            }
-          }
-
-          > h4 {
-            color: $text-color;
-            text-align: center;
-          }
-        }
-
-        > li + li > a {
-          border-top: 1px solid darken(#fff, 3.5%);
-        }
-      }
-    }
+  &__add-button {
+    position: absolute;
+    bottom: -15px;
+    right: 25px;
   }
 }

@@ -16,29 +16,30 @@
     </form>
 
     <template slot="modal-footer">
-      <fb-button
-        uppercase
-        variant="link"
-        size="lg"
-        :disabled="lockButtons"
-        :tabindex="(initialTabindex + 2)"
-        name="close"
-        class="text-muted"
-        @click.prevent="close()"
-      >
-        {{ cancelButton !== null ? cancelButton : $t('buttons.close.title') }}
-      </fb-button>
-      <fb-button
-        uppercase
-        variant="outline-primary"
-        size="lg"
-        :disabled="lockButtons"
-        :tabindex="(initialTabindex + 1)"
-        name="save"
-        @click.prevent="submit()"
-      >
-        {{ submitButton !== null ? submitButton : $t('buttons.save.title') }}
-      </fb-button>
+      <div class="fb-form-window__buttons">
+        <fb-button
+          uppercase
+          variant="link"
+          size="lg"
+          :disabled="lockButtons"
+          :tabindex="(initialTabindex + 2)"
+          name="close"
+          @click.prevent="close()"
+        >
+          {{ cancelButton !== null ? cancelButton : $t('buttons.close.title') }}
+        </fb-button>
+        <fb-button
+          uppercase
+          variant="outline-primary"
+          size="lg"
+          :disabled="lockButtons"
+          :tabindex="(initialTabindex + 1)"
+          name="save"
+          @click.prevent="submit()"
+        >
+          {{ submitButton !== null ? submitButton : $t('buttons.save.title') }}
+        </fb-button>
+      </div>
     </template>
   </fb-modal-window>
 </template>
@@ -116,5 +117,9 @@
 
   }
 </script>
+
+<style rel="stylesheet/scss" lang="scss">
+  @import 'index';
+</style>
 
 <i18n src="./locales.json" />

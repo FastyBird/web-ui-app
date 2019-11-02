@@ -1,5 +1,8 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/theme/mixins";
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/screen";
+@import "../../../assets/variables/borders";
+@import "../../../assets/variables/texts";
+@import "../../../assets/mixins/utilities";
 
 .fb-modal-window {
   &__container {
@@ -83,32 +86,6 @@
 
     @include clearfix;
 
-    .close {
-      margin-top: -2px;
-      float: right;
-      font-size: ($font-size-base * 1.5);
-      font-weight: bold;
-      line-height: 1;
-      color: #000;
-      text-shadow: 0 1px 0 #fff;
-      padding: 0;
-      cursor: pointer;
-      background: transparent;
-      border: 0;
-      -webkit-appearance: none;
-
-      @include opacity(.2);
-
-      &:hover,
-      &:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-
-        @include opacity(.5);
-      }
-    }
-
     h4 {
       margin: 0;
       line-height: $line-height-base;
@@ -118,6 +95,32 @@
   &__body {
     position: relative;
     padding: 20px;
+  }
+
+  &__close {
+    margin-top: -2px;
+    float: right;
+    font-size: ($font-size-base * 1.5);
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+
+    @include opacity(.2);
+
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+
+      @include opacity(.5);
+    }
   }
 
   &__footer {
@@ -138,11 +141,11 @@
  */
 
 .modal-enter {
-  opacity: 0;
+  @include opacity(0);
 }
 
 .modal-leave-active {
-  opacity: 0;
+  @include opacity(0);
 }
 
 .modal-enter .modal-dialog {

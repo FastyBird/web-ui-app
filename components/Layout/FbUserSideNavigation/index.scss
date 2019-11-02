@@ -1,5 +1,8 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/theme/mixins";
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/screen";
+@import "../../../assets/variables/texts";
+@import "../../../assets/variables/borders";
+@import "../../../assets/mixins/utilities";
 
 .fb-user-side-navigation {
   &__container {
@@ -11,7 +14,7 @@
       bottom: 100%;
       left: 0;
       z-index: $zindex-dropdown;
-      display: none; // none by default, but block on "open" of the menu
+      display: block;
       float: left;
       margin: 2px 0 0; // override default ul
       margin-left: 10px;
@@ -23,10 +26,15 @@
       background-color: #fff;
       border: 1px solid $gray-lighter;
       border-radius: $border-radius-base;
-      @include box-shadow(0 6px 12px rgba(0,0,0,.175));
       background-clip: padding-box;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
       min-width: 160px;
+
+      @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+
+      &:focus {
+        outline: none;
+      }
 
       &:before,
       &:after {
@@ -57,7 +65,6 @@
         top: 100%;
       }
 
-      // Dividers (basically an hr) within the dropdown
       .divider {
         height: 1px;
         overflow: hidden;
@@ -65,7 +72,6 @@
         margin: 5px 2px;
       }
 
-      // Links within the dropdown menu
       & > li > a {
         display: block;
         padding: 5px 15px;
@@ -73,10 +79,9 @@
         font-weight: normal;
         line-height: $line-height-base;
         color: $gray-dark;
-        white-space: nowrap; // prevent links from randomly breaking onto new lines
+        white-space: nowrap;
       }
 
-      // Hover/Focus state
       & > li > a {
         &:hover,
         &:focus {
@@ -86,7 +91,6 @@
         }
       }
 
-      // Active state
       & > .active > a {
         &,
         &:hover,
@@ -99,8 +103,8 @@
       }
     }
 
-    &.open ul {
-      display: block;
+    &.collapse ul {
+      display: none;
     }
   }
 
@@ -117,61 +121,93 @@
     white-space: nowrap;
     width: 100%;
 
+    @media (min-width: $screen-lg-min) {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    &-avatar,
+    &-name {
+      @media (min-width: $screen-lg-min) {
+        @include gridRow;
+      }
+    }
+
+    &-avatar {
+      @media (min-width: $screen-lg-min) {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+      }
+
+      > span {
+        text-align: center;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+
+        @media (max-width: $screen-md-max) {
+          margin: 0 auto;
+        }
+
+        img {
+          margin-top: 1.5px;
+          border-radius: 50%;
+
+          @media (max-width: $screen-md-max) {
+            margin-right: 0;
+          }
+        }
+
+        svg {
+          width: 36px;
+          height: 36px;
+          fill: $brand-primary;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &-name {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 66.666667%;
+      flex: 0 0 66.666667%;
+      max-width: 66.666667%;
+      padding-top: 5px;
+
+      @media (max-width: $screen-md-max) {
+        display: none !important;
+      }
+    }
+
     @media (max-width: $screen-md-max) {
       text-align: center;
       padding-left: 0;
       padding-right: 0;
     }
 
-    div.row > div:first-child {
-      text-align: center;
+    &-caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 2px;
+      vertical-align: middle;
+      border-top: 0;
+      border-top:   $caret-width-base solid \9; // IE8
+      border-right: $caret-width-base solid transparent;
+      border-left:  $caret-width-base solid transparent;
+      border-bottom: $caret-width-base dashed;
+      border-bottom: $caret-width-base solid \9; // IE8
+      content: "";
     }
-
-    div.row > div:last-child {
-      padding-top: 5px;
-    }
-  }
-
-  &__avatar {
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 50%;
-
-    @media (max-width: $screen-md-max) {
-      margin: 0 auto;
-    }
-
-    img {
-      margin-top: 1.5px;
-      border-radius: 50%;
-
-      @media (max-width: $screen-md-max) {
-        margin-right: 0;
-      }
-    }
-
-    svg.default {
-      width: 36px;
-      height: 36px;
-      fill: $brand-primary;
-      border-radius: 50%;
-    }
-  }
-
-  &__caret {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 2px;
-    vertical-align: middle;
-    border-top: 0;
-    border-top:   $caret-width-base solid \9; // IE8
-    border-right: $caret-width-base solid transparent;
-    border-left:  $caret-width-base solid transparent;
-    border-bottom: $caret-width-base dashed;
-    border-bottom: $caret-width-base solid \9; // IE8
-    content: "";
   }
 
   &__version {

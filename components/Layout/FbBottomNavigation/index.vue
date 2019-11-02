@@ -1,54 +1,124 @@
 <template>
   <div
-    v-if="items.length"
+    v-if="buttons.length && !isHidden()"
     class="fb-bottom-navigation__container"
+    ref="bottom-navigation"
   >
-    <div class="row">
+    <div>
       <div
-        v-for="(item, index) in items"
+        v-for="(button, index) in buttons"
         :key="index"
-        class="col-4"
+        :class="[`fb-bottom-navigation__item-${columns}`]"
       >
-        <fb-button
-          :to="_.get(item, 'link')"
-          block
-          variant="primary"
-          size="lg"
-          :class="[{'active': isTabActive(item)}]"
-        >
-          <font-awesome-icon :icon="_.get(item, 'meta.icon')" />
-          <span>{{ $t(item.meta.label) || item.name }}</span>
-        </fb-button>
+        <item :item="button" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
+  import Item from './Item'
+
   export default {
 
     name: 'FbBottomNavigation',
+
+    components: {
+      Item,
+    },
 
     props: {
 
       items: {
         type: Array,
-        required: true,
+        default: () => {
+          return []
+        },
       },
 
     },
 
-    methods: {
+    computed: {
+
+      ...mapGetters('bottomNavigation', [
+        'hasItems',
+        'getItems',
+        'isHidden',
+      ]),
 
       /**
-       * Check if given tab type is active or not
+       * Get buttons from store or default
        *
-       * @param {Object} tab
-       *
-       * @returns {Boolean}
+       * @return {Array}
        */
-      isTabActive(tab) {
-        return this.$route.path === this._.get(tab, 'link')
+      buttons() {
+        if (this.hasItems()) {
+          return this.getItems()
+        }
+
+        return this.items
+      },
+
+      /**
+       * Calculate column coun
+       * Max 12 is supported
+       *
+       * @return {Number}
+       */
+      columns() {
+        return 12 / this.buttons.length
+      },
+
+    },
+
+    mounted() {
+      this._applyBodyLimits()
+
+      window.addEventListener('visibilitychange', this._applyBodyLimits)
+      window.addEventListener('DOMContentLoaded', this._applyBodyLimits)
+      window.addEventListener('resize', this._applyBodyLimits)
+
+      this.$store.watch(
+        this.$store.getters['bottomNavigation/isHidden'],
+        () => {
+          this._applyBodyLimits()
+        }, {
+          immediate: true,
+        },
+      )
+    },
+
+    beforeDestroy() {
+      window.removeEventListener('visibilitychange', this._applyBodyLimits)
+      window.removeEventListener('DOMContentLoaded', this._applyBodyLimits)
+      window.removeEventListener('resize', this._applyBodyLimits)
+    },
+
+    methods: {
+
+
+      /**
+       * Calculate viewport size after window resizing
+       *
+       * @private
+       */
+      _applyBodyLimits() {
+        if (this._.get(this.$refs, 'bottom-navigation')) {
+          const elementHeight = this._.get(this.$refs, 'bottom-navigation.clientHeight')
+
+          this.$store.dispatch('theme/setWindowHeight', {
+            key: 'bottom-navigation',
+            adjust: elementHeight,
+          }, {
+            root: true,
+          })
+
+          if (elementHeight) {
+            document.body.style['margin-bottom'] = `${elementHeight}px`
+          }
+        }
       },
 
     },

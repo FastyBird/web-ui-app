@@ -1,37 +1,14 @@
 <template>
   <div
     v-click-outside="blur"
-    :class="['fb-user-side-navigation__container', {'open': show}]"
+    :class="['fb-user-side-navigation__container', {'collapse': collapsed}]"
   >
     <div
       class="fb-user-side-navigation__button"
-      @keyup.esc="show = false"
       @click.prevent="toggle"
     >
-      <div class="row hidden-xs hidden-sm hidden-md">
-        <div class="col-md-4">
-          <div class="fb-user-side-navigation__avatar">
-            <template v-if="avatar !== null">
-              {{ avatar }}
-            </template>
-            <gravatar
-              v-else-if="email !== null"
-              :email="email"
-              :size="36"
-              :default-img="'mm'"
-              :alt="name"
-            />
-            <bird-logo v-else />
-          </div>
-        </div>
-        <div class="col-md-8">
-          {{ name }}
-          <span class="fb-user-side-navigation__caret" />
-        </div>
-      </div>
-
-      <div class="hidden visible-xs visible-sm visible-md">
-        <div class="fb-user-side-navigation__avatar">
+      <div class="fb-user-side-navigation__button-avatar">
+        <span>
           <template v-if="avatar !== null">
             {{ avatar }}
           </template>
@@ -43,14 +20,22 @@
             :alt="name"
           />
           <bird-logo v-else />
-        </div>
+        </span>
+      </div>
+      <div class="fb-user-side-navigation__button-name">
+        {{ name }}
+        <span class="fb-user-side-navigation__button-caret" />
       </div>
     </div>
 
-    <ul>
+    <ul
+      tabindex="0"
+      ref="user-navigation"
+      @keydown.esc="blur"
+    >
       <template v-if="version !== null">
         <li class="fb-user-side-navigation__version">
-          {{ $t('texts.version', {version: version}) }}
+          {{ $t('texts.version', { version: version }) }}
         </li>
         <li class="divider" />
       </template>
@@ -61,7 +46,7 @@
           :key="index"
         >
           <nuxt-link :to="item.link">
-            {{ item.name }}
+            {{ item.meta.label }}
           </nuxt-link>
         </li>
 
@@ -73,7 +58,7 @@
             href="#"
             @click.prevent="callCallback(item)"
           >
-            {{ $t(item.meta.label) || item.name }}
+            {{ item.meta.label }}
           </a>
         </li>
 
@@ -135,7 +120,7 @@
 
     data() {
       return {
-        show: false,
+        collapsed: true,
       }
     },
 
@@ -149,8 +134,12 @@
 
     watch: {
 
-      show(val) {
-        this.$emit('input', val)
+      collapsed(val) {
+        if (!val) {
+          this.$nextTick(function() {
+            this.$refs['user-navigation'].focus()
+          })
+        }
       },
 
     },
@@ -168,11 +157,11 @@
       },
 
       blur() {
-        this.show = false
+        this.collapsed = true
       },
 
       toggle() {
-        this.show = !this.show
+        this.collapsed = !this.collapsed
       },
 
     },

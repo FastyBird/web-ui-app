@@ -1,0 +1,233 @@
+@import "../../../assets/variables/forms";
+@import "../../../assets/variables/screen";
+@import "../../../assets/mixins/utilities";
+@import "../../../assets/mixins/border.radius";
+
+.fb-field-container {
+  &__container {
+    position: relative;
+    margin-bottom: $form-group-margin-bottom;
+
+    // Position radios and checkboxes better
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin: 4px 0 0;
+      margin-top: 1px \9; // IE8-9
+      line-height: normal;
+    }
+
+    input[type="file"] {
+      display: block;
+    }
+
+    // Make range inputs behave like textual form controls
+    input[type="range"] {
+      display: block;
+      width: 100%;
+    }
+
+    select[multiple],
+    select[size] {
+      height: auto;
+    }
+
+    &.has-error {
+      label {
+        color: $text-danger;
+      }
+
+      input,
+      textarea,
+      select {
+        border-color: $text-danger;
+
+        @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
+
+        &:focus {
+          border-color: darken($text-danger, 10%);
+
+          @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px lighten($text-danger, 20%));
+        }
+      }
+    }
+
+    &[data-orientation="inline"] {
+      // Kick in the inline
+      @media (min-width: $screen-sm-min) {
+        // Inline-block all the things for "inline"
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+
+      .fb-field-container {
+        &__input-group {
+          display: inline-table;
+          vertical-align: middle;
+
+          > input {
+            width: 100%;
+          }
+        }
+
+        &__input-feedback {
+          top: 0;
+        }
+      }
+    }
+
+    &[data-orientation="horizontal"] {
+      margin-left: ceil(($form-grid-gutter-width / -2));
+      margin-right: floor(($form-grid-gutter-width / -2));
+
+      @include clearfix;
+
+      .fb-field-container {
+        &__input-feedback {
+          top: 0;
+        }
+      }
+    }
+
+    &[data-size="sm"] {
+      input,
+      textarea,
+      select {
+        height: $input-height-small;
+        padding: $padding-small-vertical $padding-small-horizontal;
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+        @include border-radius($input-border-radius-small);
+      }
+
+      select {
+        height: $input-height-small;
+        line-height: $input-height-small;
+      }
+
+      textarea,
+      select[multiple] {
+        height: auto;
+      }
+    }
+
+    &[data-size="lg"] {
+      input,
+      textarea,
+      select {
+        height: $input-height-large;
+        padding: $padding-large-vertical $padding-large-horizontal;
+        font-size: $font-size-large;
+        line-height: $line-height-large;
+        @include border-radius($input-border-radius-large);
+      }
+
+      select {
+        height: $input-height-large;
+        line-height: $input-height-large;
+      }
+
+      textarea,
+      select[multiple] {
+        height: auto;
+      }
+    }
+  }
+
+  &__input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+
+    input,
+    textarea {
+      display: table-cell;
+
+      // Ensure that the input is always above the *appended* addon button for
+      // proper border colors.
+      position: relative;
+      z-index: 2;
+
+      // IE9 fubars the placeholder attribute in text inputs and the arrows on
+      // select elements in input groups. To fix it, we float the input. Details:
+      // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
+      float: left;
+
+      width: 100%;
+      margin-bottom: 0;
+
+      &:focus {
+        z-index: 3;
+      }
+    }
+
+    input,
+    textarea {
+      @include border-radius(0);
+    }
+
+    input:last-child,
+    textarea:last-child {
+      @include border-left-radius(0);
+      @include border-right-radius($input-border-radius);
+    }
+
+    input:first-child,
+    textarea:first-child {
+      @include border-right-radius(0);
+      @include border-left-radius($input-border-radius);
+    }
+  }
+
+  &__input-group-addon {
+    display: table-cell;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    font-weight: normal;
+    line-height: 1;
+    color: $text-default;
+    text-align: center;
+    background-color: $input-group-addon-bg;
+    border: 1px solid $input-group-addon-border-color;
+    @include border-radius($input-border-radius);
+
+    &:not(:first-child):not(:last-child) {
+      @include border-radius(0);
+    }
+
+    &:first-child {
+      @include border-right-radius(0);
+      border-right: 0;
+    }
+
+    &:last-child {
+      @include border-left-radius(0);
+      border-left: 0;
+    }
+  }
+
+  &__input-feedback {
+    position: absolute;
+    top: ($line-height + 5);
+    right: 0;
+    z-index: 2; // Ensure icon is above input groups
+    display: block;
+    width: $input-height;
+    height: $input-height;
+    line-height: $input-height;
+    text-align: center;
+    pointer-events: none;
+    color: $text-danger;
+  }
+
+  &__help {
+    display: block;
+    color: lighten($text-default, 25%); // lighten the text some for contrast
+    margin: 5px 0 10px;
+    text-align: justify;
+  }
+}

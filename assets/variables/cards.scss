@@ -1,0 +1,23 @@
+@import "panels";
+@import "texts";
+
+$card-bg:                               $panel-bg !default;
+$card-border:                           $panel-inner-border !default;
+
+$card-border-radius:                    $border-radius-base !default;
+$card-border-radius-inner:              $border-radius-base - 1 !default;
+
+$card-box-shadow:                       null !default;
+$card-margin-bottom:                    $line-height-computed !default;
+
+$card-padding-horizontal:               10px !default;
+$card-padding-vertical:                 15px !default;
+
+$card-title-margin-bottom:              5px !default;
+$card-subtitle-margin-top:              half(-$card-title-margin-bottom) !default;
+
+$card-header-bg:                        null !default;
+$card-footer-bg:                        null !default;
+
+$card-thumbnail-border-color:           $card-bg !default;
+$card-thumbnail-border-width:           3px !default;

@@ -18,19 +18,20 @@
     </template>
 
     <template slot="modal-footer">
-      <fb-button
-        v-if="enableClosing"
-        uppercase
-        variant="link"
-        size="lg"
-        name="close"
-        class="text-muted"
-        tabindex="2"
-        @click.prevent="close($event)"
-      >
-        {{ $t('buttons.close.title') }}
-      </fb-button>
-      <template v-else>&nbsp;</template>
+      <div class="fb-info-window__buttons">
+        <fb-button
+          v-if="enableClosing"
+          uppercase
+          variant="link"
+          size="lg"
+          name="close"
+          tabindex="2"
+          @click.prevent="close($event)"
+        >
+          {{ $t('buttons.close.title') }}
+        </fb-button>
+        <template v-else>&nbsp;</template>
+      </div>
     </template>
   </fb-modal-window>
 </template>
@@ -79,5 +80,9 @@
 
   }
 </script>
+
+<style rel="stylesheet/scss" lang="scss">
+  @import 'index';
+</style>
 
 <i18n src="./locales.json" />

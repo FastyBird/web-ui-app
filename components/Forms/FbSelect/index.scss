@@ -1,0 +1,30 @@
+@import "../../../assets/variables/forms";
+@import "../../../assets/variables/screen";
+@import "../../../assets/mixins/border.radius";
+
+.fb-select {
+  &__control {
+    display: block;
+    width: 100%;
+    height: $input-height;
+    background-clip: padding-box;
+    background-color: $input-bg;
+    background-image: none;
+    box-shadow: $input-box-shadow;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $text-default;
+    border: 1px solid $input-border;
+    @include border-radius($input-border-radius);
+
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    &:focus {
+      border-color: $input-border-focus;
+      outline: none;
+    }
+  }
+}

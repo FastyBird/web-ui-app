@@ -1,10 +1,7 @@
-<template
-  functional
-  web
->
+<template functional>
   <button
     role="button"
-    class="fb-phone-header__button"
+    :class="[data.class, data.staticClass]"
     @click.prevent="listeners['click']()"
   >
     <font-awesome-icon :icon="props.icon" />

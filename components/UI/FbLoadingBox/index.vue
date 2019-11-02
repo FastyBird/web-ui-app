@@ -1,7 +1,4 @@
-<template
-  functional
-  web
->
+<template functional>
   <div class="fb-loading-box__container">
     <div class="fb-loading-box__spinner" />
     <p>

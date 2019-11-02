@@ -97,19 +97,19 @@ svg {
 
 @media (max-width: $screen-sm-min) {
   .text-right-xs {
-    text-align: right;
+    text-align: right !important;
   }
 
   .text-left-xs {
-    text-align: left;
+    text-align: left !important;
   }
 
   .text-center-xs {
-    text-align: center;
+    text-align: center !important;
   }
 
   .text-justify-xs {
-    text-align: justify;
+    text-align: justify !important;
   }
 }
 

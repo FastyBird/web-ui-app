@@ -1,0 +1,56 @@
+@import "../../../assets/variables/forms";
+@import "../../../assets/variables/screen";
+@import "../../../assets/mixins/utilities";
+@import "../../../assets/mixins/border.radius";
+
+.fb-textarea {
+  &__control {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-clip: padding-box;
+    background-color: $input-bg;
+    background-image: none;
+    box-shadow: $input-box-shadow;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $text-default;
+    border: 1px solid $input-border;
+    @include border-radius($input-border-radius);
+
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    &:focus {
+      border-color: $input-border-focus;
+      outline: none;
+    }
+
+    @include placeholder($input-color-placeholder);
+
+    // Unstyle the caret on `<select>`s in IE10+.
+    &::-ms-expand {
+      border: 0;
+      background-color: transparent;
+    }
+
+    // Disabled and read-only inputs
+    //
+    // HTML5 says that controls under a fieldset > legend:first-child won't be
+    // disabled if the fieldset is disabled. Due to implementation difficulty, we
+    // don't honor that edge case; we style them as disabled anyway.
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+      background-color: $input-bg-disabled;
+      @include opacity(1);
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      cursor: $cursor-disabled;
+    }
+  }
+}

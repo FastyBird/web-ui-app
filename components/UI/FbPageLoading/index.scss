@@ -1,6 +1,5 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
-@import "../../../assets/theme/mixins";
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/spinners";
 
 .fb-page-loading {
   &__container {
@@ -49,8 +48,8 @@
       border-radius: 50%;
       border-style: solid;
       content: "";
-      left: 50%;
       position: absolute;
+      left: 50%;
       top: 50%;
 
       @include spinner-size($spinner-lg-size, $spinner-lg-border-width);
@@ -73,3 +72,4 @@
     transform: rotate(360deg);
   }
 }
+

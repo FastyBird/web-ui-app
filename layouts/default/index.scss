@@ -1,0 +1,107 @@
+@import "../../assets/variables/colors";
+@import "../../assets/variables/screen";
+@import "../../assets/mixins/utilities";
+
+.fb-default-layout {
+  &__container {
+    position: relative;
+  }
+
+  &__sidebar {
+    background-color: $gray-darker;
+    color: #a6a6a6;
+    z-index: $zindex-layout-sidebar;
+    width: 100%;
+
+    @media (min-width: $screen-sm-min) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: $layout-sidebar-width;
+    }
+
+    @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
+      width: $layout-sidebar-collapsed-width;
+      transition: width $layout-transition-duration;
+    }
+
+    &-header {
+      background-color: #222;
+      min-height: 50px;
+      position: relative;
+
+      @media (max-width: $screen-xs-max) {
+        display: none !important;
+      }
+
+      @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
+        width: $layout-sidebar-collapsed-width;
+        overflow: hidden;
+
+        a {
+          overflow: hidden;
+          width: 47px;
+          padding: 15px 0 0 2px;
+          text-align: left;
+        }
+      }
+    }
+
+    &-footer {
+      position: fixed;
+      bottom: 0;
+      width: $layout-sidebar-width;
+      padding: 5px 0;
+
+      @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
+        width: $layout-sidebar-collapsed-width;
+        text-align: center;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        display: none !important;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    @media (min-width: $screen-sm-min) {
+      margin-left: $layout-sidebar-width;
+    }
+
+    @include clearfix;
+
+    @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
+      margin-left: $layout-sidebar-collapsed-width;
+      transition: margin-left $layout-transition-duration;
+    }
+  }
+
+  &__footer {
+    background-color: darken($body-bg, 5%);
+    border-top: 1px solid darken($body-bg, 10%);
+    color: $text-color;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    margin-left: $layout-sidebar-width;
+
+    @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
+      margin-left: $layout-sidebar-collapsed-width;
+      transition: margin-left $layout-transition-duration;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      display: none !important;
+    }
+
+    &-body {
+      padding: 5px 15px;
+    }
+  }
+}

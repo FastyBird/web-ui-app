@@ -1,0 +1,114 @@
+@import "../../../../assets/variables/colors";
+@import "../../../../assets/mixins/utilities";
+
+.fb-phone-header-profile-button {
+  &__button {
+    overflow: hidden;
+    position: relative;
+
+    > span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    .arrow-up {
+      &:before,
+      &:after {
+        border-color: transparent;
+        border-style: solid;
+        border-width: 6px;
+        content: " ";
+        height: 0;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        z-index: 15;
+        border-bottom-color: #fff;
+        bottom: 0;
+        transition: bottom 0.3s;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &:after {
+        margin-bottom: -1px;
+      }
+    }
+
+    .ellipsis {
+      background-color: $btn-primary-color;
+      border-radius: 4px;
+      height: 32px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.2s ease-in-out 0.2s;
+      width: 32px;
+
+      &:before,
+      &:after {
+        background-color: inherit;
+        border-radius: 4px;
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: all 0.2s ease-in-out 0s;
+        width: 100%;
+      }
+
+      img {
+        background-clip: padding-box;
+        border-radius: 4px;
+        display: block;
+        height: 32px;
+        line-height: 32 px-height;
+        @include opacity(1);
+        position: relative;
+        text-align: center;
+        transition: all 0.2s ease-in-out 0.4s;
+        width: 32px;
+        z-index: 3;
+        background-color: #fff;
+        border: 1px solid #fff;
+      }
+    }
+
+    &.collapsed .arrow-up:before,
+    &.collapsed .arrow-up:after {
+      bottom: -8px;
+    }
+
+    &.collapsed .ellipsis {
+      height: 4px;
+      width: 4px;
+
+      &:before,
+      &:after {
+        transition-delay: 0.4s;
+      }
+
+      // Vertical dots
+      &:before {
+        top: - 8px;
+      }
+
+      &:after {
+        top: 8px;
+      }
+
+      img {
+        @include opacity(0);
+        transition-delay: 0s;
+      }
+    }
+  }
+}

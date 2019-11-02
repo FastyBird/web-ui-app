@@ -1,0 +1,36 @@
+@import "colors";
+@import "borders";
+
+$panel-bg:                              #fff;
+$panel-body-padding:                    15px;
+$panel-heading-padding:                 10px 15px;
+$panel-footer-padding:                  $panel-heading-padding;
+$panel-border-radius:                   $border-radius-base;
+
+//** Border color for elements within panels
+$panel-inner-border:                    $gray-lighter;
+$panel-footer-bg:                       $body-bg;
+
+$panel-default-text:                    $gray-dark;
+$panel-default-border:                  $panel-inner-border;
+$panel-default-heading-bg:              $panel-footer-bg;
+
+$panel-primary-text:                    #fff;
+$panel-primary-border:                  $brand-primary;
+$panel-primary-heading-bg:              $brand-primary;
+
+$panel-success-text:                    #fff;
+$panel-success-border:                  $brand-success;
+$panel-success-heading-bg:              $brand-success;
+
+$panel-info-text:                       #fff;
+$panel-info-border:                     $brand-info;
+$panel-info-heading-bg:                 $brand-info;
+
+$panel-warning-text:                    #fff;
+$panel-warning-border:                  $brand-warning;
+$panel-warning-heading-bg:              $brand-warning;
+
+$panel-danger-text:                     #fff;
+$panel-danger-border:                   $brand-danger;
+$panel-danger-heading-bg:               $brand-danger;

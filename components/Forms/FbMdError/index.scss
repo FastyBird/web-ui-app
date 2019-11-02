@@ -1,4 +1,4 @@
-@import "../../../assets/styles/variables";
+@import "../../../assets/variables/colors";
 
 .fb-md-field-error {
   &__container {
@@ -7,6 +7,6 @@
     position: absolute;
     visibility: visible;
     width: 100%;
-    color: $brand-danger;
+    color: $text-danger;
   }
 }

@@ -1,10 +1,15 @@
 // Components
-import FbMdFormCheckbox from './components/Forms/FbMdCheckbox'
-import FbMdFormCheckboxesGroup from './components/Forms/FbMdCheckboxesGroup'
+import FbFormInput from './components/Forms/FbInput'
+import FbFormSelect from './components/Forms/FbSelect'
+import FbFormTextArea from './components/Forms/FbTextArea'
+import FbFormCheckboxesGroup from './components/Forms/FbCheckboxesGroup'
+import FbFormRadioButton from './components/Forms/FbRadioButton'
+import FbFormRadioButtonsGroup from './components/Forms/FbRadioButtonsGroup'
+
+// Forms
+import FbFormCheckbox from './components/Forms/FbCheckbox'
 import FbMdFormDatePicker from './components/Forms/FbMdDatePicker'
 import FbMdFormInput from './components/Forms/FbMdInput'
-import FbMdFormRadioButton from './components/Forms/FbMdRadioButton'
-import FbMdFormRadioButtonsGroup from './components/Forms/FbMdRadioButtonsGroup'
 import FbMdFormSelect from './components/Forms/FbMdSelect'
 import FbMdFormTextArea from './components/Forms/FbMdTextArea'
 
@@ -18,10 +23,6 @@ import FbModalWindow from './components/UI/FbModalWindow'
 import FbLoadingBox from './components/UI/FbLoadingBox'
 import FbPageLoading from './components/UI/FbPageLoading'
 
-// Store
-import theme from './store/common'
-import header from './store/header'
-
 import ThemeHelpersMixin from './mixins/helpers'
 
 import ThemeClickOutsideDirective from './directives/ClickOutside'
@@ -29,15 +30,23 @@ import ThemeClickOutsideDirective from './directives/ClickOutside'
 export default {
 
   install(Vue) {
-    Vue.component('FbMdFormCheckbox', FbMdFormCheckbox)
-    Vue.component('FbMdFormCheckboxesGroup', FbMdFormCheckboxesGroup)
+    // Classic design
+    Vue.component('FbFormInput', FbFormInput)
+    Vue.component('FbFormSelect', FbFormSelect)
+    Vue.component('FbFormTextArea', FbFormTextArea)
+
+    Vue.component('FbFormCheckbox', FbFormCheckbox)
+    Vue.component('FbFormCheckboxesGroup', FbFormCheckboxesGroup)
+    Vue.component('FbFormRadioButton', FbFormRadioButton)
+    Vue.component('FbFormRadioButtonsGroup', FbFormRadioButtonsGroup)
+
+    // Material design
     Vue.component('FbMdFormDatePicker', FbMdFormDatePicker)
     Vue.component('FbMdFormInput', FbMdFormInput)
-    Vue.component('FbMdFormRadioButton', FbMdFormRadioButton)
-    Vue.component('FbMdFormRadioButtonsGroup', FbMdFormRadioButtonsGroup)
     Vue.component('FbMdFormSelect', FbMdFormSelect)
     Vue.component('FbMdFormTextArea', FbMdFormTextArea)
 
+    // Layout components
     Vue.component('FbButton', FbButton)
     Vue.component('FbCardBox', FbCardBox)
     Vue.component('FbConfirmationWindow', FbConfirmationWindow)

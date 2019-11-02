@@ -1,9 +1,17 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
-@import "../../../assets/theme/mixins";
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/screen";
+@import "../../../assets/variables/texts";
+@import "../../../assets/mixins/utilities";
 
 .fb-navigation {
   &__container {
+    &.collapse {
+      @media (max-width: $screen-xs-max) {
+        max-height: 0;
+        display: block;
+      }
+    }
+
     @media (max-width: $screen-sm-max) {
       max-height: 500px;
       /* overflow set to hidden to hide the expanded text */
@@ -91,13 +99,6 @@
     }
   }
 
-  &__container.collapse {
-    @media (max-width: $screen-xs-max) {
-      max-height: 0;
-      display: block;
-    }
-  }
-
   &__heading {
     color: $gray-light;
     font-size: $font-size-small;
@@ -111,7 +112,7 @@
     white-space: nowrap;
 
     @media (max-width: $screen-sm-max) {
-      color: $navbar-inverse-color;
+      color: #fff;
     }
 
     @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
@@ -122,7 +123,6 @@
   }
 
   &__item-icon {
-    color: null;
     display: block;
     float: left;
     font-size: $font-size-base;

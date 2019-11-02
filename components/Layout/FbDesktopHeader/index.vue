@@ -1,5 +1,8 @@
 <template>
-  <div class="fb-desktop-header__container">
+  <div
+    class="fb-desktop-header__container"
+    ref="desktop-header"
+  >
     <h1 v-if="subHeading === null">
       {{ heading }}
     </h1>
@@ -94,6 +97,29 @@
 
     },
 
+    mounted() {
+      this._applyBodyLimits()
+
+      window.addEventListener('visibilitychange', this._applyBodyLimits)
+      window.addEventListener('DOMContentLoaded', this._applyBodyLimits)
+      window.addEventListener('resize', this._applyBodyLimits)
+
+      this.$store.watch(
+        this.$store.getters['header/stateWatch'],
+        () => {
+          this._applyBodyLimits()
+        }, {
+          immediate: true,
+        },
+      )
+    },
+
+    beforeDestroy() {
+      window.removeEventListener('visibilitychange', this._applyBodyLimits)
+      window.removeEventListener('DOMContentLoaded', this._applyBodyLimits)
+      window.removeEventListener('resize', this._applyBodyLimits)
+    },
+
     methods: {
 
       buttonAction(position) {
@@ -112,11 +138,33 @@
         }
       },
 
+      /**
+       * Calculate viewport size after window resizing
+       *
+       * @private
+       */
+      _applyBodyLimits() {
+        if (this._.get(this.$refs, 'desktop-header')) {
+          const elementHeight = this._.get(this.$refs, 'desktop-header.clientHeight')
+
+          this.$store.dispatch('theme/setWindowHeight', {
+            key: 'desktop-header',
+            adjust: elementHeight,
+          }, {
+            root: true,
+          })
+
+          if (elementHeight) {
+            document.body.style['margin-top'] = `${elementHeight}px`
+          }
+        }
+      },
+
     },
 
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import './index.scss';
+  @import 'index';
 </style>

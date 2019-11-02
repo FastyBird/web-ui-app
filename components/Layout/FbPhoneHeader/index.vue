@@ -1,137 +1,105 @@
 <template>
-  <div :class="['fb-phone-header__container', {'fb-phone-header__container-hide-shadow': hideShadow}]">
-    <div class="fb-phone-header__navbar">
-      <div :class="['fb-phone-header__navbar-header', customClass]">
-        <fb-logo
-          v-if="!hasCustomHeading"
-          :link="_.get(this, '$coreLinks.home', [])"
-        />
+  <div
+    class="fb-phone-header__container"
+    ref="phone-header"
+  >
+    <div class="fb-phone-header__row">
+      <heading
+        v-if="!hasFullRowHeading() && !isHiddenHeading()"
+        :home-link="homeLink"
+      />
 
-        <h1
-          v-if="hasCustomHeading && subHeading === null"
-          class="one-row"
-        >
-          {{ heading }}
-        </h1>
-        <h1 v-if="hasCustomHeading && subHeading !== null">
-          <span>{{ heading }}</span>
-          <small>{{ subHeading }}</small>
-        </h1>
+      <hamburger-button
+        v-if="!hasHiddenHamburger() && !hasLeftButton()"
+        :collapsed="menuCollapsed"
+        :class="['fb-phone-header__button', {'fb-phone-header__button-right': hasLeftButton() && !hasRightButton() && !isHiddenRightButton()}, {'fb-phone-header__button-small': hasFullRowHeading()}]"
+        @click="toggleMainMenu"
+      />
 
-        <action-button
-          v-if="hasCustomLeftButton"
-          :icon="leftButton.icon"
-          type="button"
-          class="fb-phone-header__button"
-          @click="buttonAction('left')"
-        />
+      <action-button
+        v-if="hasLeftButton() && !isHiddenLeftButton()"
+        :icon="getLeftButton().icon"
+        type="button"
+        :class="['fb-phone-header__button', {'fb-phone-header__button-small': hasFullRowHeading()}]"
+        @click="buttonAction('left')"
+      />
 
-        <hamburger-button
-          v-else
-          :collapsed="menuCollapsed"
-          @click="toggleCollapseMain"
-        />
+      <action-button
+        v-if="hasRightButton() && !isHiddenRightButton()"
+        :icon="getRightButton().icon"
+        type="button"
+        :class="['fb-phone-header__button', 'fb-phone-header__button-right', {'fb-phone-header__button-small': hasFullRowHeading()}]"
+        @click="buttonAction('right')"
+      />
 
-        <action-button
-          v-if="showRightButton && hasCustomRightButton"
-          :icon="rightButton.icon"
-          type="button"
-          class="fb-phone-header__button"
-          @click="buttonAction('right')"
-        />
-
-        <hamburger-button
-          v-if="hasCustomLeftButton && !hasCustomRightButton && showRightButton"
-          :collapsed="menuCollapsed"
-          @click="toggleCollapseMain"
-        />
-
-        <template v-else>
-          <button
-            v-if="profile && showRightButton && !hasCustomRightButton"
-            :class="['fb-phone-header__button', 'toggler', {collapsed: !show.usernav}]"
-            type="button"
-            @click.prevent="toggle('usernav')"
-          >
-            <span class="sr-only">{{ $t('layout.buttons.toggleNavigation.title') }}</span>
-            <span class="arrow-up" />
-            <div class="ellipsis">
-              <gravatar
-                :email="userEmail"
-                :size="32"
-                :default-img="'mm'"
-                :alt="userName"
-              />
-            </div>
-          </button>
-        </template>
-      </div>
-
-      <div
-        v-if="!hasCustomRightButton"
-        class="fb-phone-header__user-navigation"
-      >
-        <nav :class="[{collapse: !show.usernav}]">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <h4>
-                Hi, {{ userName }}
-              </h4>
-            </li>
-            <template v-for="(item, index) in userMenuItems">
-              <li
-                v-if="item.hasOwnProperty('link')"
-                :key="index"
-              >
-                <nuxt-link :to="item.link">
-                  {{ $t(item.meta.label) || item.name }}
-                </nuxt-link>
-              </li>
-
-              <li
-                v-if="item.hasOwnProperty('callback')"
-                :key="index"
-              >
-                <a
-                  href="#"
-                  @click.prevent="callCallback(item)"
-                >
-                  {{ $t(item.meta.label) || item.name }}
-                </a>
-              </li>
-            </template>
-          </ul>
-        </nav>
-      </div>
+      <profile-button
+        v-if="hasProfile && !isHiddenRightButton() && !hasRightButton()"
+        :user-name="userName"
+        :user-email="userEmail"
+        :collapsed="!show.usernav"
+        :class="['fb-phone-header__button', 'fb-phone-header__button-right', {'fb-phone-header__button-small': hasFullRowHeading()}]"
+        @click="toggleProfileMenu"
+      />
     </div>
+
+    <heading
+      v-if="hasFullRowHeading() && !isHiddenHeading() && hasHeading()"
+      :home-link="homeLink"
+      class="fb-phone-header__row"
+    />
+
+    <tabs
+      v-if="hasTabs()"
+      :tabs="getTabs()"
+    />
+
+    <fb-button
+      v-if="hasAddButton()"
+      variant="outline-primary"
+      uppercase
+      pill
+      class="fb-phone-header__add-button"
+      @click="buttonAction('add')"
+    >
+      <slot name="add-icon" />
+    </fb-button>
+
+    <profile-navigation
+      v-if="hasProfile && !isHiddenRightButton() && !hasRightButton()"
+      :user-name="userName"
+      :user-menu-items="userMenuItems"
+      :collapsed="!show.usernav"
+      @click="blur"
+    />
   </div>
 </template>
 
 <script>
   import { mapState, mapGetters, mapActions } from 'vuex'
 
-  const FbLogo = () => import('./../FbLogo')
-
+  import Heading from './Heading'
   import ActionButton from './Button'
-  import HamburgerButton from './Hamburger'
-
-  import Gravatar from 'vue-gravatar'
+  import HamburgerButton from './HamburgerButton'
+  import ProfileButton from './ProfileButton'
+  import ProfileNavigation from './ProfileNavigation'
+  import Tabs from './Tabs'
 
   export default {
 
     name: 'FbPhoneHeader',
 
     components: {
-      FbLogo,
+      Heading,
       ActionButton,
       HamburgerButton,
-
-      Gravatar,
+      ProfileButton,
+      ProfileNavigation,
+      Tabs,
     },
 
     props: {
 
-      profile: {
+      hasProfile: {
         type: Boolean,
         default: false,
       },
@@ -158,6 +126,11 @@
         },
       },
 
+      homeLink: {
+        type: String,
+        default: '/',
+      },
+
     },
 
     data() {
@@ -165,7 +138,6 @@
         show: {
           mainnav: false,
           usernav: false,
-          notifications: false,
         },
       }
     },
@@ -177,34 +149,30 @@
       }),
 
       ...mapGetters('header', [
-        'hasLeftButton',
-        'hasRightButton',
-        'getLeftButton',
-        'getRightButton',
         'hasHeading',
-        'getHeading',
-        'getSubHeading',
+        'hasFullRowHeading',
+        'isHiddenHeading',
+        'hasHiddenHamburger',
+        'hasLeftButton',
+        'isHiddenLeftButton',
+        'getLeftButton',
+        'hasRightButton',
         'isHiddenRightButton',
-        'getCustomClass',
-        'hasHiddenShadow',
+        'getRightButton',
+        'hasTabs',
+        'getTabs',
+        'hasAddButton',
+        'getAddButton',
       ]),
 
-      hasCustomLeftButton() {
-        return this.hasLeftButton()
-      },
-
-      hasCustomRightButton() {
-        return this.hasRightButton()
+      leftButton() {
+        return this.getLeftButton()
       },
 
       hasLeftButtonCallback() {
         const button = this.getLeftButton()
 
         return typeof this._.get(button, 'callback') === 'function'
-      },
-
-      leftButton() {
-        return this.getLeftButton()
       },
 
       rightButton() {
@@ -217,28 +185,14 @@
         return typeof this._.get(button, 'callback') === 'function'
       },
 
-      hasCustomHeading() {
-        return this.hasHeading()
+      addButton() {
+        return this.getAddButton()
       },
 
-      heading() {
-        return this.getHeading()
-      },
+      hasAddButtonCallback() {
+        const button = this.getAddButton()
 
-      subHeading() {
-        return this.getSubHeading()
-      },
-
-      showRightButton() {
-        return !this.isHiddenRightButton()
-      },
-
-      customClass() {
-        return this.getCustomClass()
-      },
-
-      hideShadow() {
-        return this.hasHiddenShadow() || !this.menuCollapsed
+        return typeof this._.get(button, 'callback') === 'function'
       },
 
     },
@@ -255,37 +209,40 @@
 
     },
 
+    mounted() {
+      this._applyBodyLimits()
+
+      window.addEventListener('visibilitychange', this._applyBodyLimits)
+      window.addEventListener('DOMContentLoaded', this._applyBodyLimits)
+      window.addEventListener('resize', this._applyBodyLimits)
+
+      this.$store.watch(
+        this.$store.getters['header/stateWatch'],
+        () => {
+          this._applyBodyLimits()
+        }, {
+          immediate: true,
+        },
+      )
+    },
+
+    beforeDestroy() {
+      window.removeEventListener('visibilitychange', this._applyBodyLimits)
+      window.removeEventListener('DOMContentLoaded', this._applyBodyLimits)
+      window.removeEventListener('resize', this._applyBodyLimits)
+    },
+
     methods: {
 
       ...mapActions('theme', {
         toggleMenu: 'menuToggle',
       }),
 
-      callCallback(item) {
-        const that = this
-
-        this.blur()
-
-        setTimeout(() => {
-          item.callback(that)
-        }, 50)
+      toggleProfileMenu() {
+        this.show.usernav = !this.show.usernav
       },
 
-      blur() {
-        for (const key in this.show) {
-          if (this.show.hasOwnProperty(key)) {
-            this.show[key] = false
-          }
-        }
-      },
-
-      toggle(type) {
-        if (this.show.hasOwnProperty(type)) {
-          this.show[type] = !this.show[type]
-        }
-      },
-
-      toggleCollapseMain() {
+      toggleMainMenu() {
         this.toggleMenu()
         this.show.usernav = false
       },
@@ -302,6 +259,42 @@
             this.rightButton.callback()
           } else {
             this.$router.push(this.rightButton.link)
+          }
+        } else if (position === 'add') {
+          if (this.hasAddButtonCallback) {
+            this.addButton.callback()
+          } else {
+            this.$router.push(this.addButton.link)
+          }
+        }
+      },
+
+      blur() {
+        for (const key in this.show) {
+          if (this.show.hasOwnProperty(key)) {
+            this.show[key] = false
+          }
+        }
+      },
+
+      /**
+       * Calculate viewport size after window resizing
+       *
+       * @private
+       */
+      _applyBodyLimits() {
+        if (this._.get(this.$refs, 'phone-header')) {
+          const elementHeight = this._.get(this.$refs, 'phone-header.clientHeight')
+
+          this.$store.dispatch('theme/setWindowHeight', {
+            key: 'phone-header',
+            adjust: elementHeight,
+          }, {
+            root: true,
+          })
+
+          if (elementHeight) {
+            document.body.style['margin-top'] = `${elementHeight}px`
           }
         }
       },

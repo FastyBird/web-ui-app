@@ -9,12 +9,20 @@ const initialState = {
 
   heading: null,
   subHeading: null,
+  hidenHeading: false,
+  headingIcon: null,
+  fullRowHeading: false,
 
+  hiddenLeftButton: false,
   hiddenRightButton: false,
 
   customClass: null,
 
-  hideShadow: null,
+  hideHamburger: false,
+
+  addButton: null,
+
+  tabs: null,
 }
 
 const storeState = Vue.util.extend({}, cloneDeep(initialState))
@@ -53,6 +61,26 @@ const storeGetters = {
     return state.subHeading
   },
 
+  isHiddenHeading: (state) => () => {
+    return state.hidenHeading
+  },
+
+  hasHeadingIcon: (state) => () => {
+    return state.headingIcon !== null
+  },
+
+  hasFullRowHeading: (state) => () => {
+    return state.fullRowHeading
+  },
+
+  getHeadingIcon: (state) => () => {
+    return state.headingIcon
+  },
+
+  isHiddenLeftButton: (state) => () => {
+    return state.hiddenLeftButton
+  },
+
   isHiddenRightButton: (state) => () => {
     return state.hiddenRightButton
   },
@@ -61,8 +89,33 @@ const storeGetters = {
     return state.customClass
   },
 
-  hasHiddenShadow: (state) => () => {
-    return state.hideShadow
+  hasHiddenHamburger: (state) => () => {
+    return state.hideHamburger
+  },
+
+  hasAddButton: (state) => () => {
+    return state.addButton !== null
+  },
+
+  getAddButton: (state) => () => {
+    return state.addButton
+  },
+
+  hasTabs: (state) => () => {
+    return state.tabs !== null && state.tabs.length
+  },
+
+  getTabs: (state) => () => {
+    return state.tabs !== null ? state.tabs : []
+  },
+
+  stateWatch: (state) => () => {
+    return JSON.stringify({
+      heading: state.heading,
+      hidenHeading: state.hidenHeading,
+      fullRowHeading: state.fullRowHeading,
+      tabs: state.tabs,
+    })
   },
 
 }
@@ -112,6 +165,28 @@ const storeActions = {
     commit(types.HEADER_UNSET_HEADING)
   },
 
+  hideHeading({ commit }) {
+    commit(types.HEADER_HIDE_HEADING)
+  },
+
+  setHeadingIcon({ commit }, { icon }) {
+    commit(types.HEADER_HEADING_ICON, {
+      icon,
+    })
+  },
+
+  setFullRowHeading({ commit }) {
+    commit(types.HEADER_HEADING_FULL_ROW)
+  },
+
+  showLeftButton({ commit }) {
+    commit(types.HEADER_SHOW_LEFT_BUTTON)
+  },
+
+  hideLeftButton({ commit }) {
+    commit(types.HEADER_HIDE_LEFT_BUTTON)
+  },
+
   showRightButton({ commit }) {
     commit(types.HEADER_SHOW_RIGHT_BUTTON)
   },
@@ -130,12 +205,40 @@ const storeActions = {
     commit(types.HEADER_UNSET_CUSTOM_CLASS)
   },
 
-  showShadow({ commit }) {
-    commit(types.HEADER_SHOW_SHADOW)
+  showHamburger({ commit }) {
+    commit(types.HEADER_SHOW_HAMBURGER)
   },
 
-  hideShadow({ commit }) {
-    commit(types.HEADER_HIDE_SHADOW)
+  hideHamburger({ commit }) {
+    commit(types.HEADER_HIDE_HAMBURGER)
+  },
+
+  setAddButton({ commit }, { name, link, callback, icon }) {
+    commit(types.HEADER_SET_BUTTON, {
+      position: 'add',
+      name,
+      link,
+      callback,
+      icon,
+    })
+  },
+
+  resetAddButton({ commit }) {
+    commit(types.HEADER_UNSET_BUTTON, {
+      position: 'add',
+    })
+  },
+
+  addTab({ commit }, { name, link, icon }) {
+    commit(types.HEADER_ADD_TAB, {
+      name,
+      link,
+      icon,
+    })
+  },
+
+  clearTabs({ commit }) {
+    commit(types.HEADER_CLEAR_TABS)
   },
 
   resetStore({ commit }) {
@@ -154,8 +257,19 @@ const storeMutations = {
         callback: action.callback,
         icon: action.icon,
       }
+
+      state.hiddenLeftButton = false
     } else if (action.position === 'right') {
       state.rightButton = {
+        name: action.name,
+        link: action.link,
+        callback: action.callback,
+        icon: action.icon,
+      }
+
+      state.hiddenRightButton = false
+    } else if (action.position === 'add') {
+      state.addButton = {
         name: action.name,
         link: action.link,
         callback: action.callback,
@@ -169,7 +283,13 @@ const storeMutations = {
   [types.HEADER_UNSET_BUTTON](state, action) {
     if (action.position === 'left') {
       state.leftButton = null
+
+      state.hiddenLeftButton = false
     } else if (action.position === 'right') {
+      state.rightButton = null
+
+      state.hiddenRightButton = false
+    } else if (action.position === 'add') {
       state.rightButton = null
 
       state.hiddenRightButton = false
@@ -191,6 +311,26 @@ const storeMutations = {
     state.subHeading = null
   },
 
+  [types.HEADER_HIDE_HEADING](state) {
+    state.hidenHeading = true
+  },
+
+  [types.HEADER_HEADING_ICON](state, action) {
+    state.headingIcon = action.icon
+  },
+
+  [types.HEADER_HEADING_FULL_ROW](state) {
+    state.fullRowHeading = true
+  },
+
+  [types.HEADER_SHOW_LEFT_BUTTON](state) {
+    state.hiddenLeftButton = false
+  },
+
+  [types.HEADER_HIDE_LEFT_BUTTON](state) {
+    state.hiddenLeftButton = true
+  },
+
   [types.HEADER_SHOW_RIGHT_BUTTON](state) {
     state.hiddenRightButton = false
   },
@@ -207,12 +347,28 @@ const storeMutations = {
     state.customClass = null
   },
 
-  [types.HEADER_SHOW_SHADOW](state) {
-    state.hideShadow = false
+  [types.HEADER_SHOW_HAMBURGER](state) {
+    state.hideHamburger = false
   },
 
-  [types.HEADER_HIDE_SHADOW](state) {
-    state.hideShadow = true
+  [types.HEADER_HIDE_HAMBURGER](state) {
+    state.hideHamburger = true
+  },
+
+  [types.HEADER_ADD_TAB](state, action) {
+    if (state.tabs === null) {
+      state.tabs = []
+    }
+
+    state.tabs.push({
+      name: action.name,
+      link: action.link,
+      icon: action.icon,
+    })
+  },
+
+  [types.HEADER_CLEAR_TABS](state) {
+    state.tabs = null
   },
 
   [types.COMMON_RESET_STATE](state) {

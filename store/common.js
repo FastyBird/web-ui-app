@@ -7,6 +7,9 @@ const initialState = {
 
   windowSize: null,
 
+  windowHeight: null,
+  windowHeightComputed: 0,
+
   account: {
     username: null,
     email: null,
@@ -22,6 +25,14 @@ const initialState = {
 
 const storeState = Vue.util.extend({}, cloneDeep(initialState))
 
+const storeGetters = {
+
+  getWindowHeightAdjust: (state) => () => {
+    return state.windowHeightComputed
+  },
+
+}
+
 const storeActions = {
 
   /**
@@ -32,6 +43,20 @@ const storeActions = {
    */
   setWindowSize({ commit }, { size }) {
     commit(types.WINDOW_SIZE, size)
+  },
+
+  /**
+   * Store window height adjustment
+   *
+   * @param {Function} commit
+   * @param {String} key
+   * @param {Number} adjust
+   */
+  setWindowHeight({ commit }, { key, adjust }) {
+    commit(types.WINDOW_HEIGHT, {
+      key,
+      adjust,
+    })
   },
 
   /**
@@ -102,6 +127,33 @@ const storeMutations = {
   },
 
   /**
+   * Set client window size
+   *
+   * @param {Object} state
+   * @param {String} state.windowSize
+   * @param {Object} action
+   * @param {String} action.key
+   * @param {Number} action.adjust
+   */
+  [types.WINDOW_HEIGHT](state, action) {
+    if (state.windowHeight === null) {
+      state.windowHeight = {}
+    }
+
+    state.windowHeight[action.key] = action.adjust
+
+    let adjust = 0
+
+    for (const key in state.windowHeight) {
+      if (state.windowHeight.hasOwnProperty(key)) {
+        adjust += state.windowHeight[key]
+      }
+    }
+
+    state.windowHeightComputed = adjust
+  },
+
+  /**
    * Set account username/name
    *
    * @param {Object} state
@@ -155,6 +207,7 @@ const storeMutations = {
 export default {
   namespaced: true,
   state: storeState,
+  getters: storeGetters,
   actions: storeActions,
   mutations: storeMutations,
 }

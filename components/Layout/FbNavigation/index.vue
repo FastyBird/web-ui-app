@@ -5,7 +5,7 @@
       :key="index"
     >
       <li class="fb-navigation__heading">
-        {{ $t(item.meta.label) || item.name }}
+        {{ item.meta.label }}
       </li>
 
       <template v-for="(subItem, subIndex) in item.items">
@@ -19,11 +19,10 @@
             :to="subItem.link"
             active-class="active"
           >
-            <font-awesome-icon
-              :icon="subItem.meta.icon"
-              class="fb-navigation__item-icon"
-            />
-            <span class="fb-navigation__item-label">{{ $t(subItem.meta.label) || subItem.name }}</span>
+            <span class="fb-navigation__item-icon">
+              <font-awesome-icon :icon="subItem.meta.icon" />
+            </span>
+            <span class="fb-navigation__item-label">{{ subItem.meta.label }}</span>
           </nuxt-link>
         </li>
 
@@ -36,11 +35,10 @@
             href="#"
             @click.prevent="subItem.callback(instance)"
           >
-            <font-awesome-icon
-              :icon="subItem.meta.icon"
-              class="fb-navigation__item-icon"
-            />
-            <span class="fb-navigation__item-label">{{ $t(subItem.meta.label) || subItem.name }}</span>
+            <span class="fb-navigation__item-icon">
+              <font-awesome-icon :icon="subItem.meta.icon" />
+            </span>
+            <span class="fb-navigation__item-label">{{ subItem.meta.label }}</span>
           </a>
         </li>
       </template>

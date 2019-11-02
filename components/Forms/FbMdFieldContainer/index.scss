@@ -1,6 +1,4 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
-@import "../../../assets/theme/mixins";
+@import "../../../assets/variables/forms";
 
 .fb-md-field-container {
   &__container {
@@ -21,5 +19,6 @@
     visibility: visible;
     width: 100%;
     text-align: justify;
+    line-height: 14px;
   }
 }

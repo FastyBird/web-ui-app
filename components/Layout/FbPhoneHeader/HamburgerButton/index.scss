@@ -1,0 +1,83 @@
+@import "../../../../assets/variables/colors";
+
+$bar-line-height:     2px !default;
+$bar-line-width:      22px !default;
+$bar-line-distance:   5px !default;
+
+.fb-phone-header-hamburger {
+  &__button {
+    overflow: hidden;
+
+    > span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    .bars {
+      display: block;
+      height: $bar-line-height;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: $bar-line-width;
+
+      .bar-line {
+        background-color: $btn-primary-color;
+        border-radius: 1px;
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all 0.1s ease-in-out 0s;
+        right: 0;
+        width: 0;
+
+        &-#{"1"}, &-#{"4"} {
+          top: - $bar-line-distance - $bar-line-height;
+        }
+
+        &-#{"3"}, &-#{"6"} {
+          top: $bar-line-distance + $bar-line-height;
+        }
+      }
+    }
+
+    .bars-x {
+      height: $bar-line-width;
+      transform: translate(-50%, -50%) rotate(45deg);
+
+      .bar-line:first-child {
+        height: $bar-line-height;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+
+      .bar-line:last-child {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: $bar-line-height;
+      }
+    }
+
+    &.collapsed .bars .bar-line {
+      width: 100%;
+    }
+
+    &.collapsed .bars-x .bar-line:first-child {
+      width: 0;
+    }
+
+    &.collapsed .bars-x .bar-line:last-child {
+      height: 0;
+    }
+  }
+}

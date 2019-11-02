@@ -20,7 +20,7 @@
                 <button
                   v-if="enableClosing"
                   type="button"
-                  class="close"
+                  class="fb-modal-window__close"
                   @click.prevent="close()"
                 >
                   <span aria-hidden="true">×</span>

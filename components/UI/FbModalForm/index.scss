@@ -1,0 +1,9 @@
+@import "../../../assets/variables/colors";
+
+.fb-form-window {
+  &__buttons {
+    .fb-btn-link {
+      color: $text-muted !important;
+    }
+  }
+}

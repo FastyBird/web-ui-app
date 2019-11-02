@@ -1,6 +1,7 @@
-@import "../../../assets/styles/variables";
-@import "../../../assets/styles/custom/variables";
-@import "../../../assets/theme/mixins";
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/cards";
+@import "../../../assets/mixins/utilities";
+@import "../../../assets/mixins/border.radius";
 
 .fb-card {
   &__container {
@@ -17,7 +18,7 @@
   // Header
   &__header {
     background-color: $brand-primary;
-    color: #fff;
+    color: $brand-primary-contrast;
     border-bottom: 1px solid $card-border;
     padding: $card-padding-horizontal $card-padding-vertical;
     position: relative;

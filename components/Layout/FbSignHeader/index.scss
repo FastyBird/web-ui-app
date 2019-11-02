@@ -1,4 +1,4 @@
-@import "../../../assets/styles/variables";
+@import "../../../assets/variables/colors";
 
 .fb-sign-header {
   &__container {
@@ -10,18 +10,18 @@
     margin-left: auto;
     margin-right: auto;
     width: 120px;
-  }
 
-  &__brand svg {
-    shape-rendering: geometricPrecision;
-    text-rendering: geometricPrecision;
-    image-rendering: optimizeQuality;
-    fill-rule: evenodd;
-    clip-rule: evenodd;
-    fill: $brand-primary;
-  }
+    svg {
+      shape-rendering: geometricPrecision;
+      text-rendering: geometricPrecision;
+      image-rendering: optimizeQuality;
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+      fill: $brand-primary;
 
-  &__brand svg path {
-    fill: $brand-primary;
+      path {
+        fill: $brand-primary;
+      }
+    }
   }
 }

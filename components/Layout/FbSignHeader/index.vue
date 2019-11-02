@@ -1,7 +1,7 @@
 <template>
   <div class="fb-sign-header__container">
     <nuxt-link
-      :to="_.get(this, '$coreLinks.signInLnk', '/sing-in')"
+      :to="signInLink"
       class="fb-sign-header__brand"
     >
       <logo />
@@ -18,6 +18,15 @@
 
     components: {
       Logo,
+    },
+
+    props: {
+
+      signInLink: {
+        type: String,
+        default: '/sing-in',
+      },
+
     },
 
   }
