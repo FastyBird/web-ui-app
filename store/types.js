@@ -28,6 +28,7 @@ export const BOTTOM_NAVIGATION_HIDE = 'BOTTOM_NAVIGATION_HIDE'
 // Theme
 export const WINDOW_SIZE = 'WINDOW_SIZE'
 export const WINDOW_HEIGHT = 'WINDOW_HEIGHT'
+export const BODY_MARGIN = 'BODY_MARGIN'
 
 // Account
 export const ACCOUNT_USERNAME = 'ACCOUNT_USERNAME'

@@ -122,7 +122,7 @@ const storeGetters = {
 
 const storeActions = {
 
-  setLeftButton({ commit }, { name, link, callback, icon }) {
+  setLeftButton({ commit }, { name, link = null, callback = null, icon = null }) {
     commit(types.HEADER_SET_BUTTON, {
       position: 'left',
       name,
@@ -132,7 +132,7 @@ const storeActions = {
     })
   },
 
-  setRightButton({ commit }, { name, link, callback, icon }) {
+  setRightButton({ commit }, { name, link = null, callback = null, icon = null }) {
     commit(types.HEADER_SET_BUTTON, {
       position: 'right',
       name,
@@ -154,7 +154,7 @@ const storeActions = {
     })
   },
 
-  setHeading({ commit }, { heading, subHeading }) {
+  setHeading({ commit }, { heading, subHeading = null }) {
     commit(types.HEADER_SET_HEADING, {
       heading,
       subHeading,
@@ -213,7 +213,7 @@ const storeActions = {
     commit(types.HEADER_HIDE_HAMBURGER)
   },
 
-  setAddButton({ commit }, { name, link, callback, icon }) {
+  setAddButton({ commit }, { name, link = null, callback = null, icon = null }) {
     commit(types.HEADER_SET_BUTTON, {
       position: 'add',
       name,

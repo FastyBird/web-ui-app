@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="buttons.length && !isHidden()"
+    v-show="!isHidden()"
     class="fb-bottom-navigation__container"
     ref="bottom-navigation"
   >
@@ -115,9 +115,13 @@
             root: true,
           })
 
-          if (elementHeight) {
-            document.body.style['margin-bottom'] = `${elementHeight}px`
-          }
+          this.$store.dispatch('theme/setBodyMargin', {
+            key: 'bottom-navigation',
+            position: 'bottom',
+            margin: this.isHidden() ? 0 : elementHeight,
+          }, {
+            root: true,
+          })
         }
       },
 

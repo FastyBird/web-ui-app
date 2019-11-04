@@ -14,6 +14,7 @@
     <div class="fb-desktop-header__buttons">
       <action-button
         v-if="hasCustomLeftButton"
+        :name="leftButton.name"
         :icon="leftButton.icon"
         type="button"
         class="fb-desktop-header__button"
@@ -22,6 +23,7 @@
 
       <action-button
         v-if="hasCustomRightButton"
+        :name="rightButton.name"
         :icon="rightButton.icon"
         type="button"
         class="fb-desktop-header__button"
@@ -154,9 +156,13 @@
             root: true,
           })
 
-          if (elementHeight) {
-            document.body.style['margin-top'] = `${elementHeight}px`
-          }
+          this.$store.dispatch('theme/setBodyMargin', {
+            key: 'desktop-header',
+            position: 'top',
+            margin: elementHeight,
+          }, {
+            root: true,
+          })
         }
       },
 

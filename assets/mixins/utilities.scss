@@ -34,11 +34,21 @@
 }
 
 @mixin gridRow() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@mixin gridCel($pLeft: 15px, $pRight: 15px) {
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: $pRight;
+  padding-left: $pLeft;
 }
 
 @mixin box-shadow($shadow...) {

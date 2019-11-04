@@ -4,7 +4,11 @@
     :class="[data.class, data.staticClass]"
     @click.prevent="listeners['click']()"
   >
-    <font-awesome-icon :icon="props.icon" />
+    <font-awesome-icon
+      v-if="props.icon"
+      :icon="props.icon"
+    />
+    <template v-else>{{ props.name }}</template>
   </button>
 </template>
 
@@ -15,9 +19,14 @@
 
     props: {
 
-      icon: {
+      name: {
         type: String,
         required: true,
+      },
+
+      icon: {
+        type: String,
+        default: null,
       },
 
     },

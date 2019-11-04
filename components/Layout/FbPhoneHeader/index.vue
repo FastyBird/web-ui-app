@@ -18,17 +18,19 @@
 
       <action-button
         v-if="hasLeftButton() && !isHiddenLeftButton()"
+        :name="getLeftButton().name"
         :icon="getLeftButton().icon"
         type="button"
-        :class="['fb-phone-header__button', {'fb-phone-header__button-small': hasFullRowHeading()}]"
+        :class="['fb-phone-header__button', {'fb-phone-header__button-small': hasFullRowHeading()}, {'fb-phone-header__button-textual': getLeftButton().icon === null}]"
         @click="buttonAction('left')"
       />
 
       <action-button
         v-if="hasRightButton() && !isHiddenRightButton()"
+        :name="getRightButton().name"
         :icon="getRightButton().icon"
         type="button"
-        :class="['fb-phone-header__button', 'fb-phone-header__button-right', {'fb-phone-header__button-small': hasFullRowHeading()}]"
+        :class="['fb-phone-header__button', 'fb-phone-header__button-right', {'fb-phone-header__button-small': hasFullRowHeading()}, {'fb-phone-header__button-textual': getRightButton().icon === null}]"
         @click="buttonAction('right')"
       />
 
@@ -293,9 +295,13 @@
             root: true,
           })
 
-          if (elementHeight) {
-            document.body.style['margin-top'] = `${elementHeight}px`
-          }
+          this.$store.dispatch('theme/setBodyMargin', {
+            key: 'phone-header',
+            position: 'top',
+            margin: elementHeight,
+          }, {
+            root: true,
+          })
         }
       },
 

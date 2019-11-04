@@ -12,7 +12,7 @@
 .spinner {
   &:before,
   &:after {
-    border-color: $spinner-border-color;
+    border-color: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     border-style: solid;
     content: "";

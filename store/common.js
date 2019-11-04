@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import get from 'lodash/get'
 import cloneDeep from 'lodash/cloneDeep'
 
 import * as types from './types'
@@ -9,6 +10,10 @@ const initialState = {
 
   windowHeight: null,
   windowHeightComputed: 0,
+
+  margins: null,
+  marginTop: 0,
+  marginBottom: 0,
 
   account: {
     username: null,
@@ -29,6 +34,14 @@ const storeGetters = {
 
   getWindowHeightAdjust: (state) => () => {
     return state.windowHeightComputed
+  },
+
+  getBodyTopMarginAdjust: (state) => () => {
+    return state.marginTop
+  },
+
+  getBodyBottomMarginAdjust: (state) => () => {
+    return state.marginBottom
   },
 
 }
@@ -56,6 +69,14 @@ const storeActions = {
     commit(types.WINDOW_HEIGHT, {
       key,
       adjust,
+    })
+  },
+
+  setBodyMargin({ commit }, { key, position, margin }) {
+    commit(types.BODY_MARGIN, {
+      key,
+      position,
+      margin,
     })
   },
 
@@ -151,6 +172,45 @@ const storeMutations = {
     }
 
     state.windowHeightComputed = adjust
+  },
+
+  /**
+   * Set client window size
+   *
+   * @param {Object} state
+   * @param {String} state.windowSize
+   * @param {Object} action
+   * @param {String} action.key
+   * @param {Number} action.position
+   * @param {Number} action.margin
+   */
+  [types.BODY_MARGIN](state, action) {
+    if (state.margins === null) {
+      state.margins = {}
+    }
+
+    state.margins[action.key] = {
+      position: action.position,
+      margin: action.margin,
+    }
+
+    let marginTop = 0
+    let marginBottom = 0
+
+    for (const key in state.margins) {
+      if (state.margins.hasOwnProperty(key)) {
+        if (get(state.margins[key], 'position') === 'top' && get(state.margins[key], 'margin', 0) > marginTop) {
+          marginTop = get(state.margins[key], 'margin', 0)
+        }
+
+        if (get(state.margins[key], 'position') === 'bottom' && get(state.margins[key], 'margin', 0) > marginBottom) {
+          marginBottom = get(state.margins[key], 'margin', 0)
+        }
+      }
+    }
+
+    state.marginTop = marginTop
+    state.marginBottom = marginBottom
   },
 
   /**

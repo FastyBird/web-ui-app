@@ -52,7 +52,7 @@
   }
 
   &__item {
-    @include gridRow;
+    @include gridCel;
 
     &-1 {
       -webkit-box-flex: 0;

@@ -134,7 +134,7 @@
     &-avatar,
     &-name {
       @media (min-width: $screen-lg-min) {
-        @include gridRow;
+        @include gridCel;
       }
     }
 

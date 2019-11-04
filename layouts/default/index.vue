@@ -173,6 +173,24 @@
           immediate: true,
         },
       )
+
+      this.$store.watch(
+        this.$store.getters['theme/getBodyTopMarginAdjust'],
+        (margin) => {
+          document.body.style['margin-top'] = `${margin}px`
+        }, {
+          immediate: true,
+        },
+      )
+
+      this.$store.watch(
+        this.$store.getters['theme/getBodyBottomMarginAdjust'],
+        (margin) => {
+          document.body.style['margin-bottom'] = `${margin}px`
+        }, {
+          immediate: true,
+        },
+      )
     },
 
     beforeDestroy() {
@@ -231,9 +249,13 @@
             root: true,
           })
 
-          if (elementHeight) {
-            document.body.style['margin-bottom'] = `${elementHeight}px`
-          }
+          this.$store.dispatch('theme/setBodyMargin', {
+            key: 'footer',
+            position: 'bottom',
+            margin: elementHeight,
+          }, {
+            root: true,
+          })
         }
       },
 
