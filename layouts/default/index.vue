@@ -206,6 +206,8 @@
        */
       windowResizeHandler() {
         if (!document.hidden) {
+          const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
           if (matchMedia('(max-width: 575px)').matches) {
             this.$store.dispatch('theme/setWindowSize', {
               size: 'xs'
@@ -237,6 +239,8 @@
               root: true,
             })
           }
+
+          document.body.style['height'] = `${viewportHeight - this.$store.getters['theme/getWindowHeightAdjust']()}px`
         }
 
         if (this._.get(this.$refs, 'footer')) {
