@@ -26,6 +26,7 @@ import FbPageLoading from './components/UI/FbPageLoading'
 import ThemeHelpersMixin from './mixins/helpers'
 
 import ThemeClickOutsideDirective from './directives/ClickOutside'
+import ThemeBodyScrollLockDirective from './directives/BodyScrollLock'
 
 export default {
 
@@ -59,6 +60,7 @@ export default {
     Vue.mixin(ThemeHelpersMixin)
 
     Vue.directive('clickOutside', ThemeClickOutsideDirective)
+    Vue.directive('bodyScrollLock', ThemeBodyScrollLockDirective)
   },
 
 }
