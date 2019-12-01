@@ -32,7 +32,7 @@
           uppercase
           variant="outline-primary"
           size="lg"
-          :disabled="lockButtons"
+          :disabled="lockButtons || lockSubmitButton"
           :tabindex="(initialTabindex + 1)"
           name="save"
           @click.prevent="submit()"
@@ -75,6 +75,12 @@
       },
 
       lockButtons: {
+        type: Boolean,
+        required: false,
+        default: false,
+      },
+
+      lockSubmitButton: {
         type: Boolean,
         required: false,
         default: false,

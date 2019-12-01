@@ -290,9 +290,7 @@ const storeMutations = {
 
       state.hiddenRightButton = false
     } else if (action.position === 'add') {
-      state.rightButton = null
-
-      state.hiddenRightButton = false
+      state.addButton = null
     }
   },
 

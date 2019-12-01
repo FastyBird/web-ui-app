@@ -20,9 +20,9 @@
       border-radius: 50%;
       border-style: solid;
       content: "";
-      left: 0;
+      left: 50%;
       position: absolute;
-      top: 0;
+      top: 50%;
       border-width: $spinner-lg-border-width;
       height: $spinner-lg-size;
       margin: half(-$spinner-lg-size) 0 0 half(-$spinner-lg-size);

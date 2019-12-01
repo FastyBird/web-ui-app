@@ -33,14 +33,14 @@
   }
 }
 
-@mixin gridRow() {
+@mixin gridRow($mLeft: -15px, $mRight: -15px) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: $mRight;
+  margin-left: $mLeft;
 }
 
 @mixin gridCel($pLeft: 15px, $pRight: 15px) {
