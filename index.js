@@ -20,8 +20,11 @@ import FbConfirmationWindow from './components/UI/FbConfirmationWindow'
 import FbModalForm from './components/UI/FbModalForm'
 import FbModalInfo from './components/UI/FbModalInfo'
 import FbModalWindow from './components/UI/FbModalWindow'
+import FbDivider from './components/UI/FbDivider'
+import FbSwitchElement from './components/UI/FbSwitchElement'
 import FbLoadingBox from './components/UI/FbLoadingBox'
 import FbPageLoading from './components/UI/FbPageLoading'
+import FbSpinner from './components/UI/FbSpinner'
 
 import ThemeHelpersMixin from './mixins/helpers'
 
@@ -54,8 +57,11 @@ export default {
     Vue.component('FbModalForm', FbModalForm)
     Vue.component('FbModalInfo', FbModalInfo)
     Vue.component('FbModalWindow', FbModalWindow)
+    Vue.component('FbDivider', FbDivider)
+    Vue.component('FbSwitchElement', FbSwitchElement)
     Vue.component('FbLoadingBox', FbLoadingBox)
     Vue.component('FbPageLoading', FbPageLoading)
+    Vue.component('FbSpinner', FbSpinner)
 
     Vue.mixin(ThemeHelpersMixin)
 

@@ -9,13 +9,6 @@
     />
 
     <div v-else-if="hasFullRowHeading()">
-      <div
-        v-if="hasHeadingIcon()"
-        class="fb-phone-header-heading__icon"
-      >
-        <font-awesome-icon :icon="getHeadingIcon()" />
-      </div>
-
       <h1
         v-if="hasHeading() && getSubHeading() === null"
         class="single-row"
@@ -27,6 +20,21 @@
         <span>{{ getHeading() }}</span>
         <small>{{ getSubHeading() }}</small>
       </h1>
+
+      <button
+        v-if="hasHeadingIcon() && (getHeadingIcon().callback || this.getHeadingIcon().link)"
+        role="button"
+        class="fb-phone-header-heading__icon"
+        @click.prevent="iconClick()"
+      >
+        <font-awesome-icon :icon="getHeadingIcon().icon" />
+      </button>
+      <div
+        v-else-if="hasHeadingIcon()"
+        class="fb-phone-header-heading__icon"
+      >
+        <font-awesome-icon :icon="getHeadingIcon().icon" />
+      </div>
     </div>
 
     <template v-else>
@@ -79,6 +87,18 @@
         'hasHeadingIcon',
         'getHeadingIcon',
       ]),
+
+    },
+
+    methods: {
+
+      iconClick() {
+        if (this.getHeadingIcon().callback && typeof this.getHeadingIcon().callback === 'function') {
+          this.getHeadingIcon().callback()
+        } else if (this.getHeadingIcon().link && typeof this.getHeadingIcon().link === 'string') {
+          this.$router.push(this.getHeadingIcon().link)
+        }
+      },
 
     },
 

@@ -84,6 +84,7 @@
     background-color: darken($body-bg, 5%);
     border-top: 1px solid darken($body-bg, 10%);
     color: $text-color;
+    z-index: $zindex-layout-footer;
 
     bottom: 0;
     left: 0;

@@ -58,6 +58,7 @@
           height: 45px;
           line-height: 45px;
           padding: 0;
+          font-size: 2em;
         }
       }
 
@@ -138,10 +139,9 @@
 
     @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
       float: none;
-      height: 20px;
-      line-height: 20px;
+      height: 45px;
+      line-height: 45px;
       margin-left: 0;
-      margin-top: 12px;
       position: absolute;
       top: 0;
       left: 0;

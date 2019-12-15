@@ -50,6 +50,13 @@
       class="fb-phone-header__row"
     />
 
+    <p
+      v-if="hasInfoText()"
+      class="fb-phone-header__info"
+    >
+      {{ getInfoText() }}
+    </p>
+
     <tabs
       v-if="hasTabs()"
       :tabs="getTabs()"
@@ -161,6 +168,8 @@
         'hasRightButton',
         'isHiddenRightButton',
         'getRightButton',
+        'hasInfoText',
+        'getInfoText',
         'hasTabs',
         'getTabs',
         'hasAddButton',

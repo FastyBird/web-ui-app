@@ -83,3 +83,23 @@
   &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
   &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
 }
+
+// Common mixins
+@mixin before-after {
+  &:before,
+  &:after {
+    @content
+  }
+}
+
+@mixin before {
+  &:before {
+    @content
+  }
+}
+
+@mixin after {
+  &:after {
+    @content
+  }
+}

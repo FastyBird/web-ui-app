@@ -22,6 +22,8 @@ const initialState = {
 
   addButton: null,
 
+  infoText: null,
+
   tabs: null,
 }
 
@@ -74,7 +76,15 @@ const storeGetters = {
   },
 
   getHeadingIcon: (state) => () => {
-    return state.headingIcon
+    let icon = {
+      link: null,
+      callback: null,
+      icon: null,
+    }
+
+    Object.assign(icon, state.headingIcon)
+
+    return icon
   },
 
   isHiddenLeftButton: (state) => () => {
@@ -99,6 +109,14 @@ const storeGetters = {
 
   getAddButton: (state) => () => {
     return state.addButton
+  },
+
+  hasInfoText: (state) => () => {
+    return state.infoText !== null
+  },
+
+  getInfoText: (state) => () => {
+    return state.infoText
   },
 
   hasTabs: (state) => () => {
@@ -169,9 +187,11 @@ const storeActions = {
     commit(types.HEADER_HIDE_HEADING)
   },
 
-  setHeadingIcon({ commit }, { icon }) {
+  setHeadingIcon({ commit }, { icon, link = null, callback = null }) {
     commit(types.HEADER_HEADING_ICON, {
       icon,
+      link,
+      callback,
     })
   },
 
@@ -226,6 +246,18 @@ const storeActions = {
   resetAddButton({ commit }) {
     commit(types.HEADER_UNSET_BUTTON, {
       position: 'add',
+    })
+  },
+
+  setInfoText({ commit }, { text }) {
+    commit(types.HEADER_SET_INFO_TEXT, {
+      text,
+    })
+  },
+
+  resetInfoText({ commit }) {
+    commit(types.HEADER_RESET_INFO_TEXT, {
+      text,
     })
   },
 
@@ -314,7 +346,11 @@ const storeMutations = {
   },
 
   [types.HEADER_HEADING_ICON](state, action) {
-    state.headingIcon = action.icon
+    state.headingIcon = {
+      link: action.link,
+      callback: action.callback,
+      icon: action.icon,
+    }
   },
 
   [types.HEADER_HEADING_FULL_ROW](state) {
@@ -351,6 +387,14 @@ const storeMutations = {
 
   [types.HEADER_HIDE_HAMBURGER](state) {
     state.hideHamburger = true
+  },
+
+  [types.HEADER_SET_INFO_TEXT](state, action) {
+    state.infoText = action.text
+  },
+
+  [types.HEADER_RESET_INFO_TEXT](state) {
+    state.infoText = null
   },
 
   [types.HEADER_ADD_TAB](state, action) {
