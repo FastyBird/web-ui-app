@@ -37,7 +37,10 @@
       </div>
     </div>
 
-    <div class="fb-default-layout__content">
+    <div
+      :style="`padding-top: ${paddingTop}px; padding-bottom: ${paddingBottom}px;`"
+      class="fb-default-layout__content"
+    >
       <slot name="content" />
     </div>
 
@@ -156,6 +159,18 @@
 
     },
 
+    computed: {
+
+      paddingTop() {
+        return this.$store.getters['theme/getBodyTopMarginAdjust']()
+      },
+
+      paddingBottom() {
+        return this.$store.getters['theme/getBodyBottomMarginAdjust']()
+      },
+
+    },
+
     mounted() {
       this.windowResizeHandler()
 
@@ -169,24 +184,6 @@
           const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 
           document.body.style['height'] = `${viewportHeight - adjust}px`
-        }, {
-          immediate: true,
-        },
-      )
-
-      this.$store.watch(
-        this.$store.getters['theme/getBodyTopMarginAdjust'],
-        (margin) => {
-          document.body.style['margin-top'] = `${margin}px`
-        }, {
-          immediate: true,
-        },
-      )
-
-      this.$store.watch(
-        this.$store.getters['theme/getBodyBottomMarginAdjust'],
-        (margin) => {
-          document.body.style['margin-bottom'] = `${margin}px`
         }, {
           immediate: true,
         },
