@@ -1,6 +1,8 @@
 // Common events
 export const COMMON_RESET_STATE = 'COMMON_RESET_STATE'
 
+export const TOUCH_DEVICE = 'TOUCH_DEVICE'
+
 // Header for XS devices
 export const HEADER_SET_BUTTON = 'HEADER_SET_BUTTON'
 export const HEADER_UNSET_BUTTON = 'HEADER_UNSET_BUTTON'

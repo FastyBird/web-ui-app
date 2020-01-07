@@ -172,11 +172,12 @@
     },
 
     mounted() {
-      this.windowResizeHandler()
+      this._windowResizeHandler()
 
-      window.addEventListener('visibilitychange', this.windowResizeHandler)
-      window.addEventListener('DOMContentLoaded', this.windowResizeHandler)
-      window.addEventListener('resize', this.windowResizeHandler)
+      window.addEventListener('visibilitychange', this._windowResizeHandler)
+      window.addEventListener('DOMContentLoaded', this._windowResizeHandler)
+      window.addEventListener('resize', this._windowResizeHandler)
+      window.addEventListener('touchstart', this._touchDetectHandler, false)
 
       this.$store.watch(
         this.$store.getters['theme/getWindowHeightAdjust'],
@@ -191,9 +192,10 @@
     },
 
     beforeDestroy() {
-      window.removeEventListener('visibilitychange', this.windowResizeHandler)
-      window.removeEventListener('DOMContentLoaded', this.windowResizeHandler)
-      window.removeEventListener('resize', this.windowResizeHandler)
+      window.removeEventListener('visibilitychange', this._windowResizeHandler)
+      window.removeEventListener('DOMContentLoaded', this._windowResizeHandler)
+      window.removeEventListener('resize', this._windowResizeHandler)
+      window.removeEventListener('touchstart', this._touchDetectHandler, false)
     },
 
     methods: {
@@ -201,7 +203,7 @@
       /**
        * Window resize handler
        */
-      windowResizeHandler() {
+      _windowResizeHandler() {
         if (!document.hidden) {
           const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 
@@ -258,6 +260,20 @@
             root: true,
           })
         }
+      },
+
+      /**
+       * Touch device detect handler
+       */
+      _touchDetectHandler() {
+        this.$store.dispatch('theme/setTouchDevice', {
+          enabled: true
+        }, {
+          root: true,
+        })
+
+        // We only need to know once that a human touched the screen, so we can stop listening now
+        window.removeEventListener('touchstart', this._touchDetectHandler, false)
       },
 
     },

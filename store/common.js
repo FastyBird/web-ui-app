@@ -11,6 +11,8 @@ const initialState = {
   windowHeight: null,
   windowHeightComputed: 0,
 
+  touchDevice: false,
+
   margins: null,
   marginTop: 0,
   marginBottom: 0,
@@ -42,6 +44,10 @@ const storeGetters = {
 
   getBodyBottomMarginAdjust: (state) => () => {
     return state.marginBottom
+  },
+
+  isTouchDevice: (state) => () => {
+    return state.touchDevice
   },
 
 }
@@ -120,6 +126,19 @@ const storeActions = {
   menuToggle({ commit, state }) {
     commit(types.MENU_COLLAPSED, {
       collapsed: !state.menu.collapsed.xs,
+    })
+  },
+
+  /**
+   * Set touch device detection status
+   *
+   * @param {Function} commit
+   * @param {Object} state
+   * @param {Boolean} enabled
+   */
+  setTouchDevice({ commit, state }, { enabled }) {
+    commit(types.TOUCH_DEVICE, {
+      enabled,
     })
   },
 
@@ -249,6 +268,18 @@ const storeMutations = {
    */
   [types.MENU_COLLAPSED](state, action) {
     state.menu.collapsed.xs = action.collapsed
+  },
+
+  /**
+   * Set touch device detection state
+   *
+   * @param {Object} state
+   * @param {Boolean} state.touchDevice
+   * @param {Object} action
+   * @param {Boolean} action.enabled
+   */
+  [types.TOUCH_DEVICE](state, action) {
+    state.touchDevice = action.enabled
   },
 
   /**

@@ -74,10 +74,7 @@
     },
 
     mounted() {
-      this._applyBodyLimits()
-
       window.addEventListener('visibilitychange', this._applyBodyLimits)
-      window.addEventListener('DOMContentLoaded', this._applyBodyLimits)
       window.addEventListener('resize', this._applyBodyLimits)
 
       this.$store.watch(
@@ -92,7 +89,6 @@
 
     beforeDestroy() {
       window.removeEventListener('visibilitychange', this._applyBodyLimits)
-      window.removeEventListener('DOMContentLoaded', this._applyBodyLimits)
       window.removeEventListener('resize', this._applyBodyLimits)
     },
 
