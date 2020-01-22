@@ -3,12 +3,12 @@
     class="fb-desktop-header__container"
     ref="desktop-header"
   >
-    <h1 v-if="subHeading === null">
-      {{ heading }}
+    <h1 v-if="getSubHeading() === null">
+      {{ getHeading() }}
     </h1>
     <h1 v-else>
-      <span>{{ heading }}</span>
-      <small>{{ subHeading }}</small>
+      <span>{{ getHeading() }}</span>
+      <small>{{ getSubHeading() }}</small>
     </h1>
 
     <div class="fb-desktop-header__buttons">
@@ -28,6 +28,15 @@
         type="button"
         class="fb-desktop-header__button"
         @click="buttonAction('right')"
+      />
+
+      <action-button
+        v-if="hasAddButton()"
+        name="name"
+        icon="plus"
+        type="button"
+        class="fb-desktop-header__button"
+        @click="buttonAction('add')"
       />
     </div>
   </div>
@@ -53,12 +62,10 @@
         'hasRightButton',
         'getLeftButton',
         'getRightButton',
-        'hasHeading',
         'getHeading',
         'getSubHeading',
-        'isHiddenRightButton',
-        'getCustomClass',
-        'hasHiddenShadow',
+        'hasAddButton',
+        'getAddButton',
       ]),
 
       hasCustomLeftButton() {
@@ -89,12 +96,14 @@
         return typeof this._.get(button, 'callback') === 'function'
       },
 
-      heading() {
-        return this.getHeading()
+      addButton() {
+        return this.getAddButton()
       },
 
-      subHeading() {
-        return this.getSubHeading()
+      hasAddButtonCallback() {
+        const button = this.getAddButton()
+
+        return typeof this._.get(button, 'callback') === 'function'
       },
 
     },
@@ -132,6 +141,12 @@
             this.rightButton.callback()
           } else {
             this.$router.push(this.rightButton.link)
+          }
+        } else if (position === 'add') {
+          if (this.hasAddButtonCallback) {
+            this.addButton.callback()
+          } else {
+            this.$router.push(this.addButton.link)
           }
         }
       },
