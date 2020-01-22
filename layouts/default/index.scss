@@ -67,15 +67,17 @@
 
   &__content {
     position: relative;
+    overflow: auto;
+    width: 100%;
 
     @media (min-width: $screen-sm-min) {
-      margin-left: $layout-sidebar-width;
+      padding-left: $layout-sidebar-width;
     }
 
     @include clearfix;
 
     @media (min-width: $screen-sm-min) AND (max-width: $screen-md-max) {
-      margin-left: $layout-sidebar-collapsed-width;
+      padding-left: $layout-sidebar-collapsed-width;
       transition: margin-left $layout-transition-duration;
     }
   }

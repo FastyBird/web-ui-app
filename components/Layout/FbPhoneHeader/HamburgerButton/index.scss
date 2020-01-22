@@ -8,6 +8,7 @@ $bar-line-distance:   5px !default;
 .fb-phone-header-hamburger {
   &__button {
     overflow: hidden;
+    position: relative;
 
     > span {
       position: absolute;

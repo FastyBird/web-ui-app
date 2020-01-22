@@ -6,7 +6,7 @@
     :name="name"
     :label="label"
     :is-focused="focused"
-    :has-value="value !== '' && value !== null"
+    :has-value="value !== '' && value !== null || placeholder !== null"
     :error="error"
   >
     <template
@@ -22,7 +22,9 @@
         :name="name"
         :tabindex="tabIndex"
         :type="type"
+        :readonly="readonly"
         :value="value"
+        :placeholder="placeholder"
         class="fb-textarea__control"
         @input="updateValue($event.target.value)"
         @focus="setFocused(true)"
@@ -113,6 +115,16 @@
       error: {
         type: String,
         default: null,
+      },
+
+      placeholder: {
+        type: String,
+        default: null,
+      },
+
+      readonly: {
+        type: Boolean,
+        default: false,
       },
 
     },

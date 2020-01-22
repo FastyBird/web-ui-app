@@ -37,8 +37,10 @@
       </div>
     </div>
 
+    <fb-phone-navigation :items="phoneMenuItems" />
+
     <div
-      :style="`padding-top: ${paddingTop}px; padding-bottom: ${paddingBottom}px;`"
+      :style="`height: ${viewportHeight - contentHeightAdjust}px; margin-bottom: ${paddingBottom}px;`"
       class="fb-default-layout__content"
     >
       <slot name="content" />
@@ -73,6 +75,7 @@
   const FbDesktopHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbDesktopHeader')
   const FbPhoneHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbPhoneHeader')
   const FbNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbNavigation')
+  const FbPhoneNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbPhoneNavigation')
   const FbUserSideNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbUserSideNavigation')
   const FbBottomNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbBottomNavigation')
 
@@ -85,6 +88,7 @@
       FbDesktopHeader,
       FbPhoneHeader,
       FbNavigation,
+      FbPhoneNavigation,
       FbUserSideNavigation,
       FbBottomNavigation,
     },
@@ -117,6 +121,13 @@
       },
 
       menuItems: {
+        type: Array,
+        default: () => {
+          return []
+        },
+      },
+
+      phoneMenuItems: {
         type: Array,
         default: () => {
           return []
@@ -159,7 +170,17 @@
 
     },
 
+    data() {
+      return {
+        viewportHeight: null,
+      }
+    },
+
     computed: {
+
+      contentHeightAdjust() {
+        return this.$store.getters['theme/getWindowHeightAdjust']()
+      },
 
       paddingTop() {
         return this.$store.getters['theme/getBodyTopMarginAdjust']()
@@ -177,14 +198,13 @@
       window.addEventListener('visibilitychange', this._windowResizeHandler)
       window.addEventListener('DOMContentLoaded', this._windowResizeHandler)
       window.addEventListener('resize', this._windowResizeHandler)
+      window.addEventListener('orientationchange', this._windowResizeHandler)
       window.addEventListener('touchstart', this._touchDetectHandler, false)
 
       this.$store.watch(
-        this.$store.getters['theme/getWindowHeightAdjust'],
+        this.$store.getters['theme/getBodyTopMarginAdjust'],
         (adjust) => {
-          const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-
-          document.body.style['height'] = `${viewportHeight - adjust}px`
+          document.body.style['padding-top'] = `${adjust}px`
         }, {
           immediate: true,
         },
@@ -195,6 +215,7 @@
       window.removeEventListener('visibilitychange', this._windowResizeHandler)
       window.removeEventListener('DOMContentLoaded', this._windowResizeHandler)
       window.removeEventListener('resize', this._windowResizeHandler)
+      window.removeEventListener('orientationchange', this._windowResizeHandler)
       window.removeEventListener('touchstart', this._touchDetectHandler, false)
     },
 
@@ -239,7 +260,7 @@
             })
           }
 
-          document.body.style['height'] = `${viewportHeight - this.$store.getters['theme/getWindowHeightAdjust']()}px`
+          this.viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
         }
 
         if (this._.get(this.$refs, 'footer')) {

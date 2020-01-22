@@ -9,13 +9,6 @@
         :home-link="homeLink"
       />
 
-      <hamburger-button
-        v-if="!hasHiddenHamburger() && !hasLeftButton()"
-        :collapsed="menuCollapsed"
-        :class="['fb-phone-header__button', {'fb-phone-header__button-right': hasLeftButton() && !hasRightButton() && !isHiddenRightButton()}, {'fb-phone-header__button-small': hasFullRowHeading()}]"
-        @click="toggleMainMenu"
-      />
-
       <action-button
         v-if="hasLeftButton() && !isHiddenLeftButton()"
         :name="getLeftButton().name"
@@ -34,13 +27,11 @@
         @click="buttonAction('right')"
       />
 
-      <profile-button
-        v-if="hasProfile && !isHiddenRightButton() && !hasRightButton()"
-        :user-name="userName"
-        :user-email="userEmail"
-        :collapsed="!show.usernav"
-        :class="['fb-phone-header__button', 'fb-phone-header__button-right', {'fb-phone-header__button-small': hasFullRowHeading()}]"
-        @click="toggleProfileMenu"
+      <hamburger-button
+        v-if="!isHiddenRightButton() && !hasRightButton()"
+        :collapsed="menuCollapsed"
+        :class="['fb-phone-header__button', {'fb-phone-header__button-right': !isHiddenRightButton() && !hasRightButton()}, {'fb-phone-header__button-small': hasFullRowHeading()}]"
+        @click="toggleMainMenu"
       />
     </div>
 
@@ -72,14 +63,6 @@
     >
       <slot name="add-icon" />
     </fb-button>
-
-    <profile-navigation
-      v-if="hasProfile && !isHiddenRightButton() && !hasRightButton()"
-      :user-name="userName"
-      :user-menu-items="userMenuItems"
-      :collapsed="!show.usernav"
-      @click="blur"
-    />
   </div>
 </template>
 
@@ -89,8 +72,6 @@
   import Heading from './Heading'
   import ActionButton from './Button'
   import HamburgerButton from './HamburgerButton'
-  import ProfileButton from './ProfileButton'
-  import ProfileNavigation from './ProfileNavigation'
   import Tabs from './Tabs'
 
   export default {
@@ -101,8 +82,6 @@
       Heading,
       ActionButton,
       HamburgerButton,
-      ProfileButton,
-      ProfileNavigation,
       Tabs,
     },
 
@@ -161,7 +140,6 @@
         'hasHeading',
         'hasFullRowHeading',
         'isHiddenHeading',
-        'hasHiddenHamburger',
         'hasLeftButton',
         'isHiddenLeftButton',
         'getLeftButton',

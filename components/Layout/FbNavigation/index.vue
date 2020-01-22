@@ -1,5 +1,5 @@
 <template>
-  <nav :class="['fb-navigation__container', {'collapse': collapsed}]">
+  <nav class="fb-navigation__container">
     <ul
       v-for="(item, index) in items"
       :key="index"
@@ -47,8 +47,6 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
-
   export default {
 
     name: 'FbNavigation',
@@ -64,29 +62,9 @@
 
     computed: {
 
-      ...mapState({
-        collapsed: state => state.theme.menu.collapsed.xs,
-      }),
-
       instance() {
         return this
       },
-
-    },
-
-    watch: {
-
-      $route() {
-        this.menuCollapse()
-      },
-
-    },
-
-    methods: {
-
-      ...mapActions('theme', [
-        'menuCollapse',
-      ]),
 
     },
 

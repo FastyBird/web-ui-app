@@ -5,23 +5,8 @@
 
 .fb-navigation {
   &__container {
-    &.collapse {
-      @media (max-width: $screen-xs-max) {
-        max-height: 0;
-        display: block;
-      }
-    }
-
-    @media (max-width: $screen-sm-max) {
-      max-height: 500px;
-      /* overflow set to hidden to hide the expanded text */
-      overflow: hidden;
-      /* all style changes will ease-in-out for 1s */
-      -moz-transition: max-height 0.5s ease-in-out;
-      -ms-transition: max-height 0.5s ease-in-out;
-      -o-transition: max-height 0.5s ease-in-out;
-      -webkit-transition: max-height 0.5s ease-in-out;
-      transition: max-height 0.5s ease-in-out;
+    @media (max-width: $screen-xs-max) {
+      display: none;
     }
 
     @media (min-width: $screen-lg-min) {
@@ -36,6 +21,7 @@
       list-style: none;
       margin-bottom: 0;
       padding-left: 0;
+      padding-bottom: 5px;
 
       @include clearfix;
 
@@ -96,6 +82,12 @@
         top: 50%;
         transform: translateY(-50%);
         width: 0;
+      }
+
+      > li.divider {
+        margin: 0;
+        padding: 0;
+        line-height: 10px;
       }
     }
   }

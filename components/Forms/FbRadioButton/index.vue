@@ -7,7 +7,7 @@
         :id="id ? id : name"
         v-model="model"
         :name="name"
-        :value="label"
+        :value="value !== null ? value : label"
         class="fb-radio__input"
         type="radio"
         @change="handleChange"
@@ -40,7 +40,7 @@
       :id="id ? id : name"
       v-model="model"
       :name="name"
-      :value="label"
+      :value="value !== null ? value : label"
       class="fb-radio__input"
       type="radio"
       @change="handleChange"
@@ -190,7 +190,9 @@
     methods: {
 
       addToStore() {
-        if (Array.isArray(this.model) && this.model.indexOf(this.label) === -1) {
+        if (Array.isArray(this.model) && this.value !== null && this.model.indexOf(this.value) === -1) {
+          this.model.push(this.value)
+        } else if (Array.isArray(this.model) && this.model.indexOf(this.label) === -1) {
           this.model.push(this.label)
         } else {
           this.model = this.trueValue || true
