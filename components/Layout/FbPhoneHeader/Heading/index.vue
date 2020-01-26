@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['fb-phone-header-heading__container', {'fb-phone-header-heading__container-left': !hasLeftButton()}, {'fb-phone-header-heading__container-with-buttons': !hasFullRowHeading()}]"
+    :class="['fb-phone-header-heading__container', {'fb-phone-header-heading__container-left': !hasLeftButton() && hasHeading()}, {'fb-phone-header-heading__container-with-buttons': !hasFullRowHeading()}]"
   >
     <fb-logo
       v-if="!hasHeading()"

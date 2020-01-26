@@ -11,55 +11,57 @@
           :style="{width: optionalWidth}"
           role="document"
         >
-          <div class="fb-modal-window__content">
-            <div
-              v-if="showHeader"
-              class="fb-modal-window__header"
-            >
-              <slot name="modal-header">
-                <button
-                  v-if="enableClosing"
-                  type="button"
-                  class="fb-modal-window__close"
-                  @click.prevent="close()"
-                >
-                  <span aria-hidden="true">×</span>
-                  <span class="sr-only">{{ $t('buttons.close.title') }}</span>
-                </button>
+          <slot name="modal-content">
+            <div class="fb-modal-window__content">
+              <div
+                v-if="showHeader"
+                class="fb-modal-window__header"
+              >
+                <slot name="modal-header">
+                  <button
+                    v-if="enableClosing"
+                    type="button"
+                    class="fb-modal-window__close"
+                    @click.prevent="close()"
+                  >
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">{{ $t('buttons.close.title') }}</span>
+                  </button>
 
-                <h4>
-                  <slot name="modal-title">
-                    {{ title }}
-                  </slot>
-                </h4>
-              </slot>
-            </div>
+                  <h4>
+                    <slot name="modal-title">
+                      {{ title }}
+                    </slot>
+                  </h4>
+                </slot>
+              </div>
 
-            <div class="fb-modal-window__body">
-              <slot name="modal-body" />
-            </div>
+              <div class="fb-modal-window__body">
+                <slot name="modal-body" />
+              </div>
 
-            <div
-              v-if="showFooter"
-              class="fb-modal-window__footer"
-            >
-              <slot name="modal-footer">
-                <fb-button
-                  variant="default"
-                  tabindex="2"
-                  @click.prevent="close()"
-                >
-                  {{ cancelText }}
-                </fb-button>
-                <fb-button
-                  variant="primary"
-                  tabindex="3"
-                >
-                  {{ okText }}
-                </fb-button>
-              </slot>
+              <div
+                v-if="showFooter"
+                class="fb-modal-window__footer"
+              >
+                <slot name="modal-footer">
+                  <fb-button
+                    variant="default"
+                    tabindex="2"
+                    @click.prevent="close()"
+                  >
+                    {{ cancelText }}
+                  </fb-button>
+                  <fb-button
+                    variant="primary"
+                    tabindex="3"
+                  >
+                    {{ okText }}
+                  </fb-button>
+                </slot>
+              </div>
             </div>
-          </div>
+          </slot>
         </div>
       </div>
     </section>
@@ -142,7 +144,7 @@
     mounted() {
       this.$el.tabIndex = 1
 
-      this.$nextTick(function() {
+      this.$nextTick(() => {
         this.$el.focus()
       })
     },
