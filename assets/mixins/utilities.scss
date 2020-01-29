@@ -84,7 +84,6 @@
   &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
 }
 
-// Common mixins
 @mixin before-after {
   &:before,
   &:after {
@@ -102,4 +101,10 @@
   &:after {
     @content
   }
+}
+
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+  -moz-box-sizing: $boxmodel;
+  box-sizing: $boxmodel;
 }

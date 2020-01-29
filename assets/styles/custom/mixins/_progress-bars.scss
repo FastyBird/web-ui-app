@@ -1,8 +1,0 @@
-// Sizes
-@mixin progress-size($height) {
-  height: $height;
-
-  .progress-bar {
-    line-height: $height;
-  }
-}

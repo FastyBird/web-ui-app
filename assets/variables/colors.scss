@@ -44,3 +44,24 @@ $link-muted-hover-decoration:           none !default;
 $link-inverted-color:                   #fff !default;
 $link-inverted-hover-color:             #fff !default;
 $link-inverted-hover-decoration:        none !default;
+
+$hr-border:                             $gray-lighter;
+
+//** Headings small color
+$headings-small-color:                  $gray-light;
+
+$state-success-text:                    $brand-success;
+$state-success-bg:                      #c8e6c9;
+$state-success-border:                  darken(adjust-hue($state-success-bg, -10), 5%);
+
+$state-info-text:                       $brand-info;
+$state-info-bg:                         #b3e5fc;
+$state-info-border:                     darken(adjust-hue($state-info-bg, -10), 7%);
+
+$state-warning-text:                    $brand-warning;
+$state-warning-bg:                      #e1bee7;
+$state-warning-border:                  darken(adjust-hue($state-warning-bg, -10), 5%);
+
+$state-danger-text:                     $brand-danger;
+$state-danger-bg:                       #ffe0b2;
+$state-danger-border:                   darken(adjust-hue($state-danger-bg, -10), 5%);
