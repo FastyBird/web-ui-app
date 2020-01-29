@@ -2,7 +2,7 @@
   <transition name="bounce">
     <div class="fb-page-loading__container">
       <div class="fb-page-loading__box">
-        <div class="d-b text-center">
+        <div>
           <logo />
         </div>
         <div class="fb-page-loading__spinner" />

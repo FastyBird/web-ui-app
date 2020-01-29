@@ -11,6 +11,20 @@
           :style="{width: optionalWidth}"
           role="document"
         >
+          <transition name="bounce">
+            <div
+              v-if="loader"
+              class="fb-modal-window__loading"
+            >
+              <div class="fb-modal-window__loading-box">
+                <div>
+                  <logo />
+                  <div class="fb-modal-window__loading-spinner" />
+                </div>
+              </div>
+            </div>
+          </transition>
+
           <slot name="modal-content">
             <div class="fb-modal-window__content">
               <div
@@ -69,9 +83,15 @@
 </template>
 
 <script>
+  import Logo from '../../../assets/images/fastybird_signin.svg?inline'
+
   export default {
 
     name: 'FbModalWindow',
+
+    components: {
+      Logo,
+    },
 
     props: {
 
@@ -125,6 +145,11 @@
         default: false,
       },
 
+      loader: {
+        type: Boolean,
+        default: false,
+      },
+
     },
 
     computed: {
@@ -163,3 +188,26 @@
 <style rel="stylesheet/scss" lang="scss">
   @import 'index';
 </style>
+
+<style rel="stylesheet/scss" lang="scss">
+  .bounce-enter-active {
+    animation: bounce-in .25s;
+  }
+
+  .bounce-leave-active {
+    animation: bounce-in .25s reverse;
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
+
