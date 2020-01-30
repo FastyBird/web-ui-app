@@ -1,5 +1,4 @@
 @import "../../../../assets/variables/colors";
-@import "../../../../assets/variables/buttons";
 
 $bar-line-height:     2px !default;
 $bar-line-width:      22px !default;
@@ -31,7 +30,7 @@ $bar-line-distance:   5px !default;
       width: $bar-line-width;
 
       .bar-line {
-        background-color: $btn-primary-color;
+        background-color: #fff;
         border-radius: 1px;
         display: block;
         height: 100%;

@@ -4,7 +4,7 @@
 @import "../../../assets/mixins/utilities";
 
 $divider-size:          1px !default;
-$divider-size-half:     half($divider-size) !default;
+$divider-size-half:     ceil($divider-size / 2) !default;
 
 .fb-divider {
   &__container {

@@ -97,7 +97,7 @@ $switch-width: 44px !default;
 
   &__track {
     background-color: $gray;
-    border-radius: half($switch-height);
+    border-radius: ceil($switch-height / 2);
     height: 100%;
     left: 0;
     position: absolute;

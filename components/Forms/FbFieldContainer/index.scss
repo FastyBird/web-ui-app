@@ -77,8 +77,8 @@
     }
 
     &[data-orientation="horizontal"] {
-      margin-left: ceil(($form-grid-gutter-width / -2));
-      margin-right: floor(($form-grid-gutter-width / -2));
+      margin-left: ceil($form-grid-gutter-width / -2);
+      margin-right: floor($form-grid-gutter-width / -2);
 
       @include clearfix;
 

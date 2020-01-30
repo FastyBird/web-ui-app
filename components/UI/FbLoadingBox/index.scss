@@ -25,7 +25,7 @@
       top: 50%;
       border-width: $spinner-lg-border-width;
       height: $spinner-lg-size;
-      margin: half(-$spinner-lg-size) 0 0 half(-$spinner-lg-size);
+      margin: ceil(-$spinner-lg-size / 2) 0 0 ceil(-$spinner-lg-size / 2);
       width: $spinner-lg-size;
     }
 

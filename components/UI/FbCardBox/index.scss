@@ -17,7 +17,7 @@ $card-padding-horizontal:       10px !default;
 $card-padding-vertical:         15px !default;
 
 $card-title-margin-bottom:      5px !default;
-$card-subtitle-margin-top:      half(-$card-title-margin-bottom) !default;
+$card-subtitle-margin-top:      ceil(-$card-title-margin-bottom / 2) !default;
 
 $card-header-bg:                null !default;
 $card-footer-bg:                null !default;

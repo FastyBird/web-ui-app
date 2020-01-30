@@ -1,5 +1,4 @@
 @import "colors";
-@import "./../mixins/utilities";
 
 $spinner-size:                          24px !default;
 
@@ -24,6 +23,6 @@ $spinner-sm-border-width:               null !default;
 @mixin spinner-size($size, $border-width) {
   border-width: $border-width;
   height: $size;
-  margin: half(-$size) 0 0 half(-$size);
+  margin: ceil(-$size / 2) 0 0 ceil(-$size / 2);
   width: $size;
 }
