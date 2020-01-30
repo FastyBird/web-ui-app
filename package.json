@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.15",
-    "bootstrap": "^4.0.0",
     "body-scroll-lock": "^2.5.10",
     "vue-gravatar": "^1.3.0"
   }
