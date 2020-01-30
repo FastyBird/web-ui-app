@@ -17,7 +17,7 @@
 
       border-width: 2px;
       height: 24px;
-      margin: half(-24px) 0 0 half(-24px);
+      margin: -12px 0 0 -12px;
       width: 24px;
     }
 
@@ -56,14 +56,14 @@
     &[data-size="lg"]:after {
       border-width: 3px;
       height: 48px;
-      margin: half(-48px) 0 0 half(-48px);
+      margin: -24px 0 0 -24px;
       width: 48px;
     }
 
     &[data-size="sm"]:before,
     &[data-size="sm"]:after {
       height: 18px;
-      margin: half(-18px) 0 0 half(-18px);
+      margin: -9px 0 0 -9px;
       width: 18px;
     }
   }

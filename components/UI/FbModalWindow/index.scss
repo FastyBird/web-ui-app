@@ -95,7 +95,7 @@
 
   &__body {
     position: relative;
-    padding: 20px;
+    padding: 15px;
   }
 
   &__close {
@@ -125,7 +125,7 @@
   }
 
   &__footer {
-    padding: 0 20px 15px 20px;
+    padding: 0 15px 15px 15px;
     text-align: right;
 
     @include clearfix;

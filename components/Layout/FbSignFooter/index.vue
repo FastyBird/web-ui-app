@@ -1,13 +1,13 @@
 <template>
   <div class="fb-sign-footer__container">
-    <p v-if="!isSignIn">
+    <p v-if="isSignUp">
       {{ $t('texts.alreadyHaveAccount') }}
       <nuxt-link :to="signInLink">
         {{ $t('buttons.signIn.title') }}
       </nuxt-link>
     </p>
 
-    <p v-if="isSignIn">
+    <p v-else>
       {{ $t('texts.withoutAccount') }}
       <nuxt-link :to="signUpLink">
         {{ $t('buttons.signUp.title') }}
@@ -16,17 +16,8 @@
 
     <ul>
       <li>
-        <nuxt-link
-          v-if="isSignIn"
-          :to="signUpLink"
-        >
+        <nuxt-link :to="signUpLink">
           {{ $t('buttons.signUp.title') }}
-        </nuxt-link>
-        <nuxt-link
-          v-if="!isSignIn"
-          :to="signInLink"
-        >
-          {{ $t('buttons.signIn.title') }}
         </nuxt-link>
       </li>
       <li>|</li>
@@ -86,8 +77,8 @@
 
     computed: {
 
-      isSignIn() {
-        return this.$route.path === this.signInLink
+      isSignUp() {
+        return this.$route.path === this.signUpLink
       },
 
     },
