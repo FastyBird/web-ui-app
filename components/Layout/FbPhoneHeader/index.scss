@@ -18,6 +18,10 @@
     @media (min-width: $screen-sm-min) {
       display: none !important;
     }
+
+    svg {
+      color: #fff;
+    }
   }
 
   &__row {
@@ -42,6 +46,7 @@
     text-align: center;
     font-size: 40px;
     text-transform: lowercase;
+    color: #fff;
 
     &-right {
       float: right;
@@ -75,6 +80,10 @@
     padding-left: 12px;
     padding-right: 12px;
     text-align: center;
+
+    svg {
+      color: $brand-primary;
+    }
 
     transition-duration: 0.28s;
     transition-property: box-shadow, transform, opacity;
