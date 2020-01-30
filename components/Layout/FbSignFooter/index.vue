@@ -1,36 +1,36 @@
 <template>
   <div class="fb-sign-footer__container">
     <p v-if="isSignUp">
-      {{ $t('texts.alreadyHaveAccount') }}
+      {{ alreadyHaveAccountText }}
       <nuxt-link :to="signInLink">
-        {{ $t('buttons.signIn.title') }}
+        {{ signInLabel }}
       </nuxt-link>
     </p>
 
     <p v-else>
-      {{ $t('texts.withoutAccount') }}
+      {{ withoutAccountText }}
       <nuxt-link :to="signUpLink">
-        {{ $t('buttons.signUp.title') }}
+        {{ signUpLabel }}
       </nuxt-link>
     </p>
 
     <ul>
       <li>
         <nuxt-link :to="signUpLink">
-          {{ $t('buttons.signUp.title') }}
+          {{ signUpLabel }}
         </nuxt-link>
       </li>
       <li>|</li>
       <li>
-        <a href="#">{{ $t('buttons.privacyPolicy.title') }}</a>
+        <a href="#">{{ privacyPolicyLabel }}</a>
       </li>
       <li>|</li>
       <li>
-        <a href="#">{{ $t('buttons.termsOfUse.title') }}</a>
+        <a href="#">{{ termsLabel }}</a>
       </li>
       <li>|</li>
       <li>
-        <a href="#">{{ $t('buttons.cookiePolicy.title') }}</a>
+        <a href="#">{{ cookiePolicyLabel }}</a>
       </li>
       <li class="fb-sign-footer__owner">
         &copy;
@@ -73,6 +73,41 @@
         default: 'FastyBird s.r.o.',
       },
 
+      signInLabel: {
+        type: String,
+        default: 'Sign in',
+      },
+
+      signUpLabel: {
+        type: String,
+        default: 'Sign up',
+      },
+
+      privacyPolicyLabel: {
+        type: String,
+        default: 'Privacy Policy',
+      },
+
+      termsLabel: {
+        type: String,
+        default: 'Terms',
+      },
+
+      cookiePolicyLabel: {
+        type: String,
+        default: 'Cookie Policy',
+      },
+
+      alreadyHaveAccountText: {
+        type: String,
+        default: 'Already have an account?',
+      },
+
+      withoutAccountText: {
+        type: String,
+        default: 'Don\'t have an account?',
+      },
+
     },
 
     computed: {
@@ -89,5 +124,3 @@
 <style rel="stylesheet/scss" lang="scss">
   @import 'index';
 </style>
-
-<i18n src="./locales.json" />

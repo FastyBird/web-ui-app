@@ -28,7 +28,7 @@
           tabindex="2"
           @click.prevent="close($event)"
         >
-          {{ $t('buttons.close.title') }}
+          {{ closeBtnLabel }}
         </fb-button>
         <template v-else>&nbsp;</template>
       </div>
@@ -60,6 +60,12 @@
         default: true,
       },
 
+      closeBtnLabel: {
+        type: String,
+        required: false,
+        default: 'Close',
+      },
+
       transparentBg: {
         type: Boolean,
         default: false,
@@ -84,5 +90,3 @@
 <style rel="stylesheet/scss" lang="scss">
   @import 'index';
 </style>
-
-<i18n src="./locales.json" />

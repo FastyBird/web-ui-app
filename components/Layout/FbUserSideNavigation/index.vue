@@ -35,7 +35,7 @@
     >
       <template v-if="version !== null">
         <li class="fb-user-side-navigation__version">
-          {{ $t('texts.version', { version: version }) }}
+          Version: {{ version }}
         </li>
         <li class="divider" />
       </template>
@@ -172,5 +172,3 @@
 <style rel="stylesheet/scss" lang="scss">
   @import 'index';
 </style>
-
-<i18n src="./locales.json" />

@@ -28,7 +28,7 @@
               tabindex="2"
               @click.prevent="confirm()"
             >
-              {{ $t('buttons.yes.title') }}
+              {{ yesBtnLabel }}
             </fb-button>
 
             <fb-button
@@ -39,7 +39,7 @@
               tabindex="3"
               @click.prevent="close()"
             >
-              {{ $t('buttons.no.title') }}
+              {{ noBtnLabel }}
             </fb-button>
           </template>
 
@@ -52,7 +52,7 @@
               tabindex="2"
               @click.prevent="close()"
             >
-              {{ $t('buttons.no.title') }}
+              {{ noBtnLabel }}
             </fb-button>
 
             <fb-button
@@ -63,7 +63,7 @@
               tabindex="3"
               @click.prevent="confirm()"
             >
-              {{ $t('buttons.yes.title') }}
+              {{ yesBtnLabel }}
             </fb-button>
           </template>
         </div>
@@ -113,9 +113,21 @@
         default: true,
       },
 
+      yesBtnLabel: {
+        type: String,
+        required: false,
+        default: 'Yes',
+      },
+
       showNo: {
         type: Boolean,
         default: true,
+      },
+
+      noBtnLabel: {
+        type: String,
+        required: false,
+        default: 'No',
       },
 
       transparentBg: {
@@ -184,5 +196,3 @@
 <style rel="stylesheet/scss" lang="scss">
   @import 'index';
 </style>
-
-<i18n src="./locales.json" />

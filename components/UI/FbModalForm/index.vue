@@ -26,7 +26,7 @@
           name="close"
           @click.prevent="close()"
         >
-          {{ cancelButton !== null ? cancelButton : $t('buttons.close.title') }}
+          {{ cancelBtnLabel }}
         </fb-button>
         <fb-button
           uppercase
@@ -37,7 +37,7 @@
           name="save"
           @click.prevent="submit()"
         >
-          {{ submitButton !== null ? submitButton : $t('buttons.save.title') }}
+          {{ submitBtnLabel }}
         </fb-button>
       </div>
     </template>
@@ -62,16 +62,16 @@
         required: true,
       },
 
-      submitButton: {
+      submitBtnLabel: {
         type: String,
         required: false,
-        default: null,
+        default: 'Save',
       },
 
-      cancelButton: {
+      cancelBtnLabel: {
         type: String,
         required: false,
-        default: null,
+        default: 'Close',
       },
 
       lockButtons: {
@@ -127,5 +127,3 @@
 <style rel="stylesheet/scss" lang="scss">
   @import 'index';
 </style>
-
-<i18n src="./locales.json" />

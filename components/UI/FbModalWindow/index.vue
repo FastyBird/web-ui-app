@@ -39,7 +39,7 @@
                     @click.prevent="close()"
                   >
                     <span aria-hidden="true">×</span>
-                    <span class="sr-only">{{ $t('buttons.close.title') }}</span>
+                    <span class="sr-only">{{ closeBtnLabel }}</span>
                   </button>
 
                   <h4>
@@ -138,6 +138,12 @@
       enableClosing: {
         type: Boolean,
         default: true,
+      },
+
+      closeBtnLabel: {
+        type: String,
+        required: false,
+        default: 'Close',
       },
 
       transparentBg: {

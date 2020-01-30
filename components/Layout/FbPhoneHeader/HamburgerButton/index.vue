@@ -4,7 +4,7 @@
     type="button"
     @click.prevent="listeners['click']()"
   >
-    <span>{{ parent.$t('application.buttons.toggleNavigation.title') }}</span>
+    <span>Toggle navigation</span>
     <div class="bars">
       <span class="bar-line bar-line-1 out" />
       <span class="bar-line bar-line-2 out" />
