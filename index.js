@@ -1,4 +1,4 @@
-// Components
+// Forms components
 import FbFormInput from './components/Forms/FbInput'
 import FbFormSelect from './components/Forms/FbSelect'
 import FbFormTextArea from './components/Forms/FbTextArea'
@@ -6,14 +6,14 @@ import FbFormCheckboxesGroup from './components/Forms/FbCheckboxesGroup'
 import FbFormRadioButton from './components/Forms/FbRadioButton'
 import FbFormRadioButtonsGroup from './components/Forms/FbRadioButtonsGroup'
 
-// Forms
+// MD forms components
 import FbFormCheckbox from './components/Forms/FbCheckbox'
 import FbMdFormDatePicker from './components/Forms/FbMdDatePicker'
 import FbMdFormInput from './components/Forms/FbMdInput'
 import FbMdFormSelect from './components/Forms/FbMdSelect'
 import FbMdFormTextArea from './components/Forms/FbMdTextArea'
 
-// Layout components
+// UI components
 import FbButton from './components/UI/FbButton'
 import FbCardBox from './components/UI/FbCardBox'
 import FbConfirmationWindow from './components/UI/FbConfirmationWindow'
@@ -24,6 +24,8 @@ import FbDivider from './components/UI/FbDivider'
 import FbSwitchElement from './components/UI/FbSwitchElement'
 import FbLoadingBox from './components/UI/FbLoadingBox'
 import FbPageLoading from './components/UI/FbPageLoading'
+import FbResultErr from './components/UI/FbResultErr'
+import FbResultOk from './components/UI/FbResultOk'
 import FbSpinner from './components/UI/FbSpinner'
 
 import ThemeHelpersMixin from './mixins/helpers'
@@ -61,6 +63,8 @@ export default {
     Vue.component('FbSwitchElement', FbSwitchElement)
     Vue.component('FbLoadingBox', FbLoadingBox)
     Vue.component('FbPageLoading', FbPageLoading)
+    Vue.component('FbResultErr', FbResultErr)
+    Vue.component('FbResultOk', FbResultOk)
     Vue.component('FbSpinner', FbSpinner)
 
     Vue.mixin(ThemeHelpersMixin)

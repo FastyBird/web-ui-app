@@ -1,0 +1,69 @@
+@import "../../../assets/variables/colors";
+
+.fb-result-ok {
+  &__container {
+    svg {
+      width: 100px;
+      display: block;
+      margin: 40px auto 0;
+
+      circle,
+      polyline {
+        fill: none;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+        stroke: $brand-success;
+        stroke-width: 6;
+        stroke-miterlimit: 10;
+      }
+
+      circle {
+        -webkit-animation: fb-result-ok-dash .9s ease-in-out;
+        animation: fb-result-ok-dash .9s ease-in-out;
+      }
+
+      polyline {
+        stroke-dashoffset: -100;
+        stroke-linecap: round;
+        -webkit-animation: fb-result-ok-dash-check .9s .35s ease-in-out forwards;
+        animation: fb-result-ok-dash-check .9s .35s ease-in-out forwards;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes fb-result-ok-dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fb-result-ok-dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fb-result-ok-dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+@keyframes fb-result-ok-dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}

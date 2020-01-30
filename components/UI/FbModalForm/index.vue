@@ -10,9 +10,24 @@
 
     <form
       slot="modal-body"
+      class="fb-form-window__form"
       @submit.prevent="submit"
     >
       <slot name="form" />
+
+      <div
+        v-if="resultIsOk"
+        class="fb-form-window__result"
+      >
+        <fb-result-ok />
+      </div>
+
+      <div
+        v-if="resultIsErr"
+        class="fb-form-window__result"
+      >
+        <fb-result-err />
+      </div>
     </form>
 
     <template slot="modal-footer">
@@ -87,6 +102,16 @@
       },
 
       transparentBg: {
+        type: Boolean,
+        default: false,
+      },
+
+      resultIsOk: {
+        type: Boolean,
+        default: false,
+      },
+
+      resultIsErr: {
         type: Boolean,
         default: false,
       },

@@ -6,4 +6,22 @@
       color: $text-muted !important;
     }
   }
+
+  &__result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: table;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+
+    > div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
 }
