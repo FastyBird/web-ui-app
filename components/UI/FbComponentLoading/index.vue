@@ -8,11 +8,11 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbComponentLoading',
+  name: 'FbComponentLoading',
 
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

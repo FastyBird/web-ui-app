@@ -60,7 +60,9 @@
         v-if="slotExists('help-line') && error === null"
         class="fb-field-container__help"
       >
-        <small ><slot name="help-line" /></small>
+        <small>
+          <slot name="help-line" />
+        </small>
       </p>
 
       <fb-error
@@ -72,71 +74,71 @@
 </template>
 
 <script>
-  const FbLabel = () => import('../FbLabel')
-  const FbError = () => import('../FbError')
+const FbLabel = () => import('../FbLabel')
+const FbError = () => import('../FbError')
 
-  export default {
+export default {
 
-    name: 'FbFormFieldContainer',
+  name: 'FbFormFieldContainer',
 
-    components: {
-      FbLabel,
-      FbError,
+  components: {
+    FbLabel,
+    FbError,
+  },
+
+  props: {
+
+    orientation: {
+      type: String,
+      default: 'vertical',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
+      },
     },
 
-    props: {
-
-      orientation: {
-        type: String,
-        default: 'vertical',
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
-        },
+    size: {
+      type: String,
+      default: null,
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['lg', 'sm'].indexOf(value) !== -1
       },
-
-      size: {
-        type: String,
-        default: null,
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['lg', 'sm'].indexOf(value) !== -1
-        },
-      },
-
-      name: {
-        type: String,
-        required: true,
-      },
-
-      id: {
-        type: String,
-        default: null,
-      },
-
-      label: {
-        type: String,
-        default: null,
-      },
-
-      isFocused: {
-        type: Boolean,
-        default: false,
-      },
-
-      hasValue: {
-        type: Boolean,
-        default: false,
-      },
-
-      error: {
-        type: String,
-        default: null,
-      },
-
     },
 
-  }
+    name: {
+      type: String,
+      required: true,
+    },
+
+    id: {
+      type: String,
+      default: null,
+    },
+
+    label: {
+      type: String,
+      default: null,
+    },
+
+    isFocused: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasValue: {
+      type: Boolean,
+      default: false,
+    },
+
+    error: {
+      type: String,
+      default: null,
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

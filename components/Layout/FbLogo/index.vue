@@ -9,26 +9,26 @@
 </template>
 
 <script>
-  import FbLogoImage from '../../../assets/images/fastybird_row.svg?inline'
+import FbLogoImage from '../../../assets/images/fastybird_row.svg?inline'
 
-  export default {
+export default {
 
-    name: 'FbLogo',
+  name: 'FbLogo',
 
-    components: {
-      FbLogoImage,
+  components: {
+    FbLogoImage,
+  },
+
+  props: {
+
+    link: {
+      type: String,
+      required: true,
     },
 
-    props: {
+  },
 
-      link: {
-        type: String,
-        required: true,
-      },
-
-    },
-
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

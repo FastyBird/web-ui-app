@@ -8,20 +8,20 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbLoadingBox',
+  name: 'FbLoadingBox',
 
-    props: {
+  props: {
 
-      text: {
-        type: String,
-        required: true,
-      },
-
+    text: {
+      type: String,
+      required: true,
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

@@ -12,17 +12,17 @@
 </template>
 
 <script>
-  import Logo from '../../../assets/images/fastybird_signin.svg?inline'
+import Logo from '../../../assets/images/fastybird_signin.svg?inline'
 
-  export default {
+export default {
 
-    name: 'FbPageLoading',
+  name: 'FbPageLoading',
 
-    components: {
-      Logo,
-    },
+  components: {
+    Logo,
+  },
 
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

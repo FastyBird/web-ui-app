@@ -28,8 +28,10 @@ import FbResultErr from './components/UI/FbResultErr'
 import FbResultOk from './components/UI/FbResultOk'
 import FbSpinner from './components/UI/FbSpinner'
 
+// Mixins
 import ThemeHelpersMixin from './mixins/helpers'
 
+// Directives
 import ThemeClickOutsideDirective from './directives/ClickOutside'
 import ThemeBodyScrollLockDirective from './directives/BodyScrollLock'
 
@@ -52,7 +54,7 @@ export default {
     Vue.component('FbMdFormSelect', FbMdFormSelect)
     Vue.component('FbMdFormTextArea', FbMdFormTextArea)
 
-    // Layout components
+    // UI components
     Vue.component('FbButton', FbButton)
     Vue.component('FbCardBox', FbCardBox)
     Vue.component('FbConfirmationWindow', FbConfirmationWindow)
@@ -67,8 +69,10 @@ export default {
     Vue.component('FbResultOk', FbResultOk)
     Vue.component('FbSpinner', FbSpinner)
 
+    // Mixins
     Vue.mixin(ThemeHelpersMixin)
 
+    // Directives
     Vue.directive('clickOutside', ThemeClickOutsideDirective)
     Vue.directive('bodyScrollLock', ThemeBodyScrollLockDirective)
   },

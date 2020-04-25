@@ -10,26 +10,26 @@
 </template>
 
 <script>
-  import Logo from '../../../assets/images/fastybird_bird.svg?inline'
+import Logo from '../../../assets/images/fastybird_bird.svg?inline'
 
-  export default {
+export default {
 
-    name: 'FbSignHeader',
+  name: 'FbSignHeader',
 
-    components: {
-      Logo,
+  components: {
+    Logo,
+  },
+
+  props: {
+
+    signInLink: {
+      type: String,
+      default: '/sing-in',
     },
 
-    props: {
+  },
 
-      signInLink: {
-        type: String,
-        default: '/sing-in',
-      },
-
-    },
-
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

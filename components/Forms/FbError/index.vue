@@ -7,20 +7,20 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbFormError',
+  name: 'FbFormError',
 
-    props: {
+  props: {
 
-      error: {
-        type: String,
-        required: true,
-      },
-
+    error: {
+      type: String,
+      required: true,
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

@@ -69,104 +69,104 @@
 </template>
 
 <script>
-  const FbMdFieldContainer = () => import('../FbMdFieldContainer')
+const FbMdFieldContainer = () => import('../FbMdFieldContainer')
 
-  export default {
+export default {
 
-    name: 'FbMdFormSelect',
+  name: 'FbMdFormSelect',
 
-    components: {
-      FbMdFieldContainer,
+  components: {
+    FbMdFieldContainer,
+  },
+
+  props: {
+
+    name: {
+      type: String,
+      required: true,
     },
 
-    props: {
-
-      name: {
-        type: String,
-        required: true,
-      },
-
-      id: {
-        type: String,
-        default: null,
-      },
-
-      label: {
-        type: String,
-        default: null,
-      },
-
-      items: {
-        type: Array,
-        required: true,
-      },
-
-      value: {
-        type: [String, Number],
-        default: null,
-      },
-
-      tabIndex: {
-        type: Number,
-        default: null,
-      },
-
-      hasError: {
-        type: Boolean,
-        default: false,
-      },
-
-      error: {
-        type: String,
-        default: null,
-      },
-
-      blankSelect: {
-        type: String,
-        default: null,
-      },
-
+    id: {
+      type: String,
+      default: null,
     },
 
-    data() {
-      return {
-        focused: false,
+    label: {
+      type: String,
+      default: null,
+    },
+
+    items: {
+      type: Array,
+      required: true,
+    },
+
+    value: {
+      type: [String, Number],
+      default: null,
+    },
+
+    tabIndex: {
+      type: Number,
+      default: null,
+    },
+
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+
+    error: {
+      type: String,
+      default: null,
+    },
+
+    blankSelect: {
+      type: String,
+      default: null,
+    },
+
+  },
+
+  data() {
+    return {
+      focused: false,
+    }
+  },
+
+  methods: {
+
+    /**
+     * Emit an input event up to the parent
+     *
+     * @param {[String]} value
+     */
+    updateValue(value) {
+      this.$emit('input', value)
+    },
+
+    /**
+     * Fire focus & blur events
+     *
+     * @param {Boolean} value
+     */
+    setFocused(value) {
+      this.focused = value
+
+      if (value) {
+        this.$emit('focus')
+      } else {
+        this.$emit('blur')
       }
     },
 
-    methods: {
-
-      /**
-       * Emit an input event up to the parent
-       *
-       * @param {[String]} value
-       */
-      updateValue(value) {
-        this.$emit('input', value)
-      },
-
-      /**
-       * Fire focus & blur events
-       *
-       * @param {Boolean} value
-       */
-      setFocused(value) {
-        this.focused = value
-
-        if (value) {
-          this.$emit('focus')
-        } else {
-          this.$emit('blur')
-        }
-      },
-
-      changed() {
-        this.$emit('change', this.value)
-      },
-
+    changed() {
+      this.$emit('change', this.value)
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

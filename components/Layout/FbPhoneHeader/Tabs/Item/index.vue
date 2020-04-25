@@ -11,28 +11,28 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbPhoneHeaderTabsItem',
+  name: 'FbPhoneHeaderTabsItem',
 
-    props: {
+  props: {
 
-      item: {
-        type: Object,
-        required: true,
-      },
-
+    item: {
+      type: Object,
+      required: true,
     },
 
-    computed: {
+  },
 
-      active() {
-        return this.$route.path === this.item.link
-      },
+  computed: {
 
+    active() {
+      return this.$route.path === this.item.link
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

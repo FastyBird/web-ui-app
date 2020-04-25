@@ -29,11 +29,11 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbResultErr',
+  name: 'FbResultErr',
 
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

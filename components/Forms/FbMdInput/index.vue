@@ -40,110 +40,110 @@
 </template>
 
 <script>
-  import FbMdFieldContainer from '../FbMdFieldContainer'
+import FbMdFieldContainer from '../FbMdFieldContainer'
 
-  export default {
+export default {
 
-    name: 'FbMdFormInput',
+  name: 'FbMdFormInput',
 
-    components: {
-      FbMdFieldContainer,
+  components: {
+    FbMdFieldContainer,
+  },
+
+  props: {
+
+    name: {
+      type: String,
+      required: true,
     },
 
-    props: {
-
-      name: {
-        type: String,
-        required: true,
-      },
-
-      id: {
-        type: String,
-        default: null,
-      },
-
-      label: {
-        type: String,
-        default: null,
-      },
-
-      type: {
-        type: String,
-        default: 'text',
-      },
-
-      required: {
-        type: Boolean,
-        default: false,
-      },
-
-      value: {
-        type: [String, Number],
-        default: null,
-      },
-
-      tabIndex: {
-        type: Number,
-        default: null,
-      },
-
-      hasError: {
-        type: Boolean,
-        default: false,
-      },
-
-      error: {
-        type: String,
-        default: null,
-      },
-
-      placeholder: {
-        type: String,
-        default: null,
-      },
-
-      readonly: {
-        type: Boolean,
-        default: false,
-      },
-
+    id: {
+      type: String,
+      default: null,
     },
 
-    data() {
-      return {
-        focused: false,
+    label: {
+      type: String,
+      default: null,
+    },
+
+    type: {
+      type: String,
+      default: 'text',
+    },
+
+    required: {
+      type: Boolean,
+      default: false,
+    },
+
+    value: {
+      type: [String, Number],
+      default: null,
+    },
+
+    tabIndex: {
+      type: Number,
+      default: null,
+    },
+
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+
+    error: {
+      type: String,
+      default: null,
+    },
+
+    placeholder: {
+      type: String,
+      default: null,
+    },
+
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
+
+  },
+
+  data() {
+    return {
+      focused: false,
+    }
+  },
+
+  methods: {
+
+    /**
+     * Emit an input event up to the parent
+     *
+     * @param {[String|Number]} value
+     */
+    updateValue(value) {
+      this.$emit('input', value)
+    },
+
+    /**
+     * Fire focus & blur events
+     *
+     * @param {Boolean} value
+     */
+    setFocused(value) {
+      this.focused = value
+
+      if (value) {
+        this.$emit('focus')
+      } else {
+        this.$emit('blur')
       }
     },
 
-    methods: {
+  },
 
-      /**
-       * Emit an input event up to the parent
-       *
-       * @param {[String|Number]} value
-       */
-      updateValue(value) {
-        this.$emit('input', value)
-      },
-
-      /**
-       * Fire focus & blur events
-       *
-       * @param {Boolean} value
-       */
-      setFocused(value) {
-        this.focused = value
-
-        if (value) {
-          this.$emit('focus')
-        } else {
-          this.$emit('blur')
-        }
-      },
-
-    },
-
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

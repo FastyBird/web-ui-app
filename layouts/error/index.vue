@@ -61,58 +61,58 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbLayoutError',
+  name: 'FbLayoutError',
 
-    props: {
+  props: {
 
-      error: {
-        type: Object,
-        default: null,
-      },
-
-      message: {
-        type: String,
-        default: 'Page not found',
-      },
-
-      description: {
-        type: String,
-        default: 'We are sorry, the page you requested cannot be found.',
-      },
-
-      statusCode: {
-        type: Number,
-        default: 404,
-      },
-
-      homeLink: {
-        type: String,
-        default: '/',
-      },
-
-      authorWebsite: {
-        type: String,
-        default: null,
-      },
-
-      authorName: {
-        type: String,
-        default: 'FastyBird s.r.o.',
-      },
-
+    error: {
+      type: Object,
+      default: null,
     },
 
-    head() {
-      return {
-        htmlAttrs: {
-          'data-layout': 'layout_error',
-        },
-      }
+    message: {
+      type: String,
+      default: 'Page not found',
     },
 
-  }
+    description: {
+      type: String,
+      default: 'We are sorry, the page you requested cannot be found.',
+    },
+
+    statusCode: {
+      type: Number,
+      default: 404,
+    },
+
+    homeLink: {
+      type: String,
+      default: '/',
+    },
+
+    authorWebsite: {
+      type: String,
+      default: null,
+    },
+
+    authorName: {
+      type: String,
+      default: 'FastyBird s.r.o.',
+    },
+
+  },
+
+  head() {
+    return {
+      htmlAttrs: {
+        'data-layout': 'layout_error',
+      },
+    }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

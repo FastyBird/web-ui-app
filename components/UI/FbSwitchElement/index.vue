@@ -15,36 +15,36 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'SwitchElement',
+  name: 'SwitchElement',
 
-    props: {
+  props: {
 
-      status: {
-        type: Boolean,
-        default: false,
-      },
-
-      disabled: {
-        type: Boolean,
-        default: false,
-      },
-
-      variant: {
-        type: String,
-        default: 'default',
-        validator: (value) => {
-          // The value must match one of these strings
-          return [
-            'default', 'primary', 'success', 'danger', 'warning', 'info',
-          ].indexOf(value) !== -1
-        },
-      },
-
+    status: {
+      type: Boolean,
+      default: false,
     },
 
-  }
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+
+    variant: {
+      type: String,
+      default: 'default',
+      validator: (value) => {
+        // The value must match one of these strings
+        return [
+          'default', 'primary', 'success', 'danger', 'warning', 'info',
+        ].indexOf(value) !== -1
+      },
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

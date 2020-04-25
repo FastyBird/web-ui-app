@@ -78,122 +78,122 @@
 </template>
 
 <script>
-  const FbFieldContainer = () => import('../FbFieldContainer')
+const FbFieldContainer = () => import('../FbFieldContainer')
 
-  export default {
+export default {
 
-    name: 'FbFormSelect',
+  name: 'FbFormSelect',
 
-    components: {
-      FbFieldContainer,
+  components: {
+    FbFieldContainer,
+  },
+
+  props: {
+
+    orientation: {
+      type: String,
+      default: 'vertical',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
+      },
     },
 
-    props: {
-
-      orientation: {
-        type: String,
-        default: 'vertical',
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
-        },
+    size: {
+      type: String,
+      default: null,
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['lg', 'sm'].indexOf(value) !== -1
       },
-
-      size: {
-        type: String,
-        default: null,
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['lg', 'sm'].indexOf(value) !== -1
-        },
-      },
-
-      name: {
-        type: String,
-        required: true,
-      },
-
-      id: {
-        type: String,
-        default: null,
-      },
-
-      label: {
-        type: String,
-        default: null,
-      },
-
-      items: {
-        type: Array,
-        required: true,
-      },
-
-      value: {
-        type: [String, Number],
-        default: null,
-      },
-
-      tabIndex: {
-        type: Number,
-        default: null,
-      },
-
-      hasError: {
-        type: Boolean,
-        default: false,
-      },
-
-      error: {
-        type: String,
-        default: null,
-      },
-
-      blankSelect: {
-        type: String,
-        default: null,
-      },
-
     },
 
-    data() {
-      return {
-        focused: false,
+    name: {
+      type: String,
+      required: true,
+    },
+
+    id: {
+      type: String,
+      default: null,
+    },
+
+    label: {
+      type: String,
+      default: null,
+    },
+
+    items: {
+      type: Array,
+      required: true,
+    },
+
+    value: {
+      type: [String, Number],
+      default: null,
+    },
+
+    tabIndex: {
+      type: Number,
+      default: null,
+    },
+
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+
+    error: {
+      type: String,
+      default: null,
+    },
+
+    blankSelect: {
+      type: String,
+      default: null,
+    },
+
+  },
+
+  data() {
+    return {
+      focused: false,
+    }
+  },
+
+  methods: {
+
+    /**
+     * Emit an input event up to the parent
+     *
+     * @param {[String]} value
+     */
+    updateValue(value) {
+      this.$emit('input', value)
+    },
+
+    /**
+     * Fire focus & blur events
+     *
+     * @param {Boolean} value
+     */
+    setFocused(value) {
+      this.focused = value
+
+      if (value) {
+        this.$emit('focus')
+      } else {
+        this.$emit('blur')
       }
     },
 
-    methods: {
-
-      /**
-       * Emit an input event up to the parent
-       *
-       * @param {[String]} value
-       */
-      updateValue(value) {
-        this.$emit('input', value)
-      },
-
-      /**
-       * Fire focus & blur events
-       *
-       * @param {Boolean} value
-       */
-      setFocused(value) {
-        this.focused = value
-
-        if (value) {
-          this.$emit('focus')
-        } else {
-          this.$emit('blur')
-        }
-      },
-
-      changed() {
-        this.$emit('change', this.value)
-      },
-
+    changed() {
+      this.$emit('change', this.value)
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

@@ -24,34 +24,34 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbBottomNavigationItem',
+  name: 'FbBottomNavigationItem',
 
-    props: {
+  props: {
 
-      item: {
-        type: Object,
-        required: true,
-      },
-
+    item: {
+      type: Object,
+      required: true,
     },
 
-    computed: {
+  },
 
-      active() {
-        return this.$route.path === this.item.link
-      },
+  computed: {
 
+    active() {
+      return this.$route.path === this.item.link
     },
 
-    methods: {
+  },
 
-      callCallback() {
-        this.item.callback(this)
-      },
+  methods: {
 
+    callCallback() {
+      this.item.callback(this)
     },
 
-  }
+  },
+
+}
 </script>

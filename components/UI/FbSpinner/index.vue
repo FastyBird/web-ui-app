@@ -7,37 +7,37 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbSpinner',
+  name: 'FbSpinner',
 
-    props: {
+  props: {
 
-      variant: {
-        type: String,
-        default: 'primary',
-        validator: (value) => {
-          // The value must match one of these strings
-          return [
-            'default', 'primary', 'success', 'danger', 'warning', 'info',
-          ].indexOf(value) !== -1
-        },
+    variant: {
+      type: String,
+      default: 'primary',
+      validator: (value) => {
+        // The value must match one of these strings
+        return [
+          'default', 'primary', 'success', 'danger', 'warning', 'info',
+        ].indexOf(value) !== -1
       },
-
-      size: {
-        type: String,
-        default: 'md',
-        validator: (value) => {
-          // The value must match one of these strings
-          return [
-            'sm', 'md', 'lg',
-          ].indexOf(value) !== -1
-        },
-      },
-
     },
 
-  }
+    size: {
+      type: String,
+      default: 'md',
+      validator: (value) => {
+        // The value must match one of these strings
+        return [
+          'sm', 'md', 'lg',
+        ].indexOf(value) !== -1
+      },
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

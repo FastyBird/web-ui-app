@@ -1,65 +1,77 @@
 <template>
   <div
     class="fb-phone-header__container"
-    ref="phone-header"
+    ref="container"
   >
     <div class="fb-phone-header__row">
       <heading
-        v-if="!hasFullRowHeading() && !isHiddenHeading()"
+        v-if="headingStyle === 'normal'"
+        :heading="heading"
+        :sub-heading="subHeading"
+        :icon="icon"
         :home-link="homeLink"
+        :left-align="leftButton === null && heading !== null"
+        :full-row-heading="false"
+        @iconClicked="$emit('iconClicked')"
       />
 
       <action-button
-        v-if="hasLeftButton() && !isHiddenLeftButton()"
-        :name="getLeftButton().name"
-        :icon="getLeftButton().icon"
+        v-if="leftButton !== null"
+        :name="leftButton.name"
+        :icon="leftButton.icon"
         type="button"
-        :class="['fb-phone-header__button', {'fb-phone-header__button-small': hasFullRowHeading()}, {'fb-phone-header__button-textual': getLeftButton().icon === null}]"
-        @click="buttonAction('left')"
+        :class="['fb-phone-header__button', {'fb-phone-header__button-small': headingStyle === 'row'}, {'fb-phone-header__button-textual': leftButton.icon === null}]"
+        @click="$emit('leftButtonClicked')"
       />
 
       <action-button
-        v-if="hasRightButton() && !isHiddenRightButton()"
-        :name="getRightButton().name"
-        :icon="getRightButton().icon"
+        v-if="rightButton !== null"
+        :name="rightButton.name"
+        :icon="rightButton.icon"
         type="button"
-        :class="['fb-phone-header__button', 'fb-phone-header__button-right', {'fb-phone-header__button-small': hasFullRowHeading()}, {'fb-phone-header__button-textual': getRightButton().icon === null}]"
-        @click="buttonAction('right')"
+        :class="['fb-phone-header__button', 'fb-phone-header__button-right', {'fb-phone-header__button-small': headingStyle === 'row'}, {'fb-phone-header__button-textual': rightButton.icon === null}]"
+        @click="$emit('rightButtonClicked')"
       />
 
       <hamburger-button
-        v-if="!isHiddenRightButton() && !hasRightButton()"
+        v-if="rightButton === null || leftButton === null"
         :collapsed="menuCollapsed"
-        :class="['fb-phone-header__button', {'fb-phone-header__button-right': !isHiddenRightButton() && !hasRightButton()}, {'fb-phone-header__button-small': hasFullRowHeading()}]"
-        @click="toggleMainMenu"
+        :class="['fb-phone-header__button', {'fb-phone-header__button-right': rightButton === null}, {'fb-phone-header__button-small': headingStyle === 'row'}]"
+        @click="$emit('toggleMenu')"
       />
     </div>
 
     <heading
-      v-if="hasFullRowHeading() && !isHiddenHeading() && hasHeading()"
+      v-if="headingStyle === 'row' && heading !== null"
+      :heading="heading"
+      :sub-heading="subHeading"
+      :icon="icon"
       :home-link="homeLink"
+      :left-align="leftButton === null && heading !== null"
+      :full-row-heading="true"
       class="fb-phone-header__row"
+      @iconClicked="$emit('iconClicked')"
     />
 
     <p
-      v-if="hasInfoText()"
+      v-if="infoText !== null"
       class="fb-phone-header__info"
     >
-      {{ getInfoText() }}
+      {{ infoText }}
     </p>
 
     <tabs
-      v-if="hasTabs()"
-      :tabs="getTabs()"
+      v-if="tabs.length > 0"
+      :tabs="tabs"
     />
 
     <fb-button
-      v-if="hasAddButton()"
+      v-if="actionButton !== null"
       variant="outline-primary"
       uppercase
       pill
       class="fb-phone-header__add-button"
-      @click="buttonAction('add')"
+      @click="$emit('actionButtonClicked')"
     >
       <slot name="add-icon" />
     </fb-button>
@@ -67,230 +79,124 @@
 </template>
 
 <script>
-  import { mapState, mapGetters, mapActions } from 'vuex'
+import Heading from './Heading'
+import ActionButton from './Button'
+import HamburgerButton from './HamburgerButton'
+import Tabs from './Tabs'
 
-  import Heading from './Heading'
-  import ActionButton from './Button'
-  import HamburgerButton from './HamburgerButton'
-  import Tabs from './Tabs'
+export default {
 
-  export default {
+  name: 'FbPhoneHeader',
 
-    name: 'FbPhoneHeader',
+  components: {
+    Heading,
+    ActionButton,
+    HamburgerButton,
+    Tabs,
+  },
 
-    components: {
-      Heading,
-      ActionButton,
-      HamburgerButton,
-      Tabs,
+  props: {
+
+    heading: {
+      type: String,
+      default: null,
     },
 
-    props: {
-
-      hasProfile: {
-        type: Boolean,
-        default: false,
-      },
-
-      avatar: {
-        type: String,
-        default: null,
-      },
-
-      userName: {
-        type: String,
-        default: null,
-      },
-
-      userEmail: {
-        type: String,
-        default: null,
-      },
-
-      userMenuItems: {
-        type: Array,
-        default: () => {
-          return []
-        },
-      },
-
-      homeLink: {
-        type: String,
-        default: '/',
-      },
-
+    subHeading: {
+      type: String,
+      default: null,
     },
 
-    data() {
-      return {
-        show: {
-          mainnav: false,
-          usernav: false,
-        },
-      }
+    infoText: {
+      type: String,
+      default: null,
     },
 
-    computed: {
-
-      ...mapState({
-        menuCollapsed: state => state.theme.menu.collapsed.xs,
-      }),
-
-      ...mapGetters('header', [
-        'hasHeading',
-        'hasFullRowHeading',
-        'isHiddenHeading',
-        'hasLeftButton',
-        'isHiddenLeftButton',
-        'getLeftButton',
-        'hasRightButton',
-        'isHiddenRightButton',
-        'getRightButton',
-        'hasInfoText',
-        'getInfoText',
-        'hasTabs',
-        'getTabs',
-        'hasAddButton',
-        'getAddButton',
-      ]),
-
-      leftButton() {
-        return this.getLeftButton()
+    headingStyle: {
+      type: String,
+      default: 'normal',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['normal', 'row', 'hidden'].indexOf(value) !== -1
       },
-
-      hasLeftButtonCallback() {
-        const button = this.getLeftButton()
-
-        return typeof this._.get(button, 'callback') === 'function'
-      },
-
-      rightButton() {
-        return this.getRightButton()
-      },
-
-      hasRightButtonCallback() {
-        const button = this.getRightButton()
-
-        return typeof this._.get(button, 'callback') === 'function'
-      },
-
-      addButton() {
-        return this.getAddButton()
-      },
-
-      hasAddButtonCallback() {
-        const button = this.getAddButton()
-
-        return typeof this._.get(button, 'callback') === 'function'
-      },
-
     },
 
-    watch: {
-
-      $route() {
-        for (const key in this.show) {
-          if (this.show.hasOwnProperty(key)) {
-            this.show[key] = false
-          }
-        }
-      },
-
+    icon: {
+      type: String,
+      default: null,
     },
 
-    mounted() {
-      window.addEventListener('visibilitychange', this._applyBodyLimits)
-      window.addEventListener('resize', this._applyBodyLimits)
-
-      this.$store.watch(
-        this.$store.getters['header/stateWatch'],
-        () => {
-          this._applyBodyLimits()
-        }, {
-          immediate: true,
-        },
-      )
+    userName: {
+      type: String,
+      default: null,
     },
 
-    beforeDestroy() {
-      window.removeEventListener('visibilitychange', this._applyBodyLimits)
-      window.removeEventListener('resize', this._applyBodyLimits)
+    userEmail: {
+      type: String,
+      default: null,
     },
 
-    methods: {
-
-      ...mapActions('theme', {
-        toggleMenu: 'menuToggle',
-      }),
-
-      toggleProfileMenu() {
-        this.show.usernav = !this.show.usernav
-      },
-
-      toggleMainMenu() {
-        this.toggleMenu()
-        this.show.usernav = false
-      },
-
-      buttonAction(position) {
-        if (position === 'left') {
-          if (this.hasLeftButtonCallback) {
-            this.leftButton.callback()
-          } else {
-            this.$router.push(this.leftButton.link)
-          }
-        } else if (position === 'right') {
-          if (this.hasRightButtonCallback) {
-            this.rightButton.callback()
-          } else {
-            this.$router.push(this.rightButton.link)
-          }
-        } else if (position === 'add') {
-          if (this.hasAddButtonCallback) {
-            this.addButton.callback()
-          } else {
-            this.$router.push(this.addButton.link)
-          }
-        }
-      },
-
-      blur() {
-        for (const key in this.show) {
-          if (this.show.hasOwnProperty(key)) {
-            this.show[key] = false
-          }
-        }
-      },
-
-      /**
-       * Calculate viewport size after window resizing
-       *
-       * @private
-       */
-      _applyBodyLimits() {
-        if (this._.get(this.$refs, 'phone-header')) {
-          const elementHeight = this._.get(this.$refs, 'phone-header.clientHeight')
-
-          this.$store.dispatch('theme/setWindowHeight', {
-            key: 'phone-header',
-            adjust: elementHeight,
-          }, {
-            root: true,
-          })
-
-          this.$store.dispatch('theme/setBodyMargin', {
-            key: 'phone-header',
-            position: 'top',
-            margin: elementHeight,
-          }, {
-            root: true,
-          })
-        }
-      },
-
+    homeLink: {
+      type: String,
+      default: '/',
     },
 
-  }
+    menuCollapsed: {
+      type: Boolean,
+      default: true,
+    },
+
+    tabs: {
+      type: Array,
+      default: () => {
+        return []
+      },
+    },
+
+    leftButton: {
+      type: Object,
+      default: null,
+      validator: (value) => {
+        return !(
+          !Object.prototype.hasOwnProperty.call(value, 'icon') ||
+          !Object.prototype.hasOwnProperty.call(value, 'name')
+        )
+      },
+    },
+
+    rightButton: {
+      type: Object,
+      default: null,
+      validator: (value) => {
+        return !(
+          !Object.prototype.hasOwnProperty.call(value, 'icon') ||
+          !Object.prototype.hasOwnProperty.call(value, 'name')
+        )
+      },
+    },
+
+    actionButton: {
+      type: Object,
+      default: null,
+      validator: (value) => {
+        return !(
+          !Object.prototype.hasOwnProperty.call(value, 'icon') ||
+          !Object.prototype.hasOwnProperty.call(value, 'name')
+        )
+      },
+    },
+
+  },
+
+  mounted() {
+    this.$emit('mounted')
+  },
+
+  updated() {
+    this.$emit('mounted')
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

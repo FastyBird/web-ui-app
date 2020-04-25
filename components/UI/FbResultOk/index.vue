@@ -18,11 +18,11 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbResultOk',
+  name: 'FbResultOk',
 
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

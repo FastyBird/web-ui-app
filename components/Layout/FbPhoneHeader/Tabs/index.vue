@@ -9,26 +9,26 @@
 </template>
 
 <script>
-  import Item from './Item'
+import Item from './Item'
 
-  export default {
+export default {
 
-    name: 'FbPhoneHeaderTabs',
+  name: 'FbPhoneHeaderTabs',
 
-    components: {
-      Item,
+  components: {
+    Item,
+  },
+
+  props: {
+
+    tabs: {
+      type: Array,
+      required: true,
     },
 
-    props: {
+  },
 
-      tabs: {
-        type: Array,
-        required: true,
-      },
-
-    },
-
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

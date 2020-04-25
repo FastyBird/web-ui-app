@@ -28,53 +28,53 @@
 </template>
 
 <script>
-  const FbMdLabel = () => import('../FbMdLabel')
-  const FbMdError = () => import('../FbMdError')
+const FbMdLabel = () => import('../FbMdLabel')
+const FbMdError = () => import('../FbMdError')
 
-  export default {
+export default {
 
-    name: 'FbMdFormFieldContainer',
+  name: 'FbMdFormFieldContainer',
 
-    components: {
-      FbMdLabel,
-      FbMdError,
+  components: {
+    FbMdLabel,
+    FbMdError,
+  },
+
+  props: {
+
+    name: {
+      type: String,
+      required: true,
     },
 
-    props: {
-
-      name: {
-        type: String,
-        required: true,
-      },
-
-      id: {
-        type: String,
-        default: null,
-      },
-
-      label: {
-        type: String,
-        default: null,
-      },
-
-      isFocused: {
-        type: Boolean,
-        default: false,
-      },
-
-      hasValue: {
-        type: Boolean,
-        default: false,
-      },
-
-      error: {
-        type: String,
-        default: null,
-      },
-
+    id: {
+      type: String,
+      default: null,
     },
 
-  }
+    label: {
+      type: String,
+      default: null,
+    },
+
+    isFocused: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasValue: {
+      type: Boolean,
+      default: false,
+    },
+
+    error: {
+      type: String,
+      default: null,
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

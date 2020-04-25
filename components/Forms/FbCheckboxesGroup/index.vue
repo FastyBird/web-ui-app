@@ -8,30 +8,30 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbFormCheckboxesGroup',
+  name: 'FbFormCheckboxesGroup',
 
-    props: {
+  props: {
 
-      value: {
-        type: Array,
-        default: () => {
-          return []
-        },
+    value: {
+      type: Array,
+      default: () => {
+        return []
       },
-
-      hasError: {
-        type: Boolean,
-        default: false,
-      },
-
-      error: {
-        type: String,
-        default: null,
-      },
-
     },
 
-  }
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+
+    error: {
+      type: String,
+      default: null,
+    },
+
+  },
+
+}
 </script>

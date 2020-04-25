@@ -18,20 +18,20 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbPhoneHeaderHamburgerButton',
+  name: 'FbPhoneHeaderHamburgerButton',
 
-    props: {
+  props: {
 
-      collapsed: {
-        type: Boolean,
-        default: false,
-      },
-
+    collapsed: {
+      type: Boolean,
+      default: false,
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

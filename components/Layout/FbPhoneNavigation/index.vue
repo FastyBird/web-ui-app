@@ -4,7 +4,7 @@
       <div
         v-if="!collapsed"
         class="fb-phone-navigation__overlay"
-        @click="menuCollapse"
+        @click="$emit('collapse')"
       />
     </transition>
 
@@ -33,7 +33,7 @@
                   v-if="subItem.link"
                   :to="subItem.link"
                   active-class="active"
-                  @click.native="menuCollapse"
+                  @click.native="$emit('collapse')"
                 >
                   <span class="fb-navigation__item-icon">
                     <font-awesome-icon :icon="subItem.meta.icon" />
@@ -66,42 +66,33 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
+export default {
 
-  export default {
+  name: 'FbPhoneNavigation',
 
-    name: 'FbPhoneNavigation',
+  props: {
 
-    props: {
-
-      items: {
-        type: Array,
-        required: true,
-      },
-
+    items: {
+      type: Array,
+      required: true,
     },
 
-    computed: {
-
-      ...mapState({
-        collapsed: state => state.theme.menu.collapsed.xs,
-      }),
-
-      instance() {
-        return this
-      },
-
+    collapsed: {
+      type: Boolean,
+      default: true,
     },
 
-    methods: {
+  },
 
-      ...mapActions('theme', [
-        'menuCollapse',
-      ]),
+  computed: {
 
+    instance() {
+      return this
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

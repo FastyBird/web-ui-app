@@ -60,93 +60,93 @@
 </template>
 
 <script>
-  import FbModalWindow from '../FbModalWindow/index'
+import FbModalWindow from '../FbModalWindow/index'
 
-  export default {
+export default {
 
-    name: 'FbModalForm',
+  name: 'FbModalForm',
 
-    components: {
-      FbModalWindow,
+  components: {
+    FbModalWindow,
+  },
+
+  props: {
+
+    icon: {
+      type: String,
+      required: true,
     },
 
-    props: {
-
-      icon: {
-        type: String,
-        required: true,
-      },
-
-      submitBtnLabel: {
-        type: String,
-        required: false,
-        default: 'Save',
-      },
-
-      cancelBtnLabel: {
-        type: String,
-        required: false,
-        default: 'Close',
-      },
-
-      lockButtons: {
-        type: Boolean,
-        required: false,
-        default: false,
-      },
-
-      lockSubmitButton: {
-        type: Boolean,
-        required: false,
-        default: false,
-      },
-
-      transparentBg: {
-        type: Boolean,
-        default: false,
-      },
-
-      resultIsOk: {
-        type: Boolean,
-        default: false,
-      },
-
-      resultIsErr: {
-        type: Boolean,
-        default: false,
-      },
-
+    submitBtnLabel: {
+      type: String,
+      required: false,
+      default: 'Save',
     },
 
-    data() {
-      return {
-        initialTabindex: 1,
-      }
+    cancelBtnLabel: {
+      type: String,
+      required: false,
+      default: 'Close',
     },
 
-    created() {
-      this.initialTabindex = this._.get(this, '$slots.form', []).length + 1
+    lockButtons: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
 
-    methods: {
-
-      /**
-       * Close form modal window
-       */
-      close() {
-        this.$emit('close', false)
-      },
-
-      /**
-       * Submit form
-       */
-      submit() {
-        this.$emit('submit')
-      },
-
+    lockSubmitButton: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
 
-  }
+    transparentBg: {
+      type: Boolean,
+      default: false,
+    },
+
+    resultIsOk: {
+      type: Boolean,
+      default: false,
+    },
+
+    resultIsErr: {
+      type: Boolean,
+      default: false,
+    },
+
+  },
+
+  data() {
+    return {
+      initialTabindex: 1,
+    }
+  },
+
+  created() {
+    this.initialTabindex = this._.get(this, '$slots.form', []).length + 1
+  },
+
+  methods: {
+
+    /**
+     * Close form modal window
+     */
+    close() {
+      this.$emit('close', false)
+    },
+
+    /**
+     * Submit form
+     */
+    submit() {
+      this.$emit('submit')
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

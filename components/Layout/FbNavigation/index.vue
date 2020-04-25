@@ -47,28 +47,28 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbNavigation',
+  name: 'FbNavigation',
 
-    props: {
+  props: {
 
-      items: {
-        type: Array,
-        required: true,
-      },
-
+    items: {
+      type: Array,
+      required: true,
     },
 
-    computed: {
+  },
 
-      instance() {
-        return this
-      },
+  computed: {
 
+    instance() {
+      return this
     },
 
-  }
+  },
+
+}
 </script>
 
 <style lang="scss">

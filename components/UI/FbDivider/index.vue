@@ -8,29 +8,29 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbDivider',
+  name: 'FbDivider',
 
-    props: {
+  props: {
 
-      type: {
-        type: String,
-        default: 'horizontal',
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['horizontal', 'vertical'].indexOf(value) !== -1
-        },
+    type: {
+      type: String,
+      default: 'horizontal',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['horizontal', 'vertical'].indexOf(value) !== -1
       },
-
-      text: {
-        type: String,
-        required: true,
-      },
-
     },
 
-  }
+    text: {
+      type: String,
+      required: true,
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

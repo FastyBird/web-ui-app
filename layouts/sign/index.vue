@@ -14,62 +14,55 @@
       :author-website="authorWebsite"
       :author-name="authorName"
     />
-
-    <fb-page-loading v-if="loadingOverlay" />
   </div>
 </template>
 
 <script>
-  const FbSignHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbSignHeader')
-  const FbSignFooter = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbSignFooter')
+const FbSignHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbSignHeader')
+const FbSignFooter = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbSignFooter')
 
-  export default {
+export default {
 
-    name: 'FbLayoutSign',
+  name: 'FbLayoutSign',
 
-    components: {
-      FbSignHeader,
-      FbSignFooter,
+  components: {
+    FbSignHeader,
+    FbSignFooter,
+  },
+
+  props: {
+
+    signInLink: {
+      type: String,
+      default: '/sing-in',
     },
 
-    props: {
-
-      loadingOverlay: {
-        type: Boolean,
-        default: false,
-      },
-
-      signInLink: {
-        type: String,
-        default: '/sing-in',
-      },
-
-      signUpLink: {
-        type: String,
-        default: '/sing-up',
-      },
-
-      authorWebsite: {
-        type: String,
-        default: null,
-      },
-
-      authorName: {
-        type: String,
-        default: 'FastyBird s.r.o.',
-      },
-
+    signUpLink: {
+      type: String,
+      default: '/sing-up',
     },
 
-    head() {
-      return {
-        htmlAttrs: {
-          'data-layout': 'layout_sign',
-        },
-      }
+    authorWebsite: {
+      type: String,
+      default: null,
     },
 
-  }
+    authorName: {
+      type: String,
+      default: 'FastyBird s.r.o.',
+    },
+
+  },
+
+  head() {
+    return {
+      htmlAttrs: {
+        'data-layout': 'layout_sign',
+      },
+    }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

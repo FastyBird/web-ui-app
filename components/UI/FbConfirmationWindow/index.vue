@@ -73,124 +73,124 @@
 </template>
 
 <script>
-  import FbModalWindow from '../FbModalWindow/index'
+import FbModalWindow from '../FbModalWindow/index'
 
-  export default {
+export default {
 
-    name: 'FbConfirmationWindow',
+  name: 'FbConfirmationWindow',
 
-    components: {
-      FbModalWindow,
+  components: {
+    FbModalWindow,
+  },
+
+  props: {
+
+    icon: {
+      type: String,
+      required: true,
     },
 
-    props: {
-
-      icon: {
-        type: String,
-        required: true,
+    primaryButton: {
+      type: String,
+      default: 'no',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['yes', 'no'].indexOf(value) !== -1
       },
-
-      primaryButton: {
-        type: String,
-        default: 'no',
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['yes', 'no'].indexOf(value) !== -1
-        },
-      },
-
-      text: {
-        type: String,
-        default: 'danger',
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['primary', 'success', 'warning', 'info', 'danger'].indexOf(value) !== -1
-        },
-      },
-
-      showYes: {
-        type: Boolean,
-        default: true,
-      },
-
-      yesBtnLabel: {
-        type: String,
-        required: false,
-        default: 'Yes',
-      },
-
-      showNo: {
-        type: Boolean,
-        default: true,
-      },
-
-      noBtnLabel: {
-        type: String,
-        required: false,
-        default: 'No',
-      },
-
-      transparentBg: {
-        type: Boolean,
-        default: false,
-      },
-
     },
 
-    computed: {
-
-      /**
-       * @returns {String}
-       */
-      buttonVariant() {
-        switch (this.text) {
-          case 'primary':
-            return 'outline-primary'
-
-          case 'success':
-            return 'outline-success'
-
-          case 'warning':
-            return 'outline-warning'
-
-          case 'info':
-            return 'outline-info'
-
-          case 'danger':
-            return 'outline-danger'
-        }
-
-        return 'default'
+    text: {
+      type: String,
+      default: 'danger',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['primary', 'success', 'warning', 'info', 'danger'].indexOf(value) !== -1
       },
-
-      /**
-       * @returns {String}
-       */
-      textClass() {
-        return `text-${this.text}`
-      },
-
     },
 
-    methods: {
-
-      /**
-       * Confirm button clicked
-       */
-      confirm() {
-        this.$emit('confirmed', false)
-      },
-
-      /**
-       * Close confirmation window
-       */
-      close() {
-        this.$emit('close', false)
-      },
-
+    showYes: {
+      type: Boolean,
+      default: true,
     },
 
-  }
+    yesBtnLabel: {
+      type: String,
+      required: false,
+      default: 'Yes',
+    },
+
+    showNo: {
+      type: Boolean,
+      default: true,
+    },
+
+    noBtnLabel: {
+      type: String,
+      required: false,
+      default: 'No',
+    },
+
+    transparentBg: {
+      type: Boolean,
+      default: false,
+    },
+
+  },
+
+  computed: {
+
+    /**
+     * @returns {String}
+     */
+    buttonVariant() {
+      switch (this.text) {
+        case 'primary':
+          return 'outline-primary'
+
+        case 'success':
+          return 'outline-success'
+
+        case 'warning':
+          return 'outline-warning'
+
+        case 'info':
+          return 'outline-info'
+
+        case 'danger':
+          return 'outline-danger'
+      }
+
+      return 'default'
+    },
+
+    /**
+     * @returns {String}
+     */
+    textClass() {
+      return `text-${this.text}`
+    },
+
+  },
+
+  methods: {
+
+    /**
+     * Confirm button clicked
+     */
+    confirm() {
+      this.$emit('confirmed', false)
+    },
+
+    /**
+     * Close confirmation window
+     */
+    close() {
+      this.$emit('close', false)
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

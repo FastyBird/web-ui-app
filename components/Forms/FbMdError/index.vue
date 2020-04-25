@@ -5,20 +5,20 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbMdFormError',
+  name: 'FbMdFormError',
 
-    props: {
+  props: {
 
-      error: {
-        type: String,
-        required: true,
-      },
-
+    error: {
+      type: String,
+      required: true,
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

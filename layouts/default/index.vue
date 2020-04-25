@@ -1,12 +1,26 @@
 <template>
   <div class="fb-default-layout__container">
     <fb-phone-header
-      :has-profile="hasProfile"
-      :avatar="userAvatar"
+      ref="phone-header"
+      :heading="heading"
+      :sub-heading="subHeading"
+      :info-text="headingInfoText"
+      :heading-style="headingStyle"
+      :icon="headingIcon"
       :user-name="userName"
       :user-email="userEmail"
-      :user-menu-items="userMenuItems"
       :home-link="homeLink"
+      :menu-collapsed="mainMenuCollapsed"
+      :tabs="headingTabs"
+      :left-button="headingLeftButton"
+      :right-button="headingRightButton"
+      :action-button="headingActionButton"
+      @toggleMenu="$emit('toggleMenu')"
+      @iconClicked="$emit('headingIconClicked')"
+      @leftButtonClicked="$emit('headingLeftButtonClicked')"
+      @rightButtonClicked="$emit('headingRightButtonClicked')"
+      @actionButtonClicked="$emit('headingActionButtonClicked')"
+      @mounted="$emit('mounted')"
     >
       <font-awesome-icon
         slot="add-icon"
@@ -14,7 +28,18 @@
       />
     </fb-phone-header>
 
-    <fb-desktop-header />
+    <fb-desktop-header
+      ref="desktop-header"
+      :heading="heading"
+      :sub-heading="subHeading"
+      :left-button="headingLeftButton"
+      :right-button="headingRightButton"
+      :action-button="headingActionButton"
+      @leftButtonClicked="$emit('headingLeftButtonClicked')"
+      @rightButtonClicked="$emit('headingRightButtonClicked')"
+      @actionButtonClicked="$emit('headingActionButtonClicked')"
+      @mounted="$emit('mounted')"
+    />
 
     <div class="fb-default-layout__sidebar">
       <div class="fb-default-layout__sidebar-header">
@@ -37,7 +62,11 @@
       </div>
     </div>
 
-    <fb-phone-navigation :items="phoneMenuItems" />
+    <fb-phone-navigation
+      :items="phoneMenuItems"
+      :collapsed="mainMenuCollapsed"
+      @collapse="$emit('collapseMenu')"
+    />
 
     <div
       :style="`height: ${viewportHeight - contentHeightAdjust}px; margin-bottom: ${paddingBottom}px;`"
@@ -62,252 +91,224 @@
       </div>
     </div>
 
-    <fb-bottom-navigation :items="bottomMenuItems" />
+    <fb-bottom-navigation
+      ref="bottom-navigation"
+      :items="bottomMenuItems"
+      :collapsed="bottomMenuCollapsed"
+      @mounted="$emit('mounted')"
+    />
 
     <slot name="other" />
-
-    <fb-page-loading v-if="loadingOverlay" />
   </div>
 </template>
 
 <script>
-  const FbLogo = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbLogo')
-  const FbDesktopHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbDesktopHeader')
-  const FbPhoneHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbPhoneHeader')
-  const FbNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbNavigation')
-  const FbPhoneNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbPhoneNavigation')
-  const FbUserSideNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbUserSideNavigation')
-  const FbBottomNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbBottomNavigation')
+const FbLogo = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbLogo')
+const FbDesktopHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbDesktopHeader')
+const FbPhoneHeader = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbPhoneHeader')
+const FbNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbNavigation')
+const FbPhoneNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbPhoneNavigation')
+const FbUserSideNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbUserSideNavigation')
+const FbBottomNavigation = () => import('@/node_modules/@fastybird-com/theme/components/Layout/FbBottomNavigation')
 
-  export default {
+export default {
 
-    name: 'FbLayoutDefault',
+  name: 'FbLayoutDefault',
 
-    components: {
-      FbLogo,
-      FbDesktopHeader,
-      FbPhoneHeader,
-      FbNavigation,
-      FbPhoneNavigation,
-      FbUserSideNavigation,
-      FbBottomNavigation,
+  components: {
+    FbLogo,
+    FbDesktopHeader,
+    FbPhoneHeader,
+    FbNavigation,
+    FbPhoneNavigation,
+    FbUserSideNavigation,
+    FbBottomNavigation,
+  },
+
+  props: {
+
+    heading: {
+      type: String,
+      default: null,
     },
 
-    props: {
-
-      loadingOverlay: {
-        type: Boolean,
-        default: false,
-      },
-
-      hasProfile: {
-        type: Boolean,
-        default: false,
-      },
-
-      userName: {
-        type: String,
-        default: null,
-      },
-
-      userEmail: {
-        type: String,
-        default: null,
-      },
-
-      userAvatar: {
-        type: String,
-        default: null,
-      },
-
-      menuItems: {
-        type: Array,
-        default: () => {
-          return []
-        },
-      },
-
-      phoneMenuItems: {
-        type: Array,
-        default: () => {
-          return []
-        },
-      },
-
-      userMenuItems: {
-        type: Array,
-        default: () => {
-          return []
-        },
-      },
-
-      bottomMenuItems: {
-        type: Array,
-        default: () => {
-          return []
-        },
-      },
-
-      homeLink: {
-        type: String,
-        default: '/',
-      },
-
-      appVersion: {
-        type: String,
-        default: '0.0.0',
-      },
-
-      authorWebsite: {
-        type: String,
-        default: null,
-      },
-
-      authorName: {
-        type: String,
-        default: 'FastyBird s.r.o.',
-      },
-
+    subHeading: {
+      type: String,
+      default: null,
     },
 
-    data() {
-      return {
-        viewportHeight: null,
-      }
+    headingInfoText: {
+      type: String,
+      default: null,
     },
 
-    computed: {
-
-      contentHeightAdjust() {
-        return this.$store.getters['theme/getWindowHeightAdjust']()
+    headingStyle: {
+      type: String,
+      default: 'normal',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['normal', 'row', 'hidden'].indexOf(value) !== -1
       },
+    },
 
-      paddingTop() {
-        return this.$store.getters['theme/getBodyTopMarginAdjust']()
+    headingIcon: {
+      type: String,
+      default: null,
+    },
+
+    hasProfile: {
+      type: Boolean,
+      default: false,
+    },
+
+    userName: {
+      type: String,
+      default: null,
+    },
+
+    userEmail: {
+      type: String,
+      default: null,
+    },
+
+    userAvatar: {
+      type: String,
+      default: null,
+    },
+
+    menuItems: {
+      type: Array,
+      default: () => {
+        return []
       },
+    },
 
-      paddingBottom() {
-        return this.$store.getters['theme/getBodyBottomMarginAdjust']()
+    phoneMenuItems: {
+      type: Array,
+      default: () => {
+        return []
       },
-
     },
 
-    mounted() {
-      this._windowResizeHandler()
-
-      window.addEventListener('visibilitychange', this._windowResizeHandler)
-      window.addEventListener('DOMContentLoaded', this._windowResizeHandler)
-      window.addEventListener('resize', this._windowResizeHandler)
-      window.addEventListener('orientationchange', this._windowResizeHandler)
-      window.addEventListener('touchstart', this._touchDetectHandler, false)
-
-      this.$store.watch(
-        this.$store.getters['theme/getBodyTopMarginAdjust'],
-        (adjust) => {
-          document.body.style['padding-top'] = `${adjust}px`
-        }, {
-          immediate: true,
-        },
-      )
-    },
-
-    beforeDestroy() {
-      window.removeEventListener('visibilitychange', this._windowResizeHandler)
-      window.removeEventListener('DOMContentLoaded', this._windowResizeHandler)
-      window.removeEventListener('resize', this._windowResizeHandler)
-      window.removeEventListener('orientationchange', this._windowResizeHandler)
-      window.removeEventListener('touchstart', this._touchDetectHandler, false)
-    },
-
-    methods: {
-
-      /**
-       * Window resize handler
-       */
-      _windowResizeHandler() {
-        if (!document.hidden) {
-          const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-
-          if (matchMedia('(max-width: 575px)').matches) {
-            this.$store.dispatch('theme/setWindowSize', {
-              size: 'xs'
-            }, {
-              root: true,
-            })
-          } else if (matchMedia('(max-width: 767px)').matches) {
-            this.$store.dispatch('theme/setWindowSize', {
-              size: 'sm'
-            }, {
-              root: true,
-            })
-          } else if (matchMedia('(max-width: 991px)').matches) {
-            this.$store.dispatch('theme/setWindowSize', {
-              size: 'md'
-            }, {
-              root: true,
-            })
-          } else if (matchMedia('(max-width: 1199px)').matches) {
-            this.$store.dispatch('theme/setWindowSize', {
-              size: 'lg'
-            }, {
-              root: true,
-            })
-          } else {
-            this.$store.dispatch('theme/setWindowSize', {
-              size: 'xl'
-            }, {
-              root: true,
-            })
-          }
-
-          this.viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-        }
-
-        if (this._.get(this.$refs, 'footer')) {
-          const elementHeight = this._.get(this.$refs, 'footer.clientHeight')
-
-          this.$store.dispatch('theme/setWindowHeight', {
-            key: 'footer',
-            adjust: elementHeight,
-          }, {
-            root: true,
-          })
-
-          this.$store.dispatch('theme/setBodyMargin', {
-            key: 'footer',
-            position: 'bottom',
-            margin: elementHeight,
-          }, {
-            root: true,
-          })
-        }
+    userMenuItems: {
+      type: Array,
+      default: () => {
+        return []
       },
+    },
 
-      /**
-       * Touch device detect handler
-       */
-      _touchDetectHandler() {
-        this.$store.dispatch('theme/setTouchDevice', {
-          enabled: true
-        }, {
-          root: true,
-        })
-
-        // We only need to know once that a human touched the screen, so we can stop listening now
-        window.removeEventListener('touchstart', this._touchDetectHandler, false)
+    bottomMenuItems: {
+      type: Array,
+      default: () => {
+        return []
       },
-
     },
 
-    head() {
-      return {
-        htmlAttrs: {
-          'data-layout': 'layout_default',
-        },
-      }
+    headingTabs: {
+      type: Array,
+      default: () => {
+        return []
+      },
     },
 
-  }
+    headingLeftButton: {
+      type: Object,
+      default: null,
+      validator: (value) => {
+        return !(
+          !Object.prototype.hasOwnProperty.call(value, 'icon') ||
+          !Object.prototype.hasOwnProperty.call(value, 'name')
+        )
+      },
+    },
+
+    headingRightButton: {
+      type: Object,
+      default: null,
+      validator: (value) => {
+        return !(
+          !Object.prototype.hasOwnProperty.call(value, 'icon') ||
+          !Object.prototype.hasOwnProperty.call(value, 'name')
+        )
+      },
+    },
+
+    headingActionButton: {
+      type: Object,
+      default: null,
+      validator: (value) => {
+        return !(
+          !Object.prototype.hasOwnProperty.call(value, 'icon') ||
+          !Object.prototype.hasOwnProperty.call(value, 'name')
+        )
+      },
+    },
+
+    mainMenuCollapsed: {
+      type: Boolean,
+      default: true,
+    },
+
+    bottomMenuCollapsed: {
+      type: Boolean,
+      default: false,
+    },
+
+    homeLink: {
+      type: String,
+      default: '/',
+    },
+
+    appVersion: {
+      type: String,
+      default: '0.0.0',
+    },
+
+    authorWebsite: {
+      type: String,
+      default: null,
+    },
+
+    authorName: {
+      type: String,
+      default: 'FastyBird s.r.o.',
+    },
+
+    contentHeightAdjust: {
+      type: Number,
+      required: true,
+    },
+
+    paddingTop: {
+      type: Number,
+      required: true,
+    },
+
+    paddingBottom: {
+      type: Number,
+      required: true,
+    },
+
+    viewportHeight: {
+      type: Number,
+      required: true,
+    },
+
+  },
+
+  mounted() {
+    this.$emit('mounted')
+  },
+
+  head() {
+    return {
+      htmlAttrs: {
+        'data-layout': 'layout_default',
+      },
+    }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

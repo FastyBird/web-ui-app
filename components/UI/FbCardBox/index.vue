@@ -17,11 +17,11 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbCardBox',
+  name: 'FbCardBox',
 
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

@@ -13,23 +13,23 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbDesktopHeaderButton',
+  name: 'FbDesktopHeaderButton',
 
-    props: {
+  props: {
 
-      name: {
-        type: String,
-        required: true,
-      },
-
-      icon: {
-        type: String,
-        default: null,
-      },
-
+    name: {
+      type: String,
+      required: true,
     },
 
-  }
+    icon: {
+      type: String,
+      default: null,
+    },
+
+  },
+
+}
 </script>

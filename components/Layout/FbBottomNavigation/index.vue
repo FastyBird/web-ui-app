@@ -1,8 +1,8 @@
 <template>
   <div
-    v-show="!isHidden()"
+    v-show="!collapsed"
     class="fb-bottom-navigation__container"
-    ref="bottom-navigation"
+    ref="container"
   >
     <div>
       <div
@@ -17,113 +17,64 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+import Item from './Item'
 
-  import Item from './Item'
+export default {
 
-  export default {
+  name: 'FbBottomNavigation',
 
-    name: 'FbBottomNavigation',
+  components: {
+    Item,
+  },
 
-    components: {
-      Item,
-    },
+  props: {
 
-    props: {
-
-      items: {
-        type: Array,
-        default: () => {
-          return []
-        },
+    items: {
+      type: Array,
+      default: () => {
+        return []
       },
-
     },
 
-    computed: {
-
-      ...mapGetters('bottomNavigation', [
-        'hasItems',
-        'getItems',
-        'isHidden',
-      ]),
-
-      /**
-       * Get buttons from store or default
-       *
-       * @return {Array}
-       */
-      buttons() {
-        if (this.hasItems()) {
-          return this.getItems()
-        }
-
-        return this.items
-      },
-
-      /**
-       * Calculate column coun
-       * Max 12 is supported
-       *
-       * @return {Number}
-       */
-      columns() {
-        return 12 / this.buttons.length
-      },
-
+    collapsed: {
+      type: Boolean,
+      default: true,
     },
 
-    mounted() {
-      window.addEventListener('visibilitychange', this._applyBodyLimits)
-      window.addEventListener('resize', this._applyBodyLimits)
+  },
 
-      this.$store.watch(
-        this.$store.getters['bottomNavigation/isHidden'],
-        () => {
-          this._applyBodyLimits()
-        }, {
-          immediate: true,
-        },
-      )
+  computed: {
+
+    /**
+     * Get buttons from store or default
+     *
+     * @return {Array}
+     */
+    buttons() {
+      return this.items
     },
 
-    beforeDestroy() {
-      window.removeEventListener('visibilitychange', this._applyBodyLimits)
-      window.removeEventListener('resize', this._applyBodyLimits)
+    /**
+     * Calculate column coun
+     * Max 12 is supported
+     *
+     * @return {Number}
+     */
+    columns() {
+      return 12 / this.buttons.length
     },
 
-    methods: {
+  },
 
+  mounted() {
+    this.$emit('mounted')
+  },
 
-      /**
-       * Calculate viewport size after window resizing
-       *
-       * @private
-       */
-      _applyBodyLimits() {
-        if (this._.get(this.$refs, 'bottom-navigation')) {
-          const elementHeight = this._.get(this.$refs, 'bottom-navigation.clientHeight')
+  updated() {
+    this.$emit('mounted')
+  },
 
-          this.$store.dispatch('theme/setWindowHeight', {
-            key: 'bottom-navigation',
-            adjust: elementHeight,
-          }, {
-            root: true,
-          })
-
-          this.$store.dispatch('theme/setBodyMargin', {
-            key: 'bottom-navigation',
-            position: 'bottom',
-            margin: this.isHidden() ? 0 : elementHeight,
-          }, {
-            root: true,
-          })
-        }
-      },
-
-    },
-
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

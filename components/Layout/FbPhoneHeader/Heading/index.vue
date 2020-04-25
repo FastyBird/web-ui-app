@@ -1,107 +1,105 @@
 <template>
   <div
-    :class="['fb-phone-header-heading__container', {'fb-phone-header-heading__container-left': !hasLeftButton() && hasHeading()}, {'fb-phone-header-heading__container-with-buttons': !hasFullRowHeading()}]"
+    :class="['fb-phone-header-heading__container', {'fb-phone-header-heading__container-left': leftAlign}, {'fb-phone-header-heading__container-with-buttons': !fullRowHeading}]"
   >
     <fb-logo
-      v-if="!hasHeading()"
+      v-if="heading === null"
       :link="homeLink"
       class="fb-phone-header-heading__logo"
     />
 
-    <div v-else-if="hasFullRowHeading()">
+    <div v-else-if="fullRowHeading">
       <h1
-        v-if="hasHeading() && getSubHeading() === null"
+        v-if="heading !== null && subHeading === null"
         class="single-row"
       >
-        {{ getHeading() }}
+        {{ heading }}
       </h1>
 
-      <h1 v-if="hasHeading() && getSubHeading() !== null">
-        <span>{{ getHeading() }}</span>
-        <small>{{ getSubHeading() }}</small>
+      <h1 v-if="heading !== null && subHeading !== null">
+        <span>{{ heading }}</span>
+        <small>{{ subHeading }}</small>
       </h1>
 
       <button
-        v-if="hasHeadingIcon() && (getHeadingIcon().callback || this.getHeadingIcon().link)"
+        v-if="icon"
         role="button"
         class="fb-phone-header-heading__icon"
-        @click.prevent="iconClick()"
+        @click.prevent="$emit('iconClicked')"
       >
-        <font-awesome-icon :icon="getHeadingIcon().icon" />
+        <font-awesome-icon :icon="icon" />
       </button>
+
       <div
-        v-else-if="hasHeadingIcon()"
+        v-else-if="icon"
         class="fb-phone-header-heading__icon"
       >
-        <font-awesome-icon :icon="getHeadingIcon().icon" />
+        <font-awesome-icon :icon="icon" />
       </div>
     </div>
 
     <template v-else>
       <h1
-        v-if="hasHeading() && getSubHeading() === null"
+        v-if="heading !== null && subHeading === null"
         class="single-row"
       >
-        {{ getHeading() }}
+        {{ heading }}
       </h1>
 
-      <h1 v-if="hasHeading() && getSubHeading() !== null">
-        <span>{{ getHeading() }}</span>
-        <small>{{ getSubHeading() }}</small>
+      <h1 v-if="heading !== null && subHeading !== null">
+        <span>{{ heading }}</span>
+        <small>{{ subHeading }}</small>
       </h1>
     </template>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+const FbLogo = () => import('./../../FbLogo')
 
-  const FbLogo = () => import('./../../FbLogo')
+export default {
 
-  export default {
+  name: 'FbPhoneHeaderHeading',
 
-    name: 'FbPhoneHeaderHeading',
+  components: {
+    FbLogo,
+  },
 
-    components: {
-      FbLogo,
+  props: {
+
+    heading: {
+      type: String,
+      default: null,
     },
 
-    props: {
-
-      homeLink: {
-        type: String,
-        default: '/',
-      },
-
+    subHeading: {
+      type: String,
+      default: null,
     },
 
-    computed: {
-
-      ...mapGetters('header', [
-        'hasHeading',
-        'getHeading',
-        'getSubHeading',
-        'hasLeftButton',
-        'hasFullRowHeading',
-        'hasHeadingIcon',
-        'getHeadingIcon',
-      ]),
-
+    icon: {
+      type: String,
+      default: null,
     },
 
-    methods: {
-
-      iconClick() {
-        if (this.getHeadingIcon().callback && typeof this.getHeadingIcon().callback === 'function') {
-          this.getHeadingIcon().callback()
-        } else if (this.getHeadingIcon().link && typeof this.getHeadingIcon().link === 'string') {
-          this.$router.push(this.getHeadingIcon().link)
-        }
-      },
-
+    homeLink: {
+      type: String,
+      default: '/',
     },
 
-  }
+    leftAlign: {
+      type: Boolean,
+      default: false,
+    },
+
+    fullRowHeading: {
+      type: Boolean,
+      default: false,
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

@@ -9,40 +9,40 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbMdFormLabel',
+  name: 'FbMdFormLabel',
 
-    props: {
+  props: {
 
-      id: {
-        type: String,
-        default: null,
-      },
-
-      label: {
-        type: String,
-        default: null,
-      },
-
-      isFocused: {
-        type: Boolean,
-        default: false,
-      },
-
-      hasValue: {
-        type: Boolean,
-        default: false,
-      },
-
-      hasError: {
-        type: Boolean,
-        default: false,
-      },
-
+    id: {
+      type: String,
+      default: null,
     },
 
-  }
+    label: {
+      type: String,
+      default: null,
+    },
+
+    isFocused: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasValue: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

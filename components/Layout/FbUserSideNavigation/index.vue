@@ -73,100 +73,100 @@
 </template>
 
 <script>
-  import BirdLogo from '../../../assets/images/fastybird_bird.svg?inline'
+import BirdLogo from '../../../assets/images/fastybird_bird.svg?inline'
 
-  import Gravatar from 'vue-gravatar'
+import Gravatar from 'vue-gravatar'
 
-  export default {
+export default {
 
-    name: 'FbUserSideNavigation',
+  name: 'FbUserSideNavigation',
 
-    components: {
-      BirdLogo,
+  components: {
+    BirdLogo,
 
-      Gravatar,
+    Gravatar,
+  },
+
+  props: {
+
+    avatar: {
+      type: String,
+      default: null,
     },
 
-    props: {
-
-      avatar: {
-        type: String,
-        default: null,
-      },
-
-      name: {
-        type: String,
-        required: true,
-      },
-
-      email: {
-        type: String,
-        default: null,
-      },
-
-      version: {
-        type: String,
-        default: null,
-      },
-
-      items: {
-        type: Array,
-        default: () => {
-          return []
-        },
-      },
-
+    name: {
+      type: String,
+      required: true,
     },
 
-    data() {
-      return {
-        collapsed: true,
+    email: {
+      type: String,
+      default: null,
+    },
+
+    version: {
+      type: String,
+      default: null,
+    },
+
+    items: {
+      type: Array,
+      default: () => {
+        return []
+      },
+    },
+
+  },
+
+  data() {
+    return {
+      collapsed: true,
+    }
+  },
+
+  computed: {
+
+    instance() {
+      return this
+    },
+
+  },
+
+  watch: {
+
+    collapsed(val) {
+      if (!val) {
+        this.$nextTick(() => {
+          this.$refs['user-navigation'].focus()
+        })
       }
     },
 
-    computed: {
+  },
 
-      instance() {
-        return this
-      },
+  methods: {
 
+    callCallback(item) {
+      const that = this
+
+      this.blur()
+
+      setTimeout(() => {
+        item.callback(that)
+      }, 50)
     },
 
-    watch: {
-
-      collapsed(val) {
-        if (!val) {
-          this.$nextTick(function() {
-            this.$refs['user-navigation'].focus()
-          })
-        }
-      },
-
+    blur() {
+      this.collapsed = true
     },
 
-    methods: {
-
-      callCallback(item) {
-        const that = this
-
-        this.blur()
-
-        setTimeout(() => {
-          item.callback(that)
-        }, 50)
-      },
-
-      blur() {
-        this.collapsed = true
-      },
-
-      toggle() {
-        this.collapsed = !this.collapsed
-      },
-
+    toggle() {
+      this.collapsed = !this.collapsed
     },
 
-  }
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

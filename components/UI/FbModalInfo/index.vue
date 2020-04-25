@@ -37,54 +37,54 @@
 </template>
 
 <script>
-  import FbModalWindow from '../FbModalWindow/index'
+import FbModalWindow from '../FbModalWindow/index'
 
-  export default {
+export default {
 
-    name: 'FbModalInfo',
+  name: 'FbModalInfo',
 
-    components: {
-      FbModalWindow,
+  components: {
+    FbModalWindow,
+  },
+
+  props: {
+
+    icon: {
+      type: String,
+      required: true,
     },
 
-    props: {
-
-      icon: {
-        type: String,
-        required: true,
-      },
-
-      enableClosing: {
-        type: Boolean,
-        required: false,
-        default: true,
-      },
-
-      closeBtnLabel: {
-        type: String,
-        required: false,
-        default: 'Close',
-      },
-
-      transparentBg: {
-        type: Boolean,
-        default: false,
-      },
-
+    enableClosing: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
 
-    methods: {
-
-      /**
-       * Close info modal window
-       */
-      close() {
-        this.$emit('close', false)
-      },
-
+    closeBtnLabel: {
+      type: String,
+      required: false,
+      default: 'Close',
     },
 
-  }
+    transparentBg: {
+      type: Boolean,
+      default: false,
+    },
+
+  },
+
+  methods: {
+
+    /**
+     * Close info modal window
+     */
+    close() {
+      this.$emit('close', false)
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

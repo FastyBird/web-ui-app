@@ -11,43 +11,43 @@
 </template>
 
 <script>
-  export default {
+export default {
 
-    name: 'FbFormLabel',
+  name: 'FbFormLabel',
 
-    props: {
+  props: {
 
-      id: {
-        type: String,
-        default: null,
-      },
-
-      label: {
-        type: String,
-        default: null,
-      },
-
-      orientation: {
-        type: String,
-        default: 'vertical',
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
-        },
-      },
-
-      size: {
-        type: String,
-        default: null,
-        validator: (value) => {
-          // The value must match one of these strings
-          return ['lg', 'sm'].indexOf(value) !== -1
-        },
-      },
-
+    id: {
+      type: String,
+      default: null,
     },
 
-  }
+    label: {
+      type: String,
+      default: null,
+    },
+
+    orientation: {
+      type: String,
+      default: 'vertical',
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
+      },
+    },
+
+    size: {
+      type: String,
+      default: null,
+      validator: (value) => {
+        // The value must match one of these strings
+        return ['lg', 'sm'].indexOf(value) !== -1
+      },
+    },
+
+  },
+
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
