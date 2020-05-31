@@ -1,5 +1,5 @@
 {
-  "name": "@fastybird-com/ui-theme",
+  "name": "@fastybird-com/web-ui-theme",
   "version": "0.1.0",
   "description": "FastyBird basic theme & Vue components for web apps",
   "keywords": [
@@ -12,7 +12,7 @@
 
   "homepage": "https://www.fastybird.com",
 
-  "bugs": "https://github.com/FastyBird/ui-theme/issues",
+  "bugs": "https://github.com/FastyBird/web-ui-theme/issues",
 
   "license": "Apache-2.0",
 
@@ -24,7 +24,7 @@
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/FastyBird/ui-theme.git"
+    "url": "https://github.com/FastyBird/web-ui-theme.git"
   },
 
   "dependencies": {

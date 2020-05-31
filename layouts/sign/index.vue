@@ -18,8 +18,8 @@
 </template>
 
 <script>
-const FbSignHeader = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbSignHeader')
-const FbSignFooter = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbSignFooter')
+const FbSignHeader = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbSignHeader')
+const FbSignFooter = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbSignFooter')
 
 export default {
 

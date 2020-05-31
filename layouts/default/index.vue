@@ -103,13 +103,13 @@
 </template>
 
 <script>
-const FbLogo = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbLogo')
-const FbDesktopHeader = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbDesktopHeader')
-const FbPhoneHeader = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbPhoneHeader')
-const FbNavigation = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbNavigation')
-const FbPhoneNavigation = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbPhoneNavigation')
-const FbUserSideNavigation = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbUserSideNavigation')
-const FbBottomNavigation = () => import('@/node_modules/@fastybird-com/ui-theme/components/Layout/FbBottomNavigation')
+const FbLogo = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbLogo')
+const FbDesktopHeader = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbDesktopHeader')
+const FbPhoneHeader = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbPhoneHeader')
+const FbNavigation = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbNavigation')
+const FbPhoneNavigation = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbPhoneNavigation')
+const FbUserSideNavigation = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbUserSideNavigation')
+const FbBottomNavigation = () => import('@/node_modules/@fastybird-com/web-ui-theme/components/Layout/FbBottomNavigation')
 
 export default {
 
