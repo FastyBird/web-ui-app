@@ -51,7 +51,9 @@
               </div>
 
               <div class="fb-modal-window__body">
-                <slot name="modal-body" />
+                <fb-transition-expand>
+                  <slot name="modal-body" />
+                </fb-transition-expand>
               </div>
 
               <div

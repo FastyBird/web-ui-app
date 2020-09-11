@@ -14,9 +14,11 @@ import FbMdFormSelect from './components/Forms/FbMdSelect'
 import FbMdFormTextArea from './components/Forms/FbMdTextArea'
 
 // UI components
+import FbAlert from './components/UI/FbAlert'
 import FbButton from './components/UI/FbButton'
 import FbCardBox from './components/UI/FbCardBox'
 import FbConfirmationWindow from './components/UI/FbConfirmationWindow'
+import FbContent from './components/UI/FbContent'
 import FbModalForm from './components/UI/FbModalForm'
 import FbModalInfo from './components/UI/FbModalInfo'
 import FbModalWindow from './components/UI/FbModalWindow'
@@ -27,6 +29,7 @@ import FbPageLoading from './components/UI/FbPageLoading'
 import FbResultErr from './components/UI/FbResultErr'
 import FbResultOk from './components/UI/FbResultOk'
 import FbSpinner from './components/UI/FbSpinner'
+import FbTransitionExpand from './components/UI/FbTransitionExpand'
 
 // Mixins
 import ThemeHelpersMixin from './mixins/helpers'
@@ -55,9 +58,11 @@ export default {
     Vue.component('FbMdFormTextArea', FbMdFormTextArea)
 
     // UI components
+    Vue.component('FbAlert', FbAlert)
     Vue.component('FbButton', FbButton)
     Vue.component('FbCardBox', FbCardBox)
     Vue.component('FbConfirmationWindow', FbConfirmationWindow)
+    Vue.component('FbContent', FbContent)
     Vue.component('FbModalForm', FbModalForm)
     Vue.component('FbModalInfo', FbModalInfo)
     Vue.component('FbModalWindow', FbModalWindow)
@@ -68,6 +73,7 @@ export default {
     Vue.component('FbResultErr', FbResultErr)
     Vue.component('FbResultOk', FbResultOk)
     Vue.component('FbSpinner', FbSpinner)
+    Vue.component('FbTransitionExpand', FbTransitionExpand)
 
     // Mixins
     Vue.mixin(ThemeHelpersMixin)

@@ -9,6 +9,10 @@ $font-size-base:                        13px;
 $font-size-large:                       18px;
 $font-size-small:                       12px;
 
+$font-weight-light:                     300 !default;
+$font-weight-normal:                    400 !default;
+$font-weight-bold:                      700 !default;
+
 //** Unit-less 'line-height' for use in components like buttons.
 $line-height-base:                      20px / $font-size-base;
 

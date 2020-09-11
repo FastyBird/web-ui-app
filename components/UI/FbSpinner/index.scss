@@ -3,6 +3,9 @@
 .fb-spinner {
   &__container {
     position: relative;
+    height: 24px;
+    width: 24px;
+    display: inline-block;
 
     &:before,
     &:after {
@@ -51,6 +54,10 @@
     }
 
     // Sizes
+    &[data-size="lg"] {
+      height: 48px;
+      width: 48px;
+    }
     &[data-size="lg"]:before,
     &[data-size="lg"]:after {
       border-width: 3px;
@@ -59,6 +66,10 @@
       width: 48px;
     }
 
+    &[data-size="sm"] {
+      height: 18px;
+      width: 18px;
+    }
     &[data-size="sm"]:before,
     &[data-size="sm"]:after {
       height: 18px;

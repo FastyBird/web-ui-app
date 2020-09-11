@@ -6,7 +6,6 @@
 .fb-field-container {
   &__container {
     position: relative;
-    margin-bottom: $form-group-margin-bottom;
 
     // Position radios and checkboxes better
     input[type="radio"],
@@ -31,6 +30,44 @@
       height: auto;
     }
 
+    // Margin from top
+    &-mt {
+      &-lg {
+        margin-top: $margin-lg;
+      }
+
+      &-md {
+        margin-top: $margin-md;
+      }
+
+      &-sm {
+        margin-top: $margin-sm;
+      }
+
+      &-xs {
+        margin-top: $margin-xs;
+      }
+    }
+
+    // Margin from bottom
+    &-mb {
+      &-lg {
+        margin-bottom: $margin-lg;
+      }
+
+      &-md {
+        margin-bottom: $margin-md;
+      }
+
+      &-sm {
+        margin-bottom: $margin-sm;
+      }
+
+      &-xs {
+        margin-bottom: $margin-xs;
+      }
+    }
+
     &.has-error {
       label {
         color: $text-danger;
@@ -48,6 +85,10 @@
 
           @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px lighten($text-danger, 20%));
         }
+      }
+
+      input[placeholder] {
+        @include placeholder($text-danger);
       }
     }
 
@@ -179,6 +220,16 @@
     }
   }
 
+  &__grouped-input-field {
+    display: table-cell;
+    position: relative;
+  }
+
+  &__input-field {
+    display: block;
+    position: relative;
+  }
+
   &__input-group-addon {
     display: table-cell;
     width: 1%;
@@ -212,7 +263,7 @@
 
   &__input-feedback {
     position: absolute;
-    top: ($line-height + 5);
+    top: 0;
     right: 0;
     z-index: 2; // Ensure icon is above input groups
     display: block;

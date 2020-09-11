@@ -5,9 +5,12 @@
     :size="size"
     :name="name"
     :label="label"
+    :required="required"
     :is-focused="focused"
     :has-value="true"
     :error="error"
+    :mt="mt"
+    :mb="mb"
   >
     <template
       v-if="slotExists('left-addon')"
@@ -25,6 +28,7 @@
 
     <template slot="field">
       <select
+        :ref="`field-${name}`"
         :id="id ? id : name"
         :name="name"
         :tabindex="tabIndex"
@@ -80,6 +84,13 @@
 <script>
 const FbFieldContainer = () => import('../FbFieldContainer')
 
+function sizeValidator (value) {
+  // The value must match one of these strings
+  return [
+    'lg', 'md', 'sm', 'xs', 'none'
+  ].indexOf(value) !== -1
+}
+
 export default {
 
   name: 'FbFormSelect',
@@ -123,6 +134,11 @@ export default {
       default: null,
     },
 
+    required: {
+      type: Boolean,
+      default: false,
+    },
+
     items: {
       type: Array,
       required: true,
@@ -151,6 +167,18 @@ export default {
     blankSelect: {
       type: String,
       default: null,
+    },
+
+    mt: {
+      type: String,
+      default: 'none',
+      validator: sizeValidator,
+    },
+
+    mb: {
+      type: String,
+      default: 'none',
+      validator: sizeValidator,
     },
 
   },

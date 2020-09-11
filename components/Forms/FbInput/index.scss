@@ -1,3 +1,4 @@
+@import "../../../assets/variables/colors";
 @import "../../../assets/variables/forms";
 @import "../../../assets/variables/screen";
 @import "../../../assets/mixins/utilities";
@@ -42,9 +43,15 @@
     // disabled if the fieldset is disabled. Due to implementation difficulty, we
     // don't honor that edge case; we style them as disabled anyway.
     &[disabled],
-    &[readonly],
     fieldset[disabled] & {
       background-color: $input-bg-disabled;
+      @include opacity(1);
+    }
+
+    &[readonly],
+    fieldset[disabled] & {
+      color: $gray-light;
+      background-color: $input-bg-readonly;
       @include opacity(1);
     }
 

@@ -2,7 +2,7 @@
   <label
     v-if="id !== null && label !== null && orientation !== 'inline'"
     :for="id"
-    class="fb-label__container"
+    :class="['fb-label__container', {'fb-label__container-required': required}]"
     :data-orientation="orientation"
     :data-size="size"
   >
@@ -43,6 +43,11 @@ export default {
         // The value must match one of these strings
         return ['lg', 'sm'].indexOf(value) !== -1
       },
+    },
+
+    required: {
+      type: Boolean,
+      default: false,
     },
 
   },

@@ -35,6 +35,7 @@ $input-height-large:                    (ceil($font-size-large * $line-height-la
 $input-height-small:                    (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2);
 
 $input-bg:                              #fff;
+$input-bg-readonly:                     #f2f2f2;
 $input-bg-disabled:                     #ddd;
 
 $input-box-shadow:                      none !default;

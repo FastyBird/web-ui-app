@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['fb-field-container__container', {'has-error': error !== null}]"
+    :class="fieldClass"
     :data-orientation="orientation"
     :data-size="size"
   >
@@ -9,6 +9,7 @@
       :orientation="orientation"
       :size="size"
       :label="label"
+      :required="required"
       :is-focused="isFocused"
       :has-value="hasValue"
       :has-error="error !== null"
@@ -26,7 +27,17 @@
           <slot name="left-addon" />
         </span>
 
-        <slot name="field" />
+        <span class="fb-field-container__grouped-input-field">
+          <slot name="field" />
+
+          <span
+            v-if="error !== null"
+            class="fb-field-container__input-feedback"
+            aria-hidden="true"
+          >
+            <font-awesome-icon icon="exclamation-triangle" />
+          </span>
+        </span>
 
         <span
           v-if="slotExists('right-addon')"
@@ -34,41 +45,30 @@
         >
           <slot name="right-addon" />
         </span>
-
-        <span
-          v-if="error !== null"
-          class="fb-field-container__input-feedback"
-          aria-hidden="true"
-        >
-          <font-awesome-icon icon="exclamation-triangle" />
-        </span>
       </div>
 
       <template v-else>
-        <slot name="field" />
+        <span class="fb-field-container__input-field">
+          <slot name="field" />
 
-        <span
-          v-if="error !== null"
-          class="fb-field-container__input-feedback"
-          aria-hidden="true"
-        >
-          <font-awesome-icon icon="exclamation-triangle" />
+          <span
+            v-if="error !== null"
+            class="fb-field-container__input-feedback"
+            aria-hidden="true"
+          >
+            <font-awesome-icon icon="exclamation-triangle" />
+          </span>
         </span>
       </template>
 
       <p
-        v-if="slotExists('help-line') && error === null"
+        v-if="slotExists('help-line')"
         class="fb-field-container__help"
       >
         <small>
           <slot name="help-line" />
         </small>
       </p>
-
-      <fb-error
-        v-if="error !== null"
-        :error="error"
-      />
     </div>
   </div>
 </template>
@@ -76,6 +76,13 @@
 <script>
 const FbLabel = () => import('../FbLabel')
 const FbError = () => import('../FbError')
+
+function sizeValidator (value) {
+  // The value must match one of these strings
+  return [
+    'lg', 'md', 'sm', 'xs', 'none'
+  ].indexOf(value) !== -1
+}
 
 export default {
 
@@ -121,6 +128,11 @@ export default {
       default: null,
     },
 
+    required: {
+      type: Boolean,
+      default: false,
+    },
+
     isFocused: {
       type: Boolean,
       default: false,
@@ -134,6 +146,42 @@ export default {
     error: {
       type: String,
       default: null,
+    },
+
+    mt: {
+      type: String,
+      default: 'none',
+      validator: sizeValidator,
+    },
+
+    mb: {
+      type: String,
+      default: 'none',
+      validator: sizeValidator,
+    },
+
+  },
+
+  computed: {
+
+    fieldClass() {
+      const classes = []
+
+      classes.push('fb-field-container__container')
+
+      const margins = ['mt', 'mb']
+
+      margins.forEach((type) => {
+        if (this[type] !== 'none') {
+          classes.push(`fb-field-container__container-${type}-${this[type]}`)
+        }
+      })
+
+      if (this.error) {
+        classes.push('has-error')
+      }
+
+      return classes
     },
 
   },

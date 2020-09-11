@@ -1,0 +1,109 @@
+@import "../../../assets/variables/colors";
+@import "../../../assets/variables/screen";
+@import "../../../assets/variables/borders";
+@import "../../../assets/mixins/border.radius";
+@import "../../../assets/mixins/utilities";
+
+$alert-default-color:       #fff;
+$alert-default-bg:          #474949;
+$alert-default-border:      $alert-default-bg;
+
+$alert-primary-color:       #fff;
+$alert-primary-bg:          $brand-primary;
+$alert-primary-border:      $alert-primary-bg;
+
+$alert-success-color:       #fff;
+$alert-success-bg:          $brand-success;
+$alert-success-border:      $alert-success-bg;
+
+$alert-info-color:          #fff;
+$alert-info-bg:             $brand-info;
+$alert-info-border:         $alert-info-bg;
+
+$alert-warning-color:       #fff;
+$alert-warning-bg:          $brand-warning;
+$alert-warning-border:      $alert-warning-bg;
+
+$alert-danger-color:        #fff;
+$alert-danger-bg:           $brand-danger;
+$alert-danger-border:       $alert-danger-bg;
+
+@mixin alert-variant($background, $border, $color) {
+  color: $color;
+  background-color: $background;
+  background-image: var(--bs-gradient);
+  border-color: $border;
+
+  a {
+    color: darken($color, 10%);
+  }
+
+  hr {
+    border-top-color: $color;
+  }
+}
+
+.fb-alert {
+  position: relative;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  border: 1px solid transparent;
+  @include border-radius($border-radius-base);
+
+  &__with-icon {
+    @include gridRow;
+
+    &-icon {
+      @include gridCel;
+
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 10%;
+      flex: 0 0 10%;
+      max-width: 10%;
+
+      text-align: center;
+      vertical-align: top;
+      display: table-cell;
+
+      padding-right: 0;
+    }
+
+    &-content {
+      @include gridCel;
+
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 90%;
+      flex: 0 0 90%;
+      max-width: 90%;
+
+      padding-left: 0;
+    }
+  }
+
+  &-default {
+    @include alert-variant($alert-default-bg, $alert-default-border, $alert-default-color);
+  }
+
+  &-primary {
+    @include alert-variant($alert-primary-bg, $alert-primary-border, $alert-primary-color);
+  }
+
+  // Success appears as green
+  &-success {
+    @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-color);
+  }
+
+  // Info appears as blue-green
+  &-info {
+    @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-color);
+  }
+
+  // Warning appears as orange
+  &-warning {
+    @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-color);
+  }
+
+  // Danger and error appear as red
+  &-danger {
+    @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-color);
+  }
+}

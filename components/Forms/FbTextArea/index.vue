@@ -5,9 +5,12 @@
     :size="size"
     :name="name"
     :label="label"
+    :required="required"
     :is-focused="focused"
     :has-value="value !== '' && value !== null || placeholder !== null"
     :error="error"
+    :mt="mt"
+    :mb="mb"
   >
     <template
       v-if="slotExists('left-addon')"
@@ -18,13 +21,14 @@
 
     <template slot="field">
       <textarea
+        :ref="`field-${name}`"
         :id="id ? id : name"
         :name="name"
         :tabindex="tabIndex"
         :type="type"
         :readonly="readonly"
         :value="value"
-        :placeholder="placeholder"
+        :placeholder="hasError && !focused ? error : placeholder"
         class="fb-textarea__control"
         @input="updateValue($event.target.value)"
         @focus="setFocused(true)"
@@ -43,6 +47,13 @@
 
 <script>
 import FbFieldContainer from '../FbFieldContainer'
+
+function sizeValidator (value) {
+  // The value must match one of these strings
+  return [
+    'lg', 'md', 'sm', 'xs', 'none'
+  ].indexOf(value) !== -1
+}
 
 export default {
 
@@ -125,6 +136,18 @@ export default {
     readonly: {
       type: Boolean,
       default: false,
+    },
+
+    mt: {
+      type: String,
+      default: 'none',
+      validator: sizeValidator,
+    },
+
+    mb: {
+      type: String,
+      default: 'none',
+      validator: sizeValidator,
     },
 
   },
