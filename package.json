@@ -1,5 +1,5 @@
 {
-  "name": "@fastybird-com/web-ui-theme",
+  "name": "@fastybird/web-ui-theme",
   "version": "0.1.0",
   "description": "FastyBird basic theme & Vue components for web apps",
   "keywords": [
@@ -36,5 +36,8 @@
   "engines": {
     "node": ">= 11.7.1",
     "yarn": ">= 1.12.0"
-  }
+  },
+
+  "source": "index.js",
+  "main": "index.js"
 }
