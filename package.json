@@ -30,12 +30,31 @@
 
   "dependencies": {
     "body-scroll-lock": "^2.5.10",
+    "vue": "^2.6.11",
     "vue-gravatar": "^1.3.0",
     "normalize.css": "^8.0.1"
+  },
+
+  "devDependencies": {
+    "microbundle": "^0.12.3"
+  },
+
+  "source": "src/index.ts",
+
+  "main": "dist/web-ui-theme.js",
+  "module": "dist/web-ui-theme.module.js",
+  "unpkg": "dist/web-ui-theme.umd.js",
+  "typings": "dist/index.d.ts",
+
+  "scripts": {
+    "build": "microbundle src/index.ts --name VueWampV1",
+    "dev": "microbundle watch"
   },
 
   "engines": {
     "node": ">= 11.7.1",
     "yarn": ">= 1.12.0"
-  }
+  },
+
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
