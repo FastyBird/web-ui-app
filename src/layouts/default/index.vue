@@ -103,13 +103,13 @@
 </template>
 
 <script>
-const FbLogo = () => import('@fastybird/web-ui-theme/components/Layout/FbLogo')
-const FbDesktopHeader = () => import('@fastybird/web-ui-theme/components/Layout/FbDesktopHeader')
-const FbPhoneHeader = () => import('@fastybird/web-ui-theme/components/Layout/FbPhoneHeader')
-const FbNavigation = () => import('@fastybird/web-ui-theme/components/Layout/FbNavigation')
-const FbPhoneNavigation = () => import('@fastybird/web-ui-theme/components/Layout/FbPhoneNavigation')
-const FbUserSideNavigation = () => import('@fastybird/web-ui-theme/components/Layout/FbUserSideNavigation')
-const FbBottomNavigation = () => import('@fastybird/web-ui-theme/components/Layout/FbBottomNavigation')
+import FbLogo from './../../components/Layout/FbLogo/index.vue'
+import FbDesktopHeader from './../../components/Layout/FbDesktopHeader/index.vue'
+import FbPhoneHeader from './../../components/Layout/FbPhoneHeader/index.vue'
+import FbNavigation from './../../components/Layout/FbNavigation/index.vue'
+import FbPhoneNavigation from './../../components/Layout/FbPhoneNavigation/index.vue'
+import FbUserSideNavigation from './../../components/Layout/FbUserSideNavigation/index.vue'
+import FbBottomNavigation from './../../components/Layout/FbBottomNavigation/index.vue'
 
 export default {
 

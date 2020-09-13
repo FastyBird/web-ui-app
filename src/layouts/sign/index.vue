@@ -18,8 +18,8 @@
 </template>
 
 <script>
-const FbSignHeader = () => import('@fastybird/web-ui-theme/components/Layout/FbSignHeader')
-const FbSignFooter = () => import('@fastybird/web-ui-theme/components/Layout/FbSignFooter')
+import FbSignHeader from './../../components/Layout/FbSignHeader/index.vue'
+import FbSignFooter from './../../components/Layout/FbSignFooter/index.vue'
 
 export default {
 
