@@ -1,5 +1,6 @@
 {
   "name": "@fastybird/web-ui-theme",
+  "type": "module",
   "version": "0.1.0",
   "description": "FastyBird basic theme & Vue components for web apps",
   "keywords": [
