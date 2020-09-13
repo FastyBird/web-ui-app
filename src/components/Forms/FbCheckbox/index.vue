@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import FbError from './../FbError/index.vue'
+import FbError from '@/components/Forms/FbError'
 
 export default {
 

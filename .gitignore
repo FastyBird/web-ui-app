@@ -45,4 +45,5 @@ node_modules/
 
 yarn-error\.log
 
-dist/
+# Enable after finishing deployment
+#dist/

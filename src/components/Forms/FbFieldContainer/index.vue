@@ -74,8 +74,8 @@
 </template>
 
 <script>
-import FbLabel from './../FbLabel/index.vue'
-import FbError from './../FbError/index.vue'
+import FbLabel from '@/components/Forms/FbLabel'
+import FbError from '@/components/Forms/FbError'
 
 function sizeValidator (value) {
   // The value must match one of these strings

@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import FbMdFieldContainer from './../FbMdFieldContainer/index.vue'
+import FbFieldContainer from '@/components/Forms/FbFieldContainer'
 
 function sizeValidator (value) {
   // The value must match one of these strings

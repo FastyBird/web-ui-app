@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import FbMdFieldContainer from '../FbMdFieldContainer'
+import FbMdFieldContainer from '@/components/Forms/FbMdFieldContainer'
 
 export default {
 

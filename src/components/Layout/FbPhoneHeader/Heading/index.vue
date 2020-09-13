@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import FbLogo from './../../FbLogo/index.vue'
+import FbLogo from '@/components/Layout/FbLogo'
 
 export default {
 

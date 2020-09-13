@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import FbModalWindow from '../FbModalWindow/index'
+import FbModalWindow from '@/components/UI/FbModalWindow'
 
 export default {
 

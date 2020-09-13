@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import FbFieldContainer from '../FbFieldContainer'
+import FbFieldContainer from '@/components/Forms/FbFieldContainer'
 
 function sizeValidator (value) {
   // The value must match one of these strings
