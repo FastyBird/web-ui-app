@@ -55,7 +55,7 @@
 </template>
 
 <script>
-const FbLogo = () => import('./../../FbLogo')
+import FbLogo from './../../FbLogo/index.vue'
 
 export default {
 

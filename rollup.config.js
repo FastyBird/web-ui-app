@@ -1,7 +1,6 @@
 import babel from 'rollup-plugin-babel'
-import VuePlugin from 'rollup-plugin-vue'
-import resolve from 'rollup-plugin-node-resolve'
-import svg from 'rollup-plugin-vue-inline-svg'
+import nodeResolve from 'rollup-plugin-node-resolve'
+import vue from 'rollup-plugin-vue'
 
 export default [
   // browser-friendly UMD build
@@ -13,15 +12,14 @@ export default [
       format: 'cjs',
     },
     plugins: [
-      resolve({
+      nodeResolve({
         main: true,
         extensions: ['.mjs', '.js', '.jsx', '.json', '.vue'],
       }),
-      VuePlugin(),
+      vue(),
       babel({
         exclude: 'node_modules/**'
       }),
-      svg()
     ]
   },
 ]
