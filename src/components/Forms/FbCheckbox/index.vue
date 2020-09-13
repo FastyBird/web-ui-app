@@ -46,7 +46,7 @@
 </template>
 
 <script>
-const FbError = () => import('../FbError')
+import FbError from './../FbError/index.vue'
 
 export default {
 

@@ -69,7 +69,7 @@
 </template>
 
 <script>
-const FbMdFieldContainer = () => import('../FbMdFieldContainer')
+import FbMdFieldContainer from './../FbMdFieldContainer/index.vue'
 
 export default {
 

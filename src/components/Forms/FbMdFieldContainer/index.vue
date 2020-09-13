@@ -28,8 +28,8 @@
 </template>
 
 <script>
-const FbMdLabel = () => import('../FbMdLabel')
-const FbMdError = () => import('../FbMdError')
+import FbMdLabel from './../FbMdLabel/index.vue'
+import FbMdError from './../FbMdError/index.vue'
 
 export default {
 
