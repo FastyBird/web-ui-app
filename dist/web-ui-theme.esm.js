@@ -1,5 +1,6 @@
 import 'vue';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import Gravatar from 'vue-gravatar';
 
 //
 //
@@ -6036,7 +6037,7 @@ function removeListener(node, callback) {
   }
 }
 
-var ThemeClickOutsideDirective = {
+var ClickOutside = {
   bind(el, binding) {
     removeListener(el, binding.value);
 
@@ -6062,7 +6063,7 @@ const RESERVE_SCROLL_BAR_GAP = 'reserve-scroll-bar-gap';
 const options = {
   reserveScrollBarGap: true
 };
-var ThemeBodyScrollLockDirective = {
+var BodyScrollLock = {
   inserted: (el, binding) => {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
       disableBodyScroll(el, options);
@@ -6088,7 +6089,13 @@ var ThemeBodyScrollLockDirective = {
   }
 };
 
-var ThemeHelpersMixin = {
+var directives = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  clickOutside: ClickOutside,
+  bodyScrollLock: BodyScrollLock
+});
+
+var Helpers = {
   methods: {
     /**
      * Check to see if a slot exists
@@ -6140,6 +6147,11 @@ var ThemeHelpersMixin = {
 
   }
 };
+
+var mixins = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  helpers: Helpers
+});
 
 //
 //
@@ -8099,82 +8111,11 @@ const __vue_component__$O = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$O, __vue_script__$O, __vue_scope_id__$O, __vue_is_functional_template__$O, __vue_module_identifier__$O, false, createInjector, undefined, undefined);
 
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$P = {
   name: 'FbUserSideNavigation',
+  components: {
+    Gravatar
+  },
   props: {
     avatar: {
       type: String,
@@ -8273,7 +8214,14 @@ var __vue_render__$P = function () {
     }
   }, [_c('div', {
     staticClass: "fb-user-side-navigation__button-avatar"
-  }, [_c('span', [_vm.avatar !== null ? [_vm._v("\n          " + _vm._s(_vm.avatar) + "\n        ")] : [_c('svg', {
+  }, [_c('span', [_vm.avatar !== null ? [_vm._v("\n          " + _vm._s(_vm.avatar) + "\n        ")] : _vm.email !== null ? _c('gravatar', {
+    attrs: {
+      "email": _vm.email,
+      "size": 36,
+      "default-img": 'mm',
+      "alt": _vm.name
+    }
+  }) : [_c('svg', {
     attrs: {
       "version": "1.1",
       "xmlns": "http://www.w3.org/2000/svg",
@@ -8336,7 +8284,7 @@ var __vue_staticRenderFns__$P = [];
 
 const __vue_inject_styles__$P = function (inject) {
   if (!inject) return;
-  inject("data-v-bcdd6224_0", {
+  inject("data-v-c0212856_0", {
     source: ".fb-user-side-navigation__container{position:relative}.fb-user-side-navigation__container ul{position:absolute;top:auto;bottom:100%;left:0;z-index:1000;display:block;float:left;margin:2px 0 0;margin-left:10px;margin-bottom:10px;padding:5px 0;list-style:none;font-size:13px;text-align:left;background-color:#fff;border:1px solid #ddd;border-radius:3px;background-clip:padding-box;box-shadow:0 2px 5px 0 rgba(0,0,0,.25);min-width:160px;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175)}.fb-user-side-navigation__container ul:focus{outline:0}.fb-user-side-navigation__container ul:after,.fb-user-side-navigation__container ul:before{border-color:transparent;border-style:solid;border-width:8px;content:\" \";height:0;left:22px;pointer-events:none;position:absolute;width:0;bottom:100%}@media (max-width:1199px){.fb-user-side-navigation__container ul:after,.fb-user-side-navigation__container ul:before{left:12px}}.fb-user-side-navigation__container ul:before{border-top-color:#ddd;top:100%}.fb-user-side-navigation__container ul:after{border-top-color:#fff;margin-top:-1px;top:100%}.fb-user-side-navigation__container ul .divider{height:1px;overflow:hidden;background-color:#ddd;margin:5px 2px}.fb-user-side-navigation__container ul>li>a{display:block;padding:5px 15px;clear:both;font-weight:400;line-height:1.5384615385;color:#444;white-space:nowrap}.fb-user-side-navigation__container ul>li>a:focus,.fb-user-side-navigation__container ul>li>a:hover{text-decoration:none;color:#fff;background-color:#d9230f}.fb-user-side-navigation__container ul>.active>a,.fb-user-side-navigation__container ul>.active>a:focus,.fb-user-side-navigation__container ul>.active>a:hover{color:#fff;text-decoration:none;outline:0;background-color:#d9230f}.fb-user-side-navigation__container.collapse ul{display:none}.fb-user-side-navigation__button{background-color:transparent;background-image:none;border:medium none;cursor:pointer;display:inline-block;outline:0 none;padding:7px 15px;text-align:left;vertical-align:middle;white-space:nowrap;width:100%}@media (min-width:1200px){.fb-user-side-navigation__button{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}}@media (min-width:1200px){.fb-user-side-navigation__button-avatar,.fb-user-side-navigation__button-name{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}}@media (min-width:1200px){.fb-user-side-navigation__button-avatar{-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}}.fb-user-side-navigation__button-avatar>span{text-align:center;display:inline-block;width:40px;height:40px;background-color:#fff;border-radius:50%}@media (max-width:1199px){.fb-user-side-navigation__button-avatar>span{margin:0 auto}}.fb-user-side-navigation__button-avatar>span img{margin-top:1.5px;border-radius:50%}@media (max-width:1199px){.fb-user-side-navigation__button-avatar>span img{margin-right:0}}.fb-user-side-navigation__button-avatar>span svg{width:36px;height:36px;fill:#d9230f;border-radius:50%}.fb-user-side-navigation__button-name{-webkit-box-flex:0;-ms-flex:0 0 66.666667%;flex:0 0 66.666667%;max-width:66.666667%;padding-top:5px}@media (max-width:1199px){.fb-user-side-navigation__button-name{display:none!important}}@media (max-width:1199px){.fb-user-side-navigation__button{text-align:center;padding-left:0;padding-right:0}}.fb-user-side-navigation__button-caret{display:inline-block;width:0;height:0;margin-left:2px;vertical-align:middle;border-top:0;border-top:4px solid\\9;border-right:4px solid transparent;border-left:4px solid transparent;border-bottom:4px dashed;border-bottom:4px solid\\9;content:\"\"}.fb-user-side-navigation__version{color:grey;padding:5px 15px}",
     map: undefined,
     media: undefined
@@ -8989,13 +8937,13 @@ const install = function installWebUiTheme(Vue) {
   install.installed = true;
   Object.entries(components).forEach(([componentName, component]) => {
     Vue.component(componentName, component);
-  }); //Object.entries(directives).forEach(([directiveName, directive]) => {
-  //  Vue.directive(directiveName, directives[directive])
-  //});
-
-  Vue.directive('clickOutside', ThemeClickOutsideDirective);
-  Vue.directive('bodyScrollLock', ThemeBodyScrollLockDirective);
-  Vue.mixin(ThemeHelpersMixin);
+  });
+  Object.entries(directives).forEach(([directiveName, directive]) => {
+    Vue.directive(directiveName, directive);
+  });
+  Object.entries(mixins).forEach(([mixinName, mixin]) => {
+    Vue.mixin(mixin);
+  });
 }; // Create module definition for Vue.use()
 
 

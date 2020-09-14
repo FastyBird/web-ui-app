@@ -1,4 +1,4 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});require('vue');var bodyScrollLock=require('body-scroll-lock');function _typeof(obj) {
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});require('vue');var bodyScrollLock=require('body-scroll-lock'),Gravatar=require('vue-gravatar');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var Gravatar__default=/*#__PURE__*/_interopDefaultLegacy(Gravatar);function _typeof(obj) {
   "@babel/helpers - typeof";
 
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -5441,7 +5441,7 @@ function removeListener(node, callback) {
   }
 }
 
-var ThemeClickOutsideDirective = {
+var ClickOutside = {
   bind: function bind(el, binding) {
     removeListener(el, binding.value);
 
@@ -5462,7 +5462,7 @@ var ThemeClickOutsideDirective = {
 var options = {
   reserveScrollBarGap: true
 };
-var ThemeBodyScrollLockDirective = {
+var BodyScrollLock = {
   inserted: function inserted(el, binding) {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
       bodyScrollLock.disableBodyScroll(el, options);
@@ -5486,7 +5486,7 @@ var ThemeBodyScrollLockDirective = {
   unbind: function unbind(el) {
     bodyScrollLock.enableBodyScroll(el);
   }
-};var ThemeHelpersMixin = {
+};var directives=/*#__PURE__*/Object.freeze({__proto__:null,clickOutside: ClickOutside,bodyScrollLock: BodyScrollLock});var Helpers = {
   methods: {
     /**
      * Check to see if a slot exists
@@ -5535,7 +5535,7 @@ var ThemeBodyScrollLockDirective = {
       }
     }
   }
-};//
+};var mixins=/*#__PURE__*/Object.freeze({__proto__:null,helpers: Helpers});//
 //
 //
 //
@@ -7300,82 +7300,11 @@ var __vue_component__$O = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$O,
   staticRenderFns: __vue_staticRenderFns__$O
 }, __vue_inject_styles__$O, __vue_script__$O, __vue_scope_id__$O, __vue_is_functional_template__$O, __vue_module_identifier__$O, false, undefined, createInjectorSSR, undefined);//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$P = {
   name: 'FbUserSideNavigation',
+  components: {
+    Gravatar: Gravatar__default['default']
+  },
   props: {
     avatar: {
       type: String,
@@ -7457,7 +7386,14 @@ var __vue_render__$P = function __vue_render__() {
     class: ['fb-user-side-navigation__container', {
       'collapse': _vm.collapsed
     }]
-  }, [_vm._ssrNode("<div class=\"fb-user-side-navigation__button\"><div class=\"fb-user-side-navigation__button-avatar\"><span>" + (_vm.avatar !== null ? _vm._ssrEscape("\n          " + _vm._s(_vm.avatar) + "\n        ") : "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 3.80175 2.74985\"><path d=\"M0.187767 1.69877c-0.103706,0 -0.187767,-0.0840617 -0.187767,-0.18774 0,-0.103678 0.0840617,-0.187767 0.187767,-0.187767 0.262409,0 0.522518,-0.00293689 0.785231,-0.0021057 0.0406178,-0.267479 0.166655,-0.506974 0.34938,-0.689671 0.202064,-0.202092 0.473588,-0.334834 0.775645,-0.359354 -0.0341345,-0.0668559 -0.0258502,-0.150557 0.0271524,-0.209822 0.0688508,-0.0769411 0.187102,-0.0835075 0.264043,-0.0146568l0.424631 0.379774 0.00784095 0.00748077c0.0936481,0.0543325 0.179483,0.120551 0.255537,0.196578 0.0810693,0.0810416 0.151001,0.173304 0.207217,0.274212l0.426986 0.396758c0.0413105,0.0337189 0.0757497,0.0894921 0.0903233,0.138339l-0.4581 0c-0.0533905,0 -0.0973331,0.0439149 -0.0973331,0.0973054l0 8.31196e-005c0,0.0533628 0.0439703,0.0973331 0.0973331,0.0973331 0.148812,0 0.297596,0 0.446408,0 -0.0147399,0.0339405 -0.0411442,0.0736717 -0.0694326,0.0978041l-0.440202 0.409059c-0.00809031,0.00750847 -0.0165962,0.0141026 -0.0255454,0.0199487 -0.0505367,0.0814295 -0.110217,0.15657 -0.177654,0.224007 -0.224506,0.224562 -0.534764,0.36351 -0.877439,0.36351 -0.320565,0 -0.636004,-0.171005 -0.928945,-0.391216l0.413797 0c0.182143,0 0.32993,-0.147759 0.32993,-0.32993 0,-0.182143 -0.147787,-0.32993 -0.32993,-0.32993 -0.498967,0 -0.997934,0 -1.49687,0zm2.30261 0.625531c0.122075,-0.0434993 0.231571,-0.113652 0.321368,-0.203449 0.156597,-0.156542 0.253459,-0.372958 0.253459,-0.611927 0,-0.238969 -0.0968621,-0.455385 -0.253459,-0.611954 -0.15657,-0.15657 -0.372958,-0.253459 -0.611954,-0.253459 -0.238969,0 -0.455385,0.0968898 -0.611927,0.253459 -0.114594,0.114622 -0.197215,0.2613 -0.233261,0.425406 0.130719,0.000387892 0.2613,0.000886609 0.39202,0.000886609 0.357193,0 0.61032,0.204918 0.724803,0.4517 0.0790191,0.170506 0.0946178,0.374897 0.0189513,0.549338zm0.348133 -1.02207c0,-0.113846 -0.0922905,-0.206164 -0.206164,-0.206164 -0.113846,0 -0.206137,0.0923182 -0.206137,0.206164 0,0.113846 0.0922905,0.206164 0.206137,0.206164 0.113874,0 0.206164,-0.0923182 0.206164,-0.206164zm-1.15387 0.538726c0.103678,0 0.18774,0.0840617 0.18774,0.18774 0,0.103678 -0.0840617,0.187767 -0.18774,0.187767l-1.02043 0c-0.103678,0 -0.187767,-0.0840894 -0.187767,-0.187767 0,-0.103678 0.0840894,-0.18774 0.187767,-0.18774l1.02043 0z\"></path></svg>") + "</span></div> <div class=\"fb-user-side-navigation__button-name\">" + _vm._ssrEscape("\n      " + _vm._s(_vm.name) + "\n      ") + "<span class=\"fb-user-side-navigation__button-caret\"></span></div></div> "), _vm._ssrNode("<ul tabindex=\"0\">", "</ul>", [_vm._ssrNode((_vm.version !== null ? "<li class=\"fb-user-side-navigation__version\">" + _vm._ssrEscape("\n        Version: " + _vm._s(_vm.version) + "\n      ") + "</li> <li class=\"divider\"></li>" : "<!---->") + " "), _vm._l(_vm.items, function (item, index) {
+  }, [_vm._ssrNode("<div class=\"fb-user-side-navigation__button\">", "</div>", [_vm._ssrNode("<div class=\"fb-user-side-navigation__button-avatar\">", "</div>", [_vm._ssrNode("<span>", "</span>", [_vm.avatar !== null ? [_vm._ssrNode(_vm._ssrEscape("\n          " + _vm._s(_vm.avatar) + "\n        "))] : _vm.email !== null ? _c('gravatar', {
+    attrs: {
+      "email": _vm.email,
+      "size": 36,
+      "default-img": 'mm',
+      "alt": _vm.name
+    }
+  }) : _vm._ssrNode("<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 3.80175 2.74985\"><path d=\"M0.187767 1.69877c-0.103706,0 -0.187767,-0.0840617 -0.187767,-0.18774 0,-0.103678 0.0840617,-0.187767 0.187767,-0.187767 0.262409,0 0.522518,-0.00293689 0.785231,-0.0021057 0.0406178,-0.267479 0.166655,-0.506974 0.34938,-0.689671 0.202064,-0.202092 0.473588,-0.334834 0.775645,-0.359354 -0.0341345,-0.0668559 -0.0258502,-0.150557 0.0271524,-0.209822 0.0688508,-0.0769411 0.187102,-0.0835075 0.264043,-0.0146568l0.424631 0.379774 0.00784095 0.00748077c0.0936481,0.0543325 0.179483,0.120551 0.255537,0.196578 0.0810693,0.0810416 0.151001,0.173304 0.207217,0.274212l0.426986 0.396758c0.0413105,0.0337189 0.0757497,0.0894921 0.0903233,0.138339l-0.4581 0c-0.0533905,0 -0.0973331,0.0439149 -0.0973331,0.0973054l0 8.31196e-005c0,0.0533628 0.0439703,0.0973331 0.0973331,0.0973331 0.148812,0 0.297596,0 0.446408,0 -0.0147399,0.0339405 -0.0411442,0.0736717 -0.0694326,0.0978041l-0.440202 0.409059c-0.00809031,0.00750847 -0.0165962,0.0141026 -0.0255454,0.0199487 -0.0505367,0.0814295 -0.110217,0.15657 -0.177654,0.224007 -0.224506,0.224562 -0.534764,0.36351 -0.877439,0.36351 -0.320565,0 -0.636004,-0.171005 -0.928945,-0.391216l0.413797 0c0.182143,0 0.32993,-0.147759 0.32993,-0.32993 0,-0.182143 -0.147787,-0.32993 -0.32993,-0.32993 -0.498967,0 -0.997934,0 -1.49687,0zm2.30261 0.625531c0.122075,-0.0434993 0.231571,-0.113652 0.321368,-0.203449 0.156597,-0.156542 0.253459,-0.372958 0.253459,-0.611927 0,-0.238969 -0.0968621,-0.455385 -0.253459,-0.611954 -0.15657,-0.15657 -0.372958,-0.253459 -0.611954,-0.253459 -0.238969,0 -0.455385,0.0968898 -0.611927,0.253459 -0.114594,0.114622 -0.197215,0.2613 -0.233261,0.425406 0.130719,0.000387892 0.2613,0.000886609 0.39202,0.000886609 0.357193,0 0.61032,0.204918 0.724803,0.4517 0.0790191,0.170506 0.0946178,0.374897 0.0189513,0.549338zm0.348133 -1.02207c0,-0.113846 -0.0922905,-0.206164 -0.206164,-0.206164 -0.113846,0 -0.206137,0.0923182 -0.206137,0.206164 0,0.113846 0.0922905,0.206164 0.206137,0.206164 0.113874,0 0.206164,-0.0923182 0.206164,-0.206164zm-1.15387 0.538726c0.103678,0 0.18774,0.0840617 0.18774,0.18774 0,0.103678 -0.0840617,0.187767 -0.18774,0.187767l-1.02043 0c-0.103678,0 -0.187767,-0.0840894 -0.187767,-0.187767 0,-0.103678 0.0840894,-0.18774 0.187767,-0.18774l1.02043 0z\"></path></svg>")], 2)]), _vm._ssrNode(" <div class=\"fb-user-side-navigation__button-name\">" + _vm._ssrEscape("\n      " + _vm._s(_vm.name) + "\n      ") + "<span class=\"fb-user-side-navigation__button-caret\"></span></div>")], 2), _vm._ssrNode(" "), _vm._ssrNode("<ul tabindex=\"0\">", "</ul>", [_vm._ssrNode((_vm.version !== null ? "<li class=\"fb-user-side-navigation__version\">" + _vm._ssrEscape("\n        Version: " + _vm._s(_vm.version) + "\n      ") + "</li> <li class=\"divider\"></li>" : "<!---->") + " "), _vm._l(_vm.items, function (item, index) {
     return [item.hasOwnProperty('link') ? _vm._ssrNode("<li>", "</li>", [_c('nuxt-link', {
       attrs: {
         "to": item.link
@@ -7471,7 +7407,7 @@ var __vue_staticRenderFns__$P = [];
 
 var __vue_inject_styles__$P = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-bcdd6224_0", {
+  inject("data-v-c0212856_0", {
     source: ".fb-user-side-navigation__container{position:relative}.fb-user-side-navigation__container ul{position:absolute;top:auto;bottom:100%;left:0;z-index:1000;display:block;float:left;margin:2px 0 0;margin-left:10px;margin-bottom:10px;padding:5px 0;list-style:none;font-size:13px;text-align:left;background-color:#fff;border:1px solid #ddd;border-radius:3px;background-clip:padding-box;box-shadow:0 2px 5px 0 rgba(0,0,0,.25);min-width:160px;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175)}.fb-user-side-navigation__container ul:focus{outline:0}.fb-user-side-navigation__container ul:after,.fb-user-side-navigation__container ul:before{border-color:transparent;border-style:solid;border-width:8px;content:\" \";height:0;left:22px;pointer-events:none;position:absolute;width:0;bottom:100%}@media (max-width:1199px){.fb-user-side-navigation__container ul:after,.fb-user-side-navigation__container ul:before{left:12px}}.fb-user-side-navigation__container ul:before{border-top-color:#ddd;top:100%}.fb-user-side-navigation__container ul:after{border-top-color:#fff;margin-top:-1px;top:100%}.fb-user-side-navigation__container ul .divider{height:1px;overflow:hidden;background-color:#ddd;margin:5px 2px}.fb-user-side-navigation__container ul>li>a{display:block;padding:5px 15px;clear:both;font-weight:400;line-height:1.5384615385;color:#444;white-space:nowrap}.fb-user-side-navigation__container ul>li>a:focus,.fb-user-side-navigation__container ul>li>a:hover{text-decoration:none;color:#fff;background-color:#d9230f}.fb-user-side-navigation__container ul>.active>a,.fb-user-side-navigation__container ul>.active>a:focus,.fb-user-side-navigation__container ul>.active>a:hover{color:#fff;text-decoration:none;outline:0;background-color:#d9230f}.fb-user-side-navigation__container.collapse ul{display:none}.fb-user-side-navigation__button{background-color:transparent;background-image:none;border:medium none;cursor:pointer;display:inline-block;outline:0 none;padding:7px 15px;text-align:left;vertical-align:middle;white-space:nowrap;width:100%}@media (min-width:1200px){.fb-user-side-navigation__button{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}}@media (min-width:1200px){.fb-user-side-navigation__button-avatar,.fb-user-side-navigation__button-name{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}}@media (min-width:1200px){.fb-user-side-navigation__button-avatar{-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}}.fb-user-side-navigation__button-avatar>span{text-align:center;display:inline-block;width:40px;height:40px;background-color:#fff;border-radius:50%}@media (max-width:1199px){.fb-user-side-navigation__button-avatar>span{margin:0 auto}}.fb-user-side-navigation__button-avatar>span img{margin-top:1.5px;border-radius:50%}@media (max-width:1199px){.fb-user-side-navigation__button-avatar>span img{margin-right:0}}.fb-user-side-navigation__button-avatar>span svg{width:36px;height:36px;fill:#d9230f;border-radius:50%}.fb-user-side-navigation__button-name{-webkit-box-flex:0;-ms-flex:0 0 66.666667%;flex:0 0 66.666667%;max-width:66.666667%;padding-top:5px}@media (max-width:1199px){.fb-user-side-navigation__button-name{display:none!important}}@media (max-width:1199px){.fb-user-side-navigation__button{text-align:center;padding-left:0;padding-right:0}}.fb-user-side-navigation__button-caret{display:inline-block;width:0;height:0;margin-left:2px;vertical-align:middle;border-top:0;border-top:4px solid\\9;border-right:4px solid transparent;border-left:4px solid transparent;border-bottom:4px dashed;border-bottom:4px solid\\9;content:\"\"}.fb-user-side-navigation__version{color:grey;padding:5px 15px}",
     map: undefined,
     media: undefined
@@ -7483,7 +7419,7 @@ var __vue_inject_styles__$P = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$P = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$P = "data-v-bcdd6224";
+var __vue_module_identifier__$P = "data-v-c0212856";
 /* functional template */
 
 var __vue_is_functional_template__$P = false;
@@ -8047,13 +7983,21 @@ var __vue_component__$S = /*#__PURE__*/normalizeComponent({
         component = _ref2[1];
 
     Vue.component(componentName, component);
-  }); //Object.entries(directives).forEach(([directiveName, directive]) => {
-  //  Vue.directive(directiveName, directives[directive])
-  //});
+  });
+  Object.entries(directives).forEach(function (_ref3) {
+    var _ref4 = _slicedToArray(_ref3, 2),
+        directiveName = _ref4[0],
+        directive = _ref4[1];
 
-  Vue.directive('clickOutside', ThemeClickOutsideDirective);
-  Vue.directive('bodyScrollLock', ThemeBodyScrollLockDirective);
-  Vue.mixin(ThemeHelpersMixin);
+    Vue.directive(directiveName, directive);
+  });
+  Object.entries(mixins).forEach(function (_ref5) {
+    var _ref6 = _slicedToArray(_ref5, 2),
+        mixinName = _ref6[0],
+        mixin = _ref6[1];
+
+    Vue.mixin(mixin);
+  });
 }; // Create module definition for Vue.use()
 
 

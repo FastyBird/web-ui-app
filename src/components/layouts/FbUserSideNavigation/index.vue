@@ -12,6 +12,13 @@
           <template v-if="avatar !== null">
             {{ avatar }}
           </template>
+          <gravatar
+            v-else-if="email !== null"
+            :email="email"
+            :size="36"
+            :default-img="'mm'"
+            :alt="name"
+          />
           <template v-else>
             <svg
               version="1.1"
@@ -74,9 +81,15 @@
 </template>
 
 <script>
+import Gravatar from 'vue-gravatar'
+
 export default {
 
   name: 'FbUserSideNavigation',
+
+  components: {
+    Gravatar,
+  },
 
   props: {
 
