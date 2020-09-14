@@ -1,64 +1,32 @@
 // Forms components
-import FbFormInput from './forms/FbInput/index.vue'
-import FbFormSelect from './forms/FbSelect/index.vue'
-import FbFormTextArea from './forms/FbTextArea/index.vue'
-import FbFormCheckbox from './forms/FbCheckbox/index.vue'
-import FbFormCheckboxesGroup from './forms/FbCheckboxesGroup/index.vue'
-import FbFormRadioButton from './forms/FbRadioButton/index.vue'
-import FbFormRadioButtonsGroup from './forms/FbRadioButtonsGroup/index.vue'
+export { default as FbFormInput } from './forms/FbInput/index.vue'
+export { default as FbFormSelect } from './forms/FbSelect/index.vue'
+export { default as FbFormTextArea } from './forms/FbTextArea/index.vue'
+export { default as FbFormCheckbox } from './forms/FbCheckbox/index.vue'
+export { default as FbFormCheckboxesGroup } from './forms/FbCheckboxesGroup/index.vue'
+export { default as FbFormRadioButton } from './forms/FbRadioButton/index.vue'
+export { default as FbFormRadioButtonsGroup } from './forms/FbRadioButtonsGroup/index.vue'
 
 // MD forms components
-import FbMdFormDatePicker from './forms/FbMdDatePicker/index.vue'
-import FbMdFormInput from './forms/FbMdInput/index.vue'
-import FbMdFormSelect from './forms/FbMdSelect/index.vue'
-import FbMdFormTextArea from './forms/FbMdTextArea/index.vue'
+export { default as FbMdFormDatePicker } from './forms/FbMdDatePicker/index.vue'
+export { default as FbMdFormInput } from './forms/FbMdInput/index.vue'
+export { default as FbMdFormSelect } from './forms/FbMdSelect/index.vue'
+export { default as FbMdFormTextArea } from './forms/FbMdTextArea/index.vue'
 
 // UI components
-import FbAlert from './ui/FbAlert/index.vue'
-import FbButton from './ui/FbButton/index.vue'
-import FbCardBox from './ui/FbCardBox/index.vue'
-import FbConfirmationWindow from './ui/FbConfirmationWindow/index.vue'
-import FbContent from './ui/FbContent/index.vue'
-import FbDivider from './ui/FbDivider/index.vue'
-import FbLoadingBox from './ui/FbLoadingBox/index.vue'
-import FbModalForm from './ui/FbModalForm/index.vue'
-import FbModalInfo from './ui/FbModalInfo/index.vue'
-import FbModalWindow from './ui/FbModalWindow/index.vue'
-import FbPageLoading from './ui/FbPageLoading/index.vue'
-import FbResultErr from './ui/FbResultErr/index.vue'
-import FbResultOk from './ui/FbResultOk/index.vue'
-import FbSpinner from './ui/FbSpinner/index.vue'
-import FbSwitchElement from './ui/FbSwitchElement/index.vue'
-import FbTransitionExpand from './ui/FbTransitionExpand/index.vue'
-
-export default {
-  FbFormInput,
-  FbFormSelect,
-  FbFormTextArea,
-  FbFormCheckbox,
-  FbFormCheckboxesGroup,
-  FbFormRadioButton,
-  FbFormRadioButtonsGroup,
-
-  FbMdFormDatePicker,
-  FbMdFormInput,
-  FbMdFormSelect,
-  FbMdFormTextArea,
-
-  FbAlert,
-  FbButton,
-  FbCardBox,
-  FbConfirmationWindow,
-  FbContent,
-  FbDivider,
-  FbLoadingBox,
-  FbModalForm,
-  FbModalInfo,
-  FbModalWindow,
-  FbPageLoading,
-  FbResultErr,
-  FbResultOk,
-  FbSpinner,
-  FbSwitchElement,
-  FbTransitionExpand,
-}
+export { default as FbAlert } from './ui/FbAlert/index.vue'
+export { default as FbButton } from './ui/FbButton/index.vue'
+export { default as FbCardBox } from './ui/FbCardBox/index.vue'
+export { default as FbConfirmationWindow } from './ui/FbConfirmationWindow/index.vue'
+export { default as FbContent } from './ui/FbContent/index.vue'
+export { default as FbDivider } from './ui/FbDivider/index.vue'
+export { default as FbLoadingBox } from './ui/FbLoadingBox/index.vue'
+export { default as FbModalForm } from './ui/FbModalForm/index.vue'
+export { default as FbModalInfo } from './ui/FbModalInfo/index.vue'
+export { default as FbModalWindow } from './ui/FbModalWindow/index.vue'
+export { default as FbPageLoading } from './ui/FbPageLoading/index.vue'
+export { default as FbResultErr } from './ui/FbResultErr/index.vue'
+export { default as FbResultOk } from './ui/FbResultOk/index.vue'
+export { default as FbSpinner } from './ui/FbSpinner/index.vue'
+export { default as FbSwitchElement } from './ui/FbSwitchElement/index.vue'
+export { default as FbTransitionExpand } from './ui/FbTransitionExpand/index.vue'

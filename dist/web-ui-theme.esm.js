@@ -5975,7 +5975,9 @@ const __vue_component__$x = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$x, __vue_script__$x, __vue_scope_id__$x, __vue_is_functional_template__$x, __vue_module_identifier__$x, false, createInjector, undefined, undefined);
 
 // Forms components
-var index = {
+
+var components = /*#__PURE__*/Object.freeze({
+  __proto__: null,
   FbFormInput: __vue_component__$3,
   FbFormSelect: __vue_component__$4,
   FbFormTextArea: __vue_component__$5,
@@ -6003,11 +6005,6 @@ var index = {
   FbSpinner: __vue_component__$v,
   FbSwitchElement: __vue_component__$w,
   FbTransitionExpand: __vue_component__$x
-};
-
-var components = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': index
 });
 
 let binded = [];
@@ -6039,7 +6036,7 @@ function removeListener(node, callback) {
   }
 }
 
-var clickOutside = {
+var ClickOutside = {
   bind(el, binding) {
     removeListener(el, binding.value);
 
@@ -6065,7 +6062,7 @@ const RESERVE_SCROLL_BAR_GAP = 'reserve-scroll-bar-gap';
 const options = {
   reserveScrollBarGap: true
 };
-var bodyScrollLock = {
+var BodyScrollLock = {
   inserted: (el, binding) => {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
       disableBodyScroll(el, options);
@@ -6091,10 +6088,11 @@ var bodyScrollLock = {
   }
 };
 
-var directives = {
-  clickOutside,
-  bodyScrollLock
-};
+var directives = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  clickOutside: ClickOutside,
+  bodyScrollLock: BodyScrollLock
+});
 
 var ThemeHelpersMixin = {
   methods: {
@@ -9000,8 +8998,7 @@ const install = function installWebUiTheme(Vue) {
   });
   Object.entries(directives).forEach(([directiveName, directive]) => {
     Vue.directive(directiveName, directives[directive]);
-  }); // Mixins
-
+  });
   Vue.mixin(ThemeHelpersMixin);
 }; // Create module definition for Vue.use()
 

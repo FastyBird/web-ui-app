@@ -1,7 +1,7 @@
 // Import vue components
 import * as components from '@/components/index';
 // Import vue directives
-import directives from '@/directives/index';
+import * as directives from '@/directives/index';
 // Import vue mixins
 import ThemeHelpersMixin from '@/mixins/helpers'
 
@@ -17,7 +17,6 @@ const install = function installWebUiTheme(Vue) {
     Vue.directive(directiveName, directives[directive])
   });
 
-  // Mixins
   Vue.mixin(ThemeHelpersMixin)
 };
 

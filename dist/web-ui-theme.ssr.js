@@ -1,4 +1,4 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});require('vue');var bodyScrollLock$1=require('body-scroll-lock');function _typeof(obj) {
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});require('vue');var bodyScrollLock=require('body-scroll-lock');function _typeof(obj) {
   "@babel/helpers - typeof";
 
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -5410,35 +5410,7 @@ var __vue_component__$x = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$x,
   staticRenderFns: __vue_staticRenderFns__$x
 }, __vue_inject_styles__$x, __vue_script__$x, __vue_scope_id__$x, __vue_is_functional_template__$x, __vue_module_identifier__$x, false, undefined, createInjectorSSR, undefined);// Forms components
-var index = {
-  FbFormInput: __vue_component__$3,
-  FbFormSelect: __vue_component__$4,
-  FbFormTextArea: __vue_component__$5,
-  FbFormCheckbox: __vue_component__$6,
-  FbFormCheckboxesGroup: __vue_component__$7,
-  FbFormRadioButton: __vue_component__$8,
-  FbFormRadioButtonsGroup: __vue_component__$9,
-  FbMdFormDatePicker: __vue_component__$a,
-  FbMdFormInput: __vue_component__$e,
-  FbMdFormSelect: __vue_component__$f,
-  FbMdFormTextArea: __vue_component__$g,
-  FbAlert: __vue_component__$h,
-  FbButton: __vue_component__$i,
-  FbCardBox: __vue_component__$j,
-  FbConfirmationWindow: __vue_component__$l,
-  FbContent: __vue_component__$m,
-  FbDivider: __vue_component__$n,
-  FbLoadingBox: __vue_component__$o,
-  FbModalForm: __vue_component__$p,
-  FbModalInfo: __vue_component__$q,
-  FbModalWindow: __vue_component__$r,
-  FbPageLoading: __vue_component__$s,
-  FbResultErr: __vue_component__$t,
-  FbResultOk: __vue_component__$u,
-  FbSpinner: __vue_component__$v,
-  FbSwitchElement: __vue_component__$w,
-  FbTransitionExpand: __vue_component__$x
-};var components=/*#__PURE__*/Object.freeze({__proto__:null,'default': index});var binded = [];
+var components=/*#__PURE__*/Object.freeze({__proto__:null,FbFormInput: __vue_component__$3,FbFormSelect: __vue_component__$4,FbFormTextArea: __vue_component__$5,FbFormCheckbox: __vue_component__$6,FbFormCheckboxesGroup: __vue_component__$7,FbFormRadioButton: __vue_component__$8,FbFormRadioButtonsGroup: __vue_component__$9,FbMdFormDatePicker: __vue_component__$a,FbMdFormInput: __vue_component__$e,FbMdFormSelect: __vue_component__$f,FbMdFormTextArea: __vue_component__$g,FbAlert: __vue_component__$h,FbButton: __vue_component__$i,FbCardBox: __vue_component__$j,FbConfirmationWindow: __vue_component__$l,FbContent: __vue_component__$m,FbDivider: __vue_component__$n,FbLoadingBox: __vue_component__$o,FbModalForm: __vue_component__$p,FbModalInfo: __vue_component__$q,FbModalWindow: __vue_component__$r,FbPageLoading: __vue_component__$s,FbResultErr: __vue_component__$t,FbResultOk: __vue_component__$u,FbSpinner: __vue_component__$v,FbSwitchElement: __vue_component__$w,FbTransitionExpand: __vue_component__$x});var binded = [];
 
 function handler(e) {
   binded.forEach(function (el) {
@@ -5469,7 +5441,7 @@ function removeListener(node, callback) {
   }
 }
 
-var clickOutside = {
+var ClickOutside = {
   bind: function bind(el, binding) {
     removeListener(el, binding.value);
 
@@ -5490,12 +5462,12 @@ var clickOutside = {
 var options = {
   reserveScrollBarGap: true
 };
-var bodyScrollLock = {
+var BodyScrollLock = {
   inserted: function inserted(el, binding) {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      bodyScrollLock$1.disableBodyScroll(el, options);
+      bodyScrollLock.disableBodyScroll(el, options);
     } else if (binding.value) {
-      bodyScrollLock$1.disableBodyScroll(el);
+      bodyScrollLock.disableBodyScroll(el);
     }
   },
   componentUpdated: function componentUpdated(el, binding) {
@@ -5504,20 +5476,17 @@ var bodyScrollLock = {
     }
 
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      bodyScrollLock$1.disableBodyScroll(el, options);
+      bodyScrollLock.disableBodyScroll(el, options);
     } else if (binding.value) {
-      bodyScrollLock$1.disableBodyScroll(el);
+      bodyScrollLock.disableBodyScroll(el);
     } else {
-      bodyScrollLock$1.enableBodyScroll(el);
+      bodyScrollLock.enableBodyScroll(el);
     }
   },
   unbind: function unbind(el) {
-    bodyScrollLock$1.enableBodyScroll(el);
+    bodyScrollLock.enableBodyScroll(el);
   }
-};var directives = {
-  clickOutside: clickOutside,
-  bodyScrollLock: bodyScrollLock
-};var ThemeHelpersMixin = {
+};var directives=/*#__PURE__*/Object.freeze({__proto__:null,clickOutside: ClickOutside,bodyScrollLock: BodyScrollLock});var ThemeHelpersMixin = {
   methods: {
     /**
      * Check to see if a slot exists
@@ -8085,8 +8054,7 @@ var __vue_component__$S = /*#__PURE__*/normalizeComponent({
         directive = _ref4[1];
 
     Vue.directive(directiveName, directives[directive]);
-  }); // Mixins
-
+  });
   Vue.mixin(ThemeHelpersMixin);
 }; // Create module definition for Vue.use()
 
