@@ -1,4 +1,4 @@
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import BodyScrollLock from 'body-scroll-lock'
 
 const RESERVE_SCROLL_BAR_GAP = 'reserve-scroll-bar-gap'
 
@@ -10,9 +10,9 @@ export default {
 
   inserted: (el, binding) => {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      disableBodyScroll(el, options)
+      BodyScrollLock.disableBodyScroll(el, options)
     } else if (binding.value) {
-      disableBodyScroll(el)
+      BodyScrollLock.disableBodyScroll(el)
     }
   },
 
@@ -22,16 +22,16 @@ export default {
     }
 
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      disableBodyScroll(el, options)
+      BodyScrollLock.disableBodyScroll(el, options)
     } else if (binding.value) {
-      disableBodyScroll(el)
+      BodyScrollLock.disableBodyScroll(el)
     } else {
-      enableBodyScroll(el)
+      BodyScrollLock.enableBodyScroll(el)
     }
   },
 
   unbind: (el) => {
-    enableBodyScroll(el)
+    BodyScrollLock.enableBodyScroll(el)
   },
 
 }

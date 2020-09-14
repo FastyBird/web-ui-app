@@ -31,7 +31,7 @@ import FbResultOk from './UI/FbResultOk/index.vue'
 import FbSpinner from './UI/FbSpinner/index.vue'
 import FbTransitionExpand from './UI/FbTransitionExpand/index.vue'
 
-export const components = {
+export default {
   FbFormInput,
   FbFormSelect,
   FbFormTextArea,
