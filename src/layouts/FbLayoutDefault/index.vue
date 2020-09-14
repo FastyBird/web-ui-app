@@ -103,13 +103,13 @@
 </template>
 
 <script>
-import FbLogo from './../../components/Layout/FbLogo/index.vue'
-import FbDesktopHeader from './../../components/Layout/FbDesktopHeader/index.vue'
-import FbPhoneHeader from './../../components/Layout/FbPhoneHeader/index.vue'
-import FbNavigation from './../../components/Layout/FbNavigation/index.vue'
-import FbPhoneNavigation from './../../components/Layout/FbPhoneNavigation/index.vue'
-import FbUserSideNavigation from './../../components/Layout/FbUserSideNavigation/index.vue'
-import FbBottomNavigation from './../../components/Layout/FbBottomNavigation/index.vue'
+import FbLogo from '../../components/layouts/FbLogo/index.vue'
+import FbDesktopHeader from '../../components/layouts/FbDesktopHeader/index.vue'
+import FbPhoneHeader from '../../components/layouts/FbPhoneHeader/index.vue'
+import FbNavigation from '../../components/layouts/FbNavigation/index.vue'
+import FbPhoneNavigation from '../../components/layouts/FbPhoneNavigation/index.vue'
+import FbUserSideNavigation from '../../components/layouts/FbUserSideNavigation/index.vue'
+import FbBottomNavigation from '../../components/layouts/FbBottomNavigation/index.vue'
 
 export default {
 

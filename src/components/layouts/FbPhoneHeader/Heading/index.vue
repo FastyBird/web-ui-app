@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import FbLogo from '@/components/Layout/FbLogo'
+import FbLogo from '@/components/layouts/FbLogo'
 
 export default {
 

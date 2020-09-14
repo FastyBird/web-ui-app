@@ -1,9 +1,3 @@
-import FbLayoutDefault from './default/index.vue'
-import FbLayoutError from './error/index.vue'
-import FbLayoutSign from './sign/index.vue'
-
-export default {
-  FbLayoutDefault,
-  FbLayoutError,
-  FbLayoutSign,
-}
+export { default as FbLayoutDefault } from './FbLayoutDefault/index.vue'
+export { default as FbLayoutError } from './FbLayoutError/index.vue'
+export { default as FbLayoutSign } from './FbLayoutSign/index.vue'

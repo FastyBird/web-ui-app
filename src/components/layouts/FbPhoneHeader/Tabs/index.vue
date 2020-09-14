@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Item from '@/components/Layout/FbPhoneHeader/Tabs/Item'
+import Item from '@/components/layouts/FbPhoneHeader/Tabs/Item'
 
 export default {
 

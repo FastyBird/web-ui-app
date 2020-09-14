@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import FbSignHeader from './../../components/Layout/FbSignHeader/index.vue'
-import FbSignFooter from './../../components/Layout/FbSignFooter/index.vue'
+import FbSignHeader from '../../components/layouts/FbSignHeader/index.vue'
+import FbSignFooter from '../../components/layouts/FbSignFooter/index.vue'
 
 export default {
 

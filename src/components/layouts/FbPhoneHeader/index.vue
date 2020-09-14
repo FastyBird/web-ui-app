@@ -79,10 +79,10 @@
 </template>
 
 <script>
-import Heading from '@/components/Layout/FbPhoneHeader/Heading'
-import ActionButton from '@/components/Layout/FbPhoneHeader/Button'
-import HamburgerButton from '@/components/Layout/FbPhoneHeader/HamburgerButton'
-import Tabs from '@/components/Layout/FbPhoneHeader/Tabs'
+import Heading from '@/components/layouts/FbPhoneHeader/Heading'
+import ActionButton from '@/components/layouts/FbPhoneHeader/Button'
+import HamburgerButton from '@/components/layouts/FbPhoneHeader/HamburgerButton'
+import Tabs from '@/components/layouts/FbPhoneHeader/Tabs'
 
 export default {
 

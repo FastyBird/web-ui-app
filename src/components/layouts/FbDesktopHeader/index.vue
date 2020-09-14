@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import ActionButton from '@/components/Layout/FbDesktopHeader/Button'
+import ActionButton from '@/components/layouts/FbDesktopHeader/Button'
 
 export default {
 

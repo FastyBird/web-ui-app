@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Item from '@/components/Layout/FbBottomNavigation/Item'
+import Item from '@/components/layouts/FbBottomNavigation/Item'
 
 export default {
 
