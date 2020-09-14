@@ -5,6 +5,9 @@ import * as directives from '@/directives/index';
 // Import vue mixins
 import ThemeHelpersMixin from '@/mixins/helpers'
 
+import ThemeClickOutsideDirective from '@/directives/ClickOutside'
+import ThemeBodyScrollLockDirective from '@/directives/BodyScrollLock'
+
 // install function executed by Vue.use()
 const install = function installWebUiTheme(Vue) {
   if (install.installed) return;
@@ -13,9 +16,11 @@ const install = function installWebUiTheme(Vue) {
     Vue.component(componentName, component);
   });
 
-  Object.entries(directives).forEach(([directiveName, directive]) => {
-    Vue.directive(directiveName, directives[directive])
-  });
+  //Object.entries(directives).forEach(([directiveName, directive]) => {
+  //  Vue.directive(directiveName, directives[directive])
+  //});
+  Vue.directive('clickOutside', ThemeClickOutsideDirective)
+  Vue.directive('bodyScrollLock', ThemeBodyScrollLockDirective)
 
   Vue.mixin(ThemeHelpersMixin)
 };

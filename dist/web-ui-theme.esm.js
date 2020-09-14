@@ -6036,7 +6036,7 @@ function removeListener(node, callback) {
   }
 }
 
-var ClickOutside = {
+var ThemeClickOutsideDirective = {
   bind(el, binding) {
     removeListener(el, binding.value);
 
@@ -6062,7 +6062,7 @@ const RESERVE_SCROLL_BAR_GAP = 'reserve-scroll-bar-gap';
 const options = {
   reserveScrollBarGap: true
 };
-var BodyScrollLock = {
+var ThemeBodyScrollLockDirective = {
   inserted: (el, binding) => {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
       disableBodyScroll(el, options);
@@ -6087,12 +6087,6 @@ var BodyScrollLock = {
     enableBodyScroll(el);
   }
 };
-
-var directives = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  clickOutside: ClickOutside,
-  bodyScrollLock: BodyScrollLock
-});
 
 var ThemeHelpersMixin = {
   methods: {
@@ -8995,10 +8989,12 @@ const install = function installWebUiTheme(Vue) {
   install.installed = true;
   Object.entries(components).forEach(([componentName, component]) => {
     Vue.component(componentName, component);
-  });
-  Object.entries(directives).forEach(([directiveName, directive]) => {
-    Vue.directive(directiveName, directives[directive]);
-  });
+  }); //Object.entries(directives).forEach(([directiveName, directive]) => {
+  //  Vue.directive(directiveName, directives[directive])
+  //});
+
+  Vue.directive('clickOutside', ThemeClickOutsideDirective);
+  Vue.directive('bodyScrollLock', ThemeBodyScrollLockDirective);
   Vue.mixin(ThemeHelpersMixin);
 }; // Create module definition for Vue.use()
 

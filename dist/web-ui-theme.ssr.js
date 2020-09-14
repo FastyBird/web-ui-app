@@ -5441,7 +5441,7 @@ function removeListener(node, callback) {
   }
 }
 
-var ClickOutside = {
+var ThemeClickOutsideDirective = {
   bind: function bind(el, binding) {
     removeListener(el, binding.value);
 
@@ -5462,7 +5462,7 @@ var ClickOutside = {
 var options = {
   reserveScrollBarGap: true
 };
-var BodyScrollLock = {
+var ThemeBodyScrollLockDirective = {
   inserted: function inserted(el, binding) {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
       bodyScrollLock.disableBodyScroll(el, options);
@@ -5486,7 +5486,7 @@ var BodyScrollLock = {
   unbind: function unbind(el) {
     bodyScrollLock.enableBodyScroll(el);
   }
-};var directives=/*#__PURE__*/Object.freeze({__proto__:null,clickOutside: ClickOutside,bodyScrollLock: BodyScrollLock});var ThemeHelpersMixin = {
+};var ThemeHelpersMixin = {
   methods: {
     /**
      * Check to see if a slot exists
@@ -8047,14 +8047,12 @@ var __vue_component__$S = /*#__PURE__*/normalizeComponent({
         component = _ref2[1];
 
     Vue.component(componentName, component);
-  });
-  Object.entries(directives).forEach(function (_ref3) {
-    var _ref4 = _slicedToArray(_ref3, 2),
-        directiveName = _ref4[0],
-        directive = _ref4[1];
+  }); //Object.entries(directives).forEach(([directiveName, directive]) => {
+  //  Vue.directive(directiveName, directives[directive])
+  //});
 
-    Vue.directive(directiveName, directives[directive]);
-  });
+  Vue.directive('clickOutside', ThemeClickOutsideDirective);
+  Vue.directive('bodyScrollLock', ThemeBodyScrollLockDirective);
   Vue.mixin(ThemeHelpersMixin);
 }; // Create module definition for Vue.use()
 
