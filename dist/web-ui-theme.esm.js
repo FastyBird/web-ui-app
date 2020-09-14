@@ -4615,7 +4615,142 @@ const __vue_component__$m = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$m, __vue_script__$m, __vue_scope_id__$m, __vue_is_functional_template__$m, __vue_module_identifier__$m, false, createInjector, undefined, undefined);
 
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var script$n = {
+  name: 'FbDivider',
+  props: {
+    type: {
+      type: String,
+      default: 'horizontal',
+      validator: value => {
+        // The value must match one of these strings
+        return ['horizontal', 'vertical'].indexOf(value) !== -1;
+      }
+    },
+    text: {
+      type: String,
+      required: true
+    }
+  }
+};
+
+/* script */
+const __vue_script__$n = script$n;
+/* template */
+
+var __vue_render__$n = function (_h, _vm) {
+  var _c = _vm._c;
+  return _c('div', {
+    staticClass: "fb-divider__container",
+    attrs: {
+      "data-type": _vm.props.type
+    }
+  }, [_c('div', {
+    staticClass: "fb-divider__content"
+  }, [_vm._v(_vm._s(_vm.props.text))])]);
+};
+
+var __vue_staticRenderFns__$n = [];
+/* style */
+
+const __vue_inject_styles__$n = function (inject) {
+  if (!inject) return;
+  inject("data-v-114a9f60_0", {
+    source: ".fb-divider__container{display:block;margin:20px 0;overflow:hidden;text-align:center}@media (min-width:768px){.fb-divider__container[data-type=vertical]{height:100%;left:50%;margin:0;position:absolute;top:0;transform:translateX(-50%);z-index:2}.fb-divider__container[data-type=vertical] .fb-divider__content{padding:5px 0;top:50%;transform:translateY(-50%)}.fb-divider__container[data-type=vertical] .fb-divider__content:after,.fb-divider__container[data-type=vertical] .fb-divider__content:before{height:600px;left:50%;margin-left:-1px;margin-top:0;right:auto;width:1px}.fb-divider__container[data-type=vertical] .fb-divider__content:before{bottom:100%;top:auto}.fb-divider__container[data-type=vertical] .fb-divider__content:after{bottom:auto;top:100%}}.fb-divider__content{display:inline-block;padding:0 15px;position:relative}.fb-divider__content:after,.fb-divider__content:before{background-color:#ddd;content:\"\";display:block;height:1px;margin-top:-1px;position:absolute;top:50%;width:600px}.fb-divider__content:before{right:100%}.fb-divider__content:after{left:100%}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$n = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$n = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$n = true;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$n = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$n,
+  staticRenderFns: __vue_staticRenderFns__$n
+}, __vue_inject_styles__$n, __vue_script__$n, __vue_scope_id__$n, __vue_is_functional_template__$n, __vue_module_identifier__$n, false, createInjector, undefined, undefined);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$o = {
+  name: 'FbLoadingBox',
+  props: {
+    text: {
+      type: String,
+      required: true
+    }
+  }
+};
+
+/* script */
+const __vue_script__$o = script$o;
+/* template */
+
+var __vue_render__$o = function (_h, _vm) {
+  var _c = _vm._c;
+  return _c('div', {
+    staticClass: "fb-loading-box__container"
+  }, [_c('div', {
+    staticClass: "fb-loading-box__spinner"
+  }), _vm._v(" "), _c('p', [_vm._v("\n    " + _vm._s(_vm.props.text) + "\n  ")])]);
+};
+
+var __vue_staticRenderFns__$o = [];
+/* style */
+
+const __vue_inject_styles__$o = function (inject) {
+  if (!inject) return;
+  inject("data-v-4fa224b6_0", {
+    source: ".fb-loading-box__container{text-align:center;padding:30px}.fb-loading-box__spinner{position:relative;margin:30px 0 10px;width:48px;height:48px;display:inline-block}.fb-loading-box__spinner:after,.fb-loading-box__spinner:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";left:50%;position:absolute;top:50%;border-width:3px;height:48px;margin:-24px 0 0 -24px;width:48px}.fb-loading-box__spinner:after{animation:loading-box-spinner-animation .6s linear;animation-iteration-count:infinite;border-color:#d9230f transparent transparent}@keyframes loading-box-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$o = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$o = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$o = true;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$o = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$o,
+  staticRenderFns: __vue_staticRenderFns__$o
+}, __vue_inject_styles__$o, __vue_script__$o, __vue_scope_id__$o, __vue_is_functional_template__$o, __vue_module_identifier__$o, false, createInjector, undefined, undefined);
+
+//
+var script$p = {
   name: 'FbModalForm',
   components: {
     FbModalWindow: __vue_component__$k
@@ -4688,10 +4823,10 @@ var script$n = {
 };
 
 /* script */
-const __vue_script__$n = script$n;
+const __vue_script__$p = script$p;
 /* template */
 
-var __vue_render__$n = function () {
+var __vue_render__$p = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4764,10 +4899,10 @@ var __vue_render__$n = function () {
   }, [_vm._v("\n        " + _vm._s(_vm.submitBtnLabel) + "\n      ")])], 1)])], 2);
 };
 
-var __vue_staticRenderFns__$n = [];
+var __vue_staticRenderFns__$p = [];
 /* style */
 
-const __vue_inject_styles__$n = function (inject) {
+const __vue_inject_styles__$p = function (inject) {
   if (!inject) return;
   inject("data-v-5eab4f01_0", {
     source: ".fb-form-window__buttons .fb-btn-link{color:grey!important}.fb-form-window__result{position:absolute;top:0;left:0;right:0;bottom:0;display:table;height:100%;width:100%;background-color:#fff}.fb-form-window__result>div{display:table-cell;vertical-align:middle;text-align:center}",
@@ -4778,24 +4913,24 @@ const __vue_inject_styles__$n = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$n = undefined;
+const __vue_scope_id__$p = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$n = undefined;
+const __vue_module_identifier__$p = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$n = false;
+const __vue_is_functional_template__$p = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$n = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$n,
-  staticRenderFns: __vue_staticRenderFns__$n
-}, __vue_inject_styles__$n, __vue_script__$n, __vue_scope_id__$n, __vue_is_functional_template__$n, __vue_module_identifier__$n, false, createInjector, undefined, undefined);
+const __vue_component__$p = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$p,
+  staticRenderFns: __vue_staticRenderFns__$p
+}, __vue_inject_styles__$p, __vue_script__$p, __vue_scope_id__$p, __vue_is_functional_template__$p, __vue_module_identifier__$p, false, createInjector, undefined, undefined);
 
 //
-var script$o = {
+var script$q = {
   name: 'FbModalInfo',
   components: {
     FbModalWindow: __vue_component__$k
@@ -4832,10 +4967,10 @@ var script$o = {
 };
 
 /* script */
-const __vue_script__$o = script$o;
+const __vue_script__$q = script$q;
 /* template */
 
-var __vue_render__$o = function () {
+var __vue_render__$q = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4880,10 +5015,10 @@ var __vue_render__$o = function () {
   }, [_vm._v("\n        " + _vm._s(_vm.closeBtnLabel) + "\n      ")]) : [_vm._v(" ")]], 2)])], 2);
 };
 
-var __vue_staticRenderFns__$o = [];
+var __vue_staticRenderFns__$q = [];
 /* style */
 
-const __vue_inject_styles__$o = function (inject) {
+const __vue_inject_styles__$q = function (inject) {
   if (!inject) return;
   inject("data-v-178bea14_0", {
     source: ".fb-info-window__buttons .fb-btn-link{color:grey!important}",
@@ -4894,21 +5029,21 @@ const __vue_inject_styles__$o = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$o = undefined;
+const __vue_scope_id__$q = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$o = undefined;
+const __vue_module_identifier__$q = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$o = false;
+const __vue_is_functional_template__$q = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$o = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$o,
-  staticRenderFns: __vue_staticRenderFns__$o
-}, __vue_inject_styles__$o, __vue_script__$o, __vue_scope_id__$o, __vue_is_functional_template__$o, __vue_module_identifier__$o, false, createInjector, undefined, undefined);
+const __vue_component__$q = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$q,
+  staticRenderFns: __vue_staticRenderFns__$q
+}, __vue_inject_styles__$q, __vue_script__$q, __vue_scope_id__$q, __vue_is_functional_template__$q, __vue_module_identifier__$q, false, createInjector, undefined, undefined);
 
 //
 //
@@ -5008,7 +5143,7 @@ const __vue_component__$o = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$p = {
+var script$r = {
   name: 'FbModalWindow',
   props: {
     large: {
@@ -5090,10 +5225,10 @@ var script$p = {
 };
 
 /* script */
-const __vue_script__$p = script$p;
+const __vue_script__$r = script$r;
 /* template */
 
-var __vue_render__$p = function () {
+var __vue_render__$r = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -5213,10 +5348,10 @@ var __vue_render__$p = function () {
   }, [_vm._v("\n                  " + _vm._s(_vm.okText) + "\n                ")])])], 2) : _vm._e()])])], 2)])])]);
 };
 
-var __vue_staticRenderFns__$p = [];
+var __vue_staticRenderFns__$r = [];
 /* style */
 
-const __vue_inject_styles__$p = function (inject) {
+const __vue_inject_styles__$r = function (inject) {
   if (!inject) return;
   inject("data-v-77def1a4_0", {
     source: ".fb-modal-window__container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);display:table;transition:opacity .3s ease;overflow:hidden;right:0;bottom:0;z-index:9998;-webkit-overflow-scrolling:touch;overflow-x:hidden;overflow-y:auto;outline:0}.fb-modal-window__container.transparent{background-color:rgba(255,255,255,.5)}.fb-modal-window__window{display:table-cell;vertical-align:top;padding-top:70px}.fb-modal-window__dialog{position:relative;width:auto;margin:10px}@media (min-width:768px){.fb-modal-window__dialog{width:600px;margin:30px auto}}@media (min-width:992px){.fb-modal-window__dialog{margin:0 auto}}.fb-modal-window__dialog.modal-lg{width:900px}@media (min-width:992px){.fb-modal-window__dialog.modal-sm{width:300px}}.fb-modal-window__content{position:relative;border-radius:4px;background-color:#fff;background-clip:padding-box;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5);outline:0}@media (min-width:768px){.fb-modal-window__content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5)}}.fb-modal-window__header{padding:15px;border-bottom:none;color:#fff;background-color:#d9230f}.fb-modal-window__header:after,.fb-modal-window__header:before{content:\" \";display:table}.fb-modal-window__header:after{clear:both}.fb-modal-window__header h4{margin:0;line-height:1.5384615385}.fb-modal-window__body{position:relative;padding:15px;display:flex;flex-direction:column}.fb-modal-window__close{margin-top:-2px;float:right;font-size:19.5px;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-modal-window__close:focus,.fb-modal-window__close:hover{color:#000;text-decoration:none;cursor:pointer;opacity:.5;filter:alpha(opacity=50)}.fb-modal-window__footer{padding:0 15px 15px 15px;text-align:right}.fb-modal-window__footer:after,.fb-modal-window__footer:before{content:\" \";display:table}.fb-modal-window__footer:after{clear:both}.fb-modal-window__loading{position:absolute;top:0;left:0;right:0;bottom:0;display:table;height:100%;width:100%;background:#fff;z-index:1030}.fb-modal-window__loading-box{display:table-cell;vertical-align:middle;text-align:center}.fb-modal-window__loading-box div:first-child{display:block;text-align:center}.fb-modal-window__loading-box div:first-child svg{width:225px}.fb-modal-window__loading-box div:first-child .dark_color{fill:#444;fill-rule:nonzero}.fb-modal-window__loading-box div:first-child .brand_color{fill:#d9230f;fill-rule:nonzero}.fb-modal-window__loading-spinner{position:relative;margin-top:35px}.fb-modal-window__loading-spinner:after,.fb-modal-window__loading-spinner:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";position:absolute;left:50%;top:50%;border-width:3px;height:48px;margin:-24px 0 0 -24px;width:48px}.fb-modal-window__loading-spinner:after{animation:loading-spinner-animation .6s linear;animation-iteration-count:infinite;border-color:#d9230f transparent transparent}.modal-enter{opacity:0;filter:alpha(opacity=0)}.modal-leave-active{opacity:0;filter:alpha(opacity=0)}.modal-enter .fb-modal-window__dialog{-webkit-transform:scale(1.1);transform:scale(1.1)}@keyframes loading-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
@@ -5231,186 +5366,13 @@ const __vue_inject_styles__$p = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$p = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$p = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$p = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$p = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$p,
-  staticRenderFns: __vue_staticRenderFns__$p
-}, __vue_inject_styles__$p, __vue_script__$p, __vue_scope_id__$p, __vue_is_functional_template__$p, __vue_module_identifier__$p, false, createInjector, undefined, undefined);
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var script$q = {
-  name: 'FbDivider',
-  props: {
-    type: {
-      type: String,
-      default: 'horizontal',
-      validator: value => {
-        // The value must match one of these strings
-        return ['horizontal', 'vertical'].indexOf(value) !== -1;
-      }
-    },
-    text: {
-      type: String,
-      required: true
-    }
-  }
-};
-
-/* script */
-const __vue_script__$q = script$q;
-/* template */
-
-var __vue_render__$q = function (_h, _vm) {
-  var _c = _vm._c;
-  return _c('div', {
-    staticClass: "fb-divider__container",
-    attrs: {
-      "data-type": _vm.props.type
-    }
-  }, [_c('div', {
-    staticClass: "fb-divider__content"
-  }, [_vm._v(_vm._s(_vm.props.text))])]);
-};
-
-var __vue_staticRenderFns__$q = [];
-/* style */
-
-const __vue_inject_styles__$q = function (inject) {
-  if (!inject) return;
-  inject("data-v-114a9f60_0", {
-    source: ".fb-divider__container{display:block;margin:20px 0;overflow:hidden;text-align:center}@media (min-width:768px){.fb-divider__container[data-type=vertical]{height:100%;left:50%;margin:0;position:absolute;top:0;transform:translateX(-50%);z-index:2}.fb-divider__container[data-type=vertical] .fb-divider__content{padding:5px 0;top:50%;transform:translateY(-50%)}.fb-divider__container[data-type=vertical] .fb-divider__content:after,.fb-divider__container[data-type=vertical] .fb-divider__content:before{height:600px;left:50%;margin-left:-1px;margin-top:0;right:auto;width:1px}.fb-divider__container[data-type=vertical] .fb-divider__content:before{bottom:100%;top:auto}.fb-divider__container[data-type=vertical] .fb-divider__content:after{bottom:auto;top:100%}}.fb-divider__content{display:inline-block;padding:0 15px;position:relative}.fb-divider__content:after,.fb-divider__content:before{background-color:#ddd;content:\"\";display:block;height:1px;margin-top:-1px;position:absolute;top:50%;width:600px}.fb-divider__content:before{right:100%}.fb-divider__content:after{left:100%}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$q = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$q = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$q = true;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$q = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$q,
-  staticRenderFns: __vue_staticRenderFns__$q
-}, __vue_inject_styles__$q, __vue_script__$q, __vue_scope_id__$q, __vue_is_functional_template__$q, __vue_module_identifier__$q, false, createInjector, undefined, undefined);
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var script$r = {
-  name: 'SwitchElement',
-  props: {
-    status: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    variant: {
-      type: String,
-      default: 'default',
-      validator: value => {
-        // The value must match one of these strings
-        return ['default', 'primary', 'success', 'danger', 'warning', 'info'].indexOf(value) !== -1;
-      }
-    }
-  }
-};
-
-/* script */
-const __vue_script__$r = script$r;
-/* template */
-
-var __vue_render__$r = function (_h, _vm) {
-  var _c = _vm._c;
-  return _c('label', {
-    staticClass: "fb-switch-element__container",
-    attrs: {
-      "data-variant": _vm.props.variant
-    }
-  }, [_c('input', {
-    attrs: {
-      "disabled": _vm.props.disabled,
-      "type": "checkbox"
-    },
-    domProps: {
-      "checked": _vm.props.status
-    },
-    on: {
-      "change": function ($event) {
-        $event.preventDefault();
-        return _vm.listeners['change']();
-      }
-    }
-  }), _vm._v(" "), _c('span', {
-    staticClass: "fb-switch-element__track"
-  }), _vm._v(" "), _c('span', {
-    staticClass: "fb-switch-element__thumb"
-  })]);
-};
-
-var __vue_staticRenderFns__$r = [];
-/* style */
-
-const __vue_inject_styles__$r = function (inject) {
-  if (!inject) return;
-  inject("data-v-121465b6_0", {
-    source: ".fb-switch-element__container{cursor:pointer;display:inline-block;height:20px;margin:0;position:relative;user-select:none;vertical-align:middle;width:44px}.fb-switch-element__container input{opacity:0;filter:alpha(opacity=0);position:absolute;z-index:-1}.fb-switch-element__container input:checked~.fb-switch-element__thumb{left:24px}.fb-switch-element__container input:disabled~.fb-switch-element__track{background-color:#777;cursor:not-allowed}.fb-switch-element__container input:disabled~.fb-switch-element__thumb{border-color:#777;cursor:not-allowed}.fb-switch-element__container input:disabled:checked~.fb-switch-element__track{cursor:not-allowed}.fb-switch-element__container[data-variant=default] input:checked~.fb-switch-element__track{background-color:#777}.fb-switch-element__container[data-variant=default] input:checked~.fb-switch-element__thumb{border-color:#777}.fb-switch-element__container[data-variant=default] input:checked:disabled~.fb-switch-element__track{background-color:#777}.fb-switch-element__container[data-variant=default] input:checked:disabled~.fb-switch-element__thumb{border-color:#777}.fb-switch-element__container[data-variant=primary] input:checked~.fb-switch-element__track{background-color:#d9230f}.fb-switch-element__container[data-variant=primary] input:checked~.fb-switch-element__thumb{border-color:#d9230f}.fb-switch-element__container[data-variant=primary] input:checked:disabled~.fb-switch-element__track{background-color:#d9230f}.fb-switch-element__container[data-variant=primary] input:checked:disabled~.fb-switch-element__thumb{border-color:#d9230f}.fb-switch-element__container[data-variant=success] input:checked~.fb-switch-element__track{background-color:#469408}.fb-switch-element__container[data-variant=success] input:checked~.fb-switch-element__thumb{border-color:#469408}.fb-switch-element__container[data-variant=success] input:checked:disabled~.fb-switch-element__track{background-color:#469408}.fb-switch-element__container[data-variant=success] input:checked:disabled~.fb-switch-element__thumb{border-color:#469408}.fb-switch-element__container[data-variant=info] input:checked~.fb-switch-element__track{background-color:#029acf}.fb-switch-element__container[data-variant=info] input:checked~.fb-switch-element__thumb{border-color:#029acf}.fb-switch-element__container[data-variant=info] input:checked:disabled~.fb-switch-element__track{background-color:#029acf}.fb-switch-element__container[data-variant=info] input:checked:disabled~.fb-switch-element__thumb{border-color:#029acf}.fb-switch-element__container[data-variant=warning] input:checked~.fb-switch-element__track{background-color:#9b479f}.fb-switch-element__container[data-variant=warning] input:checked~.fb-switch-element__thumb{border-color:#9b479f}.fb-switch-element__container[data-variant=warning] input:checked:disabled~.fb-switch-element__track{background-color:#9b479f}.fb-switch-element__container[data-variant=warning] input:checked:disabled~.fb-switch-element__thumb{border-color:#9b479f}.fb-switch-element__container[data-variant=danger] input:checked~.fb-switch-element__track{background-color:#d9831f}.fb-switch-element__container[data-variant=danger] input:checked~.fb-switch-element__thumb{border-color:#d9831f}.fb-switch-element__container[data-variant=danger] input:checked:disabled~.fb-switch-element__track{background-color:#d9831f}.fb-switch-element__container[data-variant=danger] input:checked:disabled~.fb-switch-element__thumb{border-color:#d9831f}.fb-switch-element__track{background-color:#777;border-radius:10px;height:100%;left:0;position:absolute;top:50%;transform:translateY(-50%);width:100%}.fb-switch-element__thumb{background-color:#fff;border-color:#777;border-radius:50%;border-style:solid;border-width:50%;height:20px;left:0;position:absolute;top:0;transition:left .15s ease-out;width:20px}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
 const __vue_scope_id__$r = undefined;
 /* module identifier */
 
 const __vue_module_identifier__$r = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$r = true;
+const __vue_is_functional_template__$r = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
@@ -5429,93 +5391,31 @@ const __vue_component__$r = /*#__PURE__*/normalizeComponent({
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var script$s = {
-  name: 'FbLoadingBox',
-  props: {
-    text: {
-      type: String,
-      required: true
-    }
-  }
+  name: 'FbPageLoading'
 };
 
 /* script */
 const __vue_script__$s = script$s;
 /* template */
 
-var __vue_render__$s = function (_h, _vm) {
-  var _c = _vm._c;
-  return _c('div', {
-    staticClass: "fb-loading-box__container"
-  }, [_c('div', {
-    staticClass: "fb-loading-box__spinner"
-  }), _vm._v(" "), _c('p', [_vm._v("\n    " + _vm._s(_vm.props.text) + "\n  ")])]);
-};
-
-var __vue_staticRenderFns__$s = [];
-/* style */
-
-const __vue_inject_styles__$s = function (inject) {
-  if (!inject) return;
-  inject("data-v-4fa224b6_0", {
-    source: ".fb-loading-box__container{text-align:center;padding:30px}.fb-loading-box__spinner{position:relative;margin:30px 0 10px;width:48px;height:48px;display:inline-block}.fb-loading-box__spinner:after,.fb-loading-box__spinner:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";left:50%;position:absolute;top:50%;border-width:3px;height:48px;margin:-24px 0 0 -24px;width:48px}.fb-loading-box__spinner:after{animation:loading-box-spinner-animation .6s linear;animation-iteration-count:infinite;border-color:#d9230f transparent transparent}@keyframes loading-box-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$s = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$s = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$s = true;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$s = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$s,
-  staticRenderFns: __vue_staticRenderFns__$s
-}, __vue_inject_styles__$s, __vue_script__$s, __vue_scope_id__$s, __vue_is_functional_template__$s, __vue_module_identifier__$s, false, createInjector, undefined, undefined);
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var script$t = {
-  name: 'FbPageLoading'
-};
-
-/* script */
-const __vue_script__$t = script$t;
-/* template */
-
-var __vue_render__$t = function () {
+var __vue_render__$s = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -5561,10 +5461,10 @@ var __vue_render__$t = function () {
   })])])]);
 };
 
-var __vue_staticRenderFns__$t = [];
+var __vue_staticRenderFns__$s = [];
 /* style */
 
-const __vue_inject_styles__$t = function (inject) {
+const __vue_inject_styles__$s = function (inject) {
   if (!inject) return;
   inject("data-v-76a9f9c4_0", {
     source: ".fb-page-loading__container{position:fixed;top:0;left:0;right:0;bottom:0;display:table;height:100%;width:100%;background:#fff;z-index:1030}.fb-page-loading__box{display:table-cell;vertical-align:middle;text-align:center}.fb-page-loading__box div:first-child{display:block;text-align:center}.fb-page-loading__box div:first-child svg{width:225px}.fb-page-loading__box .dark_color{fill:#444;fill-rule:nonzero}.fb-page-loading__box .brand_color{fill:#d9230f;fill-rule:nonzero}.fb-page-loading__spinner{position:relative;margin-top:30px}.fb-page-loading__spinner:after,.fb-page-loading__spinner:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";position:absolute;left:50%;top:50%;border-width:3px;height:48px;margin:-24px 0 0 -24px;width:48px}.fb-page-loading__spinner:after{animation:loading-spinner-animation .6s linear;animation-iteration-count:infinite;border-color:#d9230f transparent transparent}@keyframes loading-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
@@ -5572,6 +5472,112 @@ const __vue_inject_styles__$t = function (inject) {
     media: undefined
   }), inject("data-v-76a9f9c4_1", {
     source: ".bounce-enter-active{animation:bounce-in .25s}.bounce-leave-active{animation:bounce-in .25s reverse}@keyframes bounce-in{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$s = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$s = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$s = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$s = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$s,
+  staticRenderFns: __vue_staticRenderFns__$s
+}, __vue_inject_styles__$s, __vue_script__$s, __vue_scope_id__$s, __vue_is_functional_template__$s, __vue_module_identifier__$s, false, createInjector, undefined, undefined);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$t = {
+  name: 'FbResultErr'
+};
+
+/* script */
+const __vue_script__$t = script$t;
+/* template */
+
+var __vue_render__$t = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "fb-result-err__container"
+  }, [_c('svg', {
+    attrs: {
+      "version": "1.1",
+      "xmlns": "http://www.w3.org/2000/svg",
+      "viewBox": "0 0 130.2 130.2"
+    }
+  }, [_c('circle', {
+    attrs: {
+      "cx": "65.1",
+      "cy": "65.1",
+      "r": "62.1"
+    }
+  }), _vm._v(" "), _c('line', {
+    attrs: {
+      "x1": "34.4",
+      "y1": "37.9",
+      "x2": "95.8",
+      "y2": "92.3"
+    }
+  }), _vm._v(" "), _c('line', {
+    attrs: {
+      "x1": "95.8",
+      "y1": "38",
+      "x2": "34.4",
+      "y2": "92.2"
+    }
+  })])]);
+};
+
+var __vue_staticRenderFns__$t = [];
+/* style */
+
+const __vue_inject_styles__$t = function (inject) {
+  if (!inject) return;
+  inject("data-v-4fe987da_0", {
+    source: ".fb-result-ok__container svg{width:100px;display:block;margin:40px auto 0}.fb-result-ok__container svg circle,.fb-result-ok__container svg line{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#d9831f;stroke-width:6;stroke-miterlimit:10}.fb-result-ok__container svg circle{-webkit-animation:fb-result-err-dash .9s ease-in-out;animation:fb-result-err-dash .9s ease-in-out}.fb-result-ok__container svg line{stroke-dashoffset:1000;stroke-linecap:round;-webkit-animation:fb-result-err-dash .9s .35s ease-in-out forwards;animation:fb-result-err-dash .9s .35s ease-in-out forwards}@-webkit-keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}",
     map: undefined,
     media: undefined
   });
@@ -5614,19 +5620,8 @@ const __vue_component__$t = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$u = {
-  name: 'FbResultErr'
+  name: 'FbResultOk'
 };
 
 /* script */
@@ -5641,7 +5636,7 @@ var __vue_render__$u = function () {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "fb-result-err__container"
+    staticClass: "fb-result-ok__container"
   }, [_c('svg', {
     attrs: {
       "version": "1.1",
@@ -5654,19 +5649,9 @@ var __vue_render__$u = function () {
       "cy": "65.1",
       "r": "62.1"
     }
-  }), _vm._v(" "), _c('line', {
+  }), _vm._v(" "), _c('polyline', {
     attrs: {
-      "x1": "34.4",
-      "y1": "37.9",
-      "x2": "95.8",
-      "y2": "92.3"
-    }
-  }), _vm._v(" "), _c('line', {
-    attrs: {
-      "x1": "95.8",
-      "y1": "38",
-      "x2": "34.4",
-      "y2": "92.2"
+      "points": "100.2,40.2 51.5,88.8 29.8,67.5"
     }
   })])]);
 };
@@ -5676,8 +5661,8 @@ var __vue_staticRenderFns__$u = [];
 
 const __vue_inject_styles__$u = function (inject) {
   if (!inject) return;
-  inject("data-v-4fe987da_0", {
-    source: ".fb-result-ok__container svg{width:100px;display:block;margin:40px auto 0}.fb-result-ok__container svg circle,.fb-result-ok__container svg line{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#d9831f;stroke-width:6;stroke-miterlimit:10}.fb-result-ok__container svg circle{-webkit-animation:fb-result-err-dash .9s ease-in-out;animation:fb-result-err-dash .9s ease-in-out}.fb-result-ok__container svg line{stroke-dashoffset:1000;stroke-linecap:round;-webkit-animation:fb-result-err-dash .9s .35s ease-in-out forwards;animation:fb-result-err-dash .9s .35s ease-in-out forwards}@-webkit-keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}",
+  inject("data-v-639443f3_0", {
+    source: ".fb-result-ok__container svg{width:100px;display:block;margin:40px auto 0}.fb-result-ok__container svg circle,.fb-result-ok__container svg polyline{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#469408;stroke-width:6;stroke-miterlimit:10}.fb-result-ok__container svg circle{-webkit-animation:fb-result-ok-dash .9s ease-in-out;animation:fb-result-ok-dash .9s ease-in-out}.fb-result-ok__container svg polyline{stroke-dashoffset:-100;stroke-linecap:round;-webkit-animation:fb-result-ok-dash-check .9s .35s ease-in-out forwards;animation:fb-result-ok-dash-check .9s .35s ease-in-out forwards}@-webkit-keyframes fb-result-ok-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-result-ok-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@-webkit-keyframes fb-result-ok-dash-check{0%{stroke-dashoffset:-100}100%{stroke-dashoffset:900}}@keyframes fb-result-ok-dash-check{0%{stroke-dashoffset:-100}100%{stroke-dashoffset:900}}",
     map: undefined,
     media: undefined
   });
@@ -5709,92 +5694,7 @@ const __vue_component__$u = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$v = {
-  name: 'FbResultOk'
-};
-
-/* script */
-const __vue_script__$v = script$v;
-/* template */
-
-var __vue_render__$v = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "fb-result-ok__container"
-  }, [_c('svg', {
-    attrs: {
-      "version": "1.1",
-      "xmlns": "http://www.w3.org/2000/svg",
-      "viewBox": "0 0 130.2 130.2"
-    }
-  }, [_c('circle', {
-    attrs: {
-      "cx": "65.1",
-      "cy": "65.1",
-      "r": "62.1"
-    }
-  }), _vm._v(" "), _c('polyline', {
-    attrs: {
-      "points": "100.2,40.2 51.5,88.8 29.8,67.5"
-    }
-  })])]);
-};
-
-var __vue_staticRenderFns__$v = [];
-/* style */
-
-const __vue_inject_styles__$v = function (inject) {
-  if (!inject) return;
-  inject("data-v-639443f3_0", {
-    source: ".fb-result-ok__container svg{width:100px;display:block;margin:40px auto 0}.fb-result-ok__container svg circle,.fb-result-ok__container svg polyline{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#469408;stroke-width:6;stroke-miterlimit:10}.fb-result-ok__container svg circle{-webkit-animation:fb-result-ok-dash .9s ease-in-out;animation:fb-result-ok-dash .9s ease-in-out}.fb-result-ok__container svg polyline{stroke-dashoffset:-100;stroke-linecap:round;-webkit-animation:fb-result-ok-dash-check .9s .35s ease-in-out forwards;animation:fb-result-ok-dash-check .9s .35s ease-in-out forwards}@-webkit-keyframes fb-result-ok-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-result-ok-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@-webkit-keyframes fb-result-ok-dash-check{0%{stroke-dashoffset:-100}100%{stroke-dashoffset:900}}@keyframes fb-result-ok-dash-check{0%{stroke-dashoffset:-100}100%{stroke-dashoffset:900}}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$v = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$v = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$v = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$v = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$v,
-  staticRenderFns: __vue_staticRenderFns__$v
-}, __vue_inject_styles__$v, __vue_script__$v, __vue_scope_id__$v, __vue_is_functional_template__$v, __vue_module_identifier__$v, false, createInjector, undefined, undefined);
-
-//
-//
-//
-//
-//
-//
-//
-//
-var script$w = {
   name: 'FbSpinner',
   props: {
     variant: {
@@ -5817,10 +5717,10 @@ var script$w = {
 };
 
 /* script */
-const __vue_script__$w = script$w;
+const __vue_script__$v = script$v;
 /* template */
 
-var __vue_render__$w = function (_h, _vm) {
+var __vue_render__$v = function (_h, _vm) {
   var _c = _vm._c;
   return _c('span', {
     staticClass: "fb-spinner__container",
@@ -5831,13 +5731,113 @@ var __vue_render__$w = function (_h, _vm) {
   });
 };
 
+var __vue_staticRenderFns__$v = [];
+/* style */
+
+const __vue_inject_styles__$v = function (inject) {
+  if (!inject) return;
+  inject("data-v-f86ebc60_0", {
+    source: ".fb-spinner__container{position:relative;height:24px;width:24px;display:inline-block}.fb-spinner__container:after,.fb-spinner__container:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";left:50%;position:absolute;top:50%;border-width:2px;height:24px;margin:-12px 0 0 -12px;width:24px}.fb-spinner__container:after{animation:fb-spinner-animation .6s linear;animation-iteration-count:infinite}.fb-spinner__container[data-variant=default]:after{border-color:#777 transparent transparent}.fb-spinner__container[data-variant=primary]:after{border-color:#d9230f transparent transparent}.fb-spinner__container[data-variant=success]:after{border-color:#469408 transparent transparent}.fb-spinner__container[data-variant=info]:after{border-color:#029acf transparent transparent}.fb-spinner__container[data-variant=warning]:after{border-color:#9b479f transparent transparent}.fb-spinner__container[data-variant=danger]:after{border-color:#d9831f transparent transparent}.fb-spinner__container[data-size=lg]{height:48px;width:48px}.fb-spinner__container[data-size=lg]:after,.fb-spinner__container[data-size=lg]:before{border-width:3px;height:48px;margin:-24px 0 0 -24px;width:48px}.fb-spinner__container[data-size=sm]{height:18px;width:18px}.fb-spinner__container[data-size=sm]:after,.fb-spinner__container[data-size=sm]:before{height:18px;margin:-9px 0 0 -9px;width:18px}@keyframes fb-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$v = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$v = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$v = true;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$v = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$v,
+  staticRenderFns: __vue_staticRenderFns__$v
+}, __vue_inject_styles__$v, __vue_script__$v, __vue_scope_id__$v, __vue_is_functional_template__$v, __vue_module_identifier__$v, false, createInjector, undefined, undefined);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$w = {
+  name: 'SwitchElement',
+  props: {
+    status: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    variant: {
+      type: String,
+      default: 'default',
+      validator: value => {
+        // The value must match one of these strings
+        return ['default', 'primary', 'success', 'danger', 'warning', 'info'].indexOf(value) !== -1;
+      }
+    }
+  }
+};
+
+/* script */
+const __vue_script__$w = script$w;
+/* template */
+
+var __vue_render__$w = function (_h, _vm) {
+  var _c = _vm._c;
+  return _c('label', {
+    staticClass: "fb-switch-element__container",
+    attrs: {
+      "data-variant": _vm.props.variant
+    }
+  }, [_c('input', {
+    attrs: {
+      "disabled": _vm.props.disabled,
+      "type": "checkbox"
+    },
+    domProps: {
+      "checked": _vm.props.status
+    },
+    on: {
+      "change": function ($event) {
+        $event.preventDefault();
+        return _vm.listeners['change']();
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "fb-switch-element__track"
+  }), _vm._v(" "), _c('span', {
+    staticClass: "fb-switch-element__thumb"
+  })]);
+};
+
 var __vue_staticRenderFns__$w = [];
 /* style */
 
 const __vue_inject_styles__$w = function (inject) {
   if (!inject) return;
-  inject("data-v-f86ebc60_0", {
-    source: ".fb-spinner__container{position:relative;height:24px;width:24px;display:inline-block}.fb-spinner__container:after,.fb-spinner__container:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";left:50%;position:absolute;top:50%;border-width:2px;height:24px;margin:-12px 0 0 -12px;width:24px}.fb-spinner__container:after{animation:fb-spinner-animation .6s linear;animation-iteration-count:infinite}.fb-spinner__container[data-variant=default]:after{border-color:#777 transparent transparent}.fb-spinner__container[data-variant=primary]:after{border-color:#d9230f transparent transparent}.fb-spinner__container[data-variant=success]:after{border-color:#469408 transparent transparent}.fb-spinner__container[data-variant=info]:after{border-color:#029acf transparent transparent}.fb-spinner__container[data-variant=warning]:after{border-color:#9b479f transparent transparent}.fb-spinner__container[data-variant=danger]:after{border-color:#d9831f transparent transparent}.fb-spinner__container[data-size=lg]{height:48px;width:48px}.fb-spinner__container[data-size=lg]:after,.fb-spinner__container[data-size=lg]:before{border-width:3px;height:48px;margin:-24px 0 0 -24px;width:48px}.fb-spinner__container[data-size=sm]{height:18px;width:18px}.fb-spinner__container[data-size=sm]:after,.fb-spinner__container[data-size=sm]:before{height:18px;margin:-9px 0 0 -9px;width:18px}@keyframes fb-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
+  inject("data-v-121465b6_0", {
+    source: ".fb-switch-element__container{cursor:pointer;display:inline-block;height:20px;margin:0;position:relative;user-select:none;vertical-align:middle;width:44px}.fb-switch-element__container input{opacity:0;filter:alpha(opacity=0);position:absolute;z-index:-1}.fb-switch-element__container input:checked~.fb-switch-element__thumb{left:24px}.fb-switch-element__container input:disabled~.fb-switch-element__track{background-color:#777;cursor:not-allowed}.fb-switch-element__container input:disabled~.fb-switch-element__thumb{border-color:#777;cursor:not-allowed}.fb-switch-element__container input:disabled:checked~.fb-switch-element__track{cursor:not-allowed}.fb-switch-element__container[data-variant=default] input:checked~.fb-switch-element__track{background-color:#777}.fb-switch-element__container[data-variant=default] input:checked~.fb-switch-element__thumb{border-color:#777}.fb-switch-element__container[data-variant=default] input:checked:disabled~.fb-switch-element__track{background-color:#777}.fb-switch-element__container[data-variant=default] input:checked:disabled~.fb-switch-element__thumb{border-color:#777}.fb-switch-element__container[data-variant=primary] input:checked~.fb-switch-element__track{background-color:#d9230f}.fb-switch-element__container[data-variant=primary] input:checked~.fb-switch-element__thumb{border-color:#d9230f}.fb-switch-element__container[data-variant=primary] input:checked:disabled~.fb-switch-element__track{background-color:#d9230f}.fb-switch-element__container[data-variant=primary] input:checked:disabled~.fb-switch-element__thumb{border-color:#d9230f}.fb-switch-element__container[data-variant=success] input:checked~.fb-switch-element__track{background-color:#469408}.fb-switch-element__container[data-variant=success] input:checked~.fb-switch-element__thumb{border-color:#469408}.fb-switch-element__container[data-variant=success] input:checked:disabled~.fb-switch-element__track{background-color:#469408}.fb-switch-element__container[data-variant=success] input:checked:disabled~.fb-switch-element__thumb{border-color:#469408}.fb-switch-element__container[data-variant=info] input:checked~.fb-switch-element__track{background-color:#029acf}.fb-switch-element__container[data-variant=info] input:checked~.fb-switch-element__thumb{border-color:#029acf}.fb-switch-element__container[data-variant=info] input:checked:disabled~.fb-switch-element__track{background-color:#029acf}.fb-switch-element__container[data-variant=info] input:checked:disabled~.fb-switch-element__thumb{border-color:#029acf}.fb-switch-element__container[data-variant=warning] input:checked~.fb-switch-element__track{background-color:#9b479f}.fb-switch-element__container[data-variant=warning] input:checked~.fb-switch-element__thumb{border-color:#9b479f}.fb-switch-element__container[data-variant=warning] input:checked:disabled~.fb-switch-element__track{background-color:#9b479f}.fb-switch-element__container[data-variant=warning] input:checked:disabled~.fb-switch-element__thumb{border-color:#9b479f}.fb-switch-element__container[data-variant=danger] input:checked~.fb-switch-element__track{background-color:#d9831f}.fb-switch-element__container[data-variant=danger] input:checked~.fb-switch-element__thumb{border-color:#d9831f}.fb-switch-element__container[data-variant=danger] input:checked:disabled~.fb-switch-element__track{background-color:#d9831f}.fb-switch-element__container[data-variant=danger] input:checked:disabled~.fb-switch-element__thumb{border-color:#d9831f}.fb-switch-element__track{background-color:#777;border-radius:10px;height:100%;left:0;position:absolute;top:50%;transform:translateY(-50%);width:100%}.fb-switch-element__thumb{background-color:#fff;border-color:#777;border-radius:50%;border-style:solid;border-width:50%;height:20px;left:0;position:absolute;top:0;transition:left .15s ease-out;width:20px}",
     map: undefined,
     media: undefined
   });
@@ -5992,16 +5992,16 @@ var index = {
   FbCardBox: __vue_component__$j,
   FbConfirmationWindow: __vue_component__$l,
   FbContent: __vue_component__$m,
-  FbModalForm: __vue_component__$n,
-  FbModalInfo: __vue_component__$o,
-  FbModalWindow: __vue_component__$p,
-  FbDivider: __vue_component__$q,
-  FbSwitchElement: __vue_component__$r,
-  FbLoadingBox: __vue_component__$s,
-  FbPageLoading: __vue_component__$t,
-  FbResultErr: __vue_component__$u,
-  FbResultOk: __vue_component__$v,
-  FbSpinner: __vue_component__$w,
+  FbDivider: __vue_component__$n,
+  FbLoadingBox: __vue_component__$o,
+  FbModalForm: __vue_component__$p,
+  FbModalInfo: __vue_component__$q,
+  FbModalWindow: __vue_component__$r,
+  FbPageLoading: __vue_component__$s,
+  FbResultErr: __vue_component__$t,
+  FbResultOk: __vue_component__$u,
+  FbSpinner: __vue_component__$v,
+  FbSwitchElement: __vue_component__$w,
   FbTransitionExpand: __vue_component__$x
 };
 
@@ -6158,23 +6158,155 @@ var ThemeHelpersMixin = {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$y = {
+  name: 'FbComponentLoading'
+};
+
+/* script */
+const __vue_script__$y = script$y;
+/* template */
+
+var __vue_render__$y = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _vm._m(0);
+};
+
+var __vue_staticRenderFns__$y = [function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "fb-component-loading__container"
+  }, [_c('div', {
+    staticClass: "fb-component-loading__spinner"
+  }), _vm._v(" "), _c('p', [_vm._v("\n    Preparing content, please wait...\n  ")])]);
+}];
+/* style */
+
+const __vue_inject_styles__$y = function (inject) {
+  if (!inject) return;
+  inject("data-v-fe07c770_0", {
+    source: ".fb-component-loading__container{text-align:center;padding:30px}.fb-component-loading__spinner{position:relative;margin:30px 0 10px;width:48px;height:48px;display:inline-block}.fb-component-loading__spinner:after,.fb-component-loading__spinner:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";left:0;position:absolute;top:0;border-width:3px;height:48px;margin:0;width:48px}.fb-component-loading__spinner:after{animation:loading-component-spinner-animation .6s linear;animation-iteration-count:infinite;border-color:#d9230f transparent transparent}@keyframes loading-component-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$y = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$y = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$y = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$y = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$y,
+  staticRenderFns: __vue_staticRenderFns__$y
+}, __vue_inject_styles__$y, __vue_script__$y, __vue_scope_id__$y, __vue_is_functional_template__$y, __vue_module_identifier__$y, false, createInjector, undefined, undefined);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$z = {
+  name: 'FbComponentLoadingError'
+};
+
+/* script */
+const __vue_script__$z = script$z;
+/* template */
+
+var __vue_render__$z = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "fb-component-loading-error__container"
+  }, [_c('font-awesome-icon', {
+    attrs: {
+      "icon": "exclamation-triangle"
+    }
+  }), _vm._v(" "), _c('p', [_vm._v("\n    Content could not be loaded. Please reload page.\n  ")])], 1);
+};
+
+var __vue_staticRenderFns__$z = [];
+/* style */
+
+const __vue_inject_styles__$z = function (inject) {
+  if (!inject) return;
+  inject("data-v-a7620522_0", {
+    source: ".fb-component-loading-error__container{text-align:center;padding:30px}.fb-component-loading-error__container svg{color:#d9831f;font-size:5em;margin-bottom:30px!important;margin-top:30px!important}.fb-component-loading-error__container p{color:#d9831f}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$z = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$z = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$z = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$z = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$z,
+  staticRenderFns: __vue_staticRenderFns__$z
+}, __vue_inject_styles__$z, __vue_script__$z, __vue_scope_id__$z, __vue_is_functional_template__$z, __vue_module_identifier__$z, false, createInjector, undefined, undefined);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$A = {
   name: 'FbBottomNavigationItem',
   props: {
     item: {
@@ -6197,10 +6329,10 @@ var script$y = {
 };
 
 /* script */
-const __vue_script__$y = script$y;
+const __vue_script__$A = script$A;
 /* template */
 
-var __vue_render__$y = function () {
+var __vue_render__$A = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -6237,35 +6369,35 @@ var __vue_render__$y = function () {
   }), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.item.name))])], 1) : _vm._e();
 };
 
-var __vue_staticRenderFns__$y = [];
+var __vue_staticRenderFns__$A = [];
 /* style */
 
-const __vue_inject_styles__$y = undefined;
+const __vue_inject_styles__$A = undefined;
 /* scoped */
 
-const __vue_scope_id__$y = undefined;
+const __vue_scope_id__$A = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$y = undefined;
+const __vue_module_identifier__$A = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$y = false;
+const __vue_is_functional_template__$A = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$y = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$y,
-  staticRenderFns: __vue_staticRenderFns__$y
-}, __vue_inject_styles__$y, __vue_script__$y, __vue_scope_id__$y, __vue_is_functional_template__$y, __vue_module_identifier__$y, false, undefined, undefined, undefined);
+const __vue_component__$A = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$A,
+  staticRenderFns: __vue_staticRenderFns__$A
+}, __vue_inject_styles__$A, __vue_script__$A, __vue_scope_id__$A, __vue_is_functional_template__$A, __vue_module_identifier__$A, false, undefined, undefined, undefined);
 
 //
-var script$z = {
+var script$B = {
   name: 'FbBottomNavigation',
   components: {
-    Item: __vue_component__$y
+    Item: __vue_component__$A
   },
   props: {
     items: {
@@ -6312,10 +6444,10 @@ var script$z = {
 };
 
 /* script */
-const __vue_script__$z = script$z;
+const __vue_script__$B = script$B;
 /* template */
 
-var __vue_render__$z = function () {
+var __vue_render__$B = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -6343,10 +6475,10 @@ var __vue_render__$z = function () {
   }), 0)]);
 };
 
-var __vue_staticRenderFns__$z = [];
+var __vue_staticRenderFns__$B = [];
 /* style */
 
-const __vue_inject_styles__$z = function (inject) {
+const __vue_inject_styles__$B = function (inject) {
   if (!inject) return;
   inject("data-v-36070f02_0", {
     source: ".fb-bottom-navigation__container{color:#fff;background-color:#d9230f;position:fixed;bottom:0;left:0;right:0;height:56px;z-index:1030}@media (min-width:768px){.fb-bottom-navigation__container{display:none!important}}.fb-bottom-navigation__container>div{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.fb-bottom-navigation__container>div>div{text-align:center}.fb-bottom-navigation__container>div>div a{height:56px;position:relative}.fb-bottom-navigation__container>div>div a span{margin-top:3px;font-size:12px;display:block}.fb-bottom-navigation__container>div>div a .badge{background-color:#fff;position:absolute;top:5px;left:50%;margin:0 0 0 10px}.fb-bottom-navigation__item{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}.fb-bottom-navigation__item-1{-webkit-box-flex:0;-ms-flex:0 0 8.333333%;flex:0 0 8.333333%;max-width:8.333333%}.fb-bottom-navigation__item-2{-webkit-box-flex:0;-ms-flex:0 0 16.666667%;flex:0 0 16.666667%;max-width:16.666667%}.fb-bottom-navigation__item-3{-webkit-box-flex:0;-ms-flex:0 0 25%;flex:0 0 25%;max-width:25%}.fb-bottom-navigation__item-4{-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}.fb-bottom-navigation__item-5{-webkit-box-flex:0;-ms-flex:0 0 41.666667%;flex:0 0 41.666667%;max-width:41.666667%}.fb-bottom-navigation__item-6{-webkit-box-flex:0;-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%}.fb-bottom-navigation__item-7{-webkit-box-flex:0;-ms-flex:0 0 58.333333%;flex:0 0 58.333333%;max-width:58.333333%}.fb-bottom-navigation__item-8{-webkit-box-flex:0;-ms-flex:0 0 66.666667%;flex:0 0 66.666667%;max-width:66.666667%}.fb-bottom-navigation__item-9{-webkit-box-flex:0;-ms-flex:0 0 75%;flex:0 0 75%;max-width:75%}.fb-bottom-navigation__item-10{-webkit-box-flex:0;-ms-flex:0 0 83.333333%;flex:0 0 83.333333%;max-width:83.333333%}.fb-bottom-navigation__item-11{-webkit-box-flex:0;-ms-flex:0 0 91.666667%;flex:0 0 91.666667%;max-width:91.666667%}.fb-bottom-navigation__item-12{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%}",
@@ -6357,21 +6489,21 @@ const __vue_inject_styles__$z = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$z = undefined;
+const __vue_scope_id__$B = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$z = undefined;
+const __vue_module_identifier__$B = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$z = false;
+const __vue_is_functional_template__$B = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$z = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$z,
-  staticRenderFns: __vue_staticRenderFns__$z
-}, __vue_inject_styles__$z, __vue_script__$z, __vue_scope_id__$z, __vue_is_functional_template__$z, __vue_module_identifier__$z, false, createInjector, undefined, undefined);
+const __vue_component__$B = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$B,
+  staticRenderFns: __vue_staticRenderFns__$B
+}, __vue_inject_styles__$B, __vue_script__$B, __vue_scope_id__$B, __vue_is_functional_template__$B, __vue_module_identifier__$B, false, createInjector, undefined, undefined);
 
 //
 //
@@ -6387,7 +6519,7 @@ const __vue_component__$z = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$A = {
+var script$C = {
   name: 'FbDesktopHeaderButton',
   props: {
     name: {
@@ -6402,10 +6534,10 @@ var script$A = {
 };
 
 /* script */
-const __vue_script__$A = script$A;
+const __vue_script__$C = script$C;
 /* template */
 
-var __vue_render__$A = function (_h, _vm) {
+var __vue_render__$C = function (_h, _vm) {
   var _c = _vm._c;
   return _c('button', {
     class: [_vm.data.class, _vm.data.staticClass],
@@ -6425,35 +6557,35 @@ var __vue_render__$A = function (_h, _vm) {
   }) : [_vm._v(_vm._s(_vm.props.name))]], 2);
 };
 
-var __vue_staticRenderFns__$A = [];
+var __vue_staticRenderFns__$C = [];
 /* style */
 
-const __vue_inject_styles__$A = undefined;
+const __vue_inject_styles__$C = undefined;
 /* scoped */
 
-const __vue_scope_id__$A = undefined;
+const __vue_scope_id__$C = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$A = undefined;
+const __vue_module_identifier__$C = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$A = true;
+const __vue_is_functional_template__$C = true;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$A = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$A,
-  staticRenderFns: __vue_staticRenderFns__$A
-}, __vue_inject_styles__$A, __vue_script__$A, __vue_scope_id__$A, __vue_is_functional_template__$A, __vue_module_identifier__$A, false, undefined, undefined, undefined);
+const __vue_component__$C = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$C,
+  staticRenderFns: __vue_staticRenderFns__$C
+}, __vue_inject_styles__$C, __vue_script__$C, __vue_scope_id__$C, __vue_is_functional_template__$C, __vue_module_identifier__$C, false, undefined, undefined, undefined);
 
 //
-var script$B = {
+var script$D = {
   name: 'FbDesktopHeader',
   components: {
-    ActionButton: __vue_component__$A
+    ActionButton: __vue_component__$C
   },
   props: {
     heading: {
@@ -6494,10 +6626,10 @@ var script$B = {
 };
 
 /* script */
-const __vue_script__$B = script$B;
+const __vue_script__$D = script$D;
 /* template */
 
-var __vue_render__$B = function () {
+var __vue_render__$D = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -6548,10 +6680,10 @@ var __vue_render__$B = function () {
   }) : _vm._e()], 1)]);
 };
 
-var __vue_staticRenderFns__$B = [];
+var __vue_staticRenderFns__$D = [];
 /* style */
 
-const __vue_inject_styles__$B = function (inject) {
+const __vue_inject_styles__$D = function (inject) {
   if (!inject) return;
   inject("data-v-034409ac_0", {
     source: ".fb-desktop-header__container{color:#fff;background-color:#d9230f;height:50px;position:fixed;top:0;right:0;left:220px;z-index:1000}@media (min-width:768px) and (max-width:1199px){.fb-desktop-header__container{left:60px}}@media (max-width:767px){.fb-desktop-header__container{display:none!important}}.fb-desktop-header__container *{color:#fff}.fb-desktop-header__container h1{float:left;line-height:50px;padding:15px 15px 10px 0;margin:0;font-size:18px}.fb-desktop-header__container h1 small,.fb-desktop-header__container h1 span{margin:0;padding:0 0 0 15px;line-height:20px;display:block}.fb-desktop-header__container h1 span{margin-top:-8px;font-size:18px}.fb-desktop-header__container h1 small{font-size:12px}.fb-desktop-header__buttons{float:right;padding-right:10px}.fb-desktop-header__button{border:0 none;border-radius:50%;font-size:30px;line-height:50px;height:50px;color:#fff;background-color:#d9230f;padding:0;width:52px}",
@@ -6562,21 +6694,21 @@ const __vue_inject_styles__$B = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$B = undefined;
+const __vue_scope_id__$D = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$B = undefined;
+const __vue_module_identifier__$D = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$B = false;
+const __vue_is_functional_template__$D = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$B = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$B,
-  staticRenderFns: __vue_staticRenderFns__$B
-}, __vue_inject_styles__$B, __vue_script__$B, __vue_scope_id__$B, __vue_is_functional_template__$B, __vue_module_identifier__$B, false, createInjector, undefined, undefined);
+const __vue_component__$D = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$D,
+  staticRenderFns: __vue_staticRenderFns__$D
+}, __vue_inject_styles__$D, __vue_script__$D, __vue_scope_id__$D, __vue_is_functional_template__$D, __vue_module_identifier__$D, false, createInjector, undefined, undefined);
 
 //
 //
@@ -6594,7 +6726,7 @@ const __vue_component__$B = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$C = {
+var script$E = {
   name: 'FbLogo',
   props: {
     link: {
@@ -6605,10 +6737,10 @@ var script$C = {
 };
 
 /* script */
-const __vue_script__$C = script$C;
+const __vue_script__$E = script$E;
 /* template */
 
-var __vue_render__$C = function () {
+var __vue_render__$E = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -6638,10 +6770,10 @@ var __vue_render__$C = function () {
   })])]);
 };
 
-var __vue_staticRenderFns__$C = [];
+var __vue_staticRenderFns__$E = [];
 /* style */
 
-const __vue_inject_styles__$C = function (inject) {
+const __vue_inject_styles__$E = function (inject) {
   if (!inject) return;
   inject("data-v-5d15b1f3_0", {
     source: ".fb-logo{float:left;padding:15px 15px;font-size:18px;line-height:20px;height:50px;display:block;left:50%;position:absolute;top:0;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%);white-space:nowrap;color:#fff}.fb-logo:focus,.fb-logo:hover{text-decoration:none;color:#777;background-color:transparent}.fb-logo>svg{display:block;width:auto;height:30px;margin-top:-5px;fill:#fff}@media (max-width:320px){.fb-logo>svg{height:25px}}",
@@ -6652,21 +6784,21 @@ const __vue_inject_styles__$C = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$C = undefined;
+const __vue_scope_id__$E = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$C = undefined;
+const __vue_module_identifier__$E = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$C = false;
+const __vue_is_functional_template__$E = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$C = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$C,
-  staticRenderFns: __vue_staticRenderFns__$C
-}, __vue_inject_styles__$C, __vue_script__$C, __vue_scope_id__$C, __vue_is_functional_template__$C, __vue_module_identifier__$C, false, createInjector, undefined, undefined);
+const __vue_component__$E = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$E,
+  staticRenderFns: __vue_staticRenderFns__$E
+}, __vue_inject_styles__$E, __vue_script__$E, __vue_scope_id__$E, __vue_is_functional_template__$E, __vue_module_identifier__$E, false, createInjector, undefined, undefined);
 
 //
 //
@@ -6716,7 +6848,7 @@ const __vue_component__$C = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$D = {
+var script$F = {
   name: 'FbNavigation',
   props: {
     items: {
@@ -6733,10 +6865,10 @@ var script$D = {
 };
 
 /* script */
-const __vue_script__$D = script$D;
+const __vue_script__$F = script$F;
 /* template */
 
-var __vue_render__$D = function () {
+var __vue_render__$F = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -6795,10 +6927,10 @@ var __vue_render__$D = function () {
   }), 0);
 };
 
-var __vue_staticRenderFns__$D = [];
+var __vue_staticRenderFns__$F = [];
 /* style */
 
-const __vue_inject_styles__$D = function (inject) {
+const __vue_inject_styles__$F = function (inject) {
   if (!inject) return;
   inject("data-v-3451903a_0", {
     source: "@media (max-width:767px){.fb-navigation__container{display:none}}@media (min-width:1200px){.fb-navigation__container{padding-bottom:5px;padding-top:5px;height:100%;overflow:hidden;width:100%}}.fb-navigation__container ul{list-style:none;margin-bottom:0;padding-left:0;padding-bottom:5px}.fb-navigation__container ul:after,.fb-navigation__container ul:before{content:\" \";display:table}.fb-navigation__container ul:after{clear:both}.fb-navigation__container ul>li{display:block;position:relative}.fb-navigation__container ul>li>a{color:grey;display:block;font-size:13px;line-height:18px;padding:10px 15px;position:relative;text-decoration:none;transition:all .3s}@media (min-width:768px) and (max-width:1199px){.fb-navigation__container ul>li>a{height:45px;line-height:45px;padding:0;font-size:2em}}.fb-navigation__container ul>li.hover>a,.fb-navigation__container ul>li:hover>a{background-color:#191919;color:grey}@media (min-width:768px) and (max-width:1199px){.fb-navigation__container ul>li.hover>a :after,.fb-navigation__container ul>li:hover>a :after{content:normal;display:none}}.fb-navigation__container ul>li.active>a{color:#fff}.fb-navigation__container ul>li.active>a:after{border-color:transparent #fcfcfc transparent transparent;border-style:solid;border-width:6px;content:\"\";height:0;pointer-events:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:0}.fb-navigation__container ul>li.divider{margin:0;padding:0;line-height:10px}.fb-navigation__heading{color:grey;font-size:12px;font-weight:700;line-height:1;margin-bottom:0;margin-top:15px;overflow:hidden;padding:10px 15px;text-overflow:ellipsis;white-space:nowrap}@media (max-width:991px){.fb-navigation__heading{color:#fff}}@media (min-width:768px) and (max-width:1199px){.fb-navigation__heading{margin:0;padding:0;visibility:hidden}}.fb-navigation__item-icon{display:block;float:left;font-size:13px;height:18px;line-height:18px;margin-right:10px;text-align:center;width:18px}@media (max-width:768px){.fb-navigation__item-icon{width:15px}}@media (min-width:768px) and (max-width:1199px){.fb-navigation__item-icon{float:none;height:45px;line-height:45px;margin-left:0;position:absolute;top:0;left:0;width:100%!important}}.fb-navigation__item-label{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (min-width:768px) and (max-width:1199px){.fb-navigation__item-label{display:none}}",
@@ -6809,27 +6941,27 @@ const __vue_inject_styles__$D = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$D = undefined;
+const __vue_scope_id__$F = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$D = undefined;
+const __vue_module_identifier__$F = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$D = false;
+const __vue_is_functional_template__$F = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$D = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$D,
-  staticRenderFns: __vue_staticRenderFns__$D
-}, __vue_inject_styles__$D, __vue_script__$D, __vue_scope_id__$D, __vue_is_functional_template__$D, __vue_module_identifier__$D, false, createInjector, undefined, undefined);
+const __vue_component__$F = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$F,
+  staticRenderFns: __vue_staticRenderFns__$F
+}, __vue_inject_styles__$F, __vue_script__$F, __vue_scope_id__$F, __vue_is_functional_template__$F, __vue_module_identifier__$F, false, createInjector, undefined, undefined);
 
 //
-var script$E = {
+var script$G = {
   name: 'FbPhoneHeaderHeading',
   components: {
-    FbLogo: __vue_component__$C
+    FbLogo: __vue_component__$E
   },
   props: {
     heading: {
@@ -6860,10 +6992,10 @@ var script$E = {
 };
 
 /* script */
-const __vue_script__$E = script$E;
+const __vue_script__$G = script$G;
 /* template */
 
-var __vue_render__$E = function () {
+var __vue_render__$G = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -6909,10 +7041,10 @@ var __vue_render__$E = function () {
   }, [_vm._v("\n      " + _vm._s(_vm.heading) + "\n    ")]) : _vm._e(), _vm._v(" "), _vm.heading !== null && _vm.subHeading !== null ? _c('h1', [_c('span', [_vm._v(_vm._s(_vm.heading))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.subHeading))])]) : _vm._e()]], 2);
 };
 
-var __vue_staticRenderFns__$E = [];
+var __vue_staticRenderFns__$G = [];
 /* style */
 
-const __vue_inject_styles__$E = function (inject) {
+const __vue_inject_styles__$G = function (inject) {
   if (!inject) return;
   inject("data-v-a453bb32_0", {
     source: ".fb-phone-header-heading__container{height:70px}.fb-phone-header-heading__container h1{float:left;margin:10px 0 0 0;display:block;white-space:nowrap;font-size:18px;line-height:20px;padding:10px 0;text-align:center;color:#fff}.fb-phone-header-heading__container h1 small,.fb-phone-header-heading__container h1 span{color:#fff}.fb-phone-header-heading__container h1 span{font-size:18px}.fb-phone-header-heading__container h1 small{font-size:12px;display:block}.fb-phone-header-heading__container h1.single-row{line-height:35px;font-size:22px}.fb-phone-header-heading__container-with-buttons{top:0;left:50%;position:absolute;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%)}.fb-phone-header-heading__container-left{left:0;-webkit-transform:translateX(0);-ms-transform:translateX(0);-o-transform:translateX(0);transform:translateX(0)}.fb-phone-header-heading__container-left h1{margin-left:10px;text-align:left}.fb-phone-header-heading__container>div h1{margin:0 0 0 10px;padding:0;white-space:nowrap;text-align:left;font-size:18px}.fb-phone-header-heading__container>div h1.single-row{line-height:50px;font-size:18px}.fb-phone-header-heading__container>div small,.fb-phone-header-heading__container>div span{font-size:18px;line-height:20px;color:#fff;display:block}.fb-phone-header-heading__container>div span{padding-top:5px;font-size:18px}.fb-phone-header-heading__container>div small{font-size:12px}.fb-phone-header-heading__logo{margin-top:10px}.fb-phone-header-heading__icon{height:50px;width:50px;line-height:50px;font-size:30px;float:right;text-align:center;display:inline-block}.fb-phone-header-heading__icon[role=button]{background-color:transparent;background-image:none;border:none;outline:0}",
@@ -6923,21 +7055,21 @@ const __vue_inject_styles__$E = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$E = undefined;
+const __vue_scope_id__$G = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$E = undefined;
+const __vue_module_identifier__$G = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$E = false;
+const __vue_is_functional_template__$G = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$E = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$E,
-  staticRenderFns: __vue_staticRenderFns__$E
-}, __vue_inject_styles__$E, __vue_script__$E, __vue_scope_id__$E, __vue_is_functional_template__$E, __vue_module_identifier__$E, false, createInjector, undefined, undefined);
+const __vue_component__$G = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$G,
+  staticRenderFns: __vue_staticRenderFns__$G
+}, __vue_inject_styles__$G, __vue_script__$G, __vue_scope_id__$G, __vue_is_functional_template__$G, __vue_module_identifier__$G, false, createInjector, undefined, undefined);
 
 //
 //
@@ -6953,7 +7085,7 @@ const __vue_component__$E = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$F = {
+var script$H = {
   name: 'FbPhoneHeaderButton',
   props: {
     name: {
@@ -6968,10 +7100,10 @@ var script$F = {
 };
 
 /* script */
-const __vue_script__$F = script$F;
+const __vue_script__$H = script$H;
 /* template */
 
-var __vue_render__$F = function (_h, _vm) {
+var __vue_render__$H = function (_h, _vm) {
   var _c = _vm._c;
   return _c('button', {
     class: [_vm.data.class, _vm.data.staticClass],
@@ -6991,29 +7123,29 @@ var __vue_render__$F = function (_h, _vm) {
   }) : [_vm._v(_vm._s(_vm.props.name))]], 2);
 };
 
-var __vue_staticRenderFns__$F = [];
+var __vue_staticRenderFns__$H = [];
 /* style */
 
-const __vue_inject_styles__$F = undefined;
+const __vue_inject_styles__$H = undefined;
 /* scoped */
 
-const __vue_scope_id__$F = undefined;
+const __vue_scope_id__$H = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$F = undefined;
+const __vue_module_identifier__$H = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$F = true;
+const __vue_is_functional_template__$H = true;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$F = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$F,
-  staticRenderFns: __vue_staticRenderFns__$F
-}, __vue_inject_styles__$F, __vue_script__$F, __vue_scope_id__$F, __vue_is_functional_template__$F, __vue_module_identifier__$F, false, undefined, undefined, undefined);
+const __vue_component__$H = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$H,
+  staticRenderFns: __vue_staticRenderFns__$H
+}, __vue_inject_styles__$H, __vue_script__$H, __vue_scope_id__$H, __vue_is_functional_template__$H, __vue_module_identifier__$H, false, undefined, undefined, undefined);
 
 //
 //
@@ -7034,7 +7166,7 @@ const __vue_component__$F = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$G = {
+var script$I = {
   name: 'FbPhoneHeaderHamburgerButton',
   props: {
     collapsed: {
@@ -7045,10 +7177,10 @@ var script$G = {
 };
 
 /* script */
-const __vue_script__$G = script$G;
+const __vue_script__$I = script$I;
 /* template */
 
-var __vue_render__$G = function (_h, _vm) {
+var __vue_render__$I = function (_h, _vm) {
   var _c = _vm._c;
   return _c('button', {
     class: [_vm.data.class, _vm.data.staticClass, 'fb-phone-header-hamburger__button', {
@@ -7066,7 +7198,7 @@ var __vue_render__$G = function (_h, _vm) {
   }, [_c('span', [_vm._v("Toggle navigation")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]);
 };
 
-var __vue_staticRenderFns__$G = [function (_h, _vm) {
+var __vue_staticRenderFns__$I = [function (_h, _vm) {
   var _c = _vm._c;
   return _c('div', {
     staticClass: "bars"
@@ -7089,7 +7221,7 @@ var __vue_staticRenderFns__$G = [function (_h, _vm) {
 }];
 /* style */
 
-const __vue_inject_styles__$G = function (inject) {
+const __vue_inject_styles__$I = function (inject) {
   if (!inject) return;
   inject("data-v-4df69e46_0", {
     source: ".fb-phone-header-hamburger__button{overflow:hidden;position:relative}.fb-phone-header-hamburger__button>span{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0}.fb-phone-header-hamburger__button .bars{display:block;height:2px;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);width:22px}.fb-phone-header-hamburger__button .bars .bar-line{background-color:#fff;border-radius:1px;display:block;height:100%;position:absolute;transition:all .1s ease-in-out 0s;right:0;width:0}.fb-phone-header-hamburger__button .bars .bar-line-1,.fb-phone-header-hamburger__button .bars .bar-line-4{top:-7px}.fb-phone-header-hamburger__button .bars .bar-line-3,.fb-phone-header-hamburger__button .bars .bar-line-6{top:7px}.fb-phone-header-hamburger__button .bars-x{height:22px;transform:translate(-50%,-50%) rotate(45deg)}.fb-phone-header-hamburger__button .bars-x .bar-line:first-child{height:2px;left:0;top:50%;transform:translateY(-50%);width:100%}.fb-phone-header-hamburger__button .bars-x .bar-line:last-child{bottom:0;left:50%;transform:translateX(-50%);width:2px}.fb-phone-header-hamburger__button.collapsed .bars .bar-line{width:100%}.fb-phone-header-hamburger__button.collapsed .bars-x .bar-line:first-child{width:0}.fb-phone-header-hamburger__button.collapsed .bars-x .bar-line:last-child{height:0}",
@@ -7100,21 +7232,21 @@ const __vue_inject_styles__$G = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$G = undefined;
+const __vue_scope_id__$I = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$G = undefined;
+const __vue_module_identifier__$I = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$G = true;
+const __vue_is_functional_template__$I = true;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$G = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$G,
-  staticRenderFns: __vue_staticRenderFns__$G
-}, __vue_inject_styles__$G, __vue_script__$G, __vue_scope_id__$G, __vue_is_functional_template__$G, __vue_module_identifier__$G, false, createInjector, undefined, undefined);
+const __vue_component__$I = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$I,
+  staticRenderFns: __vue_staticRenderFns__$I
+}, __vue_inject_styles__$I, __vue_script__$I, __vue_scope_id__$I, __vue_is_functional_template__$I, __vue_module_identifier__$I, false, createInjector, undefined, undefined);
 
 //
 //
@@ -7128,7 +7260,7 @@ const __vue_component__$G = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$H = {
+var script$J = {
   name: 'FbPhoneHeaderTabsItem',
   props: {
     item: {
@@ -7145,10 +7277,10 @@ var script$H = {
 };
 
 /* script */
-const __vue_script__$H = script$H;
+const __vue_script__$J = script$J;
 /* template */
 
-var __vue_render__$H = function () {
+var __vue_render__$J = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -7168,10 +7300,10 @@ var __vue_render__$H = function () {
   }, [_vm._v("\n  " + _vm._s(_vm.item.name) + "\n")]);
 };
 
-var __vue_staticRenderFns__$H = [];
+var __vue_staticRenderFns__$J = [];
 /* style */
 
-const __vue_inject_styles__$H = function (inject) {
+const __vue_inject_styles__$J = function (inject) {
   if (!inject) return;
   inject("data-v-e31d682a_0", {
     source: ".fb-phone-header-tabs-item__container{float:left;letter-spacing:1px;font-weight:bolder}",
@@ -7182,27 +7314,27 @@ const __vue_inject_styles__$H = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$H = undefined;
+const __vue_scope_id__$J = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$H = undefined;
+const __vue_module_identifier__$J = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$H = false;
+const __vue_is_functional_template__$J = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$H = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$H,
-  staticRenderFns: __vue_staticRenderFns__$H
-}, __vue_inject_styles__$H, __vue_script__$H, __vue_scope_id__$H, __vue_is_functional_template__$H, __vue_module_identifier__$H, false, createInjector, undefined, undefined);
+const __vue_component__$J = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$J,
+  staticRenderFns: __vue_staticRenderFns__$J
+}, __vue_inject_styles__$J, __vue_script__$J, __vue_scope_id__$J, __vue_is_functional_template__$J, __vue_module_identifier__$J, false, createInjector, undefined, undefined);
 
 //
-var script$I = {
+var script$K = {
   name: 'FbPhoneHeaderTabs',
   components: {
-    Item: __vue_component__$H
+    Item: __vue_component__$J
   },
   props: {
     tabs: {
@@ -7213,10 +7345,10 @@ var script$I = {
 };
 
 /* script */
-const __vue_script__$I = script$I;
+const __vue_script__$K = script$K;
 /* template */
 
-var __vue_render__$I = function () {
+var __vue_render__$K = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -7235,10 +7367,10 @@ var __vue_render__$I = function () {
   }), 1);
 };
 
-var __vue_staticRenderFns__$I = [];
+var __vue_staticRenderFns__$K = [];
 /* style */
 
-const __vue_inject_styles__$I = function (inject) {
+const __vue_inject_styles__$K = function (inject) {
   if (!inject) return;
   inject("data-v-2cabf83a_0", {
     source: ".fb-phone-header-tabs__container{position:relative;height:34px}.fb-phone-header-tabs__container:after,.fb-phone-header-tabs__container:before{content:\" \";display:table}.fb-phone-header-tabs__container:after{clear:both}",
@@ -7249,30 +7381,30 @@ const __vue_inject_styles__$I = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$I = undefined;
+const __vue_scope_id__$K = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$I = undefined;
+const __vue_module_identifier__$K = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$I = false;
+const __vue_is_functional_template__$K = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$I = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$I,
-  staticRenderFns: __vue_staticRenderFns__$I
-}, __vue_inject_styles__$I, __vue_script__$I, __vue_scope_id__$I, __vue_is_functional_template__$I, __vue_module_identifier__$I, false, createInjector, undefined, undefined);
+const __vue_component__$K = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$K,
+  staticRenderFns: __vue_staticRenderFns__$K
+}, __vue_inject_styles__$K, __vue_script__$K, __vue_scope_id__$K, __vue_is_functional_template__$K, __vue_module_identifier__$K, false, createInjector, undefined, undefined);
 
 //
-var script$J = {
+var script$L = {
   name: 'FbPhoneHeader',
   components: {
-    Heading: __vue_component__$E,
-    ActionButton: __vue_component__$F,
-    HamburgerButton: __vue_component__$G,
-    Tabs: __vue_component__$I
+    Heading: __vue_component__$G,
+    ActionButton: __vue_component__$H,
+    HamburgerButton: __vue_component__$I,
+    Tabs: __vue_component__$K
   },
   props: {
     heading: {
@@ -7355,10 +7487,10 @@ var script$J = {
 };
 
 /* script */
-const __vue_script__$J = script$J;
+const __vue_script__$L = script$L;
 /* template */
 
-var __vue_render__$J = function () {
+var __vue_render__$L = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -7466,10 +7598,10 @@ var __vue_render__$J = function () {
   }, [_vm._t("add-icon")], 2) : _vm._e()], 1);
 };
 
-var __vue_staticRenderFns__$J = [];
+var __vue_staticRenderFns__$L = [];
 /* style */
 
-const __vue_inject_styles__$J = function (inject) {
+const __vue_inject_styles__$L = function (inject) {
   if (!inject) return;
   inject("data-v-6d8d8842_0", {
     source: ".fb-phone-header__container{background-color:#d9230f;color:#fff;left:0;right:0;top:0;position:fixed;width:100%;z-index:1030}.fb-phone-header__container:after,.fb-phone-header__container:before{content:\" \";display:table}.fb-phone-header__container:after{clear:both}@media (min-width:768px){.fb-phone-header__container{display:none!important}}.fb-phone-header__container svg{color:#fff}.fb-phone-header__row{position:relative}.fb-phone-header__row:after,.fb-phone-header__row:before{content:\" \";display:table}.fb-phone-header__row:after{clear:both}.fb-phone-header__button{background-color:transparent;background-image:none;border:none;display:block;float:left;height:60px;width:50px;line-height:60px;outline:0;overflow:hidden;padding:0;position:relative;text-align:center;font-size:40px;text-transform:lowercase;color:#fff}.fb-phone-header__button-right{float:right}.fb-phone-header__button-small{height:30px;width:30px;line-height:30px;font-size:20px}.fb-phone-header__button-textual{font-size:15px;width:auto;text-align:right;margin-right:10px}.fb-phone-header__info{padding:5px 10px 0}.fb-phone-header__add-button.fb-btn{position:absolute;bottom:-15px;right:25px;width:36px;height:36px;padding-left:12px;padding-right:12px;text-align:center;transition-duration:.28s;transition-property:box-shadow,transform,opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);user-select:none;-webkit-box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.fb-phone-header__add-button.fb-btn svg{color:#d9230f}.fb-phone-header__add-button.fb-btn:before{border-radius:inherit;bottom:0;color:inherit;content:\"\";left:0;opacity:0;pointer-events:none;position:absolute;right:0;top:0;transition:opacity .2s cubic-bezier(.4,0,.6,1);background-color:currentColor}",
@@ -7480,21 +7612,21 @@ const __vue_inject_styles__$J = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$J = undefined;
+const __vue_scope_id__$L = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$J = undefined;
+const __vue_module_identifier__$L = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$J = false;
+const __vue_is_functional_template__$L = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$J = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$J,
-  staticRenderFns: __vue_staticRenderFns__$J
-}, __vue_inject_styles__$J, __vue_script__$J, __vue_scope_id__$J, __vue_is_functional_template__$J, __vue_module_identifier__$J, false, createInjector, undefined, undefined);
+const __vue_component__$L = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$L,
+  staticRenderFns: __vue_staticRenderFns__$L
+}, __vue_inject_styles__$L, __vue_script__$L, __vue_scope_id__$L, __vue_is_functional_template__$L, __vue_module_identifier__$L, false, createInjector, undefined, undefined);
 
 //
 //
@@ -7563,7 +7695,7 @@ const __vue_component__$J = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$K = {
+var script$M = {
   name: 'FbPhoneNavigation',
   props: {
     items: {
@@ -7584,10 +7716,10 @@ var script$K = {
 };
 
 /* script */
-const __vue_script__$K = script$K;
+const __vue_script__$M = script$M;
 /* template */
 
-var __vue_render__$K = function () {
+var __vue_render__$M = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -7675,282 +7807,13 @@ var __vue_render__$K = function () {
   }), 0)]) : _vm._e()])], 1);
 };
 
-var __vue_staticRenderFns__$K = [];
-/* style */
-
-const __vue_inject_styles__$K = function (inject) {
-  if (!inject) return;
-  inject("data-v-1697d423_0", {
-    source: ".fb-phone-navigation__navigation{transform:translate(0);flex-direction:column;justify-content:space-between;width:240px;min-height:100vh;top:0;right:0;overflow:auto;z-index:9999;position:fixed;background-color:#222;color:#a6a6a6}.fb-phone-navigation__navigation ul{list-style:none;margin-bottom:0;padding-left:0;padding-bottom:5px}.fb-phone-navigation__navigation ul:after,.fb-phone-navigation__navigation ul:before{content:\" \";display:table}.fb-phone-navigation__navigation ul:after{clear:both}.fb-phone-navigation__navigation ul>li{display:block;position:relative}.fb-phone-navigation__navigation ul>li>a{color:grey;display:block;font-size:13px;line-height:18px;padding:10px 15px;position:relative;text-decoration:none}.fb-phone-navigation__navigation ul>li.hover>a,.fb-phone-navigation__navigation ul>li:hover>a{background-color:#191919;color:grey}.fb-phone-navigation__navigation ul>li.active>a{color:#fff}.fb-phone-navigation__navigation ul>li.active>a:after{border-color:transparent #fcfcfc transparent transparent;border-style:solid;border-width:6px;content:\"\";height:0;pointer-events:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:0}.fb-phone-navigation__navigation ul>li.divider{margin:0;padding:0;line-height:10px}.fb-phone-navigation__overlay{top:0;right:0;bottom:0;left:0;position:fixed;z-index:9998;background-color:rgba(0,0,0,.5)}.phone-navigation-overlay-enter-active,.phone-navigation-overlay-leave-active{transition:opacity .3s ease-in-out}.phone-navigation-overlay-enter,.phone-navigation-overlay-leave-to{opacity:0}.phone-navigation-enter-active,.phone-navigation-leave-active{transition:transform .3s ease-in-out}.phone-navigation-enter,.phone-navigation-leave-to{transform:translateX(240px)}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$K = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$K = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$K = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$K = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$K,
-  staticRenderFns: __vue_staticRenderFns__$K
-}, __vue_inject_styles__$K, __vue_script__$K, __vue_scope_id__$K, __vue_is_functional_template__$K, __vue_module_identifier__$K, false, createInjector, undefined, undefined);
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var script$L = {
-  name: 'FbSignFooter',
-  props: {
-    signInLink: {
-      type: String,
-      default: '/sing-in'
-    },
-    signUpLink: {
-      type: String,
-      default: '/sing-up'
-    },
-    authorWebsite: {
-      type: String,
-      default: null
-    },
-    authorName: {
-      type: String,
-      default: 'FastyBird s.r.o.'
-    },
-    signInLabel: {
-      type: String,
-      default: 'Sign in'
-    },
-    signUpLabel: {
-      type: String,
-      default: 'Sign up'
-    },
-    privacyPolicyLabel: {
-      type: String,
-      default: 'Privacy Policy'
-    },
-    termsLabel: {
-      type: String,
-      default: 'Terms'
-    },
-    cookiePolicyLabel: {
-      type: String,
-      default: 'Cookie Policy'
-    },
-    alreadyHaveAccountText: {
-      type: String,
-      default: 'Already have an account?'
-    },
-    withoutAccountText: {
-      type: String,
-      default: 'Don\'t have an account?'
-    }
-  },
-  computed: {
-    isSignUp() {
-      return this.$route.path === this.signUpLink;
-    }
-
-  }
-};
-
-/* script */
-const __vue_script__$L = script$L;
-/* template */
-
-var __vue_render__$L = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "fb-sign-footer__container"
-  }, [_vm.isSignUp ? _c('p', [_vm._v("\n    " + _vm._s(_vm.alreadyHaveAccountText) + "\n    "), _c('nuxt-link', {
-    attrs: {
-      "to": _vm.signInLink
-    }
-  }, [_vm._v("\n      " + _vm._s(_vm.signInLabel) + "\n    ")])], 1) : _c('p', [_vm._v("\n    " + _vm._s(_vm.withoutAccountText) + "\n    "), _c('nuxt-link', {
-    attrs: {
-      "to": _vm.signUpLink
-    }
-  }, [_vm._v("\n      " + _vm._s(_vm.signUpLabel) + "\n    ")])], 1), _vm._v(" "), _c('ul', [_c('li', [_c('nuxt-link', {
-    attrs: {
-      "to": _vm.signUpLink
-    }
-  }, [_vm._v("\n        " + _vm._s(_vm.signUpLabel) + "\n      ")])], 1), _vm._v(" "), _c('li', [_vm._v("|")]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v(_vm._s(_vm.privacyPolicyLabel))])]), _vm._v(" "), _c('li', [_vm._v("|")]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v(_vm._s(_vm.termsLabel))])]), _vm._v(" "), _c('li', [_vm._v("|")]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "#"
-    }
-  }, [_vm._v(_vm._s(_vm.cookiePolicyLabel))])]), _vm._v(" "), _c('li', {
-    staticClass: "fb-sign-footer__owner"
-  }, [_vm._v("\n      ©\n      "), _vm.authorWebsite !== null ? _c('a', {
-    attrs: {
-      "href": _vm.authorWebsite,
-      "target": "_blank"
-    }
-  }, [_vm._v("\n        " + _vm._s(_vm.authorName) + "\n      ")]) : _vm._e(), _vm._v(" 2017\n    ")])])]);
-};
-
-var __vue_staticRenderFns__$L = [];
-/* style */
-
-const __vue_inject_styles__$L = function (inject) {
-  if (!inject) return;
-  inject("data-v-5d325c3f_0", {
-    source: ".fb-sign-footer__container{margin-bottom:15px;margin-top:15px;text-align:center}.fb-sign-footer__container p,.fb-sign-footer__container ul{margin-bottom:30px}.fb-sign-footer__container ul{padding-left:0;list-style:none;margin-left:-5px}.fb-sign-footer__container ul>li{display:inline-block;padding-left:5px;padding-right:5px}.fb-sign-footer__container ul>li:not(:last-child) a{color:#777}.fb-sign-footer__container ul>li:not(:last-child) a:focus,.fb-sign-footer__container ul>li:not(:last-child) a:hover{color:#d9230f;text-decoration:none}.fb-sign-footer__owner{display:block;text-align:center;margin-top:15px}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$L = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$L = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$L = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$L = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$L,
-  staticRenderFns: __vue_staticRenderFns__$L
-}, __vue_inject_styles__$L, __vue_script__$L, __vue_scope_id__$L, __vue_is_functional_template__$L, __vue_module_identifier__$L, false, createInjector, undefined, undefined);
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var script$M = {
-  name: 'FbSignHeader',
-  props: {
-    signInLink: {
-      type: String,
-      default: '/sing-in'
-    }
-  }
-};
-
-/* script */
-const __vue_script__$M = script$M;
-/* template */
-
-var __vue_render__$M = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "fb-sign-header__container"
-  }, [_c('nuxt-link', {
-    staticClass: "fb-sign-header__brand",
-    attrs: {
-      "to": _vm.signInLink
-    }
-  }, [_c('svg', {
-    attrs: {
-      "version": "1.1",
-      "xmlns": "http://www.w3.org/2000/svg",
-      "viewBox": "0 0 3.80175 2.74985"
-    }
-  }, [_c('path', {
-    attrs: {
-      "d": "M0.187767 1.69877c-0.103706,0 -0.187767,-0.0840617 -0.187767,-0.18774 0,-0.103678 0.0840617,-0.187767 0.187767,-0.187767 0.262409,0 0.522518,-0.00293689 0.785231,-0.0021057 0.0406178,-0.267479 0.166655,-0.506974 0.34938,-0.689671 0.202064,-0.202092 0.473588,-0.334834 0.775645,-0.359354 -0.0341345,-0.0668559 -0.0258502,-0.150557 0.0271524,-0.209822 0.0688508,-0.0769411 0.187102,-0.0835075 0.264043,-0.0146568l0.424631 0.379774 0.00784095 0.00748077c0.0936481,0.0543325 0.179483,0.120551 0.255537,0.196578 0.0810693,0.0810416 0.151001,0.173304 0.207217,0.274212l0.426986 0.396758c0.0413105,0.0337189 0.0757497,0.0894921 0.0903233,0.138339l-0.4581 0c-0.0533905,0 -0.0973331,0.0439149 -0.0973331,0.0973054l0 8.31196e-005c0,0.0533628 0.0439703,0.0973331 0.0973331,0.0973331 0.148812,0 0.297596,0 0.446408,0 -0.0147399,0.0339405 -0.0411442,0.0736717 -0.0694326,0.0978041l-0.440202 0.409059c-0.00809031,0.00750847 -0.0165962,0.0141026 -0.0255454,0.0199487 -0.0505367,0.0814295 -0.110217,0.15657 -0.177654,0.224007 -0.224506,0.224562 -0.534764,0.36351 -0.877439,0.36351 -0.320565,0 -0.636004,-0.171005 -0.928945,-0.391216l0.413797 0c0.182143,0 0.32993,-0.147759 0.32993,-0.32993 0,-0.182143 -0.147787,-0.32993 -0.32993,-0.32993 -0.498967,0 -0.997934,0 -1.49687,0zm2.30261 0.625531c0.122075,-0.0434993 0.231571,-0.113652 0.321368,-0.203449 0.156597,-0.156542 0.253459,-0.372958 0.253459,-0.611927 0,-0.238969 -0.0968621,-0.455385 -0.253459,-0.611954 -0.15657,-0.15657 -0.372958,-0.253459 -0.611954,-0.253459 -0.238969,0 -0.455385,0.0968898 -0.611927,0.253459 -0.114594,0.114622 -0.197215,0.2613 -0.233261,0.425406 0.130719,0.000387892 0.2613,0.000886609 0.39202,0.000886609 0.357193,0 0.61032,0.204918 0.724803,0.4517 0.0790191,0.170506 0.0946178,0.374897 0.0189513,0.549338zm0.348133 -1.02207c0,-0.113846 -0.0922905,-0.206164 -0.206164,-0.206164 -0.113846,0 -0.206137,0.0923182 -0.206137,0.206164 0,0.113846 0.0922905,0.206164 0.206137,0.206164 0.113874,0 0.206164,-0.0923182 0.206164,-0.206164zm-1.15387 0.538726c0.103678,0 0.18774,0.0840617 0.18774,0.18774 0,0.103678 -0.0840617,0.187767 -0.18774,0.187767l-1.02043 0c-0.103678,0 -0.187767,-0.0840894 -0.187767,-0.187767 0,-0.103678 0.0840894,-0.18774 0.187767,-0.18774l1.02043 0z"
-    }
-  })])])], 1);
-};
-
 var __vue_staticRenderFns__$M = [];
 /* style */
 
 const __vue_inject_styles__$M = function (inject) {
   if (!inject) return;
-  inject("data-v-e74d9fd4_0", {
-    source: ".fb-sign-header__container{margin-bottom:15px}.fb-sign-header__brand{display:block;margin-left:auto;margin-right:auto;width:120px}.fb-sign-header__brand svg{shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd;fill:#d9230f}.fb-sign-header__brand svg path{fill:#d9230f}",
+  inject("data-v-1697d423_0", {
+    source: ".fb-phone-navigation__navigation{transform:translate(0);flex-direction:column;justify-content:space-between;width:240px;min-height:100vh;top:0;right:0;overflow:auto;z-index:9999;position:fixed;background-color:#222;color:#a6a6a6}.fb-phone-navigation__navigation ul{list-style:none;margin-bottom:0;padding-left:0;padding-bottom:5px}.fb-phone-navigation__navigation ul:after,.fb-phone-navigation__navigation ul:before{content:\" \";display:table}.fb-phone-navigation__navigation ul:after{clear:both}.fb-phone-navigation__navigation ul>li{display:block;position:relative}.fb-phone-navigation__navigation ul>li>a{color:grey;display:block;font-size:13px;line-height:18px;padding:10px 15px;position:relative;text-decoration:none}.fb-phone-navigation__navigation ul>li.hover>a,.fb-phone-navigation__navigation ul>li:hover>a{background-color:#191919;color:grey}.fb-phone-navigation__navigation ul>li.active>a{color:#fff}.fb-phone-navigation__navigation ul>li.active>a:after{border-color:transparent #fcfcfc transparent transparent;border-style:solid;border-width:6px;content:\"\";height:0;pointer-events:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:0}.fb-phone-navigation__navigation ul>li.divider{margin:0;padding:0;line-height:10px}.fb-phone-navigation__overlay{top:0;right:0;bottom:0;left:0;position:fixed;z-index:9998;background-color:rgba(0,0,0,.5)}.phone-navigation-overlay-enter-active,.phone-navigation-overlay-leave-active{transition:opacity .3s ease-in-out}.phone-navigation-overlay-enter,.phone-navigation-overlay-leave-to{opacity:0}.phone-navigation-enter-active,.phone-navigation-leave-active{transition:transform .3s ease-in-out}.phone-navigation-enter,.phone-navigation-leave-to{transform:translateX(240px)}",
     map: undefined,
     media: undefined
   });
@@ -8022,34 +7885,303 @@ const __vue_component__$M = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$N = {
+  name: 'FbSignFooter',
+  props: {
+    signInLink: {
+      type: String,
+      default: '/sing-in'
+    },
+    signUpLink: {
+      type: String,
+      default: '/sing-up'
+    },
+    authorWebsite: {
+      type: String,
+      default: null
+    },
+    authorName: {
+      type: String,
+      default: 'FastyBird s.r.o.'
+    },
+    signInLabel: {
+      type: String,
+      default: 'Sign in'
+    },
+    signUpLabel: {
+      type: String,
+      default: 'Sign up'
+    },
+    privacyPolicyLabel: {
+      type: String,
+      default: 'Privacy Policy'
+    },
+    termsLabel: {
+      type: String,
+      default: 'Terms'
+    },
+    cookiePolicyLabel: {
+      type: String,
+      default: 'Cookie Policy'
+    },
+    alreadyHaveAccountText: {
+      type: String,
+      default: 'Already have an account?'
+    },
+    withoutAccountText: {
+      type: String,
+      default: 'Don\'t have an account?'
+    }
+  },
+  computed: {
+    isSignUp() {
+      return this.$route.path === this.signUpLink;
+    }
+
+  }
+};
+
+/* script */
+const __vue_script__$N = script$N;
+/* template */
+
+var __vue_render__$N = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "fb-sign-footer__container"
+  }, [_vm.isSignUp ? _c('p', [_vm._v("\n    " + _vm._s(_vm.alreadyHaveAccountText) + "\n    "), _c('nuxt-link', {
+    attrs: {
+      "to": _vm.signInLink
+    }
+  }, [_vm._v("\n      " + _vm._s(_vm.signInLabel) + "\n    ")])], 1) : _c('p', [_vm._v("\n    " + _vm._s(_vm.withoutAccountText) + "\n    "), _c('nuxt-link', {
+    attrs: {
+      "to": _vm.signUpLink
+    }
+  }, [_vm._v("\n      " + _vm._s(_vm.signUpLabel) + "\n    ")])], 1), _vm._v(" "), _c('ul', [_c('li', [_c('nuxt-link', {
+    attrs: {
+      "to": _vm.signUpLink
+    }
+  }, [_vm._v("\n        " + _vm._s(_vm.signUpLabel) + "\n      ")])], 1), _vm._v(" "), _c('li', [_vm._v("|")]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v(_vm._s(_vm.privacyPolicyLabel))])]), _vm._v(" "), _c('li', [_vm._v("|")]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v(_vm._s(_vm.termsLabel))])]), _vm._v(" "), _c('li', [_vm._v("|")]), _vm._v(" "), _c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v(_vm._s(_vm.cookiePolicyLabel))])]), _vm._v(" "), _c('li', {
+    staticClass: "fb-sign-footer__owner"
+  }, [_vm._v("\n      ©\n      "), _vm.authorWebsite !== null ? _c('a', {
+    attrs: {
+      "href": _vm.authorWebsite,
+      "target": "_blank"
+    }
+  }, [_vm._v("\n        " + _vm._s(_vm.authorName) + "\n      ")]) : _vm._e(), _vm._v(" 2017\n    ")])])]);
+};
+
+var __vue_staticRenderFns__$N = [];
+/* style */
+
+const __vue_inject_styles__$N = function (inject) {
+  if (!inject) return;
+  inject("data-v-5d325c3f_0", {
+    source: ".fb-sign-footer__container{margin-bottom:15px;margin-top:15px;text-align:center}.fb-sign-footer__container p,.fb-sign-footer__container ul{margin-bottom:30px}.fb-sign-footer__container ul{padding-left:0;list-style:none;margin-left:-5px}.fb-sign-footer__container ul>li{display:inline-block;padding-left:5px;padding-right:5px}.fb-sign-footer__container ul>li:not(:last-child) a{color:#777}.fb-sign-footer__container ul>li:not(:last-child) a:focus,.fb-sign-footer__container ul>li:not(:last-child) a:hover{color:#d9230f;text-decoration:none}.fb-sign-footer__owner{display:block;text-align:center;margin-top:15px}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$N = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$N = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$N = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$N = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$N,
+  staticRenderFns: __vue_staticRenderFns__$N
+}, __vue_inject_styles__$N, __vue_script__$N, __vue_scope_id__$N, __vue_is_functional_template__$N, __vue_module_identifier__$N, false, createInjector, undefined, undefined);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$O = {
+  name: 'FbSignHeader',
+  props: {
+    signInLink: {
+      type: String,
+      default: '/sing-in'
+    }
+  }
+};
+
+/* script */
+const __vue_script__$O = script$O;
+/* template */
+
+var __vue_render__$O = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "fb-sign-header__container"
+  }, [_c('nuxt-link', {
+    staticClass: "fb-sign-header__brand",
+    attrs: {
+      "to": _vm.signInLink
+    }
+  }, [_c('svg', {
+    attrs: {
+      "version": "1.1",
+      "xmlns": "http://www.w3.org/2000/svg",
+      "viewBox": "0 0 3.80175 2.74985"
+    }
+  }, [_c('path', {
+    attrs: {
+      "d": "M0.187767 1.69877c-0.103706,0 -0.187767,-0.0840617 -0.187767,-0.18774 0,-0.103678 0.0840617,-0.187767 0.187767,-0.187767 0.262409,0 0.522518,-0.00293689 0.785231,-0.0021057 0.0406178,-0.267479 0.166655,-0.506974 0.34938,-0.689671 0.202064,-0.202092 0.473588,-0.334834 0.775645,-0.359354 -0.0341345,-0.0668559 -0.0258502,-0.150557 0.0271524,-0.209822 0.0688508,-0.0769411 0.187102,-0.0835075 0.264043,-0.0146568l0.424631 0.379774 0.00784095 0.00748077c0.0936481,0.0543325 0.179483,0.120551 0.255537,0.196578 0.0810693,0.0810416 0.151001,0.173304 0.207217,0.274212l0.426986 0.396758c0.0413105,0.0337189 0.0757497,0.0894921 0.0903233,0.138339l-0.4581 0c-0.0533905,0 -0.0973331,0.0439149 -0.0973331,0.0973054l0 8.31196e-005c0,0.0533628 0.0439703,0.0973331 0.0973331,0.0973331 0.148812,0 0.297596,0 0.446408,0 -0.0147399,0.0339405 -0.0411442,0.0736717 -0.0694326,0.0978041l-0.440202 0.409059c-0.00809031,0.00750847 -0.0165962,0.0141026 -0.0255454,0.0199487 -0.0505367,0.0814295 -0.110217,0.15657 -0.177654,0.224007 -0.224506,0.224562 -0.534764,0.36351 -0.877439,0.36351 -0.320565,0 -0.636004,-0.171005 -0.928945,-0.391216l0.413797 0c0.182143,0 0.32993,-0.147759 0.32993,-0.32993 0,-0.182143 -0.147787,-0.32993 -0.32993,-0.32993 -0.498967,0 -0.997934,0 -1.49687,0zm2.30261 0.625531c0.122075,-0.0434993 0.231571,-0.113652 0.321368,-0.203449 0.156597,-0.156542 0.253459,-0.372958 0.253459,-0.611927 0,-0.238969 -0.0968621,-0.455385 -0.253459,-0.611954 -0.15657,-0.15657 -0.372958,-0.253459 -0.611954,-0.253459 -0.238969,0 -0.455385,0.0968898 -0.611927,0.253459 -0.114594,0.114622 -0.197215,0.2613 -0.233261,0.425406 0.130719,0.000387892 0.2613,0.000886609 0.39202,0.000886609 0.357193,0 0.61032,0.204918 0.724803,0.4517 0.0790191,0.170506 0.0946178,0.374897 0.0189513,0.549338zm0.348133 -1.02207c0,-0.113846 -0.0922905,-0.206164 -0.206164,-0.206164 -0.113846,0 -0.206137,0.0923182 -0.206137,0.206164 0,0.113846 0.0922905,0.206164 0.206137,0.206164 0.113874,0 0.206164,-0.0923182 0.206164,-0.206164zm-1.15387 0.538726c0.103678,0 0.18774,0.0840617 0.18774,0.18774 0,0.103678 -0.0840617,0.187767 -0.18774,0.187767l-1.02043 0c-0.103678,0 -0.187767,-0.0840894 -0.187767,-0.187767 0,-0.103678 0.0840894,-0.18774 0.187767,-0.18774l1.02043 0z"
+    }
+  })])])], 1);
+};
+
+var __vue_staticRenderFns__$O = [];
+/* style */
+
+const __vue_inject_styles__$O = function (inject) {
+  if (!inject) return;
+  inject("data-v-e74d9fd4_0", {
+    source: ".fb-sign-header__container{margin-bottom:15px}.fb-sign-header__brand{display:block;margin-left:auto;margin-right:auto;width:120px}.fb-sign-header__brand svg{shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd;fill:#d9230f}.fb-sign-header__brand svg path{fill:#d9230f}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$O = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$O = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$O = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$O = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$O,
+  staticRenderFns: __vue_staticRenderFns__$O
+}, __vue_inject_styles__$O, __vue_script__$O, __vue_scope_id__$O, __vue_is_functional_template__$O, __vue_module_identifier__$O, false, createInjector, undefined, undefined);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$P = {
   name: 'FbUserSideNavigation',
   props: {
     avatar: {
@@ -8119,10 +8251,10 @@ var script$N = {
 };
 
 /* script */
-const __vue_script__$N = script$N;
+const __vue_script__$P = script$P;
 /* template */
 
-var __vue_render__$N = function () {
+var __vue_render__$P = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -8207,10 +8339,10 @@ var __vue_render__$N = function () {
   })], 2)]);
 };
 
-var __vue_staticRenderFns__$N = [];
+var __vue_staticRenderFns__$P = [];
 /* style */
 
-const __vue_inject_styles__$N = function (inject) {
+const __vue_inject_styles__$P = function (inject) {
   if (!inject) return;
   inject("data-v-bcdd6224_0", {
     source: ".fb-user-side-navigation__container{position:relative}.fb-user-side-navigation__container ul{position:absolute;top:auto;bottom:100%;left:0;z-index:1000;display:block;float:left;margin:2px 0 0;margin-left:10px;margin-bottom:10px;padding:5px 0;list-style:none;font-size:13px;text-align:left;background-color:#fff;border:1px solid #ddd;border-radius:3px;background-clip:padding-box;box-shadow:0 2px 5px 0 rgba(0,0,0,.25);min-width:160px;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175)}.fb-user-side-navigation__container ul:focus{outline:0}.fb-user-side-navigation__container ul:after,.fb-user-side-navigation__container ul:before{border-color:transparent;border-style:solid;border-width:8px;content:\" \";height:0;left:22px;pointer-events:none;position:absolute;width:0;bottom:100%}@media (max-width:1199px){.fb-user-side-navigation__container ul:after,.fb-user-side-navigation__container ul:before{left:12px}}.fb-user-side-navigation__container ul:before{border-top-color:#ddd;top:100%}.fb-user-side-navigation__container ul:after{border-top-color:#fff;margin-top:-1px;top:100%}.fb-user-side-navigation__container ul .divider{height:1px;overflow:hidden;background-color:#ddd;margin:5px 2px}.fb-user-side-navigation__container ul>li>a{display:block;padding:5px 15px;clear:both;font-weight:400;line-height:1.5384615385;color:#444;white-space:nowrap}.fb-user-side-navigation__container ul>li>a:focus,.fb-user-side-navigation__container ul>li>a:hover{text-decoration:none;color:#fff;background-color:#d9230f}.fb-user-side-navigation__container ul>.active>a,.fb-user-side-navigation__container ul>.active>a:focus,.fb-user-side-navigation__container ul>.active>a:hover{color:#fff;text-decoration:none;outline:0;background-color:#d9230f}.fb-user-side-navigation__container.collapse ul{display:none}.fb-user-side-navigation__button{background-color:transparent;background-image:none;border:medium none;cursor:pointer;display:inline-block;outline:0 none;padding:7px 15px;text-align:left;vertical-align:middle;white-space:nowrap;width:100%}@media (min-width:1200px){.fb-user-side-navigation__button{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}}@media (min-width:1200px){.fb-user-side-navigation__button-avatar,.fb-user-side-navigation__button-name{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}}@media (min-width:1200px){.fb-user-side-navigation__button-avatar{-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}}.fb-user-side-navigation__button-avatar>span{text-align:center;display:inline-block;width:40px;height:40px;background-color:#fff;border-radius:50%}@media (max-width:1199px){.fb-user-side-navigation__button-avatar>span{margin:0 auto}}.fb-user-side-navigation__button-avatar>span img{margin-top:1.5px;border-radius:50%}@media (max-width:1199px){.fb-user-side-navigation__button-avatar>span img{margin-right:0}}.fb-user-side-navigation__button-avatar>span svg{width:36px;height:36px;fill:#d9230f;border-radius:50%}.fb-user-side-navigation__button-name{-webkit-box-flex:0;-ms-flex:0 0 66.666667%;flex:0 0 66.666667%;max-width:66.666667%;padding-top:5px}@media (max-width:1199px){.fb-user-side-navigation__button-name{display:none!important}}@media (max-width:1199px){.fb-user-side-navigation__button{text-align:center;padding-left:0;padding-right:0}}.fb-user-side-navigation__button-caret{display:inline-block;width:0;height:0;margin-left:2px;vertical-align:middle;border-top:0;border-top:4px solid\\9;border-right:4px solid transparent;border-left:4px solid transparent;border-bottom:4px dashed;border-bottom:4px solid\\9;content:\"\"}.fb-user-side-navigation__version{color:grey;padding:5px 15px}",
@@ -8221,33 +8353,33 @@ const __vue_inject_styles__$N = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$N = undefined;
+const __vue_scope_id__$P = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$N = undefined;
+const __vue_module_identifier__$P = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$N = false;
+const __vue_is_functional_template__$P = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$N = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$N,
-  staticRenderFns: __vue_staticRenderFns__$N
-}, __vue_inject_styles__$N, __vue_script__$N, __vue_scope_id__$N, __vue_is_functional_template__$N, __vue_module_identifier__$N, false, createInjector, undefined, undefined);
+const __vue_component__$P = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$P,
+  staticRenderFns: __vue_staticRenderFns__$P
+}, __vue_inject_styles__$P, __vue_script__$P, __vue_scope_id__$P, __vue_is_functional_template__$P, __vue_module_identifier__$P, false, createInjector, undefined, undefined);
 
 //
-var script$O = {
+var script$Q = {
   name: 'FbLayoutDefault',
   components: {
-    FbLogo: __vue_component__$C,
-    FbDesktopHeader: __vue_component__$B,
-    FbPhoneHeader: __vue_component__$J,
-    FbNavigation: __vue_component__$D,
-    FbPhoneNavigation: __vue_component__$K,
-    FbUserSideNavigation: __vue_component__$N,
-    FbBottomNavigation: __vue_component__$z
+    FbLogo: __vue_component__$E,
+    FbDesktopHeader: __vue_component__$D,
+    FbPhoneHeader: __vue_component__$L,
+    FbNavigation: __vue_component__$F,
+    FbPhoneNavigation: __vue_component__$M,
+    FbUserSideNavigation: __vue_component__$P,
+    FbBottomNavigation: __vue_component__$B
   },
   props: {
     heading: {
@@ -8398,10 +8530,10 @@ var script$O = {
 };
 
 /* script */
-const __vue_script__$O = script$O;
+const __vue_script__$Q = script$Q;
 /* template */
 
-var __vue_render__$O = function () {
+var __vue_render__$Q = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -8536,10 +8668,10 @@ var __vue_render__$O = function () {
   }), _vm._v(" "), _vm._t("other")], 2);
 };
 
-var __vue_staticRenderFns__$O = [];
+var __vue_staticRenderFns__$Q = [];
 /* style */
 
-const __vue_inject_styles__$O = function (inject) {
+const __vue_inject_styles__$Q = function (inject) {
   if (!inject) return;
   inject("data-v-7cea0f4d_0", {
     source: ".fb-default-layout__container{position:relative}.fb-default-layout__sidebar{background-color:#222;color:#a6a6a6;z-index:1000;width:100%}@media (min-width:768px){.fb-default-layout__sidebar{position:fixed;top:0;bottom:0;left:0;width:220px}}@media (min-width:768px) and (max-width:1199px){.fb-default-layout__sidebar{width:60px;transition:width .3s}}.fb-default-layout__sidebar-header{background-color:#222;min-height:50px;position:relative}@media (max-width:767px){.fb-default-layout__sidebar-header{display:none!important}}@media (min-width:768px) and (max-width:1199px){.fb-default-layout__sidebar-header{width:60px;overflow:hidden}.fb-default-layout__sidebar-header a{overflow:hidden;width:47px;padding:15px 0 0 2px;text-align:left}}.fb-default-layout__sidebar-footer{position:fixed;bottom:0;width:220px;padding:5px 0}@media (min-width:768px) and (max-width:1199px){.fb-default-layout__sidebar-footer{width:60px;text-align:center}}@media (max-width:767px){.fb-default-layout__sidebar-footer{display:none!important}}.fb-default-layout__content{position:relative;overflow:auto;width:100%}@media (min-width:768px){.fb-default-layout__content{padding-left:220px}}.fb-default-layout__content:after,.fb-default-layout__content:before{content:\" \";display:table}.fb-default-layout__content:after{clear:both}@media (min-width:768px) and (max-width:1199px){.fb-default-layout__content{padding-left:60px;transition:margin-left .3s}}.fb-default-layout__footer{background-color:#efefef;border-top:1px solid #e3e3e3;color:#777;z-index:1000;bottom:0;left:0;right:0;position:fixed;margin-left:220px}@media (min-width:768px) and (max-width:1199px){.fb-default-layout__footer{margin-left:60px;transition:margin-left .3s}}@media (max-width:767px){.fb-default-layout__footer{display:none!important}}.fb-default-layout__footer-body{padding:5px 15px}.fade-enter-active,.fade-leave-active{transition-duration:.3s;transition-property:height,opacity;transition-timing-function:ease;overflow:hidden}.fade-enter,.fade-leave-active{opacity:0}.slide-left-enter-active,.slide-left-leave-active,.slide-right-enter-active,.slide-right-leave-active{transition-duration:.5s;transition-property:height,opacity,transform;transition-timing-function:cubic-bezier(.55,0,.1,1);overflow:hidden}.slide-left-enter,.slide-right-leave-active{opacity:0;transform:translate(2em,0)}.slide-left-leave-active,.slide-right-enter{opacity:0;transform:translate(-2em,0)}.zoom-enter-active,.zoom-leave-active{animation-duration:.5s;animation-fill-mode:both;animation-name:zoom}.zoom-leave-active{animation-direction:reverse}@keyframes zoom{from{opacity:0;transform:scale3d(.3,.3,.3)}100%{opacity:1}}",
@@ -8550,21 +8682,21 @@ const __vue_inject_styles__$O = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$O = undefined;
+const __vue_scope_id__$Q = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$O = undefined;
+const __vue_module_identifier__$Q = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$O = false;
+const __vue_is_functional_template__$Q = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$O = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$O,
-  staticRenderFns: __vue_staticRenderFns__$O
-}, __vue_inject_styles__$O, __vue_script__$O, __vue_scope_id__$O, __vue_is_functional_template__$O, __vue_module_identifier__$O, false, createInjector, undefined, undefined);
+const __vue_component__$Q = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$Q,
+  staticRenderFns: __vue_staticRenderFns__$Q
+}, __vue_inject_styles__$Q, __vue_script__$Q, __vue_scope_id__$Q, __vue_is_functional_template__$Q, __vue_module_identifier__$Q, false, createInjector, undefined, undefined);
 
 //
 //
@@ -8628,7 +8760,7 @@ const __vue_component__$O = /*#__PURE__*/normalizeComponent({
 //
 //
 //
-var script$P = {
+var script$R = {
   name: 'FbLayoutError',
   props: {
     error: {
@@ -8672,10 +8804,10 @@ var script$P = {
 };
 
 /* script */
-const __vue_script__$P = script$P;
+const __vue_script__$R = script$R;
 /* template */
 
-var __vue_render__$P = function () {
+var __vue_render__$R = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -8733,10 +8865,10 @@ var __vue_render__$P = function () {
   }, [_vm._v(_vm._s(_vm.authorName))]) : _vm._e()])])])]);
 };
 
-var __vue_staticRenderFns__$P = [];
+var __vue_staticRenderFns__$R = [];
 /* style */
 
-const __vue_inject_styles__$P = function (inject) {
+const __vue_inject_styles__$R = function (inject) {
   if (!inject) return;
   inject("data-v-65a96774_0", {
     source: "html[data-layout=layout_error]{display:table;height:100%;width:100%}html[data-layout=layout_error] body{display:table-cell;vertical-align:middle}html[data-layout=layout_error] body>div{-webkit-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:fadeInUp;-o-animation-name:fadeInUp;animation-name:fadeInUp;margin-left:auto;margin-right:auto;max-width:380px;text-align:center}.fb-error-layout__body{padding:30px}.fb-error-layout__body h1{color:#d9230f;font-weight:300;margin-bottom:30px;margin-top:30px}.fb-error-layout__body h4{font-size:20px;font-weight:300;line-height:1.4;margin-bottom:30px;margin-top:30px}.fb-error-layout__footer ul{padding-left:0;list-style:none;margin-left:-5px}.fb-error-layout__footer ul>li{display:inline-block;padding-left:5px;padding-right:5px}.fb-error-layout__footer ul>li a{color:#777}.fb-error-layout__footer ul>li a:focus,.fb-error-layout__footer ul>li a:hover{color:#d9230f;text-decoration:none}.fb-error-layout__footer ul>li a svg{font-size:2em}",
@@ -8747,28 +8879,28 @@ const __vue_inject_styles__$P = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$P = undefined;
+const __vue_scope_id__$R = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$P = undefined;
+const __vue_module_identifier__$R = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$P = false;
+const __vue_is_functional_template__$R = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$P = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$P,
-  staticRenderFns: __vue_staticRenderFns__$P
-}, __vue_inject_styles__$P, __vue_script__$P, __vue_scope_id__$P, __vue_is_functional_template__$P, __vue_module_identifier__$P, false, createInjector, undefined, undefined);
+const __vue_component__$R = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$R,
+  staticRenderFns: __vue_staticRenderFns__$R
+}, __vue_inject_styles__$R, __vue_script__$R, __vue_scope_id__$R, __vue_is_functional_template__$R, __vue_module_identifier__$R, false, createInjector, undefined, undefined);
 
 //
-var script$Q = {
+var script$S = {
   name: 'FbLayoutSign',
   components: {
-    FbSignHeader: __vue_component__$M,
-    FbSignFooter: __vue_component__$L
+    FbSignHeader: __vue_component__$O,
+    FbSignFooter: __vue_component__$N
   },
   props: {
     signInLink: {
@@ -8800,10 +8932,10 @@ var script$Q = {
 };
 
 /* script */
-const __vue_script__$Q = script$Q;
+const __vue_script__$S = script$S;
 /* template */
 
-var __vue_render__$Q = function () {
+var __vue_render__$S = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -8828,10 +8960,10 @@ var __vue_render__$Q = function () {
   })], 1);
 };
 
-var __vue_staticRenderFns__$Q = [];
+var __vue_staticRenderFns__$S = [];
 /* style */
 
-const __vue_inject_styles__$Q = function (inject) {
+const __vue_inject_styles__$S = function (inject) {
   if (!inject) return;
   inject("data-v-2e615486_0", {
     source: "html[data-layout=layout_sign]{display:table;height:100%;width:100%}html[data-layout=layout_sign] body{display:table-cell;vertical-align:middle}html[data-layout=layout_sign] body>div{height:auto}.fb-sign-layout__container{-webkit-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:fadeInUp;-o-animation-name:fadeInUp;animation-name:fadeInUp;margin-left:auto;margin-right:auto;max-width:360px}.fb-sign-layout__box{padding-top:45px}@media (min-width:768px){.fb-sign-layout__box{background-color:#fff;border:1px solid #ddd;border-radius:0;margin-bottom:15px;margin-top:15px;-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,.1);box-shadow:0 0 1px 1px rgba(0,0,0,.1)}}",
@@ -8842,21 +8974,21 @@ const __vue_inject_styles__$Q = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$Q = undefined;
+const __vue_scope_id__$S = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$Q = undefined;
+const __vue_module_identifier__$S = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$Q = false;
+const __vue_is_functional_template__$S = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$Q = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$Q,
-  staticRenderFns: __vue_staticRenderFns__$Q
-}, __vue_inject_styles__$Q, __vue_script__$Q, __vue_scope_id__$Q, __vue_is_functional_template__$Q, __vue_module_identifier__$Q, false, createInjector, undefined, undefined);
+const __vue_component__$S = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$S,
+  staticRenderFns: __vue_staticRenderFns__$S
+}, __vue_inject_styles__$S, __vue_script__$S, __vue_scope_id__$S, __vue_is_functional_template__$S, __vue_module_identifier__$S, false, createInjector, undefined, undefined);
 
 // Import vue components
 
@@ -8879,4 +9011,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
-export { __vue_component__$z as FbBottomNavigation, __vue_component__$B as FbDesktopHeader, __vue_component__$O as FbLayoutDefault, __vue_component__$P as FbLayoutError, __vue_component__$Q as FbLayoutSign, __vue_component__$C as FbLogo, __vue_component__$D as FbNavigation, __vue_component__$J as FbPhoneHeader, __vue_component__$K as FbPhoneNavigation, __vue_component__$L as FbSignFooter, __vue_component__$M as FbSignHeader, __vue_component__$N as FbUserSideNavigation };
+export { __vue_component__$h as FbAlert, __vue_component__$B as FbBottomNavigation, __vue_component__$i as FbButton, __vue_component__$j as FbCardBox, __vue_component__$y as FbComponentLoading, __vue_component__$z as FbComponentLoadingError, __vue_component__$l as FbConfirmationWindow, __vue_component__$m as FbContent, __vue_component__$D as FbDesktopHeader, __vue_component__$n as FbDivider, __vue_component__$6 as FbFormCheckbox, __vue_component__$7 as FbFormCheckboxesGroup, __vue_component__$3 as FbFormInput, __vue_component__$8 as FbFormRadioButton, __vue_component__$9 as FbFormRadioButtonsGroup, __vue_component__$4 as FbFormSelect, __vue_component__$5 as FbFormTextArea, __vue_component__$Q as FbLayoutDefault, __vue_component__$R as FbLayoutError, __vue_component__$S as FbLayoutSign, __vue_component__$o as FbLoadingBox, __vue_component__$E as FbLogo, __vue_component__$a as FbMdFormDatePicker, __vue_component__$e as FbMdFormInput, __vue_component__$f as FbMdFormSelect, __vue_component__$g as FbMdFormTextArea, __vue_component__$p as FbModalForm, __vue_component__$q as FbModalInfo, __vue_component__$r as FbModalWindow, __vue_component__$F as FbNavigation, __vue_component__$s as FbPageLoading, __vue_component__$L as FbPhoneHeader, __vue_component__$M as FbPhoneNavigation, __vue_component__$t as FbResultErr, __vue_component__$u as FbResultOk, __vue_component__$N as FbSignFooter, __vue_component__$O as FbSignHeader, __vue_component__$v as FbSpinner, __vue_component__$w as FbSwitchElement, __vue_component__$x as FbTransitionExpand, __vue_component__$P as FbUserSideNavigation };

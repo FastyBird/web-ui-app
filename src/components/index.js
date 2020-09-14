@@ -19,16 +19,16 @@ import FbButton from './ui/FbButton/index.vue'
 import FbCardBox from './ui/FbCardBox/index.vue'
 import FbConfirmationWindow from './ui/FbConfirmationWindow/index.vue'
 import FbContent from './ui/FbContent/index.vue'
+import FbDivider from './ui/FbDivider/index.vue'
+import FbLoadingBox from './ui/FbLoadingBox/index.vue'
 import FbModalForm from './ui/FbModalForm/index.vue'
 import FbModalInfo from './ui/FbModalInfo/index.vue'
 import FbModalWindow from './ui/FbModalWindow/index.vue'
-import FbDivider from './ui/FbDivider/index.vue'
-import FbSwitchElement from './ui/FbSwitchElement/index.vue'
-import FbLoadingBox from './ui/FbLoadingBox/index.vue'
 import FbPageLoading from './ui/FbPageLoading/index.vue'
 import FbResultErr from './ui/FbResultErr/index.vue'
 import FbResultOk from './ui/FbResultOk/index.vue'
 import FbSpinner from './ui/FbSpinner/index.vue'
+import FbSwitchElement from './ui/FbSwitchElement/index.vue'
 import FbTransitionExpand from './ui/FbTransitionExpand/index.vue'
 
 export default {
@@ -50,15 +50,15 @@ export default {
   FbCardBox,
   FbConfirmationWindow,
   FbContent,
+  FbDivider,
+  FbLoadingBox,
   FbModalForm,
   FbModalInfo,
   FbModalWindow,
-  FbDivider,
-  FbSwitchElement,
-  FbLoadingBox,
   FbPageLoading,
   FbResultErr,
   FbResultOk,
   FbSpinner,
+  FbSwitchElement,
   FbTransitionExpand,
 }

@@ -45,5 +45,7 @@ export default plugin;
 
 // To allow individual component use, export components
 // each can be registered via Vue.component()
+export * from '@/components/forms/index';
+export * from '@/components/ui/index';
 export * from '@/components/layouts/index';
 export * from '@/layouts/index';
