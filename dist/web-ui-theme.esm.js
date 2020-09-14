@@ -1,5 +1,5 @@
 import 'vue';
-import BodyScrollLock from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 //
 //
@@ -6068,9 +6068,9 @@ const options = {
 var bodyScrollLock = {
   inserted: (el, binding) => {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      BodyScrollLock.disableBodyScroll(el, options);
+      disableBodyScroll(el, options);
     } else if (binding.value) {
-      BodyScrollLock.disableBodyScroll(el);
+      disableBodyScroll(el);
     }
   },
   componentUpdated: (el, binding) => {
@@ -6079,15 +6079,15 @@ var bodyScrollLock = {
     }
 
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      BodyScrollLock.disableBodyScroll(el, options);
+      disableBodyScroll(el, options);
     } else if (binding.value) {
-      BodyScrollLock.disableBodyScroll(el);
+      disableBodyScroll(el);
     } else {
-      BodyScrollLock.enableBodyScroll(el);
+      enableBodyScroll(el);
     }
   },
   unbind: el => {
-    BodyScrollLock.enableBodyScroll(el);
+    enableBodyScroll(el);
   }
 };
 

@@ -1,4 +1,4 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});require('vue');var BodyScrollLock=require('body-scroll-lock');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var BodyScrollLock__default=/*#__PURE__*/_interopDefaultLegacy(BodyScrollLock);function _typeof(obj) {
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});require('vue');var bodyScrollLock$1=require('body-scroll-lock');function _typeof(obj) {
   "@babel/helpers - typeof";
 
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -5493,9 +5493,9 @@ var options = {
 var bodyScrollLock = {
   inserted: function inserted(el, binding) {
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      BodyScrollLock__default['default'].disableBodyScroll(el, options);
+      bodyScrollLock$1.disableBodyScroll(el, options);
     } else if (binding.value) {
-      BodyScrollLock__default['default'].disableBodyScroll(el);
+      bodyScrollLock$1.disableBodyScroll(el);
     }
   },
   componentUpdated: function componentUpdated(el, binding) {
@@ -5504,15 +5504,15 @@ var bodyScrollLock = {
     }
 
     if (binding.arg && binding.arg === RESERVE_SCROLL_BAR_GAP && binding.value) {
-      BodyScrollLock__default['default'].disableBodyScroll(el, options);
+      bodyScrollLock$1.disableBodyScroll(el, options);
     } else if (binding.value) {
-      BodyScrollLock__default['default'].disableBodyScroll(el);
+      bodyScrollLock$1.disableBodyScroll(el);
     } else {
-      BodyScrollLock__default['default'].enableBodyScroll(el);
+      bodyScrollLock$1.enableBodyScroll(el);
     }
   },
   unbind: function unbind(el) {
-    BodyScrollLock__default['default'].enableBodyScroll(el);
+    bodyScrollLock$1.enableBodyScroll(el);
   }
 };var directives = {
   clickOutside: clickOutside,
