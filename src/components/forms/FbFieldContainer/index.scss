@@ -135,7 +135,7 @@
       textarea,
       select {
         height: $input-height-small;
-        padding: $padding-small-vertical $padding-small-horizontal;
+        padding: $padding-sm-vertical $padding-sm-horizontal;
         font-size: $font-size-small;
         line-height: $line-height-small;
         @include border-radius($input-border-radius-small);
@@ -157,7 +157,7 @@
       textarea,
       select {
         height: $input-height-large;
-        padding: $padding-large-vertical $padding-large-horizontal;
+        padding: $padding-md-vertical $padding-md-horizontal;
         font-size: $font-size-large;
         line-height: $line-height-large;
         @include border-radius($input-border-radius-large);

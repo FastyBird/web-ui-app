@@ -406,12 +406,12 @@ a.fb-btn {
 
 .fb-btn-lg {
   // line-height: ensure even-numbered height of button next to large input
-  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+  @include button-size($padding-md-vertical, $padding-md-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
 }
 
 .fb-btn-sm {
   // line-height: ensure proper height of button next to small input
-  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+  @include button-size($padding-sm-vertical, $padding-sm-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
 }
 
 .fb-btn-xs {

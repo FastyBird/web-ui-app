@@ -161,11 +161,11 @@
   }
 
   &__label-btn-lg {
-    @include radio-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
+    @include radio-size($padding-md-vertical, $padding-md-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
   }
 
   &__label-btn-sm {
-    @include radio-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
+    @include radio-size($padding-sm-vertical, $padding-sm-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
   }
 
   &__label-btn-xs {

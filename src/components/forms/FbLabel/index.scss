@@ -50,7 +50,7 @@
       &[data-size="lg"] {
         @media (min-width: $screen-sm-min) {
           label {
-            padding-top: ($padding-large-vertical + 1);
+            padding-top: ($padding-md-vertical + 1);
             font-size: $font-size-large;
           }
         }
@@ -59,7 +59,7 @@
       &[data-size="sm"] {
         @media (min-width: $screen-sm-min) {
           label {
-            padding-top: ($padding-small-vertical + 1);
+            padding-top: ($padding-sm-vertical + 1);
             font-size: $font-size-small;
           }
         }

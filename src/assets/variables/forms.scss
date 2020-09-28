@@ -11,11 +11,11 @@ $line-height-small:                     1.5;
 $padding-vertical:                      6px;
 $padding-horizontal:                    12px;
 
-$padding-large-vertical:                10px;
-$padding-large-horizontal:              16px;
+$padding-md-vertical:                   10px;
+$padding-md-horizontal:                 16px;
 
-$padding-small-vertical:                5px;
-$padding-small-horizontal:              10px;
+$padding-sm-vertical:                   5px;
+$padding-sm-horizontal:                 10px;
 
 $padding-xs-vertical:                   1px;
 $padding-xs-horizontal:                 5px;
@@ -31,8 +31,8 @@ $form-group-padding-vertical:           20px !default;
 $form-grid-gutter-width:                30px;
 
 $input-height:                          ($line-height + ($padding-vertical * 2) + 2);
-$input-height-large:                    (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2);
-$input-height-small:                    (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2);
+$input-height-large:                    (ceil($font-size-large * $line-height-large) + ($padding-md-vertical * 2) + 2);
+$input-height-small:                    (floor($font-size-small * $line-height-small) + ($padding-sm-vertical * 2) + 2);
 
 $input-bg:                              #fff;
 $input-bg-readonly:                     #f2f2f2;
