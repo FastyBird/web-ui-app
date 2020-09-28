@@ -229,20 +229,16 @@
       background-color: $input-group-addon-bg;
     }
 
-    span:first-child {
-      .fb-field-container__input-group-addon {
-        @include border-left-radius($input-border-radius);
-        border: 1px solid $input-group-addon-border-color;
-        border-right: 0;
-      }
+    span:first-child.fb-field-container__input-group-addon {
+      @include border-left-radius($input-border-radius);
+      border: 1px solid $input-group-addon-border-color;
+      border-right: 0;
     }
 
-    span:last-child {
-      .fb-field-container__input-group-addon {
-        @include border-right-radius($input-border-radius);
-        border: 1px solid $input-group-addon-border-color;
-        border-left: 0;
-      }
+    span:last-child.fb-field-container__input-group-addon {
+      @include border-right-radius($input-border-radius);
+      border: 1px solid $input-group-addon-border-color;
+      border-left: 0;
     }
   }
 
