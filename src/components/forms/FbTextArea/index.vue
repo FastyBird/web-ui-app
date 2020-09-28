@@ -57,7 +57,7 @@ function sizeValidator (value) {
 
 export default {
 
-  name: 'FbMdFormTextArea',
+  name: 'FbFormTextArea',
 
   components: {
     FbFieldContainer,

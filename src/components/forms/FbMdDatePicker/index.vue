@@ -262,6 +262,8 @@ const chunk = (array, size) => {
 
 export default {
 
+  name: 'FbMdDatePicker',
+
   props: {
 
     format: {
