@@ -5579,7 +5579,7 @@ var __vue_staticRenderFns__$t = [];
 const __vue_inject_styles__$t = function (inject) {
   if (!inject) return;
   inject("data-v-4fe987da_0", {
-    source: ".fb-result-ok__container svg{width:100px;display:block;margin:40px auto 0}.fb-result-ok__container svg circle,.fb-result-ok__container svg line{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#d9831f;stroke-width:6;stroke-miterlimit:10}.fb-result-ok__container svg circle{-webkit-animation:fb-result-err-dash .9s ease-in-out;animation:fb-result-err-dash .9s ease-in-out}.fb-result-ok__container svg line{stroke-dashoffset:1000;stroke-linecap:round;-webkit-animation:fb-result-err-dash .9s .35s ease-in-out forwards;animation:fb-result-err-dash .9s .35s ease-in-out forwards}@-webkit-keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}",
+    source: ".fb-result-err__container svg{width:100px;display:block;margin:40px auto 0}.fb-result-err__container svg circle,.fb-result-err__container svg line{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#d9831f;stroke-width:6;stroke-miterlimit:10}.fb-result-err__container svg circle{-webkit-animation:fb-result-err-dash .9s ease-in-out;animation:fb-result-err-dash .9s ease-in-out}.fb-result-err__container svg line{stroke-dashoffset:1000;stroke-linecap:round;-webkit-animation:fb-result-err-dash .9s .35s ease-in-out forwards;animation:fb-result-err-dash .9s .35s ease-in-out forwards}@-webkit-keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}",
     map: undefined,
     media: undefined
   });
