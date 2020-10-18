@@ -111,7 +111,7 @@ export default defineComponent({
   props: {
 
     size: {
-      type: String as PropType<FbSizeTyp>,
+      type: String as PropType<FbSizeTypes>,
       default: FbSizeTypes.MEDIUM,
       validator: (value: FbSizeTypes) => {
         // The value must match one of these strings

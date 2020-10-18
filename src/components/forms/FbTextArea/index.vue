@@ -58,8 +58,6 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import get from 'lodash/get'
-
 import FbFormField from '@/components/forms/FbField/index.vue'
 import {
   FbFormOrientationTypes,
@@ -169,7 +167,7 @@ export default defineComponent({
 
   },
 
-  setup(props: FbFormTextAreaPropsInterface, context: SetupContext) {
+  setup(_props: FbFormTextAreaPropsInterface, context: SetupContext) {
     const focused = ref<boolean>(false)
 
     // Emit an input event up to the parent
@@ -192,16 +190,11 @@ export default defineComponent({
       context.emit('keydown', event)
     }
 
-    function hasSlot(name: string): boolean {
-      return get(context.slots, name, null) !== null
-    }
-
     return {
       focused,
       updateValue,
       setFocused,
       keyDown,
-      hasSlot,
     }
   },
 

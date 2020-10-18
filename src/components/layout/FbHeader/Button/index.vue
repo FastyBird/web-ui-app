@@ -3,7 +3,7 @@
     <a
       v-if="type === menuItemTypes.LINK"
       :href="link"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !hasSlot('icon')}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !slotExists('icon')}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
       @click.native="$emit('click')"
     >
       <template v-if="slotExists('icon')">
@@ -18,7 +18,7 @@
     <nuxt-link
       v-else-if="type === menuItemTypes.NUXT_LINK"
       :href="link"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !hasSlot('icon')}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !slotExists('icon')}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
       @click.native="$emit('click')"
     >
       <template v-if="slotExists('icon')">
@@ -33,7 +33,7 @@
     <button
       v-else-if="type === menuItemTypes.BUTTON"
       role="button"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !hasSlot('icon')}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !slotExists('icon')}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
       @click.prevent="$emit('click')"
     >
       <template v-if="slotExists('icon')">

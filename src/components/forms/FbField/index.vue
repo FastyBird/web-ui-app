@@ -18,7 +18,7 @@
 
     <div>
       <div
-        v-if="slotExists('left-addon') || hasSlot('right-addon')"
+        v-if="slotExists('left-addon') || slotExists('right-addon')"
         class="fb-form-field__input-group"
       >
         <span

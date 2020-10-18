@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="slotExists('header') || hasSlot('content') || hasSlot('footer')"
+    v-if="slotExists('header') || slotExists('content') || slotExists('footer')"
     class="fb-layout-sidebar__container"
   >
     <transition name="sidebar-overlay">

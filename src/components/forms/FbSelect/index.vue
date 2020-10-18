@@ -88,8 +88,6 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import get from 'lodash/get'
-
 import FbFormField from '@/components/forms/FbField/index.vue'
 import {
   FbFormOrientationTypes,
@@ -238,16 +236,11 @@ export default defineComponent({
       context.emit('change', props.value)
     }
 
-    function hasSlot(name: string): boolean {
-      return get(context.slots, name, null) !== null
-    }
-
     return {
       focused,
       updateValue,
       setFocused,
       changed,
-      hasSlot,
     }
   },
 
