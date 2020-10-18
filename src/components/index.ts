@@ -1,7 +1,10 @@
 // Forms components
 export { default as FbFormCheckbox } from './forms/FbCheckbox/index.vue'
 export { default as FbFormCheckboxesGroup } from './forms/FbCheckboxesGroup/index.vue'
+export { default as FbFormError } from './forms/FbError/index.vue'
+export { default as FbFormField } from './forms/FbField/index.vue'
 export { default as FbFormInput } from './forms/FbInput/index.vue'
+export { default as FbFormLabel } from './forms/FbLabel/index.vue'
 export { default as FbFormRadioButton } from './forms/FbRadioButton/index.vue'
 export { default as FbFormRadioButtonsGroup } from './forms/FbRadioButtonsGroup/index.vue'
 export { default as FbFormSelect } from './forms/FbSelect/index.vue'
