@@ -1,6 +1,5 @@
 <template>
   <div
-    :class="groupClass"
     role="group"
     aria-label="radiobutton-group"
   >
@@ -8,8 +7,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
 
   name: 'FbFormRadioButtonsGroup',
 
@@ -20,63 +21,7 @@ export default {
       default: null,
     },
 
-    button: {
-      type: Boolean,
-      default: false,
-    },
-
-    variant: {
-      type: String,
-      default: 'default',
-      validator: (value) => {
-        // The value must match one of these strings
-        return [
-          'default', 'primary', 'success', 'danger', 'warning', 'info',
-        ].indexOf(value) !== -1
-      },
-    },
-
-    size: {
-      type: String,
-      default: null,
-      validator: (value) => {
-        // The value must match one of these strings
-        return ['lg', 'sm', 'xs'].indexOf(value) !== -1
-      },
-    },
-
-    pill: {
-      type: Boolean,
-      default: false,
-    },
-
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
-
-    error: {
-      type: String,
-      default: null,
-    },
-
   },
 
-  computed: {
-
-    groupClass() {
-      if (this.button) {
-        return 'fb-radio-group__btn-container'
-      }
-
-      return null
-    },
-
-  },
-
-}
+})
 </script>
-
-<style rel="stylesheet/scss" lang="scss">
-  @import 'index';
-</style>

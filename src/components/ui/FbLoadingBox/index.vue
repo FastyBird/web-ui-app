@@ -1,29 +1,25 @@
 <template functional>
-  <div class="fb-loading-box__container">
-    <div class="fb-loading-box__spinner" />
-    <p>
-      {{ props.text }}
-    </p>
+  <div class="fb-ui-loading-box__container">
+    <fb-ui-spinner size="lg" />
+
+    <div class="fb-ui-loading-box__spinner">
+      <slot />
+    </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+} from '@vue/composition-api'
 
-  name: 'FbLoadingBox',
+export default defineComponent({
 
-  props: {
+  name: 'FbUiLoadingBox',
 
-    text: {
-      type: String,
-      required: true,
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

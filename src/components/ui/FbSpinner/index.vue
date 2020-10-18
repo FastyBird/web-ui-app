@@ -2,44 +2,67 @@
   <span
     :data-variant="props.variant"
     :data-size="props.size"
-    class="fb-spinner__container"
+    class="fb-ui-spinner__container"
   />
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
 
-  name: 'FbSpinner',
+import { FbSizeTypes } from '@/components/types'
+
+export enum FbUiSpinnerVariantTypes {
+  DEFAULT = 'default',
+  PRIMARY = 'primary',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+}
+
+export default defineComponent({
+
+  name: 'FbUiSpinner',
 
   props: {
 
     variant: {
-      type: String,
-      default: 'primary',
-      validator: (value) => {
+      type: String as PropType<FbUiSpinnerVariantTypes>,
+      default: FbUiSpinnerVariantTypes.PRIMARY,
+      validator: (value: FbUiSpinnerVariantTypes) => {
         // The value must match one of these strings
         return [
-          'default', 'primary', 'success', 'danger', 'warning', 'info',
-        ].indexOf(value) !== -1
+          FbUiSpinnerVariantTypes.DEFAULT,
+          FbUiSpinnerVariantTypes.PRIMARY,
+          FbUiSpinnerVariantTypes.SUCCESS,
+          FbUiSpinnerVariantTypes.DANGER,
+          FbUiSpinnerVariantTypes.WARNING,
+          FbUiSpinnerVariantTypes.INFO,
+        ].includes(value)
       },
     },
 
     size: {
-      type: String,
-      default: 'md',
-      validator: (value) => {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
         // The value must match one of these strings
         return [
-          'sm', 'md', 'lg',
-        ].indexOf(value) !== -1
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
       },
     },
 
   },
 
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

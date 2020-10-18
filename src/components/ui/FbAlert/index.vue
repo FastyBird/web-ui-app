@@ -1,61 +1,67 @@
 <template>
   <div
-    :class="alertClass"
+    :data-variant="variant"
+    class="fb-ui-alert__container"
     role="alert"
   >
-    <template
+    <div
       v-if="slotExists('icon')"
+      class="fb-ui-alert__icon"
     >
-      <div class="fb-alert__with-icon">
-        <div class="fb-alert__with-icon-icon">
-          <slot name="icon" />
-        </div>
-
-        <div class="fb-alert__with-icon-content">
-          <slot />
-        </div>
+      <div class="fb-ui-alert__icon-inner">
+        <slot name="icon" />
       </div>
-    </template>
+
+      <div class="fb-ui-alert__content">
+        <slot />
+      </div>
+    </div>
     <template v-else>
       <slot />
     </template>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
 
-  name: 'FbAlert',
+export enum FbUiAlertVariantTypes {
+  DEFAULT = 'default',
+  PRIMARY = 'primary',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+}
+
+export default defineComponent({
+
+  name: 'FbUiAlert',
 
   props: {
 
     variant: {
-      type: String,
-      default: 'default',
-      validator: (value) => {
+      type: String as PropType<FbUiAlertVariantTypes>,
+      default: FbUiAlertVariantTypes.DEFAULT,
+      validator: (value: FbUiAlertVariantTypes) => {
         // The value must match one of these strings
         return [
-          'default', 'primary', 'success', 'danger', 'warning', 'info',
-        ].indexOf(value) !== -1
+          FbUiAlertVariantTypes.DEFAULT,
+          FbUiAlertVariantTypes.PRIMARY,
+          FbUiAlertVariantTypes.SUCCESS,
+          FbUiAlertVariantTypes.DANGER,
+          FbUiAlertVariantTypes.WARNING,
+          FbUiAlertVariantTypes.INFO,
+        ].includes(value)
       },
     },
 
   },
 
-  computed: {
-
-    alertClass() {
-      const classes = []
-
-      classes.push('fb-alert')
-      classes.push(`fb-alert-${this.variant}`)
-
-      return classes
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

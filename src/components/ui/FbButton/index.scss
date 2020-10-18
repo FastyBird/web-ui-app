@@ -1,245 +1,27 @@
-@import "../../../assets/variables/colors";
-@import "../../../assets/variables/texts";
-@import "../../../assets/variables/screen";
-@import "../../../assets/mixins/utilities";
+@import "../../../assets/components/ui/fb-button";
 
-$btn-font-weight:               normal;
-
-$btn-default-color:             #fff;
-$btn-default-bg:                #474949;
-$btn-default-border:            $btn-default-bg;
-
-$btn-primary-color:             #fff;
-$btn-primary-bg:                $brand-primary;
-$btn-primary-border:            $btn-primary-bg;
-
-$btn-success-color:             #fff;
-$btn-success-bg:                $brand-success;
-$btn-success-border:            $btn-success-bg;
-
-$btn-info-color:                #fff;
-$btn-info-bg:                   $brand-info;
-$btn-info-border:               $btn-info-bg;
-
-$btn-warning-color:             #fff;
-$btn-warning-bg:                $brand-warning;
-$btn-warning-border:            $btn-warning-bg;
-
-$btn-danger-color:              #fff;
-$btn-danger-bg:                 $brand-danger;
-$btn-danger-border:             $btn-danger-bg;
-
-$btn-link-disabled-color:       $gray-light;
-
-$btn-border-radius-base:        3px;
-$btn-border-radius-large:       4px;
-$btn-border-radius-small:       3px;
-
-$btn-background-position:       null !default;
-$btn-background-size:           null !default;
-$btn-box-shadow:                none !default;
-$btn-outline:                   none !default;
-$btn-text-transform:            none !default;
-$btn-transition:                all 0.3s !default;
-
-$btn-active-gradient:           none !default;
-$btn-active-background-size:    null !default;
-$btn-active-box-shadow:         none !default;
-
-$btn-pill-border-radius:        10em !default;
-$btn-pill-padding-horizontal:   1.25em !default;
-
-$btn-thick-border-width:        2px !default;
-$btn-thick-font-weight:         600 !default;
-
-$btn-expander-font-size:        $font-size-small !default;
-$btn-expander-line-height:      ceil($btn-expander-font-size / 2) !default;
-
-$btn-badge-height-half:         ceil(sum(2px, 2px * 2, 11px) / 2) !default;
-
-// Button sizes
-@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius;
-}
-
-@mixin button-variant($color, $background, $border) {
-  color: $color;
-  background-color: $background;
-  border-color: $border;
-
-  svg {
-    color: $color;
-  }
-
-  &:focus,
-  &.focus {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 25%);
-
-    svg {
-      color: $color;
-    }
-  }
-  &:hover {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
-
-    svg {
-      color: $color;
-    }
-  }
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
-
-    svg {
-      color: $color;
-    }
-
-    &:hover,
-    &:focus,
-    &.focus {
-      color: $color;
-      background-color: darken($background, 17%);
-      border-color: darken($border, 25%);
-
-      svg {
-        color: $color;
-      }
-    }
-  }
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    background-image: none;
-  }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: $background;
-      border-color: $border;
-    }
-  }
-
-  .badge {
-    color: $background;
-    background-color: $color;
-  }
-}
-
-@mixin button-outline-variant($border, $color) {
-  background-color: #fff;
-  border-color: $border;
-  color: $border;
-
-  svg {
-    color: $border;
-  }
-
-  &:focus,
-  &.focus {
-    background-color: transparent;
-    border-color: $border;
-    color: $border;
-
-    svg {
-      color: $border;
-    }
-  }
-
-  &:hover {
-    background-color: $border;
-    border-color: $border;
-    color: $color;
-
-    svg {
-      color: $color;
-    }
-  }
-
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    background-color: $border;
-    border-color: $border;
-    color: $color;
-
-    svg {
-      color: $color;
-    }
-
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: darken($border, 15%);
-      border-color: darken($border, 15%);
-      color: $color;
-
-      svg {
-        color: $color;
-      }
-    }
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: transparent;
-      border-color: $border;
-      color: $border;
-
-      svg {
-        color: $border;
-      }
-    }
-  }
-
-  .badge {
-    background-color: $border;
-    border-color: transparent;
-    color: $color;
-
-    svg {
-      color: $color;
-    }
-  }
-}
-
-/////////////////////////////////////////////////////
-
-.fb-btn {
+.fb-ui-button {
   display: inline-block;
-  margin-bottom: 0; // For input.btn
+  margin: 0;
   font-weight: $btn-font-weight;
-  text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
-  @include user-select(none);
 
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; // IE10+
+  user-select: none;
+
+  background-image: none;
   background-position: $btn-background-position;
   background-size: $btn-background-size;
   box-shadow: $btn-box-shadow;
   outline: $btn-outline;
   position: relative;
+  text-align: center;
   text-decoration: none;
   text-transform: $btn-text-transform;
   transition: $btn-transition;
@@ -259,15 +41,18 @@ $btn-badge-height-half:         ceil(sum(2px, 2px * 2, 11px) / 2) !default;
   &.active {
     outline: 0;
     background-image: none;
-    @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+
+    @include active-shadow;
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
     cursor: not-allowed;
-    @include opacity(.65);
-    @include box-shadow(none);
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+
+    @include disabled-shadow;
   }
 
   &:active,
@@ -278,177 +63,181 @@ $btn-badge-height-half:         ceil(sum(2px, 2px * 2, 11px) / 2) !default;
   }
 }
 
-a.fb-btn {
+a.fb-ui-button {
   &.disabled,
   fieldset[disabled] & {
-    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    pointer-events: none;
   }
 }
 
-// Alternate buttons
+// Buttons variants
 // --------------------------------------------------
 
-.fb-btn-default {
-  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
-}
-
-.fb-btn-primary {
-  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-}
-
-// Success appears as green
-.fb-btn-success {
-  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-}
-
-// Info appears as blue-green
-.fb-btn-info {
-  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-}
-
-// Warning appears as orange
-.fb-btn-warning {
-  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-
-// Danger and error appear as red
-.fb-btn-danger {
-  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-}
-
-// Make a button look and behave like a link
-.fb-btn-link {
-  color: $link-color;
-  font-weight: normal;
-  border-radius: 0;
-
-  svg {
-    color: $link-color;
+.fb-ui-button {
+  &[data-variant="default"] {
+    @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
   }
 
-  &,
-  &:active,
-  &.active,
-  &[disabled],
-  fieldset[disabled] & {
-    background-color: transparent;
-    @include box-shadow(none);
+  &[data-variant="primary"] {
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
   }
 
-  &,
-  &:active,
-  &.active {
-    background-color: transparent;
-    background-image: none;
-    background-size: auto;
-    box-shadow: none;
+  &[data-variant="success"] {
+    @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
   }
 
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: transparent;
+  &[data-variant="info"] {
+    @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
   }
 
-  &:hover,
-  &:focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
-    background-color: transparent;
+  &[data-variant="warning"] {
+    @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+  }
+
+  &[data-variant="danger"] {
+    @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+  }
+
+  &[data-variant="warning"] {
+    @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+  }
+
+  &[data-variant="outline-default"] {
+    @include button-outline-variant($btn-default-border, $btn-default-color);
+  }
+
+  &[data-variant="outline-primary"] {
+    @include button-outline-variant($btn-primary-border, $btn-primary-color);
+  }
+
+  &[data-variant="outline-success"] {
+    @include button-outline-variant($btn-success-border, $btn-success-color);
+  }
+
+  &[data-variant="outline-info"] {
+    @include button-outline-variant($btn-info-border, $btn-info-color);
+  }
+
+  &[data-variant="outline-warning"] {
+    @include button-outline-variant($btn-warning-border, $btn-warning-color);
+  }
+
+  &[data-variant="outline-danger"] {
+    @include button-outline-variant($btn-danger-border, $btn-danger-color);
+  }
+
+  &[data-variant="link"] {
+    color: $btn-link-color;
+    font-weight: normal;
+    border-radius: 0;
 
     svg {
-      color: $link-hover-color;
+      color: $btn-link-color;
     }
-  }
 
-  &[disabled],
-  fieldset[disabled] & {
+    &,
+    &:active,
+    &.active,
+    &[disabled],
+    fieldset[disabled] & {
+      background-color: transparent;
+      @include disabled-shadow;
+    }
+
+    &,
+    &:active,
+    &.active {
+      background-color: transparent;
+      background-image: none;
+      background-size: auto;
+      box-shadow: none;
+    }
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: transparent;
+    }
+
     &:hover,
     &:focus {
-      color: $btn-link-disabled-color;
-      text-decoration: none;
+      color: $btn-link-hover-color;
+      text-decoration: $btn-link-hover-decoration;
+      background-color: transparent;
 
       svg {
+        color: $btn-link-hover-color;
+      }
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
         color: $btn-link-disabled-color;
+        text-decoration: none;
+
+        svg {
+          color: $btn-link-disabled-color;
+        }
       }
     }
   }
 }
 
-// Outline variants
-.fb-btn-outline-default {
-  @include button-outline-variant($btn-default-border, $btn-default-color);
-}
-
-.fb-btn-outline-primary {
-  @include button-outline-variant($btn-primary-border, $btn-primary-color);
-}
-
-.fb-btn-outline-success {
-  @include button-outline-variant($btn-success-border, $btn-success-color);
-}
-
-.fb-btn-outline-info {
-  @include button-outline-variant($btn-info-border, $btn-info-color);
-}
-
-.fb-btn-outline-warning {
-  @include button-outline-variant($btn-warning-border, $btn-warning-color);
-}
-
-.fb-btn-outline-danger {
-  @include button-outline-variant($btn-danger-border, $btn-danger-color);
-}
-
-// Button Sizes
+// Buttons sizes
 // --------------------------------------------------
 
-.fb-btn-lg {
-  // line-height: ensure even-numbered height of button next to large input
-  @include button-size($padding-md-vertical, $padding-md-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
-}
+.fb-ui-button {
+  &[data-size="lg"] {
+    @include button-size($btn-padding-lg-vertical, $btn-padding-lg-horizontal, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-large);
+  }
 
-.fb-btn-sm {
-  // line-height: ensure proper height of button next to small input
-  @include button-size($padding-sm-vertical, $padding-sm-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
-}
+  &[data-size="md"] {
+    @include button-size($btn-padding-md-vertical, $btn-padding-md-horizontal, $btn-font-size-md, $btn-line-height-md, $btn-border-radius-base);
+  }
 
-.fb-btn-xs {
-  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+  &[data-size="sm"] {
+    @include button-size($btn-padding-sm-vertical, $btn-padding-sm-horizontal, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-small);
+  }
+
+  &[data-size="xs"] {
+    @include button-size($btn-padding-xs-vertical, $btn-padding-xs-horizontal, $btn-font-size-xs, $btn-line-height-xs, $btn-border-radius-small);
+  }
 }
 
 // Block button
 // --------------------------------------------------
 
-.fb-btn-block {
+.fb-ui-button-block {
   display: block;
   width: 100%;
 }
 
 // Vertically space out multiple block buttons
-.fb-btn-block + .fb-btn-block {
+.fb-ui-button-block + .fb-ui-button-block {
   margin-top: 5px;
 }
 
-.fb-btn-pill {
+.fb-ui-button-pill {
   border-radius: $btn-pill-border-radius;
   padding-left: $btn-pill-padding-horizontal;
   padding-right: $btn-pill-padding-horizontal;
 }
 
-.fb-btn-thick {
+.fb-ui-button-thick {
   border-width: $btn-thick-border-width;
   font-weight: $btn-thick-font-weight;
 }
 
-.fb-btn-expander {
+.fb-ui-button-expander {
   border: 0;
   border-radius: $btn-border-radius-small;
   font-family: sans-serif;
-  font-size: $font-size-small;
+  font-size: $btn-font-size-sm;
   font-weight: bold;
-  height: $font-size-small;
+  height: $btn-line-height-sm;
   line-height: $btn-expander-line-height;
   margin-left: 5px;
   padding: 0 5px;
@@ -456,11 +245,11 @@ a.fb-btn {
   top: -1px;
 }
 
-.fb-btn-uppercase {
+.fb-ui-button-uppercase {
   text-transform: uppercase;
 }
 
-.fb-btn-icon {
+.fb-ui-button-icon {
   box-sizing: content-box;
   padding: 0;
 
@@ -470,81 +259,11 @@ a.fb-btn {
   }
 }
 
-.fb-btn-mobile {
-  @media (max-width: 767px) {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0;
-    border-top-left-radius: 20px;
-  }
-}
-
 // Specificity overrides
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   &.btn-block {
     width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  .fb-btn-block-xs {
-    display: block;
-    width: 100%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .fb-btn-block-sm {
-    display: block;
-    width: 100%;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .fb-btn-block-md {
-    display: block;
-    width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .fb-btn-block-lg {
-    display: block;
-    width: 100%;
-  }
-}
-
-.fb-btn.spinner-inverse:after {
-  border-color: #fff transparent transparent;
-}
-
-.fb-btn.spinner svg {
-  color: transparent;
-
-  &:hover,
-  &:focus,
-  &.focus {
-    color: transparent;
-
-    svg {
-      color: transparent;
-    }
-  }
-
-  &:active,
-  &.active {
-    &:hover,
-    &:focus,
-    &.focus {
-      color: transparent;
-
-      svg {
-        color: transparent;
-      }
-    }
   }
 }

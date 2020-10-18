@@ -1,0 +1,5 @@
+@import "../../mixins/utilities";
+
+@mixin flex-content {
+  @include flexColumn
+}

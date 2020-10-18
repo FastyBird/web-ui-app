@@ -1,9 +1,9 @@
-@import "../../../assets/variables/colors";
+@import "../../../assets/components/ui/fb-modal-info";
 
-.fb-info-window {
+.fb-ui-modal-info {
   &__buttons {
-    .fb-btn-link {
-      color: $text-muted !important;
+    .fb-ui-button[data-variant="link"] {
+      color: $button-color !important;
     }
   }
 }

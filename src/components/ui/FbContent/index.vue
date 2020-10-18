@@ -1,126 +1,150 @@
 <template>
-  <div :class="contentClass">
+  <div :class="classNames">
     <slot />
   </div>
 </template>
 
-<script>
-function sizeValidator (value) {
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
+
+import { FbSizeTypes } from '@/components/types'
+
+function sizeValidator(value: FbSizeTypes): boolean {
   // The value must match one of these strings
   return [
-    'lg', 'md', 'sm', 'xs', 'none'
-  ].indexOf(value) !== -1
+    FbSizeTypes.LARGE,
+    FbSizeTypes.MEDIUM,
+    FbSizeTypes.SMALL,
+    FbSizeTypes.EXTRA_SMALL,
+    FbSizeTypes.NONE,
+  ].includes(value)
 }
 
-export default {
+interface FbUiContentPropsInterface {
+  mt: FbSizeTypes,
+  mb: FbSizeTypes,
+  ml: FbSizeTypes,
+  mr: FbSizeTypes,
+  mv: FbSizeTypes,
+  mh: FbSizeTypes,
+  pt: FbSizeTypes,
+  pb: FbSizeTypes,
+  pl: FbSizeTypes,
+  pr: FbSizeTypes,
+  pv: FbSizeTypes,
+  ph: FbSizeTypes,
 
-  name: 'FbContent',
+  [k: string]: FbSizeTypes
+}
+
+export default defineComponent({
+
+  name: 'FbUiContent',
 
   props: {
 
     mt: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     mb: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     ml: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     mr: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     mv: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     mh: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     pt: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     pb: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     pl: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     pr: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     pv: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
     ph: {
-      type: String,
-      default: 'none',
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.NONE,
       validator: sizeValidator,
     },
 
   },
 
-  computed: {
+  setup(props: FbUiContentPropsInterface) {
+    const classNames = []
 
-    contentClass() {
-      const classes = []
+    classNames.push('fb-ui-content')
 
-      classes.push('fb-content')
+    const margins = ['mt', 'mb', 'ml', 'mr', 'mv', 'mh']
+    const paddings = ['pt', 'pb', 'pl', 'pr', 'pv', 'ph']
 
-      const margins = ['mt', 'mb', 'ml', 'mr', 'mv', 'mh']
+    Object.keys(props)
+      .forEach((key): void => {
+        if (margins.includes(key) && props[key] !== FbSizeTypes.NONE) {
+          classNames.push(`fb-ui-content-${key}-${props[key]}`)
+        }
 
-      margins.forEach((type) => {
-        if (this[type] !== 'none') {
-          classes.push(`fb-content-${type}-${this[type]}`)
+        if (paddings.includes(key) && props[key] !== FbSizeTypes.NONE) {
+          classNames.push(`fb-ui-content-${key}-${props[key]}`)
         }
       })
 
-      const paddings = ['pt', 'pb', 'pl', 'pr', 'pv', 'ph']
-
-      paddings.forEach((type) => {
-        if (this[type] !== 'none') {
-          classes.push(`fb-content-${type}-${this[type]}`)
-        }
-      })
-
-      return classes
-    },
-
+    return {
+      classNames,
+    }
   },
 
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

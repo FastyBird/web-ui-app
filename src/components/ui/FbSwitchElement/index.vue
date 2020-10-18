@@ -1,7 +1,7 @@
 <template functional>
   <label
     :data-variant="props.variant"
-    class="fb-switch-element__container"
+    class="fb-ui-switch-element__container"
   >
     <input
       :checked="props.status"
@@ -9,15 +9,29 @@
       type="checkbox"
       @change.prevent="listeners['change']()"
     >
-    <span class="fb-switch-element__track" />
-    <span class="fb-switch-element__thumb" />
+    <span class="fb-ui-switch-element__track" />
+    <span class="fb-ui-switch-element__thumb" />
   </label>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
 
-  name: 'SwitchElement',
+export enum FbUiSwitchElementVariantTypes {
+  DEFAULT = 'default',
+  PRIMARY = 'primary',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+}
+
+export default defineComponent({
+
+  name: 'FbUiSwitchElement',
 
   props: {
 
@@ -32,21 +46,26 @@ export default {
     },
 
     variant: {
-      type: String,
-      default: 'default',
-      validator: (value) => {
+      type: String as PropType<FbUiSwitchElementVariantTypes>,
+      default: FbUiSwitchElementVariantTypes.DEFAULT,
+      validator: (value: FbUiSwitchElementVariantTypes) => {
         // The value must match one of these strings
         return [
-          'default', 'primary', 'success', 'danger', 'warning', 'info',
-        ].indexOf(value) !== -1
+          FbUiSwitchElementVariantTypes.DEFAULT,
+          FbUiSwitchElementVariantTypes.PRIMARY,
+          FbUiSwitchElementVariantTypes.SUCCESS,
+          FbUiSwitchElementVariantTypes.DANGER,
+          FbUiSwitchElementVariantTypes.WARNING,
+          FbUiSwitchElementVariantTypes.INFO,
+        ].includes(value)
       },
     },
 
   },
 
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

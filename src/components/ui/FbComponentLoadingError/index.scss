@@ -1,19 +1,36 @@
-@import "../../../assets/variables/colors";
+@import "../../../assets/components/ui/fb-component-loading-error";
 
-.fb-component-loading-error {
+.fb-ui-component-loading-error {
   &__container {
+    padding: 3rem;
+    @include flex-container;
+  }
+
+  &__icon,
+  &__text {
+    line-height: 3rem;
+    font-size: 1.5rem;
+  }
+
+  &__icon {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 5rem;
+    flex: 0 0 5rem;
+    max-width: 5rem;
+
     text-align: center;
-    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     svg {
-      color: $brand-danger;
-      font-size: 5em;
-      margin-bottom: 30px !important;
-      margin-top: 30px !important;
+      margin: 0 auto;
+      width: 2.4rem;
+      fill: #d9831f;
     }
+  }
 
-    p {
-      color: $brand-danger;
-    }
+  &__text {
+    flex-grow: 1;
   }
 }

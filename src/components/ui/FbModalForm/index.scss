@@ -1,9 +1,9 @@
-@import "../../../assets/variables/colors";
+@import "../../../assets/components/ui/fb-modal-form";
 
-.fb-form-window {
+.fb-ui-modal-form {
   &__buttons {
-    .fb-btn-link {
-      color: $text-muted !important;
+    .fb-ui-button[data-variant="link"] {
+      color: $button-color !important;
     }
   }
 
@@ -13,15 +13,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    display: table;
-    height: 100%;
-    width: 100%;
-    background-color: #fff;
+    background-color: $result-background-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     > div {
-      display: table-cell;
-      vertical-align: middle;
-      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

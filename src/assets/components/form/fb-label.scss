@@ -1,0 +1,16 @@
+@import "../../../assets/variables/screen";
+@import "../../../assets/mixins/utilities";
+
+$field-margin:                        0 0 0.5rem 0;
+$field-font-weight:                   700;
+$field-required-color:                #d9230f;
+$field-horizontal-padding:            0.7rem 0 0 0;
+
+$field-large-font-size:               1.8rem;
+$field-small-font-size:               1.2rem;
+
+$field-horizontal-large-padding:      1.5rem 0 0 0;
+$field-horizontal-small-padding:      1rem 0 0 0;
+
+$screen-tablet-min:                   $screen-sm-min;
+$screen-desktop-min:                  $screen-md-min;

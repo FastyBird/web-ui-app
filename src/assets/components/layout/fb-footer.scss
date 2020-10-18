@@ -1,0 +1,12 @@
+@import "../../variables/screen";
+
+$z-index:                             1000 !default;
+
+$footer-padding:                      0 1.5rem;
+$footer-color:                        #777;
+$footer-background-color:             darken(#fcfcfc, 5%);
+$footer-border-color:                 darken(#fcfcfc, 10%);
+$footer-height:                       3rem;
+$footer-line-height:                  $footer-height;
+
+$screen-phone-max:                    $screen-xs-max;

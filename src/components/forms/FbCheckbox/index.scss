@@ -1,19 +1,27 @@
-@import "../../../assets/variables/colors";
-@import "../../../assets/variables/forms";
-@import "../../../assets/mixins/utilities";
-@import "../../../assets/mixins/border.radius";
+@import "../../../assets/components/form/fb-checkbox";
 
-$indicator-size:    14px !default;
-
-.fb-checkbox {
+.fb-form-checkbox {
   &__container {
-    margin-bottom: $form-group-margin-bottom;
-    padding: $form-group-padding-vertical 0;
+    display: inline-block;
+    padding: $checkbox-padding;
     position: relative;
 
-    & & {
-      margin-bottom: -$form-group-padding-vertical;
-      margin-top: -$form-group-padding-vertical;
+    &[data-error="true"] {
+      .fb-form-checkbox {
+        &__indicator {
+          border-color: $error-color;
+        }
+
+        &__indicator-label {
+          color: $error-color;
+        }
+      }
+    }
+
+    input {
+      position: absolute;
+      left: 0.1rem;
+      top: ($indicator-margin + .1rem);
     }
   }
 
@@ -25,73 +33,75 @@ $indicator-size:    14px !default;
     min-height: 14px;
     min-width: 14px;
     position: relative;
-    @include user-select(none);
     vertical-align: middle;
     display: inline-block;
     max-width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; // IE10+
+    user-select: none;
   }
 
   &__input {
-    @include opacity(0);
+    opacity: 0;
+    filter: alpha(opacity=0);
     position: absolute;
     z-index: -1;
 
-    &:checked ~ .fb-checkbox__indicator,
-    &:active ~ .fb-checkbox__indicator {
+    &:checked ~ .fb-form-checkbox__indicator,
+    &:active ~ .fb-form-checkbox__indicator {
       border: none;
     }
 
-    &:checked ~ .fb-checkbox__indicator {
+    &:checked ~ .fb-form-checkbox__indicator {
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='%23fff'%3E%3Cpath d='M26.109 8.844q0 .625-.438 1.062L12.233 23.344q-.438.438-1.062.438t-1.062-.438l-7.781-7.781q-.438-.438-.438-1.062t.438-1.062l2.125-2.125q.438-.438 1.062-.438t1.062.438l4.594 4.609 10.25-10.266q.438-.438 1.062-.438t1.062.438l2.125 2.125q.438.437.438 1.062z'/%3E%3C/svg%3E");
     }
 
-    &:disabled  ~ .fb-checkbox__indicator {
-      cursor: $cursor-disabled;
+    &:disabled ~ .fb-form-checkbox__indicator {
+      cursor: not-allowed;
     }
 
-    &:disabled:checked ~ .fb-checkbox__indicator {
-      background-color: $gray-lighter;
+    &:disabled:checked ~ .fb-form-checkbox__indicator {
+      background-color: $indicator-background-color-disabled;
     }
 
-    &:checked ~ .fb-checkbox__indicator {
-      background-color: $brand-primary;
+    &:checked ~ .fb-form-checkbox__indicator {
+      background-color: $indicator-background-color;
     }
 
-    &:active ~ .fb-checkbox__indicator {
-      background-color: lighten($brand-primary, 25);
+    &:active ~ .fb-form-checkbox__indicator {
+      background-color: lighten($indicator-background-color, 25);
     }
   }
 
   &__indicator {
-    background-color: #fff;
+    background-color: $indicator-color;
     background-position: center center;
     background-repeat: no-repeat;
-    border-color: $gray-lighter;
+    border-color: $indicator-border-color;
     border-style: solid;
     border-width: 1px;
     display: block;
-    height: $indicator-size;
-    left: 0;
     position: absolute;
-    top: 0;
-    width: $indicator-size;
+    left: 0;
+    top: $indicator-margin;
+    width: $checkbox-indicator-size;
+    height: $checkbox-indicator-size;
 
     background-size: 75% 75%;
-    @include border-radius($input-border-radius-small);
 
-    &.has-error {
-      border-color: $brand-danger;
-    }
-  }
+    @include indicator-radius;
 
-  &__indicator-label {
-    display: block;
-    line-height: $indicator-size;
-    margin-left: ceil($indicator-size * 1.5);
-    @include user-select(text);
+    &-label {
+      display: block;
+      line-height: $indicator-line-height;
+      font-size: $indicator-font-size;
+      margin-left: ceil($checkbox-indicator-size * 1.5);
 
-    &.has-error {
-      color: $brand-danger;
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text; // IE10+
+      user-select: text;
     }
   }
 }

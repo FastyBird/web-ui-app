@@ -1,0 +1,23 @@
+@import "../../variables/screen";
+@import "../../mixins/utilities";
+
+$z-index:                             1030 !default;
+
+$header-background-color:             #d9230f;
+$header-color:                        #fff;
+
+$hamburger-bar-line-height:           2px !default;
+$hamburger-bar-line-width:            22px !default;
+$hamburger-bar-line-distance:         5px !default;
+
+$screen-tablet-min:                   $screen-sm-min;
+
+@mixin shadow {
+  @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
+}
+
+@mixin flex-heading {
+  @include flexRow;
+
+  flex-wrap: nowrap;
+}

@@ -1,69 +1,41 @@
-@import "../../../assets/variables/colors";
-@import "../../../assets/mixins/utilities";
+@import "../../../assets/components/ui/fb-switch-element";
 
-$switch-height: 20px !default;
-$switch-width: 44px !default;
-
-@mixin switch-variant($color) {
-  input {
-    &:checked {
-      ~ .fb-switch-element__track {
-        background-color: $color;
-      }
-
-      ~ .fb-switch-element__thumb {
-        border-color: $color;
-      }
-
-      &:disabled {
-        ~ .fb-switch-element__track {
-          background-color: $color;
-        }
-
-        ~ .fb-switch-element__thumb {
-          border-color: $color;
-        }
-      }
-    }
-  }
-}
-
-.fb-switch-element {
+.fb-ui-switch-element {
   &__container {
     cursor: pointer;
     display: inline-block;
     height: $switch-height;
+    width: $switch-width;
     margin: 0;
     position: relative;
     user-select: none;
     vertical-align: middle;
-    width: $switch-width;
 
     input {
-      @include opacity(0);
-
+      opacity: 0;
+      filter: alpha(opacity=0);
       position: absolute;
       z-index: -1;
 
       &:checked {
-        ~ .fb-switch-element__thumb {
+        ~ .fb-ui-switch-element__thumb {
           left: sum($switch-width, -$switch-height);
         }
       }
 
       &:disabled {
-        ~ .fb-switch-element__track {
+        ~ .fb-ui-switch-element__track {
           background-color: $gray;
           cursor: not-allowed;
         }
 
-        ~ .fb-switch-element__thumb {
+        ~ .fb-ui-switch-element__thumb {
           border-color: $gray;
           cursor: not-allowed;
         }
 
         &:checked {
-          ~ .fb-switch-element__track {
+          ~ .fb-ui-switch-element__track {
             cursor: not-allowed;
           }
         }
@@ -71,52 +43,52 @@ $switch-width: 44px !default;
     }
 
     &[data-variant="default"] {
-      @include switch-variant($gray);
+      @include switch-variant($switch-variant-default);
     }
 
     &[data-variant="primary"] {
-      @include switch-variant($brand-primary);
+      @include switch-variant($switch-variant-primary);
     }
 
     &[data-variant="success"] {
-      @include switch-variant($brand-success);
+      @include switch-variant($switch-variant-success);
     }
 
     &[data-variant="info"] {
-      @include switch-variant($brand-info);
+      @include switch-variant($switch-variant-info);
     }
 
     &[data-variant="warning"] {
-      @include switch-variant($brand-warning);
+      @include switch-variant($switch-variant-warning);
     }
 
     &[data-variant="danger"] {
-      @include switch-variant($brand-danger);
+      @include switch-variant($switch-variant-danger);
     }
   }
 
   &__track {
-    background-color: $gray;
+    background-color: $track-background-color;
     border-radius: ceil($switch-height / 2);
     height: 100%;
-    left: 0;
+    width: 100%;
     position: absolute;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
   }
 
   &__thumb {
-    background-color: #fff;
-    border-color: $gray;
+    background-color: $thumb-background-color;
+    border-color: $thumb-border-color;
     border-radius: 50%;
     border-style: solid;
     border-width: 50%;
     height: $switch-height;
-    left: 0;
+    width: $switch-height;
     position: absolute;
+    left: 0;
     top: 0;
     transition: left 0.15s ease-out;
-    width: $switch-height;
   }
 }

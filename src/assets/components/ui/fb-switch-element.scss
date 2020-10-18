@@ -1,0 +1,40 @@
+@import "../../../assets/variables/colors";
+@import "../../../assets/mixins/utilities";
+
+$switch-height:                       2rem !default;
+$switch-width:                        4.4rem !default;
+
+$switch-variant-default:              #777;
+$switch-variant-primary:              #d9230f;
+$switch-variant-success:              #469408;
+$switch-variant-info:                 #029acf;
+$switch-variant-warning:              #9b479f;
+$switch-variant-danger:               #d9831f;
+
+$track-background-color:              #777;
+$thumb-border-color:                  #777;
+$thumb-background-color:              #fff;
+
+@mixin switch-variant($color) {
+  input {
+    &:checked {
+      ~ .fb-ui-switch-element__track {
+        background-color: $color;
+      }
+
+      ~ .fb-ui-switch-element__thumb {
+        border-color: $color;
+      }
+
+      &:disabled {
+        ~ .fb-ui-switch-element__track {
+          background-color: $color;
+        }
+
+        ~ .fb-ui-switch-element__thumb {
+          border-color: $color;
+        }
+      }
+    }
+  }
+}

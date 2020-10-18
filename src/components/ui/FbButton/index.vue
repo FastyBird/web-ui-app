@@ -2,8 +2,11 @@
   <nuxt-link
     v-if="to !== null"
     :to="to"
-    :class="buttonClass"
+    :data-variant="variant"
+    :data-size="size"
+    :class="classNames"
     role="button"
+    @click.native="clickHandle($event)"
   >
     <slot />
   </nuxt-link>
@@ -11,8 +14,11 @@
   <a
     v-else-if="href !== null"
     :href="href"
-    :class="buttonClass"
+    :data-variant="variant"
+    :data-size="size"
+    :class="classNames"
     role="button"
+    @click.native="clickHandle($event)"
   >
     <slot />
   </a>
@@ -20,19 +26,66 @@
   <button
     v-else
     :type="type"
-    :class="buttonClass"
+    :data-variant="variant"
+    :data-size="size"
+    :class="classNames"
     :disabled="disabled"
     role="button"
-    @click="clickCallback($event)"
+    @click="clickHandle($event)"
   >
     <slot />
   </button>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+  SetupContext,
+} from '@vue/composition-api'
 
-  name: 'FbButton',
+import { FbSizeTypes } from '@/components/types'
+
+export enum FbUiButtonButtonTypes {
+  BUTTON = 'button',
+  SUBMIT = 'submit',
+  RESET = 'reset',
+}
+
+export enum FbUiButtonVariantTypes {
+  DEFAULT = 'default',
+  PRIMARY = 'primary',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+  OUTLINE_DEFAULT = 'outline-default',
+  OUTLINE_PRIMARY = 'outline-primary',
+  OUTLINE_SUCCESS = 'outline-success',
+  OUTLINE_DANGER = 'outline-danger',
+  OUTLINE_WARNING = 'outline-warning',
+  OUTLINE_INFO = 'outline-info',
+  LINK = 'link',
+}
+
+interface FbUiButtonPropsInterface {
+  href: string | null
+  to: string | {} | null
+  type: FbUiButtonButtonTypes
+  size: FbSizeTypes
+  block: boolean
+  uppercase: boolean
+  pill: boolean
+  thick: boolean
+  expander: boolean
+  icon: boolean
+  active: boolean
+  disabled: boolean
+}
+
+export default defineComponent({
+
+  name: 'FbUiButton',
 
   props: {
 
@@ -47,33 +100,52 @@ export default {
     },
 
     type: {
-      type: String,
-      default: 'button',
-      validator: (value) => {
+      type: String as PropType<FbUiButtonButtonTypes>,
+      default: FbUiButtonButtonTypes.BUTTON,
+      validator: (value: FbUiButtonButtonTypes) => {
         // The value must match one of these strings
-        return ['button', 'submit', 'reset'].indexOf(value) !== -1
+        return [
+          FbUiButtonButtonTypes.BUTTON,
+          FbUiButtonButtonTypes.RESET,
+          FbUiButtonButtonTypes.SUBMIT,
+        ].includes(value)
       },
     },
 
     size: {
-      type: String,
-      default: null,
-      validator: (value) => {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
         // The value must match one of these strings
-        return ['lg', 'sm', 'xs'].indexOf(value) !== -1
+        return [
+          FbSizeTypes.EXTRA_SMALL,
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
       },
     },
 
     variant: {
-      type: String,
-      default: 'default',
-      validator: (value) => {
+      type: String as PropType<FbUiButtonVariantTypes>,
+      default: FbUiButtonVariantTypes.DEFAULT,
+      validator: (value: FbUiButtonVariantTypes) => {
         // The value must match one of these strings
         return [
-          'default', 'primary', 'success', 'danger', 'warning', 'info',
-          'outline-default', 'outline-primary', 'outline-success', 'outline-danger', 'outline-warning', 'outline-info',
-          'link',
-        ].indexOf(value) !== -1
+          FbUiButtonVariantTypes.DEFAULT,
+          FbUiButtonVariantTypes.PRIMARY,
+          FbUiButtonVariantTypes.SUCCESS,
+          FbUiButtonVariantTypes.DANGER,
+          FbUiButtonVariantTypes.WARNING,
+          FbUiButtonVariantTypes.INFO,
+          FbUiButtonVariantTypes.OUTLINE_DEFAULT,
+          FbUiButtonVariantTypes.OUTLINE_PRIMARY,
+          FbUiButtonVariantTypes.OUTLINE_SUCCESS,
+          FbUiButtonVariantTypes.OUTLINE_DANGER,
+          FbUiButtonVariantTypes.OUTLINE_WARNING,
+          FbUiButtonVariantTypes.OUTLINE_INFO,
+          FbUiButtonVariantTypes.LINK,
+        ].includes(value)
       },
     },
 
@@ -117,77 +189,54 @@ export default {
       default: false,
     },
 
-    mobile: {
-      type: Boolean,
-      default: false,
-    },
-
   },
 
-  computed: {
+  setup(props: FbUiButtonPropsInterface, context: SetupContext) {
+    const classNames = []
 
-    buttonClass() {
-      const classes = []
+    classNames.push('fb-ui-button')
 
-      classes.push('fb-btn')
-      classes.push(`fb-btn-${this.variant}`)
+    if (props.block) {
+      classNames.push('fb-ui-button-block')
+    }
 
-      if (this.block) {
-        classes.push('fb-btn-block')
-      }
+    if (props.pill) {
+      classNames.push('fb-ui-button-pill')
+    }
 
-      if (this.pill) {
-        classes.push('fb-btn-pill')
-      }
+    if (props.thick) {
+      classNames.push('fb-ui-button-thick')
+    }
 
-      if (this.thick) {
-        classes.push('fb-btn-thick')
-      }
+    if (props.expander) {
+      classNames.push('fb-ui-button-expander')
+    }
 
-      if (this.expander) {
-        classes.push('fb-btn-expander')
-      }
+    if (props.uppercase) {
+      classNames.push('fb-ui-button-uppercase')
+    }
 
-      if (this.uppercase) {
-        classes.push('fb-btn-uppercase')
-      }
+    if (props.icon) {
+      classNames.push('fb-ui-button-icon')
+    }
 
-      if (this.icon) {
-        classes.push('fb-btn-icon')
-      }
+    if (props.active) {
+      classNames.push('active')
+    }
 
-      if (this.size) {
-        classes.push(`fb-btn-${this.size}`)
-      }
+    function clickHandle(e: Event): void {
+      context.emit('click', e)
+    }
 
-      if (this.active) {
-        classes.push('active')
-      }
-
-      if (this.mobile) {
-        classes.push('fb-btn-mobile')
-      }
-
-      return classes
-    },
-
+    return {
+      classNames,
+      clickHandle,
+    }
   },
 
-  methods: {
-
-    clickCallback(e) {
-      this.$emit('click', e)
-    },
-
-    tapCallback(e) {
-      this.$emit('tap', e)
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

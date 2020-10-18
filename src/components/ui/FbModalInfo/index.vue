@@ -1,15 +1,17 @@
 <template>
-  <fb-modal-window
+  <fb-ui-modal-window
+    :size="size"
     :show-header="slotExists('header')"
     :transparent-bg="transparentBg"
     :enable-closing="enableClosing"
-    @close="close"
+    :show-footer="enableClosing"
+    @close="$emit('close')"
   >
     <template
       v-if="slotExists('header')"
       slot="modal-title"
     >
-      <font-awesome-icon :icon="icon" />
+      <slot name="icon" />
       <slot name="header" />
     </template>
 
@@ -17,41 +19,50 @@
       <slot name="info" />
     </template>
 
-    <template slot="modal-footer">
-      <div class="fb-info-window__buttons">
-        <fb-button
-          v-if="enableClosing"
-          uppercase
-          variant="link"
-          size="lg"
-          name="close"
-          tabindex="2"
-          @click.prevent="close($event)"
-        >
-          {{ closeBtnLabel }}
-        </fb-button>
-        <template v-else>&nbsp;</template>
-      </div>
-    </template>
-  </fb-modal-window>
+    <div
+      slot="modal-footer"
+      class="fb-ui-modal-info__buttons"
+    >
+      <fb-ui-button
+        v-if="enableClosing"
+        uppercase
+        variant="link"
+        size="lg"
+        name="close"
+        tabindex="2"
+        @click.prevent="$emit('close')"
+      >
+        {{ closeBtnLabel }}
+      </fb-ui-button>
+    </div>
+  </fb-ui-modal-window>
 </template>
 
-<script>
-import FbModalWindow from '@/components/UI/FbModalWindow'
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
 
-export default {
+import { FbSizeTypes } from "@/components/types";
 
-  name: 'FbModalInfo',
+export default defineComponent({
 
-  components: {
-    FbModalWindow,
-  },
+  name: 'FbUiModalInfo',
 
   props: {
 
-    icon: {
-      type: String,
-      required: true,
+    size: {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
+      },
     },
 
     enableClosing: {
@@ -73,20 +84,9 @@ export default {
 
   },
 
-  methods: {
-
-    /**
-     * Close info modal window
-     */
-    close() {
-      this.$emit('close', false)
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

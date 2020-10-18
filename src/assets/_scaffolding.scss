@@ -1,7 +1,5 @@
 @import "./variables/colors";
-@import "./variables/borders";
 @import "./variables/texts";
-@import "./mixins/utilities";
 
 // Reset the box-sizing
 //
@@ -9,11 +7,15 @@
 // For recommendations on resolving such conflicts, see
 // http://getbootstrap.com/getting-started/#third-box-sizing
 * {
-  @include box-sizing(border-box);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 *:before,
 *:after {
-  @include box-sizing(border-box);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 // Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
@@ -107,7 +109,7 @@ img {
 
 // Rounded corners
 .img-rounded {
-  border-radius: $border-radius-large;
+  border-radius: 4px;
 }
 
 // Image thumbnails
@@ -118,8 +120,10 @@ img {
   line-height: $line-height-base;
   background-color: $body-bg;
   border: 1px solid $gray-lighter;
-  border-radius: $border-radius-base;
-  @include transition(all .2s ease-in-out);
+  border-radius: 3px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 
   // Keep them at most 100% wide
   display: inline-block;

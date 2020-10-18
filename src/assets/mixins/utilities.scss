@@ -6,22 +6,20 @@
   @return $result;
 }
 
-@mixin gridRow($mLeft: -15px, $mRight: -15px) {
+@mixin flexRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: $mRight;
-  margin-left: $mLeft;
+  flex-direction: row;
 }
 
-@mixin gridCel($pLeft: 15px, $pRight: 15px) {
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: $pRight;
-  padding-left: $pLeft;
+@mixin flexColumn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin box-shadow($shadow...) {
@@ -29,80 +27,29 @@
   box-shadow: $shadow;
 }
 
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  // IE8 filter
-  $opacity-ie: ($opacity * 100);
-  filter: alpha(opacity=$opacity-ie);
+@mixin border-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
 
-@mixin user-select($select) {
-  -webkit-user-select: $select;
-  -moz-user-select: $select;
-  -ms-user-select: $select; // IE10+
-  user-select: $select;
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
 }
 
-@mixin placeholder($color: $input-color-placeholder) {
-  // Firefox
-  &::-moz-placeholder {
-    color: $color;
-    @include opacity(1); // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
-  }
-  &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
-  &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
 }
 
-@mixin before-after {
-  &:before,
-  &:after {
-    @content
-  }
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
 
-@mixin before {
-  &:before {
-    @content
-  }
-}
-
-@mixin after {
-  &:after {
-    @content
-  }
-}
-
-@mixin box-sizing($boxmodel) {
-  -webkit-box-sizing: $boxmodel;
-  -moz-box-sizing: $boxmodel;
-  box-sizing: $boxmodel;
-}
-
-@mixin transition($transition...) {
-  -webkit-transition: $transition;
-  -o-transition: $transition;
-  transition: $transition;
-}
-
-// Clearfix
-//
-// For modern browsers
-// 1. The space content is one way to avoid an Opera bug when the
-//    contenteditable attribute is included anywhere else in the document.
-//    Otherwise it causes space to appear at the top and bottom of elements
-//    that are clearfixed.
-// 2. The use of `table` rather than `block` is only necessary if using
-//    `:before` to contain the top-margins of child elements.
-//
-// Source: http://nicolasgallagher.com/micro-clearfix-hack/
-
-@mixin clearfix() {
-  &:before,
-  &:after {
-    content: " "; // 1
-    display: table; // 2
-  }
-  &:after {
-    clear: both;
-  }
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
 }

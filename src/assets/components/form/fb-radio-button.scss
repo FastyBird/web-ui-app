@@ -1,0 +1,18 @@
+@import "../../../assets/mixins/utilities";
+
+$radio-indicator-size:                1.5rem !default;
+$radio-padding:                       2rem 1rem;
+
+$indicator-color:                     #fff;
+$indicator-border-color:              #ddd;
+$indicator-background-color:          #d9230f;
+$indicator-background-color-disabled: #ddd;
+$indicator-margin:                    1rem;
+$indicator-font-size:                 1.5rem;
+$indicator-line-height:               3.4rem;
+
+$error-color:                         #d9831f;
+
+@mixin indicator-radius {
+  @include border-radius(50%);
+}

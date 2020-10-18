@@ -1,10 +1,9 @@
-@import "../../../assets/variables/colors";
+@import "../../../assets/components/form/fb-error";
 
 .fb-field-error {
   &__container {
     display: block;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    color: $text-danger;
+    padding: $error-padding;
+    color: $error-color;
   }
 }

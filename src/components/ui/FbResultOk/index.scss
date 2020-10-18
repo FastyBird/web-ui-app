@@ -1,38 +1,42 @@
-@import "../../../assets/variables/colors";
+@import "../../../assets/components/ui/fb-result-ok";
 
-.fb-result-ok {
+.fb-ui-result-ok {
   &__container {
+    width: $icon-width;
+    display: block;
+    margin: 0 auto;
+
     svg {
-      width: 100px;
+      width: 100%;
       display: block;
-      margin: 40px auto 0;
+      margin: 0;
 
       circle,
       polyline {
         fill: none;
         stroke-dasharray: 1000;
         stroke-dashoffset: 0;
-        stroke: $brand-success;
+        stroke: $color;
         stroke-width: 6;
         stroke-miterlimit: 10;
       }
 
       circle {
-        -webkit-animation: fb-result-ok-dash .9s ease-in-out;
-        animation: fb-result-ok-dash .9s ease-in-out;
+        -webkit-animation: fb-ui-result-ok-dash .9s ease-in-out;
+        animation: fb-ui-result-ok-dash .9s ease-in-out;
       }
 
       polyline {
         stroke-dashoffset: -100;
         stroke-linecap: round;
-        -webkit-animation: fb-result-ok-dash-check .9s .35s ease-in-out forwards;
-        animation: fb-result-ok-dash-check .9s .35s ease-in-out forwards;
+        -webkit-animation: fb-ui-result-ok-dash-check .9s .35s ease-in-out forwards;
+        animation: fb-ui-result-ok-dash-check .9s .35s ease-in-out forwards;
       }
     }
   }
 }
 
-@-webkit-keyframes fb-result-ok-dash {
+@-webkit-keyframes fb-ui-result-ok-dash {
   0% {
     stroke-dashoffset: 1000;
   }
@@ -41,7 +45,7 @@
   }
 }
 
-@keyframes fb-result-ok-dash {
+@keyframes fb-ui-result-ok-dash {
   0% {
     stroke-dashoffset: 1000;
   }
@@ -50,7 +54,7 @@
   }
 }
 
-@-webkit-keyframes fb-result-ok-dash-check {
+@-webkit-keyframes fb-ui-result-ok-dash-check {
   0% {
     stroke-dashoffset: -100;
   }
@@ -59,7 +63,7 @@
   }
 }
 
-@keyframes fb-result-ok-dash-check {
+@keyframes fb-ui-result-ok-dash-check {
   0% {
     stroke-dashoffset: -100;
   }

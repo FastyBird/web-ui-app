@@ -1,0 +1,21 @@
+@import "../../../assets/components/layout/fb-content";
+
+.fb-layout-content {
+  &__container {
+    flex-grow: 1;
+
+    @include flex-content;
+  }
+
+  &__header {
+
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__footer {
+
+  }
+}

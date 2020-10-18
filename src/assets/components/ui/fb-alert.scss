@@ -1,0 +1,51 @@
+@import "../../../assets/mixins/utilities";
+
+$alert-padding:                       0.5rem 1rem;
+$alert-border-radius:                 3px;
+
+$alert-default-color:                 #fff;
+$alert-default-bg:                    #474949;
+$alert-default-border:                $alert-default-bg;
+
+$alert-primary-color:                 #fff;
+$alert-primary-bg:                    #d9230f;
+$alert-primary-border:                $alert-primary-bg;
+
+$alert-success-color:                 #fff;
+$alert-success-bg:                    #469408;
+$alert-success-border:                $alert-success-bg;
+
+$alert-info-color:                    #fff;
+$alert-info-bg:                       #029acf;
+$alert-info-border:                   $alert-info-bg;
+
+$alert-warning-color:                 #fff;
+$alert-warning-bg:                    #9b479f;
+$alert-warning-border:                $alert-warning-bg;
+
+$alert-danger-color:                  #fff;
+$alert-danger-bg:                     #d9831f;
+$alert-danger-border:                 $alert-danger-bg;
+
+@mixin alert-variant($background, $border, $color) {
+  color: $color;
+  background-color: $background;
+  background-image: var(--bs-gradient);
+  border-color: $border;
+
+  a {
+    color: darken($color, 10%);
+  }
+
+  hr {
+    border-top-color: $color;
+  }
+}
+
+@mixin alert-radius {
+  @include border-radius($alert-border-radius);
+}
+
+@mixin flex-alert {
+  @include flexRow;
+}

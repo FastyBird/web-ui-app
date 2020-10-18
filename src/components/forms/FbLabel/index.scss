@@ -1,33 +1,29 @@
-@import "../../../assets/variables/forms";
-@import "../../../assets/variables/screen";
-@import "../../../assets/mixins/utilities";
+@import "../../../assets/components/form/fb-label";
 
 .fb-label {
   &__container {
     display: inline-block;
     max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700;
+    margin: $field-margin;
+    font-weight: $field-font-weight;
 
     &-required {
       &:after {
         content: '*';
         display: inline-block;
-        color: $brand-primary;
+        color: $field-required-color;
       }
     }
 
     &[data-orientation="inline"] {
-      @media (min-width: $screen-sm-min) {
+      @media (min-width: $screen-tablet-min) {
         margin-bottom: 0;
         vertical-align: middle;
       }
     }
 
     &[data-orientation="horizontal"] {
-      @media (min-width: $screen-sm-min) {
-        @include gridCel;
-
+      @media (min-width: $screen-tablet-min) {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
@@ -35,12 +31,10 @@
 
         text-align: right;
         margin-bottom: 0;
-        padding-top: ($padding-vertical + 1); // Default padding plus a border
+        padding: $field-horizontal-padding;
       }
 
-      @media (min-width: $screen-md-min) {
-        @include gridCel;
-
+      @media (min-width: $screen-desktop-min) {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
@@ -48,19 +42,19 @@
       }
 
       &[data-size="lg"] {
-        @media (min-width: $screen-sm-min) {
+        @media (min-width: $screen-tablet-min) {
           label {
-            padding-top: ($padding-md-vertical + 1);
-            font-size: $font-size-large;
+            padding: $field-horizontal-large-padding;
+            font-size: $field-large-font-size;
           }
         }
       }
 
       &[data-size="sm"] {
-        @media (min-width: $screen-sm-min) {
+        @media (min-width: $screen-tablet-min) {
           label {
-            padding-top: ($padding-sm-vertical + 1);
-            font-size: $font-size-small;
+            padding: $field-horizontal-small-padding;
+            font-size: $field-small-font-size;
           }
         }
       }

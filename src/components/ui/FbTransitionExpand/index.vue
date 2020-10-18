@@ -9,31 +9,32 @@
   </transition>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+} from '@vue/composition-api'
 
-  name: 'FbTransitionExpand',
+export default defineComponent({
 
-  methods: {
+  name: 'FbUiTransitionExpand',
 
-    enter(element) {
-      const width = getComputedStyle(element).width;
+  setup() {
+    function enter(element: HTMLElement): void {
+      const computedStyle = getComputedStyle(element)
 
-      element.style.width = width;
-      element.style.position = 'absolute';
-      element.style.visibility = 'hidden';
-      element.style.height = 'auto';
+      Object.assign(element.style, { width: computedStyle.width })
+      Object.assign(element.style, { position: 'absolute' })
+      Object.assign(element.style, { visibility: 'hidden' })
+      Object.assign(element.style, { height: 'auto' })
 
-      const height = getComputedStyle(element).height;
+      const reComputedStyle = getComputedStyle(element)
 
-      element.style.width = null;
-      element.style.position = null;
-      element.style.visibility = null;
-      element.style.height = 0;
+      const height = reComputedStyle.height
 
-      // Force repaint to make sure the
-      // animation is triggered correctly.
-      getComputedStyle(element).height;
+      Object.assign(element.style, { width: null })
+      Object.assign(element.style, { position: null })
+      Object.assign(element.style, { visibility: null })
+      Object.assign(element.style, { height: 0 })
 
       // Trigger the animation.
       // We use `requestAnimationFrame` because we need
@@ -41,53 +42,43 @@ export default {
       // painting after setting the `height`
       // to `0` in the line above.
       requestAnimationFrame(() => {
-        element.style.height = height;
-      });
-    },
+        Object.assign(element.style, { height })
+      })
+    }
 
-    afterEnter(element) {
-      element.style.height = 'auto';
-    },
+    function afterEnter(element: HTMLElement): void {
+      Object.assign(element.style, { height: 'auto' })
+    }
 
-    leave(element) {
-      const height = getComputedStyle(element).height;
+    function leave(element: HTMLElement): void {
+      const computedStyle = getComputedStyle(element)
 
-      element.style.height = height;
-
-      // Force repaint to make sure the
-      // animation is triggered correctly.
-      getComputedStyle(element).height;
+      Object.assign(element.style, { height: computedStyle.height })
 
       requestAnimationFrame(() => {
-        element.style.height = 0;
-      });
-    },
+        Object.assign(element.style, { height: 0 })
+      })
+    }
 
+    return {
+      enter,
+      afterEnter,
+      leave,
+    }
   },
 
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  .expand-enter-active,
-  .expand-leave-active {
-    transition: height 250ms ease-in-out;
-    transition-property: opacity, height;
-    overflow: hidden;
-  }
-
-  .expand-enter,
-  .expand-leave-to {
-    opacity: 0;
-    height: 0;
-  }
+@import 'index';
 </style>
 
 <style rel="stylesheet/scss" scoped>
-  * {
-    will-change: height;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
+* {
+  will-change: height;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 </style>

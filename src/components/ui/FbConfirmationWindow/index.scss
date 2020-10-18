@@ -1,36 +1,46 @@
-@import "../../../assets/variables/colors";
+@import "../../../assets/components/ui/fb-confirmation-window";
 
-.fb-confirmation-window {
+.fb-ui-confirmation-window {
   &__container {
     text-align: center;
 
-    .text-primary {
-      color: $brand-primary !important;
+    &[data-variant="primary"] {
+      h3 {
+        color: $variant-primary;
+      }
     }
 
-    .text-success {
-      color: $brand-success !important;
+    &[data-variant="success"] {
+      h3 {
+        color: $variant-success;
+      }
     }
 
-    .text-warning {
-      color: $brand-warning !important;
+    &[data-variant="danger"] {
+      h3 {
+        color: $variant-danger;
+      }
     }
 
-    .text-info {
-      color: $brand-info !important;
+    &[data-variant="warning"] {
+      h3 {
+        color: $variant-warning;
+      }
     }
 
-    .text-danger {
-      color: $brand-danger !important;
-    }
-
-    svg {
-      font-size: 5em;
+    &[data-variant="info"] {
+      h3 {
+        color: $variant-info;
+      }
     }
   }
 
   &__buttons {
     margin-top: 30px;
     text-align: right;
+
+    .fb-ui-button[data-variant="link"] {
+      color: $button-color !important;
+    }
   }
 }

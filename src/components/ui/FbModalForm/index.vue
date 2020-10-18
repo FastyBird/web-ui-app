@@ -1,80 +1,106 @@
 <template>
-  <fb-modal-window
+  <fb-ui-modal-window
+    :size="size"
     :transparent-bg="transparentBg"
-    @close="close"
+    @close="$emit('close')"
   >
     <template slot="modal-title">
-      <font-awesome-icon :icon="icon" />
+      <slot nem="icon" />
       <slot name="header" />
     </template>
 
     <form
       slot="modal-body"
-      class="fb-form-window__form"
-      @submit.prevent="submit"
+      class="fb-ui-modal-form__form"
+      @submit.prevent="$emit('submit')"
     >
       <slot name="form" />
 
       <div
         v-if="resultIsOk"
-        class="fb-form-window__result"
+        class="fb-ui-modal-form__result"
       >
-        <fb-result-ok />
+        <fb-ui-result-ok />
       </div>
 
       <div
         v-if="resultIsErr"
-        class="fb-form-window__result"
+        class="fb-ui-modal-form__result"
       >
-        <fb-result-err />
+        <fb-ui-result-err />
       </div>
     </form>
 
     <template slot="modal-footer">
-      <div class="fb-form-window__buttons">
-        <fb-button
+      <div class="fb-ui-modal-form__buttons">
+        <fb-ui-button
           uppercase
           variant="link"
           size="lg"
           :disabled="lockButtons"
           :tabindex="(initialTabindex + 2)"
           name="close"
-          @click.prevent="close()"
+          @click.prevent="$emit('close')"
         >
           {{ cancelBtnLabel }}
-        </fb-button>
-        <fb-button
+        </fb-ui-button>
+
+        <fb-ui-button
           uppercase
           variant="outline-primary"
           size="lg"
           :disabled="lockButtons || lockSubmitButton"
           :tabindex="(initialTabindex + 1)"
           name="save"
-          @click.prevent="submit()"
+          @click.prevent="$emit('submit')"
         >
           {{ submitBtnLabel }}
-        </fb-button>
+        </fb-ui-button>
       </div>
     </template>
-  </fb-modal-window>
+  </fb-ui-modal-window>
 </template>
 
-<script>
-import FbModalWindow from '@/components/UI/FbModalWindow'
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+  ref,
+  SetupContext,
+} from '@vue/composition-api'
 
-export default {
+import get from 'lodash/get'
 
-  name: 'FbModalForm',
+import { FbSizeTypes } from "@/components/types";
 
-  components: {
-    FbModalWindow,
-  },
+interface FbUiModalFormPropsInterface {
+  size: FbSizeTypes
+  submitBtnLabel: string
+  cancelBtnLabel: string
+  lockButtons: boolean
+  lockSubmitButton: boolean
+  transparentBg: boolean
+  resultIsOk: boolean
+  resultIsErr: boolean
+}
+
+export default defineComponent({
+
+  name: 'FbUiModalForm',
 
   props: {
 
-    icon: {
-      type: String,
-      required: true,
+    size: {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
+      },
     },
 
     submitBtnLabel: {
@@ -118,37 +144,17 @@ export default {
 
   },
 
-  data() {
+  setup(_props: FbUiModalFormPropsInterface, context: SetupContext) {
+    const initialTabindex = ref<number>(get(context, 'slots.form', []).length + 1)
+
     return {
-      initialTabindex: 1,
+      initialTabindex,
     }
   },
 
-  created() {
-    this.initialTabindex = this._.get(this, '$slots.form', []).length + 1
-  },
-
-  methods: {
-
-    /**
-     * Close form modal window
-     */
-    close() {
-      this.$emit('close', false)
-    },
-
-    /**
-     * Submit form
-     */
-    submit() {
-      this.$emit('submit')
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

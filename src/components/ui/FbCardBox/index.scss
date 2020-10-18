@@ -1,62 +1,25 @@
-@import "../../../assets/variables/colors";
-@import "../../../assets/variables/texts";
-@import "../../../assets/variables/panels";
-@import "../../../assets/mixins/utilities";
-@import "../../../assets/mixins/border.radius";
+@import "../../../assets/components/ui/fb-card-box";
 
-$card-bg:                       $panel-bg !default;
-$card-border:                   $panel-inner-border !default;
-
-$card-border-radius:            $border-radius-base !default;
-$card-border-radius-inner:      $border-radius-base - 1 !default;
-
-$card-box-shadow:               null !default;
-$card-margin-bottom:            $line-height-computed !default;
-
-$card-padding-horizontal:       10px !default;
-$card-padding-vertical:         15px !default;
-
-$card-title-margin-bottom:      5px !default;
-$card-subtitle-margin-top:      ceil(-$card-title-margin-bottom / 2) !default;
-
-$card-header-bg:                null !default;
-$card-footer-bg:                null !default;
-
-$card-thumbnail-border-color:   $card-bg !default;
-$card-thumbnail-border-width:   3px !default;
-
-.fb-card {
+.fb-ui-card {
   &__container {
-    //background-color: $card-bg;
-    //border: 1px solid $card-border;
     border: none;
     border-radius: $card-border-radius;
     box-shadow: $card-box-shadow;
     display: block;
-    margin-bottom: $card-margin-bottom;
+    margin: $card-margin;
     position: relative;
   }
 
-  // Header
   &__header {
-    background-color: $brand-primary;
-    color: $brand-primary-contrast;
-    border-bottom: 1px solid $card-border;
-    padding: $card-padding-horizontal $card-padding-vertical;
+    background-color: $card-header-background-color;
+    color: $card-header-color;
+    border-bottom: 1px solid $card-border-color;
+    padding: $card-padding;
     position: relative;
-
-    @include clearfix;
-
-    &:first-child {
-      @include border-top-radius($card-border-radius-inner);
-    }
   }
 
-  // Body
   &__body {
     padding: $card-padding-vertical;
     position: relative;
-
-    @include clearfix;
   }
 }

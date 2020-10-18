@@ -1,5 +1,5 @@
 <template>
-  <fb-field-container
+  <fb-form-field
     :id="id"
     :orientation="orientation"
     :size="size"
@@ -9,8 +9,6 @@
     :is-focused="focused"
     :has-value="true"
     :error="error"
-    :mt="mt"
-    :mb="mb"
   >
     <template
       v-if="slotExists('left-addon')"
@@ -28,11 +26,11 @@
 
     <template slot="field">
       <select
-        :ref="`field-${name}`"
         :id="id ? id : name"
+        :ref="`field-${name}`"
         :name="name"
         :tabindex="tabIndex"
-        class="fb-select__control"
+        class="fb-form-select__control"
         @input="updateValue($event.target.value)"
         @change="changed()"
         @focus="setFocused(true)"
@@ -47,7 +45,7 @@
 
         <template v-for="(item, index) in items">
           <optgroup
-            v-if="typeof item.value === 'array' || typeof item.value === 'object'"
+            v-if="Array.isArray(item.value) || typeof item.value === 'object'"
             :key="index"
             :label="item.name"
           >
@@ -55,11 +53,12 @@
               v-for="(subitem, subindex) in item.value"
               :key="`${index}_${subindex}`"
               :value="subitem.value"
-              :selected="value === subitem.value ? 'selected' : ''"
+              :selected="value == subitem.value ? 'selected' : ''"
             >
               {{ subitem.name }}
             </option>
           </optgroup>
+
           <option
             v-else
             :key="index"
@@ -78,44 +77,84 @@
     >
       <slot name="help-line" />
     </template>
-  </fb-field-container>
+  </fb-form-field>
 </template>
 
-<script>
-import FbFieldContainer from '@/components/Forms/FbFieldContainer'
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+  ref,
+  SetupContext,
+} from '@vue/composition-api'
 
-function sizeValidator (value) {
-  // The value must match one of these strings
-  return [
-    'lg', 'md', 'sm', 'xs', 'none'
-  ].indexOf(value) !== -1
+import get from 'lodash/get'
+
+import FbFormField from '@/components/forms/FbField/index.vue'
+import {
+  FbFormOrientationTypes,
+  FbSizeTypes,
+} from '@/components/types'
+
+export interface FbFormSelectItemInterface {
+  name: string
+  value: string | number
 }
 
-export default {
+export interface FbFormSelectItemGroupInterface {
+  name: string
+  items: Array<FbFormSelectItemInterface>
+}
+
+interface FbFormSelectPropsInterface {
+  orientation: FbFormOrientationTypes
+  size: FbSizeTypes
+  name: string
+  id: string | null
+  label: string | null
+  required: boolean
+  items: Array<FbFormSelectItemInterface | FbFormSelectItemGroupInterface>
+  value: string | number | null
+  tabIndex: number | null
+  hasError: boolean
+  error: string | null
+  blankSelect: string | null
+  readonly: boolean
+}
+
+export default defineComponent({
 
   name: 'FbFormSelect',
 
   components: {
-    FbFieldContainer,
+    FbFormField,
   },
 
   props: {
 
     orientation: {
-      type: String,
-      default: 'vertical',
-      validator: (value) => {
+      type: String as PropType<FbFormOrientationTypes>,
+      default: FbFormOrientationTypes.VERTICAL,
+      validator: (value: FbFormOrientationTypes) => {
         // The value must match one of these strings
-        return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
+        return [
+          FbFormOrientationTypes.HORIZONTAL,
+          FbFormOrientationTypes.VERTICAL,
+          FbFormOrientationTypes.INLINE,
+        ].includes(value)
       },
     },
 
     size: {
-      type: String,
-      default: null,
-      validator: (value) => {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
         // The value must match one of these strings
-        return ['lg', 'sm'].indexOf(value) !== -1
+        return [
+          FbSizeTypes.LARGE,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.SMALL,
+        ].includes(value)
       },
     },
 
@@ -169,61 +208,52 @@ export default {
       default: null,
     },
 
-    mt: {
-      type: String,
-      default: 'none',
-      validator: sizeValidator,
-    },
-
-    mb: {
-      type: String,
-      default: 'none',
-      validator: sizeValidator,
+    readonly: {
+      type: Boolean,
+      default: false,
     },
 
   },
 
-  data() {
+  setup(props: FbFormSelectPropsInterface, context: SetupContext) {
+    const focused = ref<boolean>(false)
+
+    // Emit an input event up to the parent
+    function updateValue(value: string | number | null): void {
+      context.emit('input', value)
+    }
+
+    // Fire focus & blur events
+    function setFocused(value: boolean): void {
+      focused.value = value
+
+      if (value) {
+        context.emit('focus')
+      } else {
+        context.emit('blur')
+      }
+    }
+
+    function changed(): void {
+      context.emit('change', props.value)
+    }
+
+    function hasSlot(name: string): boolean {
+      return get(context.slots, name, null) !== null
+    }
+
     return {
-      focused: false,
+      focused,
+      updateValue,
+      setFocused,
+      changed,
+      hasSlot,
     }
   },
 
-  methods: {
-
-    /**
-     * Emit an input event up to the parent
-     *
-     * @param {[String]} value
-     */
-    updateValue(value) {
-      this.$emit('input', value)
-    },
-
-    /**
-     * Fire focus & blur events
-     *
-     * @param {Boolean} value
-     */
-    setFocused(value) {
-      this.focused = value
-
-      if (value) {
-        this.$emit('focus')
-      } else {
-        this.$emit('blur')
-      }
-    },
-
-    changed() {
-      this.$emit('change', this.value)
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

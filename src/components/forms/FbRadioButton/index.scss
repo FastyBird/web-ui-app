@@ -1,49 +1,27 @@
-@import "../../../assets/variables/colors";
-@import "../../../assets/variables/forms";
-@import "../../../assets/variables/screen";
-@import "../../../assets/mixins/utilities";
-@import "../../../assets/mixins/border.radius";
+@import "../../../assets/components/form/fb-radio-button";
 
-@mixin radio-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  @include border-radius($border-radius);
-}
-
-@mixin radio-variant($color, $background, $border) {
-  color: $color;
-  background-color: $background;
-  border-color: $border;
-
-  svg {
-    color: $color;
-  }
-
-  &:active,
-  &.active {
-    color: $color;
-    background-color: darken($background, 14%);
-    border-color: darken($border, 16%);
-
-    svg {
-      color: $color;
-    }
-  }
-}
-
-.fb-radio {
-
-  // CLASSIC RADIO STYLE
-
+.fb-form-radio {
   &__container {
-    margin-bottom: $form-group-margin-bottom;
-    padding: $form-group-padding-vertical 0;
+    display: inline-block;
+    padding: $radio-padding;
     position: relative;
 
-    & & {
-      margin-bottom: -$form-group-padding-vertical;
-      margin-top: -$form-group-padding-vertical;
+    &[data-error="true"] {
+      .fb-form-radio {
+        &__indicator {
+          border-color: $error-color;
+        }
+
+        &__indicator-label {
+          color: $error-color;
+        }
+      }
+    }
+
+    input {
+      position: absolute;
+      left: 0.1rem;
+      top: ($indicator-margin + .1rem);
     }
   }
 
@@ -55,150 +33,75 @@
     min-height: 14px;
     min-width: 14px;
     position: relative;
-    @include user-select(none);
     vertical-align: middle;
     display: inline-block;
     max-width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; // IE10+
+    user-select: none;
   }
 
   &__input {
-    @include opacity(0);
+    opacity: 0;
+    filter: alpha(opacity=0);
     position: absolute;
     z-index: -1;
 
-    &:checked ~ .fb-radio__indicator,
-    &:active ~ .fb-radio__indicator {
+    &:checked ~ .fb-form-radio__indicator,
+    &:active ~ .fb-form-radio__indicator {
       border: none;
     }
 
-    &:checked ~ .fb-radio__indicator {
+    &:checked ~ .fb-form-radio__indicator {
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28' fill='%23fff'%3E%3Cpath d='M24 14q0 3.266-1.609 6.023t-4.367 4.367-6.023 1.609-6.023-1.609-4.367-4.367T.002 14t1.609-6.023T5.978 3.61t6.023-1.609 6.023 1.609 4.367 4.367T24 14z'/%3E%3C/svg%3E");
     }
 
-    &:disabled  ~ .fb-radio__indicator {
-      cursor: $cursor-disabled;
+    &:disabled  ~ .fb-form-radio__indicator {
+      background-color: $indicator-background-color-disabled;
     }
 
-    &:disabled:checked ~ .fb-radio__indicator {
-      background-color: $gray-lighter;
+    &:disabled:checked ~ .fb-form-radio__indicator {
+      background-color: $indicator-background-color-disabled;
     }
 
-    &:checked ~ .fb-radio__indicator {
-      background-color: $brand-primary;
+    &:checked ~ .fb-form-radio__indicator {
+      background-color: $indicator-background-color;
     }
 
-    &:active ~ .fb-radio__indicator {
-      background-color: lighten($brand-primary, 25);
+    &:active ~ .fb-form-radio__indicator {
+      background-color: lighten($indicator-background-color, 25);
     }
   }
 
   &__indicator {
-    background-color: #fff;
+    background-color: $indicator-color;
     background-position: center center;
     background-repeat: no-repeat;
-    border-color: $gray-lighter;
+    border-color: $indicator-border-color;
     border-style: solid;
     border-width: 1px;
     display: block;
-    height: $indicator-size;
-    left: 0;
     position: absolute;
-    top: 0;
-    width: $indicator-size;
+    left: 0;
+    top: $indicator-margin;
+    width: $radio-indicator-size;
+    height: $radio-indicator-size;
 
-    background-size: 60% 60%;
-    border-radius: 50%;
+    background-size: 75% 75%;
 
-    &.has-error {
-      border-color: $brand-danger;
+    @include indicator-radius;
+
+    &-label {
+      display: block;
+      line-height: $indicator-line-height;
+      font-size: $indicator-font-size;
+      margin-left: ceil($radio-indicator-size * 1.5);
+
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text; // IE10+
+      user-select: text;
     }
-  }
-
-  &__indicator-label {
-    display: block;
-    line-height: $indicator-size;
-    margin-left: ceil($indicator-size * 1.5);
-    @include user-select(text);
-
-    &.has-error {
-      color: $brand-danger;
-    }
-  }
-
-  // BUTTON STYLE GROUP
-
-  &__label-btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: $input-group-btn-font-weight;
-    text-align: center;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    @include radio-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $input-border-radius);
-    @include user-select(none);
-
-    background-position: $input-group-btn-background-position;
-    background-size: $input-group-btn-background-size;
-    box-shadow: $input-group-btn-box-shadow;
-    outline: $input-group-btn-outline;
-    position: relative;
-    text-decoration: none;
-    text-transform: $input-group-btn-text-transform;
-    transition: $input-group-btn-transition;
-
-    position: relative;
-    float: left;
-
-    input {
-      position: absolute;
-      clip: rect(0,0,0,0);
-      pointer-events: none;
-    }
-  }
-
-  &__label-btn-lg {
-    @include radio-size($padding-md-vertical, $padding-md-horizontal, $font-size-large, $line-height-large, $input-border-radius-large);
-  }
-
-  &__label-btn-sm {
-    @include radio-size($padding-sm-vertical, $padding-sm-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
-  }
-
-  &__label-btn-xs {
-    @include radio-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $input-border-radius-small);
-  }
-
-  &__label-btn-default {
-    @include radio-variant($input-default-color, $input-default-bg, $input-default-border);
-  }
-
-  &__label-btn-primary {
-    @include radio-variant($input-primary-color, $input-primary-bg, $input-primary-border);
-  }
-
-  &__label-btn-success {
-    @include radio-variant($input-success-color, $input-success-bg, $input-success-border);
-  }
-
-  &__label-btn-info {
-    @include radio-variant($input-info-color, $input-info-bg, $input-info-border);
-  }
-
-  &__label-btn-warning {
-    @include radio-variant($input-warning-color, $input-warning-bg, $input-warning-border);
-  }
-
-  &__label-btn-danger {
-    @include radio-variant($input-danger-color, $input-danger-bg, $input-danger-border);
-  }
-
-  &__label-btn-pill {
-    @include border-radius($input-pill-border-radius);
-    padding-left: $input-pill-padding-horizontal;
-    padding-right: $input-pill-padding-horizontal;
   }
 }

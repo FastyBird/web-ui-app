@@ -1,0 +1,8 @@
+@import "../../../assets/variables/screen";
+
+$divider-size:                        1px !default;
+$divider-size-half:                   ceil($divider-size / 2) !default;
+$divider-margin:                      2rem 0;
+$divider-color:                       #ddd;
+
+$screen-tablet-min:                   $screen-sm-min;

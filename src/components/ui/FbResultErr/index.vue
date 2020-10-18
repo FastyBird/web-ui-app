@@ -1,7 +1,6 @@
 <template>
-  <div class="fb-result-err__container">
+  <div class="fb-ui-result-err__container">
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 130.2 130.2"
     >
@@ -28,14 +27,18 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+} from '@vue/composition-api'
 
-  name: 'FbResultErr',
+export default defineComponent({
 
-}
+  name: 'FbUiResultErr',
+
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

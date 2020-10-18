@@ -20,7 +20,7 @@ const argv = minimist(process.argv.slice(2));
 const projectRoot = path.resolve(__dirname, '..');
 
 const baseConfig = {
-  input: 'src/entry.js',
+  input: 'src/entry.ts',
   plugins: {
     preVue: [
       alias({
@@ -53,8 +53,9 @@ const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
   'vue',
-  'vue-gravatar',
   'body-scroll-lock',
+  'lodash/get',
+  '@vue/composition-api'
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -63,8 +64,9 @@ const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
   vue: 'Vue',
-  'vue-gravatar': 'VueGravatar',
   'body-scroll-lock': 'BodyScrollLock',
+  'lodash/get': 'Get',
+  '@vue/composition-api': 'CompositionApi',
 };
 
 // Customize configs for individual targets

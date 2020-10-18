@@ -1,7 +1,6 @@
 <template>
-  <div class="fb-result-ok__container">
+  <div class="fb-ui-result-ok__container">
     <svg
-      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 130.2 130.2"
     >
@@ -17,14 +16,18 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+} from '@vue/composition-api'
 
-  name: 'FbResultOk',
+export default defineComponent({
 
-}
+  name: 'FbUiResultOk',
+
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

@@ -7,31 +7,26 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
+
+export default defineComponent({
 
   name: 'FbFormCheckboxesGroup',
 
   props: {
 
     value: {
-      type: Array,
+      type: Array as PropType<Array<string | number | boolean>>,
       default: () => {
         return []
       },
     },
 
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
-
-    error: {
-      type: String,
-      default: null,
-    },
-
   },
 
-}
+})
 </script>

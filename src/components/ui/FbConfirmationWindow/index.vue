@@ -1,110 +1,152 @@
 <template>
-  <fb-modal-window
+  <fb-ui-modal-window
     :show-footer="false"
     :show-header="false"
     :transparent-bg="transparentBg"
-    @close="close"
+    @close="$emit('close')"
   >
     <template slot="modal-body">
-      <div class="fb-confirmation-window__container">
-        <font-awesome-icon
-          :icon="icon"
-          :class="[textClass]"
-        />
-        <h3 :class="[textClass]">
+      <div
+        :data-variant="variant"
+        class="fb-ui-confirmation-window__container"
+      >
+        <slot name="icon" />
+        <h3>
           <slot name="header" />
         </h3>
 
         <slot name="question" />
 
-        <div class="fb-confirmation-window__buttons">
+        <div class="fb-ui-confirmation-window__buttons">
           <template v-if="primaryButton === 'no'">
-            <fb-button
+            <fb-ui-button
               v-if="showYes"
               uppercase
               variant="link"
               size="lg"
-              :class="[textClass]"
               tabindex="2"
-              @click.prevent="confirm()"
+              @click.prevent="$emit('confirmed')"
             >
               {{ yesBtnLabel }}
-            </fb-button>
+            </fb-ui-button>
 
-            <fb-button
+            <fb-ui-button
               v-if="showNo"
               uppercase
-              variant="outline-default"
+              :variant="buttonVariant"
               size="lg"
               tabindex="3"
-              @click.prevent="close()"
+              @click.prevent="$emit('close')"
             >
               {{ noBtnLabel }}
-            </fb-button>
+            </fb-ui-button>
           </template>
 
           <template v-else>
-            <fb-button
+            <fb-ui-button
               v-if="showNo"
               uppercase
               variant="link"
               size="lg"
               tabindex="2"
-              @click.prevent="close()"
+              @click.prevent="$emit('close')"
             >
               {{ noBtnLabel }}
-            </fb-button>
+            </fb-ui-button>
 
-            <fb-button
+            <fb-ui-button
               v-if="showYes"
               uppercase
               :variant="buttonVariant"
               size="lg"
               tabindex="3"
-              @click.prevent="confirm()"
+              @click.prevent="$emit('confirmed')"
             >
               {{ yesBtnLabel }}
-            </fb-button>
+            </fb-ui-button>
           </template>
         </div>
       </div>
     </template>
-  </fb-modal-window>
+  </fb-ui-modal-window>
 </template>
 
-<script>
-import FbModalWindow from '@/components/UI/FbModalWindow'
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
 
-export default {
+import { FbSizeTypes } from '@/components/types'
+import { FbUiButtonVariantTypes } from '@/components/ui/FbButton/index.vue'
 
-  name: 'FbConfirmationWindow',
+export enum FbUiConfirmationWindowPrimaryButtonTypes {
+  YES = 'yes',
+  NO = 'no',
+}
 
-  components: {
-    FbModalWindow,
-  },
+export enum FbUiConfirmationWindowVariantTypes {
+  PRIMARY = 'primary',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+}
+
+interface FbUiConfirmationWindowPropsInterface {
+  size: FbSizeTypes
+  primaryButton: FbUiConfirmationWindowPrimaryButtonTypes
+  variant: FbUiConfirmationWindowVariantTypes
+  showYes: boolean
+  showNo: boolean
+  yesBtnLabel: string
+  noBtnLabel: string
+  transparentBg: boolean
+}
+
+export default defineComponent({
+
+  name: 'FbUiConfirmationWindow',
 
   props: {
 
-    icon: {
-      type: String,
-      required: true,
-    },
-
-    primaryButton: {
-      type: String,
-      default: 'no',
-      validator: (value) => {
+    size: {
+      type: String as PropType<FbSizeTyp>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
         // The value must match one of these strings
-        return ['yes', 'no'].indexOf(value) !== -1
+        return [
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
       },
     },
 
-    text: {
-      type: String,
-      default: 'danger',
-      validator: (value) => {
+    primaryButton: {
+      type: String as PropType<FbUiConfirmationWindowPrimaryButtonTypes>,
+      default: FbUiConfirmationWindowPrimaryButtonTypes.NO,
+      validator: (value: FbUiConfirmationWindowPrimaryButtonTypes) => {
         // The value must match one of these strings
-        return ['primary', 'success', 'warning', 'info', 'danger'].indexOf(value) !== -1
+        return [
+          FbUiConfirmationWindowPrimaryButtonTypes.YES,
+          FbUiConfirmationWindowPrimaryButtonTypes.NO,
+        ].includes(value)
+      },
+    },
+
+    variant: {
+      type: String as PropType<FbUiConfirmationWindowVariantTypes>,
+      default: FbUiConfirmationWindowVariantTypes.DANGER,
+      validator: (value: FbUiConfirmationWindowVariantTypes) => {
+        // The value must match one of these strings
+        return [
+          FbUiConfirmationWindowVariantTypes.PRIMARY,
+          FbUiConfirmationWindowVariantTypes.SUCCESS,
+          FbUiConfirmationWindowVariantTypes.DANGER,
+          FbUiConfirmationWindowVariantTypes.WARNING,
+          FbUiConfirmationWindowVariantTypes.INFO,
+        ].includes(value)
       },
     },
 
@@ -113,15 +155,15 @@ export default {
       default: true,
     },
 
+    showNo: {
+      type: Boolean,
+      default: true,
+    },
+
     yesBtnLabel: {
       type: String,
       required: false,
       default: 'Yes',
-    },
-
-    showNo: {
-      type: Boolean,
-      default: true,
     },
 
     noBtnLabel: {
@@ -137,62 +179,39 @@ export default {
 
   },
 
-  computed: {
+  setup(props: FbUiConfirmationWindowPropsInterface) {
+    let buttonVariant = FbUiButtonVariantTypes.DEFAULT
 
-    /**
-     * @returns {String}
-     */
-    buttonVariant() {
-      switch (this.text) {
-        case 'primary':
-          return 'outline-primary'
+    switch (props.variant) {
+      case FbUiConfirmationWindowVariantTypes.PRIMARY:
+        buttonVariant = FbUiButtonVariantTypes.OUTLINE_PRIMARY
+        break
 
-        case 'success':
-          return 'outline-success'
+      case FbUiConfirmationWindowVariantTypes.SUCCESS:
+        buttonVariant = FbUiButtonVariantTypes.OUTLINE_SUCCESS
+        break
 
-        case 'warning':
-          return 'outline-warning'
+      case FbUiConfirmationWindowVariantTypes.DANGER:
+        buttonVariant = FbUiButtonVariantTypes.OUTLINE_DANGER
+        break
 
-        case 'info':
-          return 'outline-info'
+      case FbUiConfirmationWindowVariantTypes.WARNING:
+        buttonVariant = FbUiButtonVariantTypes.OUTLINE_WARNING
+        break
 
-        case 'danger':
-          return 'outline-danger'
-      }
+      case FbUiConfirmationWindowVariantTypes.INFO:
+        buttonVariant = FbUiButtonVariantTypes.OUTLINE_INFO
+        break
+    }
 
-      return 'default'
-    },
-
-    /**
-     * @returns {String}
-     */
-    textClass() {
-      return `text-${this.text}`
-    },
-
+    return {
+      buttonVariant,
+    }
   },
 
-  methods: {
-
-    /**
-     * Confirm button clicked
-     */
-    confirm() {
-      this.$emit('confirmed', false)
-    },
-
-    /**
-     * Close confirmation window
-     */
-    close() {
-      this.$emit('close', false)
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

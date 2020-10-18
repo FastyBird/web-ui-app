@@ -1,38 +1,47 @@
 <template functional>
   <div
-    class="fb-divider__container"
+    class="fb-ui-divider__container"
     :data-type="props.type"
   >
-    <div class="fb-divider__content">{{ props.text }}</div>
+    <div class="fb-ui-divider__content">
+      <slot />
+    </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+} from '@vue/composition-api'
 
-  name: 'FbDivider',
+export enum FbUiDividerVariantTypes {
+  HORIZONTAL = 'horizontal',
+  VERTICAL = 'vertical',
+}
+
+export default defineComponent({
+
+  name: 'FbUiDivider',
 
   props: {
 
     type: {
       type: String,
-      default: 'horizontal',
-      validator: (value) => {
+      default: FbUiDividerVariantTypes.HORIZONTAL,
+      validator: (value: FbUiDividerVariantTypes) => {
         // The value must match one of these strings
-        return ['horizontal', 'vertical'].indexOf(value) !== -1
+        return [
+          FbUiDividerVariantTypes.HORIZONTAL,
+          FbUiDividerVariantTypes.VERTICAL,
+        ].includes(value)
       },
-    },
-
-    text: {
-      type: String,
-      required: true,
     },
 
   },
 
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

@@ -1,38 +1,42 @@
-@import "../../../assets/variables/colors";
+@import "../../../assets/components/ui/fb-result-err";
 
-.fb-result-err {
+.fb-ui-result-err {
   &__container {
+    width: $icon-width;
+    display: block;
+    margin: 0 auto;
+
     svg {
-      width: 100px;
+      width: 100%;
       display: block;
-      margin: 40px auto 0;
+      margin: 0;
 
       circle,
       line {
         fill: none;
         stroke-dasharray: 1000;
         stroke-dashoffset: 0;
-        stroke: $brand-danger;
+        stroke: $color;
         stroke-width: 6;
         stroke-miterlimit: 10;
       }
 
       circle {
-        -webkit-animation: fb-result-err-dash .9s ease-in-out;
-        animation: fb-result-err-dash .9s ease-in-out;
+        -webkit-animation: fb-ui-result-err-dash .9s ease-in-out;
+        animation: fb-ui-result-err-dash .9s ease-in-out;
       }
 
       line {
         stroke-dashoffset: 1000;
         stroke-linecap: round;
-        -webkit-animation: fb-result-err-dash .9s .35s ease-in-out forwards;
-        animation: fb-result-err-dash .9s .35s ease-in-out forwards;
+        -webkit-animation: fb-ui-result-err-dash .9s .35s ease-in-out forwards;
+        animation: fb-ui-result-err-dash .9s .35s ease-in-out forwards;
       }
     }
   }
 }
 
-@-webkit-keyframes fb-result-err-dash {
+@-webkit-keyframes fb-ui-result-err-dash {
   0% {
     stroke-dashoffset: 1000;
   }
@@ -41,7 +45,7 @@
   }
 }
 
-@keyframes fb-result-err-dash {
+@keyframes fb-ui-result-err-dash {
   0% {
     stroke-dashoffset: 1000;
   }

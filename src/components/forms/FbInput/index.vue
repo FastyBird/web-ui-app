@@ -1,5 +1,5 @@
 <template>
-  <fb-field-container
+  <fb-form-field
     :id="id"
     :orientation="orientation"
     :size="size"
@@ -9,8 +9,6 @@
     :is-focused="focused"
     :has-value="value !== '' && value !== null || placeholder !== null"
     :error="error"
-    :mt="mt"
-    :mb="mb"
   >
     <template
       v-if="slotExists('left-addon')"
@@ -28,15 +26,15 @@
 
     <template slot="field">
       <input
-        :ref="`field-${name}`"
         :id="id ? id : name"
+        :ref="`field-${name}`"
         :name="name"
         :tabindex="tabIndex"
         :type="type"
         :readonly="readonly"
         :value="value"
         :placeholder="hasError && !focused ? error : placeholder"
-        class="fb-input__control"
+        class="fb-form-input__control"
         @input="updateValue($event.target.value)"
         @focus="setFocused(true)"
         @blur="setFocused(false)"
@@ -50,44 +48,81 @@
     >
       <slot name="help-line" />
     </template>
-  </fb-field-container>
+  </fb-form-field>
 </template>
 
-<script>
-import FbFieldContainer from '@/components/Forms/FbFieldContainer'
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+  ref,
+  SetupContext,
+} from '@vue/composition-api'
 
-function sizeValidator (value) {
-  // The value must match one of these strings
-  return [
-    'lg', 'md', 'sm', 'xs', 'none'
-  ].indexOf(value) !== -1
+import FbFormField from '@/components/forms/FbField/index.vue'
+import {
+  FbFormOrientationTypes,
+  FbSizeTypes,
+} from '@/components/types'
+
+interface FbFormInputPropsInterface {
+  orientation: FbFormOrientationTypes
+  size: FbSizeTypes
+  name: string
+  id: string | null
+  label: string | null
+  type: FbFormInputTypeTypes
+  required: boolean
+  value: string | number | null
+  tabIndex: number | null
+  hasError: boolean
+  error: string | null
+  placeholder: string | null
+  readonly: boolean
 }
 
-export default {
+export enum FbFormInputTypeTypes {
+  TEXT = 'text',
+  PASSWORD = 'password',
+  EMAIL = 'email',
+  NUMBER = 'number',
+  TEL = 'tel',
+  URL = 'url',
+}
+
+export default defineComponent({
 
   name: 'FbFormInput',
 
   components: {
-    FbFieldContainer,
+    FbFormField,
   },
 
   props: {
 
     orientation: {
-      type: String,
-      default: 'vertical',
-      validator: (value) => {
+      type: String as PropType<FbFormOrientationTypes>,
+      default: FbFormOrientationTypes.VERTICAL,
+      validator: (value: FbFormOrientationTypes) => {
         // The value must match one of these strings
-        return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
+        return [
+          FbFormOrientationTypes.HORIZONTAL,
+          FbFormOrientationTypes.VERTICAL,
+          FbFormOrientationTypes.INLINE,
+        ].includes(value)
       },
     },
 
     size: {
-      type: String,
-      default: null,
-      validator: (value) => {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
         // The value must match one of these strings
-        return ['lg', 'sm'].indexOf(value) !== -1
+        return [
+          FbSizeTypes.LARGE,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.SMALL,
+        ].includes(value)
       },
     },
 
@@ -107,8 +142,19 @@ export default {
     },
 
     type: {
-      type: String,
-      default: 'text',
+      type: String as PropType<FbFormInputTypeTypes>,
+      default: FbFormInputTypeTypes.TEXT,
+      validator: (value: FbFormInputTypeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbFormInputTypeTypes.TEXT,
+          FbFormInputTypeTypes.PASSWORD,
+          FbFormInputTypeTypes.EMAIL,
+          FbFormInputTypeTypes.NUMBER,
+          FbFormInputTypeTypes.TEL,
+          FbFormInputTypeTypes.URL,
+        ].includes(value)
+      },
     },
 
     required: {
@@ -146,59 +192,40 @@ export default {
       default: false,
     },
 
-    mt: {
-      type: String,
-      default: 'none',
-      validator: sizeValidator,
-    },
-
-    mb: {
-      type: String,
-      default: 'none',
-      validator: sizeValidator,
-    },
-
   },
 
-  data() {
+  setup(_props: FbFormInputPropsInterface, context: SetupContext) {
+    const focused = ref<boolean>(false)
+
+    // Emit an input event up to the parent
+    function updateValue(value: string | number | null): void {
+      context.emit('input', value)
+    }
+
+    // Fire focus & blur events
+    function setFocused(value: boolean): void {
+      focused.value = value
+
+      if (value) {
+        context.emit('focus')
+      } else {
+        context.emit('blur')
+      }
+    }
+
+    function keyDown(event: Event): void {
+      context.emit('keydown', event)
+    }
+
     return {
-      focused: false,
+      focused,
+      updateValue,
+      setFocused,
+      keyDown,
     }
   },
 
-  methods: {
-
-    /**
-     * Emit an input event up to the parent
-     *
-     * @param {[String|Number]} value
-     */
-    updateValue(value) {
-      this.$emit('input', value)
-    },
-
-    /**
-     * Fire focus & blur events
-     *
-     * @param {Boolean} value
-     */
-    setFocused(value) {
-      this.focused = value
-
-      if (value) {
-        this.$emit('focus')
-      } else {
-        this.$emit('blur')
-      }
-    },
-
-    keyDown(event) {
-      this.$emit('keydown', event)
-    },
-
-  },
-
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

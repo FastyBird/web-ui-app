@@ -10,8 +10,18 @@
   </label>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {
+  defineComponent,
+  PropType,
+} from '@vue/composition-api'
+
+import {
+  FbFormOrientationTypes,
+  FbSizeTypes,
+} from '@/components/types'
+
+export default defineComponent({
 
   name: 'FbFormLabel',
 
@@ -28,20 +38,28 @@ export default {
     },
 
     orientation: {
-      type: String,
-      default: 'vertical',
-      validator: (value) => {
+      type: String as PropType<FbFormOrientationTypes>,
+      default: FbFormOrientationTypes.VERTICAL,
+      validator: (value: FbFormOrientationTypes) => {
         // The value must match one of these strings
-        return ['vertical', 'horizontal', 'inline'].indexOf(value) !== -1
+        return [
+          FbFormOrientationTypes.VERTICAL,
+          FbFormOrientationTypes.HORIZONTAL,
+          FbFormOrientationTypes.INLINE,
+        ].includes(value)
       },
     },
 
     size: {
       type: String,
-      default: null,
-      validator: (value) => {
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
         // The value must match one of these strings
-        return ['lg', 'sm'].indexOf(value) !== -1
+        return [
+          FbSizeTypes.LARGE,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.SMALL,
+        ].includes(value)
       },
     },
 
@@ -52,9 +70,9 @@ export default {
 
   },
 
-}
+})
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import 'index';
+@import 'index';
 </style>

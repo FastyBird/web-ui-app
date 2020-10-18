@@ -1,0 +1,21 @@
+@import "../../../assets/components/layout/fb-footer";
+
+.fb-layout-footer {
+  &__container {
+    z-index: $z-index;
+    height: $footer-height;
+    overflow: hidden;
+
+    @media (max-width: $screen-phone-max) {
+      height: 0;
+    }
+  }
+
+  &__inner {
+    background-color: $footer-background-color;
+    border-top: 1px solid $footer-border-color;
+    color: $footer-color;
+    padding: $footer-padding;
+    line-height: $footer-line-height;
+  }
+}
