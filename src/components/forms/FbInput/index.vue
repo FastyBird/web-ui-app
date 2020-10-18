@@ -59,7 +59,6 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import FbFormField from '@/components/forms/FbField/index.vue'
 import {
   FbFormOrientationTypes,
   FbSizeTypes,
@@ -93,10 +92,6 @@ export enum FbFormInputTypeTypes {
 export default defineComponent({
 
   name: 'FbFormInput',
-
-  components: {
-    FbFormField,
-  },
 
   props: {
 

@@ -112,16 +112,11 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import FbFormLabel from '@/components/forms/FbLabel/index.vue'
 import { FbFormOrientationTypes, FbSizeTypes } from '@/components/types'
 
 export default defineComponent({
 
   name: 'FbFormField',
-
-  components: {
-    FbFormLabel,
-  },
 
   props: {
 

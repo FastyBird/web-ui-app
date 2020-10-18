@@ -55,7 +55,6 @@ import {
 
 import get from 'lodash/get'
 
-import FbFormError from '@/components/forms/FbError/index.vue'
 import FbFormCheckboxesGroup from '@/components/forms/FbCheckboxesGroup/index.vue'
 
 interface FbFormCheckboxPropsInterface {
@@ -75,10 +74,6 @@ interface FbFormCheckboxPropsInterface {
 export default defineComponent({
 
   name: 'FbFormCheckbox',
-
-  components: {
-    FbFormError,
-  },
 
   props: {
 

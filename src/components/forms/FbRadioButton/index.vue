@@ -38,7 +38,6 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import FbFormError from '@/components/forms/FbError/index.vue'
 import FbFormRadioButtonsGroup from '@/components/forms/FbRadioButtonsGroup/index.vue'
 
 interface FbFormRadioButtonPropsInterface {
@@ -55,10 +54,6 @@ interface FbFormRadioButtonPropsInterface {
 export default defineComponent({
 
   name: 'FbFormRadioButton',
-
-  components: {
-    FbFormError,
-  },
 
   props: {
 

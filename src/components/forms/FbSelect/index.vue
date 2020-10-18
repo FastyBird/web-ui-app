@@ -88,7 +88,6 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import FbFormField from '@/components/forms/FbField/index.vue'
 import {
   FbFormOrientationTypes,
   FbSizeTypes,
@@ -123,10 +122,6 @@ interface FbFormSelectPropsInterface {
 export default defineComponent({
 
   name: 'FbFormSelect',
-
-  components: {
-    FbFormField,
-  },
 
   props: {
 
