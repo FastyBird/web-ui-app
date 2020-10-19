@@ -4666,14 +4666,13 @@ var directives=/*#__PURE__*/Object.freeze({__proto__:null,ClickOutside: ClickOut
      * Get element composed path
      */
     getEventElementsPath: function getEventElementsPath(event) {
-      var path = null;
-
-      if (Object.prototype.hasOwnProperty.call(event, 'path')) {
-        path = get__default['default'](event, 'path');
-      } else if (Object.prototype.hasOwnProperty.call(event, 'composedPath')) {
-        path = typeof event.composedPath === 'function' ? event.composedPath() : event.composedPath;
-      } else if (Object.prototype.hasOwnProperty.call(event, 'target') && typeof event.target !== 'undefined' && event.target !== null) {
-        path = [];
+      if (get__default['default'](event, 'path') !== null) {
+        return get__default['default'](event, 'path', []);
+      } else if (get__default['default'](event, 'composedPath') !== null) {
+        // @ts-ignore
+        return typeof event.composedPath === 'function' ? event.composedPath() : get__default['default'](event, 'composedPath', []);
+      } else if (get__default['default'](event, 'target') !== null) {
+        var path = [];
         var current = event.target;
 
         while (current) {
@@ -4682,14 +4681,14 @@ var directives=/*#__PURE__*/Object.freeze({__proto__:null,ClickOutside: ClickOut
           if (get__default['default'](current, 'tagName', null) === 'HTML') {
             path.push(document);
             path.push(window);
-            break;
+            return path;
           }
 
           current = get__default['default'](current, 'parentElement', null);
         }
       }
 
-      return path;
+      return [];
     }
   }
 };// @ts-ignore

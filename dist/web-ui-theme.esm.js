@@ -5421,14 +5421,13 @@ var Helpers = {
      * Get element composed path
      */
     getEventElementsPath(event) {
-      let path = null;
-
-      if (Object.prototype.hasOwnProperty.call(event, 'path')) {
-        path = get(event, 'path');
-      } else if (Object.prototype.hasOwnProperty.call(event, 'composedPath')) {
-        path = typeof event.composedPath === 'function' ? event.composedPath() : event.composedPath;
-      } else if (Object.prototype.hasOwnProperty.call(event, 'target') && typeof event.target !== 'undefined' && event.target !== null) {
-        path = [];
+      if (get(event, 'path') !== null) {
+        return get(event, 'path', []);
+      } else if (get(event, 'composedPath') !== null) {
+        // @ts-ignore
+        return typeof event.composedPath === 'function' ? event.composedPath() : get(event, 'composedPath', []);
+      } else if (get(event, 'target') !== null) {
+        let path = [];
         let current = event.target;
 
         while (current) {
@@ -5437,14 +5436,14 @@ var Helpers = {
           if (get(current, 'tagName', null) === 'HTML') {
             path.push(document);
             path.push(window);
-            break;
+            return path;
           }
 
           current = get(current, 'parentElement', null);
         }
       }
 
-      return path;
+      return [];
     }
 
   }
