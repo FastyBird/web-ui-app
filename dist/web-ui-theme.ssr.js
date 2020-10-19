@@ -1,4 +1,4 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:true});var compositionApi=require('@vue/composition-api'),get=require('lodash/get'),bodyScrollLock=require('body-scroll-lock');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var get__default=/*#__PURE__*/_interopDefaultLegacy(get);function _typeof(obj) {
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});var PortalVue=require('portal-vue'),compositionApi=require('@vue/composition-api'),get=require('lodash/get'),bodyScrollLock=require('body-scroll-lock');function _interopDefaultLegacy(e){return e&&typeof e==='object'&&'default'in e?e:{'default':e}}var PortalVue__default=/*#__PURE__*/_interopDefaultLegacy(PortalVue);var get__default=/*#__PURE__*/_interopDefaultLegacy(get);function _typeof(obj) {
   "@babel/helpers - typeof";
 
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -4698,6 +4698,7 @@ var mixins=/*#__PURE__*/Object.freeze({__proto__:null,Helpers: Helpers});// esli
 var install = function installWebUiTheme(Vue) {
   if (install.installed) return;
   install.installed = true;
+  Vue.use(PortalVue__default['default']);
   Object.entries(components).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
         componentName = _ref2[0],

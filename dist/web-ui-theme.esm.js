@@ -1,3 +1,4 @@
+import PortalVue from 'portal-vue';
 import { defineComponent, computed, ref, onMounted, watch } from '@vue/composition-api';
 import get from 'lodash/get';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -5456,13 +5457,13 @@ var mixins = /*#__PURE__*/Object.freeze({
   Helpers: Helpers
 });
 
-// Import vue components
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()
 const install = function installWebUiTheme(Vue) {
   if (install.installed) return;
   install.installed = true;
+  Vue.use(PortalVue);
   Object.entries(components).forEach(([componentName, component]) => {
     Vue.component(componentName, component);
   });

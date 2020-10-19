@@ -1,4 +1,5 @@
 import _Vue, { PluginFunction } from 'vue';
+import PortalVue from 'portal-vue'
 
 // Import vue components
 import * as components from '@/components/index';
@@ -17,6 +18,9 @@ interface InstallFunction extends PluginFunction<any> {
 const install: InstallFunction = function installWebUiTheme(Vue: typeof _Vue) {
   if (install.installed) return;
   install.installed = true;
+
+  Vue.use(PortalVue);
+
   Object.entries(components).forEach(([componentName, component]) => {
     Vue.component(componentName, component);
   });
