@@ -6,7 +6,7 @@
       :data-size="size"
       role="dialog"
       @keyup.esc="$emit('close')"
-      @click.prevent="clickOverlay"
+      @click="clickOverlay"
     >
       <div class="fb-ui-modal-window__window">
         <div
