@@ -1,5 +1,5 @@
 <template functional>
-  <div class="fb-ui-loading-box__container">
+  <div :class="[data.class, data.staticClass, 'fb-ui-loading-box__container']">
     <fb-ui-spinner size="lg" />
 
     <div class="fb-ui-loading-box__spinner">

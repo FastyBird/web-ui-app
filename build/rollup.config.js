@@ -6,7 +6,7 @@ import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import babel from 'rollup-plugin-babel';
-import { terser } from 'rollup-plugin-terser';
+import {terser} from 'rollup-plugin-terser';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
@@ -55,7 +55,8 @@ const external = [
   'vue',
   'body-scroll-lock',
   'lodash/get',
-  '@vue/composition-api'
+  '@vue/composition-api',
+  'portal-vue',
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -67,6 +68,7 @@ const globals = {
   'body-scroll-lock': 'BodyScrollLock',
   'lodash/get': 'Get',
   '@vue/composition-api': 'CompositionApi',
+  'portal-vue': 'PortalVue',
 };
 
 // Customize configs for individual targets

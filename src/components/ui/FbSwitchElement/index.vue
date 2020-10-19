@@ -1,7 +1,7 @@
 <template functional>
   <label
     :data-variant="props.variant"
-    class="fb-ui-switch-element__container"
+    :class="[data.class, data.staticClass, 'fb-ui-switch-element__container']"
   >
     <input
       :checked="props.status"

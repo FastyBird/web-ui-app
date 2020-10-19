@@ -2,7 +2,7 @@
   <span
     :data-variant="props.variant"
     :data-size="props.size"
-    class="fb-ui-spinner__container"
+    :class="[data.class, data.staticClass, 'fb-ui-spinner__container']"
   />
 </template>
 

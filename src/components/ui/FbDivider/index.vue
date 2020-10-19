@@ -1,7 +1,7 @@
 <template functional>
   <div
-    class="fb-ui-divider__container"
     :data-type="props.type"
+    :class="[data.class, data.staticClass, 'fb-ui-divider__container']"
   >
     <div class="fb-ui-divider__content">
       <slot />
