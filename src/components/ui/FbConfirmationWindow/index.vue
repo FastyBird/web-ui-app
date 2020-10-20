@@ -3,7 +3,7 @@
     :show-footer="false"
     :show-header="false"
     :transparent-bg="transparentBg"
-    @close="$emit('close')"
+    @close="$emit('close', $event)"
   >
     <template slot="modal-body">
       <div
@@ -25,7 +25,7 @@
               variant="link"
               size="lg"
               tabindex="2"
-              @click.prevent="$emit('confirmed')"
+              @click.prevent="$emit('confirmed', $event)"
             >
               {{ yesBtnLabel }}
             </fb-ui-button>
@@ -36,7 +36,7 @@
               :variant="buttonVariant"
               size="lg"
               tabindex="3"
-              @click.prevent="$emit('close')"
+              @click.prevent="$emit('close', $event)"
             >
               {{ noBtnLabel }}
             </fb-ui-button>
@@ -49,7 +49,7 @@
               variant="link"
               size="lg"
               tabindex="2"
-              @click.prevent="$emit('close')"
+              @click.prevent="$emit('close', $event)"
             >
               {{ noBtnLabel }}
             </fb-ui-button>
@@ -60,7 +60,7 @@
               :variant="buttonVariant"
               size="lg"
               tabindex="3"
-              @click.prevent="$emit('confirmed')"
+              @click.prevent="$emit('confirmed', $event)"
             >
               {{ yesBtnLabel }}
             </fb-ui-button>

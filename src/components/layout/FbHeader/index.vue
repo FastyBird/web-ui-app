@@ -31,7 +31,7 @@
           v-if="!menuHidden"
           :class="['fb-layout-header__button-hamburger', { 'fb-layout-header__button-hamburger-collapsed': menuCollapsed }]"
           type="button"
-          @click.prevent="$emit('toggleMenu')"
+          @click.prevent="$emit('toggleMenu', $event)"
         >
           <span class="fb-layout-header__button-hamburger-label">Toggle navigation</span>
           <span class="fb-layout-header__button-hamburger-bars">

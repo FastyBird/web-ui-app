@@ -3,7 +3,7 @@
     <a
       v-if="type === menuItemTypes.LINK"
       :href="link"
-      @click.native="$emit('click')"
+      @click.native="$emit('click', $event)"
     >
       {{ label }}
     </a>
@@ -12,14 +12,14 @@
       v-else-if="type === menuItemTypes.NUXT_LINK"
       :to="link"
       active-class="fb-layout-user-menu-item__active"
-      @click.native="$emit('click')"
+      @click.native="$emit('click', $event)"
     >
       {{ label }}
     </nuxt-link>
 
     <button
       v-else-if="type === menuItemTypes.BUTTON"
-      @click.prevent="$emit('click')"
+      @click.prevent="$emit('click', $event)"
     >
       {{ label }}
     </button>

@@ -40,7 +40,7 @@
       variant="link"
       size="lg"
       type="button"
-      @click.prevent="$emit('click')"
+      @click.prevent="$emit('click', $event)"
     >
       <span
         v-if="slotExists('icon')"

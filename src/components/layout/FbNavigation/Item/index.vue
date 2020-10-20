@@ -3,7 +3,7 @@
     <a
       v-if="type === menuItemTypes.LINK"
       :href="link"
-      @click.native="$emit('click')"
+      @click.native="$emit('click', $event)"
     >
       <span
         v-if="slotExists('icon')"
@@ -18,7 +18,7 @@
       v-else-if="type === menuItemTypes.NUXT_LINK"
       :to="link"
       active-class="fb-layout-navigation-item__active"
-      @click.native="$emit('click')"
+      @click.native="$emit('click', $event)"
     >
       <span
         v-if="slotExists('icon')"
@@ -31,7 +31,7 @@
 
     <button
       v-else-if="type === menuItemTypes.BUTTON"
-      @click.prevent="$emit('click')"
+      @click.prevent="$emit('click', $event)"
     >
       <span
         v-if="slotExists('icon')"

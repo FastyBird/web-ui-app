@@ -7,7 +7,7 @@
       <div
         v-if="!collapsed"
         class="fb-layout-sidebar__overlay"
-        @click="$emit('collapse')"
+        @click="$emit('collapse', $event)"
       />
     </transition>
 

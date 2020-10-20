@@ -3,7 +3,7 @@
     <button
       type="button"
       class="fb-ui-modal-window__close"
-      @click.prevent="$emit('close')"
+      @click.prevent="$emit('close', $event)"
     >
       <span aria-hidden="true">×</span>
       <span class="sr-only">{{ closeBtnLabel }}</span>

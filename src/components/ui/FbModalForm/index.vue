@@ -2,7 +2,7 @@
   <fb-ui-modal-window
     :size="size"
     :transparent-bg="transparentBg"
-    @close="$emit('close')"
+    @close="$emit('close', $event)"
   >
     <template slot="modal-title">
       <slot nem="icon" />
@@ -12,7 +12,7 @@
     <form
       slot="modal-body"
       class="fb-ui-modal-form__form"
-      @submit.prevent="$emit('submit')"
+      @submit.prevent="$emit('submit', $event)"
     >
       <slot name="form" />
 
@@ -40,7 +40,7 @@
           :disabled="lockButtons"
           :tabindex="(initialTabindex + 2)"
           name="close"
-          @click.prevent="$emit('close')"
+          @click.prevent="$emit('close', $event)"
         >
           {{ cancelBtnLabel }}
         </fb-ui-button>
@@ -52,7 +52,7 @@
           :disabled="lockButtons || lockSubmitButton"
           :tabindex="(initialTabindex + 1)"
           name="save"
-          @click.prevent="$emit('submit')"
+          @click.prevent="$emit('submit', $event)"
         >
           {{ submitBtnLabel }}
         </fb-ui-button>

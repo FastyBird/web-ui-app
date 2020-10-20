@@ -5,7 +5,7 @@
       :class="['fb-ui-modal-window__container', {'fb-ui-modal-window__container-transparent': transparentBg}]"
       :data-size="size"
       role="dialog"
-      @keyup.esc="$emit('close')"
+      @keyup.esc="$emit('close', $event)"
       @click="clickOverlay"
     >
       <div class="fb-ui-modal-window__window">
@@ -66,7 +66,7 @@
                     v-if="enableClosing"
                     type="button"
                     class="fb-ui-modal-window__close"
-                    @click.prevent="$emit('close')"
+                    @click.prevent="$emit('close', $event)"
                   >
                     <span aria-hidden="true">×</span>
                     <span class="sr-only">{{ closeBtnLabel }}</span>
@@ -94,7 +94,7 @@
                   <fb-ui-button
                     variant="default"
                     tabindex="2"
-                    @click.prevent="$emit('close')"
+                    @click.prevent="$emit('close', $event)"
                   >
                     {{ cancelText }}
                   </fb-ui-button>
@@ -230,7 +230,7 @@ export default defineComponent({
 
     function clickOverlay(e: Event): void {
       if (get(e, 'target.id', null) === 'fb-modal-container') {
-        context.emit('close')
+        context.emit('close', e)
       }
     }
 

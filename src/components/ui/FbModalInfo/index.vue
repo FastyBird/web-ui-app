@@ -5,7 +5,7 @@
     :transparent-bg="transparentBg"
     :enable-closing="enableClosing"
     :show-footer="enableClosing"
-    @close="$emit('close')"
+    @close="$emit('close', $event)"
   >
     <template
       v-if="slotExists('header')"
@@ -30,7 +30,7 @@
         size="lg"
         name="close"
         tabindex="2"
-        @click.prevent="$emit('close')"
+        @click.prevent="$emit('close', $event)"
       >
         {{ closeBtnLabel }}
       </fb-ui-button>

@@ -2150,7 +2150,7 @@ var __vue_render__$f = function () {
     },
     on: {
       "close": function ($event) {
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_c('template', {
@@ -2172,7 +2172,7 @@ var __vue_render__$f = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('confirmed');
+        return _vm.$emit('confirmed', $event);
       }
     }
   }, [_vm._v("\n            " + _vm._s(_vm.yesBtnLabel) + "\n          ")]) : _vm._e(), _vm._v(" "), _vm.showNo ? _c('fb-ui-button', {
@@ -2185,7 +2185,7 @@ var __vue_render__$f = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_vm._v("\n            " + _vm._s(_vm.noBtnLabel) + "\n          ")]) : _vm._e()] : [_vm.showNo ? _c('fb-ui-button', {
@@ -2198,7 +2198,7 @@ var __vue_render__$f = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_vm._v("\n            " + _vm._s(_vm.noBtnLabel) + "\n          ")]) : _vm._e(), _vm._v(" "), _vm.showYes ? _c('fb-ui-button', {
@@ -2211,7 +2211,7 @@ var __vue_render__$f = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('confirmed');
+        return _vm.$emit('confirmed', $event);
       }
     }
   }, [_vm._v("\n            " + _vm._s(_vm.yesBtnLabel) + "\n          ")]) : _vm._e()]], 2)], 2)])], 2);
@@ -2222,7 +2222,7 @@ var __vue_staticRenderFns__$f = [];
 
 const __vue_inject_styles__$f = function (inject) {
   if (!inject) return;
-  inject("data-v-ded3dd74_0", {
+  inject("data-v-0d76e3b0_0", {
     source: ".fb-ui-confirmation-window__container{text-align:center}.fb-ui-confirmation-window__container[data-variant=primary] h3{color:#d9230f}.fb-ui-confirmation-window__container[data-variant=success] h3{color:#469408}.fb-ui-confirmation-window__container[data-variant=danger] h3{color:#d9831f}.fb-ui-confirmation-window__container[data-variant=warning] h3{color:#9b479f}.fb-ui-confirmation-window__container[data-variant=info] h3{color:#029acf}.fb-ui-confirmation-window__buttons{margin-top:30px;text-align:right}.fb-ui-confirmation-window__buttons .fb-ui-button[data-variant=link]{color:grey!important}",
     map: undefined,
     media: undefined
@@ -2634,7 +2634,7 @@ var __vue_render__$k = function () {
     },
     on: {
       "close": function ($event) {
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_c('template', {
@@ -2649,7 +2649,7 @@ var __vue_render__$k = function () {
     on: {
       "submit": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('submit');
+        return _vm.$emit('submit', $event);
       }
     },
     slot: "modal-body"
@@ -2673,7 +2673,7 @@ var __vue_render__$k = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_vm._v("\n        " + _vm._s(_vm.cancelBtnLabel) + "\n      ")]), _vm._v(" "), _c('fb-ui-button', {
@@ -2688,7 +2688,7 @@ var __vue_render__$k = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('submit');
+        return _vm.$emit('submit', $event);
       }
     }
   }, [_vm._v("\n        " + _vm._s(_vm.submitBtnLabel) + "\n      ")])], 1)])], 2);
@@ -2699,7 +2699,7 @@ var __vue_staticRenderFns__$k = [];
 
 const __vue_inject_styles__$k = function (inject) {
   if (!inject) return;
-  inject("data-v-1819db34_0", {
+  inject("data-v-b35aff34_0", {
     source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}",
     map: undefined,
     media: undefined
@@ -2756,7 +2756,7 @@ var __vue_render__$l = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_c('span', {
@@ -2775,7 +2775,7 @@ var __vue_staticRenderFns__$l = [];
 
 const __vue_inject_styles__$l = function (inject) {
   if (!inject) return;
-  inject("data-v-ac576832_0", {
+  inject("data-v-9d71af5e_0", {
     source: ".fb-ui-modal-header__container{text-align:center}",
     map: undefined,
     media: undefined
@@ -2849,7 +2849,7 @@ var __vue_render__$m = function () {
     },
     on: {
       "close": function ($event) {
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_vm.slotExists('header') ? _c('template', {
@@ -2873,7 +2873,7 @@ var __vue_render__$m = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_vm._v("\n      " + _vm._s(_vm.closeBtnLabel) + "\n    ")]) : _vm._e()], 1)], 2);
@@ -2884,7 +2884,7 @@ var __vue_staticRenderFns__$m = [];
 
 const __vue_inject_styles__$m = function (inject) {
   if (!inject) return;
-  inject("data-v-cb53ea0c_0", {
+  inject("data-v-5179f464_0", {
     source: ".fb-ui-modal-info__buttons .fb-ui-button[data-variant=link]{color:grey!important}",
     map: undefined,
     media: undefined
@@ -2977,7 +2977,7 @@ var script$n = defineComponent({
 
     function clickOverlay(e) {
       if (get(e, 'target.id', null) === 'fb-modal-container') {
-        context.emit('close');
+        context.emit('close', e);
       }
     }
 
@@ -3027,7 +3027,7 @@ var __vue_render__$n = function () {
           return null;
         }
 
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       },
       "click": _vm.clickOverlay
     }
@@ -3094,7 +3094,7 @@ var __vue_render__$n = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_c('span', {
@@ -3115,7 +3115,7 @@ var __vue_render__$n = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('close');
+        return _vm.$emit('close', $event);
       }
     }
   }, [_vm._v("\n                  " + _vm._s(_vm.cancelText) + "\n                ")]), _vm._v(" "), _c('fb-ui-button', {
@@ -3131,7 +3131,7 @@ var __vue_staticRenderFns__$n = [];
 
 const __vue_inject_styles__$n = function (inject) {
   if (!inject) return;
-  inject("data-v-cb4103ca_0", {
+  inject("data-v-346773f4_0", {
     source: ".fb-ui-modal-window__container{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);transition:opacity .3s ease;z-index:9998;-webkit-overflow-scrolling:touch;overflow:hidden;overflow-y:auto;outline:0;display:flex;flex-direction:row;align-items:baseline}.fb-ui-modal-window__container-transparent{background-color:rgba(255,255,255,.5)}@media (min-width:768px){.fb-ui-modal-window__container[data-size=sm] .fb-ui-modal-window__dialog{width:30rem;max-width:90vw}}.fb-ui-modal-window__container[data-size=md] .fb-ui-modal-window__dialog{width:60rem;max-width:90vw}.fb-ui-modal-window__container[data-size=lg] .fb-ui-modal-window__dialog{width:90rem;max-width:90vw}.fb-ui-modal-window__window{margin-left:auto;margin-right:auto;padding-top:7rem;z-index:9999}.fb-ui-modal-window__dialog{position:relative;width:auto}.fb-ui-modal-window__content{position:relative;border-radius:4px;background-color:#fff;background-clip:padding-box;overflow:hidden;outline:0;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5)}@media (min-width:768px){.fb-ui-modal-window__content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5)}}.fb-ui-modal-window__header{padding:1.5rem;border-bottom:none;color:#fff;background-color:#d9230f}.fb-ui-modal-window__header h4{margin:0;line-height:1.5384615385}.fb-ui-modal-window__body{position:relative;padding:1.5rem;display:flex;flex-direction:column}.fb-ui-modal-window__close{margin-top:-2px;float:right;font-size:1.95rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{opacity:.5;filter:alpha(opacity=50)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{color:#000;text-decoration:none;cursor:pointer}.fb-ui-modal-window__footer{padding:0 1.5rem 1.5rem 1.5rem;text-align:right}.fb-ui-modal-window__loading{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:10008;height:100%;width:100%;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-window__loading-inner{margin-left:auto;margin-right:auto;width:25rem;text-align:center}.fb-ui-modal-window__loading-inner svg{width:100%;margin-bottom:2rem}.fb-ui-modal-window__loading-inner svg path.dark_color{fill:#444;fill-rule:nonzero}.fb-ui-modal-window__loading-inner svg path.brand_color{fill:#d9230f;fill-rule:nonzero}.modal-enter{opacity:0;filter:alpha(opacity=0)}.modal-leave-active{opacity:0;filter:alpha(opacity=0)}.modal-enter .fb-ui-modal-window__dialog{-webkit-transform:scale(1.1);transform:scale(1.1)}.modal-bounce-enter-active{animation:modal-bounce-in .25s}.modal-bounce-leave-active{animation:modal-bounce-in .25s reverse}@keyframes modal-bounce-in{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}",
     map: undefined,
     media: undefined
@@ -3905,7 +3905,7 @@ var __vue_render__$w = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('toggleMenu');
+        return _vm.$emit('toggleMenu', $event);
       }
     }
   }, [_c('span', {
@@ -3943,7 +3943,7 @@ var __vue_staticRenderFns__$w = [];
 
 const __vue_inject_styles__$w = function (inject) {
   if (!inject) return;
-  inject("data-v-7901f1c6_0", {
+  inject("data-v-70c2d087_0", {
     source: ".fb-layout-header__container{background-color:#d9230f;color:#fff;z-index:1030;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5)}@media (min-width:768px){.fb-layout-header__container{display:none!important}}.fb-layout-header__heading{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-header__heading-heading{flex-grow:1}.fb-layout-header__heading-button-left,.fb-layout-header__heading-button-right{-webkit-box-flex:0;-ms-flex:0 0 5rem;flex:0 0 5rem;max-width:5rem}.fb-layout-header__content{height:0;line-height:3rem;padding-left:1rem;transition:height .3s ease-in-out;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-header__content-expanded{height:3rem;transition:height .3s ease-in-out}.fb-layout-header__buttons-small{height:0;transition:height .3s ease-in-out;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-header__buttons-small-expanded{height:3rem;transition:height .3s ease-in-out}.fb-layout-header__button-hamburger{display:block;background-color:transparent;border:none;position:relative;outline:0}.fb-layout-header__button-hamburger-collapsed .fb-layout-header__button-hamburger-bars-line{width:100%}.fb-layout-header__button-hamburger-collapsed .fb-layout-header__button-hamburger-bars-x span:first-child{width:0}.fb-layout-header__button-hamburger-collapsed .fb-layout-header__button-hamburger-bars-x span:last-child{height:0}.fb-layout-header__button-hamburger-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0}.fb-layout-header__button-hamburger-bars{display:block;height:2px;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);width:22px}.fb-layout-header__button-hamburger-bars-line{background-color:#fff;border-radius:1px;display:block;height:100%;position:absolute;transition:all .1s ease-in-out 0s;right:0;width:0}.fb-layout-header__button-hamburger-bars-line-1,.fb-layout-header__button-hamburger-bars-line-4{top:-7px}.fb-layout-header__button-hamburger-bars-line-3,.fb-layout-header__button-hamburger-bars-line-6{top:7px}.fb-layout-header__button-hamburger-bars-x{height:22px;transform:translate(-50%,-50%) rotate(45deg)}.fb-layout-header__button-hamburger-bars-x span:first-child{height:2px;left:0;top:50%;transform:translateY(-50%);width:100%}.fb-layout-header__button-hamburger-bars-x span:last-child{bottom:0;left:50%;transform:translateX(-50%);width:2px}",
     map: undefined,
     media: undefined
@@ -4048,7 +4048,7 @@ var __vue_render__$x = function () {
     },
     nativeOn: {
       "click": function ($event) {
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm.slotExists('icon') ? [_vm._t("icon")] : [_vm._v("\n      " + _vm._s(_vm.label) + "\n    ")]], 2) : _vm.type === _vm.menuItemTypes.NUXT_LINK ? _c('nuxt-link', {
@@ -4066,7 +4066,7 @@ var __vue_render__$x = function () {
     },
     nativeOn: {
       "click": function ($event) {
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm.slotExists('icon') ? [_vm._t("icon")] : [_vm._v("\n      " + _vm._s(_vm.label) + "\n    ")]], 2) : _vm.type === _vm.menuItemTypes.BUTTON ? _c('button', {
@@ -4085,7 +4085,7 @@ var __vue_render__$x = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm.slotExists('icon') ? [_vm._t("icon")] : [_vm._v("\n      " + _vm._s(_vm.label) + "\n    ")]], 2) : _vm._e()], 1);
@@ -4096,7 +4096,7 @@ var __vue_staticRenderFns__$x = [];
 
 const __vue_inject_styles__$x = function (inject) {
   if (!inject) return;
-  inject("data-v-f7ec8fe4_0", {
+  inject("data-v-27e281b8_0", {
     source: ".fb-layout-header-button__container{display:block;background-color:transparent;background-image:none;border:none;line-height:6rem;font-size:2.5rem;text-align:center;text-transform:lowercase;color:#fff}.fb-layout-header-button__container-small{height:3rem;width:4rem;line-height:3rem;font-size:1.5rem}.fb-layout-header-button__container-textual{font-size:1.5rem;width:auto;padding:0 1rem}.fb-layout-header-button__container-left{order:-1}.fb-layout-header-button__container-right{order:1}",
     map: undefined,
     media: undefined
@@ -4496,7 +4496,7 @@ var __vue_render__$D = function () {
     },
     nativeOn: {
       "click": function ($event) {
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm.slotExists('icon') ? _c('span', {
@@ -4510,7 +4510,7 @@ var __vue_render__$D = function () {
     },
     nativeOn: {
       "click": function ($event) {
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm.slotExists('icon') ? _c('span', {
@@ -4521,7 +4521,7 @@ var __vue_render__$D = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm.slotExists('icon') ? _c('span', {
@@ -4536,7 +4536,7 @@ var __vue_staticRenderFns__$D = [];
 
 const __vue_inject_styles__$D = function (inject) {
   if (!inject) return;
-  inject("data-v-8f3ac6c2_0", {
+  inject("data-v-782fc635_0", {
     source: ".fb-layout-navigation-item__container>a,.fb-layout-navigation-item__container>button{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;background-color:transparent;color:grey;font-size:1.2rem;line-height:4rem;text-decoration:none;transition:all .3s;position:relative}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__container>a,.fb-layout-navigation-item__container>button{font-size:2em}}.fb-layout-navigation-item__container>button{width:100%;background-image:none;border:none;outline:0}.fb-layout-navigation-item__container:hover>a{background-color:#191919;color:#fff}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__container:hover>a :after{content:normal;display:none}}.fb-layout-navigation-item__active.nuxt-link-exact-active{background-color:#191919;color:#fff}.fb-layout-navigation-item__active.nuxt-link-exact-active:after{border-color:transparent #fff transparent transparent;border-style:solid;border-width:6px;content:\"\";height:0;pointer-events:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:0}.fb-layout-navigation-item__label{text-align:left;flex-grow:1}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__label{display:none}}.fb-layout-navigation-item__icon{-webkit-box-flex:0;-ms-flex:0 0 4rem;flex:0 0 4rem;max-width:4rem;display:block;font-size:1.2rem;line-height:4rem;text-align:center}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__icon{-webkit-box-flex:0;-ms-flex:1 0 100%;flex:1 0 100%;max-width:100%;font-size:1.5rem}}",
     map: undefined,
     media: undefined
@@ -4592,7 +4592,7 @@ var __vue_render__$E = function () {
     staticClass: "fb-layout-sidebar__overlay",
     on: {
       "click": function ($event) {
-        return _vm.$emit('collapse');
+        return _vm.$emit('collapse', $event);
       }
     }
   }) : _vm._e()]), _vm._v(" "), _c('div', {
@@ -4613,7 +4613,7 @@ var __vue_staticRenderFns__$E = [];
 
 const __vue_inject_styles__$E = function (inject) {
   if (!inject) return;
-  inject("data-v-48bdb8c4_0", {
+  inject("data-v-1b7d0f88_0", {
     source: ".fb-layout-sidebar__container{z-index:1000;width:0;height:100%;transition:width .3s}@media (min-width:768px){.fb-layout-sidebar__container{width:22rem}}@media (min-width:768px) and (max-width:1199px){.fb-layout-sidebar__container{width:6rem}}@media (max-width:767px){.fb-layout-sidebar__container{position:absolute;right:0;top:0}}.fb-layout-sidebar__inner{height:100%;background-color:#222;color:#a6a6a6;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}@media (max-width:767px){.fb-layout-sidebar__inner{transform:translateX(24rem);flex-direction:column;justify-content:space-between;min-height:100vh;top:0;right:0;overflow:auto;z-index:9999;position:fixed;width:24rem;transition:transform .3s ease-in-out}.fb-layout-sidebar__inner-open{transform:translateX(0)}}.fb-layout-sidebar__header{overflow:hidden}.fb-layout-sidebar__footer,.fb-layout-sidebar__header{height:5rem}.fb-layout-sidebar__content{flex-grow:1}.fb-layout-sidebar__overlay{height:100vh;width:100vw;top:0;right:0;z-index:9998;position:fixed;transition:transform .3s ease-in-out;background-color:rgba(0,0,0,.5)}@media (min-width:768px){.fb-layout-sidebar__overlay{display:none}}.sidebar-overlay-enter-active,.sidebar-overlay-leave-active{transition:opacity .3s ease-in-out}.sidebar-overlay-enter,.sidebar-overlay-leave-to{opacity:0}",
     map: undefined,
     media: undefined
@@ -4937,7 +4937,7 @@ var __vue_render__$J = function () {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm.slotExists('icon') ? _c('span', {
@@ -4952,7 +4952,7 @@ var __vue_staticRenderFns__$J = [];
 
 const __vue_inject_styles__$J = function (inject) {
   if (!inject) return;
-  inject("data-v-6a50c1d6_0", {
+  inject("data-v-dfd798a8_0", {
     source: ".fb-layout-tabs-item__container{flex-grow:1}.fb-layout-tabs-item__container a,.fb-layout-tabs-item__container button{height:6rem;position:relative;padding:.5rem 0 0 0!important}.fb-layout-tabs-item__container a .badge,.fb-layout-tabs-item__container button .badge{background-color:#fff;position:absolute;top:.5rem;left:50%;margin:0 0 0 1rem}.fb-layout-tabs-item__label{font-size:1.2rem;display:block}",
     map: undefined,
     media: undefined
@@ -5205,7 +5205,7 @@ var __vue_render__$M = function () {
     },
     nativeOn: {
       "click": function ($event) {
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm._v("\n    " + _vm._s(_vm.label) + "\n  ")]) : _vm.type === _vm.menuItemTypes.NUXT_LINK ? _c('nuxt-link', {
@@ -5215,14 +5215,14 @@ var __vue_render__$M = function () {
     },
     nativeOn: {
       "click": function ($event) {
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm._v("\n    " + _vm._s(_vm.label) + "\n  ")]) : _vm.type === _vm.menuItemTypes.BUTTON ? _c('button', {
     on: {
       "click": function ($event) {
         $event.preventDefault();
-        return _vm.$emit('click');
+        return _vm.$emit('click', $event);
       }
     }
   }, [_vm._v("\n    " + _vm._s(_vm.label) + "\n  ")]) : _c('span', [_vm._v("\n    " + _vm._s(_vm.label) + "\n  ")])], 1);
@@ -5233,7 +5233,7 @@ var __vue_staticRenderFns__$M = [];
 
 const __vue_inject_styles__$M = function (inject) {
   if (!inject) return;
-  inject("data-v-2c7f1826_0", {
+  inject("data-v-a782b838_0", {
     source: ".fb-layout-user-menu-item__container{color:grey;padding:.5rem 1rem;line-height:1.3333333333}.fb-layout-user-menu-item__container>a,.fb-layout-user-menu-item__container>button{background-color:transparent;background-image:none;padding:.25rem 0;margin:0;border:none;outline:0;display:block;font-weight:400;color:#444;white-space:nowrap}.fb-layout-user-menu-item__container>a:focus,.fb-layout-user-menu-item__container>a:hover,.fb-layout-user-menu-item__container>button:focus,.fb-layout-user-menu-item__container>button:hover{text-decoration:none;color:#fff;background-color:#d9230f}",
     map: undefined,
     media: undefined
