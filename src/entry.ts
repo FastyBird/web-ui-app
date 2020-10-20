@@ -62,3 +62,4 @@ export default plugin;
 export * from '@/components/forms/index';
 export * from '@/components/ui/index';
 export * from '@/components/layout/index';
+export * from '@/components/types';

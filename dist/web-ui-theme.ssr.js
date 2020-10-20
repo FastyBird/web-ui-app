@@ -411,24 +411,18 @@ var __vue_is_functional_template__$2 = false;
 var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$2,
   staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, createInjectorSSR, undefined);var FbMenuItemType;
-
-(function (FbMenuItemType) {
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, createInjectorSSR, undefined);(function (FbMenuItemType) {
   FbMenuItemType["LINK"] = "link";
   FbMenuItemType["NUXT_LINK"] = "nuxt_link";
   FbMenuItemType["BUTTON"] = "button";
   FbMenuItemType["TEXT"] = "text";
-})(FbMenuItemType || (FbMenuItemType = {}));
-
-var FbFormOrientationTypes;
+})(exports.FbMenuItemType || (exports.FbMenuItemType = {}));
 
 (function (FbFormOrientationTypes) {
   FbFormOrientationTypes["VERTICAL"] = "vertical";
   FbFormOrientationTypes["HORIZONTAL"] = "horizontal";
   FbFormOrientationTypes["INLINE"] = "inline";
-})(FbFormOrientationTypes || (FbFormOrientationTypes = {}));
-
-var FbSizeTypes;
+})(exports.FbFormOrientationTypes || (exports.FbFormOrientationTypes = {}));
 
 (function (FbSizeTypes) {
   FbSizeTypes["EXTRA_SMALL"] = "xs";
@@ -436,23 +430,23 @@ var FbSizeTypes;
   FbSizeTypes["MEDIUM"] = "md";
   FbSizeTypes["LARGE"] = "lg";
   FbSizeTypes["NONE"] = "none";
-})(FbSizeTypes || (FbSizeTypes = {}));var script$3 = compositionApi.defineComponent({
+})(exports.FbSizeTypes || (exports.FbSizeTypes = {}));var script$3 = compositionApi.defineComponent({
   name: 'FbFormField',
   props: {
     orientation: {
       type: String,
-      default: FbFormOrientationTypes.VERTICAL,
+      default: exports.FbFormOrientationTypes.VERTICAL,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbFormOrientationTypes.HORIZONTAL, FbFormOrientationTypes.VERTICAL, FbFormOrientationTypes.INLINE].includes(value);
+        return [exports.FbFormOrientationTypes.HORIZONTAL, exports.FbFormOrientationTypes.VERTICAL, exports.FbFormOrientationTypes.INLINE].includes(value);
       }
     },
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.LARGE, FbSizeTypes.MEDIUM, FbSizeTypes.SMALL].includes(value);
+        return [exports.FbSizeTypes.LARGE, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.SMALL].includes(value);
       }
     },
     name: {
@@ -558,18 +552,18 @@ var script$4 = compositionApi.defineComponent({
   props: {
     orientation: {
       type: String,
-      default: FbFormOrientationTypes.VERTICAL,
+      default: exports.FbFormOrientationTypes.VERTICAL,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbFormOrientationTypes.HORIZONTAL, FbFormOrientationTypes.VERTICAL, FbFormOrientationTypes.INLINE].includes(value);
+        return [exports.FbFormOrientationTypes.HORIZONTAL, exports.FbFormOrientationTypes.VERTICAL, exports.FbFormOrientationTypes.INLINE].includes(value);
       }
     },
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.LARGE, FbSizeTypes.MEDIUM, FbSizeTypes.SMALL].includes(value);
+        return [exports.FbSizeTypes.LARGE, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.SMALL].includes(value);
       }
     },
     name: {
@@ -749,18 +743,18 @@ var __vue_component__$4 = /*#__PURE__*/normalizeComponent({
     },
     orientation: {
       type: String,
-      default: FbFormOrientationTypes.VERTICAL,
+      default: exports.FbFormOrientationTypes.VERTICAL,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbFormOrientationTypes.VERTICAL, FbFormOrientationTypes.HORIZONTAL, FbFormOrientationTypes.INLINE].includes(value);
+        return [exports.FbFormOrientationTypes.VERTICAL, exports.FbFormOrientationTypes.HORIZONTAL, exports.FbFormOrientationTypes.INLINE].includes(value);
       }
     },
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.LARGE, FbSizeTypes.MEDIUM, FbSizeTypes.SMALL].includes(value);
+        return [exports.FbSizeTypes.LARGE, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.SMALL].includes(value);
       }
     },
     required: {
@@ -985,18 +979,18 @@ var __vue_component__$7 = /*#__PURE__*/normalizeComponent({
   props: {
     orientation: {
       type: String,
-      default: FbFormOrientationTypes.VERTICAL,
+      default: exports.FbFormOrientationTypes.VERTICAL,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbFormOrientationTypes.HORIZONTAL, FbFormOrientationTypes.VERTICAL, FbFormOrientationTypes.INLINE].includes(value);
+        return [exports.FbFormOrientationTypes.HORIZONTAL, exports.FbFormOrientationTypes.VERTICAL, exports.FbFormOrientationTypes.INLINE].includes(value);
       }
     },
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.LARGE, FbSizeTypes.MEDIUM, FbSizeTypes.SMALL].includes(value);
+        return [exports.FbSizeTypes.LARGE, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.SMALL].includes(value);
       }
     },
     name: {
@@ -1184,18 +1178,18 @@ var __vue_component__$8 = /*#__PURE__*/normalizeComponent({
   props: {
     orientation: {
       type: String,
-      default: FbFormOrientationTypes.VERTICAL,
+      default: exports.FbFormOrientationTypes.VERTICAL,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbFormOrientationTypes.HORIZONTAL, FbFormOrientationTypes.VERTICAL, FbFormOrientationTypes.INLINE].includes(value);
+        return [exports.FbFormOrientationTypes.HORIZONTAL, exports.FbFormOrientationTypes.VERTICAL, exports.FbFormOrientationTypes.INLINE].includes(value);
       }
     },
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.LARGE, FbSizeTypes.MEDIUM, FbSizeTypes.SMALL].includes(value);
+        return [exports.FbSizeTypes.LARGE, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.SMALL].includes(value);
       }
     },
     name: {
@@ -1469,10 +1463,10 @@ var script$b = compositionApi.defineComponent({
     },
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.EXTRA_SMALL, FbSizeTypes.SMALL, FbSizeTypes.MEDIUM, FbSizeTypes.LARGE].includes(value);
+        return [exports.FbSizeTypes.EXTRA_SMALL, exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     },
     variant: {
@@ -1791,10 +1785,10 @@ var script$f = compositionApi.defineComponent({
   props: {
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.SMALL, FbSizeTypes.MEDIUM, FbSizeTypes.LARGE].includes(value);
+        return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     },
     primaryButton: {
@@ -1979,7 +1973,7 @@ var __vue_component__$f = /*#__PURE__*/normalizeComponent({
   staticRenderFns: __vue_staticRenderFns__$f
 }, __vue_inject_styles__$f, __vue_script__$f, __vue_scope_id__$f, __vue_is_functional_template__$f, __vue_module_identifier__$f, false, undefined, createInjectorSSR, undefined);function sizeValidator(value) {
   // The value must match one of these strings
-  return [FbSizeTypes.LARGE, FbSizeTypes.MEDIUM, FbSizeTypes.SMALL, FbSizeTypes.EXTRA_SMALL, FbSizeTypes.NONE].includes(value);
+  return [exports.FbSizeTypes.LARGE, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.SMALL, exports.FbSizeTypes.EXTRA_SMALL, exports.FbSizeTypes.NONE].includes(value);
 }
 
 var script$g = compositionApi.defineComponent({
@@ -1987,62 +1981,62 @@ var script$g = compositionApi.defineComponent({
   props: {
     mt: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     mb: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     ml: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     mr: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     mv: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     mh: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     pt: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     pb: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     pl: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     pr: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     pv: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     },
     ph: {
       type: String,
-      default: FbSizeTypes.NONE,
+      default: exports.FbSizeTypes.NONE,
       validator: sizeValidator
     }
   },
@@ -2052,11 +2046,11 @@ var script$g = compositionApi.defineComponent({
     var margins = ['mt', 'mb', 'ml', 'mr', 'mv', 'mh'];
     var paddings = ['pt', 'pb', 'pl', 'pr', 'pv', 'ph'];
     Object.keys(props).forEach(function (key) {
-      if (margins.includes(key) && props[key] !== FbSizeTypes.NONE) {
+      if (margins.includes(key) && props[key] !== exports.FbSizeTypes.NONE) {
         classNames.push("fb-ui-content-".concat(key, "-").concat(props[key]));
       }
 
-      if (paddings.includes(key) && props[key] !== FbSizeTypes.NONE) {
+      if (paddings.includes(key) && props[key] !== exports.FbSizeTypes.NONE) {
         classNames.push("fb-ui-content-".concat(key, "-").concat(props[key]));
       }
     });
@@ -2257,10 +2251,10 @@ var __vue_component__$j = /*#__PURE__*/normalizeComponent({
   props: {
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.SMALL, FbSizeTypes.MEDIUM, FbSizeTypes.LARGE].includes(value);
+        return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     },
     submitBtnLabel: {
@@ -2462,10 +2456,10 @@ var __vue_component__$l = /*#__PURE__*/normalizeComponent({
   props: {
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.SMALL, FbSizeTypes.MEDIUM, FbSizeTypes.LARGE].includes(value);
+        return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     },
     enableClosing: {
@@ -2565,10 +2559,10 @@ var __vue_component__$m = /*#__PURE__*/normalizeComponent({
   props: {
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.SMALL, FbSizeTypes.MEDIUM, FbSizeTypes.LARGE].includes(value);
+        return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     },
     title: {
@@ -2990,10 +2984,10 @@ var script$r = compositionApi.defineComponent({
     },
     size: {
       type: String,
-      default: FbSizeTypes.MEDIUM,
+      default: exports.FbSizeTypes.MEDIUM,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbSizeTypes.SMALL, FbSizeTypes.MEDIUM, FbSizeTypes.LARGE].includes(value);
+        return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     }
   }
@@ -3477,7 +3471,7 @@ var __vue_component__$w = /*#__PURE__*/normalizeComponent({
       required: true,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbMenuItemType.BUTTON, FbMenuItemType.LINK, FbMenuItemType.NUXT_LINK].includes(value);
+        return [exports.FbMenuItemType.BUTTON, exports.FbMenuItemType.LINK, exports.FbMenuItemType.NUXT_LINK].includes(value);
       }
     },
     label: {
@@ -3512,7 +3506,7 @@ var __vue_component__$w = /*#__PURE__*/normalizeComponent({
 
     return {
       portalName: portalName,
-      menuItemTypes: FbMenuItemType
+      menuItemTypes: exports.FbMenuItemType
     };
   }
 });/* script */
@@ -3917,7 +3911,7 @@ var __vue_component__$C = /*#__PURE__*/normalizeComponent({
       required: true,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbMenuItemType.BUTTON, FbMenuItemType.LINK, FbMenuItemType.NUXT_LINK].includes(value);
+        return [exports.FbMenuItemType.BUTTON, exports.FbMenuItemType.LINK, exports.FbMenuItemType.NUXT_LINK].includes(value);
       }
     },
     label: {
@@ -3931,7 +3925,7 @@ var __vue_component__$C = /*#__PURE__*/normalizeComponent({
   },
   setup: function setup() {
     return {
-      menuItemTypes: FbMenuItemType
+      menuItemTypes: exports.FbMenuItemType
     };
   }
 });/* script */
@@ -4250,7 +4244,7 @@ var __vue_component__$I = /*#__PURE__*/normalizeComponent({
       required: true,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbMenuItemType.BUTTON, FbMenuItemType.LINK, FbMenuItemType.NUXT_LINK].includes(value);
+        return [exports.FbMenuItemType.BUTTON, exports.FbMenuItemType.LINK, exports.FbMenuItemType.NUXT_LINK].includes(value);
       }
     },
     label: {
@@ -4268,7 +4262,7 @@ var __vue_component__$I = /*#__PURE__*/normalizeComponent({
   },
   setup: function setup() {
     return {
-      menuItemTypes: FbMenuItemType
+      menuItemTypes: exports.FbMenuItemType
     };
   }
 });/* script */
@@ -4502,7 +4496,7 @@ var __vue_component__$L = /*#__PURE__*/normalizeComponent({
       required: true,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbMenuItemType.BUTTON, FbMenuItemType.LINK, FbMenuItemType.NUXT_LINK, FbMenuItemType.TEXT].includes(value);
+        return [exports.FbMenuItemType.BUTTON, exports.FbMenuItemType.LINK, exports.FbMenuItemType.NUXT_LINK, exports.FbMenuItemType.TEXT].includes(value);
       }
     },
     label: {
@@ -4516,7 +4510,7 @@ var __vue_component__$L = /*#__PURE__*/normalizeComponent({
   },
   setup: function setup() {
     return {
-      menuItemTypes: FbMenuItemType
+      menuItemTypes: exports.FbMenuItemType
     };
   }
 });/* script */
