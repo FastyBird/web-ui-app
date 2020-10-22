@@ -2185,7 +2185,7 @@ var __vue_staticRenderFns__$i = [];
 var __vue_inject_styles__$i = function __vue_inject_styles__(inject) {
   if (!inject) return;
   inject("data-v-5abfffc2_0", {
-    source: ".fb-ui-icon-with-child__container{display:inline-block;position:relative}.fb-ui-icon-with-child-child-icon{display:block;bottom:0;position:absolute;right:0;z-index:2;border-radius:50%;color:#fff;background-color:#d9230f;font-size:1rem;-webkit-box-shadow:0 0 0 2px #fff;box-shadow:0 0 0 2px #fff}",
+    source: ".fb-ui-icon-with-child__container{display:inline-block;position:relative}.fb-ui-icon-with-child__child-icon{display:block;bottom:0;position:absolute;right:0;z-index:2;border-radius:50%;color:#fff;background-color:#d9230f;font-size:1rem;-webkit-box-shadow:0 0 0 2px #fff;box-shadow:0 0 0 2px #fff}",
     map: undefined,
     media: undefined
   });
