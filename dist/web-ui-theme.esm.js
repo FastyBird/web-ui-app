@@ -3303,7 +3303,7 @@ var __vue_staticRenderFns__$q = [];
 const __vue_inject_styles__$q = function (inject) {
   if (!inject) return;
   inject("data-v-412ec0d2_0", {
-    source: ".fb-ui-no-results__container{display:inline-block;position:relative}.fb-ui-no-results__container .fb-ui-icon-with-child__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-ui-icon-with-child__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
+    source: ".fb-ui-no-results__container{display:inline-block;position:relative;text-align:center}.fb-ui-no-results__container .fb-ui-icon-with-child__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-ui-icon-with-child__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
     map: undefined,
     media: undefined
   });
