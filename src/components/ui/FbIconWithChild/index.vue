@@ -1,8 +1,10 @@
 <template functional>
   <span :class="[data.class, data.staticClass, 'fb-icon-with-child__container']">
-    <slot name="icon" />
+    <span class="fb-icon-with-child__icon">
+      <slot name="icon" />
+    </span>
 
-    <span class="fb-icon-with-child__container-child">
+    <span class="fb-icon-with-child__child-icon">
       <slot name="child-icon" />
     </span>
   </span>

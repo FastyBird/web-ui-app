@@ -1,0 +1,30 @@
+@import "../../../assets/components/ui/fb-no-results";
+
+.fb-no-results {
+  &__container {
+    display: inline-block;
+    position: relative;
+
+    .fb-icon-with-child {
+      &__container {
+        &__icon {
+          color: $icon-color;
+          font-size: 5em;
+          margin: $icon-margin;
+        }
+
+        &__child-icon {
+          font-size: 1.6rem;
+          height: 3.2rem;
+          width: 3.2rem;
+          line-height: 3.2rem;
+          text-align: center;
+        }
+      }
+    }
+
+    p {
+      margin: $text-margin;
+    }
+  }
+}
