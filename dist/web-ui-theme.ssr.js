@@ -2902,7 +2902,7 @@ var __vue_render__$q = function __vue_render__() {
   }, [_vm.slotExists('second-icon') ? _c('fb-ui-icon-with-child', [_c('template', {
     slot: "icon"
   }, [_vm._t("icon")], 2), _vm._v(" "), _c('template', {
-    slot: "second-icon"
+    slot: "child-icon"
   }, [_vm._t("second-icon")], 2)], 2) : [_vm._t("icon")], _vm._ssrNode(" "), _vm._ssrNode("<p>", "</p>", [_vm._t("default")], 2)], 2);
 };
 
@@ -2911,8 +2911,8 @@ var __vue_staticRenderFns__$q = [];
 
 var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-34380b62_0", {
-    source: ".fb-ui-no-results__container{display:inline-block;position:relative}.fb-ui-no-results__container .fb-ui-icon-with-child__container__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-ui-icon-with-child__container__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
+  inject("data-v-412ec0d2_0", {
+    source: ".fb-ui-no-results__container{display:inline-block;position:relative}.fb-ui-no-results__container .fb-ui-icon-with-child__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-ui-icon-with-child__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
     map: undefined,
     media: undefined
   });
@@ -2923,7 +2923,7 @@ var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$q = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$q = "data-v-34380b62";
+var __vue_module_identifier__$q = "data-v-412ec0d2";
 /* functional template */
 
 var __vue_is_functional_template__$q = false;

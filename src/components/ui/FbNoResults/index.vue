@@ -5,7 +5,7 @@
         <slot name="icon" />
       </template>
 
-      <template slot="second-icon">
+      <template slot="child-icon">
         <slot name="second-icon" />
       </template>
     </fb-ui-icon-with-child>
