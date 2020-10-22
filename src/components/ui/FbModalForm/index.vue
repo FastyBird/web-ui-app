@@ -4,7 +4,17 @@
     :transparent-bg="transparentBg"
     @close="$emit('close', $event)"
   >
-    <template slot="modal-title">
+    <template
+      v-if="slotExists('modal-header')"
+      slot="modal-header"
+    >
+      <slot name="modal-header" />
+    </template>
+
+    <template
+      v-else
+      slot="modal-title"
+    >
       <slot name="icon" />
       <slot name="header" />
     </template>
