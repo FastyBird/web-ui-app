@@ -1,0 +1,62 @@
+@import "../../../assets/components/layout/fb-phone-menu";
+
+.fb-layout-phone-menu {
+  &__container {
+
+  }
+
+  &__backdrop {
+    z-index: $z-index;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $backdrop-background-color;
+  }
+
+  &__items {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: ($z-index + 1);
+    width: 100%;
+    background: $items-background-color;
+    box-sizing: border-box;
+
+    @include items-border-radius;
+  }
+
+  &__heading {
+    border-bottom: 1px solid $heading-border-color;
+    line-height: $heading-line-height;
+    padding: $heading-padding;
+    margin: $heading-margin;
+  }
+
+  &__cancel {
+    text-align: center;
+    border-top: 1px solid $close-button-border-color;
+    padding: $close-button-padding;
+  }
+}
+
+.fb-phone-menu-backdrop-enter-active,
+.fb-phone-menu-backdrop-leave-active {
+  transition: all .35s;
+}
+
+.fb-phone-menu-backdrop-enter,
+.fb-phone-menu-backdrop-leave-to {
+  opacity: 0;
+}
+
+.fb-phone-menu-items-enter-active,
+.fb-phone-menu-items-leave-active {
+  transition: all .35s;
+}
+
+.fb-phone-menu-items-enter,
+.fb-phone-menu-items-leave-to {
+  transform: translate3d(0, 100%, 0);
+}

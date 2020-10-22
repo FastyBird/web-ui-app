@@ -48,6 +48,7 @@ export const FbLayoutHeaderSpacer: VueConstructor<Vue>;
 export const FbLayoutNavigation: VueConstructor<Vue>;
 export const FbLayoutNavigationDivider: VueConstructor<Vue>;
 export const FbLayoutNavigationItem: VueConstructor<Vue>;
+export const FbLayoutLayoutPhoneMenu: VueConstructor<Vue>;
 export const FbLayoutSidebar: VueConstructor<Vue>;
 export const FbLayoutSignBox: VueConstructor<Vue>;
 export const FbLayoutSignFooter: VueConstructor<Vue>;

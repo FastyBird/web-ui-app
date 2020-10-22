@@ -45,6 +45,7 @@ export { default as FbLayoutHeaderSpacer } from './layout/FbHeader/Spacer/index.
 export { default as FbLayoutNavigation } from './layout/FbNavigation/index.vue'
 export { default as FbLayoutNavigationDivider } from './layout/FbNavigation/Divider/index.vue'
 export { default as FbLayoutNavigationItem } from './layout/FbNavigation/Item/index.vue'
+export { default as FbLayoutLayoutPhoneMenu } from './layout/FbPhoneMenu/index.vue'
 export { default as FbLayoutSidebar } from './layout/FbSidebar/index.vue'
 export { default as FbLayoutSignBox } from './layout/FbSignBox/index.vue'
 export { default as FbLayoutSignFooter } from './layout/FbSignFooter/index.vue'
