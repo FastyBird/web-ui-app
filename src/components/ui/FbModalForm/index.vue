@@ -48,7 +48,17 @@
       </div>
     </form>
 
-    <template slot="modal-footer">
+    <template
+      v-if="slotExists('modal-footer')"
+      slot="modal-footer"
+    >
+      <slot name="modal-footer" />
+    </template>
+
+    <template
+      v-else
+      slot="modal-footer"
+    >
       <div class="fb-ui-modal-form__buttons">
         <fb-ui-button
           uppercase
