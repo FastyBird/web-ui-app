@@ -1,0 +1,9 @@
+@import "../../../assets/mixins/utilities";
+
+$child-color:                         #ffffff;
+$child-background-color:              #d9230f;
+$child-font-size:                     1rem;
+
+@mixin child-shadow {
+  @include box-shadow(0 0 0 2px #fff);
+}

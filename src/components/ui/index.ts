@@ -6,6 +6,7 @@ export { default as FbUiComponentLoadingError } from './FbComponentLoadingError/
 export { default as FbUiConfirmationWindow } from './FbConfirmationWindow/index.vue'
 export { default as FbUiContent } from './FbContent/index.vue'
 export { default as FbUiDivider } from './FbDivider/index.vue'
+export { default as FbUiIconWithChild } from './FbIconWithChild/index.vue'
 export { default as FbUiLoadingBox } from './FbLoadingBox/index.vue'
 export { default as FbUiMediaItem } from './FbMediaItem/index.vue'
 export { default as FbUiModalForm } from './FbModalForm/index.vue'

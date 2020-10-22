@@ -23,6 +23,7 @@ export const FbUiComponentLoadingError: VueConstructor<Vue>;
 export const FbUiConfirmationWindow: VueConstructor<Vue>;
 export const FbUiContent: VueConstructor<Vue>;
 export const FbUiDivider: VueConstructor<Vue>;
+export const FbUiIconWithChild: VueConstructor<Vue>;
 export const FbUiLoadingBox: VueConstructor<Vue>;
 export const FbUiMediaItem: VueConstructor<Vue>;
 export const FbUiModalForm: VueConstructor<Vue>;

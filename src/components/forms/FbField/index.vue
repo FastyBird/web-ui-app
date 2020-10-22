@@ -25,11 +25,11 @@
           v-if="slotExists('left-addon')"
           class="fb-form-field__input-group-addon fb-form-field__input-group-addon-left"
         >
-          <slot name="left-addon"/>
+          <slot name="left-addon" />
         </span>
 
         <span class="fb-form-field__grouped-input-field">
-          <slot name="field"/>
+          <slot name="field" />
 
           <span
             v-if="error !== null"
@@ -60,13 +60,13 @@
           v-if="slotExists('right-addon')"
           class="fb-form-field__input-group-addon fb-form-field__input-group-addon-right"
         >
-          <slot name="right-addon"/>
+          <slot name="right-addon" />
         </span>
       </div>
 
       <template v-else>
         <span class="fb-form-field__input-field">
-          <slot name="field"/>
+          <slot name="field" />
 
           <span
             v-if="error !== null"
@@ -99,7 +99,7 @@
         class="fb-form-field__help"
       >
         <small>
-          <slot name="help-line"/>
+          <slot name="help-line" />
         </small>
       </p>
     </div>

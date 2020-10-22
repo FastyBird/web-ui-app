@@ -1,0 +1,23 @@
+@import "../../../assets/components/ui/fb-icon-with-child";
+
+.fb-icon-with-child {
+  &__container {
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+
+    &-child {
+      display: block;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+      border-radius: 50%;
+      color: $child-color;
+      background-color: $child-background-color;
+      font-size: $child-font-size;
+
+      @include child-shadow;
+    }
+  }
+}

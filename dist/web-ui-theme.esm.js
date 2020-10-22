@@ -647,7 +647,7 @@ var __vue_staticRenderFns__$3 = [];
 
 const __vue_inject_styles__$3 = function (inject) {
   if (!inject) return;
-  inject("data-v-70672f88_0", {
+  inject("data-v-2516d004_0", {
     source: ".fb-form-field__container{position:relative}.fb-form-field__container input[type=checkbox],.fb-form-field__container input[type=radio]{margin:.4rem 0 0;margin-top:.1rem\\9;line-height:normal}.fb-form-field__container input[type=file]{display:block}.fb-form-field__container input[type=range]{display:block;width:100%}.fb-form-field__container select[multiple],.fb-form-field__container select[size],.fb-form-field__container textarea{height:auto}.fb-form-field__container[data-error=true] label{color:#d9831f}.fb-form-field__container[data-error=true] input,.fb-form-field__container[data-error=true] select,.fb-form-field__container[data-error=true] textarea{border-color:#d9831f;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.fb-form-field__container[data-error=true] input:focus,.fb-form-field__container[data-error=true] select:focus,.fb-form-field__container[data-error=true] textarea:focus{border-color:#ac6819;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ebb473;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ebb473}.fb-form-field__container[data-error=true] input[placeholder]::-moz-placeholder{color:#d9831f;opacity:1;filter:alpha(opacity=100)}.fb-form-field__container[data-error=true] input[placeholder]:-ms-input-placeholder{color:#d9831f}.fb-form-field__container[data-error=true] input[placeholder]::-webkit-input-placeholder{color:#d9831f}@media (min-width:768px){.fb-form-field__container[data-orientation=inline]{display:inline-block;margin-bottom:0;vertical-align:middle}}.fb-form-field__container[data-orientation=inline] .fb-form-field__input-group{display:inline-table;vertical-align:middle}.fb-form-field__container[data-orientation=inline] .fb-form-field__input-group>input{width:100%}.fb-form-field__container[data-orientation=horizontal]{margin:0 1.5rem}.fb-form-field__container[data-size=sm] input,.fb-form-field__container[data-size=sm] select,.fb-form-field__container[data-size=sm] textarea{height:2.5rem;padding:0 1.5rem;font-size:1.3rem;line-height:2.5rem;border-top-right-radius:2px;border-top-left-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px}.fb-form-field__container[data-size=sm] select{height:2.5rem;line-height:2.5rem}.fb-form-field__container[data-size=md] input,.fb-form-field__container[data-size=md] select,.fb-form-field__container[data-size=md] textarea{height:3.4rem;padding:0 1rem;font-size:1.5rem;line-height:3.4rem;border-top-right-radius:3px;border-top-left-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px}.fb-form-field__container[data-size=md] select{height:4.5rem;line-height:4.5rem}.fb-form-field__container[data-size=md] select[multiple],.fb-form-field__container[data-size=md] textarea{height:auto}.fb-form-field__container[data-size=lg] input,.fb-form-field__container[data-size=lg] select,.fb-form-field__container[data-size=lg] textarea{height:4.5rem;padding:0 1.5rem;font-size:2.5rem;line-height:4.5rem;border-top-right-radius:4px;border-top-left-radius:4px;border-bottom-right-radius:4px;border-bottom-left-radius:4px}.fb-form-field__container[data-size=lg] select{height:4.5rem;line-height:4.5rem}.fb-form-field__container[data-size=lg] select[multiple],.fb-form-field__container[data-size=lg] textarea{height:auto}.fb-form-field__input-group{position:relative;display:table;border-collapse:separate}.fb-form-field__input-group input,.fb-form-field__input-group textarea{display:table-cell;position:relative;z-index:2;float:left;width:100%;margin-bottom:0}.fb-form-field__input-group input:focus,.fb-form-field__input-group textarea:focus{z-index:3}.fb-form-field__input-group span:last-child input,.fb-form-field__input-group span:last-child textarea{border-bottom-left-radius:0;border-top-left-radius:0;border-bottom-right-radius:3px;border-top-right-radius:3px}.fb-form-field__input-group span:first-child input,.fb-form-field__input-group span:first-child textarea{border-bottom-left-radius:3px;border-top-left-radius:3px;border-bottom-right-radius:0;border-top-right-radius:0}.fb-form-field__input-group .fb-form-field__input-group-addon{display:table-cell;width:1%;white-space:nowrap;vertical-align:middle;padding:0 1rem;font-size:1.5rem;font-weight:400;line-height:1;color:#777;text-align:center;background-color:#ddd}.fb-form-field__input-group .fb-form-field__input-group-addon-left{border-bottom-left-radius:3px;border-top-left-radius:3px;border:1px solid #ddd;border-right:0}.fb-form-field__input-group .fb-form-field__input-group-addon-right{border-bottom-right-radius:3px;border-top-right-radius:3px;border:1px solid #ddd;border-left:0}.fb-form-field__grouped-input-field{display:table-cell;position:relative}.fb-form-field__input-field{display:block;position:relative}.fb-form-field__input-feedback{position:absolute;top:0;right:0;z-index:2;display:block;width:3.4rem;height:3.4rem;line-height:3.4rem;text-align:center;pointer-events:none;padding:.5rem .8rem .8rem .8rem}.fb-form-field__input-feedback svg{fill:#d9831f}.fb-form-field__help{display:block;color:#b7b7b7;margin:5px 0 10px;text-align:justify}",
     map: undefined,
     media: undefined
@@ -2461,7 +2461,7 @@ const __vue_component__$h = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$h, __vue_script__$h, __vue_scope_id__$h, __vue_is_functional_template__$h, __vue_module_identifier__$h, false, createInjector, undefined, undefined);
 
 var script$i = defineComponent({
-  name: 'FbUiLoadingBox'
+  name: 'FbIconWithChild'
 });
 
 /* script */
@@ -2470,15 +2470,11 @@ const __vue_script__$i = script$i;
 
 var __vue_render__$i = function (_h, _vm) {
   var _c = _vm._c;
-  return _c('div', {
-    class: [_vm.data.class, _vm.data.staticClass, 'fb-ui-loading-box__container']
-  }, [_c('fb-ui-spinner', {
-    attrs: {
-      "size": "lg"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "fb-ui-loading-box__spinner"
-  }, [_vm._t("default")], 2)], 1);
+  return _c('span', {
+    class: [_vm.data.class, _vm.data.staticClass, 'fb-icon-with-child__container']
+  }, [_vm._t("icon"), _vm._v(" "), _c('span', {
+    staticClass: "fb-icon-with-child__container-child"
+  }, [_vm._t("child-icon")], 2)], 2);
 };
 
 var __vue_staticRenderFns__$i = [];
@@ -2486,8 +2482,8 @@ var __vue_staticRenderFns__$i = [];
 
 const __vue_inject_styles__$i = function (inject) {
   if (!inject) return;
-  inject("data-v-66e4bf99_0", {
-    source: ".fb-ui-loading-box__container{text-align:center;padding:3rem}",
+  inject("data-v-e3851966_0", {
+    source: ".fb-icon-with-child__container{display:inline-block;line-height:1;position:relative}.fb-icon-with-child__container-child{display:block;bottom:0;position:absolute;right:0;z-index:2;border-radius:50%;color:#fff;background-color:#d9230f;font-size:1rem;-webkit-box-shadow:0 0 0 2px #fff;box-shadow:0 0 0 2px #fff}",
     map: undefined,
     media: undefined
   });
@@ -2512,14 +2508,65 @@ const __vue_component__$i = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$i, __vue_script__$i, __vue_scope_id__$i, __vue_is_functional_template__$i, __vue_module_identifier__$i, false, createInjector, undefined, undefined);
 
 var script$j = defineComponent({
-  name: 'FbUiMediaItem'
+  name: 'FbUiLoadingBox'
 });
 
 /* script */
 const __vue_script__$j = script$j;
 /* template */
 
-var __vue_render__$j = function () {
+var __vue_render__$j = function (_h, _vm) {
+  var _c = _vm._c;
+  return _c('div', {
+    class: [_vm.data.class, _vm.data.staticClass, 'fb-ui-loading-box__container']
+  }, [_c('fb-ui-spinner', {
+    attrs: {
+      "size": "lg"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "fb-ui-loading-box__spinner"
+  }, [_vm._t("default")], 2)], 1);
+};
+
+var __vue_staticRenderFns__$j = [];
+/* style */
+
+const __vue_inject_styles__$j = function (inject) {
+  if (!inject) return;
+  inject("data-v-66e4bf99_0", {
+    source: ".fb-ui-loading-box__container{text-align:center;padding:3rem}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$j = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$j = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$j = true;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$j = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$j,
+  staticRenderFns: __vue_staticRenderFns__$j
+}, __vue_inject_styles__$j, __vue_script__$j, __vue_scope_id__$j, __vue_is_functional_template__$j, __vue_module_identifier__$j, false, createInjector, undefined, undefined);
+
+var script$k = defineComponent({
+  name: 'FbUiMediaItem'
+});
+
+/* script */
+const __vue_script__$k = script$k;
+/* template */
+
+var __vue_render__$k = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -2541,10 +2588,10 @@ var __vue_render__$j = function () {
   }, [_vm._t("right")], 2) : _vm._e()]);
 };
 
-var __vue_staticRenderFns__$j = [];
+var __vue_staticRenderFns__$k = [];
 /* style */
 
-const __vue_inject_styles__$j = function (inject) {
+const __vue_inject_styles__$k = function (inject) {
   if (!inject) return;
   inject("data-v-f73bbb08_0", {
     source: ".fb-ui-media-item__container{zoom:1;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row}.fb-ui-media-item__left,.fb-ui-media-item__right{text-align:center;-webkit-box-flex:0;-ms-flex:0 0 5.5rem;flex:0 0 5.5rem;max-width:5.5rem}.fb-ui-media-item__body{-webkit-box-flex:0;-ms-flex:4 0 0;flex:4 0 0}.fb-ui-media-item__body>h3{font-weight:300;font-size:2.5rem;line-height:2.5rem;margin:1rem 0 0 0}",
@@ -2555,23 +2602,23 @@ const __vue_inject_styles__$j = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$j = undefined;
+const __vue_scope_id__$k = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$j = undefined;
+const __vue_module_identifier__$k = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$j = false;
+const __vue_is_functional_template__$k = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$j = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$j,
-  staticRenderFns: __vue_staticRenderFns__$j
-}, __vue_inject_styles__$j, __vue_script__$j, __vue_scope_id__$j, __vue_is_functional_template__$j, __vue_module_identifier__$j, false, createInjector, undefined, undefined);
+const __vue_component__$k = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$k,
+  staticRenderFns: __vue_staticRenderFns__$k
+}, __vue_inject_styles__$k, __vue_script__$k, __vue_scope_id__$k, __vue_is_functional_template__$k, __vue_module_identifier__$k, false, createInjector, undefined, undefined);
 
-var script$k = defineComponent({
+var script$l = defineComponent({
   name: 'FbUiModalForm',
   props: {
     size: {
@@ -2623,10 +2670,10 @@ var script$k = defineComponent({
 });
 
 /* script */
-const __vue_script__$k = script$k;
+const __vue_script__$l = script$l;
 /* template */
 
-var __vue_render__$k = function () {
+var __vue_render__$l = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -2704,10 +2751,10 @@ var __vue_render__$k = function () {
   }, [_vm._v("\n        " + _vm._s(_vm.submitBtnLabel) + "\n      ")])], 1)])], 2);
 };
 
-var __vue_staticRenderFns__$k = [];
+var __vue_staticRenderFns__$l = [];
 /* style */
 
-const __vue_inject_styles__$k = function (inject) {
+const __vue_inject_styles__$l = function (inject) {
   if (!inject) return;
   inject("data-v-475000bc_0", {
     source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result .fb-ui-spinner__container,.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}.fb-ui-modal-form__result .fb-ui-spinner__container{width:10rem;height:10rem}.fb-ui-modal-form__result .fb-ui-spinner__container:after,.fb-ui-modal-form__result .fb-ui-spinner__container:before{width:10rem;height:10rem;margin:-5rem 0 0 -5rem;border-width:4px}",
@@ -2718,23 +2765,23 @@ const __vue_inject_styles__$k = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$k = undefined;
+const __vue_scope_id__$l = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$k = undefined;
+const __vue_module_identifier__$l = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$k = false;
+const __vue_is_functional_template__$l = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$k = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$k,
-  staticRenderFns: __vue_staticRenderFns__$k
-}, __vue_inject_styles__$k, __vue_script__$k, __vue_scope_id__$k, __vue_is_functional_template__$k, __vue_module_identifier__$k, false, createInjector, undefined, undefined);
+const __vue_component__$l = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$l,
+  staticRenderFns: __vue_staticRenderFns__$l
+}, __vue_inject_styles__$l, __vue_script__$l, __vue_scope_id__$l, __vue_is_functional_template__$l, __vue_module_identifier__$l, false, createInjector, undefined, undefined);
 
-var script$l = defineComponent({
+var script$m = defineComponent({
   name: 'FbUiModalHeader',
   props: {
     closeBtnLabel: {
@@ -2746,10 +2793,10 @@ var script$l = defineComponent({
 });
 
 /* script */
-const __vue_script__$l = script$l;
+const __vue_script__$m = script$m;
 /* template */
 
-var __vue_render__$l = function () {
+var __vue_render__$m = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -2780,10 +2827,10 @@ var __vue_render__$l = function () {
   }, [_vm._t("icon"), _vm._v(" "), _c('h4', [_vm._t("heading")], 2), _vm._v(" "), _vm.slotExists('description') ? _c('small', [_vm._t("description")], 2) : _vm._e()], 2)]);
 };
 
-var __vue_staticRenderFns__$l = [];
+var __vue_staticRenderFns__$m = [];
 /* style */
 
-const __vue_inject_styles__$l = function (inject) {
+const __vue_inject_styles__$m = function (inject) {
   if (!inject) return;
   inject("data-v-9d71af5e_0", {
     source: ".fb-ui-modal-header__container{text-align:center}",
@@ -2794,23 +2841,23 @@ const __vue_inject_styles__$l = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$l = undefined;
+const __vue_scope_id__$m = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$l = undefined;
+const __vue_module_identifier__$m = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$l = false;
+const __vue_is_functional_template__$m = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$l = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$l,
-  staticRenderFns: __vue_staticRenderFns__$l
-}, __vue_inject_styles__$l, __vue_script__$l, __vue_scope_id__$l, __vue_is_functional_template__$l, __vue_module_identifier__$l, false, createInjector, undefined, undefined);
+const __vue_component__$m = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$m,
+  staticRenderFns: __vue_staticRenderFns__$m
+}, __vue_inject_styles__$m, __vue_script__$m, __vue_scope_id__$m, __vue_is_functional_template__$m, __vue_module_identifier__$m, false, createInjector, undefined, undefined);
 
-var script$m = defineComponent({
+var script$n = defineComponent({
   name: 'FbUiModalInfo',
   props: {
     size: {
@@ -2839,10 +2886,10 @@ var script$m = defineComponent({
 });
 
 /* script */
-const __vue_script__$m = script$m;
+const __vue_script__$n = script$n;
 /* template */
 
-var __vue_render__$m = function () {
+var __vue_render__$n = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -2889,10 +2936,10 @@ var __vue_render__$m = function () {
   }, [_vm._v("\n      " + _vm._s(_vm.closeBtnLabel) + "\n    ")]) : _vm._e()], 1)], 2);
 };
 
-var __vue_staticRenderFns__$m = [];
+var __vue_staticRenderFns__$n = [];
 /* style */
 
-const __vue_inject_styles__$m = function (inject) {
+const __vue_inject_styles__$n = function (inject) {
   if (!inject) return;
   inject("data-v-5179f464_0", {
     source: ".fb-ui-modal-info__buttons .fb-ui-button[data-variant=link]{color:grey!important}",
@@ -2903,23 +2950,23 @@ const __vue_inject_styles__$m = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$m = undefined;
+const __vue_scope_id__$n = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$m = undefined;
+const __vue_module_identifier__$n = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$m = false;
+const __vue_is_functional_template__$n = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$m = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$m,
-  staticRenderFns: __vue_staticRenderFns__$m
-}, __vue_inject_styles__$m, __vue_script__$m, __vue_scope_id__$m, __vue_is_functional_template__$m, __vue_module_identifier__$m, false, createInjector, undefined, undefined);
+const __vue_component__$n = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$n,
+  staticRenderFns: __vue_staticRenderFns__$n
+}, __vue_inject_styles__$n, __vue_script__$n, __vue_scope_id__$n, __vue_is_functional_template__$n, __vue_module_identifier__$n, false, createInjector, undefined, undefined);
 
-var script$n = defineComponent({
+var script$o = defineComponent({
   name: 'FbUiModalWindow',
   props: {
     size: {
@@ -3008,10 +3055,10 @@ var script$n = defineComponent({
 });
 
 /* script */
-const __vue_script__$n = script$n;
+const __vue_script__$o = script$o;
 /* template */
 
-var __vue_render__$n = function () {
+var __vue_render__$o = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -3136,10 +3183,10 @@ var __vue_render__$n = function () {
   }, [_vm._v("\n                  " + _vm._s(_vm.okText) + "\n                ")])])], 2) : _vm._e()])])], 2)])])]);
 };
 
-var __vue_staticRenderFns__$n = [];
+var __vue_staticRenderFns__$o = [];
 /* style */
 
-const __vue_inject_styles__$n = function (inject) {
+const __vue_inject_styles__$o = function (inject) {
   if (!inject) return;
   inject("data-v-346773f4_0", {
     source: ".fb-ui-modal-window__container{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);transition:opacity .3s ease;z-index:9998;-webkit-overflow-scrolling:touch;overflow:hidden;overflow-y:auto;outline:0;display:flex;flex-direction:row;align-items:baseline}.fb-ui-modal-window__container-transparent{background-color:rgba(255,255,255,.5)}@media (min-width:768px){.fb-ui-modal-window__container[data-size=sm] .fb-ui-modal-window__dialog{width:30rem;max-width:90vw}}.fb-ui-modal-window__container[data-size=md] .fb-ui-modal-window__dialog{width:60rem;max-width:90vw}.fb-ui-modal-window__container[data-size=lg] .fb-ui-modal-window__dialog{width:90rem;max-width:90vw}.fb-ui-modal-window__window{margin-left:auto;margin-right:auto;padding-top:7rem;z-index:9999}.fb-ui-modal-window__dialog{position:relative;width:auto}.fb-ui-modal-window__content{position:relative;border-radius:4px;background-color:#fff;background-clip:padding-box;overflow:hidden;outline:0;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5)}@media (min-width:768px){.fb-ui-modal-window__content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5)}}.fb-ui-modal-window__header{padding:1.5rem;border-bottom:none;color:#fff;background-color:#d9230f}.fb-ui-modal-window__header h4{margin:0;line-height:1.5384615385}.fb-ui-modal-window__body{position:relative;padding:1.5rem;display:flex;flex-direction:column}.fb-ui-modal-window__close{margin-top:-2px;float:right;font-size:1.95rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{opacity:.5;filter:alpha(opacity=50)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{color:#000;text-decoration:none;cursor:pointer}.fb-ui-modal-window__footer{padding:0 1.5rem 1.5rem 1.5rem;text-align:right}.fb-ui-modal-window__loading{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:10008;height:100%;width:100%;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-window__loading-inner{margin-left:auto;margin-right:auto;width:25rem;text-align:center}.fb-ui-modal-window__loading-inner svg{width:100%;margin-bottom:2rem}.fb-ui-modal-window__loading-inner svg path.dark_color{fill:#444;fill-rule:nonzero}.fb-ui-modal-window__loading-inner svg path.brand_color{fill:#d9230f;fill-rule:nonzero}.modal-enter{opacity:0;filter:alpha(opacity=0)}.modal-leave-active{opacity:0;filter:alpha(opacity=0)}.modal-enter .fb-ui-modal-window__dialog{-webkit-transform:scale(1.1);transform:scale(1.1)}.modal-bounce-enter-active{animation:modal-bounce-in .25s}.modal-bounce-leave-active{animation:modal-bounce-in .25s reverse}@keyframes modal-bounce-in{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}",
@@ -3150,31 +3197,31 @@ const __vue_inject_styles__$n = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$n = undefined;
+const __vue_scope_id__$o = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$n = undefined;
+const __vue_module_identifier__$o = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$n = false;
+const __vue_is_functional_template__$o = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$n = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$n,
-  staticRenderFns: __vue_staticRenderFns__$n
-}, __vue_inject_styles__$n, __vue_script__$n, __vue_scope_id__$n, __vue_is_functional_template__$n, __vue_module_identifier__$n, false, createInjector, undefined, undefined);
+const __vue_component__$o = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$o,
+  staticRenderFns: __vue_staticRenderFns__$o
+}, __vue_inject_styles__$o, __vue_script__$o, __vue_scope_id__$o, __vue_is_functional_template__$o, __vue_module_identifier__$o, false, createInjector, undefined, undefined);
 
-var script$o = defineComponent({
+var script$p = defineComponent({
   name: 'FbUiPageLoading'
 });
 
 /* script */
-const __vue_script__$o = script$o;
+const __vue_script__$p = script$p;
 /* template */
 
-var __vue_render__$o = function () {
+var __vue_render__$p = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -3221,10 +3268,10 @@ var __vue_render__$o = function () {
   })], 1)])]);
 };
 
-var __vue_staticRenderFns__$o = [];
+var __vue_staticRenderFns__$p = [];
 /* style */
 
-const __vue_inject_styles__$o = function (inject) {
+const __vue_inject_styles__$p = function (inject) {
   if (!inject) return;
   inject("data-v-8a714388_0", {
     source: ".fb-ui-page-loading__container{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:1030;height:100%;width:100%;display:flex;flex-direction:row;align-items:center}.fb-ui-page-loading__container-inner{margin-left:auto;margin-right:auto;width:25rem;text-align:center}.fb-ui-page-loading__container-inner svg{width:100%;margin-bottom:2rem}.fb-ui-page-loading__container-inner svg path.dark_color{fill:#444;fill-rule:nonzero}.fb-ui-page-loading__container-inner svg path.brand_color{fill:#d9230f;fill-rule:nonzero}.page-loading-bounce-enter-active{animation:page-loading-bounce-in .25s}.page-loading-bounce-leave-active{animation:page-loading-bounce-in .25s reverse}@keyframes page-loading-bounce-in{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}",
@@ -3235,31 +3282,31 @@ const __vue_inject_styles__$o = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$o = undefined;
+const __vue_scope_id__$p = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$o = undefined;
+const __vue_module_identifier__$p = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$o = false;
+const __vue_is_functional_template__$p = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$o = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$o,
-  staticRenderFns: __vue_staticRenderFns__$o
-}, __vue_inject_styles__$o, __vue_script__$o, __vue_scope_id__$o, __vue_is_functional_template__$o, __vue_module_identifier__$o, false, createInjector, undefined, undefined);
+const __vue_component__$p = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$p,
+  staticRenderFns: __vue_staticRenderFns__$p
+}, __vue_inject_styles__$p, __vue_script__$p, __vue_scope_id__$p, __vue_is_functional_template__$p, __vue_module_identifier__$p, false, createInjector, undefined, undefined);
 
-var script$p = defineComponent({
+var script$q = defineComponent({
   name: 'FbUiResultErr'
 });
 
 /* script */
-const __vue_script__$p = script$p;
+const __vue_script__$q = script$q;
 /* template */
 
-var __vue_render__$p = function () {
+var __vue_render__$q = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -3296,10 +3343,10 @@ var __vue_render__$p = function () {
   })])]);
 };
 
-var __vue_staticRenderFns__$p = [];
+var __vue_staticRenderFns__$q = [];
 /* style */
 
-const __vue_inject_styles__$p = function (inject) {
+const __vue_inject_styles__$q = function (inject) {
   if (!inject) return;
   inject("data-v-62cba28e_0", {
     source: ".fb-ui-result-err__container{width:10rem;display:block;margin:0 auto}.fb-ui-result-err__container svg{width:100%;display:block;margin:0}.fb-ui-result-err__container svg circle,.fb-ui-result-err__container svg line{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#d9831f;stroke-width:6;stroke-miterlimit:10}.fb-ui-result-err__container svg circle{-webkit-animation:fb-ui-result-err-dash .9s ease-in-out;animation:fb-ui-result-err-dash .9s ease-in-out}.fb-ui-result-err__container svg line{stroke-dashoffset:1000;stroke-linecap:round;-webkit-animation:fb-ui-result-err-dash .9s .35s ease-in-out forwards;animation:fb-ui-result-err-dash .9s .35s ease-in-out forwards}@-webkit-keyframes fb-ui-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-ui-result-err-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}",
@@ -3310,31 +3357,31 @@ const __vue_inject_styles__$p = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$p = undefined;
+const __vue_scope_id__$q = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$p = undefined;
+const __vue_module_identifier__$q = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$p = false;
+const __vue_is_functional_template__$q = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$p = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$p,
-  staticRenderFns: __vue_staticRenderFns__$p
-}, __vue_inject_styles__$p, __vue_script__$p, __vue_scope_id__$p, __vue_is_functional_template__$p, __vue_module_identifier__$p, false, createInjector, undefined, undefined);
+const __vue_component__$q = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$q,
+  staticRenderFns: __vue_staticRenderFns__$q
+}, __vue_inject_styles__$q, __vue_script__$q, __vue_scope_id__$q, __vue_is_functional_template__$q, __vue_module_identifier__$q, false, createInjector, undefined, undefined);
 
-var script$q = defineComponent({
+var script$r = defineComponent({
   name: 'FbUiResultOk'
 });
 
 /* script */
-const __vue_script__$q = script$q;
+const __vue_script__$r = script$r;
 /* template */
 
-var __vue_render__$q = function () {
+var __vue_render__$r = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -3361,10 +3408,10 @@ var __vue_render__$q = function () {
   })])]);
 };
 
-var __vue_staticRenderFns__$q = [];
+var __vue_staticRenderFns__$r = [];
 /* style */
 
-const __vue_inject_styles__$q = function (inject) {
+const __vue_inject_styles__$r = function (inject) {
   if (!inject) return;
   inject("data-v-5ea65ad5_0", {
     source: ".fb-ui-result-ok__container{width:10rem;display:block;margin:0 auto}.fb-ui-result-ok__container svg{width:100%;display:block;margin:0}.fb-ui-result-ok__container svg circle,.fb-ui-result-ok__container svg polyline{fill:none;stroke-dasharray:1000;stroke-dashoffset:0;stroke:#469408;stroke-width:6;stroke-miterlimit:10}.fb-ui-result-ok__container svg circle{-webkit-animation:fb-ui-result-ok-dash .9s ease-in-out;animation:fb-ui-result-ok-dash .9s ease-in-out}.fb-ui-result-ok__container svg polyline{stroke-dashoffset:-100;stroke-linecap:round;-webkit-animation:fb-ui-result-ok-dash-check .9s .35s ease-in-out forwards;animation:fb-ui-result-ok-dash-check .9s .35s ease-in-out forwards}@-webkit-keyframes fb-ui-result-ok-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@keyframes fb-ui-result-ok-dash{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}@-webkit-keyframes fb-ui-result-ok-dash-check{0%{stroke-dashoffset:-100}100%{stroke-dashoffset:900}}@keyframes fb-ui-result-ok-dash-check{0%{stroke-dashoffset:-100}100%{stroke-dashoffset:900}}",
@@ -3375,21 +3422,21 @@ const __vue_inject_styles__$q = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$q = undefined;
+const __vue_scope_id__$r = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$q = undefined;
+const __vue_module_identifier__$r = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$q = false;
+const __vue_is_functional_template__$r = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$q = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$q,
-  staticRenderFns: __vue_staticRenderFns__$q
-}, __vue_inject_styles__$q, __vue_script__$q, __vue_scope_id__$q, __vue_is_functional_template__$q, __vue_module_identifier__$q, false, createInjector, undefined, undefined);
+const __vue_component__$r = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$r,
+  staticRenderFns: __vue_staticRenderFns__$r
+}, __vue_inject_styles__$r, __vue_script__$r, __vue_scope_id__$r, __vue_is_functional_template__$r, __vue_module_identifier__$r, false, createInjector, undefined, undefined);
 
 let FbUiSpinnerVariantTypes;
 
@@ -3402,7 +3449,7 @@ let FbUiSpinnerVariantTypes;
   FbUiSpinnerVariantTypes["INFO"] = "info";
 })(FbUiSpinnerVariantTypes || (FbUiSpinnerVariantTypes = {}));
 
-var script$r = defineComponent({
+var script$s = defineComponent({
   name: 'FbUiSpinner',
   props: {
     variant: {
@@ -3425,10 +3472,10 @@ var script$r = defineComponent({
 });
 
 /* script */
-const __vue_script__$r = script$r;
+const __vue_script__$s = script$s;
 /* template */
 
-var __vue_render__$r = function (_h, _vm) {
+var __vue_render__$s = function (_h, _vm) {
   var _c = _vm._c;
   return _c('span', {
     class: [_vm.data.class, _vm.data.staticClass, 'fb-ui-spinner__container'],
@@ -3439,10 +3486,10 @@ var __vue_render__$r = function (_h, _vm) {
   });
 };
 
-var __vue_staticRenderFns__$r = [];
+var __vue_staticRenderFns__$s = [];
 /* style */
 
-const __vue_inject_styles__$r = function (inject) {
+const __vue_inject_styles__$s = function (inject) {
   if (!inject) return;
   inject("data-v-117fac14_0", {
     source: ".fb-ui-spinner__container{position:relative;display:inline-block}.fb-ui-spinner__container:after,.fb-ui-spinner__container:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";position:absolute;left:50%;top:50%}.fb-ui-spinner__container:after{animation:fb-ui-spinner-animation .6s linear;animation-iteration-count:infinite}.fb-ui-spinner__container[data-variant=default]:after{border-color:#777 transparent transparent}.fb-ui-spinner__container[data-variant=primary]:after{border-color:#d9230f transparent transparent}.fb-ui-spinner__container[data-variant=success]:after{border-color:#469408 transparent transparent}.fb-ui-spinner__container[data-variant=info]:after{border-color:#029acf transparent transparent}.fb-ui-spinner__container[data-variant=warning]:after{border-color:#9b479f transparent transparent}.fb-ui-spinner__container[data-variant=danger]:after{border-color:#d9831f transparent transparent}.fb-ui-spinner__container[data-size=lg]{height:4.8rem;width:4.8rem}.fb-ui-spinner__container[data-size=lg]:after,.fb-ui-spinner__container[data-size=lg]:before{border-width:3px;height:4.8rem;margin:-2.4rem 0 0 -2.4rem;width:4.8rem}.fb-ui-spinner__container[data-size=md]{height:2.4rem;width:2.4rem}.fb-ui-spinner__container[data-size=md]:after,.fb-ui-spinner__container[data-size=md]:before{border-width:2px;height:2.4rem;margin:-1.2rem 0 0 -1.2rem;width:2.4rem}.fb-ui-spinner__container[data-size=sm]{height:1.8rem;width:1.8rem}.fb-ui-spinner__container[data-size=sm]:after,.fb-ui-spinner__container[data-size=sm]:before{border-width:2px;height:1.8rem;margin:-.9rem 0 0 -.9rem;width:1.8rem}@keyframes fb-ui-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
@@ -3453,21 +3500,21 @@ const __vue_inject_styles__$r = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$r = undefined;
+const __vue_scope_id__$s = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$r = undefined;
+const __vue_module_identifier__$s = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$r = true;
+const __vue_is_functional_template__$s = true;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$r = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$r,
-  staticRenderFns: __vue_staticRenderFns__$r
-}, __vue_inject_styles__$r, __vue_script__$r, __vue_scope_id__$r, __vue_is_functional_template__$r, __vue_module_identifier__$r, false, createInjector, undefined, undefined);
+const __vue_component__$s = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$s,
+  staticRenderFns: __vue_staticRenderFns__$s
+}, __vue_inject_styles__$s, __vue_script__$s, __vue_scope_id__$s, __vue_is_functional_template__$s, __vue_module_identifier__$s, false, createInjector, undefined, undefined);
 
 let FbUiSwitchElementVariantTypes;
 
@@ -3480,7 +3527,7 @@ let FbUiSwitchElementVariantTypes;
   FbUiSwitchElementVariantTypes["INFO"] = "info";
 })(FbUiSwitchElementVariantTypes || (FbUiSwitchElementVariantTypes = {}));
 
-var script$s = defineComponent({
+var script$t = defineComponent({
   name: 'FbUiSwitchElement',
   props: {
     status: {
@@ -3503,10 +3550,10 @@ var script$s = defineComponent({
 });
 
 /* script */
-const __vue_script__$s = script$s;
+const __vue_script__$t = script$t;
 /* template */
 
-var __vue_render__$s = function (_h, _vm) {
+var __vue_render__$t = function (_h, _vm) {
   var _c = _vm._c;
   return _c('label', {
     class: [_vm.data.class, _vm.data.staticClass, 'fb-ui-switch-element__container'],
@@ -3534,10 +3581,10 @@ var __vue_render__$s = function (_h, _vm) {
   })]);
 };
 
-var __vue_staticRenderFns__$s = [];
+var __vue_staticRenderFns__$t = [];
 /* style */
 
-const __vue_inject_styles__$s = function (inject) {
+const __vue_inject_styles__$t = function (inject) {
   if (!inject) return;
   inject("data-v-5390db27_0", {
     source: ".fb-ui-switch-element__container{cursor:pointer;display:inline-block;height:2rem;width:4.4rem;margin:0;position:relative;user-select:none;vertical-align:middle}.fb-ui-switch-element__container input{opacity:0;filter:alpha(opacity=0);position:absolute;z-index:-1}.fb-ui-switch-element__container input:checked~.fb-ui-switch-element__thumb{left:2.4rem}.fb-ui-switch-element__container input:disabled~.fb-ui-switch-element__track{background-color:#777;cursor:not-allowed}.fb-ui-switch-element__container input:disabled~.fb-ui-switch-element__thumb{border-color:#777;cursor:not-allowed}.fb-ui-switch-element__container input:disabled:checked~.fb-ui-switch-element__track{cursor:not-allowed}.fb-ui-switch-element__container[data-variant=default] input:checked~.fb-ui-switch-element__track{background-color:#777}.fb-ui-switch-element__container[data-variant=default] input:checked~.fb-ui-switch-element__thumb{border-color:#777}.fb-ui-switch-element__container[data-variant=default] input:checked:disabled~.fb-ui-switch-element__track{background-color:#777}.fb-ui-switch-element__container[data-variant=default] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#777}.fb-ui-switch-element__container[data-variant=primary] input:checked~.fb-ui-switch-element__track{background-color:#d9230f}.fb-ui-switch-element__container[data-variant=primary] input:checked~.fb-ui-switch-element__thumb{border-color:#d9230f}.fb-ui-switch-element__container[data-variant=primary] input:checked:disabled~.fb-ui-switch-element__track{background-color:#d9230f}.fb-ui-switch-element__container[data-variant=primary] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#d9230f}.fb-ui-switch-element__container[data-variant=success] input:checked~.fb-ui-switch-element__track{background-color:#469408}.fb-ui-switch-element__container[data-variant=success] input:checked~.fb-ui-switch-element__thumb{border-color:#469408}.fb-ui-switch-element__container[data-variant=success] input:checked:disabled~.fb-ui-switch-element__track{background-color:#469408}.fb-ui-switch-element__container[data-variant=success] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#469408}.fb-ui-switch-element__container[data-variant=info] input:checked~.fb-ui-switch-element__track{background-color:#029acf}.fb-ui-switch-element__container[data-variant=info] input:checked~.fb-ui-switch-element__thumb{border-color:#029acf}.fb-ui-switch-element__container[data-variant=info] input:checked:disabled~.fb-ui-switch-element__track{background-color:#029acf}.fb-ui-switch-element__container[data-variant=info] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#029acf}.fb-ui-switch-element__container[data-variant=warning] input:checked~.fb-ui-switch-element__track{background-color:#9b479f}.fb-ui-switch-element__container[data-variant=warning] input:checked~.fb-ui-switch-element__thumb{border-color:#9b479f}.fb-ui-switch-element__container[data-variant=warning] input:checked:disabled~.fb-ui-switch-element__track{background-color:#9b479f}.fb-ui-switch-element__container[data-variant=warning] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#9b479f}.fb-ui-switch-element__container[data-variant=danger] input:checked~.fb-ui-switch-element__track{background-color:#d9831f}.fb-ui-switch-element__container[data-variant=danger] input:checked~.fb-ui-switch-element__thumb{border-color:#d9831f}.fb-ui-switch-element__container[data-variant=danger] input:checked:disabled~.fb-ui-switch-element__track{background-color:#d9831f}.fb-ui-switch-element__container[data-variant=danger] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#d9831f}.fb-ui-switch-element__track{background-color:#777;border-radius:1rem;height:100%;width:100%;position:absolute;left:0;top:50%;transform:translateY(-50%)}.fb-ui-switch-element__thumb{background-color:#fff;border-color:#777;border-radius:50%;border-style:solid;border-width:50%;height:2rem;width:2rem;position:absolute;left:0;top:0;transition:left .15s ease-out}",
@@ -3548,23 +3595,23 @@ const __vue_inject_styles__$s = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$s = undefined;
+const __vue_scope_id__$t = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$s = undefined;
+const __vue_module_identifier__$t = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$s = true;
+const __vue_is_functional_template__$t = true;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$s = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$s,
-  staticRenderFns: __vue_staticRenderFns__$s
-}, __vue_inject_styles__$s, __vue_script__$s, __vue_scope_id__$s, __vue_is_functional_template__$s, __vue_module_identifier__$s, false, createInjector, undefined, undefined);
+const __vue_component__$t = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$t,
+  staticRenderFns: __vue_staticRenderFns__$t
+}, __vue_inject_styles__$t, __vue_script__$t, __vue_scope_id__$t, __vue_is_functional_template__$t, __vue_module_identifier__$t, false, createInjector, undefined, undefined);
 
-var script$t = defineComponent({
+var script$u = defineComponent({
   name: 'FbUiTransitionExpand',
 
   setup() {
@@ -3636,10 +3683,10 @@ var script$t = defineComponent({
 });
 
 /* script */
-const __vue_script__$t = script$t;
+const __vue_script__$u = script$u;
 /* template */
 
-var __vue_render__$t = function () {
+var __vue_render__$u = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -3658,10 +3705,10 @@ var __vue_render__$t = function () {
   }, [_vm._t("default")], 2);
 };
 
-var __vue_staticRenderFns__$t = [];
+var __vue_staticRenderFns__$u = [];
 /* style */
 
-const __vue_inject_styles__$t = function (inject) {
+const __vue_inject_styles__$u = function (inject) {
   if (!inject) return;
   inject("data-v-4ddc5b6e_0", {
     source: ".expand-enter-active,.expand-leave-active{transition:height 250ms ease-in-out;transition-property:opacity,height;overflow:hidden}.expand-enter,.expand-leave-to{opacity:0;height:0}",
@@ -3676,31 +3723,31 @@ const __vue_inject_styles__$t = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$t = "data-v-4ddc5b6e";
+const __vue_scope_id__$u = "data-v-4ddc5b6e";
 /* module identifier */
 
-const __vue_module_identifier__$t = undefined;
+const __vue_module_identifier__$u = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$t = false;
+const __vue_is_functional_template__$u = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$t = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$t,
-  staticRenderFns: __vue_staticRenderFns__$t
-}, __vue_inject_styles__$t, __vue_script__$t, __vue_scope_id__$t, __vue_is_functional_template__$t, __vue_module_identifier__$t, false, createInjector, undefined, undefined);
+const __vue_component__$u = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$u,
+  staticRenderFns: __vue_staticRenderFns__$u
+}, __vue_inject_styles__$u, __vue_script__$u, __vue_scope_id__$u, __vue_is_functional_template__$u, __vue_module_identifier__$u, false, createInjector, undefined, undefined);
 
-var script$u = defineComponent({
+var script$v = defineComponent({
   name: 'FbLayoutContent'
 });
 
 /* script */
-const __vue_script__$u = script$u;
+const __vue_script__$v = script$v;
 /* template */
 
-var __vue_render__$u = function () {
+var __vue_render__$v = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -3718,90 +3765,13 @@ var __vue_render__$u = function () {
   }, [_vm._t("footer")], 2) : _vm._e()]);
 };
 
-var __vue_staticRenderFns__$u = [];
-/* style */
-
-const __vue_inject_styles__$u = function (inject) {
-  if (!inject) return;
-  inject("data-v-07fcec6e_0", {
-    source: ".fb-layout-content__container{flex-grow:1;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}.fb-layout-content__content{flex-grow:1}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$u = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$u = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$u = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$u = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$u,
-  staticRenderFns: __vue_staticRenderFns__$u
-}, __vue_inject_styles__$u, __vue_script__$u, __vue_scope_id__$u, __vue_is_functional_template__$u, __vue_module_identifier__$u, false, createInjector, undefined, undefined);
-
-var script$v = defineComponent({
-  name: 'FbLayoutFooter',
-
-  setup(_props, context) {
-    function hasSlot() {
-      return get(context.slots, 'default', null) !== null;
-    }
-
-    return {
-      hasSlot
-    };
-  }
-
-});
-
-/* script */
-const __vue_script__$v = script$v;
-/* template */
-
-var __vue_render__$v = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "fb-layout-footer__container"
-  }, [_c('div', {
-    staticClass: "fb-layout-footer__inner"
-  }, [_vm.hasSlot() ? [_vm._t("default")] : [_vm._m(0)]], 2)]);
-};
-
-var __vue_staticRenderFns__$v = [function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('small', [_vm._v("© 2017 "), _c('a', {
-    attrs: {
-      "href": "https://fastybird.com",
-      "target": "_blank",
-      "rel": "noreferrer"
-    }
-  }, [_vm._v("\n        FastyBird s.r.o.")])]);
-}];
+var __vue_staticRenderFns__$v = [];
 /* style */
 
 const __vue_inject_styles__$v = function (inject) {
   if (!inject) return;
-  inject("data-v-22ae5310_0", {
-    source: ".fb-layout-footer__container{z-index:1000;height:3rem;overflow:hidden}@media (max-width:767px){.fb-layout-footer__container{height:0}}.fb-layout-footer__inner{background-color:#efefef;border-top:1px solid #e3e3e3;color:#777;padding:0 1.5rem;line-height:3rem}",
+  inject("data-v-07fcec6e_0", {
+    source: ".fb-layout-content__container{flex-grow:1;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}.fb-layout-content__content{flex-grow:1}",
     map: undefined,
     media: undefined
   });
@@ -3826,6 +3796,83 @@ const __vue_component__$v = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$v, __vue_script__$v, __vue_scope_id__$v, __vue_is_functional_template__$v, __vue_module_identifier__$v, false, createInjector, undefined, undefined);
 
 var script$w = defineComponent({
+  name: 'FbLayoutFooter',
+
+  setup(_props, context) {
+    function hasSlot() {
+      return get(context.slots, 'default', null) !== null;
+    }
+
+    return {
+      hasSlot
+    };
+  }
+
+});
+
+/* script */
+const __vue_script__$w = script$w;
+/* template */
+
+var __vue_render__$w = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "fb-layout-footer__container"
+  }, [_c('div', {
+    staticClass: "fb-layout-footer__inner"
+  }, [_vm.hasSlot() ? [_vm._t("default")] : [_vm._m(0)]], 2)]);
+};
+
+var __vue_staticRenderFns__$w = [function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('small', [_vm._v("© 2017 "), _c('a', {
+    attrs: {
+      "href": "https://fastybird.com",
+      "target": "_blank",
+      "rel": "noreferrer"
+    }
+  }, [_vm._v("\n        FastyBird s.r.o.")])]);
+}];
+/* style */
+
+const __vue_inject_styles__$w = function (inject) {
+  if (!inject) return;
+  inject("data-v-22ae5310_0", {
+    source: ".fb-layout-footer__container{z-index:1000;height:3rem;overflow:hidden}@media (max-width:767px){.fb-layout-footer__container{height:0}}.fb-layout-footer__inner{background-color:#efefef;border-top:1px solid #e3e3e3;color:#777;padding:0 1.5rem;line-height:3rem}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$w = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$w = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$w = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$w = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$w,
+  staticRenderFns: __vue_staticRenderFns__$w
+}, __vue_inject_styles__$w, __vue_script__$w, __vue_scope_id__$w, __vue_is_functional_template__$w, __vue_module_identifier__$w, false, createInjector, undefined, undefined);
+
+var script$x = defineComponent({
   name: 'FbLayoutHeader',
   props: {
     menuHidden: {
@@ -3862,10 +3909,10 @@ var script$w = defineComponent({
 });
 
 /* script */
-const __vue_script__$w = script$w;
+const __vue_script__$x = script$x;
 /* template */
 
-var __vue_render__$w = function () {
+var __vue_render__$x = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -3948,10 +3995,10 @@ var __vue_render__$w = function () {
   })], 1);
 };
 
-var __vue_staticRenderFns__$w = [];
+var __vue_staticRenderFns__$x = [];
 /* style */
 
-const __vue_inject_styles__$w = function (inject) {
+const __vue_inject_styles__$x = function (inject) {
   if (!inject) return;
   inject("data-v-70c2d087_0", {
     source: ".fb-layout-header__container{background-color:#d9230f;color:#fff;z-index:1030;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5)}@media (min-width:768px){.fb-layout-header__container{display:none!important}}.fb-layout-header__heading{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-header__heading-heading{flex-grow:1}.fb-layout-header__heading-button-left,.fb-layout-header__heading-button-right{-webkit-box-flex:0;-ms-flex:0 0 5rem;flex:0 0 5rem;max-width:5rem}.fb-layout-header__content{height:0;line-height:3rem;padding-left:1rem;transition:height .3s ease-in-out;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-header__content-expanded{height:3rem;transition:height .3s ease-in-out}.fb-layout-header__buttons-small{height:0;transition:height .3s ease-in-out;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-header__buttons-small-expanded{height:3rem;transition:height .3s ease-in-out}.fb-layout-header__button-hamburger{display:block;background-color:transparent;border:none;position:relative;outline:0}.fb-layout-header__button-hamburger-collapsed .fb-layout-header__button-hamburger-bars-line{width:100%}.fb-layout-header__button-hamburger-collapsed .fb-layout-header__button-hamburger-bars-x span:first-child{width:0}.fb-layout-header__button-hamburger-collapsed .fb-layout-header__button-hamburger-bars-x span:last-child{height:0}.fb-layout-header__button-hamburger-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0}.fb-layout-header__button-hamburger-bars{display:block;height:2px;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);width:22px}.fb-layout-header__button-hamburger-bars-line{background-color:#fff;border-radius:1px;display:block;height:100%;position:absolute;transition:all .1s ease-in-out 0s;right:0;width:0}.fb-layout-header__button-hamburger-bars-line-1,.fb-layout-header__button-hamburger-bars-line-4{top:-7px}.fb-layout-header__button-hamburger-bars-line-3,.fb-layout-header__button-hamburger-bars-line-6{top:7px}.fb-layout-header__button-hamburger-bars-x{height:22px;transform:translate(-50%,-50%) rotate(45deg)}.fb-layout-header__button-hamburger-bars-x span:first-child{height:2px;left:0;top:50%;transform:translateY(-50%);width:100%}.fb-layout-header__button-hamburger-bars-x span:last-child{bottom:0;left:50%;transform:translateX(-50%);width:2px}",
@@ -3962,23 +4009,23 @@ const __vue_inject_styles__$w = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$w = undefined;
+const __vue_scope_id__$x = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$w = undefined;
+const __vue_module_identifier__$x = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$w = false;
+const __vue_is_functional_template__$x = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$w = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$w,
-  staticRenderFns: __vue_staticRenderFns__$w
-}, __vue_inject_styles__$w, __vue_script__$w, __vue_scope_id__$w, __vue_is_functional_template__$w, __vue_module_identifier__$w, false, createInjector, undefined, undefined);
+const __vue_component__$x = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$x,
+  staticRenderFns: __vue_staticRenderFns__$x
+}, __vue_inject_styles__$x, __vue_script__$x, __vue_scope_id__$x, __vue_is_functional_template__$x, __vue_module_identifier__$x, false, createInjector, undefined, undefined);
 
-var script$x = defineComponent({
+var script$y = defineComponent({
   name: 'FbLayoutHeaderButton',
   props: {
     type: {
@@ -4029,10 +4076,10 @@ var script$x = defineComponent({
 });
 
 /* script */
-const __vue_script__$x = script$x;
+const __vue_script__$y = script$y;
 /* template */
 
-var __vue_render__$x = function () {
+var __vue_render__$y = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4101,10 +4148,10 @@ var __vue_render__$x = function () {
   }, [_vm.slotExists('icon') ? [_vm._t("icon")] : [_vm._v("\n      " + _vm._s(_vm.label) + "\n    ")]], 2) : _vm._e()], 1);
 };
 
-var __vue_staticRenderFns__$x = [];
+var __vue_staticRenderFns__$y = [];
 /* style */
 
-const __vue_inject_styles__$x = function (inject) {
+const __vue_inject_styles__$y = function (inject) {
   if (!inject) return;
   inject("data-v-27e281b8_0", {
     source: ".fb-layout-header-button__container{display:block;background-color:transparent;background-image:none;border:none;line-height:6rem;font-size:2.5rem;text-align:center;text-transform:lowercase;color:#fff}.fb-layout-header-button__container-small{height:3rem;width:4rem;line-height:3rem;font-size:1.5rem}.fb-layout-header-button__container-textual{font-size:1.5rem;width:auto;padding:0 1rem}.fb-layout-header-button__container-left{order:-1}.fb-layout-header-button__container-right{order:1}",
@@ -4115,31 +4162,31 @@ const __vue_inject_styles__$x = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$x = undefined;
+const __vue_scope_id__$y = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$x = undefined;
+const __vue_module_identifier__$y = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$x = false;
+const __vue_is_functional_template__$y = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$x = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$x,
-  staticRenderFns: __vue_staticRenderFns__$x
-}, __vue_inject_styles__$x, __vue_script__$x, __vue_scope_id__$x, __vue_is_functional_template__$x, __vue_module_identifier__$x, false, createInjector, undefined, undefined);
+const __vue_component__$y = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$y,
+  staticRenderFns: __vue_staticRenderFns__$y
+}, __vue_inject_styles__$y, __vue_script__$y, __vue_scope_id__$y, __vue_is_functional_template__$y, __vue_module_identifier__$y, false, createInjector, undefined, undefined);
 
-var script$y = defineComponent({
+var script$z = defineComponent({
   name: 'FbLayoutHeaderContent'
 });
 
 /* script */
-const __vue_script__$y = script$y;
+const __vue_script__$z = script$z;
 /* template */
 
-var __vue_render__$y = function () {
+var __vue_render__$z = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4153,29 +4200,29 @@ var __vue_render__$y = function () {
   }, [_vm._t("default")], 2);
 };
 
-var __vue_staticRenderFns__$y = [];
+var __vue_staticRenderFns__$z = [];
 /* style */
 
-const __vue_inject_styles__$y = undefined;
+const __vue_inject_styles__$z = undefined;
 /* scoped */
 
-const __vue_scope_id__$y = undefined;
+const __vue_scope_id__$z = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$y = undefined;
+const __vue_module_identifier__$z = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$y = false;
+const __vue_is_functional_template__$z = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$y = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$y,
-  staticRenderFns: __vue_staticRenderFns__$y
-}, __vue_inject_styles__$y, __vue_script__$y, __vue_scope_id__$y, __vue_is_functional_template__$y, __vue_module_identifier__$y, false, undefined, undefined, undefined);
+const __vue_component__$z = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$z,
+  staticRenderFns: __vue_staticRenderFns__$z
+}, __vue_inject_styles__$z, __vue_script__$z, __vue_scope_id__$z, __vue_is_functional_template__$z, __vue_module_identifier__$z, false, undefined, undefined, undefined);
 
 let FbHeaderHeadingAlign;
 
@@ -4185,7 +4232,7 @@ let FbHeaderHeadingAlign;
   FbHeaderHeadingAlign["CENTER"] = "center";
 })(FbHeaderHeadingAlign || (FbHeaderHeadingAlign = {}));
 
-var script$z = defineComponent({
+var script$A = defineComponent({
   name: 'FbLayoutHeaderHeading',
   props: {
     heading: {
@@ -4208,10 +4255,10 @@ var script$z = defineComponent({
 });
 
 /* script */
-const __vue_script__$z = script$z;
+const __vue_script__$A = script$A;
 /* template */
 
-var __vue_render__$z = function () {
+var __vue_render__$A = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4231,10 +4278,10 @@ var __vue_render__$z = function () {
   }, [_vm._t("icon")], 2) : _vm._e()])]);
 };
 
-var __vue_staticRenderFns__$z = [];
+var __vue_staticRenderFns__$A = [];
 /* style */
 
-const __vue_inject_styles__$z = function (inject) {
+const __vue_inject_styles__$A = function (inject) {
   if (!inject) return;
   inject("data-v-62f7220a_0", {
     source: ".fb-layout-phone-header-heading__container{height:6rem;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-phone-header-heading__heading{flex-grow:1;padding-left:1rem;overflow:hidden}.fb-layout-phone-header-heading__heading-center{text-align:center}.fb-layout-phone-header-heading__heading-left{text-align:left}.fb-layout-phone-header-heading__heading-right{text-align:right}.fb-layout-phone-header-heading__heading h1{line-height:6rem;font-size:2.2rem;color:#fff;margin:0}.fb-layout-phone-header-heading__heading h1 small,.fb-layout-phone-header-heading__heading h1 span{color:#fff}.fb-layout-phone-header-heading__heading h1 span{margin-top:1rem;line-height:2.5rem;font-size:2rem;display:block}.fb-layout-phone-header-heading__heading h1 small{line-height:2.5rem;font-size:1.2rem;display:block}.fb-layout-phone-header-heading__icon{-webkit-box-flex:0;-ms-flex:0 0 5rem;flex:0 0 5rem;max-width:5rem;line-height:6rem;font-size:3rem;text-align:center}",
@@ -4245,23 +4292,23 @@ const __vue_inject_styles__$z = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$z = undefined;
+const __vue_scope_id__$A = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$z = undefined;
+const __vue_module_identifier__$A = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$z = false;
+const __vue_is_functional_template__$A = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$z = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$z,
-  staticRenderFns: __vue_staticRenderFns__$z
-}, __vue_inject_styles__$z, __vue_script__$z, __vue_scope_id__$z, __vue_is_functional_template__$z, __vue_module_identifier__$z, false, createInjector, undefined, undefined);
+const __vue_component__$A = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$A,
+  staticRenderFns: __vue_staticRenderFns__$A
+}, __vue_inject_styles__$A, __vue_script__$A, __vue_scope_id__$A, __vue_is_functional_template__$A, __vue_module_identifier__$A, false, createInjector, undefined, undefined);
 
-var script$A = defineComponent({
+var script$B = defineComponent({
   name: 'FbLayoutHeaderSpacer',
   props: {
     left: {
@@ -4295,10 +4342,10 @@ var script$A = defineComponent({
 });
 
 /* script */
-const __vue_script__$A = script$A;
+const __vue_script__$B = script$B;
 /* template */
 
-var __vue_render__$A = function () {
+var __vue_render__$B = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4320,71 +4367,13 @@ var __vue_render__$A = function () {
   })]);
 };
 
-var __vue_staticRenderFns__$A = [];
-/* style */
-
-const __vue_inject_styles__$A = function (inject) {
-  if (!inject) return;
-  inject("data-v-35548698_0", {
-    source: ".fb-layout-header__spacer-left,.fb-layout-header__spacer-right{-webkit-box-flex:0;-ms-flex:0 0 5rem;flex:0 0 5rem;max-width:5rem}.fb-layout-header__spacer-left{order:-1}.fb-layout-header__spacer-right{order:1}.fb-layout-header__spacer-center{flex-grow:1}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$A = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$A = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$A = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$A = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$A,
-  staticRenderFns: __vue_staticRenderFns__$A
-}, __vue_inject_styles__$A, __vue_script__$A, __vue_scope_id__$A, __vue_is_functional_template__$A, __vue_module_identifier__$A, false, createInjector, undefined, undefined);
-
-var script$B = defineComponent({
-  name: 'FbLayoutNavigation',
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
-  }
-});
-
-/* script */
-const __vue_script__$B = script$B;
-/* template */
-
-var __vue_render__$B = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('nav', {
-    staticClass: "fb-layout-navigation__container"
-  }, [_c('ul', [_c('li', {
-    staticClass: "fb-layout-navigation__heading"
-  }, [_vm._v("\n      " + _vm._s(_vm.name) + "\n    ")]), _vm._v(" "), _vm._t("default")], 2)]);
-};
-
 var __vue_staticRenderFns__$B = [];
 /* style */
 
 const __vue_inject_styles__$B = function (inject) {
   if (!inject) return;
-  inject("data-v-99b56936_0", {
-    source: ".fb-layout-navigation__container ul{list-style:none;margin:1.5rem 0;padding:0 0 .5rem 0}.fb-layout-navigation__heading{color:#fff;font-size:1.3rem;font-weight:700;line-height:2rem;overflow:hidden;padding:0 0 0 1.5rem;margin:1rem 0 .5rem 0;text-overflow:ellipsis;white-space:nowrap}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation__heading{visibility:hidden}}",
+  inject("data-v-35548698_0", {
+    source: ".fb-layout-header__spacer-left,.fb-layout-header__spacer-right{-webkit-box-flex:0;-ms-flex:0 0 5rem;flex:0 0 5rem;max-width:5rem}.fb-layout-header__spacer-left{order:-1}.fb-layout-header__spacer-right{order:1}.fb-layout-header__spacer-center{flex-grow:1}",
     map: undefined,
     media: undefined
   });
@@ -4409,7 +4398,13 @@ const __vue_component__$B = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$B, __vue_script__$B, __vue_scope_id__$B, __vue_is_functional_template__$B, __vue_module_identifier__$B, false, createInjector, undefined, undefined);
 
 var script$C = defineComponent({
-  name: 'FbLayoutNavigationDivider'
+  name: 'FbLayoutNavigation',
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  }
 });
 
 /* script */
@@ -4423,9 +4418,11 @@ var __vue_render__$C = function () {
 
   var _c = _vm._self._c || _h;
 
-  return _c('li', {
-    staticClass: "fb-layout-navigation-divider__container"
-  });
+  return _c('nav', {
+    staticClass: "fb-layout-navigation__container"
+  }, [_c('ul', [_c('li', {
+    staticClass: "fb-layout-navigation__heading"
+  }, [_vm._v("\n      " + _vm._s(_vm.name) + "\n    ")]), _vm._v(" "), _vm._t("default")], 2)]);
 };
 
 var __vue_staticRenderFns__$C = [];
@@ -4433,8 +4430,8 @@ var __vue_staticRenderFns__$C = [];
 
 const __vue_inject_styles__$C = function (inject) {
   if (!inject) return;
-  inject("data-v-548ba88a_0", {
-    source: ".fb-layout-navigation-divider__container{margin:0;padding:0;line-height:10px}",
+  inject("data-v-99b56936_0", {
+    source: ".fb-layout-navigation__container ul{list-style:none;margin:1.5rem 0;padding:0 0 .5rem 0}.fb-layout-navigation__heading{color:#fff;font-size:1.3rem;font-weight:700;line-height:2rem;overflow:hidden;padding:0 0 0 1.5rem;margin:1rem 0 .5rem 0;text-overflow:ellipsis;white-space:nowrap}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation__heading{visibility:hidden}}",
     map: undefined,
     media: undefined
   });
@@ -4459,6 +4456,56 @@ const __vue_component__$C = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$C, __vue_script__$C, __vue_scope_id__$C, __vue_is_functional_template__$C, __vue_module_identifier__$C, false, createInjector, undefined, undefined);
 
 var script$D = defineComponent({
+  name: 'FbLayoutNavigationDivider'
+});
+
+/* script */
+const __vue_script__$D = script$D;
+/* template */
+
+var __vue_render__$D = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('li', {
+    staticClass: "fb-layout-navigation-divider__container"
+  });
+};
+
+var __vue_staticRenderFns__$D = [];
+/* style */
+
+const __vue_inject_styles__$D = function (inject) {
+  if (!inject) return;
+  inject("data-v-548ba88a_0", {
+    source: ".fb-layout-navigation-divider__container{margin:0;padding:0;line-height:10px}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$D = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$D = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$D = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$D = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$D,
+  staticRenderFns: __vue_staticRenderFns__$D
+}, __vue_inject_styles__$D, __vue_script__$D, __vue_scope_id__$D, __vue_is_functional_template__$D, __vue_module_identifier__$D, false, createInjector, undefined, undefined);
+
+var script$E = defineComponent({
   name: 'FbLayoutNavigationItem',
   props: {
     type: {
@@ -4488,10 +4535,10 @@ var script$D = defineComponent({
 });
 
 /* script */
-const __vue_script__$D = script$D;
+const __vue_script__$E = script$E;
 /* template */
 
-var __vue_render__$D = function () {
+var __vue_render__$E = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4541,10 +4588,10 @@ var __vue_render__$D = function () {
   }, [_vm._v(_vm._s(_vm.label))])]) : _vm._e()], 1);
 };
 
-var __vue_staticRenderFns__$D = [];
+var __vue_staticRenderFns__$E = [];
 /* style */
 
-const __vue_inject_styles__$D = function (inject) {
+const __vue_inject_styles__$E = function (inject) {
   if (!inject) return;
   inject("data-v-782fc635_0", {
     source: ".fb-layout-navigation-item__container>a,.fb-layout-navigation-item__container>button{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;background-color:transparent;color:grey;font-size:1.2rem;line-height:4rem;text-decoration:none;transition:all .3s;position:relative}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__container>a,.fb-layout-navigation-item__container>button{font-size:2em}}.fb-layout-navigation-item__container>button{width:100%;background-image:none;border:none;outline:0}.fb-layout-navigation-item__container:hover>a{background-color:#191919;color:#fff}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__container:hover>a :after{content:normal;display:none}}.fb-layout-navigation-item__active.nuxt-link-exact-active{background-color:#191919;color:#fff}.fb-layout-navigation-item__active.nuxt-link-exact-active:after{border-color:transparent #fff transparent transparent;border-style:solid;border-width:6px;content:\"\";height:0;pointer-events:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:0}.fb-layout-navigation-item__label{text-align:left;flex-grow:1}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__label{display:none}}.fb-layout-navigation-item__icon{-webkit-box-flex:0;-ms-flex:0 0 4rem;flex:0 0 4rem;max-width:4rem;display:block;font-size:1.2rem;line-height:4rem;text-align:center}@media (min-width:768px) and (max-width:1199px){.fb-layout-navigation-item__icon{-webkit-box-flex:0;-ms-flex:1 0 100%;flex:1 0 100%;max-width:100%;font-size:1.5rem}}",
@@ -4555,23 +4602,23 @@ const __vue_inject_styles__$D = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$D = undefined;
+const __vue_scope_id__$E = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$D = undefined;
+const __vue_module_identifier__$E = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$D = false;
+const __vue_is_functional_template__$E = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$D = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$D,
-  staticRenderFns: __vue_staticRenderFns__$D
-}, __vue_inject_styles__$D, __vue_script__$D, __vue_scope_id__$D, __vue_is_functional_template__$D, __vue_module_identifier__$D, false, createInjector, undefined, undefined);
+const __vue_component__$E = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$E,
+  staticRenderFns: __vue_staticRenderFns__$E
+}, __vue_inject_styles__$E, __vue_script__$E, __vue_scope_id__$E, __vue_is_functional_template__$E, __vue_module_identifier__$E, false, createInjector, undefined, undefined);
 
-var script$E = defineComponent({
+var script$F = defineComponent({
   name: 'FbLayoutSidebar',
   props: {
     collapsed: {
@@ -4582,10 +4629,10 @@ var script$E = defineComponent({
 });
 
 /* script */
-const __vue_script__$E = script$E;
+const __vue_script__$F = script$F;
 /* template */
 
-var __vue_render__$E = function () {
+var __vue_render__$F = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4618,67 +4665,13 @@ var __vue_render__$E = function () {
   }, [_vm._t("footer")], 2) : _vm._e()])], 1) : _vm._e();
 };
 
-var __vue_staticRenderFns__$E = [];
-/* style */
-
-const __vue_inject_styles__$E = function (inject) {
-  if (!inject) return;
-  inject("data-v-1b7d0f88_0", {
-    source: ".fb-layout-sidebar__container{z-index:1000;width:0;height:100%;transition:width .3s}@media (min-width:768px){.fb-layout-sidebar__container{width:22rem}}@media (min-width:768px) and (max-width:1199px){.fb-layout-sidebar__container{width:6rem}}@media (max-width:767px){.fb-layout-sidebar__container{position:absolute;right:0;top:0}}.fb-layout-sidebar__inner{height:100%;background-color:#222;color:#a6a6a6;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}@media (max-width:767px){.fb-layout-sidebar__inner{transform:translateX(24rem);flex-direction:column;justify-content:space-between;min-height:100vh;top:0;right:0;overflow:auto;z-index:9999;position:fixed;width:24rem;transition:transform .3s ease-in-out}.fb-layout-sidebar__inner-open{transform:translateX(0)}}.fb-layout-sidebar__header{overflow:hidden}.fb-layout-sidebar__footer,.fb-layout-sidebar__header{height:5rem}.fb-layout-sidebar__content{flex-grow:1}.fb-layout-sidebar__overlay{height:100vh;width:100vw;top:0;right:0;z-index:9998;position:fixed;transition:transform .3s ease-in-out;background-color:rgba(0,0,0,.5)}@media (min-width:768px){.fb-layout-sidebar__overlay{display:none}}.sidebar-overlay-enter-active,.sidebar-overlay-leave-active{transition:opacity .3s ease-in-out}.sidebar-overlay-enter,.sidebar-overlay-leave-to{opacity:0}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$E = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$E = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$E = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$E = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$E,
-  staticRenderFns: __vue_staticRenderFns__$E
-}, __vue_inject_styles__$E, __vue_script__$E, __vue_scope_id__$E, __vue_is_functional_template__$E, __vue_module_identifier__$E, false, createInjector, undefined, undefined);
-
-var script$F = defineComponent({
-  name: 'FbLayoutSignBox'
-});
-
-/* script */
-const __vue_script__$F = script$F;
-/* template */
-
-var __vue_render__$F = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', {
-    staticClass: "fb-layout-sign-box__container"
-  }, [_c('div', {
-    staticClass: "fb-layout-sign-box__container-inner"
-  }, [_c('div', {
-    staticClass: "fb-layout-sign-box__logo"
-  }, [_vm._t("logo")], 2), _vm._v(" "), _vm._t("default")], 2)]);
-};
-
 var __vue_staticRenderFns__$F = [];
 /* style */
 
 const __vue_inject_styles__$F = function (inject) {
   if (!inject) return;
-  inject("data-v-8f823c2e_0", {
-    source: ".fb-layout-sign-box__container{-webkit-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:fadeInUp;-o-animation-name:fadeInUp;animation-name:fadeInUp}.fb-layout-sign-box__container-inner{padding-top:45px}@media (min-width:768px){.fb-layout-sign-box__container-inner{border:1px solid #ddd;margin:1rem 0;-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,.1);box-shadow:0 0 1px 1px rgba(0,0,0,.1)}}",
+  inject("data-v-1b7d0f88_0", {
+    source: ".fb-layout-sidebar__container{z-index:1000;width:0;height:100%;transition:width .3s}@media (min-width:768px){.fb-layout-sidebar__container{width:22rem}}@media (min-width:768px) and (max-width:1199px){.fb-layout-sidebar__container{width:6rem}}@media (max-width:767px){.fb-layout-sidebar__container{position:absolute;right:0;top:0}}.fb-layout-sidebar__inner{height:100%;background-color:#222;color:#a6a6a6;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}@media (max-width:767px){.fb-layout-sidebar__inner{transform:translateX(24rem);flex-direction:column;justify-content:space-between;min-height:100vh;top:0;right:0;overflow:auto;z-index:9999;position:fixed;width:24rem;transition:transform .3s ease-in-out}.fb-layout-sidebar__inner-open{transform:translateX(0)}}.fb-layout-sidebar__header{overflow:hidden}.fb-layout-sidebar__footer,.fb-layout-sidebar__header{height:5rem}.fb-layout-sidebar__content{flex-grow:1}.fb-layout-sidebar__overlay{height:100vh;width:100vw;top:0;right:0;z-index:9998;position:fixed;transition:transform .3s ease-in-out;background-color:rgba(0,0,0,.5)}@media (min-width:768px){.fb-layout-sidebar__overlay{display:none}}.sidebar-overlay-enter-active,.sidebar-overlay-leave-active{transition:opacity .3s ease-in-out}.sidebar-overlay-enter,.sidebar-overlay-leave-to{opacity:0}",
     map: undefined,
     media: undefined
   });
@@ -4703,7 +4696,7 @@ const __vue_component__$F = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$F, __vue_script__$F, __vue_scope_id__$F, __vue_is_functional_template__$F, __vue_module_identifier__$F, false, createInjector, undefined, undefined);
 
 var script$G = defineComponent({
-  name: 'FbLayoutSignFooter'
+  name: 'FbLayoutSignBox'
 });
 
 /* script */
@@ -4718,8 +4711,12 @@ var __vue_render__$G = function () {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "fb-layout-sign-footer__container"
-  }, [_vm._t("info"), _vm._v(" "), _c('ul', [_vm._t("links")], 2)], 2);
+    staticClass: "fb-layout-sign-box__container"
+  }, [_c('div', {
+    staticClass: "fb-layout-sign-box__container-inner"
+  }, [_c('div', {
+    staticClass: "fb-layout-sign-box__logo"
+  }, [_vm._t("logo")], 2), _vm._v(" "), _vm._t("default")], 2)]);
 };
 
 var __vue_staticRenderFns__$G = [];
@@ -4727,8 +4724,8 @@ var __vue_staticRenderFns__$G = [];
 
 const __vue_inject_styles__$G = function (inject) {
   if (!inject) return;
-  inject("data-v-12cc2aa2_0", {
-    source: ".fb-layout-sign-footer__container{margin:1.5rem 0;text-align:center}.fb-layout-sign-footer__container ul{list-style:none;padding:0;margin:3rem 0}",
+  inject("data-v-8f823c2e_0", {
+    source: ".fb-layout-sign-box__container{-webkit-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:fadeInUp;-o-animation-name:fadeInUp;animation-name:fadeInUp}.fb-layout-sign-box__container-inner{padding-top:45px}@media (min-width:768px){.fb-layout-sign-box__container-inner{border:1px solid #ddd;margin:1rem 0;-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,.1);box-shadow:0 0 1px 1px rgba(0,0,0,.1)}}",
     map: undefined,
     media: undefined
   });
@@ -4753,7 +4750,7 @@ const __vue_component__$G = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$G, __vue_script__$G, __vue_scope_id__$G, __vue_is_functional_template__$G, __vue_module_identifier__$G, false, createInjector, undefined, undefined);
 
 var script$H = defineComponent({
-  name: 'FbLayoutSignFooterItem'
+  name: 'FbLayoutSignFooter'
 });
 
 /* script */
@@ -4767,9 +4764,9 @@ var __vue_render__$H = function () {
 
   var _c = _vm._self._c || _h;
 
-  return _c('li', {
-    staticClass: "fb-layout-sign-footer-item__container"
-  }, [_vm._t("default")], 2);
+  return _c('div', {
+    staticClass: "fb-layout-sign-footer__container"
+  }, [_vm._t("info"), _vm._v(" "), _c('ul', [_vm._t("links")], 2)], 2);
 };
 
 var __vue_staticRenderFns__$H = [];
@@ -4777,8 +4774,8 @@ var __vue_staticRenderFns__$H = [];
 
 const __vue_inject_styles__$H = function (inject) {
   if (!inject) return;
-  inject("data-v-7ee89545_0", {
-    source: ".fb-layout-sign-footer-item__container{display:inline-block;padding:0 1rem;border-left:1px solid #777;line-height:1.5rem;height:1.5rem}.fb-layout-sign-footer-item__container:first-child{border-left:none}.fb-layout-sign-footer-item__container a{color:#777}.fb-layout-sign-footer-item__container a:focus,.fb-layout-sign-footer-item__container a:hover{color:#d9230f;text-decoration:none}",
+  inject("data-v-12cc2aa2_0", {
+    source: ".fb-layout-sign-footer__container{margin:1.5rem 0;text-align:center}.fb-layout-sign-footer__container ul{list-style:none;padding:0;margin:3rem 0}",
     map: undefined,
     media: undefined
   });
@@ -4803,13 +4800,7 @@ const __vue_component__$H = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$H, __vue_script__$H, __vue_scope_id__$H, __vue_is_functional_template__$H, __vue_module_identifier__$H, false, createInjector, undefined, undefined);
 
 var script$I = defineComponent({
-  name: 'FbLayoutTabs',
-  props: {
-    collapsed: {
-      type: Boolean,
-      default: true
-    }
-  }
+  name: 'FbLayoutSignFooterItem'
 });
 
 /* script */
@@ -4823,16 +4814,9 @@ var __vue_render__$I = function () {
 
   var _c = _vm._self._c || _h;
 
-  return _c('div', {
-    class: ['fb-layout-tabs__container', {
-      'fb-layout-tabs__container-collapsed': _vm.collapsed
-    }]
-  }, [_c('portal-target', {
-    staticClass: "fb-layout-tabs__container-inner",
-    attrs: {
-      "name": "fb-layout-tabs-items"
-    }
-  }, [_vm._t("default")], 2)], 1);
+  return _c('li', {
+    staticClass: "fb-layout-sign-footer-item__container"
+  }, [_vm._t("default")], 2);
 };
 
 var __vue_staticRenderFns__$I = [];
@@ -4840,8 +4824,8 @@ var __vue_staticRenderFns__$I = [];
 
 const __vue_inject_styles__$I = function (inject) {
   if (!inject) return;
-  inject("data-v-354ec186_0", {
-    source: ".fb-layout-tabs__container{color:#fff;height:6rem;z-index:1030;transition:height .3s ease-in-out}.fb-layout-tabs__container-collapsed{height:0;transition:height .3s ease-in-out}@media (min-width:768px){.fb-layout-tabs__container{display:none!important}}.fb-layout-tabs__container-inner{-webkit-box-shadow:0 -3px 9px rgba(0,0,0,.5);box-shadow:0 -3px 9px rgba(0,0,0,.5);display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}",
+  inject("data-v-7ee89545_0", {
+    source: ".fb-layout-sign-footer-item__container{display:inline-block;padding:0 1rem;border-left:1px solid #777;line-height:1.5rem;height:1.5rem}.fb-layout-sign-footer-item__container:first-child{border-left:none}.fb-layout-sign-footer-item__container a{color:#777}.fb-layout-sign-footer-item__container a:focus,.fb-layout-sign-footer-item__container a:hover{color:#d9230f;text-decoration:none}",
     map: undefined,
     media: undefined
   });
@@ -4866,6 +4850,69 @@ const __vue_component__$I = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$I, __vue_script__$I, __vue_scope_id__$I, __vue_is_functional_template__$I, __vue_module_identifier__$I, false, createInjector, undefined, undefined);
 
 var script$J = defineComponent({
+  name: 'FbLayoutTabs',
+  props: {
+    collapsed: {
+      type: Boolean,
+      default: true
+    }
+  }
+});
+
+/* script */
+const __vue_script__$J = script$J;
+/* template */
+
+var __vue_render__$J = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    class: ['fb-layout-tabs__container', {
+      'fb-layout-tabs__container-collapsed': _vm.collapsed
+    }]
+  }, [_c('portal-target', {
+    staticClass: "fb-layout-tabs__container-inner",
+    attrs: {
+      "name": "fb-layout-tabs-items"
+    }
+  }, [_vm._t("default")], 2)], 1);
+};
+
+var __vue_staticRenderFns__$J = [];
+/* style */
+
+const __vue_inject_styles__$J = function (inject) {
+  if (!inject) return;
+  inject("data-v-354ec186_0", {
+    source: ".fb-layout-tabs__container{color:#fff;height:6rem;z-index:1030;transition:height .3s ease-in-out}.fb-layout-tabs__container-collapsed{height:0;transition:height .3s ease-in-out}@media (min-width:768px){.fb-layout-tabs__container{display:none!important}}.fb-layout-tabs__container-inner{-webkit-box-shadow:0 -3px 9px rgba(0,0,0,.5);box-shadow:0 -3px 9px rgba(0,0,0,.5);display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$J = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$J = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$J = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$J = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$J,
+  staticRenderFns: __vue_staticRenderFns__$J
+}, __vue_inject_styles__$J, __vue_script__$J, __vue_scope_id__$J, __vue_is_functional_template__$J, __vue_module_identifier__$J, false, createInjector, undefined, undefined);
+
+var script$K = defineComponent({
   name: 'FbLayoutTabsItem',
   props: {
     type: {
@@ -4899,10 +4946,10 @@ var script$J = defineComponent({
 });
 
 /* script */
-const __vue_script__$J = script$J;
+const __vue_script__$K = script$K;
 /* template */
 
-var __vue_render__$J = function () {
+var __vue_render__$K = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -4957,10 +5004,10 @@ var __vue_render__$J = function () {
   }, [_vm._v(_vm._s(_vm.label))])]) : _vm._e()], 1);
 };
 
-var __vue_staticRenderFns__$J = [];
+var __vue_staticRenderFns__$K = [];
 /* style */
 
-const __vue_inject_styles__$J = function (inject) {
+const __vue_inject_styles__$K = function (inject) {
   if (!inject) return;
   inject("data-v-dfd798a8_0", {
     source: ".fb-layout-tabs-item__container{flex-grow:1}.fb-layout-tabs-item__container a,.fb-layout-tabs-item__container button{height:6rem;position:relative;padding:.5rem 0 0 0!important}.fb-layout-tabs-item__container a .badge,.fb-layout-tabs-item__container button .badge{background-color:#fff;position:absolute;top:.5rem;left:50%;margin:0 0 0 1rem}.fb-layout-tabs-item__label{font-size:1.2rem;display:block}",
@@ -4971,23 +5018,23 @@ const __vue_inject_styles__$J = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$J = undefined;
+const __vue_scope_id__$K = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$J = undefined;
+const __vue_module_identifier__$K = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$J = false;
+const __vue_is_functional_template__$K = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$J = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$J,
-  staticRenderFns: __vue_staticRenderFns__$J
-}, __vue_inject_styles__$J, __vue_script__$J, __vue_scope_id__$J, __vue_is_functional_template__$J, __vue_module_identifier__$J, false, createInjector, undefined, undefined);
+const __vue_component__$K = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$K,
+  staticRenderFns: __vue_staticRenderFns__$K
+}, __vue_inject_styles__$K, __vue_script__$K, __vue_scope_id__$K, __vue_is_functional_template__$K, __vue_module_identifier__$K, false, createInjector, undefined, undefined);
 
-var script$K = defineComponent({
+var script$L = defineComponent({
   name: 'FbLayoutUserMenu',
   props: {
     name: {
@@ -5028,10 +5075,10 @@ var script$K = defineComponent({
 });
 
 /* script */
-const __vue_script__$K = script$K;
+const __vue_script__$L = script$L;
 /* template */
 
-var __vue_render__$K = function () {
+var __vue_render__$L = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -5087,63 +5134,13 @@ var __vue_render__$K = function () {
   }, [_vm._t("items")], 2) : _vm._e()]);
 };
 
-var __vue_staticRenderFns__$K = [];
-/* style */
-
-const __vue_inject_styles__$K = function (inject) {
-  if (!inject) return;
-  inject("data-v-14504614_0", {
-    source: ".fb-layout-user-menu__container{position:relative}.fb-layout-user-menu__container ul{z-index:1000;position:absolute;top:auto;bottom:6rem;left:0;display:block;margin:.5rem 1rem;padding:.5rem 0;list-style:none;font-size:1.5rem;background-color:#fff;border:1px solid #ddd;border-radius:3px;background-clip:padding-box;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175)}.fb-layout-user-menu__container ul:focus{outline:0}.fb-layout-user-menu__container ul:after,.fb-layout-user-menu__container ul:before{border-color:transparent;border-style:solid;border-width:8px;content:\" \";height:0;left:1rem;pointer-events:none;position:absolute;width:0;bottom:100%}.fb-layout-user-menu__container ul:before{border-top-color:#ddd;top:100%}.fb-layout-user-menu__container ul:after{border-top-color:#fff;margin-top:-1px;top:100%}.fb-layout-user-menu__container-collapsed ul{display:none}.fb-layout-user-menu__button{height:100%;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row}.fb-layout-user-menu__button-avatar{text-align:center;vertical-align:middle;padding:.5rem 0;flex-grow:1}@media (min-width:1200px){.fb-layout-user-menu__button-avatar{-webkit-box-flex:0;-ms-flex:0 0 6rem;flex:0 0 6rem;max-width:6rem}}.fb-layout-user-menu__button-avatar-inner{text-align:center;display:inline-block;width:4rem;height:4rem;background-color:#fff;border-radius:50%;padding:.2rem}.fb-layout-user-menu__button-avatar-inner img{border-radius:50%}.fb-layout-user-menu__button-avatar-inner svg{width:3.6rem;height:3.6rem;fill:#d9230f;border-radius:50%}.fb-layout-user-menu__button-name{line-height:5rem;padding:0 0 0 1rem;-webkit-box-flex:0;-ms-flex:1 0 0;flex:1 0 0}@media (max-width:1199px){.fb-layout-user-menu__button-name{display:none}}.fb-layout-user-menu__button-caret{display:inline-block;width:0;height:0;margin-left:2px;vertical-align:middle;border-top:0;border-top:4px solid\\9;border-right:4px solid transparent;border-left:4px solid transparent;border-bottom:4px dashed;border-bottom:4px solid\\9;content:\"\"}",
-    map: undefined,
-    media: undefined
-  });
-};
-/* scoped */
-
-
-const __vue_scope_id__$K = undefined;
-/* module identifier */
-
-const __vue_module_identifier__$K = undefined;
-/* functional template */
-
-const __vue_is_functional_template__$K = false;
-/* style inject SSR */
-
-/* style inject shadow dom */
-
-const __vue_component__$K = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$K,
-  staticRenderFns: __vue_staticRenderFns__$K
-}, __vue_inject_styles__$K, __vue_script__$K, __vue_scope_id__$K, __vue_is_functional_template__$K, __vue_module_identifier__$K, false, createInjector, undefined, undefined);
-
-var script$L = defineComponent({
-  name: 'FbLayoutUserMenuDivider'
-});
-
-/* script */
-const __vue_script__$L = script$L;
-/* template */
-
-var __vue_render__$L = function () {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('li', {
-    staticClass: "fb-layout-user-menu-divider__container"
-  });
-};
-
 var __vue_staticRenderFns__$L = [];
 /* style */
 
 const __vue_inject_styles__$L = function (inject) {
   if (!inject) return;
-  inject("data-v-60b4253b_0", {
-    source: ".fb-layout-user-menu-divider__container{height:1px;overflow:hidden;background-color:#ddd;margin:.5rem .5rem}",
+  inject("data-v-14504614_0", {
+    source: ".fb-layout-user-menu__container{position:relative}.fb-layout-user-menu__container ul{z-index:1000;position:absolute;top:auto;bottom:6rem;left:0;display:block;margin:.5rem 1rem;padding:.5rem 0;list-style:none;font-size:1.5rem;background-color:#fff;border:1px solid #ddd;border-radius:3px;background-clip:padding-box;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175)}.fb-layout-user-menu__container ul:focus{outline:0}.fb-layout-user-menu__container ul:after,.fb-layout-user-menu__container ul:before{border-color:transparent;border-style:solid;border-width:8px;content:\" \";height:0;left:1rem;pointer-events:none;position:absolute;width:0;bottom:100%}.fb-layout-user-menu__container ul:before{border-top-color:#ddd;top:100%}.fb-layout-user-menu__container ul:after{border-top-color:#fff;margin-top:-1px;top:100%}.fb-layout-user-menu__container-collapsed ul{display:none}.fb-layout-user-menu__button{height:100%;cursor:pointer;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row}.fb-layout-user-menu__button-avatar{text-align:center;vertical-align:middle;padding:.5rem 0;flex-grow:1}@media (min-width:1200px){.fb-layout-user-menu__button-avatar{-webkit-box-flex:0;-ms-flex:0 0 6rem;flex:0 0 6rem;max-width:6rem}}.fb-layout-user-menu__button-avatar-inner{text-align:center;display:inline-block;width:4rem;height:4rem;background-color:#fff;border-radius:50%;padding:.2rem}.fb-layout-user-menu__button-avatar-inner img{border-radius:50%}.fb-layout-user-menu__button-avatar-inner svg{width:3.6rem;height:3.6rem;fill:#d9230f;border-radius:50%}.fb-layout-user-menu__button-name{line-height:5rem;padding:0 0 0 1rem;-webkit-box-flex:0;-ms-flex:1 0 0;flex:1 0 0}@media (max-width:1199px){.fb-layout-user-menu__button-name{display:none}}.fb-layout-user-menu__button-caret{display:inline-block;width:0;height:0;margin-left:2px;vertical-align:middle;border-top:0;border-top:4px solid\\9;border-right:4px solid transparent;border-left:4px solid transparent;border-bottom:4px dashed;border-bottom:4px solid\\9;content:\"\"}",
     map: undefined,
     media: undefined
   });
@@ -5168,6 +5165,56 @@ const __vue_component__$L = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$L, __vue_script__$L, __vue_scope_id__$L, __vue_is_functional_template__$L, __vue_module_identifier__$L, false, createInjector, undefined, undefined);
 
 var script$M = defineComponent({
+  name: 'FbLayoutUserMenuDivider'
+});
+
+/* script */
+const __vue_script__$M = script$M;
+/* template */
+
+var __vue_render__$M = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('li', {
+    staticClass: "fb-layout-user-menu-divider__container"
+  });
+};
+
+var __vue_staticRenderFns__$M = [];
+/* style */
+
+const __vue_inject_styles__$M = function (inject) {
+  if (!inject) return;
+  inject("data-v-60b4253b_0", {
+    source: ".fb-layout-user-menu-divider__container{height:1px;overflow:hidden;background-color:#ddd;margin:.5rem .5rem}",
+    map: undefined,
+    media: undefined
+  });
+};
+/* scoped */
+
+
+const __vue_scope_id__$M = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$M = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$M = false;
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$M = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$M,
+  staticRenderFns: __vue_staticRenderFns__$M
+}, __vue_inject_styles__$M, __vue_script__$M, __vue_scope_id__$M, __vue_is_functional_template__$M, __vue_module_identifier__$M, false, createInjector, undefined, undefined);
+
+var script$N = defineComponent({
   name: 'FbLayoutUserMenuItem',
   props: {
     type: {
@@ -5197,10 +5244,10 @@ var script$M = defineComponent({
 });
 
 /* script */
-const __vue_script__$M = script$M;
+const __vue_script__$N = script$N;
 /* template */
 
-var __vue_render__$M = function () {
+var __vue_render__$N = function () {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -5238,10 +5285,10 @@ var __vue_render__$M = function () {
   }, [_vm._v("\n    " + _vm._s(_vm.label) + "\n  ")]) : _c('span', [_vm._v("\n    " + _vm._s(_vm.label) + "\n  ")])], 1);
 };
 
-var __vue_staticRenderFns__$M = [];
+var __vue_staticRenderFns__$N = [];
 /* style */
 
-const __vue_inject_styles__$M = function (inject) {
+const __vue_inject_styles__$N = function (inject) {
   if (!inject) return;
   inject("data-v-a782b838_0", {
     source: ".fb-layout-user-menu-item__container{color:grey;padding:.5rem 1rem;line-height:1.3333333333}.fb-layout-user-menu-item__container>a,.fb-layout-user-menu-item__container>button{background-color:transparent;background-image:none;padding:.25rem 0;margin:0;border:none;outline:0;display:block;font-weight:400;color:#444;white-space:nowrap}.fb-layout-user-menu-item__container>a:focus,.fb-layout-user-menu-item__container>a:hover,.fb-layout-user-menu-item__container>button:focus,.fb-layout-user-menu-item__container>button:hover{text-decoration:none;color:#fff;background-color:#d9230f}",
@@ -5252,21 +5299,21 @@ const __vue_inject_styles__$M = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$M = undefined;
+const __vue_scope_id__$N = undefined;
 /* module identifier */
 
-const __vue_module_identifier__$M = undefined;
+const __vue_module_identifier__$N = undefined;
 /* functional template */
 
-const __vue_is_functional_template__$M = false;
+const __vue_is_functional_template__$N = false;
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-const __vue_component__$M = /*#__PURE__*/normalizeComponent({
-  render: __vue_render__$M,
-  staticRenderFns: __vue_staticRenderFns__$M
-}, __vue_inject_styles__$M, __vue_script__$M, __vue_scope_id__$M, __vue_is_functional_template__$M, __vue_module_identifier__$M, false, createInjector, undefined, undefined);
+const __vue_component__$N = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$N,
+  staticRenderFns: __vue_staticRenderFns__$N
+}, __vue_inject_styles__$N, __vue_script__$N, __vue_scope_id__$N, __vue_is_functional_template__$N, __vue_module_identifier__$N, false, createInjector, undefined, undefined);
 
 // Forms components
 
@@ -5290,37 +5337,38 @@ var components = /*#__PURE__*/Object.freeze({
   FbUiConfirmationWindow: __vue_component__$f,
   FbUiContent: __vue_component__$g,
   FbUiDivider: __vue_component__$h,
-  FbUiLoadingBox: __vue_component__$i,
-  FbUiMediaItem: __vue_component__$j,
-  FbUiModalForm: __vue_component__$k,
-  FbUiModalHeader: __vue_component__$l,
-  FbUiModalInfo: __vue_component__$m,
-  FbUiModalWindow: __vue_component__$n,
-  FbUiPageLoading: __vue_component__$o,
-  FbUiResultErr: __vue_component__$p,
-  FbUiResultOk: __vue_component__$q,
-  FbUiSpinner: __vue_component__$r,
-  FbUiSwitchElement: __vue_component__$s,
-  FbUiTransitionExpand: __vue_component__$t,
-  FbLayoutContent: __vue_component__$u,
-  FbLayoutFooter: __vue_component__$v,
-  FbLayoutHeader: __vue_component__$w,
-  FbLayoutHeaderButton: __vue_component__$x,
-  FbLayoutHeaderContent: __vue_component__$y,
-  FbLayoutHeaderHeading: __vue_component__$z,
-  FbLayoutHeaderSpacer: __vue_component__$A,
-  FbLayoutNavigation: __vue_component__$B,
-  FbLayoutNavigationDivider: __vue_component__$C,
-  FbLayoutNavigationItem: __vue_component__$D,
-  FbLayoutSidebar: __vue_component__$E,
-  FbLayoutSignBox: __vue_component__$F,
-  FbLayoutSignFooter: __vue_component__$G,
-  FbLayoutSignFooterItem: __vue_component__$H,
-  FbLayoutTabs: __vue_component__$I,
-  FbLayoutTabsItem: __vue_component__$J,
-  FbLayoutUserMenu: __vue_component__$K,
-  FbLayoutUserMenuDivider: __vue_component__$L,
-  FbLayoutUserMenuItem: __vue_component__$M
+  FbUiIconWithChild: __vue_component__$i,
+  FbUiLoadingBox: __vue_component__$j,
+  FbUiMediaItem: __vue_component__$k,
+  FbUiModalForm: __vue_component__$l,
+  FbUiModalHeader: __vue_component__$m,
+  FbUiModalInfo: __vue_component__$n,
+  FbUiModalWindow: __vue_component__$o,
+  FbUiPageLoading: __vue_component__$p,
+  FbUiResultErr: __vue_component__$q,
+  FbUiResultOk: __vue_component__$r,
+  FbUiSpinner: __vue_component__$s,
+  FbUiSwitchElement: __vue_component__$t,
+  FbUiTransitionExpand: __vue_component__$u,
+  FbLayoutContent: __vue_component__$v,
+  FbLayoutFooter: __vue_component__$w,
+  FbLayoutHeader: __vue_component__$x,
+  FbLayoutHeaderButton: __vue_component__$y,
+  FbLayoutHeaderContent: __vue_component__$z,
+  FbLayoutHeaderHeading: __vue_component__$A,
+  FbLayoutHeaderSpacer: __vue_component__$B,
+  FbLayoutNavigation: __vue_component__$C,
+  FbLayoutNavigationDivider: __vue_component__$D,
+  FbLayoutNavigationItem: __vue_component__$E,
+  FbLayoutSidebar: __vue_component__$F,
+  FbLayoutSignBox: __vue_component__$G,
+  FbLayoutSignFooter: __vue_component__$H,
+  FbLayoutSignFooterItem: __vue_component__$I,
+  FbLayoutTabs: __vue_component__$J,
+  FbLayoutTabsItem: __vue_component__$K,
+  FbLayoutUserMenu: __vue_component__$L,
+  FbLayoutUserMenuDivider: __vue_component__$M,
+  FbLayoutUserMenuItem: __vue_component__$N
 });
 
 let binded = [];
@@ -5488,4 +5536,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
-export { __vue_component__ as FbFormCheckbox, __vue_component__$1 as FbFormCheckboxesGroup, __vue_component__$2 as FbFormError, __vue_component__$3 as FbFormField, __vue_component__$4 as FbFormInput, __vue_component__$5 as FbFormLabel, FbFormOrientationTypes, __vue_component__$6 as FbFormRadioButton, __vue_component__$7 as FbFormRadioButtonsGroup, FbFormResultType, __vue_component__$8 as FbFormSelect, __vue_component__$9 as FbFormTextArea, __vue_component__$u as FbLayoutContent, __vue_component__$v as FbLayoutFooter, __vue_component__$w as FbLayoutHeader, __vue_component__$x as FbLayoutHeaderButton, __vue_component__$y as FbLayoutHeaderContent, __vue_component__$z as FbLayoutHeaderHeading, __vue_component__$A as FbLayoutHeaderSpacer, __vue_component__$B as FbLayoutNavigation, __vue_component__$C as FbLayoutNavigationDivider, __vue_component__$D as FbLayoutNavigationItem, __vue_component__$E as FbLayoutSidebar, __vue_component__$F as FbLayoutSignBox, __vue_component__$G as FbLayoutSignFooter, __vue_component__$H as FbLayoutSignFooterItem, __vue_component__$I as FbLayoutTabs, __vue_component__$J as FbLayoutTabsItem, __vue_component__$K as FbLayoutUserMenu, __vue_component__$L as FbLayoutUserMenuDivider, __vue_component__$M as FbLayoutUserMenuItem, FbMenuItemType, FbSizeTypes, __vue_component__$a as FbUiAlert, __vue_component__$b as FbUiButton, __vue_component__$c as FbUiCardBox, __vue_component__$d as FbUiComponentLoading, __vue_component__$e as FbUiComponentLoadingError, __vue_component__$f as FbUiConfirmationWindow, __vue_component__$g as FbUiContent, __vue_component__$h as FbUiDivider, __vue_component__$i as FbUiLoadingBox, __vue_component__$j as FbUiMediaItem, __vue_component__$k as FbUiModalForm, __vue_component__$l as FbUiModalHeader, __vue_component__$m as FbUiModalInfo, __vue_component__$n as FbUiModalWindow, __vue_component__$o as FbUiPageLoading, __vue_component__$p as FbUiResultErr, __vue_component__$q as FbUiResultOk, __vue_component__$r as FbUiSpinner, __vue_component__$s as FbUiSwitchElement, __vue_component__$t as FbUiTransitionExpand };
+export { __vue_component__ as FbFormCheckbox, __vue_component__$1 as FbFormCheckboxesGroup, __vue_component__$2 as FbFormError, __vue_component__$3 as FbFormField, __vue_component__$4 as FbFormInput, __vue_component__$5 as FbFormLabel, FbFormOrientationTypes, __vue_component__$6 as FbFormRadioButton, __vue_component__$7 as FbFormRadioButtonsGroup, FbFormResultType, __vue_component__$8 as FbFormSelect, __vue_component__$9 as FbFormTextArea, __vue_component__$v as FbLayoutContent, __vue_component__$w as FbLayoutFooter, __vue_component__$x as FbLayoutHeader, __vue_component__$y as FbLayoutHeaderButton, __vue_component__$z as FbLayoutHeaderContent, __vue_component__$A as FbLayoutHeaderHeading, __vue_component__$B as FbLayoutHeaderSpacer, __vue_component__$C as FbLayoutNavigation, __vue_component__$D as FbLayoutNavigationDivider, __vue_component__$E as FbLayoutNavigationItem, __vue_component__$F as FbLayoutSidebar, __vue_component__$G as FbLayoutSignBox, __vue_component__$H as FbLayoutSignFooter, __vue_component__$I as FbLayoutSignFooterItem, __vue_component__$J as FbLayoutTabs, __vue_component__$K as FbLayoutTabsItem, __vue_component__$L as FbLayoutUserMenu, __vue_component__$M as FbLayoutUserMenuDivider, __vue_component__$N as FbLayoutUserMenuItem, FbMenuItemType, FbSizeTypes, __vue_component__$a as FbUiAlert, __vue_component__$b as FbUiButton, __vue_component__$c as FbUiCardBox, __vue_component__$d as FbUiComponentLoading, __vue_component__$e as FbUiComponentLoadingError, __vue_component__$f as FbUiConfirmationWindow, __vue_component__$g as FbUiContent, __vue_component__$h as FbUiDivider, __vue_component__$i as FbUiIconWithChild, __vue_component__$j as FbUiLoadingBox, __vue_component__$k as FbUiMediaItem, __vue_component__$l as FbUiModalForm, __vue_component__$m as FbUiModalHeader, __vue_component__$n as FbUiModalInfo, __vue_component__$o as FbUiModalWindow, __vue_component__$p as FbUiPageLoading, __vue_component__$q as FbUiResultErr, __vue_component__$r as FbUiResultOk, __vue_component__$s as FbUiSpinner, __vue_component__$t as FbUiSwitchElement, __vue_component__$u as FbUiTransitionExpand };
