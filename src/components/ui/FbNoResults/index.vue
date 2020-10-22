@@ -1,6 +1,6 @@
 <template>
-  <div class="fb-no-results__container">
-    <fb-icon-with-child v-if="slotExists('second-icon')">
+  <div class="fb-ui-no-results__container">
+    <fb-ui-icon-with-child v-if="slotExists('second-icon')">
       <template slot="icon">
         <slot name="icon" />
       </template>
@@ -8,7 +8,7 @@
       <template slot="second-icon">
         <slot name="second-icon" />
       </template>
-    </fb-icon-with-child>
+    </fb-ui-icon-with-child>
 
     <template v-else>
       <slot name="icon" />
