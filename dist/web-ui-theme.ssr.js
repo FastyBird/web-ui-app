@@ -418,19 +418,26 @@ var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   FbMenuItemType["TEXT"] = "text";
 })(exports.FbMenuItemType || (exports.FbMenuItemType = {}));
 
-(function (FbFormOrientationTypes) {
-  FbFormOrientationTypes["VERTICAL"] = "vertical";
-  FbFormOrientationTypes["HORIZONTAL"] = "horizontal";
-  FbFormOrientationTypes["INLINE"] = "inline";
-})(exports.FbFormOrientationTypes || (exports.FbFormOrientationTypes = {}));
-
 (function (FbSizeTypes) {
   FbSizeTypes["EXTRA_SMALL"] = "xs";
   FbSizeTypes["SMALL"] = "sm";
   FbSizeTypes["MEDIUM"] = "md";
   FbSizeTypes["LARGE"] = "lg";
   FbSizeTypes["NONE"] = "none";
-})(exports.FbSizeTypes || (exports.FbSizeTypes = {}));var script$3 = compositionApi.defineComponent({
+})(exports.FbSizeTypes || (exports.FbSizeTypes = {}));
+
+(function (FbFormOrientationTypes) {
+  FbFormOrientationTypes["VERTICAL"] = "vertical";
+  FbFormOrientationTypes["HORIZONTAL"] = "horizontal";
+  FbFormOrientationTypes["INLINE"] = "inline";
+})(exports.FbFormOrientationTypes || (exports.FbFormOrientationTypes = {}));
+
+(function (FbFormResultType) {
+  FbFormResultType["NONE"] = "none";
+  FbFormResultType["WORKING"] = "working";
+  FbFormResultType["ERROR"] = "error";
+  FbFormResultType["OK"] = "ok";
+})(exports.FbFormResultType || (exports.FbFormResultType = {}));var script$3 = compositionApi.defineComponent({
   name: 'FbFormField',
   props: {
     orientation: {
@@ -2281,19 +2288,16 @@ var __vue_component__$j = /*#__PURE__*/normalizeComponent({
       type: Boolean,
       default: false
     },
-    resultIsOk: {
-      type: Boolean,
-      default: false
-    },
-    resultIsErr: {
-      type: Boolean,
-      default: false
+    state: {
+      type: String,
+      default: exports.FbFormResultType.NONE
     }
   },
   setup: function setup(_props, context) {
     var initialTabindex = compositionApi.ref(get__default['default'](context, 'slots.form', []).length + 1);
     return {
-      initialTabindex: initialTabindex
+      initialTabindex: initialTabindex,
+      resultTypes: exports.FbFormResultType
     };
   }
 });/* script */
@@ -2319,9 +2323,7 @@ var __vue_render__$k = function __vue_render__() {
     }
   }, [_c('template', {
     slot: "modal-title"
-  }, [_vm._t("default", null, {
-    "nem": "icon"
-  }), _vm._v(" "), _vm._t("header")], 2), _vm._v(" "), _c('form', {
+  }, [_vm._t("icon"), _vm._v(" "), _vm._t("header")], 2), _vm._v(" "), _c('form', {
     staticClass: "fb-ui-modal-form__form",
     attrs: {
       "slot": "modal-body"
@@ -2333,9 +2335,11 @@ var __vue_render__$k = function __vue_render__() {
       }
     },
     slot: "modal-body"
-  }, [_vm._t("form"), _vm._v(" "), _vm.resultIsOk ? _c('div', {
+  }, [_vm._t("form"), _vm._v(" "), _vm.state === _vm.resultTypes.WORKING ? _c('div', {
     staticClass: "fb-ui-modal-form__result"
-  }, [_c('fb-ui-result-ok')], 1) : _vm._e(), _vm._v(" "), _vm.resultIsErr ? _c('div', {
+  }, [_c('fb-ui-spinner')], 1) : _vm._e(), _vm._v(" "), _vm.state === _vm.resultTypes.OK ? _c('div', {
+    staticClass: "fb-ui-modal-form__result"
+  }, [_c('fb-ui-result-ok')], 1) : _vm._e(), _vm._v(" "), _vm.state === _vm.resultTypes.ERROR ? _c('div', {
     staticClass: "fb-ui-modal-form__result"
   }, [_c('fb-ui-result-err')], 1) : _vm._e()], 2), _vm._v(" "), _c('template', {
     slot: "modal-footer"
@@ -2379,8 +2383,8 @@ var __vue_staticRenderFns__$k = [];
 
 var __vue_inject_styles__$k = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-b35aff34_0", {
-    source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}",
+  inject("data-v-4466df24_0", {
+    source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}.fb-ui-modal-form__result>div .fb-ui-spinner__container{width:10rem;height:10rem}.fb-ui-modal-form__result>div .fb-ui-spinner__container:after,.fb-ui-modal-form__result>div .fb-ui-spinner__container:before{width:10rem;height:10rem;margin:-5rem 0 0 -5rem}",
     map: undefined,
     media: undefined
   });
@@ -2391,7 +2395,7 @@ var __vue_inject_styles__$k = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$k = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$k = "data-v-b35aff34";
+var __vue_module_identifier__$k = "data-v-4466df24";
 /* functional template */
 
 var __vue_is_functional_template__$k = false;

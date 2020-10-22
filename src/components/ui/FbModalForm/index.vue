@@ -5,7 +5,7 @@
     @close="$emit('close', $event)"
   >
     <template slot="modal-title">
-      <slot nem="icon" />
+      <slot name="icon" />
       <slot name="header" />
     </template>
 
@@ -17,14 +17,21 @@
       <slot name="form" />
 
       <div
-        v-if="resultIsOk"
+        v-if="state === resultTypes.WORKING"
+        class="fb-ui-modal-form__result"
+      >
+        <fb-ui-spinner />
+      </div>
+
+      <div
+        v-if="state === resultTypes.OK"
         class="fb-ui-modal-form__result"
       >
         <fb-ui-result-ok />
       </div>
 
       <div
-        v-if="resultIsErr"
+        v-if="state === resultTypes.ERROR"
         class="fb-ui-modal-form__result"
       >
         <fb-ui-result-err />
@@ -71,7 +78,7 @@ import {
 
 import get from 'lodash/get'
 
-import { FbSizeTypes } from "@/components/types";
+import {FbFormResultType, FbSizeTypes} from "@/components/types";
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes
@@ -80,6 +87,7 @@ interface FbUiModalFormPropsInterface {
   lockButtons: boolean
   lockSubmitButton: boolean
   transparentBg: boolean
+  resultIsWorking: boolean
   resultIsOk: boolean
   resultIsErr: boolean
 }
@@ -132,14 +140,9 @@ export default defineComponent({
       default: false,
     },
 
-    resultIsOk: {
-      type: Boolean,
-      default: false,
-    },
-
-    resultIsErr: {
-      type: Boolean,
-      default: false,
+    state: {
+      type: String as PropType<FbFormResultType>,
+      default: FbFormResultType.NONE,
     },
 
   },
@@ -149,6 +152,7 @@ export default defineComponent({
 
     return {
       initialTabindex,
+      resultTypes: FbFormResultType,
     }
   },
 

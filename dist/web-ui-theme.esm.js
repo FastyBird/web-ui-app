@@ -471,14 +471,6 @@ let FbMenuItemType;
   FbMenuItemType["TEXT"] = "text";
 })(FbMenuItemType || (FbMenuItemType = {}));
 
-let FbFormOrientationTypes;
-
-(function (FbFormOrientationTypes) {
-  FbFormOrientationTypes["VERTICAL"] = "vertical";
-  FbFormOrientationTypes["HORIZONTAL"] = "horizontal";
-  FbFormOrientationTypes["INLINE"] = "inline";
-})(FbFormOrientationTypes || (FbFormOrientationTypes = {}));
-
 let FbSizeTypes;
 
 (function (FbSizeTypes) {
@@ -488,6 +480,23 @@ let FbSizeTypes;
   FbSizeTypes["LARGE"] = "lg";
   FbSizeTypes["NONE"] = "none";
 })(FbSizeTypes || (FbSizeTypes = {}));
+
+let FbFormOrientationTypes;
+
+(function (FbFormOrientationTypes) {
+  FbFormOrientationTypes["VERTICAL"] = "vertical";
+  FbFormOrientationTypes["HORIZONTAL"] = "horizontal";
+  FbFormOrientationTypes["INLINE"] = "inline";
+})(FbFormOrientationTypes || (FbFormOrientationTypes = {}));
+
+let FbFormResultType;
+
+(function (FbFormResultType) {
+  FbFormResultType["NONE"] = "none";
+  FbFormResultType["WORKING"] = "working";
+  FbFormResultType["ERROR"] = "error";
+  FbFormResultType["OK"] = "ok";
+})(FbFormResultType || (FbFormResultType = {}));
 
 var script$3 = defineComponent({
   name: 'FbFormField',
@@ -2597,20 +2606,17 @@ var script$k = defineComponent({
       type: Boolean,
       default: false
     },
-    resultIsOk: {
-      type: Boolean,
-      default: false
-    },
-    resultIsErr: {
-      type: Boolean,
-      default: false
+    state: {
+      type: String,
+      default: FbFormResultType.NONE
     }
   },
 
   setup(_props, context) {
     const initialTabindex = ref(get(context, 'slots.form', []).length + 1);
     return {
-      initialTabindex
+      initialTabindex,
+      resultTypes: FbFormResultType
     };
   }
 
@@ -2639,9 +2645,7 @@ var __vue_render__$k = function () {
     }
   }, [_c('template', {
     slot: "modal-title"
-  }, [_vm._t("default", null, {
-    "nem": "icon"
-  }), _vm._v(" "), _vm._t("header")], 2), _vm._v(" "), _c('form', {
+  }, [_vm._t("icon"), _vm._v(" "), _vm._t("header")], 2), _vm._v(" "), _c('form', {
     staticClass: "fb-ui-modal-form__form",
     attrs: {
       "slot": "modal-body"
@@ -2653,9 +2657,11 @@ var __vue_render__$k = function () {
       }
     },
     slot: "modal-body"
-  }, [_vm._t("form"), _vm._v(" "), _vm.resultIsOk ? _c('div', {
+  }, [_vm._t("form"), _vm._v(" "), _vm.state === _vm.resultTypes.WORKING ? _c('div', {
     staticClass: "fb-ui-modal-form__result"
-  }, [_c('fb-ui-result-ok')], 1) : _vm._e(), _vm._v(" "), _vm.resultIsErr ? _c('div', {
+  }, [_c('fb-ui-spinner')], 1) : _vm._e(), _vm._v(" "), _vm.state === _vm.resultTypes.OK ? _c('div', {
+    staticClass: "fb-ui-modal-form__result"
+  }, [_c('fb-ui-result-ok')], 1) : _vm._e(), _vm._v(" "), _vm.state === _vm.resultTypes.ERROR ? _c('div', {
     staticClass: "fb-ui-modal-form__result"
   }, [_c('fb-ui-result-err')], 1) : _vm._e()], 2), _vm._v(" "), _c('template', {
     slot: "modal-footer"
@@ -2699,8 +2705,8 @@ var __vue_staticRenderFns__$k = [];
 
 const __vue_inject_styles__$k = function (inject) {
   if (!inject) return;
-  inject("data-v-b35aff34_0", {
-    source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}",
+  inject("data-v-4466df24_0", {
+    source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}.fb-ui-modal-form__result>div .fb-ui-spinner__container{width:10rem;height:10rem}.fb-ui-modal-form__result>div .fb-ui-spinner__container:after,.fb-ui-modal-form__result>div .fb-ui-spinner__container:before{width:10rem;height:10rem;margin:-5rem 0 0 -5rem}",
     map: undefined,
     media: undefined
   });
@@ -5478,4 +5484,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
-export { __vue_component__ as FbFormCheckbox, __vue_component__$1 as FbFormCheckboxesGroup, __vue_component__$2 as FbFormError, __vue_component__$3 as FbFormField, __vue_component__$4 as FbFormInput, __vue_component__$5 as FbFormLabel, FbFormOrientationTypes, __vue_component__$6 as FbFormRadioButton, __vue_component__$7 as FbFormRadioButtonsGroup, __vue_component__$8 as FbFormSelect, __vue_component__$9 as FbFormTextArea, __vue_component__$u as FbLayoutContent, __vue_component__$v as FbLayoutFooter, __vue_component__$w as FbLayoutHeader, __vue_component__$x as FbLayoutHeaderButton, __vue_component__$y as FbLayoutHeaderContent, __vue_component__$z as FbLayoutHeaderHeading, __vue_component__$A as FbLayoutHeaderSpacer, __vue_component__$B as FbLayoutNavigation, __vue_component__$C as FbLayoutNavigationDivider, __vue_component__$D as FbLayoutNavigationItem, __vue_component__$E as FbLayoutSidebar, __vue_component__$F as FbLayoutSignBox, __vue_component__$G as FbLayoutSignFooter, __vue_component__$H as FbLayoutSignFooterItem, __vue_component__$I as FbLayoutTabs, __vue_component__$J as FbLayoutTabsItem, __vue_component__$K as FbLayoutUserMenu, __vue_component__$L as FbLayoutUserMenuDivider, __vue_component__$M as FbLayoutUserMenuItem, FbMenuItemType, FbSizeTypes, __vue_component__$a as FbUiAlert, __vue_component__$b as FbUiButton, __vue_component__$c as FbUiCardBox, __vue_component__$d as FbUiComponentLoading, __vue_component__$e as FbUiComponentLoadingError, __vue_component__$f as FbUiConfirmationWindow, __vue_component__$g as FbUiContent, __vue_component__$h as FbUiDivider, __vue_component__$i as FbUiLoadingBox, __vue_component__$j as FbUiMediaItem, __vue_component__$k as FbUiModalForm, __vue_component__$l as FbUiModalHeader, __vue_component__$m as FbUiModalInfo, __vue_component__$n as FbUiModalWindow, __vue_component__$o as FbUiPageLoading, __vue_component__$p as FbUiResultErr, __vue_component__$q as FbUiResultOk, __vue_component__$r as FbUiSpinner, __vue_component__$s as FbUiSwitchElement, __vue_component__$t as FbUiTransitionExpand };
+export { __vue_component__ as FbFormCheckbox, __vue_component__$1 as FbFormCheckboxesGroup, __vue_component__$2 as FbFormError, __vue_component__$3 as FbFormField, __vue_component__$4 as FbFormInput, __vue_component__$5 as FbFormLabel, FbFormOrientationTypes, __vue_component__$6 as FbFormRadioButton, __vue_component__$7 as FbFormRadioButtonsGroup, FbFormResultType, __vue_component__$8 as FbFormSelect, __vue_component__$9 as FbFormTextArea, __vue_component__$u as FbLayoutContent, __vue_component__$v as FbLayoutFooter, __vue_component__$w as FbLayoutHeader, __vue_component__$x as FbLayoutHeaderButton, __vue_component__$y as FbLayoutHeaderContent, __vue_component__$z as FbLayoutHeaderHeading, __vue_component__$A as FbLayoutHeaderSpacer, __vue_component__$B as FbLayoutNavigation, __vue_component__$C as FbLayoutNavigationDivider, __vue_component__$D as FbLayoutNavigationItem, __vue_component__$E as FbLayoutSidebar, __vue_component__$F as FbLayoutSignBox, __vue_component__$G as FbLayoutSignFooter, __vue_component__$H as FbLayoutSignFooterItem, __vue_component__$I as FbLayoutTabs, __vue_component__$J as FbLayoutTabsItem, __vue_component__$K as FbLayoutUserMenu, __vue_component__$L as FbLayoutUserMenuDivider, __vue_component__$M as FbLayoutUserMenuItem, FbMenuItemType, FbSizeTypes, __vue_component__$a as FbUiAlert, __vue_component__$b as FbUiButton, __vue_component__$c as FbUiCardBox, __vue_component__$d as FbUiComponentLoading, __vue_component__$e as FbUiComponentLoadingError, __vue_component__$f as FbUiConfirmationWindow, __vue_component__$g as FbUiContent, __vue_component__$h as FbUiDivider, __vue_component__$i as FbUiLoadingBox, __vue_component__$j as FbUiMediaItem, __vue_component__$k as FbUiModalForm, __vue_component__$l as FbUiModalHeader, __vue_component__$m as FbUiModalInfo, __vue_component__$n as FbUiModalWindow, __vue_component__$o as FbUiPageLoading, __vue_component__$p as FbUiResultErr, __vue_component__$q as FbUiResultOk, __vue_component__$r as FbUiSpinner, __vue_component__$s as FbUiSwitchElement, __vue_component__$t as FbUiTransitionExpand };
