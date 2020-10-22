@@ -27,7 +27,7 @@ import {
 
 export default defineComponent({
 
-  name: 'FbNoResults',
+  name: 'FbUiNoResults',
 
 })
 </script>

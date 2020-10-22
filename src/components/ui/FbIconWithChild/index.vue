@@ -1,10 +1,10 @@
 <template functional>
-  <span :class="[data.class, data.staticClass, 'fb-icon-with-child__container']">
-    <span class="fb-icon-with-child__icon">
+  <span :class="[data.class, data.staticClass, 'fb-ui-icon-with-child__container']">
+    <span class="fb-ui-icon-with-child__icon">
       <slot name="icon" />
     </span>
 
-    <span class="fb-icon-with-child__child-icon">
+    <span class="fb-ui-icon-with-child__child-icon">
       <slot name="child-icon" />
     </span>
   </span>
@@ -17,7 +17,7 @@ import {
 
 export default defineComponent({
 
-  name: 'FbIconWithChild',
+  name: 'FbUiIconWithChild',
 
 })
 </script>

@@ -2167,7 +2167,7 @@ var __vue_component__$h = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$h,
   staticRenderFns: __vue_staticRenderFns__$h
 }, __vue_inject_styles__$h, __vue_script__$h, __vue_scope_id__$h, __vue_is_functional_template__$h, __vue_module_identifier__$h, false, undefined, createInjectorSSR, undefined);var script$i = compositionApi.defineComponent({
-  name: 'FbIconWithChild'
+  name: 'FbUiIconWithChild'
 });/* script */
 var __vue_script__$i = script$i;
 /* template */
@@ -2175,8 +2175,8 @@ var __vue_script__$i = script$i;
 var __vue_render__$i = function __vue_render__(_h, _vm) {
   var _c = _vm._c;
   return _c('span', {
-    class: [_vm.data.class, _vm.data.staticClass, 'fb-icon-with-child__container']
-  }, [_vm._ssrNode("<span class=\"fb-icon-with-child__icon\">", "</span>", [_vm._t("icon")], 2), _vm._ssrNode(" "), _vm._ssrNode("<span class=\"fb-icon-with-child__child-icon\">", "</span>", [_vm._t("child-icon")], 2)], 2);
+    class: [_vm.data.class, _vm.data.staticClass, 'fb-ui-icon-with-child__container']
+  }, [_vm._ssrNode("<span class=\"fb-ui-icon-with-child__icon\">", "</span>", [_vm._t("icon")], 2), _vm._ssrNode(" "), _vm._ssrNode("<span class=\"fb-ui-icon-with-child__child-icon\">", "</span>", [_vm._t("child-icon")], 2)], 2);
 };
 
 var __vue_staticRenderFns__$i = [];
@@ -2184,8 +2184,8 @@ var __vue_staticRenderFns__$i = [];
 
 var __vue_inject_styles__$i = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-75b5ed8c_0", {
-    source: ".fb-icon-with-child__container{display:inline-block;position:relative}.fb-icon-with-child-child-icon{display:block;bottom:0;position:absolute;right:0;z-index:2;border-radius:50%;color:#fff;background-color:#d9230f;font-size:1rem;-webkit-box-shadow:0 0 0 2px #fff;box-shadow:0 0 0 2px #fff}",
+  inject("data-v-5abfffc2_0", {
+    source: ".fb-ui-icon-with-child__container{display:inline-block;position:relative}.fb-ui-icon-with-child-child-icon{display:block;bottom:0;position:absolute;right:0;z-index:2;border-radius:50%;color:#fff;background-color:#d9230f;font-size:1rem;-webkit-box-shadow:0 0 0 2px #fff;box-shadow:0 0 0 2px #fff}",
     map: undefined,
     media: undefined
   });
@@ -2196,7 +2196,7 @@ var __vue_inject_styles__$i = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$i = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$i = "data-v-75b5ed8c";
+var __vue_module_identifier__$i = "data-v-5abfffc2";
 /* functional template */
 
 var __vue_is_functional_template__$i = true;
@@ -2885,7 +2885,7 @@ var __vue_component__$p = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$p,
   staticRenderFns: __vue_staticRenderFns__$p
 }, __vue_inject_styles__$p, __vue_script__$p, __vue_scope_id__$p, __vue_is_functional_template__$p, __vue_module_identifier__$p, false, undefined, createInjectorSSR, undefined);var script$q = compositionApi.defineComponent({
-  name: 'FbNoResults'
+  name: 'FbUiNoResults'
 });/* script */
 var __vue_script__$q = script$q;
 /* template */
@@ -2911,8 +2911,8 @@ var __vue_staticRenderFns__$q = [];
 
 var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-5ec749fa_0", {
-    source: ".fb-ui-no-results__container{display:inline-block;position:relative}.fb-ui-no-results__container .fb-icon-with-child__container__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-icon-with-child__container__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
+  inject("data-v-34380b62_0", {
+    source: ".fb-ui-no-results__container{display:inline-block;position:relative}.fb-ui-no-results__container .fb-ui-icon-with-child__container__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-ui-icon-with-child__container__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
     map: undefined,
     media: undefined
   });
@@ -2923,7 +2923,7 @@ var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$q = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$q = "data-v-5ec749fa";
+var __vue_module_identifier__$q = "data-v-34380b62";
 /* functional template */
 
 var __vue_is_functional_template__$q = false;

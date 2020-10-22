@@ -2461,7 +2461,7 @@ const __vue_component__$h = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$h, __vue_script__$h, __vue_scope_id__$h, __vue_is_functional_template__$h, __vue_module_identifier__$h, false, createInjector, undefined, undefined);
 
 var script$i = defineComponent({
-  name: 'FbIconWithChild'
+  name: 'FbUiIconWithChild'
 });
 
 /* script */
@@ -2471,11 +2471,11 @@ const __vue_script__$i = script$i;
 var __vue_render__$i = function (_h, _vm) {
   var _c = _vm._c;
   return _c('span', {
-    class: [_vm.data.class, _vm.data.staticClass, 'fb-icon-with-child__container']
+    class: [_vm.data.class, _vm.data.staticClass, 'fb-ui-icon-with-child__container']
   }, [_c('span', {
-    staticClass: "fb-icon-with-child__icon"
+    staticClass: "fb-ui-icon-with-child__icon"
   }, [_vm._t("icon")], 2), _vm._v(" "), _c('span', {
-    staticClass: "fb-icon-with-child__child-icon"
+    staticClass: "fb-ui-icon-with-child__child-icon"
   }, [_vm._t("child-icon")], 2)]);
 };
 
@@ -2484,8 +2484,8 @@ var __vue_staticRenderFns__$i = [];
 
 const __vue_inject_styles__$i = function (inject) {
   if (!inject) return;
-  inject("data-v-75b5ed8c_0", {
-    source: ".fb-icon-with-child__container{display:inline-block;position:relative}.fb-icon-with-child-child-icon{display:block;bottom:0;position:absolute;right:0;z-index:2;border-radius:50%;color:#fff;background-color:#d9230f;font-size:1rem;-webkit-box-shadow:0 0 0 2px #fff;box-shadow:0 0 0 2px #fff}",
+  inject("data-v-5abfffc2_0", {
+    source: ".fb-ui-icon-with-child__container{display:inline-block;position:relative}.fb-ui-icon-with-child-child-icon{display:block;bottom:0;position:absolute;right:0;z-index:2;border-radius:50%;color:#fff;background-color:#d9230f;font-size:1rem;-webkit-box-shadow:0 0 0 2px #fff;box-shadow:0 0 0 2px #fff}",
     map: undefined,
     media: undefined
   });
@@ -3274,7 +3274,7 @@ const __vue_component__$p = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__$p, __vue_script__$p, __vue_scope_id__$p, __vue_is_functional_template__$p, __vue_module_identifier__$p, false, createInjector, undefined, undefined);
 
 var script$q = defineComponent({
-  name: 'FbNoResults'
+  name: 'FbUiNoResults'
 });
 
 /* script */
@@ -3302,8 +3302,8 @@ var __vue_staticRenderFns__$q = [];
 
 const __vue_inject_styles__$q = function (inject) {
   if (!inject) return;
-  inject("data-v-5ec749fa_0", {
-    source: ".fb-ui-no-results__container{display:inline-block;position:relative}.fb-ui-no-results__container .fb-icon-with-child__container__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-icon-with-child__container__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
+  inject("data-v-34380b62_0", {
+    source: ".fb-ui-no-results__container{display:inline-block;position:relative}.fb-ui-no-results__container .fb-ui-icon-with-child__container__icon{color:grey;font-size:5em;margin:1.5rem 0}.fb-ui-no-results__container .fb-ui-icon-with-child__container__child-icon{font-size:1.6rem;height:3.2rem;width:3.2rem;line-height:3.2rem;text-align:center}.fb-ui-no-results__container p{margin:1.5rem 0}",
     map: undefined,
     media: undefined
   });
