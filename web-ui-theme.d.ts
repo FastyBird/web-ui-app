@@ -56,6 +56,11 @@ export const FbLayoutUserMenu: VueConstructor<Vue>;
 export const FbLayoutUserMenuDivider: VueConstructor<Vue>;
 export const FbLayoutUserMenuItem: VueConstructor<Vue>;
 
+export { FbMenuItemType as FbMenuItemType } from './src/components/types'
+export { FbSizeTypes as FbSizeTypes } from './src/components/types'
+export { FbFormOrientationTypes as FbFormOrientationTypes } from './src/components/types'
+export { FbFormResultType as FbFormResultType } from './src/components/types'
+
 // Theme mixins
 declare module 'vue/types/vue' {
   interface Vue {

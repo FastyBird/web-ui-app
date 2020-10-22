@@ -21,18 +21,18 @@
     > div {
       margin-left: auto;
       margin-right: auto;
+    }
 
-      .fb-ui-spinner__container {
-        width: 10rem;
-        height: 10rem;
-      }
+    .fb-ui-spinner__container {
+      width: 10rem;
+      height: 10rem;
+    }
 
-      .fb-ui-spinner__container:before,
-      .fb-ui-spinner__container:after {
-        width: 10rem;
-        height: 10rem;
-        margin: -5rem 0 0 -5rem
-      }
+    .fb-ui-spinner__container:before,
+    .fb-ui-spinner__container:after {
+      width: 10rem;
+      height: 10rem;
+      margin: -5rem 0 0 -5rem
     }
   }
 }
