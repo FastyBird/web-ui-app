@@ -3386,7 +3386,7 @@ var __vue_staticRenderFns__$x = [];
 var __vue_inject_styles__$x = function __vue_inject_styles__(inject) {
   if (!inject) return;
   inject("data-v-07fcec6e_0", {
-    source: ".fb-layout-content__container{flex-grow:1;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}.fb-layout-content__content{flex-grow:1}",
+    source: ".fb-layout-content__container{height:100%;overflow:hidden;flex-grow:1;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}.fb-layout-content__content{overflow:hidden;flex-grow:1}",
     map: undefined,
     media: undefined
   });

@@ -2,6 +2,8 @@
 
 .fb-layout-content {
   &__container {
+    height: 100%;
+    overflow: hidden;
     flex-grow: 1;
 
     @include flex-content;
@@ -12,6 +14,7 @@
   }
 
   &__content {
+    overflow: hidden;
     flex-grow: 1;
   }
 
