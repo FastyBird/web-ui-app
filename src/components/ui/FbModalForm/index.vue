@@ -67,7 +67,7 @@
           :disabled="lockButtons"
           :tabindex="(initialTabindex + 2)"
           name="close"
-          @click.prevent="$emit('close', $event)"
+          @click.prevent="$emit('cancel', $event)"
         >
           {{ cancelBtnLabel }}
         </fb-ui-button>
