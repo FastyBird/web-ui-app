@@ -29,6 +29,7 @@ export const FbUiLoadingBox: VueConstructor<Vue>;
 export const FbUiMediaItem: VueConstructor<Vue>;
 export const FbUiModalForm: VueConstructor<Vue>;
 export const FbUiModalHeader: VueConstructor<Vue>;
+export const FbUiModalHeaderIcon: VueConstructor<Vue>;
 export const FbUiModalInfo: VueConstructor<Vue>;
 export const FbUiModalWindow: VueConstructor<Vue>;
 export const FbUiNoResults: VueConstructor<Vue>;
