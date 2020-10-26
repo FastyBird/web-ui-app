@@ -66,6 +66,7 @@ export enum FbUiButtonVariantTypes {
   OUTLINE_WARNING = 'outline-warning',
   OUTLINE_INFO = 'outline-info',
   LINK = 'link',
+  LINK_DEFAULT = 'link-default',
 }
 
 interface FbUiButtonPropsInterface {
@@ -145,6 +146,7 @@ export default defineComponent({
           FbUiButtonVariantTypes.OUTLINE_WARNING,
           FbUiButtonVariantTypes.OUTLINE_INFO,
           FbUiButtonVariantTypes.LINK,
+          FbUiButtonVariantTypes.LINK_DEFAULT,
         ].includes(value)
       },
     },
