@@ -1,6 +1,7 @@
 <template>
   <nuxt-link
     v-if="to !== null"
+    ref="element"
     :to="to"
     :data-variant="variant"
     :data-size="size"
@@ -13,6 +14,7 @@
 
   <a
     v-else-if="href !== null"
+    ref="element"
     :href="href"
     :data-variant="variant"
     :data-size="size"
@@ -25,6 +27,7 @@
 
   <button
     v-else
+    ref="element"
     :type="type"
     :data-variant="variant"
     :data-size="size"
@@ -40,7 +43,7 @@
 <script lang="ts">
 import {
   defineComponent,
-  PropType,
+  PropType, ref,
   SetupContext,
 } from '@vue/composition-api'
 
@@ -194,6 +197,8 @@ export default defineComponent({
   },
 
   setup(props: FbUiButtonPropsInterface, context: SetupContext) {
+    const element = ref<HTMLElement | null>(null)
+
     const classNames = []
 
     classNames.push('fb-ui-button')
@@ -228,9 +233,14 @@ export default defineComponent({
 
     function clickHandle(e: Event): void {
       context.emit('click', e)
+
+      if (element.value !== null) {
+        element.value.blur()
+      }
     }
 
     return {
+      element,
       classNames,
       clickHandle,
     }
