@@ -37,14 +37,6 @@
     }
   }
 
-  &:active,
-  &.active {
-    outline: 0;
-    background-image: none;
-
-    @include active-shadow;
-  }
-
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
@@ -53,13 +45,6 @@
     filter: alpha(opacity=65);
 
     @include disabled-shadow;
-  }
-
-  &:active,
-  &.active {
-    background-image: $btn-active-gradient;
-    background-size: $btn-active-background-size;
-    box-shadow: $btn-active-box-shadow;
   }
 }
 
@@ -136,8 +121,6 @@ a.fb-ui-button {
     }
 
     &,
-    &:active,
-    &.active,
     &[disabled],
     fieldset[disabled] & {
       background-color: transparent;
@@ -145,18 +128,8 @@ a.fb-ui-button {
     }
 
     &,
-    &:active,
-    &.active {
-      background-color: transparent;
-      background-image: none;
-      background-size: auto;
-      box-shadow: none;
-    }
-
-    &,
     &:hover,
-    &:focus,
-    &:active {
+    &:focus {
       border-color: transparent;
     }
 
@@ -195,8 +168,6 @@ a.fb-ui-button {
     }
 
     &,
-    &:active,
-    &.active,
     &[disabled],
     fieldset[disabled] & {
       background-color: transparent;
@@ -204,18 +175,8 @@ a.fb-ui-button {
     }
 
     &,
-    &:active,
-    &.active {
-      background-color: transparent;
-      background-image: none;
-      background-size: auto;
-      box-shadow: none;
-    }
-
-    &,
     &:hover,
-    &:focus,
-    &:active {
+    &:focus {
       border-color: transparent;
     }
 
