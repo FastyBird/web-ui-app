@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import vue from 'rollup-plugin-vue';
 import alias from '@rollup/plugin-alias';
+import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import babel from 'rollup-plugin-babel';
@@ -24,7 +25,7 @@ const baseConfig = {
   plugins: {
     preVue: [
       alias({
-        resolve: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+        resolve: ['.vue', '.js', '.ts'],
         entries: {
           '@': path.resolve(projectRoot, 'src'),
         },
@@ -42,7 +43,11 @@ const baseConfig = {
     },
     babel: {
       exclude: 'node_modules/**',
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+      extensions: ['.vue', '.js', '.ts'],
+    },
+    nodeResolve: {
+      exclude: 'node_modules/**',
+      extensions: ['.vue', '.js', '.ts'],
     },
   },
 };
@@ -101,6 +106,9 @@ if (!argv.format || argv.format === 'es') {
         ],
       }),
       commonjs(),
+      resolve({
+        ...baseConfig.plugins.nodeResolve
+      }),
     ],
   };
   buildFormats.push(esConfig);
@@ -130,6 +138,9 @@ if (!argv.format || argv.format === 'cjs') {
       }),
       babel(baseConfig.plugins.babel),
       commonjs(),
+      resolve({
+        ...baseConfig.plugins.nodeResolve
+      }),
     ],
   };
   buildFormats.push(umdConfig);
@@ -153,6 +164,9 @@ if (!argv.format || argv.format === 'iife') {
       vue(baseConfig.plugins.vue),
       babel(baseConfig.plugins.babel),
       commonjs(),
+      resolve({
+        ...baseConfig.plugins.nodeResolve
+      }),
       terser({
         output: {
           ecma: 5,

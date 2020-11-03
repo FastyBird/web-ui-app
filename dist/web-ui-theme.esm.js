@@ -4288,7 +4288,7 @@ var __vue_render__$B = function () {
       'fb-layout-header-button__container-right': _vm.right
     }],
     attrs: {
-      "href": _vm.link
+      "to": _vm.link
     },
     nativeOn: {
       "click": function ($event) {
@@ -4322,7 +4322,7 @@ var __vue_staticRenderFns__$B = [];
 
 const __vue_inject_styles__$B = function (inject) {
   if (!inject) return;
-  inject("data-v-27e281b8_0", {
+  inject("data-v-68df7db4_0", {
     source: ".fb-layout-header-button__container{display:block;background-color:transparent;background-image:none;border:none;line-height:6rem;font-size:2.5rem;text-align:center;text-transform:lowercase;color:#fff}.fb-layout-header-button__container-small{height:3rem;width:4rem;line-height:3rem;font-size:1.5rem}.fb-layout-header-button__container-textual{font-size:1.5rem;width:auto;padding:0 1rem}.fb-layout-header-button__container-left{order:-1}.fb-layout-header-button__container-right{order:1}",
     map: undefined,
     media: undefined
@@ -5648,7 +5648,7 @@ var components = /*#__PURE__*/Object.freeze({
   FbLayoutNavigation: __vue_component__$F,
   FbLayoutNavigationDivider: __vue_component__$G,
   FbLayoutNavigationItem: __vue_component__$H,
-  FbLayoutLayoutPhoneMenu: __vue_component__$I,
+  FbLayoutPhoneMenu: __vue_component__$I,
   FbLayoutSidebar: __vue_component__$J,
   FbLayoutSignBox: __vue_component__$K,
   FbLayoutSignFooter: __vue_component__$L,
@@ -5825,4 +5825,4 @@ const plugin = {
 }; // To auto-install on non-es builds, when vue is found
 
 export default plugin;
-export { __vue_component__ as FbFormCheckbox, __vue_component__$1 as FbFormCheckboxesGroup, __vue_component__$2 as FbFormError, __vue_component__$3 as FbFormField, __vue_component__$4 as FbFormInput, __vue_component__$5 as FbFormLabel, FbFormOrientationTypes, __vue_component__$6 as FbFormRadioButton, __vue_component__$7 as FbFormRadioButtonsGroup, FbFormResultType, __vue_component__$8 as FbFormSelect, __vue_component__$9 as FbFormTextArea, __vue_component__$y as FbLayoutContent, __vue_component__$z as FbLayoutFooter, __vue_component__$A as FbLayoutHeader, __vue_component__$B as FbLayoutHeaderButton, __vue_component__$C as FbLayoutHeaderContent, __vue_component__$D as FbLayoutHeaderHeading, __vue_component__$E as FbLayoutHeaderSpacer, __vue_component__$I as FbLayoutLayoutPhoneMenu, __vue_component__$F as FbLayoutNavigation, __vue_component__$G as FbLayoutNavigationDivider, __vue_component__$H as FbLayoutNavigationItem, __vue_component__$J as FbLayoutSidebar, __vue_component__$K as FbLayoutSignBox, __vue_component__$L as FbLayoutSignFooter, __vue_component__$M as FbLayoutSignFooterItem, __vue_component__$N as FbLayoutTabs, __vue_component__$O as FbLayoutTabsItem, __vue_component__$P as FbLayoutUserMenu, __vue_component__$Q as FbLayoutUserMenuDivider, __vue_component__$R as FbLayoutUserMenuItem, FbMenuItemType, FbSizeTypes, __vue_component__$a as FbUiAlert, __vue_component__$b as FbUiButton, __vue_component__$c as FbUiCardBox, __vue_component__$d as FbUiComponentLoading, __vue_component__$e as FbUiComponentLoadingError, __vue_component__$f as FbUiConfirmationWindow, __vue_component__$g as FbUiContent, __vue_component__$h as FbUiDivider, __vue_component__$i as FbUiIconWithChild, __vue_component__$j as FbUiItemsContainer, __vue_component__$k as FbUiLoadingBox, __vue_component__$l as FbUiMediaItem, __vue_component__$m as FbUiModalForm, __vue_component__$n as FbUiModalHeader, __vue_component__$o as FbUiModalHeaderIcon, __vue_component__$p as FbUiModalInfo, __vue_component__$q as FbUiModalWindow, __vue_component__$r as FbUiNoResults, __vue_component__$s as FbUiPageLoading, __vue_component__$t as FbUiResultErr, __vue_component__$u as FbUiResultOk, __vue_component__$v as FbUiSpinner, __vue_component__$w as FbUiSwitchElement, __vue_component__$x as FbUiTransitionExpand };
+export { __vue_component__ as FbFormCheckbox, __vue_component__$1 as FbFormCheckboxesGroup, __vue_component__$2 as FbFormError, __vue_component__$3 as FbFormField, __vue_component__$4 as FbFormInput, __vue_component__$5 as FbFormLabel, FbFormOrientationTypes, __vue_component__$6 as FbFormRadioButton, __vue_component__$7 as FbFormRadioButtonsGroup, FbFormResultType, __vue_component__$8 as FbFormSelect, __vue_component__$9 as FbFormTextArea, __vue_component__$y as FbLayoutContent, __vue_component__$z as FbLayoutFooter, __vue_component__$A as FbLayoutHeader, __vue_component__$B as FbLayoutHeaderButton, __vue_component__$C as FbLayoutHeaderContent, __vue_component__$D as FbLayoutHeaderHeading, __vue_component__$E as FbLayoutHeaderSpacer, __vue_component__$F as FbLayoutNavigation, __vue_component__$G as FbLayoutNavigationDivider, __vue_component__$H as FbLayoutNavigationItem, __vue_component__$I as FbLayoutPhoneMenu, __vue_component__$J as FbLayoutSidebar, __vue_component__$K as FbLayoutSignBox, __vue_component__$L as FbLayoutSignFooter, __vue_component__$M as FbLayoutSignFooterItem, __vue_component__$N as FbLayoutTabs, __vue_component__$O as FbLayoutTabsItem, __vue_component__$P as FbLayoutUserMenu, __vue_component__$Q as FbLayoutUserMenuDivider, __vue_component__$R as FbLayoutUserMenuItem, FbMenuItemType, FbSizeTypes, __vue_component__$a as FbUiAlert, __vue_component__$b as FbUiButton, __vue_component__$c as FbUiCardBox, __vue_component__$d as FbUiComponentLoading, __vue_component__$e as FbUiComponentLoadingError, __vue_component__$f as FbUiConfirmationWindow, __vue_component__$g as FbUiContent, __vue_component__$h as FbUiDivider, __vue_component__$i as FbUiIconWithChild, __vue_component__$j as FbUiItemsContainer, __vue_component__$k as FbUiLoadingBox, __vue_component__$l as FbUiMediaItem, __vue_component__$m as FbUiModalForm, __vue_component__$n as FbUiModalHeader, __vue_component__$o as FbUiModalHeaderIcon, __vue_component__$p as FbUiModalInfo, __vue_component__$q as FbUiModalWindow, __vue_component__$r as FbUiNoResults, __vue_component__$s as FbUiPageLoading, __vue_component__$t as FbUiResultErr, __vue_component__$u as FbUiResultOk, __vue_component__$v as FbUiSpinner, __vue_component__$w as FbUiSwitchElement, __vue_component__$x as FbUiTransitionExpand };
