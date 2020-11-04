@@ -234,7 +234,7 @@ export default defineComponent({
     function clickHandle(e: Event): void {
       context.emit('click', e)
 
-      if (element.value !== null) {
+      if (element.value !== null && typeof element.value.blur !== 'undefined') {
         element.value.blur()
       }
     }
