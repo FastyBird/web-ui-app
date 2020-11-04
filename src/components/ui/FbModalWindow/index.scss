@@ -132,10 +132,11 @@
       &-left-button,
       &-right-button {
         color: $header-color;
-        font-size: $font-size;
+        font-size: $header-button-font-size;
 
         .fb-ui-button {
           color: $header-color;
+          font-size: $header-button-font-size;
         }
       }
     }
