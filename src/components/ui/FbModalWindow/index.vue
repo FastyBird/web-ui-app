@@ -76,7 +76,7 @@
                       <div class="fb-ui-modal-window__header-phone-left-button">
                         <fb-ui-button
                           variant="link"
-                          size="sm"
+                          size="xs"
                           @click.prevent="$emit('close', $event)"
                         >
                           {{ cancelText }}
@@ -86,7 +86,7 @@
                       <div class="fb-ui-modal-window__header-phone-right-button">
                         <fb-ui-button
                           variant="link"
-                          size="sm"
+                          size="xs"
                         >
                           {{ okText }}
                         </fb-ui-button>
