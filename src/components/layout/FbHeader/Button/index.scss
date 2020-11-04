@@ -11,6 +11,7 @@
     text-align: center;
     text-transform: lowercase;
     color: $header-color;
+    outline: none;
 
     &-small {
       height: 3rem;
@@ -31,6 +32,11 @@
 
     &-right {
       order: 1;
+    }
+
+    &:active {
+      outline: 0;
+      background-image: none;
     }
   }
 }
