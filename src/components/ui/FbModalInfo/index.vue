@@ -1,6 +1,7 @@
 <template>
   <fb-ui-modal-window
     :size="size"
+    :variant="variant"
     :show-header="slotExists('header')"
     :transparent-bg="transparentBg"
     :enable-closing="enableClosing"
@@ -44,7 +45,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbSizeTypes } from "@/components/types";
+import {FbModalVariantType, FbSizeTypes} from "@/components/types";
 
 export default defineComponent({
 
@@ -61,6 +62,18 @@ export default defineComponent({
           FbSizeTypes.SMALL,
           FbSizeTypes.MEDIUM,
           FbSizeTypes.LARGE,
+        ].includes(value)
+      },
+    },
+
+    variant: {
+      type: String as PropType<FbModalVariantType>,
+      default: FbModalVariantType.DEFAULT,
+      validator: (value: FbModalVariantType) => {
+        // The value must match one of these strings
+        return [
+          FbModalVariantType.DEFAULT,
+          FbModalVariantType.PHONE,
         ].includes(value)
       },
     },

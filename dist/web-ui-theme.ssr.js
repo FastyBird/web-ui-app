@@ -437,7 +437,12 @@ var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   FbFormResultType["WORKING"] = "working";
   FbFormResultType["ERROR"] = "error";
   FbFormResultType["OK"] = "ok";
-})(exports.FbFormResultType || (exports.FbFormResultType = {}));var script$3 = compositionApi.defineComponent({
+})(exports.FbFormResultType || (exports.FbFormResultType = {}));
+
+(function (FbModalVariantType) {
+  FbModalVariantType["DEFAULT"] = "default";
+  FbModalVariantType["PHONE"] = "phone";
+})(exports.FbModalVariantType || (exports.FbModalVariantType = {}));var script$3 = compositionApi.defineComponent({
   name: 'FbFormField',
   props: {
     orientation: {
@@ -1891,6 +1896,7 @@ var __vue_render__$f = function __vue_render__() {
     attrs: {
       "show-footer": false,
       "show-header": false,
+      "size": _vm.size,
       "transparent-bg": _vm.transparentBg
     },
     on: {
@@ -1967,7 +1973,7 @@ var __vue_staticRenderFns__$f = [];
 
 var __vue_inject_styles__$f = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-0d76e3b0_0", {
+  inject("data-v-fa72bcea_0", {
     source: ".fb-ui-confirmation-window__container{text-align:center}.fb-ui-confirmation-window__container[data-variant=primary] h3{color:#d9230f}.fb-ui-confirmation-window__container[data-variant=success] h3{color:#469408}.fb-ui-confirmation-window__container[data-variant=danger] h3{color:#d9831f}.fb-ui-confirmation-window__container[data-variant=warning] h3{color:#9b479f}.fb-ui-confirmation-window__container[data-variant=info] h3{color:#029acf}.fb-ui-confirmation-window__buttons{margin-top:30px;text-align:right}.fb-ui-confirmation-window__buttons .fb-ui-button[data-variant=link]{color:grey!important}",
     map: undefined,
     media: undefined
@@ -1979,7 +1985,7 @@ var __vue_inject_styles__$f = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$f = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$f = "data-v-0d76e3b0";
+var __vue_module_identifier__$f = "data-v-fa72bcea";
 /* functional template */
 
 var __vue_is_functional_template__$f = false;
@@ -2357,6 +2363,14 @@ var __vue_component__$l = /*#__PURE__*/normalizeComponent({
         return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     },
+    variant: {
+      type: String,
+      default: exports.FbModalVariantType.DEFAULT,
+      validator: function validator(value) {
+        // The value must match one of these strings
+        return [exports.FbModalVariantType.DEFAULT, exports.FbModalVariantType.PHONE].includes(value);
+      }
+    },
     submitBtnLabel: {
       type: String,
       required: false,
@@ -2407,6 +2421,7 @@ var __vue_render__$m = function __vue_render__() {
   return _c('fb-ui-modal-window', {
     attrs: {
       "size": _vm.size,
+      "variant": _vm.variant,
       "transparent-bg": _vm.transparentBg
     },
     on: {
@@ -2480,7 +2495,7 @@ var __vue_staticRenderFns__$m = [];
 
 var __vue_inject_styles__$m = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-5e0a7586_0", {
+  inject("data-v-1f7d679b_0", {
     source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result .fb-ui-spinner__container,.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}.fb-ui-modal-form__result .fb-ui-spinner__container{width:10rem;height:10rem}.fb-ui-modal-form__result .fb-ui-spinner__container:after,.fb-ui-modal-form__result .fb-ui-spinner__container:before{width:10rem;height:10rem;margin:-5rem 0 0 -5rem;border-width:4px}",
     map: undefined,
     media: undefined
@@ -2492,7 +2507,7 @@ var __vue_inject_styles__$m = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$m = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$m = "data-v-5e0a7586";
+var __vue_module_identifier__$m = "data-v-1f7d679b";
 /* functional template */
 
 var __vue_is_functional_template__$m = false;
@@ -2602,6 +2617,14 @@ var __vue_component__$o = /*#__PURE__*/normalizeComponent({
         return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
       }
     },
+    variant: {
+      type: String,
+      default: exports.FbModalVariantType.DEFAULT,
+      validator: function validator(value) {
+        // The value must match one of these strings
+        return [exports.FbModalVariantType.DEFAULT, exports.FbModalVariantType.PHONE].includes(value);
+      }
+    },
     enableClosing: {
       type: Boolean,
       required: false,
@@ -2631,6 +2654,7 @@ var __vue_render__$p = function __vue_render__() {
   return _c('fb-ui-modal-window', {
     attrs: {
       "size": _vm.size,
+      "variant": _vm.variant,
       "show-header": _vm.slotExists('header'),
       "transparent-bg": _vm.transparentBg,
       "enable-closing": _vm.enableClosing,
@@ -2673,7 +2697,7 @@ var __vue_staticRenderFns__$p = [];
 
 var __vue_inject_styles__$p = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-5179f464_0", {
+  inject("data-v-489df30f_0", {
     source: ".fb-ui-modal-info__buttons .fb-ui-button[data-variant=link]{color:grey!important}",
     map: undefined,
     media: undefined
@@ -2685,7 +2709,7 @@ var __vue_inject_styles__$p = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$p = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$p = "data-v-5179f464";
+var __vue_module_identifier__$p = "data-v-489df30f";
 /* functional template */
 
 var __vue_is_functional_template__$p = false;
@@ -2703,6 +2727,14 @@ var __vue_component__$p = /*#__PURE__*/normalizeComponent({
       validator: function validator(value) {
         // The value must match one of these strings
         return [exports.FbSizeTypes.SMALL, exports.FbSizeTypes.MEDIUM, exports.FbSizeTypes.LARGE].includes(value);
+      }
+    },
+    variant: {
+      type: String,
+      default: exports.FbModalVariantType.DEFAULT,
+      validator: function validator(value) {
+        // The value must match one of these strings
+        return [exports.FbModalVariantType.DEFAULT, exports.FbModalVariantType.PHONE].includes(value);
       }
     },
     title: {
@@ -2800,6 +2832,7 @@ var __vue_render__$q = function __vue_render__() {
     attrs: {
       "id": "fb-modal-container",
       "data-size": _vm.size,
+      "data-variant": _vm.variant,
       "role": "dialog"
     },
     on: {
@@ -2912,8 +2945,8 @@ var __vue_staticRenderFns__$q = [];
 
 var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-346773f4_0", {
-    source: ".fb-ui-modal-window__container{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);transition:opacity .3s ease;z-index:9998;-webkit-overflow-scrolling:touch;overflow:hidden;overflow-y:auto;outline:0;display:flex;flex-direction:row;align-items:baseline}.fb-ui-modal-window__container-transparent{background-color:rgba(255,255,255,.5)}@media (min-width:768px){.fb-ui-modal-window__container[data-size=sm] .fb-ui-modal-window__dialog{width:30rem;max-width:90vw}}.fb-ui-modal-window__container[data-size=md] .fb-ui-modal-window__dialog{width:60rem;max-width:90vw}.fb-ui-modal-window__container[data-size=lg] .fb-ui-modal-window__dialog{width:90rem;max-width:90vw}.fb-ui-modal-window__window{margin-left:auto;margin-right:auto;padding-top:7rem;z-index:9999}.fb-ui-modal-window__dialog{position:relative;width:auto}.fb-ui-modal-window__content{position:relative;border-radius:4px;background-color:#fff;background-clip:padding-box;overflow:hidden;outline:0;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5)}@media (min-width:768px){.fb-ui-modal-window__content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5)}}.fb-ui-modal-window__header{padding:1.5rem;border-bottom:none;color:#fff;background-color:#d9230f}.fb-ui-modal-window__header h4{margin:0;line-height:1.5384615385}.fb-ui-modal-window__body{position:relative;padding:1.5rem;display:flex;flex-direction:column}.fb-ui-modal-window__close{margin-top:-2px;float:right;font-size:1.95rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{opacity:.5;filter:alpha(opacity=50)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{color:#000;text-decoration:none;cursor:pointer}.fb-ui-modal-window__footer{padding:0 1.5rem 1.5rem 1.5rem;text-align:right}.fb-ui-modal-window__loading{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:10008;height:100%;width:100%;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-window__loading-inner{margin-left:auto;margin-right:auto;width:25rem;text-align:center}.fb-ui-modal-window__loading-inner svg{width:100%;margin-bottom:2rem}.fb-ui-modal-window__loading-inner svg path.dark_color{fill:#444;fill-rule:nonzero}.fb-ui-modal-window__loading-inner svg path.brand_color{fill:#d9230f;fill-rule:nonzero}.modal-enter{opacity:0;filter:alpha(opacity=0)}.modal-leave-active{opacity:0;filter:alpha(opacity=0)}.modal-enter .fb-ui-modal-window__dialog{-webkit-transform:scale(1.1);transform:scale(1.1)}.modal-bounce-enter-active{animation:modal-bounce-in .25s}.modal-bounce-leave-active{animation:modal-bounce-in .25s reverse}@keyframes modal-bounce-in{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}",
+  inject("data-v-168a39f4_0", {
+    source: ".fb-ui-modal-window__container[data-size=md] div.fb-ui-modal-window__window{padding-top:1rem}.fb-ui-modal-window__container[data-size=md] div.fb-ui-modal-window__dialog{width:99vw;max-width:99vw;height:98vh}.fb-ui-modal-window__container[data-size=md] div.fb-ui-modal-window__dialog .fb-ui-modal-window__content{height:100%}.fb-ui-modal-window__container[data-size=md] div.fb-ui-modal-window__body{padding:1.5rem .5rem}.fb-ui-modal-window__container{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);transition:opacity .3s ease;z-index:9998;-webkit-overflow-scrolling:touch;overflow:hidden;overflow-y:auto;outline:0;display:flex;flex-direction:row;align-items:baseline}.fb-ui-modal-window__container-transparent{background-color:rgba(255,255,255,.5)}@media (min-width:768px){.fb-ui-modal-window__container[data-size=sm] .fb-ui-modal-window__dialog{width:30rem;max-width:90vw}}.fb-ui-modal-window__container[data-size=md] .fb-ui-modal-window__dialog{width:60rem;max-width:90vw}.fb-ui-modal-window__container[data-size=lg] .fb-ui-modal-window__dialog{width:90rem;max-width:90vw}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__window{padding-top:1rem}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__dialog{width:99vw;max-width:99vw;height:98vh}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__content{height:100%}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__body{padding:1.5rem .5rem}.fb-ui-modal-window__window{margin-left:auto;margin-right:auto;padding-top:7rem;z-index:9999}.fb-ui-modal-window__dialog{position:relative;width:auto}.fb-ui-modal-window__content{position:relative;border-radius:4px;background-color:#fff;background-clip:padding-box;overflow:hidden;outline:0;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5)}@media (min-width:768px){.fb-ui-modal-window__content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5)}}.fb-ui-modal-window__header{padding:1.5rem;border-bottom:none;color:#fff;background-color:#d9230f}.fb-ui-modal-window__header h4{margin:0;line-height:1.5384615385}.fb-ui-modal-window__body{position:relative;padding:1.5rem;display:flex;flex-direction:column}.fb-ui-modal-window__close{margin-top:-2px;float:right;font-size:1.95rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{opacity:.5;filter:alpha(opacity=50)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{color:#000;text-decoration:none;cursor:pointer}.fb-ui-modal-window__footer{padding:0 1.5rem 1.5rem 1.5rem;text-align:right}.fb-ui-modal-window__loading{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:10008;height:100%;width:100%;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-window__loading-inner{margin-left:auto;margin-right:auto;width:25rem;text-align:center}.fb-ui-modal-window__loading-inner svg{width:100%;margin-bottom:2rem}.fb-ui-modal-window__loading-inner svg path.dark_color{fill:#444;fill-rule:nonzero}.fb-ui-modal-window__loading-inner svg path.brand_color{fill:#d9230f;fill-rule:nonzero}.modal-enter{opacity:0;filter:alpha(opacity=0)}.modal-leave-active{opacity:0;filter:alpha(opacity=0)}.modal-enter .fb-ui-modal-window__dialog{-webkit-transform:scale(1.1);transform:scale(1.1)}.modal-bounce-enter-active{animation:modal-bounce-in .25s}.modal-bounce-leave-active{animation:modal-bounce-in .25s reverse}@keyframes modal-bounce-in{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}",
     map: undefined,
     media: undefined
   });
@@ -2924,7 +2957,7 @@ var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$q = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$q = "data-v-346773f4";
+var __vue_module_identifier__$q = "data-v-168a39f4";
 /* functional template */
 
 var __vue_is_functional_template__$q = false;
@@ -3859,7 +3892,7 @@ var script$D = compositionApi.defineComponent({
     },
     align: {
       type: String,
-      default: 'left',
+      default: FbHeaderHeadingAlign.LEFT,
       validator: function validator(value) {
         // The value must match one of these strings
         return [FbHeaderHeadingAlign.LEFT, FbHeaderHeadingAlign.RIGHT, FbHeaderHeadingAlign.CENTER].includes(value);
@@ -3895,7 +3928,7 @@ var __vue_staticRenderFns__$D = [];
 
 var __vue_inject_styles__$D = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-62f7220a_0", {
+  inject("data-v-61dec9ce_0", {
     source: ".fb-layout-phone-header-heading__container{height:6rem;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-phone-header-heading__heading{flex-grow:1;padding-left:1rem;overflow:hidden}.fb-layout-phone-header-heading__heading-center{text-align:center}.fb-layout-phone-header-heading__heading-left{text-align:left}.fb-layout-phone-header-heading__heading-right{text-align:right}.fb-layout-phone-header-heading__heading h1{line-height:6rem;font-size:2.2rem;color:#fff;margin:0}.fb-layout-phone-header-heading__heading h1 small,.fb-layout-phone-header-heading__heading h1 span{color:#fff}.fb-layout-phone-header-heading__heading h1 span{margin-top:1rem;line-height:2.5rem;font-size:2rem;display:block}.fb-layout-phone-header-heading__heading h1 small{line-height:2.5rem;font-size:1.2rem;display:block}.fb-layout-phone-header-heading__icon{-webkit-box-flex:0;-ms-flex:0 0 5rem;flex:0 0 5rem;max-width:5rem;line-height:6rem;font-size:3rem;text-align:center}",
     map: undefined,
     media: undefined
@@ -3907,7 +3940,7 @@ var __vue_inject_styles__$D = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$D = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$D = "data-v-62f7220a";
+var __vue_module_identifier__$D = "data-v-61dec9ce";
 /* functional template */
 
 var __vue_is_functional_template__$D = false;

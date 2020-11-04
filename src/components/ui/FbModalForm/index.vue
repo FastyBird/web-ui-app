@@ -1,6 +1,7 @@
 <template>
   <fb-ui-modal-window
     :size="size"
+    :variant="variant"
     :transparent-bg="transparentBg"
     @close="$emit('close', $event)"
   >
@@ -98,7 +99,7 @@ import {
 
 import get from 'lodash/get'
 
-import {FbFormResultType, FbSizeTypes} from "@/components/types";
+import {FbFormResultType, FbModalVariantType, FbSizeTypes} from "@/components/types";
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes
@@ -127,6 +128,18 @@ export default defineComponent({
           FbSizeTypes.SMALL,
           FbSizeTypes.MEDIUM,
           FbSizeTypes.LARGE,
+        ].includes(value)
+      },
+    },
+
+    variant: {
+      type: String as PropType<FbModalVariantType>,
+      default: FbModalVariantType.DEFAULT,
+      validator: (value: FbModalVariantType) => {
+        // The value must match one of these strings
+        return [
+          FbModalVariantType.DEFAULT,
+          FbModalVariantType.PHONE,
         ].includes(value)
       },
     },

@@ -1,5 +1,25 @@
 @import "../../../assets/components/ui/fb-modal";
 
+.fb-ui-modal-window__container[data-size=md] {
+  div.fb-ui-modal-window__window {
+    padding-top: 1rem;
+  }
+
+  div.fb-ui-modal-window__dialog {
+    width: 99vw;
+    max-width: 99vw;
+    height: 98vh;
+
+    .fb-ui-modal-window__content {
+      height: 100%;
+    }
+  }
+
+  div.fb-ui-modal-window__body {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
 .fb-ui-modal-window {
   &__container {
     position: fixed;
@@ -49,6 +69,28 @@
         &__dialog {
           width: $modal-size-lg;
           max-width: 90vw;
+        }
+      }
+    }
+
+    &[data-variant="phone"] {
+      .fb-ui-modal-window {
+        &__window {
+          padding-top: 1rem;
+        }
+
+        &__dialog {
+          width: 99vw;
+          max-width: 99vw;
+          height: 98vh;
+        }
+
+        &__content {
+          height: 100%;
+        }
+
+        &__body {
+          padding: 1.5rem 0.5rem;
         }
       }
     }

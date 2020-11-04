@@ -2,6 +2,7 @@
   <fb-ui-modal-window
     :show-footer="false"
     :show-header="false"
+    :size="size"
     :transparent-bg="transparentBg"
     @close="$emit('close', $event)"
   >

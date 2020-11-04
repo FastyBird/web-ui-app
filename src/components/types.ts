@@ -25,3 +25,8 @@ export enum FbFormResultType {
   ERROR = 'error',
   OK = 'ok',
 }
+
+export enum FbModalVariantType {
+  DEFAULT = 'default',
+  PHONE = 'phone',
+}

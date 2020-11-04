@@ -4,6 +4,7 @@
       id="fb-modal-container"
       :class="['fb-ui-modal-window__container', {'fb-ui-modal-window__container-transparent': transparentBg}]"
       :data-size="size"
+      :data-variant="variant"
       role="dialog"
       @keyup.esc="$emit('close', $event)"
       @click="clickOverlay"
@@ -125,7 +126,7 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import { FbSizeTypes } from '@/components/types'
+import { FbSizeTypes, FbModalVariantType } from '@/components/types'
 
 import get from 'lodash/get'
 
@@ -158,6 +159,18 @@ export default defineComponent({
           FbSizeTypes.SMALL,
           FbSizeTypes.MEDIUM,
           FbSizeTypes.LARGE,
+        ].includes(value)
+      },
+    },
+
+    variant: {
+      type: String as PropType<FbModalVariantType>,
+      default: FbModalVariantType.DEFAULT,
+      validator: (value: FbModalVariantType) => {
+        // The value must match one of these strings
+        return [
+          FbModalVariantType.DEFAULT,
+          FbModalVariantType.PHONE,
         ].includes(value)
       },
     },

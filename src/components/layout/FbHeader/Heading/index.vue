@@ -52,7 +52,7 @@ export default defineComponent({
 
     align: {
       type: String as PropType<FbHeaderHeadingAlign>,
-      default: 'left',
+      default: FbHeaderHeadingAlign.LEFT,
       validator: (value: FbHeaderHeadingAlign) => {
         // The value must match one of these strings
         return [FbHeaderHeadingAlign.LEFT, FbHeaderHeadingAlign.RIGHT, FbHeaderHeadingAlign.CENTER].includes(value)
