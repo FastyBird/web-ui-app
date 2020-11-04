@@ -51,3 +51,9 @@ $screen-desktop-min:                  $screen-md-min;
     filter: alpha(opacity=50);
   }
 }
+
+@mixin flex-phone-header {
+  @include flexRow;
+
+  flex-wrap: nowrap;
+}

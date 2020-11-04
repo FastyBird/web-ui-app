@@ -26,7 +26,30 @@ export enum FbFormResultType {
   OK = 'ok',
 }
 
-export enum FbModalVariantType {
+export enum FbUiModalVariantType {
   DEFAULT = 'default',
   PHONE = 'phone',
+}
+
+export enum FbUiButtonButtonTypes {
+  BUTTON = 'button',
+  SUBMIT = 'submit',
+  RESET = 'reset',
+}
+
+export enum FbUiButtonVariantTypes {
+  DEFAULT = 'default',
+  PRIMARY = 'primary',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+  OUTLINE_DEFAULT = 'outline-default',
+  OUTLINE_PRIMARY = 'outline-primary',
+  OUTLINE_SUCCESS = 'outline-success',
+  OUTLINE_DANGER = 'outline-danger',
+  OUTLINE_WARNING = 'outline-warning',
+  OUTLINE_INFO = 'outline-info',
+  LINK = 'link',
+  LINK_DEFAULT = 'link-default',
 }

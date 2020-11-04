@@ -45,7 +45,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import {FbModalVariantType, FbSizeTypes} from "@/components/types";
+import {FbUiModalVariantType, FbSizeTypes} from "@/components/types";
 
 export default defineComponent({
 
@@ -67,13 +67,13 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbModalVariantType>,
-      default: FbModalVariantType.DEFAULT,
-      validator: (value: FbModalVariantType) => {
+      type: String as PropType<FbUiModalVariantType>,
+      default: FbUiModalVariantType.DEFAULT,
+      validator: (value: FbUiModalVariantType) => {
         // The value must match one of these strings
         return [
-          FbModalVariantType.DEFAULT,
-          FbModalVariantType.PHONE,
+          FbUiModalVariantType.DEFAULT,
+          FbUiModalVariantType.PHONE,
         ].includes(value)
       },
     },

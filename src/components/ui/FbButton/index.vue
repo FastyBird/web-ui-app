@@ -47,30 +47,7 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import { FbSizeTypes } from '@/components/types'
-
-export enum FbUiButtonButtonTypes {
-  BUTTON = 'button',
-  SUBMIT = 'submit',
-  RESET = 'reset',
-}
-
-export enum FbUiButtonVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-  OUTLINE_DEFAULT = 'outline-default',
-  OUTLINE_PRIMARY = 'outline-primary',
-  OUTLINE_SUCCESS = 'outline-success',
-  OUTLINE_DANGER = 'outline-danger',
-  OUTLINE_WARNING = 'outline-warning',
-  OUTLINE_INFO = 'outline-info',
-  LINK = 'link',
-  LINK_DEFAULT = 'link-default',
-}
+import {FbSizeTypes, FbUiButtonButtonTypes, FbUiButtonVariantTypes} from '@/components/types'
 
 interface FbUiButtonPropsInterface {
   href: string | null

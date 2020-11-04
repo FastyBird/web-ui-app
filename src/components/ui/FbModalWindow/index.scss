@@ -129,6 +129,22 @@
       margin: 0;
       line-height: $line-height;
     }
+
+    &-phone {
+      @include flex-phone-header;
+
+      &-heading {
+        flex-grow: 1;
+      }
+
+      &-left-button {
+
+      }
+
+      &-right-button {
+
+      }
+    }
   }
 
   &__body {

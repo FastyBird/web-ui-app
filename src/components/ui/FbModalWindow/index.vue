@@ -63,21 +63,54 @@
                 class="fb-ui-modal-window__header"
               >
                 <slot name="modal-header">
-                  <button
-                    v-if="enableClosing"
-                    type="button"
-                    class="fb-ui-modal-window__close"
-                    @click.prevent="$emit('close', $event)"
-                  >
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">{{ closeBtnLabel }}</span>
-                  </button>
+                  <template v-if="variant === variantsTypes.PHONE">
+                    <div class="fb-ui-modal-window__header-phone">
+                      <div class="fb-ui-modal-window__header-phone-heading">
+                        <h4>
+                          <slot name="modal-title">
+                            {{ title }}
+                          </slot>
+                        </h4>
+                      </div>
 
-                  <h4>
-                    <slot name="modal-title">
-                      {{ title }}
-                    </slot>
-                  </h4>
+                      <div class="fb-ui-modal-window__header-phone-left-button">
+                        <fb-ui-button
+                          variant="link"
+                          size="sm"
+                          @click.prevent="$emit('close', $event)"
+                        >
+                          {{ cancelText }}
+                        </fb-ui-button>
+                      </div>
+
+                      <div class="fb-ui-modal-window__header-phone-right-button">
+                        <fb-ui-button
+                          variant="link"
+                          size="sm"
+                        >
+                          {{ okText }}
+                        </fb-ui-button>
+                      </div>
+                    </div>
+                  </template>
+
+                  <template v-else>
+                    <button
+                      v-if="enableClosing"
+                      type="button"
+                      class="fb-ui-modal-window__close"
+                      @click.prevent="$emit('close', $event)"
+                    >
+                      <span aria-hidden="true">×</span>
+                      <span class="sr-only">{{ closeBtnLabel }}</span>
+                    </button>
+
+                    <h4>
+                      <slot name="modal-title">
+                        {{ title }}
+                      </slot>
+                    </h4>
+                  </template>
                 </slot>
               </div>
 
@@ -88,7 +121,7 @@
               </div>
 
               <div
-                v-if="showFooter"
+                v-if="showFooter && variant !== variantsTypes.PHONE"
                 class="fb-ui-modal-window__footer"
               >
                 <slot name="modal-footer">
@@ -126,7 +159,7 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbModalVariantType } from '@/components/types'
+import { FbSizeTypes, FbUiModalVariantType } from '@/components/types'
 
 import get from 'lodash/get'
 
@@ -164,13 +197,13 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbModalVariantType>,
-      default: FbModalVariantType.DEFAULT,
-      validator: (value: FbModalVariantType) => {
+      type: String as PropType<FbUiModalVariantType>,
+      default: FbUiModalVariantType.DEFAULT,
+      validator: (value: FbUiModalVariantType) => {
         // The value must match one of these strings
         return [
-          FbModalVariantType.DEFAULT,
-          FbModalVariantType.PHONE,
+          FbUiModalVariantType.DEFAULT,
+          FbUiModalVariantType.PHONE,
         ].includes(value)
       },
     },
@@ -259,6 +292,7 @@ export default defineComponent({
       element,
       optionalWidth,
       clickOverlay,
+      variantsTypes: FbUiModalVariantType,
     }
   },
 

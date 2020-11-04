@@ -99,7 +99,7 @@ import {
 
 import get from 'lodash/get'
 
-import {FbFormResultType, FbModalVariantType, FbSizeTypes} from "@/components/types";
+import {FbFormResultType, FbUiModalVariantType, FbSizeTypes} from "@/components/types";
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes
@@ -133,13 +133,13 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbModalVariantType>,
-      default: FbModalVariantType.DEFAULT,
-      validator: (value: FbModalVariantType) => {
+      type: String as PropType<FbUiModalVariantType>,
+      default: FbUiModalVariantType.DEFAULT,
+      validator: (value: FbUiModalVariantType) => {
         // The value must match one of these strings
         return [
-          FbModalVariantType.DEFAULT,
-          FbModalVariantType.PHONE,
+          FbUiModalVariantType.DEFAULT,
+          FbUiModalVariantType.PHONE,
         ].includes(value)
       },
     },

@@ -78,8 +78,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbSizeTypes } from '@/components/types'
-import { FbUiButtonVariantTypes } from '@/components/ui/FbButton/index.vue'
+import { FbSizeTypes, FbUiButtonVariantTypes } from '@/components/types'
 
 export enum FbUiConfirmationWindowPrimaryButtonTypes {
   YES = 'yes',
