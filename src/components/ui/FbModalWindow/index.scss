@@ -133,6 +133,10 @@
       &-right-button {
         color: $header-color;
         font-size: $font-size;
+
+        .fb-ui-button {
+          color: $header-color;
+        }
       }
     }
   }
