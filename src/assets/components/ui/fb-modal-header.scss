@@ -1,10 +1,27 @@
 @import "../../../assets/mixins/utilities";
 
+$font-size:                           1.3rem;
+
 $header-color:                        #fff;
 $header-button-font-size:             1.4rem;
+
+$header-color:                        #fff;
+$header-close-color:                  #000;
+$header-close-shadow:                 0 1px 0 #fff;
 
 @mixin flex-phone-header {
   @include flexRow;
 
   flex-wrap: nowrap;
+}
+
+@mixin close {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+  }
 }

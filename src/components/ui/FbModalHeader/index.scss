@@ -6,6 +6,30 @@
   }
 
   &__header {
+    &__close {
+      margin-top: -2px;
+      float: right;
+      font-size: ($font-size * 1.5);
+      font-weight: bold;
+      line-height: 1;
+      color: $header-close-color;
+      text-shadow: $header-close-shadow;
+      padding: 0;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      -webkit-appearance: none;
+
+      @include close;
+
+      &:hover,
+      &:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
     &-phone {
       &-phone {
         @include flex-phone-header;
