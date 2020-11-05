@@ -2,9 +2,9 @@
   <div class="fb-ui-modal-header__container">
     <div
       v-if="variant === variantsTypes.PHONE"
-      class="fb-ui-modal-header__header-phone"
+      class="fb-ui-modal-header__variant-phone"
     >
-      <div class="fb-ui-modal-header__header-phone-left-button">
+      <div class="fb-ui-modal-header__variant-phone-left-button">
         <template v-if="slotExists('left-button')">
           <slot name="left-button" />
         </template>
@@ -19,7 +19,7 @@
         </fb-ui-button>
       </div>
 
-      <div class="fb-ui-modal-header__header-phone-right-button">
+      <div class="fb-ui-modal-header__variant-phone-right-button">
         <template v-if="slotExists('right-button')">
           <slot name="right-button" />
         </template>
