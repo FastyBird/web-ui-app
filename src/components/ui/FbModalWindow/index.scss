@@ -137,6 +137,19 @@
         .fb-ui-button {
           color: $header-color;
           font-size: $header-button-font-size;
+
+          &:hover,
+          &:focus,
+          &:active {
+            outline: 0;
+            background-image: none;
+            color: $header-color;
+            text-decoration: none;
+
+            svg {
+              color: $header-color;
+            }
+          }
         }
       }
     }

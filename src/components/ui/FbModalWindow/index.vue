@@ -63,36 +63,48 @@
                 class="fb-ui-modal-window__header"
               >
                 <slot name="modal-header">
-                  <template v-if="variant === variantsTypes.PHONE">
-                    <div class="fb-ui-modal-window__header-phone">
-                      <div class="fb-ui-modal-window__header-phone-heading">
-                        <h4>
-                          <slot name="modal-title">
-                            {{ title }}
-                          </slot>
-                        </h4>
-                      </div>
-
-                      <div class="fb-ui-modal-window__header-phone-left-button">
-                        <fb-ui-button
-                          variant="link"
-                          size="xs"
-                          @click.prevent="$emit('close', $event)"
-                        >
-                          {{ cancelText }}
-                        </fb-ui-button>
-                      </div>
-
-                      <div class="fb-ui-modal-window__header-phone-right-button">
-                        <fb-ui-button
-                          variant="link"
-                          size="xs"
-                        >
-                          {{ okText }}
-                        </fb-ui-button>
-                      </div>
+                  <div
+                    v-if="variant === variantsTypes.PHONE"
+                    class="fb-ui-modal-window__header-phone"
+                  >
+                    <div class="fb-ui-modal-window__header-phone-heading">
+                      <h4>
+                        <slot name="modal-title">
+                          {{ title }}
+                        </slot>
+                      </h4>
                     </div>
-                  </template>
+
+                    <div class="fb-ui-modal-window__header-phone-left-button">
+                      <template v-if="slotExists('left-button')">
+                        <slot name="left-button" />
+                      </template>
+
+                      <fb-ui-button
+                        v-else
+                        variant="link"
+                        size="xs"
+                        @click.prevent="$emit('close', $event)"
+                      >
+                        {{ cancelText }}
+                      </fb-ui-button>
+                    </div>
+
+                    <div class="fb-ui-modal-window__header-phone-right-button">
+                      <template v-if="slotExists('right-button')">
+                        <slot name="right-button" />
+                      </template>
+
+                      <fb-ui-button
+                        v-else
+                        variant="link"
+                        size="xs"
+                        @click.prevent="$emit('submit', $event)"
+                      >
+                        {{ okText }}
+                      </fb-ui-button>
+                    </div>
+                  </div>
 
                   <template v-else>
                     <button
@@ -125,7 +137,12 @@
                 class="fb-ui-modal-window__footer"
               >
                 <slot name="modal-footer">
+                  <template v-if="slotExists('left-button')">
+                    <slot name="left-button" />
+                  </template>
+
                   <fb-ui-button
+                    v-else
                     variant="default"
                     tabindex="2"
                     @click.prevent="$emit('close', $event)"
@@ -133,9 +150,15 @@
                     {{ cancelText }}
                   </fb-ui-button>
 
+                  <template v-if="slotExists('right-button')">
+                    <slot name="right-button" />
+                  </template>
+
                   <fb-ui-button
+                    v-else
                     variant="primary"
                     tabindex="3"
+                    @click.prevent="$emit('submit', $event)"
                   >
                     {{ okText }}
                   </fb-ui-button>

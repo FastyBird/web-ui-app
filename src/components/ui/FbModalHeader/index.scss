@@ -4,4 +4,52 @@
   &__container {
     text-align: center;
   }
+
+  &__header {
+    &-phone {
+      &-phone {
+        @include flex-phone-header;
+
+        &-heading {
+          flex-grow: 1;
+
+          h4 {
+            text-align: center;
+          }
+        }
+
+        &-left-button {
+          order: -1;
+        }
+
+        &-right-button {
+
+        }
+
+        &-left-button,
+        &-right-button {
+          color: $header-color;
+          font-size: $header-button-font-size;
+
+          .fb-ui-button {
+            color: $header-color;
+            font-size: $header-button-font-size;
+
+            &:hover,
+            &:focus,
+            &:active {
+              outline: 0;
+              background-image: none;
+              color: $header-color;
+              text-decoration: none;
+
+              svg {
+                color: $header-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

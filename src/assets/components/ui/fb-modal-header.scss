@@ -1,0 +1,10 @@
+@import "../../../assets/mixins/utilities";
+
+$header-color:                        #fff;
+$header-button-font-size:             1.4rem;
+
+@mixin flex-phone-header {
+  @include flexRow;
+
+  flex-wrap: nowrap;
+}
