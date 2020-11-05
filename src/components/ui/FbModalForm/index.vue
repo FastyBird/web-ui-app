@@ -16,7 +16,10 @@
       v-else
       slot="modal-title"
     >
-      <slot name="icon" />
+      <slot
+        v-if="variant !== variantsTypes.PHONE"
+        name="icon"
+      />
       <slot name="header" />
     </template>
 
@@ -77,7 +80,7 @@
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
         :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
-        :variant="buttonVariantsTypes.OUTLINE_PRIMARY"
+        :variant="variant === variantsTypes.PHONE ? buttonVariantsTypes.LINK : buttonVariantsTypes.OUTLINE_PRIMARY"
         uppercase
         name="save"
         @click.prevent="$emit('submit', $event)"

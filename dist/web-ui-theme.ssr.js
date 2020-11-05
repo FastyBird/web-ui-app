@@ -2432,7 +2432,7 @@ var __vue_render__$m = function __vue_render__() {
     slot: "modal-header"
   }, [_vm._t("modal-header")], 2) : _c('template', {
     slot: "modal-title"
-  }, [_vm._t("icon"), _vm._v(" "), _vm._t("header")], 2), _vm._v(" "), _c('form', {
+  }, [_vm.variant !== _vm.variantsTypes.PHONE ? _vm._t("icon") : _vm._e(), _vm._v(" "), _vm._t("header")], 2), _vm._v(" "), _c('form', {
     staticClass: "fb-ui-modal-form__form",
     attrs: {
       "slot": "modal-body"
@@ -2475,7 +2475,7 @@ var __vue_render__$m = function __vue_render__() {
       "disabled": _vm.lockButtons || _vm.lockSubmitButton,
       "tabindex": _vm.initialTabindex + 1,
       "size": _vm.variant === _vm.variantsTypes.PHONE ? _vm.sizeTypes.EXTRA_SMALL : _vm.sizeTypes.LARGE,
-      "variant": _vm.buttonVariantsTypes.OUTLINE_PRIMARY,
+      "variant": _vm.variant === _vm.variantsTypes.PHONE ? _vm.buttonVariantsTypes.LINK : _vm.buttonVariantsTypes.OUTLINE_PRIMARY,
       "uppercase": "",
       "name": "save"
     },
@@ -2494,7 +2494,7 @@ var __vue_staticRenderFns__$m = [];
 
 var __vue_inject_styles__$m = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-001ea9bc_0", {
+  inject("data-v-4e446f75_0", {
     source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result .fb-ui-spinner__container,.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}.fb-ui-modal-form__result .fb-ui-spinner__container{width:10rem;height:10rem}.fb-ui-modal-form__result .fb-ui-spinner__container:after,.fb-ui-modal-form__result .fb-ui-spinner__container:before{width:10rem;height:10rem;margin:-5rem 0 0 -5rem;border-width:4px}",
     map: undefined,
     media: undefined
@@ -2506,7 +2506,7 @@ var __vue_inject_styles__$m = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$m = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$m = "data-v-001ea9bc";
+var __vue_module_identifier__$m = "data-v-4e446f75";
 /* functional template */
 
 var __vue_is_functional_template__$m = false;
