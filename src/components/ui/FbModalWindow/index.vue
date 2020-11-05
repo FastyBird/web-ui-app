@@ -47,7 +47,7 @@
                   </g>
                 </svg>
 
-                <fb-ui-spinner size="lg" />
+                <fb-ui-spinner :size="sizeTypes.LARGE" />
               </div>
             </div>
           </transition>
@@ -79,8 +79,8 @@
                       <slot name="left-button">
                         <fb-ui-button
                           v-else
-                          variant="link"
-                          size="xs"
+                          :size="sizeTypes.EXTRA_SMALL"
+                          :variant="buttonVariantsTypes.LINK"
                           @click.prevent="$emit('close', $event)"
                         >
                           {{ cancelText }}
@@ -92,8 +92,8 @@
                       <slot name="right-button">
                         <fb-ui-button
                           v-else
-                          variant="link"
-                          size="xs"
+                          :size="sizeTypes.EXTRA_SMALL"
+                          :variant="buttonVariantsTypes.LINK"
                           @click.prevent="$emit('submit', $event)"
                         >
                           {{ okText }}
@@ -136,7 +136,7 @@
                   <slot name="left-button">
                     <fb-ui-button
                       v-else
-                      variant="default"
+                      :variant="buttonVariantsTypes.DEFAULT"
                       tabindex="2"
                       @click.prevent="$emit('close', $event)"
                     >
@@ -147,7 +147,7 @@
                   <slot name="right-button">
                     <fb-ui-button
                       v-else
-                      variant="primary"
+                      :variant="buttonVariantsTypes.PRIMARY"
                       tabindex="3"
                       @click.prevent="$emit('submit', $event)"
                     >
@@ -174,7 +174,7 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbUiModalVariantType } from '@/components/types'
+import { FbSizeTypes, FbUiModalVariantType, FbUiButtonVariantTypes } from '@/components/types'
 
 import get from 'lodash/get'
 
@@ -308,6 +308,8 @@ export default defineComponent({
       optionalWidth,
       clickOverlay,
       variantsTypes: FbUiModalVariantType,
+      sizeTypes: FbSizeTypes,
+      buttonVariantsTypes: FbUiButtonVariantTypes,
     }
   },
 

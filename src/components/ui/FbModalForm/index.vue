@@ -61,9 +61,9 @@
         slot="left-button"
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
+        :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :variant="buttonVariantsTypes.LINK"
         uppercase
-        variant="link"
-        size="lg"
         name="close"
         @click.prevent="$emit('cancel', $event)"
       >
@@ -76,9 +76,9 @@
         slot="right-button"
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
+        :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :variant="buttonVariantsTypes.OUTLINE_PRIMARY"
         uppercase
-        variant="outline-primary"
-        size="lg"
         name="save"
         @click.prevent="$emit('submit', $event)"
       >
@@ -98,7 +98,7 @@ import {
 
 import get from 'lodash/get'
 
-import {FbFormResultType, FbUiModalVariantType, FbSizeTypes} from "@/components/types";
+import {FbFormResultType, FbUiModalVariantType, FbSizeTypes, FbUiButtonVariantTypes} from "@/components/types";
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes
@@ -185,6 +185,9 @@ export default defineComponent({
     return {
       initialTabindex,
       resultTypes: FbFormResultType,
+      variantsTypes: FbUiModalVariantType,
+      sizeTypes: FbSizeTypes,
+      buttonVariantsTypes: FbUiButtonVariantTypes,
     }
   },
 
