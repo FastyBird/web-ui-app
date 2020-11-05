@@ -56,56 +56,35 @@
       <slot name="modal-footer" />
     </template>
 
-    <template
-      v-else
-      slot="modal-footer"
-    >
-      <div class="fb-ui-modal-form__buttons">
-        <template
-          v-if="slotExists('left-button')"
-          slot="left-button"
-        >
-          <slot name="left-button" />
-        </template>
+    <slot name="cancel-button">
+      <fb-ui-button
+        slot="left-button"
+        :disabled="lockButtons"
+        :tabindex="(initialTabindex + 2)"
+        uppercase
+        variant="link"
+        size="lg"
+        name="close"
+        @click.prevent="$emit('cancel', $event)"
+      >
+        {{ cancelBtnLabel }}
+      </fb-ui-button>
+    </slot>
 
-        <template v-else>
-          <fb-ui-button
-            slot="left-button"
-            :disabled="lockButtons"
-            :tabindex="(initialTabindex + 2)"
-            uppercase
-            variant="link"
-            size="lg"
-            name="close"
-            @click.prevent="$emit('cancel', $event)"
-          >
-            {{ cancelBtnLabel }}
-          </fb-ui-button>
-        </template>
-
-        <template
-          v-if="slotExists('right-button')"
-          slot="right-button"
-        >
-          <slot name="right-button" />
-        </template>
-
-        <template v-else>
-          <fb-ui-button
-            slot="right-button"
-            :disabled="lockButtons || lockSubmitButton"
-            :tabindex="(initialTabindex + 1)"
-            uppercase
-            variant="outline-primary"
-            size="lg"
-            name="save"
-            @click.prevent="$emit('submit', $event)"
-          >
-            {{ submitBtnLabel }}
-          </fb-ui-button>
-        </template>
-      </div>
-    </template>
+    <slot name="submit-button">
+      <fb-ui-button
+        slot="right-button"
+        :disabled="lockButtons || lockSubmitButton"
+        :tabindex="(initialTabindex + 1)"
+        uppercase
+        variant="outline-primary"
+        size="lg"
+        name="save"
+        @click.prevent="$emit('submit', $event)"
+      >
+        {{ submitBtnLabel }}
+      </fb-ui-button>
+    </slot>
   </fb-ui-modal-window>
 </template>
 
