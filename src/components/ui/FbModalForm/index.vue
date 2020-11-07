@@ -68,7 +68,7 @@
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
         :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
-        :variant="buttonVariantsTypes.LINK"
+        :variant="buttonVariantsTypes.LINK_DEFAULT"
         uppercase
         name="close"
         @click.prevent="$emit('cancel', $event)"
@@ -84,7 +84,7 @@
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
         :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
-        :variant="variant === variantsTypes.PHONE ? buttonVariantsTypes.LINK : buttonVariantsTypes.OUTLINE_PRIMARY"
+        :variant="variant === variantsTypes.PHONE ? buttonVariantsTypes.LINK_DEFAULT : buttonVariantsTypes.OUTLINE_PRIMARY"
         uppercase
         name="save"
         @click.prevent="$emit('submit', $event)"

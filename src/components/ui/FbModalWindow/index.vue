@@ -83,7 +83,7 @@
                         <fb-ui-button
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
-                          :variant="buttonVariantsTypes.LINK"
+                          :variant="buttonVariantsTypes.LINK_DEFAULT"
                           @click.prevent="$emit('close', $event)"
                         >
                           {{ closeBtnText }}
@@ -99,7 +99,7 @@
                         <fb-ui-button
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
-                          :variant="buttonVariantsTypes.LINK"
+                          :variant="buttonVariantsTypes.LINK_DEFAULT"
                           @click.prevent="$emit('submit', $event)"
                         >
                           {{ okBtnText }}
@@ -145,7 +145,7 @@
                   >
                     <fb-ui-button
                       v-else
-                      :variant="buttonVariantsTypes.LINK"
+                      :variant="buttonVariantsTypes.LINK_DEFAULT"
                       :size="sizeTypes.LARGE"
                       tabindex="2"
                       @click.prevent="$emit('close', $event)"

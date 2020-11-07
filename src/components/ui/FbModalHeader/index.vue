@@ -13,7 +13,7 @@
       >
         <slot name="left-button">
           <fb-ui-button
-            :variant="buttonVariantsTypes.LINK"
+            :variant="buttonVariantsTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
             @click.prevent="$emit('close', $event)"
           >
@@ -29,7 +29,7 @@
         <slot name="right-button">
           <fb-ui-button
             v-else
-            :variant="buttonVariantsTypes.LINK"
+            :variant="buttonVariantsTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
             @click.prevent="$emit('submit', $event)"
           >
