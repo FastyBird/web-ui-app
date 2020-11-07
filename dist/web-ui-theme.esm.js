@@ -2720,10 +2720,20 @@ var script$m = defineComponent({
       required: false,
       default: 'Save'
     },
+    submitBtnShow: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     cancelBtnText: {
       type: String,
       required: false,
       default: 'Close'
+    },
+    cancelBtnShow: {
+      type: Boolean,
+      required: false,
+      default: false
     },
     lockButtons: {
       type: Boolean,
@@ -2773,7 +2783,9 @@ var __vue_render__$m = function () {
     attrs: {
       "size": _vm.size,
       "variant": _vm.variant,
-      "transparent-bg": _vm.transparentBg
+      "transparent-bg": _vm.transparentBg,
+      "ok-btn-show": _vm.submitBtnShow,
+      "close-btn-show": _vm.cancelBtnShow
     },
     on: {
       "close": function ($event) {
@@ -2804,7 +2816,7 @@ var __vue_render__$m = function () {
     staticClass: "fb-ui-modal-form__result"
   }, [_c('fb-ui-result-err')], 1) : _vm._e()], 2), _vm._v(" "), _vm.slotExists('modal-footer') ? _c('template', {
     slot: "modal-footer"
-  }, [_vm._t("modal-footer")], 2) : _vm._e(), _vm._v(" "), _vm._t("cancel-button", [_c('fb-ui-button', {
+  }, [_vm._t("modal-footer")], 2) : _vm._e(), _vm._v(" "), _vm._t("cancel-button", [_vm.cancelBtnShow ? _c('fb-ui-button', {
     attrs: {
       "slot": "close-button",
       "disabled": _vm.lockButtons,
@@ -2821,7 +2833,7 @@ var __vue_render__$m = function () {
       }
     },
     slot: "close-button"
-  }, [_vm._v("\n      " + _vm._s(_vm.cancelBtnText) + "\n    ")])]), _vm._v(" "), _vm._t("submit-button", [_c('fb-ui-button', {
+  }, [_vm._v("\n      " + _vm._s(_vm.cancelBtnText) + "\n    ")]) : _vm._e()]), _vm._v(" "), _vm._t("submit-button", [_vm.submitBtnShow ? _c('fb-ui-button', {
     attrs: {
       "slot": "ok-button",
       "disabled": _vm.lockButtons || _vm.lockSubmitButton,
@@ -2838,7 +2850,7 @@ var __vue_render__$m = function () {
       }
     },
     slot: "ok-button"
-  }, [_vm._v("\n      " + _vm._s(_vm.submitBtnText) + "\n    ")])])], 2);
+  }, [_vm._v("\n      " + _vm._s(_vm.submitBtnText) + "\n    ")]) : _vm._e()])], 2);
 };
 
 var __vue_staticRenderFns__$m = [];
@@ -2846,7 +2858,7 @@ var __vue_staticRenderFns__$m = [];
 
 const __vue_inject_styles__$m = function (inject) {
   if (!inject) return;
-  inject("data-v-6edbc7ac_0", {
+  inject("data-v-3a96682c_0", {
     source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result .fb-ui-spinner__container,.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}.fb-ui-modal-form__result .fb-ui-spinner__container{width:10rem;height:10rem}.fb-ui-modal-form__result .fb-ui-spinner__container:after,.fb-ui-modal-form__result .fb-ui-spinner__container:before{width:10rem;height:10rem;margin:-5rem 0 0 -5rem;border-width:4px}",
     map: undefined,
     media: undefined

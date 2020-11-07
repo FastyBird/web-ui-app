@@ -3,6 +3,8 @@
     :size="size"
     :variant="variant"
     :transparent-bg="transparentBg"
+    :ok-btn-show="submitBtnShow"
+    :close-btn-show="cancelBtnShow"
     @close="$emit('close', $event)"
   >
     <template
@@ -61,6 +63,7 @@
 
     <slot name="cancel-button">
       <fb-ui-button
+        v-if="cancelBtnShow"
         slot="close-button"
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
@@ -76,6 +79,7 @@
 
     <slot name="submit-button">
       <fb-ui-button
+        v-if="submitBtnShow"
         slot="ok-button"
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
@@ -152,10 +156,22 @@ export default defineComponent({
       default: 'Save',
     },
 
+    submitBtnShow: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+
     cancelBtnText: {
       type: String,
       required: false,
       default: 'Close',
+    },
+
+    cancelBtnShow: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
 
     lockButtons: {
