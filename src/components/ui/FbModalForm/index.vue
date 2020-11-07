@@ -61,7 +61,7 @@
 
     <slot name="cancel-button">
       <fb-ui-button
-        slot="left-button"
+        slot="close-button"
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
         :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
@@ -70,13 +70,13 @@
         name="close"
         @click.prevent="$emit('cancel', $event)"
       >
-        {{ cancelBtnLabel }}
+        {{ cancelBtnText }}
       </fb-ui-button>
     </slot>
 
     <slot name="submit-button">
       <fb-ui-button
-        slot="right-button"
+        slot="ok-button"
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
         :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
@@ -85,7 +85,7 @@
         name="save"
         @click.prevent="$emit('submit', $event)"
       >
-        {{ submitBtnLabel }}
+        {{ submitBtnText }}
       </fb-ui-button>
     </slot>
   </fb-ui-modal-window>
@@ -105,8 +105,8 @@ import {FbFormResultType, FbUiModalVariantType, FbSizeTypes, FbUiButtonVariantTy
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes
-  submitBtnLabel: string
-  cancelBtnLabel: string
+  submitBtnText: string
+  cancelBtnText: string
   lockButtons: boolean
   lockSubmitButton: boolean
   transparentBg: boolean
@@ -146,13 +146,13 @@ export default defineComponent({
       },
     },
 
-    submitBtnLabel: {
+    submitBtnText: {
       type: String,
       required: false,
       default: 'Save',
     },
 
-    cancelBtnLabel: {
+    cancelBtnText: {
       type: String,
       required: false,
       default: 'Close',

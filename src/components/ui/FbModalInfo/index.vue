@@ -6,6 +6,8 @@
     :transparent-bg="transparentBg"
     :enable-closing="enableClosing"
     :show-footer="enableClosing"
+    :ok-btn-show="false"
+    :close-btn-text="closeBtnText"
     @close="$emit('close', $event)"
   >
     <template
@@ -19,23 +21,6 @@
     <template slot="modal-body">
       <slot name="info" />
     </template>
-
-    <div
-      slot="modal-footer"
-      class="fb-ui-modal-info__buttons"
-    >
-      <fb-ui-button
-        v-if="enableClosing"
-        uppercase
-        variant="link"
-        size="lg"
-        name="close"
-        tabindex="2"
-        @click.prevent="$emit('close', $event)"
-      >
-        {{ closeBtnLabel }}
-      </fb-ui-button>
-    </div>
   </fb-ui-modal-window>
 </template>
 
@@ -84,7 +69,7 @@ export default defineComponent({
       default: true,
     },
 
-    closeBtnLabel: {
+    closeBtnText: {
       type: String,
       required: false,
       default: 'Close',

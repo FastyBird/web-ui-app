@@ -65,9 +65,9 @@
                 <slot name="modal-header">
                   <div
                     v-if="variant === variantsTypes.PHONE"
-                    class="fb-ui-modal-window__header-phone"
+                    class="fb-ui-modal-window__header-buttons"
                   >
-                    <div class="fb-ui-modal-window__header-phone-heading">
+                    <div class="fb-ui-modal-window__header-buttons-heading">
                       <h4>
                         <slot name="modal-title">
                           {{ title }}
@@ -75,28 +75,34 @@
                       </h4>
                     </div>
 
-                    <div class="fb-ui-modal-window__header-phone-left-button">
-                      <slot name="left-button">
+                    <div
+                      v-if="closeBtnShow"
+                      class="fb-ui-modal-window__header-buttons-left-button"
+                    >
+                      <slot name="close-button">
                         <fb-ui-button
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
                           :variant="buttonVariantsTypes.LINK"
                           @click.prevent="$emit('close', $event)"
                         >
-                          {{ cancelText }}
+                          {{ closeBtnText }}
                         </fb-ui-button>
                       </slot>
                     </div>
 
-                    <div class="fb-ui-modal-window__header-phone-right-button">
-                      <slot name="right-button">
+                    <div
+                      v-if="okBtnShow"
+                      class="fb-ui-modal-window__header-buttons-right-button"
+                    >
+                      <slot name="ok-button">
                         <fb-ui-button
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
                           :variant="buttonVariantsTypes.LINK"
                           @click.prevent="$emit('submit', $event)"
                         >
-                          {{ okText }}
+                          {{ okBtnText }}
                         </fb-ui-button>
                       </slot>
                     </div>
@@ -133,25 +139,33 @@
                 class="fb-ui-modal-window__footer"
               >
                 <slot name="modal-footer">
-                  <slot name="left-button">
+                  <slot
+                    v-if="closeBtnShow"
+                    name="close-button"
+                  >
                     <fb-ui-button
                       v-else
-                      :variant="buttonVariantsTypes.DEFAULT"
+                      :variant="buttonVariantsTypes.LINK"
+                      :size="sizeTypes.LARGE"
                       tabindex="2"
                       @click.prevent="$emit('close', $event)"
                     >
-                      {{ cancelText }}
+                      {{ closeBtnText }}
                     </fb-ui-button>
                   </slot>
 
-                  <slot name="right-button">
+                  <slot
+                    v-if="okBtnShow"
+                    name="ok-button"
+                  >
                     <fb-ui-button
                       v-else
-                      :variant="buttonVariantsTypes.PRIMARY"
+                      :variant="buttonVariantsTypes.OUTLINE_PRIMARY"
+                      :size="sizeTypes.LARGE"
                       tabindex="3"
                       @click.prevent="$emit('submit', $event)"
                     >
-                      {{ okText }}
+                      {{ okBtnText }}
                     </fb-ui-button>
                   </slot>
                 </slot>
@@ -180,14 +194,16 @@ import get from 'lodash/get'
 
 interface FbUiModalWindowPropsInterface {
   size: FbSizeTypes
+  variant: FbUiModalVariantType
   title: string
   width: string | number | null
-  okText: string
-  cancelText: string,
   showHeader: boolean
   showFooter: boolean
   enableClosing: boolean
-  closeBtnLabel: boolean
+  okBtnText: string
+  okBtnShow: boolean
+  closeBtnText: string
+  closeBtnShow: boolean
   transparentBg: boolean
   loader: boolean
 }
@@ -233,16 +249,6 @@ export default defineComponent({
       default: null,
     },
 
-    okText: {
-      type: String,
-      default: 'Ok',
-    },
-
-    cancelText: {
-      type: String,
-      default: 'Cancel',
-    },
-
     showHeader: {
       type: Boolean,
       default: true,
@@ -258,10 +264,25 @@ export default defineComponent({
       default: true,
     },
 
-    closeBtnLabel: {
+    okBtnText: {
+      type: String,
+      default: 'Ok',
+    },
+
+    okBtnShow: {
+      type: Boolean,
+      default: true,
+    },
+
+    closeBtnText: {
       type: String,
       required: false,
       default: 'Close',
+    },
+
+    closeBtnShow: {
+      type: Boolean,
+      default: true,
     },
 
     transparentBg: {

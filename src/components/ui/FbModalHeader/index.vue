@@ -1,37 +1,41 @@
 <template>
-  <div class="fb-ui-modal-header__container">
+  <div
+    :variant="variant"
+    class="fb-ui-modal-header__container"
+  >
     <div
       v-if="variant === variantsTypes.PHONE"
-      class="fb-ui-modal-header__variant-phone"
+      class="fb-ui-modal-header__buttons"
     >
-      <div class="fb-ui-modal-header__variant-phone-left-button">
-        <template v-if="slotExists('left-button')">
-          <slot name="left-button" />
-        </template>
-
-        <fb-ui-button
-          v-else
-          variant="link"
-          size="xs"
-          @click.prevent="$emit('close', $event)"
-        >
-          {{ cancelText }}
-        </fb-ui-button>
+      <div
+        v-if="closeBtnShow"
+        class="fb-ui-modal-header__buttons-left-button"
+      >
+        <slot name="left-button">
+          <fb-ui-button
+            :variant="buttonVariantsTypes.LINK"
+            :size="sizesTypes.EXTRA_SMALL"
+            @click.prevent="$emit('close', $event)"
+          >
+            {{ closeBtnText }}
+          </fb-ui-button>
+        </slot>
       </div>
 
-      <div class="fb-ui-modal-header__variant-phone-right-button">
-        <template v-if="slotExists('right-button')">
-          <slot name="right-button" />
-        </template>
-
-        <fb-ui-button
-          v-else
-          variant="link"
-          size="xs"
-          @click.prevent="$emit('submit', $event)"
-        >
-          {{ okText }}
-        </fb-ui-button>
+      <div
+        v-if="okBtnShow"
+        class="fb-ui-modal-header__buttons-right-button"
+      >
+        <slot name="right-button">
+          <fb-ui-button
+            v-else
+            :variant="buttonVariantsTypes.LINK"
+            :size="sizesTypes.EXTRA_SMALL"
+            @click.prevent="$emit('submit', $event)"
+          >
+            {{ okBtnText }}
+          </fb-ui-button>
+        </slot>
       </div>
     </div>
 
@@ -42,7 +46,7 @@
       @click.prevent="$emit('close', $event)"
     >
       <span aria-hidden="true">×</span>
-      <span class="sr-only">{{ closeBtnLabel }}</span>
+      <span class="sr-only">{{ closeBtnText }}</span>
     </button>
 
     <div class="fb-ui-modal-header__heading">
@@ -65,7 +69,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import {FbUiModalVariantType} from '@/components/types'
+import { FbUiModalVariantType, FbUiButtonVariantTypes, FbSizeTypes } from '@/components/types'
 
 export default defineComponent({
 
@@ -85,27 +89,33 @@ export default defineComponent({
       },
     },
 
-    okText: {
+    okBtnText: {
       type: String,
       default: 'Ok',
     },
 
-    cancelText: {
-      type: String,
-      default: 'Cancel',
+    okBtnShow: {
+      type: Boolean,
+      default: true,
     },
 
-    closeBtnLabel: {
+    closeBtnText: {
       type: String,
-      required: false,
       default: 'Close',
+    },
+
+    closeBtnShow: {
+      type: Boolean,
+      default: true,
     },
 
   },
 
   setup() {
     return {
-      variantsTypes: FbUiModalVariantType
+      variantsTypes: FbUiModalVariantType,
+      sizesTypes: FbSizeTypes,
+      buttonVariantsTypes: FbUiButtonVariantTypes,
     }
   },
 

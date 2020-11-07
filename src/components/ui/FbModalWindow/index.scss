@@ -110,7 +110,7 @@
       line-height: $line-height;
     }
 
-    &-phone {
+    &-buttons {
       @include flex-phone-header;
 
       &-heading {
@@ -123,10 +123,11 @@
 
       &-left-button {
         order: -1;
+        text-align: left;
       }
 
       &-right-button {
-
+        text-align: right;
       }
 
       &-left-button,
