@@ -152,37 +152,31 @@ export default defineComponent({
 
     submitBtnText: {
       type: String,
-      required: false,
       default: 'Save',
     },
 
     submitBtnShow: {
       type: Boolean,
-      required: false,
-      default: false,
+      default: true,
     },
 
     cancelBtnText: {
       type: String,
-      required: false,
       default: 'Close',
     },
 
     cancelBtnShow: {
       type: Boolean,
-      required: false,
-      default: false,
+      default: true,
     },
 
     lockButtons: {
       type: Boolean,
-      required: false,
       default: false,
     },
 
     lockSubmitButton: {
       type: Boolean,
-      required: false,
       default: false,
     },
 

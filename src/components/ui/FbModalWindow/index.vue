@@ -276,7 +276,6 @@ export default defineComponent({
 
     closeBtnText: {
       type: String,
-      required: false,
       default: 'Close',
     },
 

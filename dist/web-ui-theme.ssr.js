@@ -2369,32 +2369,26 @@ var __vue_component__$l = /*#__PURE__*/normalizeComponent({
     },
     submitBtnText: {
       type: String,
-      required: false,
       default: 'Save'
     },
     submitBtnShow: {
       type: Boolean,
-      required: false,
-      default: false
+      default: true
     },
     cancelBtnText: {
       type: String,
-      required: false,
       default: 'Close'
     },
     cancelBtnShow: {
       type: Boolean,
-      required: false,
-      default: false
+      default: true
     },
     lockButtons: {
       type: Boolean,
-      required: false,
       default: false
     },
     lockSubmitButton: {
       type: Boolean,
-      required: false,
       default: false
     },
     transparentBg: {
@@ -2506,7 +2500,7 @@ var __vue_staticRenderFns__$m = [];
 
 var __vue_inject_styles__$m = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-3a96682c_0", {
+  inject("data-v-f61b08e0_0", {
     source: ".fb-ui-modal-form__buttons .fb-ui-button[data-variant=link]{color:grey!important}.fb-ui-modal-form__result{position:absolute;top:0;left:0;right:0;bottom:0;background-color:#fff;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-form__result .fb-ui-spinner__container,.fb-ui-modal-form__result>div{margin-left:auto;margin-right:auto}.fb-ui-modal-form__result .fb-ui-spinner__container{width:10rem;height:10rem}.fb-ui-modal-form__result .fb-ui-spinner__container:after,.fb-ui-modal-form__result .fb-ui-spinner__container:before{width:10rem;height:10rem;margin:-5rem 0 0 -5rem;border-width:4px}",
     map: undefined,
     media: undefined
@@ -2518,7 +2512,7 @@ var __vue_inject_styles__$m = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$m = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$m = "data-v-3a96682c";
+var __vue_module_identifier__$m = "data-v-f61b08e0";
 /* functional template */
 
 var __vue_is_functional_template__$m = false;
@@ -2800,7 +2794,6 @@ var __vue_component__$p = /*#__PURE__*/normalizeComponent({
     },
     closeBtnText: {
       type: String,
-      required: false,
       default: 'Close'
     },
     closeBtnShow: {
@@ -2977,7 +2970,7 @@ var __vue_staticRenderFns__$q = [];
 
 var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-59befb78_0", {
+  inject("data-v-57d01238_0", {
     source: ".fb-ui-modal-window__container{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);transition:opacity .3s ease;z-index:9998;-webkit-overflow-scrolling:touch;overflow:hidden;overflow-y:auto;outline:0;display:flex;flex-direction:row;align-items:baseline}.fb-ui-modal-window__container-transparent{background-color:rgba(255,255,255,.5)}@media (min-width:768px){.fb-ui-modal-window__container[data-size=sm] .fb-ui-modal-window__dialog{width:30rem;max-width:90vw}}.fb-ui-modal-window__container[data-size=md] .fb-ui-modal-window__dialog{width:60rem;max-width:90vw}.fb-ui-modal-window__container[data-size=lg] .fb-ui-modal-window__dialog{width:90rem;max-width:90vw}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__window{padding-top:1rem}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__dialog{width:99vw;max-width:99vw;height:98vh}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__content{height:100%}.fb-ui-modal-window__container[data-variant=phone] .fb-ui-modal-window__body{padding:1.5rem .5rem}.fb-ui-modal-window__window{margin-left:auto;margin-right:auto;padding-top:7rem;z-index:9999}.fb-ui-modal-window__dialog{position:relative;width:auto}.fb-ui-modal-window__content{position:relative;border-radius:4px;background-color:#fff;background-clip:padding-box;overflow:hidden;outline:0;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5)}@media (min-width:768px){.fb-ui-modal-window__content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5)}}.fb-ui-modal-window__header{padding:1.5rem;border-bottom:none;color:#fff;background-color:#d9230f}.fb-ui-modal-window__header h4{margin:0;line-height:1.5384615385}.fb-ui-modal-window__header-buttons{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-ui-modal-window__header-buttons-heading{flex-grow:1}.fb-ui-modal-window__header-buttons-heading h4{text-align:center}.fb-ui-modal-window__header-buttons-left-button{order:-1;text-align:left}.fb-ui-modal-window__header-buttons-right-button{text-align:right}.fb-ui-modal-window__header-buttons-left-button,.fb-ui-modal-window__header-buttons-right-button{color:#fff;font-size:1.4rem}.fb-ui-modal-window__header-buttons-left-button .fb-ui-button,.fb-ui-modal-window__header-buttons-right-button .fb-ui-button{color:#fff;font-size:1.4rem}.fb-ui-modal-window__header-buttons-left-button .fb-ui-button:active,.fb-ui-modal-window__header-buttons-left-button .fb-ui-button:focus,.fb-ui-modal-window__header-buttons-left-button .fb-ui-button:hover,.fb-ui-modal-window__header-buttons-right-button .fb-ui-button:active,.fb-ui-modal-window__header-buttons-right-button .fb-ui-button:focus,.fb-ui-modal-window__header-buttons-right-button .fb-ui-button:hover{outline:0;background-image:none;color:#fff;text-decoration:none}.fb-ui-modal-window__header-buttons-left-button .fb-ui-button:active svg,.fb-ui-modal-window__header-buttons-left-button .fb-ui-button:focus svg,.fb-ui-modal-window__header-buttons-left-button .fb-ui-button:hover svg,.fb-ui-modal-window__header-buttons-right-button .fb-ui-button:active svg,.fb-ui-modal-window__header-buttons-right-button .fb-ui-button:focus svg,.fb-ui-modal-window__header-buttons-right-button .fb-ui-button:hover svg{color:#fff}.fb-ui-modal-window__body{position:relative;padding:1.5rem;display:flex;flex-direction:column}.fb-ui-modal-window__close{margin-top:-2px;float:right;font-size:1.95rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{opacity:.5;filter:alpha(opacity=50)}.fb-ui-modal-window__close:focus,.fb-ui-modal-window__close:hover{color:#000;text-decoration:none;cursor:pointer}.fb-ui-modal-window__footer{padding:0 1.5rem 1.5rem 1.5rem;text-align:right}.fb-ui-modal-window__loading{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:10008;height:100%;width:100%;display:flex;flex-direction:row;align-items:center}.fb-ui-modal-window__loading-inner{margin-left:auto;margin-right:auto;width:25rem;text-align:center}.fb-ui-modal-window__loading-inner svg{width:100%;margin-bottom:2rem}.fb-ui-modal-window__loading-inner svg path.dark_color{fill:#444;fill-rule:nonzero}.fb-ui-modal-window__loading-inner svg path.brand_color{fill:#d9230f;fill-rule:nonzero}.modal-enter{opacity:0;filter:alpha(opacity=0)}.modal-leave-active{opacity:0;filter:alpha(opacity=0)}.modal-enter .fb-ui-modal-window__dialog{-webkit-transform:scale(1.1);transform:scale(1.1)}.modal-bounce-enter-active{animation:modal-bounce-in .25s}.modal-bounce-leave-active{animation:modal-bounce-in .25s reverse}@keyframes modal-bounce-in{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}",
     map: undefined,
     media: undefined
@@ -2989,7 +2982,7 @@ var __vue_inject_styles__$q = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$q = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$q = "data-v-59befb78";
+var __vue_module_identifier__$q = "data-v-57d01238";
 /* functional template */
 
 var __vue_is_functional_template__$q = false;
