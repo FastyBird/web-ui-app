@@ -2930,7 +2930,7 @@ var __vue_render__$n = function () {
   return _c('div', {
     staticClass: "fb-ui-modal-header__container",
     attrs: {
-      "variant": _vm.variant
+      "data-variant": _vm.variant
     }
   }, [_vm.variant === _vm.variantsTypes.PHONE ? _c('div', {
     staticClass: "fb-ui-modal-header__buttons"
@@ -2976,7 +2976,7 @@ var __vue_staticRenderFns__$n = [];
 
 const __vue_inject_styles__$n = function (inject) {
   if (!inject) return;
-  inject("data-v-5ce04b9a_0", {
+  inject("data-v-7391f5d2_0", {
     source: ".fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button{text-align:left}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button{text-align:right}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button{color:#fff;font-size:1.4rem}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button{color:#fff;font-size:1.4rem;text-align:center}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:active,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:focus,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:hover,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:active,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:focus,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:hover{outline:0;background-image:none;color:#fff;text-decoration:none}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:active svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:focus svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:hover svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:active svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:focus svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:hover svg{color:#fff}.fb-ui-modal-header__heading{text-align:center}.fb-ui-modal-header__close{margin-top:-2px;float:right;font-size:1.95rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-ui-modal-header__close:focus,.fb-ui-modal-header__close:hover{opacity:.5;filter:alpha(opacity=50)}.fb-ui-modal-header__close:focus,.fb-ui-modal-header__close:hover{color:#000;text-decoration:none;cursor:pointer}",
     map: undefined,
     media: undefined

@@ -1,6 +1,6 @@
 <template>
   <div
-    :variant="variant"
+    :data-variant="variant"
     class="fb-ui-modal-header__container"
   >
     <div
