@@ -109,14 +109,15 @@ import {FbFormResultType, FbUiModalVariantType, FbSizeTypes, FbUiButtonVariantTy
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes
+  variant: FbUiModalVariantType
   submitBtnText: string
+  submitBtnShow: boolean
   cancelBtnText: string
+  cancelBtnShow: boolean
   lockButtons: boolean
   lockSubmitButton: boolean
   transparentBg: boolean
-  resultIsWorking: boolean
-  resultIsOk: boolean
-  resultIsErr: boolean
+  state: FbFormResultType
 }
 
 export default defineComponent({
