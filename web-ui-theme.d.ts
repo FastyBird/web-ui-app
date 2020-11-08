@@ -65,6 +65,9 @@ export { FbMenuItemType as FbMenuItemType } from './src/components/types'
 export { FbSizeTypes as FbSizeTypes } from './src/components/types'
 export { FbFormOrientationTypes as FbFormOrientationTypes } from './src/components/types'
 export { FbFormResultType as FbFormResultType } from './src/components/types'
+export { FbUiModalVariantType as FbUiModalVariantType } from './src/components/types'
+export { FbUiButtonButtonTypes as FbUiButtonButtonTypes } from './src/components/types'
+export { FbUiButtonVariantTypes as FbUiButtonVariantTypes } from './src/components/types'
 
 // Theme mixins
 declare module 'vue/types/vue' {
