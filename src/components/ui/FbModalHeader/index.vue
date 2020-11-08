@@ -15,6 +15,7 @@
           <fb-ui-button
             :variant="buttonVariantsTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
+            uppercase
             @click.prevent="$emit('close', $event)"
           >
             {{ closeBtnText }}
@@ -31,6 +32,7 @@
             v-else
             :variant="buttonVariantsTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
+            uppercase
             @click.prevent="$emit('submit', $event)"
           >
             {{ okBtnText }}

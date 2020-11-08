@@ -84,6 +84,7 @@
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
                           :variant="buttonVariantsTypes.LINK_DEFAULT"
+                          uppercase
                           @click.prevent="$emit('close', $event)"
                         >
                           {{ closeBtnText }}
@@ -100,6 +101,7 @@
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
                           :variant="buttonVariantsTypes.LINK_DEFAULT"
+                          uppercase
                           @click.prevent="$emit('submit', $event)"
                         >
                           {{ okBtnText }}
@@ -147,6 +149,7 @@
                       v-else
                       :variant="buttonVariantsTypes.LINK_DEFAULT"
                       :size="sizeTypes.LARGE"
+                      uppercase
                       tabindex="2"
                       @click.prevent="$emit('close', $event)"
                     >
@@ -162,6 +165,7 @@
                       v-else
                       :variant="buttonVariantsTypes.OUTLINE_PRIMARY"
                       :size="sizeTypes.LARGE"
+                      uppercase
                       tabindex="3"
                       @click.prevent="$emit('submit', $event)"
                     >
