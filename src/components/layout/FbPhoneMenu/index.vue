@@ -36,7 +36,6 @@
         <portal-target
           class="fb-layout-phone-menu__footer"
           name="fb-layout-phone-menu-button"
-          tag="h4"
         >
           <fb-ui-button
             v-if="showClose"
