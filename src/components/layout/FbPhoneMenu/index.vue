@@ -34,11 +34,11 @@
         </div>
 
         <portal-target
+          v-if="showClose"
           class="fb-layout-phone-menu__footer"
           name="fb-layout-phone-menu-button"
         >
           <fb-ui-button
-            v-if="showClose"
             block
             variant="link"
             size="lg"
