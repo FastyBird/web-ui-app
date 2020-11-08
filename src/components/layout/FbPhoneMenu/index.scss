@@ -17,6 +17,7 @@
   &__content {
     background: $items-background-color;
     box-sizing: border-box;
+    padding: $content-padding;
 
     @include items-border-radius;
   }
@@ -35,6 +36,8 @@
     .fb-ui-button {
       text-align: center;
       background: $button-background-color;
+
+      @include button-border-radius;
     }
   }
 

@@ -11,10 +11,16 @@ $heading-line-height:                 1.5rem;
 $heading-padding:                     1.5rem;
 $heading-margin:                      0;
 
+$content-padding:                     0 0 1rem 0;
+
 $items-background-color:              #fff;
 
 $button-background-color:             #fff;
 
 @mixin items-border-radius {
+  @include border-radius(1.5rem);
+}
+
+@mixin button-border-radius {
   @include border-radius(1.5rem);
 }
