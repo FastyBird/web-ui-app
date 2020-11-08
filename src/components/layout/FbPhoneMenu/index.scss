@@ -5,14 +5,8 @@
 
   }
 
-  &__backdrop {
-    z-index: $z-index;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $backdrop-background-color;
+  &__inner {
+    padding: $inner-padding;
   }
 
   &__content {
@@ -32,12 +26,26 @@
     line-height: $heading-line-height;
     padding: $heading-padding;
     margin: $heading-margin;
+    text-align: center
   }
 
-  &__cancel {
-    text-align: center;
-    border-top: 1px solid $close-button-border-color;
-    padding: $close-button-padding;
+  &__footer {
+    margin-top: $inner-padding;
+
+    .fb-ui-button {
+      text-align: center;
+      background: $button-background-color;
+    }
+  }
+
+  &__backdrop {
+    z-index: $z-index;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $backdrop-background-color;
   }
 }
 
@@ -51,12 +59,12 @@
   opacity: 0;
 }
 
-.fb-phone-menu-items-enter-active,
-.fb-phone-menu-items-leave-active {
+.fb-phone-menu-content-enter-active,
+.fb-phone-menu-content-leave-active {
   transition: all .35s;
 }
 
-.fb-phone-menu-items-enter,
-.fb-phone-menu-items-leave-to {
+.fb-phone-menu-content-enter,
+.fb-phone-menu-content-leave-to {
   transform: translate3d(0, 100%, 0);
 }

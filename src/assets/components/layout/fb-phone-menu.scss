@@ -4,6 +4,8 @@ $z-index:                             9998 !default;
 
 $backdrop-background-color:           rgba(0, 0, 0, .5);
 
+$inner-padding:                       1rem;
+
 $heading-border-color:                #ddd;
 $heading-line-height:                 1.5rem;
 $heading-padding:                     1.5rem;
@@ -11,9 +13,8 @@ $heading-margin:                      0;
 
 $items-background-color:              #fff;
 
-$close-button-border-color:           #ddd;
-$close-button-padding:                1rem 0;
+$button-background-color:             #fff;
 
 @mixin items-border-radius {
-  @include border-top-radius(1.5rem);
+  @include border-radius(1.5rem);
 }

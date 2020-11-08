@@ -15,29 +15,40 @@
     <transition name="fb-phone-menu-content">
       <div
         v-show="show"
-        class="fb-layout-phone-menu__content"
+        class="fb-layout-phone-menu__inner"
       >
-        <portal-target
-          class="fb-layout-phone-menu__heading"
-          name="fb-layout-phone-menu-heading"
-          tag="h4"
-        />
+        <div class="fb-layout-phone-menu__content">
+          <portal-target
+            class="fb-layout-phone-menu__heading"
+            name="fb-layout-phone-menu-heading"
+            tag="h4"
+          />
 
-        <portal-target
-          class="fb-layout-phone-menu__items"
-          name="fb-layout-phone-menu-items"
-          @change="itemsPortalChanged"
-        >
-          <slot />
-        </portal-target>
-
-        <div
-          v-if="showClose"
-          class="fb-layout-phone-menu__cancel"
-          @click="$emit('close', $event)"
-        >
-          {{ closeBtnText }}
+          <portal-target
+            class="fb-layout-phone-menu__items"
+            name="fb-layout-phone-menu-items"
+            @change="itemsPortalChanged"
+          >
+            <slot />
+          </portal-target>
         </div>
+
+        <portal-target
+          class="fb-layout-phone-menu__footer"
+          name="fb-layout-phone-menu-button"
+          tag="h4"
+        >
+          <fb-ui-button
+            v-if="showClose"
+            block
+            variant="link"
+            size="lg"
+            type="button"
+            @click="$emit('close', $event)"
+          >
+            {{ closeBtnText }}
+          </fb-ui-button>
+        </portal-target>
       </div>
     </transition>
   </div>
