@@ -12,10 +12,10 @@
       />
     </transition>
 
-    <transition name="fb-phone-menu-items">
+    <transition name="fb-phone-menu-content">
       <div
         v-show="show"
-        class="fb-layout-phone-menu__items"
+        class="fb-layout-phone-menu__content"
       >
         <portal-target
           class="fb-layout-phone-menu__heading"
