@@ -17,6 +17,7 @@
 
           &-left-button,
           &-right-button {
+            flex-grow: 1;
             color: $header-color;
             font-size: $header-button-font-size;
 
