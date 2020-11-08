@@ -17,23 +17,26 @@
         v-if="show"
         class="fb-layout-phone-menu__items"
       >
-        <h4
-          v-if="slotExists('heading')"
+        <portal-target
           class="fb-layout-phone-menu__heading"
-        >
-          <slot name="heading" />
-        </h4>
+          name="fb-layout-phone-menu-heading"
+          tag="h4"
+        />
 
-        <div class="fb-layout-phone-menu__buttons">
+        <portal-target
+          class="fb-layout-phone-menu__items"
+          name="fb-layout-phone-menu-items"
+          @change="itemsPortalChanged"
+        >
           <slot />
-        </div>
+        </portal-target>
 
         <div
           v-if="showClose"
           class="fb-layout-phone-menu__cancel"
           @click="$emit('close', $event)"
         >
-          {{ closeBtnLabel }}
+          {{ closeBtnText }}
         </div>
       </div>
     </transition>
@@ -48,29 +51,18 @@ import {
   watch,
 } from '@vue/composition-api'
 
-interface FbLayoutPhoneMenuPropsInterface {
-  show: boolean
-  showClose: boolean
-  closeBtnLabel: string
-}
-
 export default defineComponent({
 
   name: 'FbLayoutPhoneMenu',
 
   props: {
 
-    show: {
-      type: Boolean,
-      default: false,
-    },
-
     showClose: {
       type: Boolean,
       default: false,
     },
 
-    closeBtnLabel: {
+    closeBtnText: {
       type: String,
       required: false,
       default: 'Close',
@@ -78,19 +70,30 @@ export default defineComponent({
 
   },
 
-  setup(props: FbLayoutPhoneMenuPropsInterface, context: SetupContext) {
+  setup(props: { }, context: SetupContext) {
     const element = ref<HTMLElement | null>(null)
 
-    watch(() => props.show, (val: Boolean): void => {
-      if (val && element.value !== null) {
+    const show = ref<boolean>(false)
+
+    function itemsPortalChanged(newContent: boolean): void {
+      show.value = newContent
+    }
+
+    watch(
+      () => show.value,
+      (val: boolean): void => {
         context.root.$nextTick(() => {
-          element.value.focus()
+          if (val && element.value !== null) {
+            element.value.focus()
+          }
         })
       }
-    });
+    )
 
     return {
       element,
+      show,
+      itemsPortalChanged,
     }
   },
 
