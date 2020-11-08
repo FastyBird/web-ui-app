@@ -4287,7 +4287,13 @@ var __vue_render__$I = function __vue_render__() {
     attrs: {
       "name": "fb-phone-menu-items"
     }
-  }, [_vm.show ? _c('div', {
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.show,
+      expression: "show"
+    }],
     staticClass: "fb-layout-phone-menu__items"
   }, [_c('portal-target', {
     staticClass: "fb-layout-phone-menu__heading",
@@ -4310,7 +4316,7 @@ var __vue_render__$I = function __vue_render__() {
         return _vm.$emit('close', $event);
       }
     }
-  }, [_vm._v("\n        " + _vm._s(_vm.closeBtnText) + "\n      ")]) : _vm._e()], 1) : _vm._e()])], 2);
+  }, [_vm._v("\n        " + _vm._s(_vm.closeBtnText) + "\n      ")]) : _vm._e()], 1)])], 2);
 };
 
 var __vue_staticRenderFns__$I = [];
@@ -4318,7 +4324,7 @@ var __vue_staticRenderFns__$I = [];
 
 var __vue_inject_styles__$I = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-e8e45f48_0", {
+  inject("data-v-b6cec988_0", {
     source: ".fb-layout-phone-menu__backdrop{z-index:9998;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5)}.fb-layout-phone-menu__items{position:fixed;left:0;bottom:0;z-index:9999;width:100%;background:#fff;box-sizing:border-box;border-top-right-radius:1.5rem;border-top-left-radius:1.5rem;border-bottom-right-radius:1.5rem;border-bottom-left-radius:1.5rem}.fb-layout-phone-menu__heading{border-bottom:1px solid #ddd;line-height:1.5rem;padding:1.5rem;margin:0}.fb-layout-phone-menu__cancel{text-align:center;border-top:1px solid #ddd;padding:1rem 0}.fb-phone-menu-backdrop-enter-active,.fb-phone-menu-backdrop-leave-active{transition:all .35s}.fb-phone-menu-backdrop-enter,.fb-phone-menu-backdrop-leave-to{opacity:0}.fb-phone-menu-items-enter-active,.fb-phone-menu-items-leave-active{transition:all .35s}.fb-phone-menu-items-enter,.fb-phone-menu-items-leave-to{transform:translate3d(0,100%,0)}",
     map: undefined,
     media: undefined
@@ -4330,7 +4336,7 @@ var __vue_inject_styles__$I = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$I = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$I = "data-v-e8e45f48";
+var __vue_module_identifier__$I = "data-v-b6cec988";
 /* functional template */
 
 var __vue_is_functional_template__$I = false;

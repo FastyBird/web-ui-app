@@ -14,7 +14,7 @@
 
     <transition name="fb-phone-menu-items">
       <div
-        v-if="show"
+        v-show="show"
         class="fb-layout-phone-menu__items"
       >
         <portal-target
