@@ -12,16 +12,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbSizeTypes } from '@/components/types'
-
-export enum FbUiSpinnerVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-}
+import { FbSizeTypes, FbUiSpinnerVariantTypes } from '@/components/types'
 
 export default defineComponent({
 

@@ -426,6 +426,15 @@ var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   FbSizeTypes["NONE"] = "none";
 })(exports.FbSizeTypes || (exports.FbSizeTypes = {}));
 
+(function (FbFormInputTypeTypes) {
+  FbFormInputTypeTypes["TEXT"] = "text";
+  FbFormInputTypeTypes["PASSWORD"] = "password";
+  FbFormInputTypeTypes["EMAIL"] = "email";
+  FbFormInputTypeTypes["NUMBER"] = "number";
+  FbFormInputTypeTypes["TEL"] = "tel";
+  FbFormInputTypeTypes["URL"] = "url";
+})(exports.FbFormInputTypeTypes || (exports.FbFormInputTypeTypes = {}));
+
 (function (FbFormOrientationTypes) {
   FbFormOrientationTypes["VERTICAL"] = "vertical";
   FbFormOrientationTypes["HORIZONTAL"] = "horizontal";
@@ -465,7 +474,58 @@ var __vue_component__$2 = /*#__PURE__*/normalizeComponent({
   FbUiButtonVariantTypes["OUTLINE_INFO"] = "outline-info";
   FbUiButtonVariantTypes["LINK"] = "link";
   FbUiButtonVariantTypes["LINK_DEFAULT"] = "link-default";
-})(exports.FbUiButtonVariantTypes || (exports.FbUiButtonVariantTypes = {}));var script$3 = compositionApi.defineComponent({
+})(exports.FbUiButtonVariantTypes || (exports.FbUiButtonVariantTypes = {}));
+
+(function (FbUiAlertVariantTypes) {
+  FbUiAlertVariantTypes["DEFAULT"] = "default";
+  FbUiAlertVariantTypes["PRIMARY"] = "primary";
+  FbUiAlertVariantTypes["SUCCESS"] = "success";
+  FbUiAlertVariantTypes["DANGER"] = "danger";
+  FbUiAlertVariantTypes["WARNING"] = "warning";
+  FbUiAlertVariantTypes["INFO"] = "info";
+})(exports.FbUiAlertVariantTypes || (exports.FbUiAlertVariantTypes = {}));
+
+(function (FbUiConfirmationWindowVariantTypes) {
+  FbUiConfirmationWindowVariantTypes["PRIMARY"] = "primary";
+  FbUiConfirmationWindowVariantTypes["SUCCESS"] = "success";
+  FbUiConfirmationWindowVariantTypes["DANGER"] = "danger";
+  FbUiConfirmationWindowVariantTypes["WARNING"] = "warning";
+  FbUiConfirmationWindowVariantTypes["INFO"] = "info";
+})(exports.FbUiConfirmationWindowVariantTypes || (exports.FbUiConfirmationWindowVariantTypes = {}));
+
+(function (FbUiConfirmationWindowPrimaryButtonTypes) {
+  FbUiConfirmationWindowPrimaryButtonTypes["YES"] = "yes";
+  FbUiConfirmationWindowPrimaryButtonTypes["NO"] = "no";
+})(exports.FbUiConfirmationWindowPrimaryButtonTypes || (exports.FbUiConfirmationWindowPrimaryButtonTypes = {}));
+
+(function (FbUiDividerVariantTypes) {
+  FbUiDividerVariantTypes["HORIZONTAL"] = "horizontal";
+  FbUiDividerVariantTypes["VERTICAL"] = "vertical";
+})(exports.FbUiDividerVariantTypes || (exports.FbUiDividerVariantTypes = {}));
+
+(function (FbUiSpinnerVariantTypes) {
+  FbUiSpinnerVariantTypes["DEFAULT"] = "default";
+  FbUiSpinnerVariantTypes["PRIMARY"] = "primary";
+  FbUiSpinnerVariantTypes["SUCCESS"] = "success";
+  FbUiSpinnerVariantTypes["DANGER"] = "danger";
+  FbUiSpinnerVariantTypes["WARNING"] = "warning";
+  FbUiSpinnerVariantTypes["INFO"] = "info";
+})(exports.FbUiSpinnerVariantTypes || (exports.FbUiSpinnerVariantTypes = {}));
+
+(function (FbUiSwitchElementVariantTypes) {
+  FbUiSwitchElementVariantTypes["DEFAULT"] = "default";
+  FbUiSwitchElementVariantTypes["PRIMARY"] = "primary";
+  FbUiSwitchElementVariantTypes["SUCCESS"] = "success";
+  FbUiSwitchElementVariantTypes["DANGER"] = "danger";
+  FbUiSwitchElementVariantTypes["WARNING"] = "warning";
+  FbUiSwitchElementVariantTypes["INFO"] = "info";
+})(exports.FbUiSwitchElementVariantTypes || (exports.FbUiSwitchElementVariantTypes = {}));
+
+(function (FbLayoutHeaderHeadingAlign) {
+  FbLayoutHeaderHeadingAlign["LEFT"] = "left";
+  FbLayoutHeaderHeadingAlign["RIGHT"] = "right";
+  FbLayoutHeaderHeadingAlign["CENTER"] = "center";
+})(exports.FbLayoutHeaderHeadingAlign || (exports.FbLayoutHeaderHeadingAlign = {}));var script$3 = compositionApi.defineComponent({
   name: 'FbFormField',
   props: {
     orientation: {
@@ -571,18 +631,7 @@ var __vue_is_functional_template__$3 = false;
 var __vue_component__$3 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$3,
   staticRenderFns: __vue_staticRenderFns__$3
-}, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, createInjectorSSR, undefined);var FbFormInputTypeTypes;
-
-(function (FbFormInputTypeTypes) {
-  FbFormInputTypeTypes["TEXT"] = "text";
-  FbFormInputTypeTypes["PASSWORD"] = "password";
-  FbFormInputTypeTypes["EMAIL"] = "email";
-  FbFormInputTypeTypes["NUMBER"] = "number";
-  FbFormInputTypeTypes["TEL"] = "tel";
-  FbFormInputTypeTypes["URL"] = "url";
-})(FbFormInputTypeTypes || (FbFormInputTypeTypes = {}));
-
-var script$4 = compositionApi.defineComponent({
+}, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, createInjectorSSR, undefined);var script$4 = compositionApi.defineComponent({
   name: 'FbFormInput',
   props: {
     orientation: {
@@ -615,10 +664,10 @@ var script$4 = compositionApi.defineComponent({
     },
     type: {
       type: String,
-      default: FbFormInputTypeTypes.TEXT,
+      default: exports.FbFormInputTypeTypes.TEXT,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbFormInputTypeTypes.TEXT, FbFormInputTypeTypes.PASSWORD, FbFormInputTypeTypes.EMAIL, FbFormInputTypeTypes.NUMBER, FbFormInputTypeTypes.TEL, FbFormInputTypeTypes.URL].includes(value);
+        return [exports.FbFormInputTypeTypes.TEXT, exports.FbFormInputTypeTypes.PASSWORD, exports.FbFormInputTypeTypes.EMAIL, exports.FbFormInputTypeTypes.NUMBER, exports.FbFormInputTypeTypes.TEL, exports.FbFormInputTypeTypes.URL].includes(value);
       }
     },
     required: {
@@ -744,7 +793,7 @@ var __vue_staticRenderFns__$4 = [];
 
 var __vue_inject_styles__$4 = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-12629abd_0", {
+  inject("data-v-cc98edd4_0", {
     source: ".fb-form-input__control{display:block;width:100%;background-clip:padding-box;background-color:#fff;background-image:none;box-shadow:none;color:#777;border:1px solid #ddd;-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}.fb-form-input__control:focus{border-color:#66afe9;outline:0}.fb-form-input__control::-moz-placeholder{color:#ddd;opacity:1;filter:alpha(opacity=100)}.fb-form-input__control:-ms-input-placeholder{color:#ddd}.fb-form-input__control::-webkit-input-placeholder{color:#ddd}.fb-form-input__control::-ms-expand{border:0;background-color:transparent}.fb-form-input__control[disabled],fieldset[disabled] .fb-form-input__control{background-color:#ddd;opacity:1;filter:alpha(opacity=100)}.fb-form-input__control[readonly],fieldset[disabled] .fb-form-input__control{color:grey;background-color:#f2f2f2;opacity:1;filter:alpha(opacity=100)}.fb-form-input__control[disabled],fieldset[disabled] .fb-form-input__control{cursor:not-allowed}",
     map: undefined,
     media: undefined
@@ -756,7 +805,7 @@ var __vue_inject_styles__$4 = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$4 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$4 = "data-v-12629abd";
+var __vue_module_identifier__$4 = "data-v-cc98edd4";
 /* functional template */
 
 var __vue_is_functional_template__$4 = false;
@@ -1382,26 +1431,15 @@ var __vue_is_functional_template__$9 = false;
 var __vue_component__$9 = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$9,
   staticRenderFns: __vue_staticRenderFns__$9
-}, __vue_inject_styles__$9, __vue_script__$9, __vue_scope_id__$9, __vue_is_functional_template__$9, __vue_module_identifier__$9, false, undefined, createInjectorSSR, undefined);var FbUiAlertVariantTypes;
-
-(function (FbUiAlertVariantTypes) {
-  FbUiAlertVariantTypes["DEFAULT"] = "default";
-  FbUiAlertVariantTypes["PRIMARY"] = "primary";
-  FbUiAlertVariantTypes["SUCCESS"] = "success";
-  FbUiAlertVariantTypes["DANGER"] = "danger";
-  FbUiAlertVariantTypes["WARNING"] = "warning";
-  FbUiAlertVariantTypes["INFO"] = "info";
-})(FbUiAlertVariantTypes || (FbUiAlertVariantTypes = {}));
-
-var script$a = compositionApi.defineComponent({
+}, __vue_inject_styles__$9, __vue_script__$9, __vue_scope_id__$9, __vue_is_functional_template__$9, __vue_module_identifier__$9, false, undefined, createInjectorSSR, undefined);var script$a = compositionApi.defineComponent({
   name: 'FbUiAlert',
   props: {
     variant: {
       type: String,
-      default: FbUiAlertVariantTypes.DEFAULT,
+      default: exports.FbUiAlertVariantTypes.DEFAULT,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbUiAlertVariantTypes.DEFAULT, FbUiAlertVariantTypes.PRIMARY, FbUiAlertVariantTypes.SUCCESS, FbUiAlertVariantTypes.DANGER, FbUiAlertVariantTypes.WARNING, FbUiAlertVariantTypes.INFO].includes(value);
+        return [exports.FbUiAlertVariantTypes.DEFAULT, exports.FbUiAlertVariantTypes.PRIMARY, exports.FbUiAlertVariantTypes.SUCCESS, exports.FbUiAlertVariantTypes.DANGER, exports.FbUiAlertVariantTypes.WARNING, exports.FbUiAlertVariantTypes.INFO].includes(value);
       }
     }
   }
@@ -1430,7 +1468,7 @@ var __vue_staticRenderFns__$a = [];
 
 var __vue_inject_styles__$a = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-49e3b5c9_0", {
+  inject("data-v-2a79c8a8_0", {
     source: ".fb-ui-alert__container{position:relative;padding:.5rem 1rem;border:1px solid transparent;border-top-right-radius:3px;border-top-left-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px}.fb-ui-alert__container[data-variant=default]{color:#fff;background-color:#474949;background-image:var(--bs-gradient);border-color:#474949}.fb-ui-alert__container[data-variant=default] a{color:#e6e6e6}.fb-ui-alert__container[data-variant=default] hr{border-top-color:#fff}.fb-ui-alert__container[data-variant=primary]{color:#fff;background-color:#d9230f;background-image:var(--bs-gradient);border-color:#d9230f}.fb-ui-alert__container[data-variant=primary] a{color:#e6e6e6}.fb-ui-alert__container[data-variant=primary] hr{border-top-color:#fff}.fb-ui-alert__container[data-variant=success]{color:#fff;background-color:#469408;background-image:var(--bs-gradient);border-color:#469408}.fb-ui-alert__container[data-variant=success] a{color:#e6e6e6}.fb-ui-alert__container[data-variant=success] hr{border-top-color:#fff}.fb-ui-alert__container[data-variant=danger]{color:#fff;background-color:#d9831f;background-image:var(--bs-gradient);border-color:#d9831f}.fb-ui-alert__container[data-variant=danger] a{color:#e6e6e6}.fb-ui-alert__container[data-variant=danger] hr{border-top-color:#fff}.fb-ui-alert__container[data-variant=warning]{color:#fff;background-color:#9b479f;background-image:var(--bs-gradient);border-color:#9b479f}.fb-ui-alert__container[data-variant=warning] a{color:#e6e6e6}.fb-ui-alert__container[data-variant=warning] hr{border-top-color:#fff}.fb-ui-alert__container[data-variant=info]{color:#fff;background-color:#029acf;background-image:var(--bs-gradient);border-color:#029acf}.fb-ui-alert__container[data-variant=info] a{color:#e6e6e6}.fb-ui-alert__container[data-variant=info] hr{border-top-color:#fff}.fb-ui-alert__icon{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row}.fb-ui-alert__icon-inner{-webkit-box-flex:0;-ms-flex:0 0 10%;flex:0 0 10%;max-width:10%;text-align:center;vertical-align:top;display:table-cell;padding-right:0}.fb-ui-alert__content{-webkit-box-flex:0;-ms-flex:0 0 90%;flex:0 0 90%;max-width:90%;padding-left:0}",
     map: undefined,
     media: undefined
@@ -1442,7 +1480,7 @@ var __vue_inject_styles__$a = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$a = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$a = "data-v-49e3b5c9";
+var __vue_module_identifier__$a = "data-v-2a79c8a8";
 /* functional template */
 
 var __vue_is_functional_template__$a = false;
@@ -1781,24 +1819,7 @@ var __vue_is_functional_template__$e = false;
 var __vue_component__$e = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$e,
   staticRenderFns: __vue_staticRenderFns__$e
-}, __vue_inject_styles__$e, __vue_script__$e, __vue_scope_id__$e, __vue_is_functional_template__$e, __vue_module_identifier__$e, false, undefined, createInjectorSSR, undefined);var FbUiConfirmationWindowPrimaryButtonTypes;
-
-(function (FbUiConfirmationWindowPrimaryButtonTypes) {
-  FbUiConfirmationWindowPrimaryButtonTypes["YES"] = "yes";
-  FbUiConfirmationWindowPrimaryButtonTypes["NO"] = "no";
-})(FbUiConfirmationWindowPrimaryButtonTypes || (FbUiConfirmationWindowPrimaryButtonTypes = {}));
-
-var FbUiConfirmationWindowVariantTypes;
-
-(function (FbUiConfirmationWindowVariantTypes) {
-  FbUiConfirmationWindowVariantTypes["PRIMARY"] = "primary";
-  FbUiConfirmationWindowVariantTypes["SUCCESS"] = "success";
-  FbUiConfirmationWindowVariantTypes["DANGER"] = "danger";
-  FbUiConfirmationWindowVariantTypes["WARNING"] = "warning";
-  FbUiConfirmationWindowVariantTypes["INFO"] = "info";
-})(FbUiConfirmationWindowVariantTypes || (FbUiConfirmationWindowVariantTypes = {}));
-
-var script$f = compositionApi.defineComponent({
+}, __vue_inject_styles__$e, __vue_script__$e, __vue_scope_id__$e, __vue_is_functional_template__$e, __vue_module_identifier__$e, false, undefined, createInjectorSSR, undefined);var script$f = compositionApi.defineComponent({
   name: 'FbUiConfirmationWindow',
   props: {
     size: {
@@ -1811,18 +1832,18 @@ var script$f = compositionApi.defineComponent({
     },
     primaryButton: {
       type: String,
-      default: FbUiConfirmationWindowPrimaryButtonTypes.NO,
+      default: exports.FbUiConfirmationWindowPrimaryButtonTypes.NO,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbUiConfirmationWindowPrimaryButtonTypes.YES, FbUiConfirmationWindowPrimaryButtonTypes.NO].includes(value);
+        return [exports.FbUiConfirmationWindowPrimaryButtonTypes.YES, exports.FbUiConfirmationWindowPrimaryButtonTypes.NO].includes(value);
       }
     },
     variant: {
       type: String,
-      default: FbUiConfirmationWindowVariantTypes.DANGER,
+      default: exports.FbUiConfirmationWindowVariantTypes.DANGER,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbUiConfirmationWindowVariantTypes.PRIMARY, FbUiConfirmationWindowVariantTypes.SUCCESS, FbUiConfirmationWindowVariantTypes.DANGER, FbUiConfirmationWindowVariantTypes.WARNING, FbUiConfirmationWindowVariantTypes.INFO].includes(value);
+        return [exports.FbUiConfirmationWindowVariantTypes.PRIMARY, exports.FbUiConfirmationWindowVariantTypes.SUCCESS, exports.FbUiConfirmationWindowVariantTypes.DANGER, exports.FbUiConfirmationWindowVariantTypes.WARNING, exports.FbUiConfirmationWindowVariantTypes.INFO].includes(value);
       }
     },
     showYes: {
@@ -1852,23 +1873,23 @@ var script$f = compositionApi.defineComponent({
     var buttonVariant = exports.FbUiButtonVariantTypes.DEFAULT;
 
     switch (props.variant) {
-      case FbUiConfirmationWindowVariantTypes.PRIMARY:
+      case exports.FbUiConfirmationWindowVariantTypes.PRIMARY:
         buttonVariant = exports.FbUiButtonVariantTypes.OUTLINE_PRIMARY;
         break;
 
-      case FbUiConfirmationWindowVariantTypes.SUCCESS:
+      case exports.FbUiConfirmationWindowVariantTypes.SUCCESS:
         buttonVariant = exports.FbUiButtonVariantTypes.OUTLINE_SUCCESS;
         break;
 
-      case FbUiConfirmationWindowVariantTypes.DANGER:
+      case exports.FbUiConfirmationWindowVariantTypes.DANGER:
         buttonVariant = exports.FbUiButtonVariantTypes.OUTLINE_DANGER;
         break;
 
-      case FbUiConfirmationWindowVariantTypes.WARNING:
+      case exports.FbUiConfirmationWindowVariantTypes.WARNING:
         buttonVariant = exports.FbUiButtonVariantTypes.OUTLINE_WARNING;
         break;
 
-      case FbUiConfirmationWindowVariantTypes.INFO:
+      case exports.FbUiConfirmationWindowVariantTypes.INFO:
         buttonVariant = exports.FbUiButtonVariantTypes.OUTLINE_INFO;
         break;
     }
@@ -1969,7 +1990,7 @@ var __vue_staticRenderFns__$f = [];
 
 var __vue_inject_styles__$f = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-bdfd7d20_0", {
+  inject("data-v-4d0d8099_0", {
     source: ".fb-ui-confirmation-window__container{text-align:center}.fb-ui-confirmation-window__container[data-variant=primary] h3{color:#d9230f}.fb-ui-confirmation-window__container[data-variant=success] h3{color:#469408}.fb-ui-confirmation-window__container[data-variant=danger] h3{color:#d9831f}.fb-ui-confirmation-window__container[data-variant=warning] h3{color:#9b479f}.fb-ui-confirmation-window__container[data-variant=info] h3{color:#029acf}.fb-ui-confirmation-window__buttons{margin-top:30px;text-align:right}.fb-ui-confirmation-window__buttons .fb-ui-button[data-variant=link]{color:grey!important}",
     map: undefined,
     media: undefined
@@ -1981,7 +2002,7 @@ var __vue_inject_styles__$f = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$f = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$f = "data-v-bdfd7d20";
+var __vue_module_identifier__$f = "data-v-4d0d8099";
 /* functional template */
 
 var __vue_is_functional_template__$f = false;
@@ -2119,22 +2140,15 @@ var __vue_is_functional_template__$g = false;
 var __vue_component__$g = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$g,
   staticRenderFns: __vue_staticRenderFns__$g
-}, __vue_inject_styles__$g, __vue_script__$g, __vue_scope_id__$g, __vue_is_functional_template__$g, __vue_module_identifier__$g, false, undefined, createInjectorSSR, undefined);var FbUiDividerVariantTypes;
-
-(function (FbUiDividerVariantTypes) {
-  FbUiDividerVariantTypes["HORIZONTAL"] = "horizontal";
-  FbUiDividerVariantTypes["VERTICAL"] = "vertical";
-})(FbUiDividerVariantTypes || (FbUiDividerVariantTypes = {}));
-
-var script$h = compositionApi.defineComponent({
+}, __vue_inject_styles__$g, __vue_script__$g, __vue_scope_id__$g, __vue_is_functional_template__$g, __vue_module_identifier__$g, false, undefined, createInjectorSSR, undefined);var script$h = compositionApi.defineComponent({
   name: 'FbUiDivider',
   props: {
     type: {
       type: String,
-      default: FbUiDividerVariantTypes.HORIZONTAL,
+      default: exports.FbUiDividerVariantTypes.HORIZONTAL,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbUiDividerVariantTypes.HORIZONTAL, FbUiDividerVariantTypes.VERTICAL].includes(value);
+        return [exports.FbUiDividerVariantTypes.HORIZONTAL, exports.FbUiDividerVariantTypes.VERTICAL].includes(value);
       }
     }
   }
@@ -2157,7 +2171,7 @@ var __vue_staticRenderFns__$h = [];
 
 var __vue_inject_styles__$h = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-580ce164_0", {
+  inject("data-v-1bb532d6_0", {
     source: ".fb-ui-divider__container{display:block;margin:2rem 0;overflow:hidden;text-align:center}@media (min-width:768px){.fb-ui-divider__container[data-type=vertical]{height:100%;left:50%;margin:0;position:absolute;top:0;transform:translateX(-50%);z-index:2}.fb-ui-divider__container[data-type=vertical] .fb-ui-divider__content{padding:.5rem 0;top:50%;transform:translateY(-50%)}.fb-ui-divider__container[data-type=vertical] .fb-ui-divider__content:after,.fb-ui-divider__container[data-type=vertical] .fb-ui-divider__content:before{height:60rem;left:50%;margin-left:-1px;margin-top:0;right:auto;width:1px}.fb-ui-divider__container[data-type=vertical] .fb-ui-divider__content:before{bottom:100%;top:auto}.fb-ui-divider__container[data-type=vertical] .fb-ui-divider__content:after{bottom:auto;top:100%}}.fb-ui-divider__content{display:inline-block;padding:0 1.5rem;position:relative}.fb-ui-divider__content:after,.fb-ui-divider__content:before{background-color:#ddd;content:\"\";display:block;height:1px;margin-top:-1px;position:absolute;top:50%;width:60rem}.fb-ui-divider__content:before{right:100%}.fb-ui-divider__content:after{left:100%}",
     map: undefined,
     media: undefined
@@ -2169,7 +2183,7 @@ var __vue_inject_styles__$h = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$h = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$h = "data-v-580ce164";
+var __vue_module_identifier__$h = "data-v-1bb532d6";
 /* functional template */
 
 var __vue_is_functional_template__$h = true;
@@ -3207,26 +3221,15 @@ var __vue_is_functional_template__$u = false;
 var __vue_component__$u = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$u,
   staticRenderFns: __vue_staticRenderFns__$u
-}, __vue_inject_styles__$u, __vue_script__$u, __vue_scope_id__$u, __vue_is_functional_template__$u, __vue_module_identifier__$u, false, undefined, createInjectorSSR, undefined);var FbUiSpinnerVariantTypes;
-
-(function (FbUiSpinnerVariantTypes) {
-  FbUiSpinnerVariantTypes["DEFAULT"] = "default";
-  FbUiSpinnerVariantTypes["PRIMARY"] = "primary";
-  FbUiSpinnerVariantTypes["SUCCESS"] = "success";
-  FbUiSpinnerVariantTypes["DANGER"] = "danger";
-  FbUiSpinnerVariantTypes["WARNING"] = "warning";
-  FbUiSpinnerVariantTypes["INFO"] = "info";
-})(FbUiSpinnerVariantTypes || (FbUiSpinnerVariantTypes = {}));
-
-var script$v = compositionApi.defineComponent({
+}, __vue_inject_styles__$u, __vue_script__$u, __vue_scope_id__$u, __vue_is_functional_template__$u, __vue_module_identifier__$u, false, undefined, createInjectorSSR, undefined);var script$v = compositionApi.defineComponent({
   name: 'FbUiSpinner',
   props: {
     variant: {
       type: String,
-      default: FbUiSpinnerVariantTypes.PRIMARY,
+      default: exports.FbUiSpinnerVariantTypes.PRIMARY,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbUiSpinnerVariantTypes.DEFAULT, FbUiSpinnerVariantTypes.PRIMARY, FbUiSpinnerVariantTypes.SUCCESS, FbUiSpinnerVariantTypes.DANGER, FbUiSpinnerVariantTypes.WARNING, FbUiSpinnerVariantTypes.INFO].includes(value);
+        return [exports.FbUiSpinnerVariantTypes.DEFAULT, exports.FbUiSpinnerVariantTypes.PRIMARY, exports.FbUiSpinnerVariantTypes.SUCCESS, exports.FbUiSpinnerVariantTypes.DANGER, exports.FbUiSpinnerVariantTypes.WARNING, exports.FbUiSpinnerVariantTypes.INFO].includes(value);
       }
     },
     size: {
@@ -3258,7 +3261,7 @@ var __vue_staticRenderFns__$v = [];
 
 var __vue_inject_styles__$v = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-117fac14_0", {
+  inject("data-v-44e6d89d_0", {
     source: ".fb-ui-spinner__container{position:relative;display:inline-block}.fb-ui-spinner__container:after,.fb-ui-spinner__container:before{border-color:rgba(0,0,0,.1);border-radius:50%;border-style:solid;content:\"\";position:absolute;left:50%;top:50%}.fb-ui-spinner__container:after{animation:fb-ui-spinner-animation .6s linear;animation-iteration-count:infinite}.fb-ui-spinner__container[data-variant=default]:after{border-color:#777 transparent transparent}.fb-ui-spinner__container[data-variant=primary]:after{border-color:#d9230f transparent transparent}.fb-ui-spinner__container[data-variant=success]:after{border-color:#469408 transparent transparent}.fb-ui-spinner__container[data-variant=info]:after{border-color:#029acf transparent transparent}.fb-ui-spinner__container[data-variant=warning]:after{border-color:#9b479f transparent transparent}.fb-ui-spinner__container[data-variant=danger]:after{border-color:#d9831f transparent transparent}.fb-ui-spinner__container[data-size=lg]{height:4.8rem;width:4.8rem}.fb-ui-spinner__container[data-size=lg]:after,.fb-ui-spinner__container[data-size=lg]:before{border-width:3px;height:4.8rem;margin:-2.4rem 0 0 -2.4rem;width:4.8rem}.fb-ui-spinner__container[data-size=md]{height:2.4rem;width:2.4rem}.fb-ui-spinner__container[data-size=md]:after,.fb-ui-spinner__container[data-size=md]:before{border-width:2px;height:2.4rem;margin:-1.2rem 0 0 -1.2rem;width:2.4rem}.fb-ui-spinner__container[data-size=sm]{height:1.8rem;width:1.8rem}.fb-ui-spinner__container[data-size=sm]:after,.fb-ui-spinner__container[data-size=sm]:before{border-width:2px;height:1.8rem;margin:-.9rem 0 0 -.9rem;width:1.8rem}@keyframes fb-ui-spinner-animation{from{transform:rotate(0)}to{transform:rotate(360deg)}}",
     map: undefined,
     media: undefined
@@ -3270,7 +3273,7 @@ var __vue_inject_styles__$v = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$v = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$v = "data-v-117fac14";
+var __vue_module_identifier__$v = "data-v-44e6d89d";
 /* functional template */
 
 var __vue_is_functional_template__$v = true;
@@ -3279,18 +3282,7 @@ var __vue_is_functional_template__$v = true;
 var __vue_component__$v = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$v,
   staticRenderFns: __vue_staticRenderFns__$v
-}, __vue_inject_styles__$v, __vue_script__$v, __vue_scope_id__$v, __vue_is_functional_template__$v, __vue_module_identifier__$v, false, undefined, createInjectorSSR, undefined);var FbUiSwitchElementVariantTypes;
-
-(function (FbUiSwitchElementVariantTypes) {
-  FbUiSwitchElementVariantTypes["DEFAULT"] = "default";
-  FbUiSwitchElementVariantTypes["PRIMARY"] = "primary";
-  FbUiSwitchElementVariantTypes["SUCCESS"] = "success";
-  FbUiSwitchElementVariantTypes["DANGER"] = "danger";
-  FbUiSwitchElementVariantTypes["WARNING"] = "warning";
-  FbUiSwitchElementVariantTypes["INFO"] = "info";
-})(FbUiSwitchElementVariantTypes || (FbUiSwitchElementVariantTypes = {}));
-
-var script$w = compositionApi.defineComponent({
+}, __vue_inject_styles__$v, __vue_script__$v, __vue_scope_id__$v, __vue_is_functional_template__$v, __vue_module_identifier__$v, false, undefined, createInjectorSSR, undefined);var script$w = compositionApi.defineComponent({
   name: 'FbUiSwitchElement',
   props: {
     status: {
@@ -3303,10 +3295,10 @@ var script$w = compositionApi.defineComponent({
     },
     variant: {
       type: String,
-      default: FbUiSwitchElementVariantTypes.DEFAULT,
+      default: exports.FbUiSwitchElementVariantTypes.DEFAULT,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbUiSwitchElementVariantTypes.DEFAULT, FbUiSwitchElementVariantTypes.PRIMARY, FbUiSwitchElementVariantTypes.SUCCESS, FbUiSwitchElementVariantTypes.DANGER, FbUiSwitchElementVariantTypes.WARNING, FbUiSwitchElementVariantTypes.INFO].includes(value);
+        return [exports.FbUiSwitchElementVariantTypes.DEFAULT, exports.FbUiSwitchElementVariantTypes.PRIMARY, exports.FbUiSwitchElementVariantTypes.SUCCESS, exports.FbUiSwitchElementVariantTypes.DANGER, exports.FbUiSwitchElementVariantTypes.WARNING, exports.FbUiSwitchElementVariantTypes.INFO].includes(value);
       }
     }
   }
@@ -3329,7 +3321,7 @@ var __vue_staticRenderFns__$w = [];
 
 var __vue_inject_styles__$w = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-5390db27_0", {
+  inject("data-v-6012a082_0", {
     source: ".fb-ui-switch-element__container{cursor:pointer;display:inline-block;height:2rem;width:4.4rem;margin:0;position:relative;user-select:none;vertical-align:middle}.fb-ui-switch-element__container input{opacity:0;filter:alpha(opacity=0);position:absolute;z-index:-1}.fb-ui-switch-element__container input:checked~.fb-ui-switch-element__thumb{left:2.4rem}.fb-ui-switch-element__container input:disabled~.fb-ui-switch-element__track{background-color:#777;cursor:not-allowed}.fb-ui-switch-element__container input:disabled~.fb-ui-switch-element__thumb{border-color:#777;cursor:not-allowed}.fb-ui-switch-element__container input:disabled:checked~.fb-ui-switch-element__track{cursor:not-allowed}.fb-ui-switch-element__container[data-variant=default] input:checked~.fb-ui-switch-element__track{background-color:#777}.fb-ui-switch-element__container[data-variant=default] input:checked~.fb-ui-switch-element__thumb{border-color:#777}.fb-ui-switch-element__container[data-variant=default] input:checked:disabled~.fb-ui-switch-element__track{background-color:#777}.fb-ui-switch-element__container[data-variant=default] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#777}.fb-ui-switch-element__container[data-variant=primary] input:checked~.fb-ui-switch-element__track{background-color:#d9230f}.fb-ui-switch-element__container[data-variant=primary] input:checked~.fb-ui-switch-element__thumb{border-color:#d9230f}.fb-ui-switch-element__container[data-variant=primary] input:checked:disabled~.fb-ui-switch-element__track{background-color:#d9230f}.fb-ui-switch-element__container[data-variant=primary] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#d9230f}.fb-ui-switch-element__container[data-variant=success] input:checked~.fb-ui-switch-element__track{background-color:#469408}.fb-ui-switch-element__container[data-variant=success] input:checked~.fb-ui-switch-element__thumb{border-color:#469408}.fb-ui-switch-element__container[data-variant=success] input:checked:disabled~.fb-ui-switch-element__track{background-color:#469408}.fb-ui-switch-element__container[data-variant=success] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#469408}.fb-ui-switch-element__container[data-variant=info] input:checked~.fb-ui-switch-element__track{background-color:#029acf}.fb-ui-switch-element__container[data-variant=info] input:checked~.fb-ui-switch-element__thumb{border-color:#029acf}.fb-ui-switch-element__container[data-variant=info] input:checked:disabled~.fb-ui-switch-element__track{background-color:#029acf}.fb-ui-switch-element__container[data-variant=info] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#029acf}.fb-ui-switch-element__container[data-variant=warning] input:checked~.fb-ui-switch-element__track{background-color:#9b479f}.fb-ui-switch-element__container[data-variant=warning] input:checked~.fb-ui-switch-element__thumb{border-color:#9b479f}.fb-ui-switch-element__container[data-variant=warning] input:checked:disabled~.fb-ui-switch-element__track{background-color:#9b479f}.fb-ui-switch-element__container[data-variant=warning] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#9b479f}.fb-ui-switch-element__container[data-variant=danger] input:checked~.fb-ui-switch-element__track{background-color:#d9831f}.fb-ui-switch-element__container[data-variant=danger] input:checked~.fb-ui-switch-element__thumb{border-color:#d9831f}.fb-ui-switch-element__container[data-variant=danger] input:checked:disabled~.fb-ui-switch-element__track{background-color:#d9831f}.fb-ui-switch-element__container[data-variant=danger] input:checked:disabled~.fb-ui-switch-element__thumb{border-color:#d9831f}.fb-ui-switch-element__track{background-color:#777;border-radius:1rem;height:100%;width:100%;position:absolute;left:0;top:50%;transform:translateY(-50%)}.fb-ui-switch-element__thumb{background-color:#fff;border-color:#777;border-radius:50%;border-style:solid;border-width:50%;height:2rem;width:2rem;position:absolute;left:0;top:0;transition:left .15s ease-out}",
     map: undefined,
     media: undefined
@@ -3341,7 +3333,7 @@ var __vue_inject_styles__$w = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$w = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$w = "data-v-5390db27";
+var __vue_module_identifier__$w = "data-v-6012a082";
 /* functional template */
 
 var __vue_is_functional_template__$w = true;
@@ -3897,15 +3889,7 @@ var __vue_is_functional_template__$C = false;
 var __vue_component__$C = /*#__PURE__*/normalizeComponent({
   render: __vue_render__$C,
   staticRenderFns: __vue_staticRenderFns__$C
-}, __vue_inject_styles__$C, __vue_script__$C, __vue_scope_id__$C, __vue_is_functional_template__$C, __vue_module_identifier__$C, false, undefined, undefined, undefined);var FbHeaderHeadingAlign;
-
-(function (FbHeaderHeadingAlign) {
-  FbHeaderHeadingAlign["LEFT"] = "left";
-  FbHeaderHeadingAlign["RIGHT"] = "right";
-  FbHeaderHeadingAlign["CENTER"] = "center";
-})(FbHeaderHeadingAlign || (FbHeaderHeadingAlign = {}));
-
-var script$D = compositionApi.defineComponent({
+}, __vue_inject_styles__$C, __vue_script__$C, __vue_scope_id__$C, __vue_is_functional_template__$C, __vue_module_identifier__$C, false, undefined, undefined, undefined);var script$D = compositionApi.defineComponent({
   name: 'FbLayoutHeaderHeading',
   props: {
     heading: {
@@ -3918,10 +3902,10 @@ var script$D = compositionApi.defineComponent({
     },
     align: {
       type: String,
-      default: FbHeaderHeadingAlign.LEFT,
+      default: exports.FbLayoutHeaderHeadingAlign.LEFT,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [FbHeaderHeadingAlign.LEFT, FbHeaderHeadingAlign.RIGHT, FbHeaderHeadingAlign.CENTER].includes(value);
+        return [exports.FbLayoutHeaderHeadingAlign.LEFT, exports.FbLayoutHeaderHeadingAlign.RIGHT, exports.FbLayoutHeaderHeadingAlign.CENTER].includes(value);
       }
     }
   }
@@ -3954,7 +3938,7 @@ var __vue_staticRenderFns__$D = [];
 
 var __vue_inject_styles__$D = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-61dec9ce_0", {
+  inject("data-v-080ec0d7_0", {
     source: ".fb-layout-phone-header-heading__container{height:6rem;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-layout-phone-header-heading__heading{flex-grow:1;padding-left:1rem;overflow:hidden}.fb-layout-phone-header-heading__heading-center{text-align:center}.fb-layout-phone-header-heading__heading-left{text-align:left}.fb-layout-phone-header-heading__heading-right{text-align:right}.fb-layout-phone-header-heading__heading h1{line-height:6rem;font-size:2.2rem;color:#fff;margin:0}.fb-layout-phone-header-heading__heading h1 small,.fb-layout-phone-header-heading__heading h1 span{color:#fff}.fb-layout-phone-header-heading__heading h1 span{margin-top:1rem;line-height:2.5rem;font-size:2rem;display:block}.fb-layout-phone-header-heading__heading h1 small{line-height:2.5rem;font-size:1.2rem;display:block}.fb-layout-phone-header-heading__icon{-webkit-box-flex:0;-ms-flex:0 0 5rem;flex:0 0 5rem;max-width:5rem;line-height:6rem;font-size:3rem;text-align:center}",
     map: undefined,
     media: undefined
@@ -3966,7 +3950,7 @@ var __vue_inject_styles__$D = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$D = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$D = "data-v-61dec9ce";
+var __vue_module_identifier__$D = "data-v-080ec0d7";
 /* functional template */
 
 var __vue_is_functional_template__$D = false;

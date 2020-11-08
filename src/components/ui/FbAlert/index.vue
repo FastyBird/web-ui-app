@@ -28,14 +28,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-export enum FbUiAlertVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-}
+import { FbUiAlertVariantTypes } from '@/components/types'
 
 export default defineComponent({
 

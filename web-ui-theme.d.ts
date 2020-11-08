@@ -63,11 +63,19 @@ export const FbLayoutUserMenuItem: VueConstructor<Vue>;
 
 export { FbMenuItemType as FbMenuItemType } from './src/components/types'
 export { FbSizeTypes as FbSizeTypes } from './src/components/types'
+export { FbFormInputTypeTypes as FbFormInputTypeTypes } from './src/components/types'
 export { FbFormOrientationTypes as FbFormOrientationTypes } from './src/components/types'
 export { FbFormResultType as FbFormResultType } from './src/components/types'
 export { FbUiModalVariantType as FbUiModalVariantType } from './src/components/types'
 export { FbUiButtonButtonTypes as FbUiButtonButtonTypes } from './src/components/types'
 export { FbUiButtonVariantTypes as FbUiButtonVariantTypes } from './src/components/types'
+export { FbUiAlertVariantTypes as FbUiAlertVariantTypes } from './src/components/types'
+export { FbUiConfirmationWindowVariantTypes as FbUiConfirmationWindowVariantTypes } from './src/components/types'
+export { FbUiConfirmationWindowPrimaryButtonTypes as FbUiConfirmationWindowPrimaryButtonTypes } from './src/components/types'
+export { FbUiDividerVariantTypes as FbUiDividerVariantTypes } from './src/components/types'
+export { FbUiSpinnerVariantTypes as FbUiSpinnerVariantTypes } from './src/components/types'
+export { FbUiSwitchElementVariantTypes as FbUiSwitchElementVariantTypes } from './src/components/types'
+export { FbLayoutHeaderHeadingAlign as FbLayoutHeaderHeadingAlign } from './src/components/types'
 
 // Theme mixins
 declare module 'vue/types/vue' {

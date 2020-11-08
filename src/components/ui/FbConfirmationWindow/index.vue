@@ -78,20 +78,12 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbUiButtonVariantTypes } from '@/components/types'
-
-export enum FbUiConfirmationWindowPrimaryButtonTypes {
-  YES = 'yes',
-  NO = 'no',
-}
-
-export enum FbUiConfirmationWindowVariantTypes {
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-}
+import {
+  FbSizeTypes,
+  FbUiButtonVariantTypes,
+  FbUiConfirmationWindowPrimaryButtonTypes,
+  FbUiConfirmationWindowVariantTypes,
+} from '@/components/types'
 
 interface FbUiConfirmationWindowPropsInterface {
   size: FbSizeTypes

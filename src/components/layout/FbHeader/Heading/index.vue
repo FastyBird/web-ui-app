@@ -28,11 +28,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-export enum FbHeaderHeadingAlign {
-  LEFT = 'left',
-  RIGHT = 'right',
-  CENTER = 'center',
-}
+import { FbLayoutHeaderHeadingAlign } from '@/components/types'
 
 export default defineComponent({
 
@@ -51,11 +47,11 @@ export default defineComponent({
     },
 
     align: {
-      type: String as PropType<FbHeaderHeadingAlign>,
-      default: FbHeaderHeadingAlign.LEFT,
-      validator: (value: FbHeaderHeadingAlign) => {
+      type: String as PropType<FbLayoutHeaderHeadingAlign>,
+      default: FbLayoutHeaderHeadingAlign.LEFT,
+      validator: (value: FbLayoutHeaderHeadingAlign) => {
         // The value must match one of these strings
-        return [FbHeaderHeadingAlign.LEFT, FbHeaderHeadingAlign.RIGHT, FbHeaderHeadingAlign.CENTER].includes(value)
+        return [FbLayoutHeaderHeadingAlign.LEFT, FbLayoutHeaderHeadingAlign.RIGHT, FbLayoutHeaderHeadingAlign.CENTER].includes(value)
       },
     },
 

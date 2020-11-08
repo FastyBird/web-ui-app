@@ -14,10 +14,7 @@ import {
   defineComponent,
 } from '@vue/composition-api'
 
-export enum FbUiDividerVariantTypes {
-  HORIZONTAL = 'horizontal',
-  VERTICAL = 'vertical',
-}
+import { FbUiDividerVariantTypes } from '@/components/types'
 
 export default defineComponent({
 

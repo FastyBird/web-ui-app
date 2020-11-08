@@ -60,6 +60,7 @@ import {
 } from '@vue/composition-api'
 
 import {
+  FbFormInputTypeTypes,
   FbFormOrientationTypes,
   FbSizeTypes,
 } from '@/components/types'
@@ -78,15 +79,6 @@ interface FbFormInputPropsInterface {
   error: string | null
   placeholder: string | null
   readonly: boolean
-}
-
-export enum FbFormInputTypeTypes {
-  TEXT = 'text',
-  PASSWORD = 'password',
-  EMAIL = 'email',
-  NUMBER = 'number',
-  TEL = 'tel',
-  URL = 'url',
 }
 
 export default defineComponent({

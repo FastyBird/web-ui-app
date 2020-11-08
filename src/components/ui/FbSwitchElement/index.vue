@@ -20,14 +20,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-export enum FbUiSwitchElementVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-}
+import { FbUiSwitchElementVariantTypes } from '@/components/types'
 
 export default defineComponent({
 
