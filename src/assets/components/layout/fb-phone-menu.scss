@@ -15,5 +15,5 @@ $close-button-border-color:           #ddd;
 $close-button-padding:                1rem 0;
 
 @mixin items-border-radius {
-  @include border-radius(1.5rem);
+  @include border-top-radius(1.5rem);
 }

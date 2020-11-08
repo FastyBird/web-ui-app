@@ -59,7 +59,7 @@ export default defineComponent({
 
     showClose: {
       type: Boolean,
-      default: false,
+      default: true,
     },
 
     closeBtnText: {
