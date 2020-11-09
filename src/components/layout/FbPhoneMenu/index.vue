@@ -8,7 +8,7 @@
       <div
         v-if="show"
         class="fb-layout-phone-menu__backdrop"
-        @click="close"
+        @click.prevent="$emit('close', $event)"
       />
     </transition>
 
