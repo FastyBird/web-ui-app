@@ -1,6 +1,7 @@
 <template>
   <div
     :data-error="error !== null"
+    :data-checked="checked"
     class="fb-form-radio__container"
   >
     <label class="fb-form-radio__label">
@@ -34,8 +35,8 @@
 import {
   computed,
   defineComponent,
-  PropType,
-  SetupContext,
+  PropType, ref,
+  SetupContext, watch,
 } from '@vue/composition-api'
 
 import FbFormRadioButtonsGroup from '@/components/forms/FbRadioButtonsGroup/index.vue'
@@ -100,6 +101,8 @@ export default defineComponent({
   },
 
   setup(props: FbFormRadioButtonPropsInterface, context: SetupContext) {
+    const checked = ref<boolean>(false)
+
     const model = computed<string | number | boolean | null | Array<string | number | boolean>>({
       get: (): string | number | boolean | null | Array<string | number | boolean> => {
         return props.group !== null ? props.group.value : props.value
@@ -123,8 +126,20 @@ export default defineComponent({
       })
     }
 
+    watch(
+      () => model.value,
+      ((val) => {
+        if (Array.isArray(val)) {
+          checked.value = val.includes(props.value)
+        } else {
+          checked.value = props.value === val
+        }
+      })
+    )
+
     return {
       model,
+      checked,
       handleChange,
     }
   },

@@ -932,6 +932,7 @@ var __vue_component__$5 = /*#__PURE__*/normalizeComponent({
     }
   },
   setup: function setup(props, context) {
+    var checked = compositionApi.ref(false);
     var model = compositionApi.computed({
       get: function get() {
         return props.group !== null ? props.group.value : props.value;
@@ -955,8 +956,18 @@ var __vue_component__$5 = /*#__PURE__*/normalizeComponent({
       });
     }
 
+    compositionApi.watch(function () {
+      return model.value;
+    }, function (val) {
+      if (Array.isArray(val)) {
+        checked.value = val.includes(props.value);
+      } else {
+        checked.value = props.value === val;
+      }
+    });
     return {
       model: model,
+      checked: checked,
       handleChange: handleChange
     };
   }
@@ -974,7 +985,8 @@ var __vue_render__$6 = function __vue_render__() {
   return _c('div', {
     staticClass: "fb-form-radio__container",
     attrs: {
-      "data-error": _vm.error !== null
+      "data-error": _vm.error !== null,
+      "data-checked": _vm.checked
     }
   }, [_vm._ssrNode("<label class=\"fb-form-radio__label\">", "</label>", [_vm._ssrNode("<input" + _vm._ssrAttr("id", _vm.id ? _vm.id : _vm.name) + _vm._ssrAttr("name", _vm.name) + " type=\"radio\"" + _vm._ssrAttr("value", _vm.value !== null ? _vm.value : _vm.label) + _vm._ssrAttr("checked", _vm._q(_vm.model, _vm.value !== null ? _vm.value : _vm.label)) + " class=\"fb-form-radio__input\"> <span class=\"fb-form-radio__indicator\"></span> "), _vm.$slots.default || _vm.label ? _vm._ssrNode("<span class=\"fb-form-radio__indicator-label\">", "</span>", [_vm._t("default", [_vm._v(_vm._s(_vm.label))])], 2) : _vm._e()], 2), _vm._ssrNode(" "), _vm.error !== null ? _c('fb-form-error', {
     attrs: {
@@ -988,7 +1000,7 @@ var __vue_staticRenderFns__$6 = [];
 
 var __vue_inject_styles__$6 = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-69e84b06_0", {
+  inject("data-v-1a63a06b_0", {
     source: ".fb-form-radio__container{display:inline-block;padding:2rem 1rem;margin:0;position:relative}.fb-form-radio__container[data-error=true] .fb-form-radio__indicator{border-color:#d9831f}.fb-form-radio__container[data-error=true] .fb-form-radio__indicator-label{color:#d9831f}.fb-form-radio__label{cursor:pointer;font-weight:400;line-height:1.5rem;margin:0;height:1.5rem;min-width:1.5rem;position:relative;vertical-align:middle;display:inline-block;max-width:100%;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.fb-form-radio__input{opacity:0;filter:alpha(opacity=0);position:absolute;left:0;top:0;width:1.5rem;height:1.5rem;z-index:-1}.fb-form-radio__input:active~.fb-form-radio__indicator,.fb-form-radio__input:checked~.fb-form-radio__indicator{border:none}.fb-form-radio__input:checked~.fb-form-radio__indicator{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28' fill='%23fff'%3E%3Cpath d='M24 14q0 3.266-1.609 6.023t-4.367 4.367-6.023 1.609-6.023-1.609-4.367-4.367T.002 14t1.609-6.023T5.978 3.61t6.023-1.609 6.023 1.609 4.367 4.367T24 14z'/%3E%3C/svg%3E\")}.fb-form-radio__input:disabled~.fb-form-radio__indicator{background-color:#ddd}.fb-form-radio__input:disabled:checked~.fb-form-radio__indicator{background-color:#ddd}.fb-form-radio__input:checked~.fb-form-radio__indicator{background-color:#d9230f}.fb-form-radio__input:active~.fb-form-radio__indicator{background-color:#f57f72}.fb-form-radio__indicator{background-color:#fff;background-position:center center;background-repeat:no-repeat;border-color:#ddd;border-style:solid;border-width:1px;display:block;position:absolute;left:0;top:0;width:1.5rem;height:1.5rem;background-size:75% 75%;border-top-right-radius:50%;border-top-left-radius:50%;border-bottom-right-radius:50%;border-bottom-left-radius:50%}.fb-form-radio__indicator-label{display:block;line-height:1.5rem;font-size:1.5rem;margin-left:2.5rem;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}",
     map: undefined,
     media: undefined
@@ -1000,7 +1012,7 @@ var __vue_inject_styles__$6 = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$6 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$6 = "data-v-69e84b06";
+var __vue_module_identifier__$6 = "data-v-1a63a06b";
 /* functional template */
 
 var __vue_is_functional_template__$6 = false;
