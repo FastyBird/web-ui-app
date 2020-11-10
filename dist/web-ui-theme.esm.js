@@ -1,5 +1,5 @@
 import PortalVue from 'portal-vue';
-import { defineComponent, computed, ref, watch, onMounted } from '@vue/composition-api';
+import { defineComponent, ref, computed, watch, onMounted } from '@vue/composition-api';
 import get from 'lodash/get';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
@@ -30,10 +30,6 @@ var script = defineComponent({
       type: [String, Number, Boolean],
       default: null
     },
-    checked: {
-      type: Boolean,
-      default: false
-    },
     required: {
       type: Boolean,
       default: false
@@ -53,6 +49,7 @@ var script = defineComponent({
   },
 
   setup(props, context) {
+    const checked = ref(false);
     const model = computed({
       get: () => {
         return props.group !== null ? props.group.value : props.value;
@@ -85,8 +82,16 @@ var script = defineComponent({
       });
     }
 
+    watch(() => model.value, val => {
+      if (Array.isArray(val)) {
+        checked.value = val.includes(props.value);
+      } else {
+        checked.value = props.value === val;
+      }
+    });
     return {
       model,
+      checked,
       handleChange
     };
   }
@@ -235,7 +240,8 @@ var __vue_render__ = function () {
   return _c('div', {
     staticClass: "fb-form-checkbox__container",
     attrs: {
-      "data-error": _vm.error !== null
+      "data-error": _vm.error !== null,
+      "data-checked": _vm.checked
     }
   }, [_c('label', {
     staticClass: "fb-form-checkbox__label"
@@ -332,7 +338,7 @@ var __vue_staticRenderFns__ = [];
 
 const __vue_inject_styles__ = function (inject) {
   if (!inject) return;
-  inject("data-v-525dbc1a_0", {
+  inject("data-v-c7e1fde0_0", {
     source: ".fb-form-checkbox__container{display:inline-block;padding:2rem 1rem;margin:0;position:relative}.fb-form-checkbox__container[data-error=true] .fb-form-checkbox__indicator{border-color:#d9831f}.fb-form-checkbox__container[data-error=true] .fb-form-checkbox__indicator-label{color:#d9831f}.fb-form-checkbox__label{cursor:pointer;font-weight:400;line-height:1.5rem;margin:0;height:1.5rem;min-width:1.5rem;position:relative;vertical-align:middle;display:inline-block;max-width:100%;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.fb-form-checkbox__input{opacity:0;filter:alpha(opacity=0);position:absolute;left:0;top:0;width:1.5rem;height:1.5rem;z-index:-1}.fb-form-checkbox__input:active~.fb-form-checkbox__indicator,.fb-form-checkbox__input:checked~.fb-form-checkbox__indicator{border:none}.fb-form-checkbox__input:checked~.fb-form-checkbox__indicator{background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='%23fff'%3E%3Cpath d='M26.109 8.844q0 .625-.438 1.062L12.233 23.344q-.438.438-1.062.438t-1.062-.438l-7.781-7.781q-.438-.438-.438-1.062t.438-1.062l2.125-2.125q.438-.438 1.062-.438t1.062.438l4.594 4.609 10.25-10.266q.438-.438 1.062-.438t1.062.438l2.125 2.125q.438.437.438 1.062z'/%3E%3C/svg%3E\")}.fb-form-checkbox__input:disabled~.fb-form-checkbox__indicator{cursor:not-allowed}.fb-form-checkbox__input:disabled:checked~.fb-form-checkbox__indicator{background-color:#ddd}.fb-form-checkbox__input:checked~.fb-form-checkbox__indicator{background-color:#d9230f}.fb-form-checkbox__input:active~.fb-form-checkbox__indicator{background-color:#f57f72}.fb-form-checkbox__indicator{background-color:#fff;background-position:center center;background-repeat:no-repeat;border-color:#ddd;border-style:solid;border-width:1px;display:block;position:absolute;left:0;top:0;width:1.5rem;height:1.5rem;background-size:75% 75%;border-top-right-radius:2px;border-top-left-radius:2px;border-bottom-right-radius:2px;border-bottom-left-radius:2px}.fb-form-checkbox__indicator-label{display:block;line-height:1.5rem;font-size:1.5rem;margin-left:2.5rem;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}",
     map: undefined,
     media: undefined

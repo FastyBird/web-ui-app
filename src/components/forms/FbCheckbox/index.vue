@@ -1,6 +1,7 @@
 <template>
   <div
     :data-error="error !== null"
+    :data-checked="checked"
     class="fb-form-checkbox__container"
   >
     <label class="fb-form-checkbox__label">
@@ -49,8 +50,8 @@
 import {
   computed,
   defineComponent,
-  PropType,
-  SetupContext,
+  PropType, ref,
+  SetupContext, watch,
 } from '@vue/composition-api'
 
 import get from 'lodash/get'
@@ -64,7 +65,6 @@ interface FbFormCheckboxPropsInterface {
   trueValue: string | number | boolean | null
   falseValue: string | number | boolean | null
   value: string | number | boolean | null
-  checked: boolean
   required: boolean
   tabIndex: number | null
   error: string | null
@@ -107,11 +107,6 @@ export default defineComponent({
       default: null,
     },
 
-    checked: {
-      type: Boolean,
-      default: false,
-    },
-
     required: {
       type: Boolean,
       default: false,
@@ -135,6 +130,8 @@ export default defineComponent({
   },
 
   setup(props: FbFormCheckboxPropsInterface, context: SetupContext) {
+    const checked = ref<boolean>(false)
+
     const model = computed<string | number | boolean | null | Array<string | number | boolean>>({
       get: (): string | number | boolean | null | Array<string | number | boolean> => {
         return props.group !== null ? props.group.value : props.value
@@ -168,8 +165,20 @@ export default defineComponent({
       })
     }
 
+    watch(
+      () => model.value,
+      ((val) => {
+        if (Array.isArray(val)) {
+          checked.value = val.includes(props.value)
+        } else {
+          checked.value = props.value === val
+        }
+      })
+    )
+
     return {
       model,
+      checked,
       handleChange,
     }
   },
