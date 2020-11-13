@@ -6,6 +6,7 @@ import FbLayoutHeaderComponent from './src/components/layout/FbHeader/index.vue'
 import FbLayoutHeaderButtonComponent from './src/components/layout/FbHeader/Button/index.vue';
 import FbLayoutHeaderContentComponent from './src/components/layout/FbHeader/Content/index.vue';
 import FbLayoutHeaderHeadingComponent from './src/components/layout/FbHeader/Heading/index.vue';
+import FbLayoutHeaderIconComponent from './src/components/layout/FbHeader/Icon/index.vue';
 import FbLayoutHeaderMenuButtonComponent from './src/components/layout/FbHeader/MenuButton/index.vue';
 import FbLayoutHeaderSpacerComponent from './src/components/layout/FbHeader/Spacer/index.vue';
 import FbLayoutNavigationComponent from './src/components/layout/FbNavigation/index.vue';
@@ -70,6 +71,7 @@ export const FbLayoutFooter: InstanceType<typeof FbLayoutFooterComponent>;
 export const FbLayoutHeader: InstanceType<typeof FbLayoutHeaderComponent>;
 export const FbLayoutHeaderButton: InstanceType<typeof FbLayoutHeaderButtonComponent>;
 export const FbLayoutHeaderContent: InstanceType<typeof FbLayoutHeaderContentComponent>;
+export const FbLayoutHeaderIcon: InstanceType<typeof FbLayoutHeaderIconComponent>;
 export const FbLayoutHeaderHeading: InstanceType<typeof FbLayoutHeaderHeadingComponent>;
 export const FbLayoutHeaderMenuButton: InstanceType<typeof FbLayoutHeaderMenuButtonComponent>;
 export const FbLayoutHeaderSpacer: InstanceType<typeof FbLayoutHeaderSpacerComponent>;

@@ -21,7 +21,7 @@ import {
   defineComponent,
 } from '@vue/composition-api'
 
-interface FbHeaderButtonPropsInterface {
+interface FbHeaderMenuButtonPropsInterface {
   label?: string
   link?: string
   small: boolean
@@ -57,7 +57,7 @@ export default defineComponent({
 
   },
 
-  setup(props: FbHeaderButtonPropsInterface) {
+  setup(props: FbHeaderMenuButtonPropsInterface) {
     let portalName = 'fb-layout-header-button'
 
     if (props.small) {
