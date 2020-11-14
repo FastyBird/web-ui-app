@@ -8,7 +8,7 @@
       class="fb-ui-modal-header__buttons"
     >
       <div
-        v-if="closeBtnShow"
+        v-if="cancelBtnShow"
         class="fb-ui-modal-header__buttons-left-button"
       >
         <slot name="left-button">
@@ -16,9 +16,9 @@
             :variant="buttonVariantsTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
             uppercase
-            @click.prevent="$emit('close', $event)"
+            @click.prevent="$emit('cancel', $event)"
           >
-            {{ closeBtnText }}
+            {{ cancelBtnText }}
           </fb-ui-button>
         </slot>
       </div>
@@ -29,7 +29,6 @@
       >
         <slot name="right-button">
           <fb-ui-button
-            v-else
             :variant="buttonVariantsTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
             uppercase
@@ -102,14 +101,19 @@ export default defineComponent({
       default: true,
     },
 
+    cancelBtnText: {
+      type: String,
+      default: 'Cancel',
+    },
+
+    cancelBtnShow: {
+      type: Boolean,
+      default: true,
+    },
+
     closeBtnText: {
       type: String,
       default: 'Close',
-    },
-
-    closeBtnShow: {
-      type: Boolean,
-      default: true,
     },
 
   },
