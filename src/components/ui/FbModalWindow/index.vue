@@ -64,7 +64,7 @@
               >
                 <slot name="modal-header">
                   <div
-                    v-if="variant === variantsTypes.PHONE"
+                    v-if="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET"
                     class="fb-ui-modal-window__header-buttons"
                   >
                     <div class="fb-ui-modal-window__header-buttons-heading">
@@ -137,7 +137,7 @@
               </div>
 
               <div
-                v-if="showFooter && variant !== variantsTypes.PHONE"
+                v-if="showFooter && variant !== variantsTypes.PHONE && variant !== variantsTypes.TABLET"
                 class="fb-ui-modal-window__footer"
               >
                 <slot name="modal-footer">
@@ -239,6 +239,7 @@ export default defineComponent({
         return [
           FbUiModalVariantType.DEFAULT,
           FbUiModalVariantType.PHONE,
+          FbUiModalVariantType.TABLET,
         ].includes(value)
       },
     },

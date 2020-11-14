@@ -19,7 +19,7 @@
       slot="modal-title"
     >
       <slot
-        v-if="variant !== variantsTypes.PHONE"
+        v-if="variant !== variantsTypes.PHONE && variant !== variantsTypes.TABLET"
         name="icon"
       />
       <slot name="header" />
@@ -67,7 +67,7 @@
         slot="close-button"
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
-        :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :size="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
         :variant="buttonVariantsTypes.LINK_DEFAULT"
         uppercase
         name="close"
@@ -83,8 +83,8 @@
         slot="ok-button"
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
-        :size="variant === variantsTypes.PHONE ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
-        :variant="variant === variantsTypes.PHONE ? buttonVariantsTypes.LINK_DEFAULT : buttonVariantsTypes.OUTLINE_PRIMARY"
+        :size="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :variant="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET ? buttonVariantsTypes.LINK_DEFAULT : buttonVariantsTypes.OUTLINE_PRIMARY"
         uppercase
         name="save"
         @click.prevent="$emit('submit', $event)"
@@ -147,6 +147,7 @@ export default defineComponent({
         return [
           FbUiModalVariantType.DEFAULT,
           FbUiModalVariantType.PHONE,
+          FbUiModalVariantType.TABLET,
         ].includes(value)
       },
     },

@@ -4,7 +4,7 @@
     class="fb-ui-modal-header__container"
   >
     <div
-      v-if="variant === variantsTypes.PHONE"
+      v-if="variant === variantsTypes.PHONE || variant === variantsTypes.PHONE"
       class="fb-ui-modal-header__buttons"
     >
       <div

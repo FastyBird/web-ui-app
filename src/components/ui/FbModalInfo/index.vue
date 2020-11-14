@@ -59,6 +59,7 @@ export default defineComponent({
         return [
           FbUiModalVariantType.DEFAULT,
           FbUiModalVariantType.PHONE,
+          FbUiModalVariantType.TABLET,
         ].includes(value)
       },
     },

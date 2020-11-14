@@ -38,6 +38,7 @@ export enum FbFormResultType {
 export enum FbUiModalVariantType {
   DEFAULT = 'default',
   PHONE = 'phone',
+  TABLET = 'tablet',
 }
 
 export enum FbUiButtonButtonTypes {
