@@ -102,12 +102,14 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: $modal-top-offset;
+    padding-bottom: $modal-bottom-offset;
     z-index: ($z-index + 1);
   }
 
   &__dialog {
     position: relative;
     width: auto;
+    max-height: 100%;
   }
 
   &__content {
@@ -117,6 +119,7 @@
     background-clip: padding-box;
     overflow: hidden;
     outline: 0;
+    max-height: 100%;
 
     @include content-shadow;
   }
