@@ -2,7 +2,8 @@
 
 .fb-ui-modal-header {
   &__container {
-    &[data-variant="phone"] {
+    &[data-variant="phone"],
+    &[data-variant="tablet"] {
       .fb-ui-modal-header {
         &__buttons {
           @include flex-phone-header;
