@@ -10,6 +10,7 @@ export enum FbSizeTypes {
   SMALL = 'sm',
   MEDIUM = 'md',
   LARGE = 'lg',
+  EXTRA_LARGE = 'xl',
   NONE = 'none',
 }
 
