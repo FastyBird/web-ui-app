@@ -4,7 +4,7 @@
     class="fb-ui-modal-header__container"
   >
     <div
-      v-if="variant === variantsTypes.PHONE || variant === variantsTypes.PHONE"
+      v-if="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET"
       class="fb-ui-modal-header__buttons"
     >
       <div
@@ -87,6 +87,7 @@ export default defineComponent({
         return [
           FbUiModalVariantType.DEFAULT,
           FbUiModalVariantType.PHONE,
+          FbUiModalVariantType.TABLET,
         ].includes(value)
       },
     },

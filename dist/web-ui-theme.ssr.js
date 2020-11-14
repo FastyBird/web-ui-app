@@ -2565,7 +2565,7 @@ var __vue_component__$m = /*#__PURE__*/normalizeComponent({
       default: exports.FbUiModalVariantType.DEFAULT,
       validator: function validator(value) {
         // The value must match one of these strings
-        return [exports.FbUiModalVariantType.DEFAULT, exports.FbUiModalVariantType.PHONE].includes(value);
+        return [exports.FbUiModalVariantType.DEFAULT, exports.FbUiModalVariantType.PHONE, exports.FbUiModalVariantType.TABLET].includes(value);
       }
     },
     okBtnText: {
@@ -2608,7 +2608,7 @@ var __vue_render__$n = function __vue_render__() {
     attrs: {
       "data-variant": _vm.variant
     }
-  }, [_vm.variant === _vm.variantsTypes.PHONE || _vm.variant === _vm.variantsTypes.PHONE ? _vm._ssrNode("<div class=\"fb-ui-modal-header__buttons\">", "</div>", [_vm.closeBtnShow ? _vm._ssrNode("<div class=\"fb-ui-modal-header__buttons-left-button\">", "</div>", [_vm._t("left-button", [_c('fb-ui-button', {
+  }, [_vm.variant === _vm.variantsTypes.PHONE || _vm.variant === _vm.variantsTypes.TABLET ? _vm._ssrNode("<div class=\"fb-ui-modal-header__buttons\">", "</div>", [_vm.closeBtnShow ? _vm._ssrNode("<div class=\"fb-ui-modal-header__buttons-left-button\">", "</div>", [_vm._t("left-button", [_c('fb-ui-button', {
     attrs: {
       "variant": _vm.buttonVariantsTypes.LINK_DEFAULT,
       "size": _vm.sizesTypes.EXTRA_SMALL,
@@ -2628,7 +2628,7 @@ var __vue_staticRenderFns__$n = [];
 
 var __vue_inject_styles__$n = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-46a6a6da_0", {
+  inject("data-v-ad19a9c8_0", {
     source: ".fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;flex-direction:row;flex-wrap:nowrap}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button{text-align:left}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button{text-align:right}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button{flex-grow:1;color:#fff;font-size:1.4rem}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button{color:#fff;font-size:1.4rem;text-align:center}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:active,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:focus,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:hover,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:active,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:focus,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:hover{outline:0;background-image:none;color:#fff;text-decoration:none}.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:active svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:focus svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-left-button .fb-ui-button:hover svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:active svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:focus svg,.fb-ui-modal-header__container[data-variant=phone] .fb-ui-modal-header__buttons-right-button .fb-ui-button:hover svg{color:#fff}.fb-ui-modal-header__heading{text-align:center}.fb-ui-modal-header__close{margin-top:-2px;float:right;font-size:1.95rem;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none;opacity:.2;filter:alpha(opacity=20)}.fb-ui-modal-header__close:focus,.fb-ui-modal-header__close:hover{opacity:.5;filter:alpha(opacity=50)}.fb-ui-modal-header__close:focus,.fb-ui-modal-header__close:hover{color:#000;text-decoration:none;cursor:pointer}",
     map: undefined,
     media: undefined
@@ -2640,7 +2640,7 @@ var __vue_inject_styles__$n = function __vue_inject_styles__(inject) {
 var __vue_scope_id__$n = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$n = "data-v-46a6a6da";
+var __vue_module_identifier__$n = "data-v-ad19a9c8";
 /* functional template */
 
 var __vue_is_functional_template__$n = false;
