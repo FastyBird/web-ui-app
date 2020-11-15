@@ -19,7 +19,7 @@
       slot="modal-title"
     >
       <slot
-        v-if="variant !== variantsTypes.PHONE && variant !== variantsTypes.TABLET"
+        v-if="variant !== modalVariantTypes.PHONE && variant !== modalVariantTypes.TABLET"
         name="icon"
       />
       <slot name="header" />
@@ -67,8 +67,8 @@
         slot="close-button"
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
-        :size="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
-        :variant="buttonVariantsTypes.LINK_DEFAULT"
+        :size="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :variant="buttonVariantTypes.LINK_DEFAULT"
         uppercase
         name="close"
         @click.prevent="$emit('cancel', $event)"
@@ -83,8 +83,8 @@
         slot="ok-button"
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
-        :size="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
-        :variant="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET ? buttonVariantsTypes.LINK_DEFAULT : buttonVariantsTypes.OUTLINE_PRIMARY"
+        :size="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :variant="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET ? buttonVariantTypes.LINK_DEFAULT : buttonVariantTypes.OUTLINE_PRIMARY"
         uppercase
         name="save"
         @click.prevent="$emit('submit', $event)"
@@ -105,11 +105,11 @@ import {
 
 import get from 'lodash/get'
 
-import {FbFormResultType, FbUiModalVariantType, FbSizeTypes, FbUiButtonVariantTypes} from "@/components/types";
+import {FbFormResultTypes, FbUiModalVariantTypes, FbSizeTypes, FbUiButtonVariantTypes} from "@/components/types";
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes
-  variant: FbUiModalVariantType
+  variant: FbUiModalVariantTypes
   submitBtnText: string
   submitBtnShow: boolean
   cancelBtnText: string
@@ -117,7 +117,7 @@ interface FbUiModalFormPropsInterface {
   lockButtons: boolean
   lockSubmitButton: boolean
   transparentBg: boolean
-  state: FbFormResultType
+  state: FbFormResultTypes
 }
 
 export default defineComponent({
@@ -140,14 +140,14 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbUiModalVariantType>,
-      default: FbUiModalVariantType.DEFAULT,
-      validator: (value: FbUiModalVariantType) => {
+      type: String as PropType<FbUiModalVariantTypes>,
+      default: FbUiModalVariantTypes.DEFAULT,
+      validator: (value: FbUiModalVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiModalVariantType.DEFAULT,
-          FbUiModalVariantType.PHONE,
-          FbUiModalVariantType.TABLET,
+          FbUiModalVariantTypes.DEFAULT,
+          FbUiModalVariantTypes.PHONE,
+          FbUiModalVariantTypes.TABLET,
         ].includes(value)
       },
     },
@@ -188,8 +188,8 @@ export default defineComponent({
     },
 
     state: {
-      type: String as PropType<FbFormResultType>,
-      default: FbFormResultType.NONE,
+      type: String as PropType<FbFormResultTypes>,
+      default: FbFormResultTypes.NONE,
     },
 
   },
@@ -199,10 +199,10 @@ export default defineComponent({
 
     return {
       initialTabindex,
-      resultTypes: FbFormResultType,
-      variantsTypes: FbUiModalVariantType,
+      resultTypes: FbFormResultTypes,
+      modalVariantTypes: FbUiModalVariantTypes,
       sizeTypes: FbSizeTypes,
-      buttonVariantsTypes: FbUiButtonVariantTypes,
+      buttonVariantTypes: FbUiButtonVariantTypes,
     }
   },
 

@@ -64,7 +64,7 @@
               >
                 <slot name="modal-header">
                   <div
-                    v-if="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET"
+                    v-if="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET"
                     class="fb-ui-modal-window__header-buttons"
                   >
                     <div class="fb-ui-modal-window__header-buttons-heading">
@@ -83,7 +83,7 @@
                         <fb-ui-button
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
-                          :variant="buttonVariantsTypes.LINK_DEFAULT"
+                          :variant="buttonVariantTypes.LINK_DEFAULT"
                           uppercase
                           @click.prevent="$emit('close', $event)"
                         >
@@ -100,7 +100,7 @@
                         <fb-ui-button
                           v-else
                           :size="sizeTypes.EXTRA_SMALL"
-                          :variant="buttonVariantsTypes.LINK_DEFAULT"
+                          :variant="buttonVariantTypes.LINK_DEFAULT"
                           uppercase
                           @click.prevent="$emit('submit', $event)"
                         >
@@ -137,7 +137,7 @@
               </div>
 
               <div
-                v-if="showFooter && variant !== variantsTypes.PHONE && variant !== variantsTypes.TABLET"
+                v-if="showFooter && variant !== modalVariantTypes.PHONE && variant !== modalVariantTypes.TABLET"
                 class="fb-ui-modal-window__footer"
               >
                 <slot name="modal-footer">
@@ -147,7 +147,7 @@
                   >
                     <fb-ui-button
                       v-else
-                      :variant="buttonVariantsTypes.LINK_DEFAULT"
+                      :variant="buttonVariantTypes.LINK_DEFAULT"
                       :size="sizeTypes.LARGE"
                       uppercase
                       tabindex="2"
@@ -163,7 +163,7 @@
                   >
                     <fb-ui-button
                       v-else
-                      :variant="buttonVariantsTypes.OUTLINE_PRIMARY"
+                      :variant="buttonVariantTypes.OUTLINE_PRIMARY"
                       :size="sizeTypes.LARGE"
                       uppercase
                       tabindex="3"
@@ -192,13 +192,13 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbUiModalVariantType, FbUiButtonVariantTypes } from '@/components/types'
+import { FbSizeTypes, FbUiModalVariantTypes, FbUiButtonVariantTypes } from '@/components/types'
 
 import get from 'lodash/get'
 
 interface FbUiModalWindowPropsInterface {
   size: FbSizeTypes
-  variant: FbUiModalVariantType
+  variant: FbUiModalVariantTypes
   title: string
   width: string | number | null
   showHeader: boolean
@@ -232,14 +232,14 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbUiModalVariantType>,
-      default: FbUiModalVariantType.DEFAULT,
-      validator: (value: FbUiModalVariantType) => {
+      type: String as PropType<FbUiModalVariantTypes>,
+      default: FbUiModalVariantTypes.DEFAULT,
+      validator: (value: FbUiModalVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiModalVariantType.DEFAULT,
-          FbUiModalVariantType.PHONE,
-          FbUiModalVariantType.TABLET,
+          FbUiModalVariantTypes.DEFAULT,
+          FbUiModalVariantTypes.PHONE,
+          FbUiModalVariantTypes.TABLET,
         ].includes(value)
       },
     },
@@ -332,9 +332,9 @@ export default defineComponent({
       element,
       optionalWidth,
       clickOverlay,
-      variantsTypes: FbUiModalVariantType,
+      modalVariantTypes: FbUiModalVariantTypes,
       sizeTypes: FbSizeTypes,
-      buttonVariantsTypes: FbUiButtonVariantTypes,
+      buttonVariantTypes: FbUiButtonVariantTypes,
     }
   },
 

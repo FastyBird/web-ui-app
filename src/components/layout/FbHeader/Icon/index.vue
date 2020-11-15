@@ -13,7 +13,7 @@ import {
   defineComponent,
 } from '@vue/composition-api'
 
-import { FbMenuItemType } from '@/components/types'
+import { FbMenuItemTypes } from '@/components/types'
 
 interface FbHeaderIconPropsInterface {
   left: boolean
@@ -43,7 +43,7 @@ export default defineComponent({
 
     return {
       portalName,
-      menuItemTypes: FbMenuItemType,
+      menuItemTypes: FbMenuItemTypes,
     }
   },
 

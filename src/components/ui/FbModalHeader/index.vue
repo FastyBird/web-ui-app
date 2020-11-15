@@ -4,7 +4,7 @@
     class="fb-ui-modal-header__container"
   >
     <div
-      v-if="variant === variantsTypes.PHONE || variant === variantsTypes.TABLET"
+      v-if="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET"
       class="fb-ui-modal-header__buttons"
     >
       <div
@@ -13,7 +13,7 @@
       >
         <slot name="left-button">
           <fb-ui-button
-            :variant="buttonVariantsTypes.LINK_DEFAULT"
+            :variant="buttonVariantTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
             uppercase
             @click.prevent="$emit('cancel', $event)"
@@ -29,7 +29,7 @@
       >
         <slot name="right-button">
           <fb-ui-button
-            :variant="buttonVariantsTypes.LINK_DEFAULT"
+            :variant="buttonVariantTypes.LINK_DEFAULT"
             :size="sizesTypes.EXTRA_SMALL"
             uppercase
             @click.prevent="$emit('submit', $event)"
@@ -70,7 +70,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbUiModalVariantType, FbUiButtonVariantTypes, FbSizeTypes } from '@/components/types'
+import { FbUiModalVariantTypes, FbUiButtonVariantTypes, FbSizeTypes } from '@/components/types'
 
 export default defineComponent({
 
@@ -79,14 +79,14 @@ export default defineComponent({
   props: {
 
     variant: {
-      type: String as PropType<FbUiModalVariantType>,
-      default: FbUiModalVariantType.DEFAULT,
-      validator: (value: FbUiModalVariantType) => {
+      type: String as PropType<FbUiModalVariantTypes>,
+      default: FbUiModalVariantTypes.DEFAULT,
+      validator: (value: FbUiModalVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiModalVariantType.DEFAULT,
-          FbUiModalVariantType.PHONE,
-          FbUiModalVariantType.TABLET,
+          FbUiModalVariantTypes.DEFAULT,
+          FbUiModalVariantTypes.PHONE,
+          FbUiModalVariantTypes.TABLET,
         ].includes(value)
       },
     },
@@ -120,9 +120,9 @@ export default defineComponent({
 
   setup() {
     return {
-      variantsTypes: FbUiModalVariantType,
+      modalVariantTypes: FbUiModalVariantTypes,
       sizesTypes: FbSizeTypes,
-      buttonVariantsTypes: FbUiButtonVariantTypes,
+      buttonVariantTypes: FbUiButtonVariantTypes,
     }
   },
 

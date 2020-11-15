@@ -1,4 +1,4 @@
-export enum FbMenuItemType {
+export enum FbMenuItemTypes {
   LINK = 'link',
   NUXT_LINK = 'nuxt_link',
   BUTTON = 'button',
@@ -29,14 +29,14 @@ export enum FbFormOrientationTypes {
   INLINE = 'inline',
 }
 
-export enum FbFormResultType {
+export enum FbFormResultTypes {
   NONE = 'none',
   WORKING = 'working',
   ERROR = 'error',
   OK = 'ok',
 }
 
-export enum FbUiModalVariantType {
+export enum FbUiModalVariantTypes {
   DEFAULT = 'default',
   PHONE = 'phone',
   TABLET = 'tablet',

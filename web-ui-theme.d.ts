@@ -1,31 +1,5 @@
 import Vue, { PluginFunction, VueConstructor } from 'vue';
 
-import FbLayoutContentComponent from './src/components/layout/FbContent/index.vue';
-import FbLayoutFooterComponent from './src/components/layout/FbFooter/index.vue';
-import FbLayoutHeaderComponent from './src/components/layout/FbHeader/index.vue';
-import FbLayoutHeaderButtonComponent from './src/components/layout/FbHeader/Button/index.vue';
-import FbLayoutHeaderContentComponent from './src/components/layout/FbHeader/Content/index.vue';
-import FbLayoutHeaderHeadingComponent from './src/components/layout/FbHeader/Heading/index.vue';
-import FbLayoutHeaderIconComponent from './src/components/layout/FbHeader/Icon/index.vue';
-import FbLayoutHeaderMenuButtonComponent from './src/components/layout/FbHeader/MenuButton/index.vue';
-import FbLayoutHeaderSpacerComponent from './src/components/layout/FbHeader/Spacer/index.vue';
-import FbLayoutNavigationComponent from './src/components/layout/FbNavigation/index.vue';
-import FbLayoutNavigationDividerComponent from './src/components/layout/FbNavigation/Divider/index.vue';
-import FbLayoutNavigationItemComponent from './src/components/layout/FbNavigation/Item/index.vue';
-import FbLayoutPhoneMenuComponent from './src/components/layout/FbPhoneMenu/index.vue';
-import FbLayoutPhoneMenuButtonComponent from './src/components/layout/FbPhoneMenu/Button/index.vue';
-import FbLayoutPhoneMenuContentComponent from './src/components/layout/FbPhoneMenu/Content/index.vue';
-import FbLayoutPhoneMenuHeadingComponent from './src/components/layout/FbPhoneMenu/Heading/index.vue';
-import FbLayoutSidebarComponent from './src/components/layout/FbSidebar/index.vue';
-import FbLayoutSignBoxComponent from './src/components/layout/FbSignBox/index.vue';
-import FbLayoutSignFooterComponent from './src/components/layout/FbSignFooter/index.vue';
-import FbLayoutSignFooterItemComponent from './src/components/layout/FbSignFooter/Item/index.vue';
-import FbLayoutTabsComponent from './src/components/layout/FbTabs/index.vue';
-import FbLayoutTabsItemComponent from './src/components/layout/FbTabs/Item/index.vue';
-import FbLayoutUserMenuComponent from './src/components/layout/FbUserMenu/index.vue';
-import FbLayoutUserMenuDividerComponent from './src/components/layout/FbUserMenu/Divider/index.vue';
-import FbLayoutUserMenuItemComponent from './src/components/layout/FbUserMenu/Item/index.vue';
-
 interface InstallFunction extends PluginFunction<any> {
   installed?: boolean;
 }
@@ -66,38 +40,38 @@ export const FbUiSpinner: VueConstructor<Vue>;
 export const FbUiSwitchElement: VueConstructor<Vue>;
 export const FbUiTransitionExpand: VueConstructor<Vue>;
 
-export const FbLayoutContent: InstanceType<typeof FbLayoutContentComponent>;
-export const FbLayoutFooter: InstanceType<typeof FbLayoutFooterComponent>;
-export const FbLayoutHeader: InstanceType<typeof FbLayoutHeaderComponent>;
-export const FbLayoutHeaderButton: InstanceType<typeof FbLayoutHeaderButtonComponent>;
-export const FbLayoutHeaderContent: InstanceType<typeof FbLayoutHeaderContentComponent>;
-export const FbLayoutHeaderIcon: InstanceType<typeof FbLayoutHeaderIconComponent>;
-export const FbLayoutHeaderHeading: InstanceType<typeof FbLayoutHeaderHeadingComponent>;
-export const FbLayoutHeaderMenuButton: InstanceType<typeof FbLayoutHeaderMenuButtonComponent>;
-export const FbLayoutHeaderSpacer: InstanceType<typeof FbLayoutHeaderSpacerComponent>;
-export const FbLayoutNavigation: InstanceType<typeof FbLayoutNavigationComponent>;
-export const FbLayoutNavigationDivider: InstanceType<typeof FbLayoutNavigationDividerComponent>;
-export const FbLayoutNavigationItem: InstanceType<typeof FbLayoutNavigationItemComponent>;
-export const FbLayoutPhoneMenu: InstanceType<typeof FbLayoutPhoneMenuComponent>;
-export const FbLayoutPhoneMenuButton: InstanceType<typeof FbLayoutPhoneMenuButtonComponent>;
-export const FbLayoutPhoneMenuContent: InstanceType<typeof FbLayoutPhoneMenuContentComponent>;
-export const FbLayoutPhoneMenuHeading: InstanceType<typeof FbLayoutPhoneMenuHeadingComponent>;
-export const FbLayoutSidebar: InstanceType<typeof FbLayoutSidebarComponent>;
-export const FbLayoutSignBox: InstanceType<typeof FbLayoutSignBoxComponent>;
-export const FbLayoutSignFooter: InstanceType<typeof FbLayoutSignFooterComponent>;
-export const FbLayoutSignFooterItem: InstanceType<typeof FbLayoutSignFooterItemComponent>;
-export const FbLayoutTabs: InstanceType<typeof FbLayoutTabsComponent>;
-export const FbLayoutTabsItem: InstanceType<typeof FbLayoutTabsItemComponent>;
-export const FbLayoutUserMenu: InstanceType<typeof FbLayoutUserMenuComponent>;
-export const FbLayoutUserMenuDivider: InstanceType<typeof FbLayoutUserMenuDividerComponent>;
-export const FbLayoutUserMenuItem: InstanceType<typeof FbLayoutUserMenuItemComponent>;
+export const FbLayoutContent: VueConstructor<Vue>;
+export const FbLayoutFooter: VueConstructor<Vue>;
+export const FbLayoutHeader: VueConstructor<Vue>;
+export const FbLayoutHeaderButton: VueConstructor<Vue>;
+export const FbLayoutHeaderContent: VueConstructor<Vue>;
+export const FbLayoutHeaderIcon: VueConstructor<Vue>;
+export const FbLayoutHeaderHeading: VueConstructor<Vue>;
+export const FbLayoutHeaderMenuButton: VueConstructor<Vue>;
+export const FbLayoutHeaderSpacer: VueConstructor<Vue>;
+export const FbLayoutNavigation: VueConstructor<Vue>;
+export const FbLayoutNavigationDivider: VueConstructor<Vue>;
+export const FbLayoutNavigationItem: VueConstructor<Vue>;
+export const FbLayoutPhoneMenu: VueConstructor<Vue>;
+export const FbLayoutPhoneMenuButton: VueConstructor<Vue>;
+export const FbLayoutPhoneMenuContent: VueConstructor<Vue>;
+export const FbLayoutPhoneMenuHeading: VueConstructor<Vue>;
+export const FbLayoutSidebar: VueConstructor<Vue>;
+export const FbLayoutSignBox: VueConstructor<Vue>;
+export const FbLayoutSignFooter: VueConstructor<Vue>;
+export const FbLayoutSignFooterItem: VueConstructor<Vue>;
+export const FbLayoutTabs: VueConstructor<Vue>;
+export const FbLayoutTabsItem: VueConstructor<Vue>;
+export const FbLayoutUserMenu: VueConstructor<Vue>;
+export const FbLayoutUserMenuDivider: VueConstructor<Vue>;
+export const FbLayoutUserMenuItem: VueConstructor<Vue>;
 
-export { FbMenuItemType as FbMenuItemType } from './src/components/types'
+export { FbMenuItemTypes as FbMenuItemTypes } from './src/components/types'
 export { FbSizeTypes as FbSizeTypes } from './src/components/types'
 export { FbFormInputTypeTypes as FbFormInputTypeTypes } from './src/components/types'
 export { FbFormOrientationTypes as FbFormOrientationTypes } from './src/components/types'
-export { FbFormResultType as FbFormResultType } from './src/components/types'
-export { FbUiModalVariantType as FbUiModalVariantType } from './src/components/types'
+export { FbFormResultTypes as FbFormResultTypes } from './src/components/types'
+export { FbUiModalVariantTypes as FbUiModalVariantTypes } from './src/components/types'
 export { FbUiButtonButtonTypes as FbUiButtonButtonTypes } from './src/components/types'
 export { FbUiButtonVariantTypes as FbUiButtonVariantTypes } from './src/components/types'
 export { FbUiAlertVariantTypes as FbUiAlertVariantTypes } from './src/components/types'

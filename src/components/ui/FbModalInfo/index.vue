@@ -30,7 +30,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import {FbUiModalVariantType, FbSizeTypes} from "@/components/types";
+import {FbUiModalVariantTypes, FbSizeTypes} from "@/components/types";
 
 export default defineComponent({
 
@@ -52,14 +52,14 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbUiModalVariantType>,
-      default: FbUiModalVariantType.DEFAULT,
-      validator: (value: FbUiModalVariantType) => {
+      type: String as PropType<FbUiModalVariantTypes>,
+      default: FbUiModalVariantTypes.DEFAULT,
+      validator: (value: FbUiModalVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiModalVariantType.DEFAULT,
-          FbUiModalVariantType.PHONE,
-          FbUiModalVariantType.TABLET,
+          FbUiModalVariantTypes.DEFAULT,
+          FbUiModalVariantTypes.PHONE,
+          FbUiModalVariantTypes.TABLET,
         ].includes(value)
       },
     },

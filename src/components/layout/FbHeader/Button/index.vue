@@ -53,10 +53,10 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbMenuItemType } from '@/components/types'
+import { FbMenuItemTypes } from '@/components/types'
 
 interface FbHeaderButtonPropsInterface {
-  type: FbMenuItemType
+  type: FbMenuItemTypes
   label?: string
   link?: string
   small: boolean
@@ -71,14 +71,14 @@ export default defineComponent({
   props: {
 
     type: {
-      type: String as PropType<FbMenuItemType>,
+      type: String as PropType<FbMenuItemTypes>,
       required: true,
-      validator: (value: FbMenuItemType) => {
+      validator: (value: FbMenuItemTypes) => {
         // The value must match one of these strings
         return [
-          FbMenuItemType.BUTTON,
-          FbMenuItemType.LINK,
-          FbMenuItemType.NUXT_LINK,
+          FbMenuItemTypes.BUTTON,
+          FbMenuItemTypes.LINK,
+          FbMenuItemTypes.NUXT_LINK,
         ].includes(value)
       },
     },
@@ -121,7 +121,7 @@ export default defineComponent({
 
     return {
       portalName,
-      menuItemTypes: FbMenuItemType,
+      menuItemTypes: FbMenuItemTypes,
     }
   },
 

@@ -36,7 +36,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbMenuItemType } from '@/components/types'
+import { FbMenuItemTypes } from '@/components/types'
 
 export default defineComponent({
 
@@ -45,15 +45,15 @@ export default defineComponent({
   props: {
 
     type: {
-      type: String as PropType<FbMenuItemType>,
+      type: String as PropType<FbMenuItemTypes>,
       required: true,
-      validator: (value: FbMenuItemType) => {
+      validator: (value: FbMenuItemTypes) => {
         // The value must match one of these strings
         return [
-          FbMenuItemType.BUTTON,
-          FbMenuItemType.LINK,
-          FbMenuItemType.NUXT_LINK,
-          FbMenuItemType.TEXT,
+          FbMenuItemTypes.BUTTON,
+          FbMenuItemTypes.LINK,
+          FbMenuItemTypes.NUXT_LINK,
+          FbMenuItemTypes.TEXT,
         ].includes(value)
       },
     },
@@ -71,7 +71,7 @@ export default defineComponent({
 
   setup() {
     return {
-      menuItemTypes: FbMenuItemType,
+      menuItemTypes: FbMenuItemTypes,
     }
   },
 
