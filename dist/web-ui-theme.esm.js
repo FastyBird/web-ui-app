@@ -4055,7 +4055,7 @@ var __vue_staticRenderFns__$y = [];
 const __vue_inject_styles__$y = function (inject) {
   if (!inject) return;
   inject("data-v-07fcec6e_0", {
-    source: ".fb-layout-content__container{height:100%;overflow:hidden;flex-grow:1;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}.fb-layout-content__content{overflow:hidden;flex-grow:1}",
+    source: ".fb-layout-content__container{height:100%;overflow:hidden;flex-grow:1;display:-webkit-box;display:-ms-flexbox;display:flex;flex-direction:column}.fb-layout-content__header{z-index:1030}.fb-layout-content__content{overflow:hidden;flex-grow:1}.fb-layout-content__footer{z-index:1030}",
     map: undefined,
     media: undefined
   });
