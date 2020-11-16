@@ -189,7 +189,7 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow-y: auto;
   }
 
   &__close {
