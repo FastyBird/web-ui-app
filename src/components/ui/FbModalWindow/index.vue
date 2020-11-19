@@ -81,7 +81,6 @@
                     >
                       <slot name="close-button">
                         <fb-ui-button
-                          v-else
                           :size="sizeTypes.EXTRA_SMALL"
                           :variant="buttonVariantTypes.LINK_DEFAULT"
                           uppercase
@@ -98,7 +97,6 @@
                     >
                       <slot name="ok-button">
                         <fb-ui-button
-                          v-else
                           :size="sizeTypes.EXTRA_SMALL"
                           :variant="buttonVariantTypes.LINK_DEFAULT"
                           uppercase
@@ -146,7 +144,6 @@
                     name="close-button"
                   >
                     <fb-ui-button
-                      v-else
                       :variant="buttonVariantTypes.LINK_DEFAULT"
                       :size="sizeTypes.LARGE"
                       uppercase
@@ -162,7 +159,6 @@
                     name="ok-button"
                   >
                     <fb-ui-button
-                      v-else
                       :variant="buttonVariantTypes.OUTLINE_PRIMARY"
                       :size="sizeTypes.LARGE"
                       uppercase
