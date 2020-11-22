@@ -7,6 +7,10 @@
     }
   }
 
+  &__form {
+    max-height: 100%;
+  }
+
   &__result {
     position: absolute;
     top: 0;
