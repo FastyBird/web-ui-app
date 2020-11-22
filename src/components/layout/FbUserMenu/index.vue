@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['fb-layout-user-menu__container', {'fb-layout-user-menu__container-collapsed': collapsed}]"
-    @click-outside="blur"
+    v-click-outside="blur"
   >
     <div
       class="fb-layout-user-menu__button"
