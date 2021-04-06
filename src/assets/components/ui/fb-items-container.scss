@@ -1,3 +1,4 @@
+@import "../../../assets/variables/screen";
 @import "../../../assets/mixins/utilities";
 
 $container-margin:                             1.5rem 0 0 0;
@@ -17,6 +18,8 @@ $heading-buttons-button-padding:               0 1rem;
 $heading-buttons-button-font-size:             1.2rem;
 
 $items-padding:                                1rem;
+
+$screen-tablet-min:                           $screen-sm-min;
 
 @mixin header-flex-box {
   @include flexRow;
