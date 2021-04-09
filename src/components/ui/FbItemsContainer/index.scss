@@ -18,6 +18,7 @@
 
   &__heading {
     padding: $heading-padding;
+    flex-grow: 1;
 
     @media (min-width: $screen-tablet-min) {
       -webkit-box-flex: 0;
