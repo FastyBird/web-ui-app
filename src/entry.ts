@@ -8,7 +8,7 @@ import * as directives from '@/directives/index'
 // Import vue mixins
 import * as mixins from '@/mixins/index'
 // Import types
-import { InstallFunction } from '~/web-ui-theme'
+import { InstallFunction } from '~/web-ui-theme.d.ts'
 
 // install function executed by Vue.use()
 const install: InstallFunction = function installWebUiTheme(Vue: typeof _Vue) {

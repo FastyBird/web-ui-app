@@ -19,7 +19,7 @@ import {
 import {
   FbFormOrientationTypes,
   FbSizeTypes,
-} from '~/web-ui-theme'
+} from '~/web-ui-theme.d.ts'
 
 export default defineComponent({
 

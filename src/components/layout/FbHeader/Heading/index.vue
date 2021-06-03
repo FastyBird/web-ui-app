@@ -28,7 +28,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbLayoutHeaderHeadingAlign } from '~/web-ui-theme'
+import { FbLayoutHeaderHeadingAlign } from '~/web-ui-theme.d.ts'
 
 export default defineComponent({
 

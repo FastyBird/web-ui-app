@@ -189,7 +189,7 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbUiModalVariantTypes, FbUiButtonVariantTypes } from '~/web-ui-theme'
+import { FbSizeTypes, FbUiModalVariantTypes, FbUiButtonVariantTypes } from '~/web-ui-theme.d.ts'
 
 import get from 'lodash/get'
 
