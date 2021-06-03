@@ -35,8 +35,11 @@
 import {
   computed,
   defineComponent,
-  PropType, ref,
-  SetupContext, watch,
+  nextTick,
+  PropType,
+  ref,
+  SetupContext,
+  watch,
 } from '@vue/composition-api'
 
 import FbFormRadioButtonsGroup from '@/components/forms/FbRadioButtonsGroup/index.vue'
@@ -45,7 +48,7 @@ interface FbFormRadioButtonPropsInterface {
   name: string
   id: string | null
   label: string | number | boolean | null
-  value: string | number | boolean | null
+  value: string | number | boolean
   required: boolean
   tabIndex: number | null
   error: string | null
@@ -75,7 +78,7 @@ export default defineComponent({
 
     value: {
       type: [String, Number, Boolean],
-      default: null,
+      required: true,
     },
 
     required: {
@@ -118,7 +121,7 @@ export default defineComponent({
     })
 
     function handleChange(): void {
-      context.root.$nextTick(() => {
+      nextTick(() => {
         if (props.group !== null) {
           // eslint-disable-next-line no-useless-call
           props.group.$emit.apply(props.group, ['change', props.group.value])

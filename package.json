@@ -25,11 +25,12 @@
   "browser": "dist/web-ui-theme.esm.js",
   "module": "dist/web-ui-theme.esm.js",
   "unpkg": "dist/web-ui-theme.min.js",
+  "types": "types/web-ui-theme.d.ts",
   "files": [
     "dist/*",
+    "types/*",
     "src/**/*.vue"
   ],
-  "types": "web-ui-theme.d.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
@@ -37,42 +38,42 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
-    "body-scroll-lock": "^3.0.0",
-    "lodash.get": "^4.4.2",
-    "normalize.css": "^8.0.1",
-    "portal-vue": "^2.1.7"
+    "body-scroll-lock": "^3.0",
+    "lodash.get": "^4.4",
+    "normalize.css": "^8.0",
+    "portal-vue": "^2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-typescript": "^7.9.0",
-    "@rollup/plugin-alias": "^2.2.0",
-    "@rollup/plugin-commonjs": "^11.1.0",
-    "@rollup/plugin-node-resolve": "^10.0.0",
-    "@rollup/plugin-replace": "^2.3.2",
-    "@types/body-scroll-lock": "^2.6.1",
-    "@types/lodash.get": "^4.4.6",
-    "@vue/cli-plugin-babel": "^4.3.1",
-    "@vue/cli-plugin-typescript": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
-    "@vue/composition-api": "^1.0.0-beta.17",
-    "cross-env": "^7.0.2",
-    "minimist": "^1.2.5",
-    "rollup": "^2.7.3",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-vue": "^5.1.6",
-    "typescript": "^3.8.3",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "@babel/core": "^7.9",
+    "@babel/plugin-proposal-class-properties": "^7.10",
+    "@babel/preset-env": "^7.9",
+    "@babel/preset-typescript": "^7.9",
+    "@nuxt/types": "^2.15.6",
+    "@rollup/plugin-alias": "^2.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^11.1",
+    "@rollup/plugin-node-resolve": "^10.0",
+    "@rollup/plugin-replace": "^2.3",
+    "@types/body-scroll-lock": "^2.6",
+    "@types/lodash.get": "^4.4",
+    "@vue/cli-plugin-babel": "^4.3",
+    "@vue/cli-plugin-typescript": "^4.3",
+    "@vue/cli-service": "^4.3",
+    "@vue/composition-api": "^1.0.0-rc.7",
+    "cross-env": "^7.0",
+    "minimist": "^1.2",
+    "rollup": "^2.7",
+    "rollup-plugin-terser": "^5.3",
+    "rollup-plugin-vue": "^5.1",
+    "tslib": "^2.2",
+    "typescript": "^4.3",
+    "vue": "^2.6",
+    "vue-template-compiler": "^2.6"
   },
   "peerDependencies": {
     "vue": "^2.6.11"
   },
   "engines": {
     "node": ">=10"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }

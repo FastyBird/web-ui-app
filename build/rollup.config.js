@@ -3,11 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import vue from 'rollup-plugin-vue';
 import alias from '@rollup/plugin-alias';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
-import babel from 'rollup-plugin-babel';
-import {terser} from 'rollup-plugin-terser';
+import babel from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
@@ -25,13 +24,15 @@ const baseConfig = {
   plugins: {
     preVue: [
       alias({
-        resolve: ['.vue', '.js', '.ts'],
+        resolve: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.vue'],
         entries: {
           '@': path.resolve(projectRoot, 'src'),
+          '~': path.resolve(projectRoot, 'types'),
         },
       }),
     ],
     replace: {
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.ES_BUILD': JSON.stringify('false'),
     },
@@ -42,12 +43,9 @@ const baseConfig = {
       },
     },
     babel: {
+      babelHelpers: 'bundled',
       exclude: 'node_modules/**',
-      extensions: ['.vue', '.js', '.ts'],
-    },
-    nodeResolve: {
-      exclude: 'node_modules/**',
-      extensions: ['.vue', '.js', '.ts'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
     },
   },
 };
@@ -106,9 +104,6 @@ if (!argv.format || argv.format === 'es') {
         ],
       }),
       commonjs(),
-      resolve({
-        ...baseConfig.plugins.nodeResolve
-      }),
     ],
   };
   buildFormats.push(esConfig);
@@ -122,7 +117,7 @@ if (!argv.format || argv.format === 'cjs') {
       compact: true,
       file: 'dist/web-ui-theme.ssr.js',
       format: 'cjs',
-      name: 'fastybirdWebUiTheme',
+      name: 'WebUiTheme',
       exports: 'named',
       globals,
     },
@@ -138,9 +133,6 @@ if (!argv.format || argv.format === 'cjs') {
       }),
       babel(baseConfig.plugins.babel),
       commonjs(),
-      resolve({
-        ...baseConfig.plugins.nodeResolve
-      }),
     ],
   };
   buildFormats.push(umdConfig);
@@ -154,7 +146,7 @@ if (!argv.format || argv.format === 'iife') {
       compact: true,
       file: 'dist/web-ui-theme.min.js',
       format: 'iife',
-      name: 'fastybirdWebUiTheme',
+      name: 'WebUiTheme',
       exports: 'named',
       globals,
     },
@@ -164,9 +156,6 @@ if (!argv.format || argv.format === 'iife') {
       vue(baseConfig.plugins.vue),
       babel(baseConfig.plugins.babel),
       commonjs(),
-      resolve({
-        ...baseConfig.plugins.nodeResolve
-      }),
       terser({
         output: {
           ecma: 5,
@@ -176,6 +165,7 @@ if (!argv.format || argv.format === 'iife') {
   };
   buildFormats.push(unpkgConfig);
 }
+
 
 // Export config
 export default buildFormats;

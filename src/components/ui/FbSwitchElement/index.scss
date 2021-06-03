@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../../assets/components/ui/fb-switch-element";
 
 .fb-ui-switch-element {
@@ -69,7 +71,7 @@
 
   &__track {
     background-color: $track-background-color;
-    border-radius: ceil($switch-height / 2);
+    border-radius: ceil(math.div($switch-height, 2));
     height: 100%;
     width: 100%;
     position: absolute;

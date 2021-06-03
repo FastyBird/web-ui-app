@@ -56,8 +56,8 @@
 <script lang="ts">
 import {
   defineComponent,
+  nextTick,
   ref,
-  SetupContext,
   watch,
 } from '@vue/composition-api'
 
@@ -80,7 +80,7 @@ export default defineComponent({
 
   },
 
-  setup(props: { }, context: SetupContext) {
+  setup() {
     const element = ref<HTMLElement | null>(null)
 
     const show = ref<boolean>(false)
@@ -92,7 +92,7 @@ export default defineComponent({
     watch(
       () => show.value,
       (val: boolean): void => {
-        context.root.$nextTick(() => {
+        nextTick(() => {
           if (val && element.value !== null) {
             element.value.focus()
           }

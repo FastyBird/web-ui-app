@@ -50,8 +50,11 @@
 import {
   computed,
   defineComponent,
-  PropType, ref,
-  SetupContext, watch,
+  nextTick,
+  PropType,
+  ref,
+  SetupContext,
+  watch,
 } from '@vue/composition-api'
 
 import get from 'lodash/get'
@@ -62,9 +65,9 @@ interface FbFormCheckboxPropsInterface {
   name: string
   id: string | null
   label: string | number | boolean | null
-  trueValue: string | number | boolean | null
-  falseValue: string | number | boolean | null
-  value: string | number | boolean | null
+  trueValue: string | number | boolean
+  falseValue: string | number | boolean
+  value: string | number | boolean
   required: boolean
   tabIndex: number | null
   error: string | null
@@ -94,17 +97,17 @@ export default defineComponent({
 
     trueValue: {
       type: [String, Number, Boolean],
-      default: null,
+      default: true,
     },
 
     falseValue: {
       type: [String, Number, Boolean],
-      default: null,
+      default: false,
     },
 
     value: {
       type: [String, Number, Boolean],
-      default: null,
+      required: true,
     },
 
     required: {
@@ -157,7 +160,7 @@ export default defineComponent({
 
       context.emit('change', value, ev)
 
-      context.root.$nextTick(() => {
+      nextTick(() => {
         if (props.group !== null) {
           // eslint-disable-next-line no-useless-call
           props.group.$emit.apply(props.group, ['change', props.group.value])

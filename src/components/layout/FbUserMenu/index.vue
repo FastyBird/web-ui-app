@@ -46,14 +46,10 @@
 <script lang="ts">
 import {
   defineComponent,
+  nextTick,
   ref,
-  SetupContext,
   watch,
 } from '@vue/composition-api'
-
-interface FbUserSideNavigationPropsInterface {
-  name: string | null
-}
 
 export default defineComponent({
 
@@ -68,7 +64,7 @@ export default defineComponent({
 
   },
 
-  setup(_props: FbUserSideNavigationPropsInterface, context: SetupContext) {
+  setup() {
     const collapsed = ref<boolean>(true)
     const userNavigation = ref<HTMLElement | null>(null)
 
@@ -84,7 +80,7 @@ export default defineComponent({
       (): boolean => collapsed.value,
       (val): void => {
         if (!val) {
-          context.root.$nextTick(() => {
+          nextTick(() => {
             if (userNavigation.value !== null) {
               userNavigation.value.focus()
             }

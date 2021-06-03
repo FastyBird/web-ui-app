@@ -105,7 +105,7 @@ import {
 
 import get from 'lodash/get'
 
-import {FbFormResultTypes, FbUiModalVariantTypes, FbSizeTypes, FbUiButtonVariantTypes} from "@/components/types";
+import {FbFormResultTypes, FbUiModalVariantTypes, FbSizeTypes, FbUiButtonVariantTypes} from "~/web-ui-theme";
 
 interface FbUiModalFormPropsInterface {
   size: FbSizeTypes

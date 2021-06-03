@@ -61,7 +61,7 @@ import {
 import {
   FbFormOrientationTypes,
   FbSizeTypes,
-} from '@/components/types'
+} from '~/web-ui-theme'
 
 interface FbFormTextAreaPropsInterface {
   orientation: FbFormOrientationTypes

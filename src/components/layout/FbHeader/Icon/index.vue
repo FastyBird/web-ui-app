@@ -13,7 +13,7 @@ import {
   defineComponent,
 } from '@vue/composition-api'
 
-import { FbMenuItemTypes } from '@/components/types'
+import { FbMenuItemTypes } from '~/web-ui-theme'
 
 interface FbHeaderIconPropsInterface {
   left: boolean

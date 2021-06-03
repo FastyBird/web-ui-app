@@ -91,7 +91,7 @@ import {
 import {
   FbFormOrientationTypes,
   FbSizeTypes,
-} from '@/components/types'
+} from '~/web-ui-theme'
 
 export interface FbFormSelectItemInterface {
   name: string

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../../assets/components/ui/fb-spinner";
 
 .fb-ui-spinner {
@@ -55,7 +57,7 @@
     &[data-size="lg"]:after {
       border-width: 3px;
       height: $spinner-size-lg;
-      margin: (($spinner-size-lg / 2) * -1) 0 0 (($spinner-size-lg / 2) * -1);
+      margin: (math.div($spinner-size-lg, 2) * -1) 0 0 (math.div($spinner-size-lg, 2) * -1);
       width: $spinner-size-lg;
     }
 
@@ -67,7 +69,7 @@
     &[data-size="md"]:after {
       border-width: 2px;
       height: $spinner-size-md;
-      margin: (($spinner-size-md / 2) * -1) 0 0 (($spinner-size-md / 2) * -1);
+      margin: (math.div($spinner-size-md, 2) * -1) 0 0 (math.div($spinner-size-md, 2) * -1);
       width: $spinner-size-md;
     }
 
@@ -79,7 +81,7 @@
     &[data-size="sm"]:after {
       border-width: 2px;
       height: $spinner-size-sm;
-      margin: (($spinner-size-sm / 2) * -1) 0 0 (($spinner-size-sm / 2) * -1);
+      margin: (math.div($spinner-size-sm, 2) * -1) 0 0 (math.div($spinner-size-sm, 2) * -1);
       width: $spinner-size-sm;
     }
   }

@@ -1,4 +1,4 @@
-import _Vue, { PluginFunction } from 'vue';
+import _Vue from 'vue';
 import PortalVue from 'portal-vue'
 
 // Import vue components
@@ -7,12 +7,8 @@ import * as components from '@/components/index';
 import * as directives from '@/directives/index'
 // Import vue mixins
 import * as mixins from '@/mixins/index'
-
-// Define typescript interfaces for autoinstaller
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-interface InstallFunction extends PluginFunction<any> {
-  installed?: boolean;
-}
+// Import types
+import { InstallFunction } from '~/web-ui-theme'
 
 // install function executed by Vue.use()
 const install: InstallFunction = function installWebUiTheme(Vue: typeof _Vue) {
@@ -59,7 +55,6 @@ export default plugin;
 
 // To allow individual component use, export components
 // each can be registered via Vue.component()
-export * from '@/components/forms/index';
-export * from '@/components/ui/index';
-export * from '@/components/layout/index';
-export * from '@/components/types';
+export * from '@/components/forms';
+export * from '@/components/ui';
+export * from '@/components/layout';

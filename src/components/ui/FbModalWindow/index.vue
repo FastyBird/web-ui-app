@@ -182,13 +182,14 @@
 import {
   computed,
   defineComponent,
+  nextTick,
   onMounted,
   PropType,
   ref,
   SetupContext,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbUiModalVariantTypes, FbUiButtonVariantTypes } from '@/components/types'
+import { FbSizeTypes, FbUiModalVariantTypes, FbUiButtonVariantTypes } from '~/web-ui-theme'
 
 import get from 'lodash/get'
 
@@ -317,7 +318,7 @@ export default defineComponent({
     }
 
     onMounted((): void => {
-      context.root.$nextTick(() => {
+      nextTick(() => {
         if (element.value !== null) {
           element.value.focus()
         }

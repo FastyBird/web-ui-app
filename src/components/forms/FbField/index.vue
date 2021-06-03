@@ -112,7 +112,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbFormOrientationTypes, FbSizeTypes } from '@/components/types'
+import { FbFormOrientationTypes, FbSizeTypes } from '~/web-ui-theme'
 
 export default defineComponent({
 
