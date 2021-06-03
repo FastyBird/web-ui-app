@@ -58,3 +58,5 @@ export default plugin;
 export * from '@/components/forms';
 export * from '@/components/ui';
 export * from '@/components/layout';
+// Export TS interfaces
+export * from '~/web-ui-theme'
