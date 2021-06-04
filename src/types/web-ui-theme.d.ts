@@ -1,6 +1,6 @@
 import { PluginFunction } from 'vue'
 
-export interface InstallFunction extends PluginFunction<any> {
+export interface InstallFunction extends PluginFunction<{}> {
   installed?: boolean;
 }
 

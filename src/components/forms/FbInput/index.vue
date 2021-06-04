@@ -63,7 +63,7 @@ import {
   FbFormInputTypeTypes,
   FbFormOrientationTypes,
   FbSizeTypes,
-} from '~/web-ui-theme.d.ts'
+} from '@/types/web-ui-theme'
 
 interface FbFormInputPropsInterface {
   orientation: FbFormOrientationTypes

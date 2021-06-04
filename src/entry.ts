@@ -8,7 +8,7 @@ import * as directives from '@/directives/index'
 // Import vue mixins
 import * as mixins from '@/mixins/index'
 // Import types
-import { InstallFunction } from '~/web-ui-theme.d.ts'
+import { InstallFunction } from '@/types/web-ui-theme'
 
 // install function executed by Vue.use()
 const install: InstallFunction = function installWebUiTheme(Vue: typeof _Vue) {
@@ -38,6 +38,7 @@ const plugin = {
 // To auto-install on non-es builds, when vue is found
 // eslint-disable-next-line no-redeclare
 /* global window, global */
+// @ts-ignore
 if ('false' === process.env.ES_BUILD) {
   let GlobalVue = null;
   if (typeof window !== 'undefined') {
@@ -50,6 +51,7 @@ if ('false' === process.env.ES_BUILD) {
     (GlobalVue as typeof _Vue).use(plugin);
   }
 }
+
 // Default export is library as a whole, registered via Vue.use()
 export default plugin;
 
@@ -59,4 +61,4 @@ export * from '@/components/forms';
 export * from '@/components/ui';
 export * from '@/components/layout';
 // Export TS interfaces
-export * from '~/web-ui-theme'
+export * from '@/types/web-ui-theme'

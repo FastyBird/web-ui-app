@@ -30,7 +30,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import {FbUiModalVariantTypes, FbSizeTypes} from "~/web-ui-theme.d.ts";
+import {FbUiModalVariantTypes, FbSizeTypes} from "@/types/web-ui-theme";
 
 export default defineComponent({
 

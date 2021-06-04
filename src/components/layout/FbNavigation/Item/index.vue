@@ -50,7 +50,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbMenuItemTypes } from '~/web-ui-theme.d.ts'
+import { FbMenuItemTypes } from '@/types/web-ui-theme'
 
 export default defineComponent({
 

@@ -27,7 +27,6 @@ const baseConfig = {
         resolve: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.vue'],
         entries: {
           '@': path.resolve(projectRoot, 'src'),
-          '~': path.resolve(projectRoot, 'types'),
         },
       }),
     ],

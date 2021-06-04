@@ -14,7 +14,7 @@ import {
   defineComponent,
 } from '@vue/composition-api'
 
-import { FbUiDividerVariantTypes } from '~/web-ui-theme.d.ts'
+import { FbUiDividerVariantTypes } from '@/types/web-ui-theme'
 
 export default defineComponent({
 
