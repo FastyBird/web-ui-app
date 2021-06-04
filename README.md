@@ -2,7 +2,7 @@
 
 [![Latest stable](https://badgen.net/npm/v/@fastybird/web-ui-theme?cache=300&style=flast-square)](https://www.npmjs.com/package/@fastybird/web-ui-theme)
 [![Downloads total](https://badgen.net/npm/dt/@fastybird/web-ui-theme?cache=300&style=flast-square)](https://www.npmjs.com/package/@fastybird/web-ui-theme)
-[![Licence](https://badgen.net/npm/license/@fastybird/web-ui-theme?cache=300&style=flast-square)](https://www.npmjs.com/package/@fastybird/web-ui-theme)
+[![Licence](https://badgen.net/npm/license/@fastybird/web-ui-theme?cache=300&style=flast-square)](https://github.com/FastyBird/web-ui-theme/blob/master/LICENSE.md)
 ![Types](https://badgen.net/npm/types/@fastybird/web-ui-theme?cache=300&style=flast-square)
 
 ## What is FastyBird web-ui theme library?
