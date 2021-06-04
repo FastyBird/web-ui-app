@@ -30,7 +30,7 @@
     "dist/*",
     "src/**/*.vue",
     "src/assets/*",
-    "src/type/*"
+    "src/types/*"
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
