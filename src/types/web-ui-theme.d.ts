@@ -122,7 +122,11 @@ export enum FbLayoutHeaderHeadingAlign {
   CENTER = 'center',
 }
 
-declare const WebUiTheme: { install: InstallFunction };
+declare const plugin: {
+    install: InstallFunction;
+};
+
+export default plugin;
 
 // Theme mixins
 declare module 'vue/types/vue' {
