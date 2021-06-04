@@ -25,12 +25,11 @@
   "browser": "dist/web-ui-theme.esm.js",
   "module": "dist/web-ui-theme.esm.js",
   "unpkg": "dist/web-ui-theme.min.js",
-  "types": "src/types/web-ui-theme.d.ts",
+  "types": "web-ui-theme.d.ts",
   "files": [
     "dist/*",
     "src/**/*.vue",
-    "src/assets/*",
-    "src/types/*"
+    "src/assets/*"
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
