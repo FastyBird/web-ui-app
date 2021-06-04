@@ -1,9 +1,7 @@
-@use "sass:math";
-
 @import "../../../assets/variables/screen";
 
 $divider-size:                        1px !default;
-$divider-size-half:                   ceil(math.div($divider-size, 2)) !default;
+$divider-size-half:                   ceil(($divider-size / 2)) !default;
 $divider-margin:                      2rem 0;
 $divider-color:                       #ddd;
 

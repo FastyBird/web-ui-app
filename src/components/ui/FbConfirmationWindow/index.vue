@@ -83,7 +83,7 @@ import {
   FbUiButtonVariantTypes,
   FbUiConfirmationWindowPrimaryButtonTypes,
   FbUiConfirmationWindowVariantTypes,
-} from '@/types/web-ui-theme'
+} from '@/types'
 
 interface FbUiConfirmationWindowPropsInterface {
   size: FbSizeTypes

@@ -53,7 +53,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbMenuItemTypes } from '@/types/web-ui-theme'
+import { FbMenuItemTypes } from '@/types'
 
 interface FbHeaderButtonPropsInterface {
   type: FbMenuItemTypes

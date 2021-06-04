@@ -20,7 +20,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbUiSwitchElementVariantTypes } from '@/types/web-ui-theme'
+import { FbUiSwitchElementVariantTypes } from '@/types'
 
 export default defineComponent({
 

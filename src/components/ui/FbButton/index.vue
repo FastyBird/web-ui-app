@@ -47,7 +47,7 @@ import {
   SetupContext,
 } from '@vue/composition-api'
 
-import {FbSizeTypes, FbUiButtonButtonTypes, FbUiButtonVariantTypes} from '@/types/web-ui-theme'
+import {FbSizeTypes, FbUiButtonButtonTypes, FbUiButtonVariantTypes} from '@/types'
 
 interface FbUiButtonPropsInterface {
   href: string | null

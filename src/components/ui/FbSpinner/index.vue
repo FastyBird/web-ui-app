@@ -12,7 +12,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbUiSpinnerVariantTypes } from '@/types/web-ui-theme'
+import { FbSizeTypes, FbUiSpinnerVariantTypes } from '@/types'
 
 export default defineComponent({
 

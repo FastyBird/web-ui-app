@@ -10,7 +10,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbSizeTypes } from '@/types/web-ui-theme'
+import { FbSizeTypes } from '@/types'
 
 function sizeValidator(value: FbSizeTypes): boolean {
   // The value must match one of these strings

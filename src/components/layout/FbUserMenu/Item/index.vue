@@ -36,7 +36,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbMenuItemTypes } from '@/types/web-ui-theme'
+import { FbMenuItemTypes } from '@/types'
 
 export default defineComponent({
 

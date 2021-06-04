@@ -70,7 +70,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbUiModalVariantTypes, FbUiButtonVariantTypes, FbSizeTypes } from '@/types/web-ui-theme'
+import { FbUiModalVariantTypes, FbUiButtonVariantTypes, FbSizeTypes } from '@/types'
 
 export default defineComponent({
 

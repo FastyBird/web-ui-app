@@ -28,7 +28,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbUiAlertVariantTypes } from '@/types/web-ui-theme'
+import { FbUiAlertVariantTypes } from '@/types'
 
 export default defineComponent({
 
