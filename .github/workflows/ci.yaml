@@ -266,4 +266,4 @@ jobs:
           BRANCH: master
           FOLDER: docs-build
           CLEAN: true
-          TARGET_FOLDER: .docs
+          TARGET_FOLDER: docs
