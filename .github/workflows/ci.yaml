@@ -227,6 +227,8 @@ jobs:
       matrix:
         operating-system: ["ubuntu-latest"]
 
+    if: contains(github.ref, 'refs/heads/master')
+
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2"
