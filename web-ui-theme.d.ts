@@ -140,10 +140,12 @@ declare module 'vue/types/vue' {
 }
 
 export const FbFormCheckbox: VueConstructor<Vue>
+export const FbFormCheckboxes: VueConstructor<Vue>
 export const FbFormCheckboxesGroup: VueConstructor<Vue>
 export const FbFormInput: VueConstructor<Vue>
 export const FbFormRadioButton: VueConstructor<Vue>
 export const FbFormRadioButtons: VueConstructor<Vue>
+export const FbFormRadioButtonsGroup: VueConstructor<Vue>
 export const FbFormSelect: VueConstructor<Vue>
 export const FbFormTextArea: VueConstructor<Vue>
 
