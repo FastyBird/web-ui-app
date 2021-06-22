@@ -41,7 +41,7 @@
     "lint:ts": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:styles": "stylelint 'src/**/*.scss'",
     "storybook:serve": "start-storybook -p 6006",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook -s ./src/static"
   },
   "dependencies": {
     "body-scroll-lock": "^3.0",
