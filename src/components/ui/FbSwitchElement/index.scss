@@ -73,8 +73,8 @@
 
         ~ .fb-ui-switch-element__thumb {
           border-width: 0.4rem;
-          height: $switch-height-lg - 0.8rem;
-          width: $switch-height-lg - 0.8rem;
+          height: $switch-height-lg - 0.8rem + (2 * 0.4rem);
+          width: $switch-height-lg - 0.8rem + (2 * 0.4rem);
         }
 
         &:checked {
@@ -114,8 +114,8 @@
 
         ~ .fb-ui-switch-element__thumb {
           border-width: 0.2rem;
-          height: $switch-height-md - 0.4rem;
-          width: $switch-height-md - 0.4rem;
+          height: $switch-height-md - 0.4rem + (2 * 0.2rem);
+          width: $switch-height-md - 0.4rem + (2 * 0.2rem);
         }
 
         &:checked {
@@ -156,8 +156,8 @@
 
         ~ .fb-ui-switch-element__thumb {
           border-width: 0.2rem;
-          height: $switch-height-sm - 0.4rem;
-          width: $switch-height-sm - 0.4rem;
+          height: $switch-height-sm - 0.4rem + (2 * 0.2rem);
+          width: $switch-height-sm - 0.4rem + (2 * 0.2rem);
         }
 
         &:checked {
