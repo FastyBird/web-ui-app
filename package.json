@@ -29,7 +29,9 @@
   "files": [
     "dist/*",
     "src/**/*.vue",
-    "src/assets/*"
+    "src/**/*.scss",
+    "src/assets/*",
+    "web-ui-theme.d.ts"
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js && yarn build:styles",
