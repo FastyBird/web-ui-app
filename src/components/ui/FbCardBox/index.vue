@@ -1,14 +1,14 @@
 <template>
   <div class="fb-ui-card__container">
     <div
-      v-if="slotExists('header')"
+      v-if="'header' in $slots"
       class="fb-ui-card__header"
     >
       <slot name="header" />
     </div>
 
     <div
-      v-if="slotExists('body')"
+      v-if="'body' in $slots"
       class="fb-ui-card__body"
     >
       <slot name="body" />

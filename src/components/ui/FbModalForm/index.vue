@@ -1,76 +1,65 @@
 <template>
   <fb-ui-modal-window
+    :show="show"
     :size="size"
-    :variant="variant"
+    :layout="layout"
     :transparent-bg="transparentBg"
-    :ok-btn-show="submitBtnShow"
-    :close-btn-show="cancelBtnShow"
+    :show-left-btn="cancelBtnShow"
+    :show-right-btn="submitBtnShow"
     @close="$emit('close', $event)"
   >
     <template
-      v-if="slotExists('modal-header')"
-      slot="modal-header"
+      v-if="'title' in $slots"
+      slot="title"
     >
-      <slot name="modal-header" />
+      <slot name="title" />
     </template>
 
     <template
-      v-else
-      slot="modal-title"
+      v-if="'icon' in $slots"
+      slot="icon"
     >
-      <slot
-        v-if="variant !== modalVariantTypes.PHONE && variant !== modalVariantTypes.TABLET"
-        name="icon"
-      />
+      <slot name="icon" />
+    </template>
+
+    <template
+      v-if="'header' in $slots"
+      slot="header"
+    >
       <slot name="header" />
     </template>
 
     <form
-      slot="modal-body"
+      slot="body"
       class="fb-ui-modal-form__form"
       @submit.prevent="$emit('submit', $event)"
     >
       <slot name="form" />
 
-      <div
-        v-if="state === resultTypes.WORKING"
-        class="fb-ui-modal-form__result"
-      >
-        <fb-ui-spinner />
-      </div>
-
-      <div
-        v-if="state === resultTypes.OK"
-        class="fb-ui-modal-form__result"
-      >
-        <fb-ui-result-ok />
-      </div>
-
-      <div
-        v-if="state === resultTypes.ERROR"
-        class="fb-ui-modal-form__result"
-      >
-        <fb-ui-result-err />
+      <div class="fb-ui-modal-form__result">
+        <fb-ui-spinner v-if="state === resultTypes.WORKING" />
+        <fb-ui-result-ok v-if="state === resultTypes.OK" />
+        <fb-ui-result-err v-if="state === resultTypes.ERROR" />
       </div>
     </form>
 
     <template
-      v-if="slotExists('modal-footer')"
-      slot="modal-footer"
+      v-if="'footer' in $slots"
+      slot="footer"
     >
-      <slot name="modal-footer" />
+      <slot name="footer" />
     </template>
 
     <slot name="cancel-button">
       <fb-ui-button
         v-if="cancelBtnShow"
-        slot="close-button"
+        slot="left-button"
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
-        :size="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
         :variant="buttonVariantTypes.LINK_DEFAULT"
         uppercase
-        name="close"
+        name="cancel"
         @click.prevent="$emit('cancel', $event)"
       >
         {{ cancelBtnText }}
@@ -80,13 +69,13 @@
     <slot name="submit-button">
       <fb-ui-button
         v-if="submitBtnShow"
-        slot="ok-button"
+        slot="right-button"
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
-        :size="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
-        :variant="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET ? buttonVariantTypes.LINK_DEFAULT : buttonVariantTypes.OUTLINE_PRIMARY"
+        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :variant="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? buttonVariantTypes.LINK_DEFAULT : buttonVariantTypes.OUTLINE_PRIMARY"
         uppercase
-        name="save"
+        name="submit"
         @click.prevent="$emit('submit', $event)"
       >
         {{ submitBtnText }}
@@ -105,24 +94,25 @@ import {
 
 import get from 'lodash/get'
 
-import {FbFormResultTypes, FbUiModalVariantTypes, FbSizeTypes, FbUiButtonVariantTypes} from "@/types";
+import { FbFormResultTypes, FbUiModalLayoutTypes, FbSizeTypes, FbUiButtonVariantTypes } from '@/types'
 
-interface FbUiModalFormPropsInterface {
-  size: FbSizeTypes
-  variant: FbUiModalVariantTypes
-  submitBtnText: string
-  submitBtnShow: boolean
-  cancelBtnText: string
-  cancelBtnShow: boolean
-  lockButtons: boolean
-  lockSubmitButton: boolean
-  transparentBg: boolean
-  state: FbFormResultTypes
-}
+import FbUiButton from './../FbButton/index.vue'
+import FbUiModalWindow from './../FbModalWindow/index.vue'
+import FbUiResultErr from './../FbResultErr/index.vue'
+import FbUiResultOk from './../FbResultOk/index.vue'
+import FbUiSpinner from './../FbSpinner/index.vue'
 
 export default defineComponent({
 
   name: 'FbUiModalForm',
+
+  components: {
+    FbUiButton,
+    FbUiModalWindow,
+    FbUiResultErr,
+    FbUiResultOk,
+    FbUiSpinner,
+  },
 
   props: {
 
@@ -139,15 +129,15 @@ export default defineComponent({
       },
     },
 
-    variant: {
-      type: String as PropType<FbUiModalVariantTypes>,
-      default: FbUiModalVariantTypes.DEFAULT,
-      validator: (value: FbUiModalVariantTypes) => {
+    layout: {
+      type: String as PropType<FbUiModalLayoutTypes>,
+      default: FbUiModalLayoutTypes.DEFAULT,
+      validator: (value: FbUiModalLayoutTypes) => {
         // The value must match one of these strings
         return [
-          FbUiModalVariantTypes.DEFAULT,
-          FbUiModalVariantTypes.PHONE,
-          FbUiModalVariantTypes.TABLET,
+          FbUiModalLayoutTypes.DEFAULT,
+          FbUiModalLayoutTypes.PHONE,
+          FbUiModalLayoutTypes.TABLET,
         ].includes(value)
       },
     },
@@ -187,6 +177,11 @@ export default defineComponent({
       default: false,
     },
 
+    show: {
+      type: Boolean,
+      default: true,
+    },
+
     state: {
       type: String as PropType<FbFormResultTypes>,
       default: FbFormResultTypes.NONE,
@@ -194,14 +189,14 @@ export default defineComponent({
 
   },
 
-  setup(_props: FbUiModalFormPropsInterface, context: SetupContext) {
+  setup(_props, context: SetupContext) {
     const initialTabindex = ref<number>(get(context, 'slots.form', []).length + 1)
 
     return {
       initialTabindex,
-      resultTypes: FbFormResultTypes,
-      modalVariantTypes: FbUiModalVariantTypes,
       sizeTypes: FbSizeTypes,
+      resultTypes: FbFormResultTypes,
+      modalLayoutTypes: FbUiModalLayoutTypes,
       buttonVariantTypes: FbUiButtonVariantTypes,
     }
   },

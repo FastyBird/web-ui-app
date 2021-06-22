@@ -132,12 +132,10 @@ export default plugin;
 declare module 'vue/types/vue' {
   interface Vue {
     getEventElementsPath(event: UIEvent): Array<EventTarget | Element>
-    slotExists(name: string): boolean
   }
 
   interface VueConstructor {
     getEventElementsPath(event: UIEvent): Array<EventTarget | Element>
-    slotExists(name: string): boolean
   }
 }
 
@@ -145,7 +143,7 @@ export const FbFormCheckbox: VueConstructor<Vue>
 export const FbFormCheckboxesGroup: VueConstructor<Vue>
 export const FbFormInput: VueConstructor<Vue>
 export const FbFormRadioButton: VueConstructor<Vue>
-export const FbFormRadioButtonsGroup: VueConstructor<Vue>
+export const FbFormRadioButtons: VueConstructor<Vue>
 export const FbFormSelect: VueConstructor<Vue>
 export const FbFormTextArea: VueConstructor<Vue>
 
@@ -163,11 +161,9 @@ export const FbUiLoadingBox: VueConstructor<Vue>
 export const FbUiMediaItem: VueConstructor<Vue>
 export const FbUiModalForm: VueConstructor<Vue>
 export const FbUiModalHeader: VueConstructor<Vue>
-export const FbUiModalHeaderIcon: VueConstructor<Vue>
 export const FbUiModalInfo: VueConstructor<Vue>
 export const FbUiModalWindow: VueConstructor<Vue>
 export const FbUiNoResults: VueConstructor<Vue>
-export const FbUiPageLoading: VueConstructor<Vue>
 export const FbUiResultErr: VueConstructor<Vue>
 export const FbUiResultOk: VueConstructor<Vue>
 export const FbUiSpinner: VueConstructor<Vue>

@@ -2,6 +2,8 @@
 
 .fb-ui-media-item {
   &__container {
+    font-family: $media-font-family;
+    font-size: $media-font-size;
     zoom: 1;
 
     @include flex-media;
@@ -10,7 +12,6 @@
   &__left,
   &__right {
     text-align: center;
-
     -webkit-box-flex: 0;
     -ms-flex: 0 0 5.5rem;
     flex: 0 0 5.5rem;

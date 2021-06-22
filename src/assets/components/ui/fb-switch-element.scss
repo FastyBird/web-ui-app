@@ -1,8 +1,13 @@
-@import "../../../assets/variables/colors";
-@import "../../../assets/mixins/utilities";
+@import "../../variables/colors";
+@import "../../variables/sizes";
+@import "../../mixins/utilities";
 
-$switch-height:                       2rem !default;
-$switch-width:                        4.4rem !default;
+$switch-height-sm:                    $icon-height-sm;
+$switch-width-sm:                     2.5rem !default;
+$switch-height-md:                    $icon-height-md;
+$switch-width-md:                     4.4rem !default;
+$switch-height-lg:                    $icon-height-lg;
+$switch-width-lg:                     8.8rem !default;
 
 $switch-variant-default:              #777;
 $switch-variant-primary:              #d9230f;

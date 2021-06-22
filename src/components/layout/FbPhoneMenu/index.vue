@@ -97,7 +97,7 @@ export default defineComponent({
             element.value.focus()
           }
         })
-      }
+      },
     )
 
     return {

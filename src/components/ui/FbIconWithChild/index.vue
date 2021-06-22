@@ -1,11 +1,15 @@
-<template functional>
-  <span :class="[data.class, data.staticClass, 'fb-ui-icon-with-child__container']">
+<template>
+  <span
+    :data-variant="variant"
+    :data-size="size"
+    class="fb-ui-icon-with-child__container"
+  >
     <span class="fb-ui-icon-with-child__icon">
-      <slot name="icon" />
+      <slot name="main" />
     </span>
 
     <span class="fb-ui-icon-with-child__child-icon">
-      <slot name="child-icon" />
+      <slot name="child" />
     </span>
   </span>
 </template>
@@ -13,11 +17,47 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
+
+import { FbSizeTypes, FbUiVariantTypes } from '@/types'
 
 export default defineComponent({
 
   name: 'FbUiIconWithChild',
+
+  props: {
+
+    variant: {
+      type: String as PropType<FbUiVariantTypes>,
+      default: FbUiVariantTypes.DEFAULT,
+      validator: (value: FbUiVariantTypes) => {
+        // The value must match one of these strings
+        return [
+          FbUiVariantTypes.DEFAULT,
+          FbUiVariantTypes.PRIMARY,
+          FbUiVariantTypes.SUCCESS,
+          FbUiVariantTypes.DANGER,
+          FbUiVariantTypes.WARNING,
+          FbUiVariantTypes.INFO,
+        ].includes(value)
+      },
+    },
+
+    size: {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
+      },
+    },
+
+  },
 
 })
 </script>

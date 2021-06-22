@@ -28,7 +28,7 @@ $screen-desktop-max:                  $screen-md-max;
 $screen-large:                        $screen-lg-min;
 
 @mixin flex-button {
-  @include flexRow
+  @include flexRow;
 }
 
 @mixin shadow {

@@ -2,33 +2,80 @@
 
 .fb-ui-component-loading {
   &__container {
-    padding: 3rem;
+    font-family: $loader-font-family;
+
     @include flex-container;
-  }
 
-  &__icon,
-  &__text {
-    line-height: 3rem;
-    font-size: 1.5rem;
-  }
+    .fb-ui-component-loading {
+      &__icon {
+        text-align: center;
 
-  &__icon {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 5rem;
-    flex: 0 0 5rem;
-    max-width: 5rem;
+        .fb-ui-spinner__container {
+          margin: 0 auto;
+        }
+      }
 
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .fb-ui-spinner__container {
-      margin: 0 auto;
+      &__text {
+        flex-grow: 1;
+        margin: 0;
+      }
     }
-  }
 
-  &__text {
-    flex-grow: 1;
+    &[data-size="lg"] {
+      padding: $loader-padding-lg;
+
+      .fb-ui-component-loading {
+        &__icon {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 $loader-icon-size-lg;
+          flex: 0 0 $loader-icon-size-lg;
+          max-width: $loader-icon-size-lg;
+        }
+
+        &__text {
+          line-height: $loader-icon-size-lg;
+          font-size: $loader-font-size-lg;
+          padding-left: $loader-text-padding-lg;
+        }
+      }
+    }
+
+    &[data-size="md"] {
+      padding: $loader-padding-md;
+
+      .fb-ui-component-loading {
+        &__icon {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 $loader-icon-size-md;
+          flex: 0 0 $loader-icon-size-md;
+          max-width: $loader-icon-size-md;
+        }
+
+        &__text {
+          line-height: $loader-icon-size-md;
+          font-size: $loader-font-size-md;
+          padding-left: $loader-text-padding-md;
+        }
+      }
+    }
+
+    &[data-size="sm"] {
+      padding: $loader-padding-sm;
+
+      .fb-ui-component-loading {
+        &__icon {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 $loader-icon-size-sm;
+          flex: 0 0 $loader-icon-size-sm;
+          max-width: $loader-icon-size-sm;
+        }
+
+        &__text {
+          line-height: $loader-icon-size-sm;
+          font-size: $loader-font-size-sm;
+          padding-left: $loader-text-padding-sm;
+        }
+      }
+    }
   }
 }

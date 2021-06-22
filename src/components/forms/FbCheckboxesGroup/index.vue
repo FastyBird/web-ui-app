@@ -20,7 +20,7 @@ export default defineComponent({
   props: {
 
     value: {
-      type: Array as PropType<Array<string | number | boolean>>,
+      type: Array as PropType<(string | number)[]>,
       default: () => {
         return []
       },

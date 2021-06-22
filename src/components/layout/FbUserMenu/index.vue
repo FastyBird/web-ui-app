@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="['fb-layout-user-menu__container', {'fb-layout-user-menu__container-collapsed': collapsed}]"
     v-click-outside="blur"
+    :class="['fb-layout-user-menu__container', {'fb-layout-user-menu__container-collapsed': collapsed}]"
   >
     <div
       class="fb-layout-user-menu__button"
@@ -10,7 +10,7 @@
       <div class="fb-layout-user-menu__button-avatar">
         <div class="fb-layout-user-menu__button-avatar-inner">
           <slot
-            v-if="slotExists('avatar')"
+            v-if="'avatar' in $slots"
             name="avatar"
           />
 
@@ -33,7 +33,7 @@
     </div>
 
     <ul
-      v-if="slotExists('items')"
+      v-if="'items' in $slots"
       ref="userNavigation"
       tabindex="0"
       @keydown.esc="blur"

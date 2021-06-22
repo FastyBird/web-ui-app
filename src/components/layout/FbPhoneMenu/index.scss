@@ -1,10 +1,6 @@
 @import "../../../assets/components/layout/fb-phone-menu";
 
 .fb-layout-phone-menu {
-  &__container {
-
-  }
-
   &__inner {
     padding: $inner-padding;
     position: fixed;
@@ -27,7 +23,7 @@
     line-height: $heading-line-height;
     padding: $heading-padding;
     margin: $heading-margin;
-    text-align: center
+    text-align: center;
   }
 
   &__footer {
@@ -54,7 +50,7 @@
 
 .fb-phone-menu-backdrop-enter-active,
 .fb-phone-menu-backdrop-leave-active {
-  transition: all .35s;
+  transition: all 0.35s;
 }
 
 .fb-phone-menu-backdrop-enter,
@@ -64,7 +60,7 @@
 
 .fb-phone-menu-content-enter-active,
 .fb-phone-menu-content-leave-active {
-  transition: all .35s;
+  transition: all 0.35s;
 }
 
 .fb-phone-menu-content-enter,

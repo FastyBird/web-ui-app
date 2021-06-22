@@ -1,7 +1,7 @@
 <template>
   <div class="fb-ui-media-item__container">
     <div
-      v-if="slotExists('left')"
+      v-if="'left' in $slots"
       class="fb-ui-media-item__left"
     >
       <slot name="left" />
@@ -13,14 +13,14 @@
       </h3>
 
       <p
-        v-if="slotExists('description')"
+        v-if="'description' in $slots"
         class="fb-ui-media-item__description"
       >
         <slot name="description" />
       </p>
 
       <p
-        v-if="slotExists('action')"
+        v-if="'action' in $slots"
         class="fb-ui-media-item__action"
       >
         <slot name="action" />
@@ -28,7 +28,7 @@
     </div>
 
     <div
-      v-if="slotExists('right')"
+      v-if="'right' in $slots"
       class="fb-ui-media-item__right"
     >
       <slot name="right" />

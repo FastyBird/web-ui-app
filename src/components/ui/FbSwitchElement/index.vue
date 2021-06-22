@@ -1,6 +1,7 @@
 <template functional>
   <label
     :data-variant="props.variant"
+    :data-size="props.size"
     :class="[data.class, data.staticClass, 'fb-ui-switch-element__container']"
   >
     <input
@@ -20,7 +21,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbUiSwitchElementVariantTypes } from '@/types'
+import { FbSizeTypes, FbUiVariantTypes } from '@/types'
 
 export default defineComponent({
 
@@ -39,17 +40,30 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbUiSwitchElementVariantTypes>,
-      default: FbUiSwitchElementVariantTypes.DEFAULT,
-      validator: (value: FbUiSwitchElementVariantTypes) => {
+      type: String as PropType<FbUiVariantTypes>,
+      default: FbUiVariantTypes.DEFAULT,
+      validator: (value: FbUiVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiSwitchElementVariantTypes.DEFAULT,
-          FbUiSwitchElementVariantTypes.PRIMARY,
-          FbUiSwitchElementVariantTypes.SUCCESS,
-          FbUiSwitchElementVariantTypes.DANGER,
-          FbUiSwitchElementVariantTypes.WARNING,
-          FbUiSwitchElementVariantTypes.INFO,
+          FbUiVariantTypes.DEFAULT,
+          FbUiVariantTypes.PRIMARY,
+          FbUiVariantTypes.SUCCESS,
+          FbUiVariantTypes.DANGER,
+          FbUiVariantTypes.WARNING,
+          FbUiVariantTypes.INFO,
+        ].includes(value)
+      },
+    },
+
+    size: {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
         ].includes(value)
       },
     },

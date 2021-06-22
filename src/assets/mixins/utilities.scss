@@ -1,8 +1,10 @@
 @function sum($values...) {
   $result: 0;
+
   @each $value in $values {
     $result: $result + $value;
   }
+
   @return $result;
 }
 
@@ -52,4 +54,12 @@
 @mixin border-left-radius($radius) {
   border-bottom-left-radius: $radius;
   border-top-left-radius: $radius;
+}
+
+@mixin background-opacity($color, $opacity: 0.3) {
+  background-color: rgba($color, $opacity);
+}
+
+@mixin color-opacity($color, $opacity: 0.3) {
+  color: rgba($color, $opacity);
 }

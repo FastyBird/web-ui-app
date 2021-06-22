@@ -1,9 +1,7 @@
 <template>
   <div class="fb-layout-sign-box__container">
     <div class="fb-layout-sign-box__container-inner">
-      <div class="fb-layout-sign-box__logo">
-        <slot name="logo" />
-      </div>
+      <slot name="logo" />
 
       <slot />
     </div>

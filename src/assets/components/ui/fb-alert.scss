@@ -1,31 +1,38 @@
-@import "../../../assets/mixins/utilities";
+@import "../../mixins/utilities";
+@import "../../variables/colors";
+@import "../../variables/layout";
+@import "../../variables/screen";
+@import "../../variables/texts";
 
+$alert-font-family:                   $font-family-base;
 $alert-padding:                       0.5rem 1rem;
 $alert-border-radius:                 3px;
 
-$alert-default-color:                 #fff;
-$alert-default-bg:                    #474949;
+$alert-default-color:                 $brand-default-contrast;
+$alert-default-bg:                    $brand-default;
 $alert-default-border:                $alert-default-bg;
 
-$alert-primary-color:                 #fff;
-$alert-primary-bg:                    #d9230f;
+$alert-primary-color:                 $brand-primary-contrast;
+$alert-primary-bg:                    $brand-primary;
 $alert-primary-border:                $alert-primary-bg;
 
-$alert-success-color:                 #fff;
-$alert-success-bg:                    #469408;
+$alert-success-color:                 $brand-success-contrast;
+$alert-success-bg:                    $brand-success;
 $alert-success-border:                $alert-success-bg;
 
-$alert-info-color:                    #fff;
-$alert-info-bg:                       #029acf;
+$alert-info-color:                    $brand-info-contrast;
+$alert-info-bg:                       $brand-info;
 $alert-info-border:                   $alert-info-bg;
 
-$alert-warning-color:                 #fff;
-$alert-warning-bg:                    #9b479f;
+$alert-warning-color:                 $brand-warning-contrast;
+$alert-warning-bg:                    $brand-warning;
 $alert-warning-border:                $alert-warning-bg;
 
-$alert-danger-color:                  #fff;
-$alert-danger-bg:                     #d9831f;
+$alert-danger-color:                  $brand-danger-contrast;
+$alert-danger-bg:                     $brand-danger;
 $alert-danger-border:                 $alert-danger-bg;
+
+$alert-icon-padding:                  $padding-xs;
 
 @mixin alert-variant($background, $border, $color) {
   color: $color;
@@ -39,6 +46,10 @@ $alert-danger-border:                 $alert-danger-bg;
 
   hr {
     border-top-color: $color;
+  }
+
+  svg {
+    fill: $color;
   }
 }
 

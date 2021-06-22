@@ -2,6 +2,7 @@
 
 .fb-ui-card {
   &__container {
+    font-family: $card-font-family;
     border: none;
     border-radius: $card-border-radius;
     box-shadow: $card-box-shadow;

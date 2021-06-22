@@ -1,34 +1,26 @@
 <template>
-  <div
-    :data-error="error !== null"
-    :data-checked="checked"
-    class="fb-form-radio__container"
+  <label
+    :data-size="size"
+    :data-error="hasError"
+    class="fb-form-radio-button__container"
   >
-    <label class="fb-form-radio__label">
-      <input
-        :id="id ? id : name"
-        v-model="model"
-        :name="name"
-        :value="value !== null ? value : label"
-        class="fb-form-radio__input"
-        type="radio"
-        @change="handleChange"
-      >
+    <input
+      :id="id ? id : name"
+      v-model="model"
+      :name="name"
+      :value="option"
+      :readonly="readonly"
+      :disabled="disabled"
+      :tabindex="tabIndex"
+      class="fb-form-radio-button__input"
+      type="radio"
+      @change="handleChange"
+    >
 
-      <span class="fb-form-radio__indicator" />
-      <span
-        v-if="$slots.default || label"
-        class="fb-form-radio__indicator-label"
-      >
-        <slot>{{ label }}</slot>
-      </span>
-    </label>
+    <span class="fb-form-radio-button__indicator" />
 
-    <fb-form-error
-      v-if="error !== null"
-      :error="error"
-    />
-  </div>
+    <slot>{{ label }}</slot>
+  </label>
 </template>
 
 <script lang="ts">
@@ -37,22 +29,25 @@ import {
   defineComponent,
   nextTick,
   PropType,
-  ref,
   SetupContext,
-  watch,
 } from '@vue/composition-api'
 
-import FbFormRadioButtonsGroup from '@/components/forms/FbRadioButtonsGroup/index.vue'
+import { FbSizeTypes } from '@/types'
+
+import FbFormRadioButtons from './../FbRadioButtons/index.vue'
 
 interface FbFormRadioButtonPropsInterface {
+  size: FbSizeTypes
   name: string
+  option: string | number | boolean
+  value: string | number | boolean | null
   id: string | null
-  label: string | number | boolean | null
-  value: string | number | boolean
-  required: boolean
+  label: string | null
   tabIndex: number | null
-  error: string | null
-  group: InstanceType<typeof FbFormRadioButtonsGroup> | null
+  hasError: boolean
+  readonly: boolean
+  disabled: boolean
+  group: InstanceType<typeof FbFormRadioButtons> | null
 }
 
 export default defineComponent({
@@ -61,8 +56,31 @@ export default defineComponent({
 
   props: {
 
+    size: {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbSizeTypes.LARGE,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.SMALL,
+        ].includes(value)
+      },
+    },
+
     name: {
       type: String,
+      required: true,
+    },
+
+    option: {
+      type: [String, Number, Boolean],
+      required: true,
+    },
+
+    value: {
+      type: [String, Number, Boolean],
       required: true,
     },
 
@@ -72,18 +90,8 @@ export default defineComponent({
     },
 
     label: {
-      type: [String, Number, Boolean],
+      type: String,
       default: null,
-    },
-
-    value: {
-      type: [String, Number, Boolean],
-      required: true,
-    },
-
-    required: {
-      type: Boolean,
-      default: false,
     },
 
     tabIndex: {
@@ -91,28 +99,35 @@ export default defineComponent({
       default: null,
     },
 
-    error: {
-      type: String,
-      default: null,
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false,
     },
 
     group: {
-      type: Object as PropType<InstanceType<typeof FbFormRadioButtonsGroup>>,
+      type: Object as PropType<InstanceType<typeof FbFormRadioButtons>>,
       default: null,
     },
 
   },
 
   setup(props: FbFormRadioButtonPropsInterface, context: SetupContext) {
-    const checked = ref<boolean>(false)
-
-    const model = computed<string | number | boolean | null | Array<string | number | boolean>>({
-      get: (): string | number | boolean | null | Array<string | number | boolean> => {
+    const model = computed<string | number | boolean | null>({
+      get: (): string | number | boolean | null => {
         return props.group !== null ? props.group.value : props.value
       },
       set: (val) => {
         if (props.group !== null) {
-          // eslint-disable-next-line no-useless-call
           props.group.$emit.apply(props.group, ['input', val])
         } else {
           context.emit('input', val)
@@ -120,29 +135,18 @@ export default defineComponent({
       },
     })
 
-    function handleChange(): void {
+    const handleChange = (): void => {
       nextTick(() => {
         if (props.group !== null) {
-          // eslint-disable-next-line no-useless-call
           props.group.$emit.apply(props.group, ['change', props.group.value])
+        } else {
+          context.emit('change', props.value)
         }
       })
     }
 
-    watch(
-      () => model.value,
-      ((val) => {
-        if (Array.isArray(val)) {
-          checked.value = val.includes(props.value)
-        } else {
-          checked.value = props.value === val
-        }
-      })
-    )
-
     return {
       model,
-      checked,
       handleChange,
     }
   },

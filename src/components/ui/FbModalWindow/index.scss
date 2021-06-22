@@ -1,15 +1,40 @@
-@import "../../../assets/components/ui/fb-modal";
+@import "../../../assets/components/ui/fb-modal-window";
+
+.modal-enter {
+  opacity: 0;
+  filter: alpha(opacity=0);
+
+  .fb-ui-modal-window__dialog {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+.modal-leave-active {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.modal-bounce-enter-active {
+  animation: modal-bounce-in 0.25s;
+}
+
+.modal-bounce-leave-active {
+  animation: modal-bounce-in 0.25s reverse;
+}
 
 .fb-ui-modal-window {
   &__container {
+    font-family: $modal-font-family;
+    font-size: $modal-font-size;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $overlay-background;
-    transition: opacity .3s ease;
-    z-index: $z-index;
+    background-color: $modal-overlay-background;
+    transition: opacity 0.3s ease;
+    z-index: $modal-z-index;
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
     overflow-y: auto;
@@ -19,7 +44,51 @@
     align-items: baseline;
 
     &-transparent {
-      background-color: $overlay-background-transparent;
+      background-color: $modal-overlay-bg-transparent;
+    }
+
+    .fb-ui-modal-window {
+      &__window {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: $modal-top-offset;
+        padding-bottom: $modal-bottom-offset;
+        overflow: hidden;
+        z-index: ($modal-z-index + 1);
+      }
+
+      &__dialog {
+        position: relative;
+        width: auto;
+      }
+
+      &__content {
+        position: relative;
+        border-radius: $modal-content-border-radius;
+        background-color: $modal-content-bg-color;
+        background-clip: padding-box;
+        overflow: hidden;
+        outline: 0;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @include modal-content-shadow;
+      }
+
+      &__body {
+        position: relative;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      &__footer {
+        padding: $modal-footer-padding;
+        text-align: right;
+      }
     }
 
     &[data-size="sm"] {
@@ -51,10 +120,14 @@
       }
     }
 
-    &[data-variant="phone"] {
+    &[data-layout="phone"] {
       .fb-ui-modal-window {
         &__window {
-          padding-top: 1rem;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          height: 100%;
         }
 
         &__dialog {
@@ -73,16 +146,18 @@
       }
     }
 
-    &[data-variant="tablet"] {
+    &[data-layout="tablet"] {
       .fb-ui-modal-window {
         &__window {
-          padding-top: 1rem;
-          padding-bottom: 1rem;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
           height: 100%;
         }
 
         &__dialog {
-          height: 100%;
+          height: 98vh;
         }
 
         &__content {
@@ -96,202 +171,48 @@
     }
   }
 
-  &__window {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: $modal-top-offset;
-    padding-bottom: $modal-bottom-offset;
-    height: 100%;
-    overflow: hidden;
-    z-index: ($z-index + 1);
-  }
-
-  &__dialog {
-    position: relative;
-    width: auto;
-    height: 100%;
-  }
-
-  &__content {
-    position: relative;
-    border-radius: $content-border-radius;
-    background-color: $content-background-color;
-    background-clip: padding-box;
-    overflow: hidden;
-    outline: 0;
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    @include content-shadow;
-  }
-
-  &__header {
-    padding: 1.5rem;
-    border-bottom: none;
-    color: $header-color;
-    background-color: $header-background-color;
-
-    h4 {
-      margin: 0;
-      line-height: $line-height;
-    }
-
-    &-buttons {
-      @include flex-phone-header;
-
-      &-heading {
-        flex-grow: 2;
-
-        h4 {
-          text-align: center;
-        }
-      }
-
-      &-left-button {
-        order: -1;
-        text-align: left;
-      }
-
-      &-right-button {
-        text-align: right;
-      }
-
-      &-left-button,
-      &-right-button {
-        flex-grow: 1;
-        color: $header-color;
-        font-size: $header-button-font-size;
-
-        .fb-ui-button {
-          color: $header-color;
-          font-size: $header-button-font-size;
-
-          &:hover,
-          &:focus,
-          &:active {
-            outline: 0;
-            background-image: none;
-            color: $header-color;
-            text-decoration: none;
-
-            svg {
-              color: $header-color;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &__body {
-    position: relative;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-
-  &__close {
-    margin-top: -2px;
-    float: right;
-    font-size: ($font-size * 1.5);
-    font-weight: bold;
-    line-height: 1;
-    color: $header-close-color;
-    text-shadow: $header-close-shadow;
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    -webkit-appearance: none;
-
-    @include close;
-
-    &:hover,
-    &:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  }
-
-  &__footer {
-    padding: $footer-padding;
-    text-align: right;
-  }
-
   &__loading {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: $loader-background-color;
-    z-index: ($z-index + 10);
-
+    background: $modal-loader-bg-color;
+    z-index: ($modal-z-index + 10);
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
-    &-inner {
-      margin-left: auto;
-      margin-right: auto;
-      width: $loader-width;
-      text-align: center;
+    &-logo {
+      width: $modal-loader-width;
 
-      svg {
-        width: 100%;
-        margin-bottom: 2rem;
+      path {
+        &.dark_color {
+          fill: $logo-color-dark;
+          fill-rule: nonzero;
+        }
 
-        path {
-          &.dark_color {
-            fill: $color-dark;
-            fill-rule: nonzero;
-          }
-
-          &.brand_color {
-            fill: $color-primary;
-            fill-rule: nonzero;
-          }
+        &.brand_color {
+          fill: $logo-color-primary;
+          fill-rule: nonzero;
         }
       }
     }
   }
-}
-
-.modal-enter {
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-
-.modal-leave-active {
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-
-.modal-enter .fb-ui-modal-window__dialog {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.modal-bounce-enter-active {
-  animation: modal-bounce-in .25s;
-}
-
-.modal-bounce-leave-active {
-  animation: modal-bounce-in .25s reverse;
 }
 
 @keyframes modal-bounce-in {
   0% {
     transform: scale(0);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }

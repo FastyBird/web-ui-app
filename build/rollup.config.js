@@ -6,7 +6,7 @@ import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
-import { terser } from 'rollup-plugin-terser';
+import {terser} from 'rollup-plugin-terser';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
@@ -24,7 +24,7 @@ const baseConfig = {
   plugins: {
     preVue: [
       alias({
-        resolve: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.vue'],
+        resolve: ['.js', '.ts', '.vue'],
         entries: {
           '@': path.resolve(projectRoot, 'src'),
         },
@@ -75,6 +75,7 @@ const globals = {
 
 // Customize configs for individual targets
 const buildFormats = [];
+
 if (!argv.format || argv.format === 'es') {
   const esConfig = {
     ...baseConfig,
@@ -105,6 +106,7 @@ if (!argv.format || argv.format === 'es') {
       commonjs(),
     ],
   };
+
   buildFormats.push(esConfig);
 }
 
@@ -134,6 +136,7 @@ if (!argv.format || argv.format === 'cjs') {
       commonjs(),
     ],
   };
+
   buildFormats.push(umdConfig);
 }
 
@@ -162,9 +165,9 @@ if (!argv.format || argv.format === 'iife') {
       }),
     ],
   };
+
   buildFormats.push(unpkgConfig);
 }
-
 
 // Export config
 export default buildFormats;

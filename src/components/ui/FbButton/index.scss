@@ -1,20 +1,22 @@
 @import "../../../assets/components/ui/fb-button";
 
+// UI button
+// --------------------------------------------------
+
 .fb-ui-button {
   display: inline-block;
   margin: 0;
+  font-family: $btn-font-family;
   font-weight: $btn-font-weight;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
   border: 1px solid transparent;
   white-space: nowrap;
-
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none; // IE10+
   user-select: none;
-
   background-image: none;
   background-position: $btn-background-position;
   background-size: $btn-background-size;
@@ -31,75 +33,184 @@
   &.focus {
     color: $btn-default-color;
     text-decoration: none;
-
-    svg {
-      color: $btn-default-color;
-    }
   }
 
   &:active,
   &.active {
     outline: 0;
-    background-image: none;
+    background-size: $btn-active-background-size;
+    box-shadow: $btn-active-box-shadow;
 
-    @include active-shadow;
+    @include button-active-shadow;
   }
 
   &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
+  &[disabled] {
     cursor: not-allowed;
     opacity: 0.65;
     filter: alpha(opacity=65);
-
-    @include disabled-shadow;
-  }
-
-  &:active,
-  &.active {
-    background-image: $btn-active-gradient;
-    background-size: $btn-active-background-size;
-    box-shadow: $btn-active-box-shadow;
-  }
-}
-
-a.fb-ui-button {
-  &.disabled,
-  fieldset[disabled] & {
     pointer-events: none;
+
+    @include button-disabled-shadow;
   }
-}
 
-// Buttons variants
-// --------------------------------------------------
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.fb-ui-button {
+  // Buttons sizes
+  // --------------------------------------------------
+
+  &[data-size="lg"] {
+    @include button-size($btn-padding-lg-vertical, $btn-padding-lg-horizontal, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-large);
+
+    .fb-ui-button {
+      &__inner {
+        &-icon {
+          height: $btn-icon-lg-height;
+          font-size: $btn-icon-lg-height;
+        }
+
+        &-label {
+          padding-left: $btn-padding-lg-horizontal-icon;
+        }
+      }
+    }
+  }
+
+  &[data-size="md"] {
+    @include button-size($btn-padding-md-vertical, $btn-padding-md-horizontal, $btn-font-size-md, $btn-line-height-md, $btn-border-radius-base);
+
+    .fb-ui-button {
+      &__inner {
+        &-icon {
+          height: $btn-icon-md-height;
+          font-size: $btn-icon-md-height;
+        }
+
+        &-label {
+          padding-left: $btn-padding-md-horizontal-icon;
+        }
+      }
+    }
+  }
+
+  &[data-size="sm"] {
+    @include button-size($btn-padding-sm-vertical, $btn-padding-sm-horizontal, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-small);
+
+    .fb-ui-button {
+      &__inner {
+        &-icon {
+          height: $btn-icon-sm-height;
+          font-size: $btn-icon-sm-height;
+        }
+
+        &-label {
+          padding-left: $btn-padding-sm-horizontal-icon;
+        }
+      }
+    }
+  }
+
+  &[data-size="xs"] {
+    @include button-size($btn-padding-xs-vertical, $btn-padding-xs-horizontal, $btn-font-size-xs, $btn-line-height-xs, $btn-border-radius-small);
+
+    .fb-ui-button {
+      &__inner {
+        &-label {
+          padding-left: $btn-padding-xs-horizontal-icon;
+        }
+      }
+    }
+  }
+
+  // Buttons variants
+  // --------------------------------------------------
+
   &[data-variant="default"] {
     @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      @include background-opacity($btn-default-bg, 0.65);
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="primary"] {
     @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      @include background-opacity($btn-primary-bg, 0.65);
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="success"] {
     @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      @include background-opacity($btn-success-bg, 0.65);
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="info"] {
     @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      @include background-opacity($btn-info-bg, 0.65);
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="warning"] {
     @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      @include background-opacity($btn-warning-bg, 0.65);
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="danger"] {
     @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-  }
 
-  &[data-variant="warning"] {
-    @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      @include background-opacity($btn-danger-bg, 0.65);
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="outline-default"] {
@@ -127,202 +238,61 @@ a.fb-ui-button {
   }
 
   &[data-variant="link"] {
-    color: $btn-link-color;
-    font-weight: normal;
-    border-radius: 0;
-
-    svg {
-      color: $btn-link-color;
-    }
-
-    &,
-    &:active,
-    &.active,
-    &[disabled],
-    fieldset[disabled] & {
-      background-color: transparent;
-      @include disabled-shadow;
-    }
-
-    &,
-    &:active,
-    &.active {
-      background-color: transparent;
-      background-image: none;
-      background-size: auto;
-      box-shadow: none;
-    }
-
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      border-color: transparent;
-    }
-
-    &:hover,
-    &:focus {
-      color: $btn-link-hover-color;
-      text-decoration: $btn-link-hover-decoration;
-      background-color: transparent;
-
-      svg {
-        color: $btn-link-hover-color;
-      }
-    }
-
-    &[disabled],
-    fieldset[disabled] & {
-      &:hover,
-      &:focus {
-        color: $btn-link-disabled-color;
-        text-decoration: none;
-
-        svg {
-          color: $btn-link-disabled-color;
-        }
-      }
-    }
+    @include button-link-variant($btn-link-color, $btn-link-disabled-color, $btn-link-hover-color, $btn-link-hover-decoration);
   }
 
   &[data-variant="link-default"] {
-    color: $btn-link-default-color;
-    font-weight: normal;
-    border-radius: 0;
-
-    svg {
-      color: $btn-link-default-color;
-    }
-
-    &,
-    &:active,
-    &.active,
-    &[disabled],
-    fieldset[disabled] & {
-      background-color: transparent;
-      @include disabled-shadow;
-    }
-
-    &,
-    &:active,
-    &.active {
-      background-color: transparent;
-      background-image: none;
-      background-size: auto;
-      box-shadow: none;
-    }
-
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      border-color: transparent;
-    }
-
-    &:hover,
-    &:focus {
-      color: $btn-link-default-hover-color;
-      text-decoration: $btn-link-default-hover-decoration;
-      background-color: transparent;
-
-      svg {
-        color: $btn-link-default-hover-color;
-      }
-    }
-
-    &[disabled],
-    fieldset[disabled] & {
-      &:hover,
-      &:focus {
-        color: $btn-link-default-disabled-color;
-        text-decoration: none;
-
-        svg {
-          color: $btn-link-default-disabled-color;
-        }
-      }
-    }
-  }
-}
-
-// Buttons sizes
-// --------------------------------------------------
-
-.fb-ui-button {
-  &[data-size="lg"] {
-    @include button-size($btn-padding-lg-vertical, $btn-padding-lg-horizontal, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-large);
+    @include button-link-variant($btn-link-default-color, $btn-link-default-disabled-color, $btn-link-default-hover-color, $btn-link-default-hover-decoration);
   }
 
-  &[data-size="md"] {
-    @include button-size($btn-padding-md-vertical, $btn-padding-md-horizontal, $btn-font-size-md, $btn-line-height-md, $btn-border-radius-base);
-  }
+  // Block button
+  // --------------------------------------------------
 
-  &[data-size="sm"] {
-    @include button-size($btn-padding-sm-vertical, $btn-padding-sm-horizontal, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-small);
-  }
-
-  &[data-size="xs"] {
-    @include button-size($btn-padding-xs-vertical, $btn-padding-xs-horizontal, $btn-font-size-xs, $btn-line-height-xs, $btn-border-radius-small);
-  }
-}
-
-// Block button
-// --------------------------------------------------
-
-.fb-ui-button-block {
-  display: block;
-  width: 100%;
-}
-
-// Vertically space out multiple block buttons
-.fb-ui-button-block + .fb-ui-button-block {
-  margin-top: 5px;
-}
-
-.fb-ui-button-pill {
-  border-radius: $btn-pill-border-radius;
-  padding-left: $btn-pill-padding-horizontal;
-  padding-right: $btn-pill-padding-horizontal;
-}
-
-.fb-ui-button-thick {
-  border-width: $btn-thick-border-width;
-  font-weight: $btn-thick-font-weight;
-}
-
-.fb-ui-button-expander {
-  border: 0;
-  border-radius: $btn-border-radius-small;
-  font-family: sans-serif;
-  font-size: $btn-font-size-sm;
-  font-weight: bold;
-  height: $btn-line-height-sm;
-  line-height: $btn-expander-line-height;
-  margin-left: 5px;
-  padding: 0 5px;
-  position: relative;
-  top: -1px;
-}
-
-.fb-ui-button-uppercase {
-  text-transform: uppercase;
-}
-
-.fb-ui-button-icon {
-  box-sizing: content-box;
-  padding: 0;
-
-  .badge-above {
-    position: absolute;
-    top: -$btn-badge-height-half;
-  }
-}
-
-// Specificity overrides
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  &.btn-block {
+  &.fb-ui-button-block {
+    display: block;
     width: 100%;
+  }
+
+  // Pill button
+  // --------------------------------------------------
+
+  &.fb-ui-button-pill {
+    border-radius: $btn-pill-border-radius;
+    padding-left: $btn-pill-padding-horizontal;
+    padding-right: $btn-pill-padding-horizontal;
+  }
+
+  // Thick button
+  // --------------------------------------------------
+
+  &.fb-ui-button-thick {
+    border-width: $btn-thick-border-width;
+    font-weight: $btn-thick-font-weight;
+  }
+
+  // Uppercased button
+  // --------------------------------------------------
+
+  &.fb-ui-button-uppercase {
+    text-transform: uppercase;
+  }
+
+  // Button with icon
+  // --------------------------------------------------
+
+  &.fb-ui-button-icon {
+    box-sizing: content-box;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }

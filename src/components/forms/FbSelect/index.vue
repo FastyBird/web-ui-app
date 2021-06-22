@@ -6,19 +6,19 @@
     :name="name"
     :label="label"
     :required="required"
-    :is-focused="focused"
+    :is-focused="isFocused"
     :has-value="true"
     :error="error"
   >
     <template
-      v-if="slotExists('left-addon')"
+      v-if="'left-addon' in $slots"
       slot="left-addon"
     >
       <slot name="left-addon" />
     </template>
 
     <template
-      v-if="slotExists('right-addon')"
+      v-if="'right-addon' in $slots"
       slot="right-addon"
     >
       <slot name="right-addon" />
@@ -28,13 +28,17 @@
       <select
         :id="id ? id : name"
         :ref="`field-${name}`"
+        :data-size="size"
+        :data-error="error !== null"
         :name="name"
         :tabindex="tabIndex"
+        :disabled="disabled"
+        :readonly="readonly"
         class="fb-form-select__control"
-        @input="updateValue($event.target.value)"
-        @change="changed()"
-        @focus="setFocused(true)"
-        @blur="setFocused(false)"
+        @input="handleUpdateValue($event.target.value)"
+        @focus="handleSetFocus(true)"
+        @blur="handleSetFocus(false)"
+        @change="handleChange"
       >
         <option
           v-if="blankSelect !== null"
@@ -53,7 +57,7 @@
               v-for="(subitem, subindex) in item.value"
               :key="`${index}_${subindex}`"
               :value="subitem.value"
-              :selected="value == subitem.value ? 'selected' : ''"
+              :selected="String(value) === String(item.value) ? 'selected' : ''"
             >
               {{ subitem.name }}
             </option>
@@ -63,7 +67,7 @@
             v-else
             :key="index"
             :value="item.value"
-            :selected="value == item.value ? 'selected' : ''"
+            :selected="String(value) === String(item.value) ? 'selected' : ''"
           >
             {{ item.name }}
           </option>
@@ -72,7 +76,7 @@
     </template>
 
     <template
-      v-if="slotExists('help-line') && !hasError"
+      v-if="'help-line' in $slots"
       slot="help-line"
     >
       <slot name="help-line" />
@@ -93,6 +97,8 @@ import {
   FbSizeTypes,
 } from '@/types'
 
+import FbFormField from './../FbField/index.vue'
+
 export interface FbFormSelectItemInterface {
   name: string
   value: string | number
@@ -100,28 +106,33 @@ export interface FbFormSelectItemInterface {
 
 export interface FbFormSelectItemGroupInterface {
   name: string
-  items: Array<FbFormSelectItemInterface>
+  items: FbFormSelectItemInterface[]
 }
 
 interface FbFormSelectPropsInterface {
   orientation: FbFormOrientationTypes
   size: FbSizeTypes
   name: string
+  items: (FbFormSelectItemInterface | FbFormSelectItemGroupInterface)[]
+  value: string | number | null
   id: string | null
   label: string | null
   required: boolean
-  items: Array<FbFormSelectItemInterface | FbFormSelectItemGroupInterface>
-  value: string | number | null
   tabIndex: number | null
   hasError: boolean
   error: string | null
   blankSelect: string | null
   readonly: boolean
+  disabled: boolean
 }
 
 export default defineComponent({
 
   name: 'FbFormSelect',
+
+  components: {
+    FbFormField,
+  },
 
   props: {
 
@@ -156,6 +167,16 @@ export default defineComponent({
       required: true,
     },
 
+    items: {
+      type: Array as PropType<(FbFormSelectItemInterface | FbFormSelectItemGroupInterface)[]>,
+      required: true,
+    },
+
+    value: {
+      type: [String, Number],
+      default: null,
+    },
+
     id: {
       type: String,
       default: null,
@@ -171,24 +192,9 @@ export default defineComponent({
       default: false,
     },
 
-    items: {
-      type: Array,
-      required: true,
-    },
-
-    value: {
-      type: [String, Number],
-      default: null,
-    },
-
     tabIndex: {
       type: Number,
       default: null,
-    },
-
-    hasError: {
-      type: Boolean,
-      default: false,
     },
 
     error: {
@@ -206,19 +212,24 @@ export default defineComponent({
       default: false,
     },
 
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+
   },
 
   setup(props: FbFormSelectPropsInterface, context: SetupContext) {
-    const focused = ref<boolean>(false)
+    const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
-    function updateValue(value: string | number | null): void {
+    const handleUpdateValue = (value: string | number | null): void => {
       context.emit('input', value)
     }
 
     // Fire focus & blur events
-    function setFocused(value: boolean): void {
-      focused.value = value
+    const handleSetFocus = (value: boolean): void => {
+      isFocused.value = value
 
       if (value) {
         context.emit('focus')
@@ -227,15 +238,15 @@ export default defineComponent({
       }
     }
 
-    function changed(): void {
+    const handleChange = (): void => {
       context.emit('change', props.value)
     }
 
     return {
-      focused,
-      updateValue,
-      setFocused,
-      changed,
+      isFocused,
+      handleUpdateValue,
+      handleSetFocus,
+      handleChange,
     }
   },
 

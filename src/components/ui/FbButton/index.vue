@@ -9,7 +9,34 @@
     role="button"
     @click.native="clickHandle($event)"
   >
-    <slot />
+    <div
+      v-if="'icon' in $slots"
+      class="fb-ui-button__inner"
+    >
+      <div class="fb-ui-button__inner-icon">
+        <slot name="icon" />
+      </div>
+      <div
+        v-if="'default' in $slots"
+        class="fb-ui-button__inner-label"
+      >
+        <slot />
+      </div>
+    </div>
+
+    <template v-else>
+      <slot />
+    </template>
+
+    <span
+      v-if="loading"
+      class="fb-ui-button__loading"
+    >
+      <fb-ui-spinner
+        :size="size"
+        :variant="loader"
+      />
+    </span>
   </nuxt-link>
 
   <a
@@ -22,7 +49,34 @@
     role="button"
     @click.native="clickHandle($event)"
   >
-    <slot />
+    <div
+      v-if="'icon' in $slots"
+      class="fb-ui-button__inner"
+    >
+      <div class="fb-ui-button__inner-icon">
+        <slot name="icon" />
+      </div>
+      <div
+        v-if="'default' in $slots"
+        class="fb-ui-button__inner-label"
+      >
+        <slot />
+      </div>
+    </div>
+
+    <template v-else>
+      <slot />
+    </template>
+
+    <span
+      v-if="loading"
+      class="fb-ui-button__loading"
+    >
+      <fb-ui-spinner
+        :size="size"
+        :variant="loader"
+      />
+    </span>
   </a>
 
   <button
@@ -36,37 +90,72 @@
     role="button"
     @click="clickHandle($event)"
   >
-    <slot />
+    <div
+      v-if="'icon' in $slots"
+      class="fb-ui-button__inner"
+    >
+      <div class="fb-ui-button__inner-icon">
+        <slot name="icon" />
+      </div>
+      <div
+        v-if="'default' in $slots"
+        class="fb-ui-button__inner-label"
+      >
+        <slot />
+      </div>
+    </div>
+
+    <template v-else>
+      <slot />
+    </template>
+
+    <span
+      v-if="loading"
+      class="fb-ui-button__loading"
+    >
+      <fb-ui-spinner
+        :size="size"
+        :variant="loader"
+      />
+    </span>
   </button>
 </template>
 
 <script lang="ts">
 import {
+  computed,
   defineComponent,
-  PropType, ref,
+  PropType,
+  ref,
   SetupContext,
 } from '@vue/composition-api'
 
-import {FbSizeTypes, FbUiButtonButtonTypes, FbUiButtonVariantTypes} from '@/types'
+import { FbSizeTypes, FbUiVariantTypes, FbUiButtonButtonTypes, FbUiButtonVariantTypes } from '@/types'
+
+import FbUiSpinner from './../FbSpinner/index.vue'
 
 interface FbUiButtonPropsInterface {
   href: string | null
-  to: string | {} | null
+  to: string | unknown | null
   type: FbUiButtonButtonTypes
   size: FbSizeTypes
+  variant: FbUiButtonVariantTypes
   block: boolean
   uppercase: boolean
   pill: boolean
   thick: boolean
-  expander: boolean
-  icon: boolean
   active: boolean
   disabled: boolean
+  loading: boolean
 }
 
 export default defineComponent({
 
   name: 'FbUiButton',
+
+  components: {
+    FbUiSpinner,
+  },
 
   props: {
 
@@ -151,16 +240,6 @@ export default defineComponent({
       default: false,
     },
 
-    expander: {
-      type: Boolean,
-      default: false,
-    },
-
-    icon: {
-      type: Boolean,
-      default: false,
-    },
-
     active: {
       type: Boolean,
       default: false,
@@ -171,44 +250,91 @@ export default defineComponent({
       default: false,
     },
 
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+
   },
 
   setup(props: FbUiButtonPropsInterface, context: SetupContext) {
     const element = ref<HTMLElement | null>(null)
 
-    const classNames = []
+    const classNames = computed<string[]>((): string[] => {
+      const computedClassnames = []
 
-    classNames.push('fb-ui-button')
+      computedClassnames.push('fb-ui-button')
 
-    if (props.block) {
-      classNames.push('fb-ui-button-block')
-    }
+      if (props.block) {
+        computedClassnames.push('fb-ui-button-block')
+      }
 
-    if (props.pill) {
-      classNames.push('fb-ui-button-pill')
-    }
+      if (props.pill) {
+        computedClassnames.push('fb-ui-button-pill')
+      }
 
-    if (props.thick) {
-      classNames.push('fb-ui-button-thick')
-    }
+      if (props.thick) {
+        computedClassnames.push('fb-ui-button-thick')
+      }
 
-    if (props.expander) {
-      classNames.push('fb-ui-button-expander')
-    }
+      if (props.uppercase) {
+        computedClassnames.push('fb-ui-button-uppercase')
+      }
 
-    if (props.uppercase) {
-      classNames.push('fb-ui-button-uppercase')
-    }
+      if ('icon' in context.slots) {
+        computedClassnames.push('fb-ui-button-icon')
+      }
 
-    if (props.icon) {
-      classNames.push('fb-ui-button-icon')
-    }
+      if (props.active) {
+        computedClassnames.push('active')
+      }
 
-    if (props.active) {
-      classNames.push('active')
-    }
+      if (props.loading) {
+        computedClassnames.push('fb-ui-button-loading')
+      }
 
-    function clickHandle(e: Event): void {
+      return computedClassnames
+    })
+
+    const spinnerVariant = computed<FbUiVariantTypes>((): FbUiVariantTypes => {
+      if (
+        props.variant === FbUiButtonVariantTypes.PRIMARY ||
+        props.variant === FbUiButtonVariantTypes.OUTLINE_PRIMARY ||
+        props.variant === FbUiButtonVariantTypes.LINK
+      ) {
+        return FbUiVariantTypes.PRIMARY
+      } else if (
+        props.variant === FbUiButtonVariantTypes.WARNING ||
+        props.variant === FbUiButtonVariantTypes.OUTLINE_WARNING
+      ) {
+        return FbUiVariantTypes.WARNING
+      } else if (
+        props.variant === FbUiButtonVariantTypes.SUCCESS ||
+        props.variant === FbUiButtonVariantTypes.OUTLINE_SUCCESS
+      ) {
+        return FbUiVariantTypes.SUCCESS
+      } else if (
+        props.variant === FbUiButtonVariantTypes.INFO ||
+        props.variant === FbUiButtonVariantTypes.OUTLINE_INFO
+      ) {
+        return FbUiVariantTypes.INFO
+      } else if (
+        props.variant === FbUiButtonVariantTypes.DANGER ||
+        props.variant === FbUiButtonVariantTypes.OUTLINE_DANGER
+      ) {
+        return FbUiVariantTypes.DANGER
+      } else if (
+        props.variant === FbUiButtonVariantTypes.DEFAULT ||
+        props.variant === FbUiButtonVariantTypes.OUTLINE_DEFAULT ||
+        props.variant === FbUiButtonVariantTypes.LINK_DEFAULT
+      ) {
+        return FbUiVariantTypes.DEFAULT
+      }
+
+      return FbUiVariantTypes.DEFAULT
+    })
+
+    const clickHandle = (e: Event): void => {
       context.emit('click', e)
 
       if (element.value !== null && typeof element.value.blur !== 'undefined') {
@@ -220,6 +346,7 @@ export default defineComponent({
       element,
       classNames,
       clickHandle,
+      loader: spinnerVariant,
     }
   },
 

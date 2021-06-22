@@ -2,6 +2,7 @@
 
 .fb-ui-items-container {
   &__container {
+    font-family: $container-font-family;
     margin: $container-margin;
 
     &:first-child {
@@ -31,26 +32,23 @@
       line-height: $heading-line-height;
       font-size: $heading-font-size;
       height: auto;
+
+      small {
+        font-weight: normal;
+        line-height: 1;
+        color: $heading-small-color;
+        font-size: 65%;
+      }
     }
   }
 
   &__buttons {
     text-align: right;
-
     padding-right: $heading-buttons-padding;
-
     -webkit-box-flex: 0;
     -ms-flex: 0 0 $heading-buttons-width;
     flex: 0 0 $heading-buttons-width;
     max-width: $heading-buttons-width;
-
-    .fb-ui-button {
-      min-width: $heading-buttons-button-min-width;
-      height: $heading-buttons-button-height;
-      padding: $heading-buttons-button-padding;
-      line-height: $heading-buttons-button-height;
-      font-size: $heading-buttons-button-font-size;
-    }
   }
 
   &__items {

@@ -1,40 +1,44 @@
-@import "../../../assets/mixins/utilities";
+@import "../../mixins/utilities";
+@import "../../variables/colors";
+@import "../../variables/sizes";
+@import "../../variables/texts";
 
+$btn-font-family:                     $font-family-base;
 $btn-font-weight:                     normal;
 
-$btn-default-color:                   #fff;
-$btn-default-bg:                      #474949;
+$btn-default-color:                   $brand-default-contrast;
+$btn-default-bg:                      $brand-default;
 $btn-default-border:                  $btn-default-bg;
 
-$btn-primary-color:                   #fff;
-$btn-primary-bg:                      #d9230f;
+$btn-primary-color:                   $brand-primary-contrast;
+$btn-primary-bg:                      $brand-primary;
 $btn-primary-border:                  $btn-primary-bg;
 
-$btn-success-color:                   #fff;
-$btn-success-bg:                      #469408;
+$btn-success-color:                   $brand-success-contrast;
+$btn-success-bg:                      $brand-success;
 $btn-success-border:                  $btn-success-bg;
 
-$btn-info-color:                      #fff;
-$btn-info-bg:                         #029acf;
+$btn-info-color:                      $brand-info-contrast;
+$btn-info-bg:                         $brand-info;
 $btn-info-border:                     $btn-info-bg;
 
-$btn-warning-color:                   #fff;
-$btn-warning-bg:                      #9b479f;
+$btn-warning-color:                   $brand-warning-contrast;
+$btn-warning-bg:                      $brand-warning;
 $btn-warning-border:                  $btn-warning-bg;
 
-$btn-danger-color:                    #fff;
-$btn-danger-bg:                       #d9831f;
+$btn-danger-color:                    $brand-danger-contrast;
+$btn-danger-bg:                       $brand-danger;
 $btn-danger-border:                   $btn-danger-bg;
 
-$btn-link-color:                      #d9230f;
-$btn-link-hover-color:                #d9230f;
+$btn-link-color:                      $brand-primary;
+$btn-link-hover-color:                $brand-primary;
 $btn-link-hover-decoration:           underline;
-$btn-link-disabled-color:             #808080;
+$btn-link-disabled-color:             $gray-light;
 
-$btn-link-default-color:              #474949;
-$btn-link-default-hover-color:        #474949;
+$btn-link-default-color:              $brand-default;
+$btn-link-default-hover-color:        $brand-default;
 $btn-link-default-hover-decoration:   underline;
-$btn-link-default-disabled-color:     #ddd;
+$btn-link-default-disabled-color:     $gray-lighter;
 
 $btn-border-radius-base:              3px;
 $btn-border-radius-large:             4px;
@@ -51,41 +55,53 @@ $btn-active-gradient:                 none !default;
 $btn-active-background-size:          null !default;
 $btn-active-box-shadow:               none !default;
 
-$btn-pill-border-radius:              10em !default;
-$btn-pill-padding-horizontal:         1.25em !default;
+$btn-pill-border-radius:              4rem !default;
+$btn-pill-padding-horizontal:         2.2rem !default;
 
 $btn-thick-border-width:              2px !default;
 $btn-thick-font-weight:               600 !default;
 
 $btn-expander-font-size:              12px !default;
-$btn-expander-line-height:            ceil(($btn-expander-font-size / 2)) !default;
+$btn-expander-line-height:            ceil($btn-expander-font-size / 2) !default;
 
-$btn-badge-height-half:               ceil((sum(2px, 2px * 2, 11px) / 2)) !default;
+$btn-badge-height-half:               ceil(sum(2px, 2px * 2, 11px) / 2) !default;
 
 $btn-font-size-xs:                    1.2rem;
 $btn-font-size-sm:                    1.3rem;
-$btn-font-size-md:                    1.4rem;
-$btn-font-size-lg:                    1.5rem;
+$btn-font-size-md:                    1.5rem;
+$btn-font-size-lg:                    2rem;
 
 $btn-line-height-xs:                  1.8rem;
 $btn-line-height-sm:                  2.2rem;
 $btn-line-height-md:                  2.4rem;
-$btn-line-height-lg:                  2.6rem;
+$btn-line-height-lg:                  3rem;
 
 $btn-padding-xs-vertical:             0.2rem;
 $btn-padding-xs-horizontal:           0.5rem;
+$btn-padding-xs-horizontal-icon:      0.3rem;
 $btn-padding-sm-vertical:             0.3rem;
 $btn-padding-sm-horizontal:           0.9rem;
+$btn-padding-sm-horizontal-icon:      0.4rem;
 $btn-padding-md-vertical:             0.5rem;
 $btn-padding-md-horizontal:           1.5rem;
-$btn-padding-lg-vertical:             0.7rem;
-$btn-padding-lg-horizontal:           2.1rem;
+$btn-padding-md-horizontal-icon:      1rem;
+$btn-padding-lg-vertical:             1.4rem;
+$btn-padding-lg-horizontal:           2.2rem;
+$btn-padding-lg-horizontal-icon:      1.2rem;
+
+$btn-icon-sm-height:                  $icon-height-sm;
+$btn-icon-md-height:                  $icon-height-md;
+$btn-icon-lg-height:                  $icon-height-lg;
 
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   line-height: $line-height;
   border-radius: $border-radius;
+
+  &.fb-ui-button-icon {
+    padding: 0.5rem $padding-horizontal;
+  }
 }
 
 @mixin button-variant($color, $background, $border) {
@@ -94,7 +110,24 @@ $btn-padding-lg-horizontal:           2.1rem;
   border-color: $border;
 
   svg {
+    fill: $color;
     color: $color;
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active {
+    svg {
+      fill: $color;
+      color: $color;
+    }
   }
 
   &:focus,
@@ -102,30 +135,20 @@ $btn-padding-lg-horizontal:           2.1rem;
     color: $color;
     background-color: darken($background, 10%);
     border-color: darken($border, 25%);
-
-    svg {
-      color: $color;
-    }
   }
+
   &:hover {
     color: $color;
     background-color: darken($background, 10%);
     border-color: darken($border, 12%);
-
-    svg {
-      color: $color;
-    }
   }
+
   &:active,
-  &.active,
-  .open > &.dropdown-toggle {
+  &.active {
     color: $color;
     background-color: darken($background, 10%);
     border-color: darken($border, 12%);
-
-    svg {
-      color: $color;
-    }
+    background-image: none;
 
     &:hover,
     &:focus,
@@ -135,29 +158,20 @@ $btn-padding-lg-horizontal:           2.1rem;
       border-color: darken($border, 25%);
 
       svg {
+        fill: $color;
         color: $color;
       }
     }
   }
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    background-image: none;
-  }
+
   &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
+  &[disabled] {
     &:hover,
     &:focus,
     &.focus {
       background-color: $background;
       border-color: $border;
     }
-  }
-
-  .badge {
-    color: $background;
-    background-color: $color;
   }
 }
 
@@ -167,68 +181,8 @@ $btn-padding-lg-horizontal:           2.1rem;
   color: $border;
 
   svg {
+    fill: $border;
     color: $border;
-  }
-
-  &:focus,
-  &.focus {
-    background-color: transparent;
-    border-color: $border;
-    color: $border;
-
-    svg {
-      color: $border;
-    }
-  }
-
-  &:hover {
-    background-color: $border;
-    border-color: $border;
-    color: $color;
-
-    svg {
-      color: $color;
-    }
-  }
-
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
-    background-color: $border;
-    border-color: $border;
-    color: $color;
-
-    svg {
-      color: $color;
-    }
-
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: darken($border, 15%);
-      border-color: darken($border, 15%);
-      color: $color;
-
-      svg {
-        color: $color;
-      }
-    }
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: transparent;
-      border-color: $border;
-      color: $border;
-
-      svg {
-        color: $border;
-      }
-    }
   }
 
   .badge {
@@ -237,15 +191,118 @@ $btn-padding-lg-horizontal:           2.1rem;
     color: $color;
 
     svg {
+      fill: $color;
       color: $color;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    svg {
+      fill: $color;
+      color: $color;
+    }
+  }
+
+  &:hover {
+    background-color: $border;
+    border-color: $border;
+    color: $color;
+  }
+
+  &:focus,
+  &.focus {
+    background-color: transparent;
+    border-color: $border;
+    color: $border;
+  }
+
+  &:active,
+  &.active, {
+    background-color: $border;
+    border-color: $border;
+    color: $color;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: darken($border, 15%);
+      border-color: darken($border, 15%);
+      color: $color;
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: transparent;
+      border-color: $border;
+      color: $border;
+
+      svg {
+        fill: $border;
+        color: $border;
+      }
     }
   }
 }
 
-@mixin active-shadow {
-  @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+@mixin button-link-variant($color, $disabledColor, $hoverColor, $hoveDecoration) {
+  color: $color;
+  font-weight: normal;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  background-size: auto;
+  border-color: transparent;
+
+  svg {
+    fill: $color;
+    color: $color;
+  }
+
+  &:active,
+  &.active,
+  &.disabled,
+  &[disabled] {
+    @include button-disabled-shadow;
+  }
+
+  &:hover,
+  &:focus {
+    color: $hoverColor;
+    text-decoration: $hoveDecoration;
+
+    svg {
+      fill: $hoverColor;
+      color: $hoverColor;
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    &:hover,
+    &:focus {
+      color: $disabledColor;
+      text-decoration: none;
+
+      svg {
+        fill: $disabledColor;
+        color: $disabledColor;
+      }
+    }
+  }
 }
 
-@mixin disabled-shadow {
+@mixin button-active-shadow {
+  @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, 0.125));
+}
+
+@mixin button-disabled-shadow {
   @include box-shadow(none);
 }

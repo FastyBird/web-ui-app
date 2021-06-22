@@ -2,6 +2,8 @@
 
 .fb-ui-divider {
   &__container {
+    font-family: $divider-font-family;
+    font-size: $divider-font-size;
     display: block;
     margin: $divider-margin;
     overflow: hidden;
@@ -22,8 +24,8 @@
           top: 50%;
           transform: translateY(-50%);
 
-          &:before,
-          &:after {
+          &::before,
+          &::after {
             height: 60rem;
             left: 50%;
             margin-left: -$divider-size-half;
@@ -32,12 +34,12 @@
             width: $divider-size;
           }
 
-          &:before {
+          &::before {
             bottom: 100%;
             top: auto;
           }
 
-          &:after {
+          &::after {
             bottom: auto;
             top: 100%;
           }
@@ -51,8 +53,8 @@
     padding: 0 1.5rem;
     position: relative;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       background-color: $divider-color;
       content: "";
       display: block;
@@ -63,11 +65,11 @@
       width: 60rem;
     }
 
-    &:before {
+    &::before {
       right: 100%;
     }
 
-    &:after {
+    &::after {
       left: 100%;
     }
   }

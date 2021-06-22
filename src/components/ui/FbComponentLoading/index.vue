@@ -1,11 +1,14 @@
 <template>
-  <div class="fb-ui-component-loading__container">
+  <div
+    :data-size="size"
+    class="fb-ui-component-loading__container"
+  >
     <div class="fb-ui-component-loading__icon">
-      <fb-ui-spinner />
+      <fb-ui-spinner :size="size" />
     </div>
 
     <p class="fb-ui-component-loading__text">
-      Preparing content, please wait...
+      {{ text }}
     </p>
   </div>
 </template>
@@ -13,11 +16,42 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
+
+import { FbSizeTypes } from '@/types'
+
+import FbUiSpinner from './../FbSpinner/index.vue'
 
 export default defineComponent({
 
   name: 'FbUiComponentLoading',
+
+  components: {
+    FbUiSpinner,
+  },
+
+  props: {
+
+    text: {
+      type: String as PropType<string>,
+      default: 'Preparing content, please wait...',
+    },
+
+    size: {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
+      },
+    },
+
+  },
 
 })
 </script>
