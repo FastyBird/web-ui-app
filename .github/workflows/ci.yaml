@@ -227,7 +227,7 @@ jobs:
       matrix:
         operating-system: ["ubuntu-latest"]
 
-    if: contains(github.ref, 'refs/heads/master')
+    if: github.event_name == 'push' && contains(github.ref, 'refs/heads/master')
 
     steps:
       - name: "Checkout"
