@@ -1,6 +1,11 @@
 import Vue, { PluginFunction, VueConstructor } from 'vue'
 
-export interface InstallFunction extends PluginFunction<{}> {
+interface PluginOptions {
+  directives?: boolean
+  mixins?: boolean
+}
+
+export interface InstallFunction extends PluginFunction<PluginOptions> {
   installed?: boolean;
 }
 
@@ -42,7 +47,16 @@ export enum FbFormResultTypes {
   OK = 'ok',
 }
 
-export enum FbUiModalVariantTypes {
+export enum FbUiVariantTypes {
+  DEFAULT = 'default',
+  PRIMARY = 'primary',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+}
+
+export enum FbUiModalLayoutTypes {
   DEFAULT = 'default',
   PHONE = 'phone',
   TABLET = 'tablet',
@@ -71,23 +85,6 @@ export enum FbUiButtonVariantTypes {
   LINK_DEFAULT = 'link-default',
 }
 
-export enum FbUiAlertVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-}
-
-export enum FbUiConfirmationWindowVariantTypes {
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-}
-
 export enum FbUiConfirmationWindowPrimaryButtonTypes {
   YES = 'yes',
   NO = 'no',
@@ -96,24 +93,6 @@ export enum FbUiConfirmationWindowPrimaryButtonTypes {
 export enum FbUiDividerVariantTypes {
   HORIZONTAL = 'horizontal',
   VERTICAL = 'vertical',
-}
-
-export enum FbUiSpinnerVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
-}
-
-export enum FbUiSwitchElementVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
 }
 
 export enum FbLayoutHeaderHeadingAlign {
