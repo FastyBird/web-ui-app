@@ -3,7 +3,7 @@ import { create } from '@storybook/theming/create'
 import logo from './../src/static/fastybird_row.svg'
 
 const theme = create({
-  brandImage: `/${logo}`,
+  brandImage: `${logo}`,
   brandTitle: 'FastyBird UI - Storybook'
 });
 
