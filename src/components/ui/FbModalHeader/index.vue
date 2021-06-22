@@ -1,66 +1,90 @@
 <template>
   <div
-    :data-variant="variant"
+    :data-layout="layout"
     class="fb-ui-modal-header__container"
   >
-    <div
-      v-if="variant === modalVariantTypes.PHONE || variant === modalVariantTypes.TABLET"
-      class="fb-ui-modal-header__buttons"
-    >
-      <div
-        v-if="cancelBtnShow"
-        class="fb-ui-modal-header__buttons-left-button"
-      >
-        <slot name="left-button">
+    <template v-if="layout === modalVariantTypes.PHONE || layout === modalVariantTypes.TABLET">
+      <div class="fb-ui-modal-header__heading">
+        <div
+          v-if="'title' in $slots"
+          class="fb-ui-modal-header__heading-title"
+        >
+          <h4>
+            <slot name="title" />
+
+            <small v-if="'subtitle' in $slots">
+              <slot name="subtitle" />
+            </small>
+          </h4>
+        </div>
+      </div>
+
+      <div class="fb-ui-modal-header__left-button">
+        <slot
+          v-if="showLeftBtn"
+          name="left-button"
+        >
           <fb-ui-button
             :variant="buttonVariantTypes.LINK_DEFAULT"
-            :size="sizesTypes.EXTRA_SMALL"
+            :size="sizesTypes.MEDIUM"
             uppercase
-            @click.prevent="$emit('cancel', $event)"
+            @click.prevent="$emit('leftSubmit', $event)"
           >
-            {{ cancelBtnText }}
+            {{ leftBtnLabel }}
           </fb-ui-button>
         </slot>
       </div>
 
-      <div
-        v-if="okBtnShow"
-        class="fb-ui-modal-header__buttons-right-button"
-      >
-        <slot name="right-button">
+      <div class="fb-ui-modal-header__right-button">
+        <slot
+          v-if="showRightBtn"
+          name="right-button"
+        >
           <fb-ui-button
             :variant="buttonVariantTypes.LINK_DEFAULT"
-            :size="sizesTypes.EXTRA_SMALL"
+            :size="sizesTypes.MEDIUM"
             uppercase
-            @click.prevent="$emit('submit', $event)"
+            @click.prevent="$emit('rightSubmit', $event)"
           >
-            {{ okBtnText }}
+            {{ rightBtnLabel }}
           </fb-ui-button>
         </slot>
       </div>
-    </div>
+    </template>
 
-    <button
-      v-else
-      type="button"
-      class="fb-ui-modal-header__close"
-      @click.prevent="$emit('close', $event)"
-    >
-      <span aria-hidden="true">×</span>
-      <span class="sr-only">{{ closeBtnText }}</span>
-    </button>
+    <template v-else>
+      <div class="fb-ui-modal-header__heading">
+        <div
+          v-if="'icon' in $slots"
+          class="fb-ui-modal-header__heading-icon"
+        >
+          <slot name="icon" />
+        </div>
 
-    <div class="fb-ui-modal-header__heading">
-      <slot name="icon" />
+        <div
+          v-if="'title' in $slots"
+          class="fb-ui-modal-header__heading-title"
+        >
+          <h4>
+            <slot name="title" />
 
-      <h4>
-        <slot name="heading" />
-      </h4>
+            <small v-if="'subtitle' in $slots">
+              <slot name="subtitle" />
+            </small>
+          </h4>
+        </div>
+      </div>
 
-      <small v-if="slotExists('description')">
-        <slot name="description" />
-      </small>
-    </div>
+      <button
+        v-if="enableClosing"
+        type="button"
+        class="fb-ui-modal-header__close"
+        @click.prevent="$emit('close', $event)"
+      >
+        <span aria-hidden="true">×</span>
+        <span class="fb-ui-modal-header__close-text">{{ closeBtnLabel }}</span>
+      </button>
+    </template>
   </div>
 </template>
 
@@ -70,58 +94,69 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbUiModalVariantTypes, FbUiButtonVariantTypes, FbSizeTypes } from '@/types'
+import { FbUiModalLayoutTypes, FbUiButtonVariantTypes, FbSizeTypes } from '@/types'
+
+import FbUiButton from './../FbButton/index.vue'
 
 export default defineComponent({
 
   name: 'FbUiModalHeader',
 
+  components: {
+    FbUiButton,
+  },
+
   props: {
 
-    variant: {
-      type: String as PropType<FbUiModalVariantTypes>,
-      default: FbUiModalVariantTypes.DEFAULT,
-      validator: (value: FbUiModalVariantTypes) => {
+    layout: {
+      type: String as PropType<FbUiModalLayoutTypes>,
+      default: FbUiModalLayoutTypes.DEFAULT,
+      validator: (value: FbUiModalLayoutTypes) => {
         // The value must match one of these strings
         return [
-          FbUiModalVariantTypes.DEFAULT,
-          FbUiModalVariantTypes.PHONE,
-          FbUiModalVariantTypes.TABLET,
+          FbUiModalLayoutTypes.DEFAULT,
+          FbUiModalLayoutTypes.PHONE,
+          FbUiModalLayoutTypes.TABLET,
         ].includes(value)
       },
     },
 
-    okBtnText: {
+    leftBtnLabel: {
+      type: String,
+      default: 'Close',
+    },
+
+    showLeftBtn: {
+      type: Boolean,
+      default: true,
+    },
+
+    rightBtnLabel: {
       type: String,
       default: 'Ok',
     },
 
-    okBtnShow: {
+    showRightBtn: {
       type: Boolean,
       default: true,
     },
 
-    cancelBtnText: {
-      type: String,
-      default: 'Cancel',
-    },
-
-    cancelBtnShow: {
-      type: Boolean,
-      default: true,
-    },
-
-    closeBtnText: {
+    closeBtnLabel: {
       type: String,
       default: 'Close',
+    },
+
+    enableClosing: {
+      type: Boolean,
+      default: true,
     },
 
   },
 
   setup() {
     return {
-      modalVariantTypes: FbUiModalVariantTypes,
       sizesTypes: FbSizeTypes,
+      modalVariantTypes: FbUiModalLayoutTypes,
       buttonVariantTypes: FbUiButtonVariantTypes,
     }
   },

@@ -3,104 +3,73 @@
 .fb-form-checkbox {
   &__container {
     display: inline-block;
-    padding: $checkbox-padding;
-    margin: 0;
     position: relative;
+    line-height: $checkbox-indicator-line-height;
+    font-family: $checkbox-font-family;
+    font-size: $checkbox-indicator-font-size;
+    font-weight: 400;
+    height: $checkbox-indicator-size;
+    padding: $checkbox-padding;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text; // IE10+
+    user-select: text;
+
+    .fb-form-checkbox {
+      &__indicator {
+        background-color: $checkbox-indicator-bg-color;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-color: $checkbox-indicator-border-color;
+        border-style: solid;
+        border-width: 1px;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: (($checkbox-indicator-size - $checkbox-indicator-font-size) / 2) * -1;
+        width: $checkbox-indicator-size;
+        height: $checkbox-indicator-size;
+        background-size: 75% 75%;
+
+        @include checkbox-indicator-radius;
+      }
+    }
 
     &[data-error="true"] {
       .fb-form-checkbox {
         &__indicator {
-          border-color: $error-color;
+          border-color: $checkbox-error-color;
         }
 
         &__indicator-label {
-          color: $error-color;
+          color: $checkbox-error-color;
         }
       }
     }
   }
 
-  &__label {
-    cursor: pointer;
-    font-weight: 400;
-    line-height: $checkbox-indicator-size;
-    margin: 0;
-    height: $checkbox-indicator-size;
-    min-width: $checkbox-indicator-size;
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    max-width: 100%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none; // IE10+
-    user-select: none;
-  }
-
   &__input {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: $checkbox-indicator-size;
-    height: $checkbox-indicator-size;
-    z-index: -1;
-
-    &:checked ~ .fb-form-checkbox__indicator,
-    &:active ~ .fb-form-checkbox__indicator {
-      border: none;
-    }
+    display: none;
 
     &:checked ~ .fb-form-checkbox__indicator {
+      border-color: $checkbox-indicator-checked-border-color;
       background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='%23fff'%3E%3Cpath d='M26.109 8.844q0 .625-.438 1.062L12.233 23.344q-.438.438-1.062.438t-1.062-.438l-7.781-7.781q-.438-.438-.438-1.062t.438-1.062l2.125-2.125q.438-.438 1.062-.438t1.062.438l4.594 4.609 10.25-10.266q.438-.438 1.062-.438t1.062.438l2.125 2.125q.438.437.438 1.062z'/%3E%3C/svg%3E");
+      background-color: $checkbox-indicator-checked-bg-color;
+    }
+
+    &:active ~ .fb-form-checkbox__indicator {
+      border-color: $checkbox-indicator-checked-border-color;
+      background-color: lighten($checkbox-indicator-checked-bg-color, 25);
     }
 
     &:disabled ~ .fb-form-checkbox__indicator {
-      cursor: not-allowed;
+      background-color: $checkbox-indicator-disabled-bg-color;
     }
 
     &:disabled:checked ~ .fb-form-checkbox__indicator {
-      background-color: $indicator-background-color-disabled;
-    }
-
-    &:checked ~ .fb-form-checkbox__indicator {
-      background-color: $indicator-background-color;
-    }
-
-    &:active ~ .fb-form-checkbox__indicator {
-      background-color: lighten($indicator-background-color, 25);
-    }
-  }
-
-  &__indicator {
-    background-color: $indicator-color;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-color: $indicator-border-color;
-    border-style: solid;
-    border-width: 1px;
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: $checkbox-indicator-size;
-    height: $checkbox-indicator-size;
-
-    background-size: 75% 75%;
-
-    @include indicator-radius;
-
-    &-label {
-      display: block;
-      line-height: $indicator-line-height;
-      font-size: $indicator-font-size;
-      margin-left: sum($checkbox-indicator-size, 1rem);
-
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text; // IE10+
-      user-select: text;
+      background-color: $checkbox-indicator-disabled-bg-color;
     }
   }
 }

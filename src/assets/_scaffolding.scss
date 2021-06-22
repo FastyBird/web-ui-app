@@ -11,8 +11,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-*:before,
-*:after {
+
+*::before,
+*::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -121,9 +122,9 @@ img {
   background-color: $body-bg;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   // Keep them at most 100% wide
   display: inline-block;
@@ -139,7 +140,7 @@ img {
 // Horizontal rules
 
 hr {
-  margin-top:    $line-height-computed;
+  margin-top: $line-height-computed;
   margin-bottom: $line-height-computed;
   border: 0;
   border-top: 1px solid $hr-border;
@@ -156,7 +157,7 @@ hr {
   margin: -1px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 

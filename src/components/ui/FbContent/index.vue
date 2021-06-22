@@ -12,7 +12,7 @@ import {
 
 import { FbSizeTypes } from '@/types'
 
-function sizeValidator(value: FbSizeTypes): boolean {
+const sizeValidator = (value: FbSizeTypes): boolean => {
   // The value must match one of these strings
   return [
     FbSizeTypes.LARGE,

@@ -1,18 +1,26 @@
-@import "../../../assets/mixins/utilities";
+@import "../../variables/colors";
+@import "../../variables/layout";
+@import "../../variables/texts";
+@import "../../mixins/utilities";
 
-$checkbox-indicator-size:             1.5rem !default;
-$checkbox-padding:                    2rem 1rem;
+$checkbox-font-family:                          $font-family-base;
 
-$indicator-color:                     #fff;
-$indicator-border-color:              #ddd;
-$indicator-background-color:          #d9230f;
-$indicator-background-color-disabled: #ddd;
-$indicator-margin:                    1rem;
-$indicator-font-size:                 1.5rem;
-$indicator-line-height:               1.5rem;
+$checkbox-indicator-size:                       1.5rem !default;
 
-$error-color:                         #d9831f;
+$checkbox-padding:                              0 2rem 0 sum($checkbox-indicator-size, 1rem);
 
-@mixin indicator-radius {
+$checkbox-indicator-bg-color:                   $white;
+$checkbox-indicator-border-color:               $gray-lighter;
+$checkbox-indicator-checked-bg-color:           $brand-primary;
+$checkbox-indicator-checked-border-color:       $brand-primary;
+$checkbox-indicator-disabled-bg-color:          $gray-lighter;
+
+$checkbox-indicator-margin:                     $margin-sm;
+$checkbox-indicator-font-size:                  $font-size-base;
+$checkbox-indicator-line-height:                $checkbox-indicator-size;
+
+$checkbox-error-color:                          $brand-danger;
+
+@mixin checkbox-indicator-radius {
   @include border-radius(2px);
 }

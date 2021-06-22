@@ -1,0 +1,49 @@
+@import "../assets/variables/colors";
+@import "../assets/variables/texts";
+
+.fb-story-colors {
+  &__container {
+    margin: 3rem;
+    max-width: 100%;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+  }
+
+  &__colors {
+    &-item {
+      height: 100px;
+      width: 250px;
+      display: inline-block;
+      margin: 0 1rem 1rem 0;
+
+      &-desc {
+        padding: 10px;
+        background: white;
+      }
+
+      &-primary {
+        background-color: $brand-primary;
+      }
+
+      &-success {
+        background-color: $brand-success;
+      }
+
+      &-info {
+        background-color: $brand-info;
+      }
+
+      &-warning {
+        background-color: $brand-warning;
+      }
+
+      &-danger {
+        background-color: $brand-danger;
+      }
+
+      &-default {
+        background-color: $brand-default;
+      }
+    }
+  }
+}

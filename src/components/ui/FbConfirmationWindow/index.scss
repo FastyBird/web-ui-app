@@ -4,33 +4,83 @@
   &__container {
     text-align: center;
 
+    h3 {
+      font-size: $confirmation-heading-font-size;
+      font-weight: $confirmation-heading-font-weight;
+      line-height: $confirmation-heading-line-height;
+      margin-top: $confirmation-heading-margin-top;
+      margin-bottom: $confirmation-heading-margin-bottom;
+    }
+
+    &[data-variant="default"] {
+      h3 {
+        color: $confirmation-variant-default;
+      }
+
+      .fb-ui-confirmation-window {
+        &__icon {
+          color: $confirmation-variant-default;
+        }
+      }
+    }
+
     &[data-variant="primary"] {
       h3 {
-        color: $variant-primary;
+        color: $confirmation-variant-primary;
+      }
+
+      .fb-ui-confirmation-window {
+        &__icon {
+          color: $confirmation-variant-primary;
+        }
       }
     }
 
     &[data-variant="success"] {
       h3 {
-        color: $variant-success;
+        color: $confirmation-variant-success;
+      }
+
+      .fb-ui-confirmation-window {
+        &__icon {
+          color: $confirmation-variant-success;
+        }
       }
     }
 
     &[data-variant="danger"] {
       h3 {
-        color: $variant-danger;
+        color: $confirmation-variant-danger;
+      }
+
+      .fb-ui-confirmation-window {
+        &__icon {
+          color: $confirmation-variant-danger;
+        }
       }
     }
 
     &[data-variant="warning"] {
       h3 {
-        color: $variant-warning;
+        color: $confirmation-variant-warning;
+      }
+
+      .fb-ui-confirmation-window {
+        &__icon {
+          color: $confirmation-variant-warning;
+        }
       }
     }
 
     &[data-variant="info"] {
       h3 {
-        color: $variant-info;
+        color: $confirmation-variant-info;
+      }
+
+      .fb-ui-confirmation-window {
+        &__icon {
+          color: $confirmation-variant-info;
+        }
       }
     }
   }
@@ -38,9 +88,5 @@
   &__buttons {
     margin-top: 30px;
     text-align: right;
-
-    .fb-ui-button[data-variant="link"] {
-      color: $button-color !important;
-    }
   }
 }

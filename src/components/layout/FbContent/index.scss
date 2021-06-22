@@ -10,7 +10,7 @@
   }
 
   &__header {
-    z-index: $z-index
+    z-index: $z-index;
   }
 
   &__content {
@@ -19,6 +19,6 @@
   }
 
   &__footer {
-    z-index: $z-index
+    z-index: $z-index;
   }
 }

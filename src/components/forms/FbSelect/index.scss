@@ -10,25 +10,32 @@
     box-shadow: none;
     color: $input-color;
     border: 1px solid $input-border-color;
-
-    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    resize: vertical;
 
     &:focus {
       border-color: $input-border-color-focus;
       outline: none;
     }
 
-    &[disabled],
-    fieldset[disabled] & {
+    &[size],
+    &[multiple] {
+      height: auto;
+    }
+
+    &[disabled] {
       background-color: $input-background-disabled;
       opacity: 1;
       filter: alpha(opacity=100);
+      cursor: not-allowed;
     }
 
-    &[readonly],
-    fieldset[disabled] & {
+    &[readonly] {
       color: $input-color-readonly;
       background-color: $input-background-readonly;
       opacity: 1;
@@ -36,8 +43,49 @@
     }
 
     &[disabled],
-    fieldset[disabled] & {
-      cursor: not-allowed;
+    &[readonly] {
+      background-color: $input-background-disabled;
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+
+    &[data-size="lg"] {
+      height: $input-size-height-lg;
+      padding: $input-size-padding-lg;
+      font-size: $input-size-font-size-lg;
+      line-height: $input-size-line-height-lg;
+
+      @include select-border-radius($input-border-radius-lg);
+    }
+
+    &[data-size="md"] {
+      height: $input-size-height-md;
+      padding: $input-size-padding-md;
+      font-size: $input-size-font-size-md;
+      line-height: $input-size-line-height-md;
+
+      @include select-border-radius($input-border-radius-md);
+    }
+
+    &[data-size="sm"] {
+      height: $input-size-height-sm;
+      padding: $input-size-padding-sm;
+      font-size: $input-size-font-size-sm;
+      line-height: $input-size-line-height-sm;
+
+      @include select-border-radius($input-border-radius-sm);
+    }
+
+    &[data-error="true"] {
+      border-color: $input-border-color-error;
+
+      @include select-error-shadow;
+
+      &:focus {
+        border-color: darken($input-border-color-error, 10%);
+
+        @include select-error-focus-shadow;
+      }
     }
   }
 }

@@ -1,2 +1,5 @@
-$color:                               #469408;
-$icon-width:                          10rem;
+@import "../../variables/colors";
+@import "../../variables/sizes";
+
+$color:                               $brand-success;
+$icon-width:                          $icon-height-lg;

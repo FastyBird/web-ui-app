@@ -1,6 +1,6 @@
-let binded: Array<{ node: HTMLElement, callback: any }> = []
+let binded: { node: HTMLElement, callback: any }[] = []
 
-function handler(e: Event) {
+const handler = (e: Event): void => {
   binded.forEach((el) => {
     if (
       typeof e.target !== 'undefined' &&
@@ -13,7 +13,7 @@ function handler(e: Event) {
   })
 }
 
-function addListener(node: HTMLElement, callback: any) {
+const addListener = (node: HTMLElement, callback: any): void => {
   if (!binded.length) {
     document.addEventListener('click', handler, false)
   }
@@ -21,7 +21,7 @@ function addListener(node: HTMLElement, callback: any) {
   binded.push({ node, callback })
 }
 
-function removeListener(node: HTMLElement, callback: any) {
+const removeListener = (node: HTMLElement, callback: any): void => {
   binded = binded.filter(el => el.node !== node ? true : !callback ? false : el.callback !== callback)
 
   if (!binded.length) {
@@ -31,19 +31,20 @@ function removeListener(node: HTMLElement, callback: any) {
 
 export default {
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   bind(el: HTMLElement, binding: any): void {
     removeListener(el, binding.value)
 
     if (typeof binding.value !== 'function') {
       if (process.env.NODE_ENV !== 'production') {
-        // eslint-disable-next-line no-console
-        console.warn(`ClickOutside only work with a function, received: v-${binding.name}="${binding.expression}"`)
+        throw Error(`ClickOutside only work with a function, received: v-${binding.name}="${binding.expression}"`)
       }
     } else {
       addListener(el, binding.value)
     }
   },
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   update(el: HTMLElement, binding: any): void {
     if (binding.value !== binding.oldValue) {
       removeListener(el, binding.oldValue)
@@ -51,6 +52,7 @@ export default {
     }
   },
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   unbind(el: HTMLElement, binding: any): void {
     removeListener(el, binding.value)
   },

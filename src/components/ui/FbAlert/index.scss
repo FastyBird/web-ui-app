@@ -2,6 +2,7 @@
 
 .fb-ui-alert {
   &__container {
+    font-family: $alert-font-family;
     position: relative;
     padding: $alert-padding;
     border: 1px solid transparent;
@@ -33,29 +34,18 @@
     }
   }
 
-  &__icon {
+  &__with-icon {
     @include flex-alert;
 
-    &-inner {
-      -webkit-box-flex: 0;
-      -ms-flex: 0 0 10%;
-      flex: 0 0 10%;
-      max-width: 10%;
-
+    &-icon {
       text-align: center;
       vertical-align: top;
-      display: table-cell;
-
-      padding-right: 0;
+      padding: 0 $alert-icon-padding 0 0;
     }
-  }
 
-  &__content {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 90%;
-    flex: 0 0 90%;
-    max-width: 90%;
-
-    padding-left: 0;
+    &-content {
+      flex-grow: 2;
+      padding: 0;
+    }
   }
 }

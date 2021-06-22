@@ -1,12 +1,6 @@
 @import "../../../assets/components/ui/fb-modal-form";
 
 .fb-ui-modal-form {
-  &__buttons {
-    .fb-ui-button[data-variant="link"] {
-      color: $button-color !important;
-    }
-  }
-
   &__form {
     max-height: 100%;
   }
@@ -19,22 +13,16 @@
     bottom: 0;
     background-color: $result-background-color;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    > div,
-    .fb-ui-spinner__container {
-      margin-left: auto;
-      margin-right: auto;
-    }
+    flex-direction: column;
+    justify-content: center;
 
     .fb-ui-spinner__container {
       width: 10rem;
       height: 10rem;
     }
 
-    .fb-ui-spinner__container:before,
-    .fb-ui-spinner__container:after {
+    .fb-ui-spinner__container::before,
+    .fb-ui-spinner__container::after {
       width: 10rem;
       height: 10rem;
       margin: -5rem 0 0 -5rem;

@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="slotExists('header') || slotExists('content') || slotExists('footer')"
+    v-if="'header' in $slots || 'content' in $slots || 'footer' in $slots"
     class="fb-layout-sidebar__container"
   >
     <transition name="sidebar-overlay">
@@ -13,21 +13,21 @@
 
     <div :class="['fb-layout-sidebar__inner', {'fb-layout-sidebar__inner-open': !collapsed}]">
       <div
-        v-if="slotExists('header')"
+        v-if="'header' in $slots"
         class="fb-layout-sidebar__header"
       >
         <slot name="header" />
       </div>
 
       <div
-        v-if="slotExists('content')"
+        v-if="'content' in $slots"
         class="fb-layout-sidebar__content"
       >
         <slot name="content" />
       </div>
 
       <div
-        v-if="slotExists('footer')"
+        v-if="'footer' in $slots"
         class="fb-layout-sidebar__footer"
       >
         <slot name="footer" />

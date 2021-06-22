@@ -2,247 +2,121 @@
 
 .fb-form-field {
   &__container {
+    font-family: $field-font-family;
+    font-size: $field-font-size;
     position: relative;
 
-    // Position radios and checkboxes better
-    input[type="radio"],
-    input[type="checkbox"] {
-      margin: 0.4rem 0 0;
-      margin-top: 0.1rem \9; // IE8-9
-      line-height: normal;
+    .fb-form-field__input-group {
+      position: relative;
+      display: table;
+      border-collapse: separate;
+
+      input,
+      select,
+      textarea {
+        display: table-cell;
+        width: 100%;
+        margin-bottom: 0;
+
+        // Ensure that the input is always above the *appended* addon button for
+        // proper border colors.
+        position: relative;
+        z-index: 2;
+
+        // IE9 fubars the placeholder attribute in text inputs and the arrows on
+        // select elements in input groups. To fix it, we float the input. Details:
+        // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
+        float: left;
+      }
     }
 
-    input[type="file"] {
-      display: block;
-    }
-
-    // Make range inputs behave like textual form controls
-    input[type="range"] {
-      display: block;
-      width: 100%;
-    }
-
-    textarea,
-    select[size],
-    select[multiple] {
-      height: auto;
+    &[data-orientation="horizontal"] {
+      margin: $field-horizontal-margin;
+      display: flex;
     }
 
     &[data-error="true"] {
       label {
         color: $field-error-color;
       }
-
-      input,
-      textarea,
-      select {
-        border-color: $field-error-color;
-
-        @include errored-field-shadow;
-
-        &:focus {
-          border-color: darken($field-error-color, 10%);
-
-          @include errored-field-focus-shadow;
-        }
-      }
-
-      input[placeholder] {
-        // Firefox
-        &::-moz-placeholder {
-          color: $field-error-color;
-          opacity: 1;
-          filter: alpha(opacity=100);
-        }
-        &:-ms-input-placeholder { color: $field-error-color; } // Internet Explorer 10+
-        &::-webkit-input-placeholder  { color: $field-error-color; } // Safari and Chrome
-      }
     }
 
-    &[data-orientation="inline"] {
-      // Kick in the inline
-      @media (min-width: $screen-tablet-min) {
-        // Inline-block all the things for "inline"
-        display: inline-block;
-        margin-bottom: 0;
+    .fb-form-field {
+      &__input-group-addon {
+        display: table-cell;
+        width: 1%;
+        white-space: nowrap;
         vertical-align: middle;
-      }
+        padding: $field-size-md-addon-padding;
+        font-size: $field-size-md-font-size;
+        font-weight: normal;
+        line-height: 1;
+        color: $field-default-color;
+        text-align: center;
+        background-color: $field-addon-background;
 
-      .fb-form-field {
-        &__input-group {
-          display: inline-table;
-          vertical-align: middle;
+        &-left {
+          @include field-md-left-addon-border-radius;
 
-          > input {
-            width: 100%;
-          }
+          border: 1px solid $field-addon-border-color;
+          border-right: 0;
+        }
+
+        &-right {
+          @include field-md-right-addon-border-radius;
+
+          border: 1px solid $field-addon-border-color;
+          border-left: 0;
         }
       }
-    }
 
-    &[data-orientation="horizontal"] {
-      margin: $field-horizontal-margin;
-    }
+      &__grouped-input-field {
+        display: table-cell;
+        position: relative;
 
-    &[data-size="sm"] {
-      input,
-      textarea,
-      select {
-        height: $field-size-sm-height;
-        padding: $field-size-sm-padding;
-        font-size: $field-size-sm-font-size;
-        line-height: $field-size-sm-line-height;
-        @include field-sm-border-radius;
+        &-left-addon {
+          @include field-remove-left-border-radius;
+        }
+
+        &-right-addon {
+          @include field-remove-right-border-radius;
+        }
       }
 
-      select {
-        height: $field-size-sm-height;
-        line-height: $field-size-sm-height;
-      }
-    }
-
-    &[data-size="md"] {
-      input,
-      textarea,
-      select {
-        height: $field-size-md-height;
-        padding: $field-size-md-padding;
-        font-size: $field-size-md-font-size;
-        line-height: $field-size-md-line-height;
-        @include field-md-border-radius;
+      &__input-field {
+        position: relative;
+        flex-grow: 2;
       }
 
-      select {
+      &__input-feedback {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2; // Ensure icon is above input groups
+        display: block;
+        width: $field-size-md-height;
         height: $field-size-md-height;
         line-height: $field-size-md-height;
+        text-align: center;
+        pointer-events: none;
+
+        svg {
+          fill: $field-error-color;
+        }
       }
 
-      textarea,
-      select[multiple] {
-        height: auto;
-      }
-    }
-
-    &[data-size="lg"] {
-      input,
-      textarea,
-      select {
-        height: $field-size-lg-height;
-        padding: $field-size-lg-padding;
-        font-size: $field-size-lg-font-size;
-        line-height: $field-size-lg-line-height;
-        @include field-lg-border-radius;
+      &__help {
+        display: block;
+        color: lighten($field-default-color, 25%); // lighten the text some for contrast
+        margin: 5px 0 10px;
+        text-align: justify;
       }
 
-      select {
-        height: $field-size-lg-height;
-        line-height: $field-size-lg-height;
-      }
-
-      textarea,
-      select[multiple] {
-        height: auto;
+      &__error {
+        display: block;
+        color: $field-error-color;
+        margin: 5px 0 10px;
       }
     }
-  }
-
-  &__input-group {
-    position: relative;
-    display: table;
-    border-collapse: separate;
-
-    input,
-    textarea {
-      display: table-cell;
-
-      // Ensure that the input is always above the *appended* addon button for
-      // proper border colors.
-      position: relative;
-      z-index: 2;
-
-      // IE9 fubars the placeholder attribute in text inputs and the arrows on
-      // select elements in input groups. To fix it, we float the input. Details:
-      // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
-      float: left;
-
-      width: 100%;
-      margin-bottom: 0;
-
-      &:focus {
-        z-index: 3;
-      }
-    }
-
-    span:last-child input,
-    span:last-child textarea {
-      @include field-with-left-addon-border-radius;
-    }
-
-    span:first-child input,
-    span:first-child textarea {
-      @include field-with-right-addon-border-radius;
-    }
-
-    .fb-form-field__input-group-addon {
-      display: table-cell;
-      width: 1%;
-      white-space: nowrap;
-      vertical-align: middle;
-
-      padding: $field-size-md-addon-padding;
-      font-size: $field-size-md-font-size;
-      font-weight: normal;
-      line-height: 1;
-      color: $field-default-color;
-      text-align: center;
-      background-color: $field-addon-background;
-
-      &-left {
-        @include field-left-addon-border-radius;
-        border: 1px solid $field-addon-border-color;
-        border-right: 0;
-      }
-
-      &-right {
-        @include field-right-addon-border-radius;
-        border: 1px solid $field-addon-border-color;
-        border-left: 0;
-      }
-    }
-  }
-
-  &__grouped-input-field {
-    display: table-cell;
-    position: relative;
-  }
-
-  &__input-field {
-    display: block;
-    position: relative;
-  }
-
-  &__input-feedback {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2; // Ensure icon is above input groups
-    display: block;
-    width: $field-size-md-height;
-    height: $field-size-md-height;
-    line-height: $field-size-md-height;
-    text-align: center;
-    pointer-events: none;
-    padding: 0.5rem 0.8rem 0.8rem 0.8rem;
-
-    svg {
-      fill: $field-error-color;
-    }
-  }
-
-  &__help {
-    display: block;
-    color: lighten($field-default-color, 25%); // lighten the text some for contrast
-    margin: 5px 0 10px;
-    text-align: justify;
   }
 }

@@ -30,8 +30,7 @@
       background-color: darken($item-hover-background-color, 3.5%);
       color: $item-hover-color;
 
-      :after,
-      :after {
+      ::after {
         @media (min-width: $screen-tablet-min) and (max-width: $screen-desktop-max) {
           content: normal;
           display: none;
@@ -46,7 +45,7 @@
     color: $item-active-color;
 
     // Active indicator
-    &:after {
+    &::after {
       border-color: transparent $item-active-color transparent transparent;
       border-style: solid;
       border-width: 6px;
@@ -75,7 +74,6 @@
     -ms-flex: 0 0 4rem;
     flex: 0 0 4rem;
     max-width: 4rem;
-
     display: block;
     font-size: $item-font-size;
     line-height: $item-line-height;
@@ -86,7 +84,6 @@
       -ms-flex: 1 0 100%;
       flex: 1 0 100%;
       max-width: 100%;
-
       font-size: $item-sm-font-size;
     }
   }

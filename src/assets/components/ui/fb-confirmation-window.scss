@@ -1,7 +1,15 @@
-$button-color:                        #808080;
+@import "../../variables/colors";
+@import "../../variables/texts";
 
-$variant-primary:                     #d9230f;
-$variant-success:                     #469408;
-$variant-info:                        #029acf;
-$variant-warning:                     #9b479f;
-$variant-danger:                      #d9831f;
+$confirmation-heading-font-size:      $font-size-h3;
+$confirmation-heading-font-weight:    $headings-font-weight;
+$confirmation-heading-line-height:    $headings-line-height;
+$confirmation-heading-margin-top:     $line-height-computed;
+$confirmation-heading-margin-bottom:  $line-height-computed / 2;
+
+$confirmation-variant-default:        $brand-default;
+$confirmation-variant-primary:        $brand-primary;
+$confirmation-variant-success:        $brand-success;
+$confirmation-variant-info:           $brand-info;
+$confirmation-variant-warning:        $brand-warning;
+$confirmation-variant-danger:         $brand-danger;

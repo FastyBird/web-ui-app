@@ -1,7 +1,7 @@
 <template>
   <div class="fb-layout-content__container">
     <div
-      v-if="slotExists('header')"
+      v-if="'header' in $slots"
       class="fb-layout-content__header"
     >
       <slot name="header" />
@@ -12,7 +12,7 @@
     </div>
 
     <div
-      v-if="slotExists('footer')"
+      v-if="'footer' in $slots"
       class="fb-layout-content__footer"
     >
       <slot name="footer" />

@@ -1,41 +1,49 @@
 <template>
   <fb-ui-modal-window
+    :show="show"
     :show-footer="false"
     :show-header="false"
     :size="size"
     :transparent-bg="transparentBg"
+    :enable-closing="enableClosing"
     @close="$emit('close', $event)"
   >
-    <template slot="modal-body">
+    <template slot="body">
       <div
         :data-variant="variant"
         class="fb-ui-confirmation-window__container"
       >
-        <slot name="icon" />
+        <div
+          v-if="'icon' in $slots"
+          class="fb-ui-confirmation-window__icon"
+        >
+          <slot name="icon" />
+        </div>
+
         <h3>
           <slot name="header" />
         </h3>
 
-        <slot name="question" />
+        <slot />
 
         <div class="fb-ui-confirmation-window__buttons">
           <template v-if="primaryButton === 'no'">
             <fb-ui-button
               v-if="showYes"
+              :variant="buttonVariantTypes.LINK_DEFAULT"
+              :size="sizeTypes.LARGE"
               uppercase
-              variant="link"
-              size="lg"
               tabindex="2"
-              @click.prevent="$emit('confirmed', $event)"
+              @click.prevent="$emit('confirm', $event)"
             >
               {{ yesBtnLabel }}
             </fb-ui-button>
 
             <fb-ui-button
               v-if="showNo"
-              uppercase
               :variant="buttonVariant"
-              size="lg"
+              :size="sizeTypes.LARGE"
+              uppercase
               tabindex="3"
               @click.prevent="$emit('close', $event)"
             >
@@ -46,9 +54,9 @@
           <template v-else>
             <fb-ui-button
               v-if="showNo"
+              :variant="buttonVariantTypes.LINK_DEFAULT"
+              :size="sizeTypes.LARGE"
               uppercase
-              variant="link"
-              size="lg"
               tabindex="2"
               @click.prevent="$emit('close', $event)"
             >
@@ -57,11 +65,11 @@
 
             <fb-ui-button
               v-if="showYes"
-              uppercase
               :variant="buttonVariant"
-              size="lg"
+              :size="sizeTypes.LARGE"
+              uppercase
               tabindex="3"
-              @click.prevent="$emit('confirmed', $event)"
+              @click.prevent="$emit('confirm', $event)"
             >
               {{ yesBtnLabel }}
             </fb-ui-button>
@@ -82,23 +90,33 @@ import {
   FbSizeTypes,
   FbUiButtonVariantTypes,
   FbUiConfirmationWindowPrimaryButtonTypes,
-  FbUiConfirmationWindowVariantTypes,
+  FbUiVariantTypes,
 } from '@/types'
+
+import FbUiButton from './../FbButton/index.vue'
+import FbUiModalWindow from './../FbModalWindow/index.vue'
 
 interface FbUiConfirmationWindowPropsInterface {
   size: FbSizeTypes
   primaryButton: FbUiConfirmationWindowPrimaryButtonTypes
-  variant: FbUiConfirmationWindowVariantTypes
+  variant: FbUiVariantTypes
   showYes: boolean
-  showNo: boolean
   yesBtnLabel: string
+  showNo: boolean
   noBtnLabel: string
+  enableClosing: boolean
   transparentBg: boolean
+  show: boolean
 }
 
 export default defineComponent({
 
   name: 'FbUiConfirmationWindow',
+
+  components: {
+    FbUiButton,
+    FbUiModalWindow,
+  },
 
   props: {
 
@@ -128,26 +146,22 @@ export default defineComponent({
     },
 
     variant: {
-      type: String as PropType<FbUiConfirmationWindowVariantTypes>,
-      default: FbUiConfirmationWindowVariantTypes.DANGER,
-      validator: (value: FbUiConfirmationWindowVariantTypes) => {
+      type: String as PropType<FbUiVariantTypes>,
+      default: FbUiVariantTypes.DANGER,
+      validator: (value: FbUiVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiConfirmationWindowVariantTypes.PRIMARY,
-          FbUiConfirmationWindowVariantTypes.SUCCESS,
-          FbUiConfirmationWindowVariantTypes.DANGER,
-          FbUiConfirmationWindowVariantTypes.WARNING,
-          FbUiConfirmationWindowVariantTypes.INFO,
+          FbUiVariantTypes.DEFAULT,
+          FbUiVariantTypes.PRIMARY,
+          FbUiVariantTypes.SUCCESS,
+          FbUiVariantTypes.DANGER,
+          FbUiVariantTypes.WARNING,
+          FbUiVariantTypes.INFO,
         ].includes(value)
       },
     },
 
     showYes: {
-      type: Boolean,
-      default: true,
-    },
-
-    showNo: {
       type: Boolean,
       default: true,
     },
@@ -158,15 +172,30 @@ export default defineComponent({
       default: 'Yes',
     },
 
+    showNo: {
+      type: Boolean,
+      default: true,
+    },
+
     noBtnLabel: {
       type: String,
       required: false,
       default: 'No',
     },
 
+    enableClosing: {
+      type: Boolean,
+      default: true,
+    },
+
     transparentBg: {
       type: Boolean,
       default: false,
+    },
+
+    show: {
+      type: Boolean,
+      default: true,
     },
 
   },
@@ -175,29 +204,35 @@ export default defineComponent({
     let buttonVariant = FbUiButtonVariantTypes.DEFAULT
 
     switch (props.variant) {
-      case FbUiConfirmationWindowVariantTypes.PRIMARY:
+      case FbUiVariantTypes.DEFAULT:
+        buttonVariant = FbUiButtonVariantTypes.OUTLINE_DEFAULT
+        break
+
+      case FbUiVariantTypes.PRIMARY:
         buttonVariant = FbUiButtonVariantTypes.OUTLINE_PRIMARY
         break
 
-      case FbUiConfirmationWindowVariantTypes.SUCCESS:
+      case FbUiVariantTypes.SUCCESS:
         buttonVariant = FbUiButtonVariantTypes.OUTLINE_SUCCESS
         break
 
-      case FbUiConfirmationWindowVariantTypes.DANGER:
+      case FbUiVariantTypes.DANGER:
         buttonVariant = FbUiButtonVariantTypes.OUTLINE_DANGER
         break
 
-      case FbUiConfirmationWindowVariantTypes.WARNING:
+      case FbUiVariantTypes.WARNING:
         buttonVariant = FbUiButtonVariantTypes.OUTLINE_WARNING
         break
 
-      case FbUiConfirmationWindowVariantTypes.INFO:
+      case FbUiVariantTypes.INFO:
         buttonVariant = FbUiButtonVariantTypes.OUTLINE_INFO
         break
     }
 
     return {
       buttonVariant,
+      sizeTypes: FbSizeTypes,
+      buttonVariantTypes: FbUiButtonVariantTypes,
     }
   },
 

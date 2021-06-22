@@ -9,7 +9,7 @@
       size="lg"
     >
       <span
-        v-if="slotExists('icon')"
+        v-if="'icon' in $slots"
         class="fb-layout-tabs-item__icon"
       >
         <slot name="icon" />
@@ -26,7 +26,7 @@
       size="lg"
     >
       <span
-        v-if="slotExists('icon')"
+        v-if="'icon' in $slots"
         class="fb-layout-tabs-item__icon"
       >
         <slot name="icon" />
@@ -43,7 +43,7 @@
       @click.prevent="$emit('click', $event)"
     >
       <span
-        v-if="slotExists('icon')"
+        v-if="'icon' in $slots"
         class="fb-layout-tabs-item__icon"
       >
         <slot name="icon" />

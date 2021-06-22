@@ -6,7 +6,7 @@
       @click.native="$emit('click', $event)"
     >
       <span
-        v-if="slotExists('icon')"
+        v-if="'icon' in $slots"
         class="fb-layout-navigation-item__icon"
       >
         <slot name="icon" />
@@ -21,7 +21,7 @@
       @click.native="$emit('click', $event)"
     >
       <span
-        v-if="slotExists('icon')"
+        v-if="'icon' in $slots"
         class="fb-layout-navigation-item__icon"
       >
         <slot name="icon" />
@@ -34,7 +34,7 @@
       @click.prevent="$emit('click', $event)"
     >
       <span
-        v-if="slotExists('icon')"
+        v-if="'icon' in $slots"
         class="fb-layout-navigation-item__icon"
       >
         <slot name="icon" />

@@ -1,0 +1,7 @@
+@import "../../../assets/components/form/fb-checkboxes";
+
+.fb-form-checkboxes {
+  &__control {
+    padding: $checkboxes-margin;
+  }
+}

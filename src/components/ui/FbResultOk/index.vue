@@ -1,5 +1,8 @@
-<template>
-  <div class="fb-ui-result-ok__container">
+<template functional>
+  <div
+    :data-size="size"
+    class="fb-ui-result-ok__container"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 130.2 130.2"
@@ -19,11 +22,31 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
+
+import { FbSizeTypes } from '@/types'
 
 export default defineComponent({
 
   name: 'FbUiResultOk',
+
+  props: {
+
+    size: {
+      type: String as PropType<FbSizeTypes>,
+      default: FbSizeTypes.MEDIUM,
+      validator: (value: FbSizeTypes) => {
+        // The value must match one of these strings
+        return [
+          FbSizeTypes.SMALL,
+          FbSizeTypes.MEDIUM,
+          FbSizeTypes.LARGE,
+        ].includes(value)
+      },
+    },
+
+  },
 
 })
 </script>

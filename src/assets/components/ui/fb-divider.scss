@@ -1,7 +1,10 @@
-@import "../../../assets/variables/screen";
+@import "../../variables/screen";
+@import "../../variables/texts";
 
+$divider-font-family:                 $font-family-base;
+$divider-font-size:                   $font-size-base;
 $divider-size:                        1px !default;
-$divider-size-half:                   ceil(($divider-size / 2)) !default;
+$divider-size-half:                   ceil($divider-size / 2) !default;
 $divider-margin:                      2rem 0;
 $divider-color:                       #ddd;
 

@@ -5,11 +5,11 @@
     color: $navigation-color;
     height: 6rem;
     z-index: $z-index;
-    transition: height .3s ease-in-out;
+    transition: height 0.3s ease-in-out;
 
     &-collapsed {
       height: 0;
-      transition: height .3s ease-in-out;
+      transition: height 0.3s ease-in-out;
     }
 
     @media (min-width: $screen-tablet-min) {

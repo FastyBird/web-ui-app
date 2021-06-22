@@ -1,9 +1,11 @@
-@import "../../../assets/mixins/utilities";
+@import "../../mixins/utilities";
+@import "../../variables/layout";
+@import "../../variables/texts";
+@import "../../variables/screen";
 
-$icon-color:                          #808080;
-$icon-margin:                         1.5rem 0;
+$no-results-font-family:              $font-family-base;
+$no-results-font-size:                $font-size-base;
 
-$child-icon-color:                    #ffffff;
-$child-icon-background-color:         #d9230f;
+$no-results-font-size-sm:             $font-size-small;
 
-$text-margin:                         1.5rem 0;
+$no-results-text-margin:              $margin-md 0;

@@ -5,17 +5,18 @@
     role="alert"
   >
     <div
-      v-if="slotExists('icon')"
-      class="fb-ui-alert__icon"
+      v-if="'icon' in $slots"
+      class="fb-ui-alert__with-icon"
     >
-      <div class="fb-ui-alert__icon-inner">
+      <div class="fb-ui-alert__with-icon-icon">
         <slot name="icon" />
       </div>
 
-      <div class="fb-ui-alert__content">
+      <div class="fb-ui-alert__with-icon-content">
         <slot />
       </div>
     </div>
+
     <template v-else>
       <slot />
     </template>
@@ -28,7 +29,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbUiAlertVariantTypes } from '@/types'
+import { FbUiVariantTypes } from '@/types'
 
 export default defineComponent({
 
@@ -37,17 +38,17 @@ export default defineComponent({
   props: {
 
     variant: {
-      type: String as PropType<FbUiAlertVariantTypes>,
-      default: FbUiAlertVariantTypes.DEFAULT,
-      validator: (value: FbUiAlertVariantTypes) => {
+      type: String as PropType<FbUiVariantTypes>,
+      default: FbUiVariantTypes.DEFAULT,
+      validator: (value: FbUiVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiAlertVariantTypes.DEFAULT,
-          FbUiAlertVariantTypes.PRIMARY,
-          FbUiAlertVariantTypes.SUCCESS,
-          FbUiAlertVariantTypes.DANGER,
-          FbUiAlertVariantTypes.WARNING,
-          FbUiAlertVariantTypes.INFO,
+          FbUiVariantTypes.DEFAULT,
+          FbUiVariantTypes.PRIMARY,
+          FbUiVariantTypes.SUCCESS,
+          FbUiVariantTypes.DANGER,
+          FbUiVariantTypes.WARNING,
+          FbUiVariantTypes.INFO,
         ].includes(value)
       },
     },

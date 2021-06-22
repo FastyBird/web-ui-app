@@ -1,6 +1,6 @@
-$white:                                 #fff; // shades-tints
+$white:                                 #fff;
 
-$gray-base:                             #000; // shades-tints
+$gray-base:                             #000;
 $gray-darker:                           #222;
 $gray-dark:                             #444;
 $gray:                                  #777;
@@ -8,53 +8,27 @@ $gray-light:                            #808080;
 $gray-lighter:                          #ddd;
 
 $brand-primary:                         #d9230f;
-$brand-primary-contrast:                #ffffff;
+$brand-primary-contrast:                #fff;
 $brand-success:                         #469408;
-$brand-success-contrast:                #ffffff;
+$brand-success-contrast:                #fff;
 $brand-info:                            #029acf;
-$brand-info-contrast:                   #ffffff;
+$brand-info-contrast:                   #fff;
 $brand-warning:                         #9b479f;
-$brand-warning-contrast:                #ffffff;
+$brand-warning-contrast:                #fff;
 $brand-danger:                          #d9831f;
-$brand-danger-contrast:                 #ffffff;
+$brand-danger-contrast:                 #fff;
+$brand-default:                         #474949;
+$brand-default-contrast:                #fff;
 
-//** Background color for '<body>'.
 $body-bg:                               #fcfcfc;
 
-//** Global text color on '<body>'.
 $text-color:                            $gray;
 
-//** Global textual link color.
 $link-color:                            $brand-primary;
-
-//** Link hover color set via 'darken()' function.
 $link-hover-color:                      $brand-primary;
-
-//** Link hover decoration.
 $link-hover-decoration:                 underline;
 
-$text-muted:                            $gray-light;
-$text-default:                          $gray;
-$text-danger:                           $brand-danger;
-
-//** Global color for active items (e.g., navs or dropdowns).
-$component-active-color:                #fff;
-
-//** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:                   $brand-primary;
-
-$link-muted-color:                      $text-color !default;
-$link-muted-hover-color:                $link-color !default;
-$link-muted-hover-decoration:           none !default;
-
-$link-inverted-color:                   #fff !default;
-$link-inverted-hover-color:             #fff !default;
-$link-inverted-hover-decoration:        none !default;
-
 $hr-border:                             $gray-lighter;
-
-//** Headings small color
-$headings-small-color:                  $gray-light;
 
 $state-success-text:                    $brand-success;
 $state-success-bg:                      #c8e6c9;

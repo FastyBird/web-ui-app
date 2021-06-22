@@ -1,17 +1,17 @@
 <template>
   <div class="fb-layout-footer__container">
     <div class="fb-layout-footer__inner">
-      <template v-if="hasSlot()">
+      <template v-if="'default' in $slots">
         <slot />
       </template>
 
       <template v-else>
-        <small>&copy; 2017 <a
-          href="https://fastybird.com"
+        <small>{{ copyright }}<a
+          :href="website"
           target="_blank"
           rel="noreferrer"
         >
-          FastyBird s.r.o.</a>
+          {{ author }}</a>
         </small>
       </template>
     </div>
@@ -21,23 +21,28 @@
 <script lang="ts">
 import {
   defineComponent,
-  SetupContext,
 } from '@vue/composition-api'
-
-import get from 'lodash/get'
 
 export default defineComponent({
 
   name: 'FbLayoutFooter',
 
-  setup(_props: { }, context: SetupContext) {
-    function hasSlot(): boolean {
-      return get(context.slots, 'default', null) !== null
-    }
+  copyright: {
+    type: String,
+    required: false,
+    default: '&copy; 2017',
+  },
 
-    return {
-      hasSlot,
-    }
+  author: {
+    type: String,
+    required: false,
+    default: 'FastyBird s.r.o.',
+  },
+
+  website: {
+    type: String,
+    required: false,
+    default: 'https://www.fastybird.com',
   },
 
 })

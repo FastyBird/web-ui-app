@@ -20,6 +20,7 @@
       "vue",
       "@nuxt/types",
       "@types/body-scroll-lock",
+      "@types/jest",
       "@types/lodash.get"
     ],
     "paths": {

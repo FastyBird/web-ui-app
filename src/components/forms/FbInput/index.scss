@@ -10,15 +10,13 @@
     box-shadow: none;
     color: $input-color;
     border: 1px solid $input-border-color;
-
-    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-
-    &:focus {
-      border-color: $input-border-color-focus;
-      outline: none;
-    }
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    resize: vertical;
 
     // Firefox
     &::-moz-placeholder {
@@ -26,8 +24,8 @@
       opacity: 1;
       filter: alpha(opacity=100);
     }
+    &::-webkit-input-placeholder { color: $input-color-placeholder; } // Safari and Chrome
     &:-ms-input-placeholder { color: $input-color-placeholder; } // Internet Explorer 10+
-    &::-webkit-input-placeholder  { color: $input-color-placeholder; } // Safari and Chrome
 
     // Unstyle the caret on `<select>`s in IE10+.
     &::-ms-expand {
@@ -35,15 +33,19 @@
       background-color: transparent;
     }
 
-    &[disabled],
-    fieldset[disabled] & {
+    &:focus {
+      border-color: $input-border-color-focus;
+      outline: none;
+    }
+
+    &[disabled] {
       background-color: $input-background-disabled;
       opacity: 1;
       filter: alpha(opacity=100);
+      cursor: not-allowed;
     }
 
-    &[readonly],
-    fieldset[disabled] & {
+    &[readonly] {
       color: $input-color-readonly;
       background-color: $input-background-readonly;
       opacity: 1;
@@ -51,8 +53,75 @@
     }
 
     &[disabled],
-    fieldset[disabled] & {
-      cursor: not-allowed;
+    &[readonly] {
+      background-color: $input-background-disabled;
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+
+    &[type="file"] {
+      display: block;
+    }
+
+    // Make range inputs behave like textual form controls
+    &[type="range"] {
+      display: block;
+      width: 100%;
+    }
+
+    &[data-size="lg"] {
+      height: $input-size-height-lg;
+      padding: $input-size-padding-lg;
+      font-size: $input-size-font-size-lg;
+      line-height: $input-size-line-height-lg;
+
+      @include input-border-radius($input-border-radius-lg);
+    }
+
+    &[data-size="md"] {
+      height: $input-size-height-md;
+      padding: $input-size-padding-md;
+      font-size: $input-size-font-size-md;
+      line-height: $input-size-line-height-md;
+
+      @include input-border-radius($input-border-radius-md);
+    }
+
+    &[data-size="sm"] {
+      height: $input-size-height-sm;
+      padding: $input-size-padding-sm;
+      font-size: $input-size-font-size-sm;
+      line-height: $input-size-line-height-sm;
+
+      @include input-border-radius($input-border-radius-sm);
+    }
+
+    &[data-error="true"] {
+      border-color: $input-border-color-error;
+
+      @include input-error-shadow;
+
+      &[placeholder] {
+        &::-moz-placeholder {
+          color: $input-color-error;
+          opacity: 1;
+          filter: alpha(opacity=100);
+        }
+
+        &::-webkit-input-placeholder {
+          color: $input-color-error;
+        }
+
+        &:-ms-input-placeholder {
+          color: $input-color-error;
+        }
+      }
+
+      &:focus {
+        border-color: darken($input-border-color-error, 10%);
+
+        @include input-error-focus-shadow;
+      }
     }
   }
 }

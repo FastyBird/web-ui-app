@@ -2,28 +2,18 @@
 
 .fb-ui-no-results {
   &__container {
+    font-family: $no-results-font-family;
+    font-size: $no-results-font-size;
     display: inline-block;
     position: relative;
     text-align: center;
 
-    .fb-ui-icon-with-child {
-      &__icon {
-        color: $icon-color;
-        font-size: 5em;
-        margin: $icon-margin;
-      }
-
-      &__child-icon {
-        font-size: 1.6rem;
-        height: 3.2rem;
-        width: 3.2rem;
-        line-height: 3.2rem;
-        text-align: center;
-      }
+    &[data-size="sm"] {
+      font-size: $no-results-font-size-sm;
     }
 
     p {
-      margin: $text-margin;
+      margin: $no-results-text-margin;
     }
   }
 }

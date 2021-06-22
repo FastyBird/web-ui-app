@@ -4,22 +4,23 @@
   &__container {
     position: relative;
 
+    &-collapsed {
+      ul {
+        display: none;
+      }
+    }
+
     ul {
       z-index: $z-index;
-
       position: absolute;
       top: auto;
       bottom: 6rem;
       left: 0;
-
       display: block;
-
       margin: $menu-margin;
       padding: $menu-padding;
-
       list-style: none;
       font-size: $menu-font-size;
-
       background-color: $menu-background-color;
       border: 1px solid $menu-border-color;
       border-radius: $menu-border-radius;
@@ -31,8 +32,8 @@
         outline: none;
       }
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         border-color: transparent;
         border-style: solid;
         border-width: 8px;
@@ -45,21 +46,15 @@
         bottom: 100%;
       }
 
-      &:before {
+      &::before {
         border-top-color: $menu-border-color;
         top: 100%;
       }
 
-      &:after {
+      &::after {
         border-top-color: $menu-background-color;
         margin-top: -1px;
         top: 100%;
-      }
-    }
-
-    &-collapsed {
-      ul {
-        display: none;
       }
     }
   }
@@ -74,7 +69,6 @@
       text-align: center;
       vertical-align: middle;
       padding: 0.5rem 0;
-
       flex-grow: 1;
 
       @media (min-width: $screen-large) {
@@ -109,7 +103,6 @@
     &-name {
       line-height: 5rem;
       padding: $name-padding;
-
       -webkit-box-flex: 0;
       -ms-flex: 1 0 0;
       flex: 1 0 0;
@@ -126,9 +119,9 @@
       margin-left: 2px;
       vertical-align: middle;
       border-top: 0;
-      border-top:   4px solid \9; // IE8
+      border-top: 4px solid \9; // IE8
       border-right: 4px solid transparent;
-      border-left:  4px solid transparent;
+      border-left: 4px solid transparent;
       border-bottom: 4px dashed;
       border-bottom: 4px solid \9; // IE8
       content: "";

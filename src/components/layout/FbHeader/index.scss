@@ -38,25 +38,25 @@
     height: 0;
     line-height: 3rem;
     padding-left: 1rem;
-    transition: height .3s ease-in-out;
+    transition: height 0.3s ease-in-out;
 
     @include flex-heading;
 
     &-expanded {
       height: 3rem;
-      transition: height .3s ease-in-out;
+      transition: height 0.3s ease-in-out;
     }
   }
 
   &__buttons-small {
     height: 0;
-    transition: height .3s ease-in-out;
+    transition: height 0.3s ease-in-out;
 
     @include flex-heading;
 
     &-expanded {
       height: 3rem;
-      transition: height .3s ease-in-out;
+      transition: height 0.3s ease-in-out;
     }
   }
 
@@ -67,30 +67,6 @@
       border: none;
       position: relative;
       outline: none;
-
-      &-collapsed {
-        .fb-layout-header {
-          &__button {
-            &-hamburger {
-              &-bars {
-                &-line {
-                  width: 100%;
-                }
-
-                &-x {
-                  span:first-child {
-                    width: 0;
-                  }
-
-                  span:last-child {
-                    height: 0;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
 
       &-label {
         position: absolute;
@@ -148,6 +124,30 @@
             left: 50%;
             transform: translateX(-50%);
             width: $hamburger-bar-line-height;
+          }
+        }
+      }
+
+      &-collapsed {
+        .fb-layout-header {
+          &__button {
+            &-hamburger {
+              &-bars {
+                &-line {
+                  width: 100%;
+                }
+
+                &-x {
+                  span:first-child {
+                    width: 0;
+                  }
+
+                  span:last-child {
+                    height: 0;
+                  }
+                }
+              }
+            }
           }
         }
       }

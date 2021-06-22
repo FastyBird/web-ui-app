@@ -1,0 +1,45 @@
+@import "../../variables/colors";
+@import "../../variables/layout";
+@import "../../variables/screen";
+@import "../../variables/texts";
+@import "../../mixins/utilities";
+
+$modal-font-family:                   $font-family-base;
+$modal-font-size:                     $font-size-base;
+
+$modal-z-index:                       $zindex-modal;
+
+$modal-overlay-background:            rgba(0, 0, 0, 0.5);
+$modal-overlay-bg-transparent:        rgba(255, 255, 255, 0.5);
+
+$modal-footer-padding:                $padding-md;
+
+$modal-content-border-radius:         4px;
+$modal-content-bg-color:              $white;
+
+$modal-top-offset:                    7rem;
+$modal-bottom-offset:                 7rem;
+$modal-top-offset-phone:              1rem;
+$modal-bottom-offset-phone:           1rem;
+$modal-top-offset-tablet:             1rem;
+$modal-bottom-offset-tablet:          1rem;
+
+$modal-size-sm:                       30rem;
+$modal-size-md:                       60rem;
+$modal-size-lg:                       90rem;
+
+$modal-loader-width:                  25rem;
+$modal-loader-bg-color:               #fff;
+
+$logo-color-dark:                     #444;
+$logo-color-primary:                  #d9230f;
+
+$screen-tablet-min:                   $screen-sm-min;
+
+@mixin modal-content-shadow {
+  @include box-shadow(0 3px 9px rgba(0, 0, 0, 0.5));
+
+  @media (min-width: $screen-tablet-min) {
+    @include box-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+  }
+}

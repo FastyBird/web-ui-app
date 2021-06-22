@@ -13,7 +13,7 @@
       </div>
 
       <div
-        v-if="slotExists('icon')"
+        v-if="'icon' in $slots"
         class="fb-layout-phone-header-heading__icon"
       >
         <slot name="icon" />

@@ -2,7 +2,7 @@
   <span
     :data-variant="props.variant"
     :data-size="props.size"
-    :class="[data.class, data.staticClass, 'fb-ui-spinner__container']"
+    class="fb-ui-spinner__container"
   />
 </template>
 
@@ -12,7 +12,7 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import { FbSizeTypes, FbUiSpinnerVariantTypes } from '@/types'
+import { FbSizeTypes, FbUiVariantTypes } from '@/types'
 
 export default defineComponent({
 
@@ -21,17 +21,17 @@ export default defineComponent({
   props: {
 
     variant: {
-      type: String as PropType<FbUiSpinnerVariantTypes>,
-      default: FbUiSpinnerVariantTypes.PRIMARY,
-      validator: (value: FbUiSpinnerVariantTypes) => {
+      type: String as PropType<FbUiVariantTypes>,
+      default: FbUiVariantTypes.PRIMARY,
+      validator: (value: FbUiVariantTypes) => {
         // The value must match one of these strings
         return [
-          FbUiSpinnerVariantTypes.DEFAULT,
-          FbUiSpinnerVariantTypes.PRIMARY,
-          FbUiSpinnerVariantTypes.SUCCESS,
-          FbUiSpinnerVariantTypes.DANGER,
-          FbUiSpinnerVariantTypes.WARNING,
-          FbUiSpinnerVariantTypes.INFO,
+          FbUiVariantTypes.DEFAULT,
+          FbUiVariantTypes.PRIMARY,
+          FbUiVariantTypes.SUCCESS,
+          FbUiVariantTypes.DANGER,
+          FbUiVariantTypes.WARNING,
+          FbUiVariantTypes.INFO,
         ].includes(value)
       },
     },

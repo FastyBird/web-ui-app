@@ -5,6 +5,7 @@ import {
 
 export default {
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   inserted(el: HTMLElement, binding: any): void {
     if (binding.arg && binding.arg === 'reserve-scroll-bar-gap' && binding.value) {
       disableBodyScroll(el, {
@@ -15,6 +16,7 @@ export default {
     }
   },
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   componentUpdated(el: HTMLElement, binding: any): void {
     if (binding.oldValue === binding.value) {
       return

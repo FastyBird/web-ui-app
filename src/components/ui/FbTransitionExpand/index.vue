@@ -19,7 +19,7 @@ export default defineComponent({
   name: 'FbUiTransitionExpand',
 
   setup() {
-    function enter(element: HTMLElement): void {
+    const enter = (element: HTMLElement): void => {
       const computedStyle = getComputedStyle(element)
 
       Object.assign(element.style, { width: computedStyle.width })
@@ -46,11 +46,11 @@ export default defineComponent({
       })
     }
 
-    function afterEnter(element: HTMLElement): void {
+    const afterEnter = (element: HTMLElement): void => {
       Object.assign(element.style, { height: 'auto' })
     }
 
-    function leave(element: HTMLElement): void {
+    const leave = (element: HTMLElement): void => {
       const computedStyle = getComputedStyle(element)
 
       Object.assign(element.style, { height: computedStyle.height })

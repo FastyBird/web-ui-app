@@ -1,25 +1,40 @@
 <template>
   <fb-ui-modal-window
+    :show="show"
     :size="size"
-    :variant="variant"
-    :show-header="slotExists('header')"
+    :layout="layout"
+    :show-header="'header' in $slots || 'title' in $slots"
     :transparent-bg="transparentBg"
     :enable-closing="enableClosing"
     :show-footer="enableClosing"
-    :ok-btn-show="false"
-    :close-btn-text="closeBtnText"
+    :show-right-btn="false"
+    :left-btn-label="closeBtnLabel"
     @close="$emit('close', $event)"
+    @leftSubmit="$emit('close', $event)"
   >
     <template
-      v-if="slotExists('header')"
-      slot="modal-title"
+      v-if="'title' in $slots"
+      slot="title"
+    >
+      <slot name="title" />
+    </template>
+
+    <template
+      v-if="'icon' in $slots"
+      slot="icon"
     >
       <slot name="icon" />
+    </template>
+
+    <template
+      v-if="'header' in $slots"
+      slot="header"
+    >
       <slot name="header" />
     </template>
 
-    <template slot="modal-body">
-      <slot name="info" />
+    <template slot="body">
+      <slot />
     </template>
   </fb-ui-modal-window>
 </template>
@@ -30,11 +45,17 @@ import {
   PropType,
 } from '@vue/composition-api'
 
-import {FbUiModalVariantTypes, FbSizeTypes} from "@/types";
+import { FbUiModalLayoutTypes, FbSizeTypes } from '@/types'
+
+import FbUiModalWindow from './../FbModalWindow/index.vue'
 
 export default defineComponent({
 
   name: 'FbUiModalInfo',
+
+  components: {
+    FbUiModalWindow,
+  },
 
   props: {
 
@@ -51,15 +72,15 @@ export default defineComponent({
       },
     },
 
-    variant: {
-      type: String as PropType<FbUiModalVariantTypes>,
-      default: FbUiModalVariantTypes.DEFAULT,
-      validator: (value: FbUiModalVariantTypes) => {
+    layout: {
+      type: String as PropType<FbUiModalLayoutTypes>,
+      default: FbUiModalLayoutTypes.DEFAULT,
+      validator: (value: FbUiModalLayoutTypes) => {
         // The value must match one of these strings
         return [
-          FbUiModalVariantTypes.DEFAULT,
-          FbUiModalVariantTypes.PHONE,
-          FbUiModalVariantTypes.TABLET,
+          FbUiModalLayoutTypes.DEFAULT,
+          FbUiModalLayoutTypes.PHONE,
+          FbUiModalLayoutTypes.TABLET,
         ].includes(value)
       },
     },
@@ -70,7 +91,7 @@ export default defineComponent({
       default: true,
     },
 
-    closeBtnText: {
+    closeBtnLabel: {
       type: String,
       required: false,
       default: 'Close',
@@ -81,11 +102,12 @@ export default defineComponent({
       default: false,
     },
 
+    show: {
+      type: Boolean,
+      default: true,
+    },
+
   },
 
 })
 </script>
-
-<style rel="stylesheet/scss" lang="scss">
-@import 'index';
-</style>

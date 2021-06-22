@@ -1,106 +1,83 @@
 @import "../../../assets/components/form/fb-radio-button";
 
-.fb-form-radio {
+.fb-form-radio-button {
   &__container {
     display: inline-block;
-    padding: $radio-padding;
-    margin: 0;
     position: relative;
+    line-height: $radio-indicator-line-height;
+    font-family: $radio-font-family;
+    font-size: $radio-indicator-font-size;
+    font-weight: 400;
+    height: $radio-indicator-size;
+    padding: $radio-padding;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text; // IE10+
+    user-select: text;
+
+    .fb-form-radio-button {
+      &__indicator {
+        background-color: $radio-indicator-bg-color;
+        border-color: $radio-indicator-border-color;
+        border-style: solid;
+        border-width: 1px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: (($radio-indicator-size - $radio-indicator-font-size) / 2) * -1;
+        width: $radio-indicator-size;
+        height: $radio-indicator-size;
+
+        @include radio-indicator-radius;
+      }
+    }
 
     &[data-error="true"] {
-      .fb-form-radio {
+      .fb-form-radio-button {
         &__indicator {
-          border-color: $error-color;
+          border-color: $radio-error-color;
         }
 
         &__indicator-label {
-          color: $error-color;
+          color: $radio-error-color;
         }
       }
     }
   }
 
-  &__label {
-    cursor: pointer;
-    font-weight: 400;
-    line-height: $radio-indicator-size;
-    margin: 0;
-    height: $radio-indicator-size;
-    min-width: $radio-indicator-size;
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    max-width: 100%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none; // IE10+
-    user-select: none;
-  }
-
   &__input {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: $radio-indicator-size;
-    height: $radio-indicator-size;
-    z-index: -1;
+    display: none;
 
-    &:checked ~ .fb-form-radio__indicator,
-    &:active ~ .fb-form-radio__indicator {
-      border: none;
+    &:checked ~ .fb-form-radio-button__indicator {
+      border-color: $radio-indicator-checked-border-color;
+      background-color: $radio-indicator-checked-bg-color;
+
+      &::after {
+        content: ' ';
+        width: ($radio-indicator-size * 0.75);
+        height: ($radio-indicator-size * 0.75);
+        display: block;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: ($radio-indicator-size - ($radio-indicator-size * 0.75)) / 2 - 0.1rem;
+        left: ($radio-indicator-size - ($radio-indicator-size * 0.75)) / 2 - 0.1rem;
+      }
     }
 
-    &:checked ~ .fb-form-radio__indicator {
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28' fill='%23fff'%3E%3Cpath d='M24 14q0 3.266-1.609 6.023t-4.367 4.367-6.023 1.609-6.023-1.609-4.367-4.367T.002 14t1.609-6.023T5.978 3.61t6.023-1.609 6.023 1.609 4.367 4.367T24 14z'/%3E%3C/svg%3E");
+    &:active ~ .fb-form-radio-button__indicator {
+      border-color: $radio-indicator-checked-border-color;
+      background-color: lighten($radio-indicator-checked-bg-color, 25);
     }
 
-    &:disabled  ~ .fb-form-radio__indicator {
-      background-color: $indicator-background-color-disabled;
+    &:disabled ~ .fb-form-radio-button__indicator {
+      background-color: $radio-indicator-disabled-bg-color;
     }
 
-    &:disabled:checked ~ .fb-form-radio__indicator {
-      background-color: $indicator-background-color-disabled;
-    }
-
-    &:checked ~ .fb-form-radio__indicator {
-      background-color: $indicator-background-color;
-    }
-
-    &:active ~ .fb-form-radio__indicator {
-      background-color: lighten($indicator-background-color, 25);
-    }
-  }
-
-  &__indicator {
-    background-color: $indicator-color;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-color: $indicator-border-color;
-    border-style: solid;
-    border-width: 1px;
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: $radio-indicator-size;
-    height: $radio-indicator-size;
-
-    background-size: 75% 75%;
-
-    @include indicator-radius;
-
-    &-label {
-      display: block;
-      line-height: $indicator-line-height;
-      font-size: $indicator-font-size;
-      margin-left: sum($radio-indicator-size, 1rem);
-
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text; // IE10+
-      user-select: text;
+    &:disabled:checked ~ .fb-form-radio-button__indicator {
+      background-color: $radio-indicator-disabled-bg-color;
     }
   }
 }

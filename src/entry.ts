@@ -25,6 +25,7 @@ const install: InstallFunction = function installWebUiTheme(Vue: typeof _Vue) {
     Vue.directive(directiveName, directive)
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   Object.entries(mixins).forEach(([_mixinName, mixin]) => {
     Vue.mixin(mixin)
   });

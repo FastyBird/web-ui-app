@@ -6,19 +6,19 @@
     :name="name"
     :label="label"
     :required="required"
-    :is-focused="focused"
+    :is-focused="isFocused"
     :has-value="value !== '' && value !== null || placeholder !== null"
     :error="error"
   >
     <template
-      v-if="slotExists('left-addon')"
+      v-if="'left-addon' in $slots"
       slot="left-addon"
     >
       <slot name="left-addon" />
     </template>
 
     <template
-      v-if="slotExists('right-addon')"
+      v-if="'right-addon' in $slots"
       slot="right-addon"
     >
       <slot name="right-addon" />
@@ -28,22 +28,25 @@
       <input
         :id="id ? id : name"
         :ref="`field-${name}`"
+        :data-size="size"
+        :data-error="error !== null"
         :name="name"
-        :tabindex="tabIndex"
         :type="type"
+        :tabindex="tabIndex"
+        :disabled="disabled"
         :readonly="readonly"
         :value="value"
-        :placeholder="hasError && !focused ? error : placeholder"
+        :placeholder="error !== null && !isFocused ? error : placeholder"
         class="fb-form-input__control"
-        @input="updateValue($event.target.value)"
-        @focus="setFocused(true)"
-        @blur="setFocused(false)"
-        @keydown="keyDown"
+        @input="handleUpdateValue($event.target.value)"
+        @focus="handleSetFocus(true)"
+        @blur="handleSetFocus(false)"
+        @keydown="handleKeyDown"
       >
     </template>
 
     <template
-      v-if="slotExists('help-line')"
+      v-if="'help-line' in $slots"
       slot="help-line"
     >
       <slot name="help-line" />
@@ -65,6 +68,8 @@ import {
   FbSizeTypes,
 } from '@/types'
 
+import FbFormField from './../FbField/index.vue'
+
 interface FbFormInputPropsInterface {
   orientation: FbFormOrientationTypes
   size: FbSizeTypes
@@ -75,15 +80,19 @@ interface FbFormInputPropsInterface {
   required: boolean
   value: string | number | null
   tabIndex: number | null
-  hasError: boolean
   error: string | null
   placeholder: string | null
+  disabled: boolean
   readonly: boolean
 }
 
 export default defineComponent({
 
   name: 'FbFormInput',
+
+  components: {
+    FbFormField,
+  },
 
   props: {
 
@@ -159,11 +168,6 @@ export default defineComponent({
       default: null,
     },
 
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
-
     error: {
       type: String,
       default: null,
@@ -174,6 +178,11 @@ export default defineComponent({
       default: null,
     },
 
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+
     readonly: {
       type: Boolean,
       default: false,
@@ -182,16 +191,16 @@ export default defineComponent({
   },
 
   setup(_props: FbFormInputPropsInterface, context: SetupContext) {
-    const focused = ref<boolean>(false)
+    const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
-    function updateValue(value: string | number | null): void {
+    const handleUpdateValue = (value: string | number | null): void => {
       context.emit('input', value)
     }
 
     // Fire focus & blur events
-    function setFocused(value: boolean): void {
-      focused.value = value
+    const handleSetFocus = (value: boolean): void => {
+      isFocused.value = value
 
       if (value) {
         context.emit('focus')
@@ -200,15 +209,15 @@ export default defineComponent({
       }
     }
 
-    function keyDown(event: Event): void {
+    const handleKeyDown = (event: Event): void => {
       context.emit('keydown', event)
     }
 
     return {
-      focused,
-      updateValue,
-      setFocused,
-      keyDown,
+      isFocused,
+      handleUpdateValue,
+      handleSetFocus,
+      handleKeyDown,
     }
   },
 

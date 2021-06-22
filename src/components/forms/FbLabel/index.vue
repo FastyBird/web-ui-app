@@ -1,12 +1,13 @@
 <template>
   <label
-    v-if="id !== null && label !== null && orientation !== 'inline'"
+    v-if="'default' in $slots && orientation !== 'inline'"
     :for="id"
     :class="['fb-label__container', {'fb-label__container-required': required}]"
     :data-orientation="orientation"
     :data-size="size"
+    :data-error="hasError"
   >
-    {{ label }}
+    <slot />
   </label>
 </template>
 
@@ -29,12 +30,7 @@ export default defineComponent({
 
     id: {
       type: String,
-      default: null,
-    },
-
-    label: {
-      type: String,
-      default: null,
+      required: true,
     },
 
     orientation: {
@@ -64,6 +60,11 @@ export default defineComponent({
     },
 
     required: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasError: {
       type: Boolean,
       default: false,
     },
