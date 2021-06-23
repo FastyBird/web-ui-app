@@ -92,16 +92,10 @@
       </template>
 
       <p
-        v-if="'help-line' in $slots && error === null"
+        v-if="'help-line' in $slots"
         class="fb-form-field__help"
       >
         <slot name="help-line" />
-      </p>
-      <p
-        v-if="error !== null"
-        class="fb-form-field__error"
-      >
-        {{ error }}
       </p>
     </div>
   </div>

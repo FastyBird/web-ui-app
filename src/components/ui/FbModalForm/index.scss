@@ -11,10 +11,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $result-background-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     .fb-ui-spinner__container {
       width: 10rem;
@@ -27,6 +27,12 @@
       height: 10rem;
       margin: -5rem 0 0 -5rem;
       border-width: 4px;
+    }
+
+    .fb-ui-result-ok__container,
+    .fb-ui-result-err__container {
+      width: 10rem;
+      height: 10rem;
     }
   }
 }

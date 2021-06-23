@@ -90,13 +90,9 @@
 
       &__input-feedback {
         position: absolute;
-        top: 0;
-        right: 0;
+        right: 0.5rem;
         z-index: 2; // Ensure icon is above input groups
         display: block;
-        width: $field-size-md-height;
-        height: $field-size-md-height;
-        line-height: $field-size-md-height;
         text-align: center;
         pointer-events: none;
 
@@ -116,6 +112,33 @@
         display: block;
         color: $field-error-color;
         margin: 5px 0 10px;
+      }
+    }
+
+    &[data-size="lg"] {
+      .fb-form-field__input-feedback {
+        width: $field-size-lg-feedback-size;
+        height: $field-size-lg-feedback-size;
+        line-height: $field-size-lg-feedback-size;
+        top: $field-size-lg-feedback-top-pos;
+      }
+    }
+
+    &[data-size="md"] {
+      .fb-form-field__input-feedback {
+        width: $field-size-md-feedback-size;
+        height: $field-size-md-feedback-size;
+        line-height: $field-size-md-feedback-size;
+        top: $field-size-md-feedback-top-pos;
+      }
+    }
+
+    &[data-size="sm"] {
+      .fb-form-field__input-feedback {
+        width: $field-size-sm-feedback-size;
+        height: $field-size-sm-feedback-size;
+        line-height: $field-size-sm-feedback-size;
+        top: $field-size-sm-feedback-top-pos;
       }
     }
   }

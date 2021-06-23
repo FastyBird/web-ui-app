@@ -40,7 +40,10 @@
         v-if="[resultTypes.WORKING, resultTypes.OK, resultTypes.ERROR].includes(state)"
         class="fb-ui-modal-form__result"
       >
-        <fb-ui-spinner v-if="state === resultTypes.WORKING" />
+        <fb-ui-spinner
+          v-if="state === resultTypes.WORKING"
+          :size="sizeTypes.LARGE"
+        />
         <fb-ui-result-ok v-if="state === resultTypes.OK" />
         <fb-ui-result-err v-if="state === resultTypes.ERROR" />
       </div>
@@ -77,6 +80,7 @@
         :tabindex="(initialTabindex + 1)"
         :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
         :variant="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? buttonVariantTypes.LINK_DEFAULT : buttonVariantTypes.OUTLINE_PRIMARY"
+        :loading="state === resultTypes.WORKING"
         uppercase
         name="submit"
         @click.prevent="$emit('submit', $event)"
