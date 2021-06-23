@@ -215,22 +215,62 @@
 
   &[data-variant="outline-default"] {
     @include button-outline-variant($btn-default-border, $btn-default-color);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="outline-primary"] {
     @include button-outline-variant($btn-primary-border, $btn-primary-color);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="outline-success"] {
     @include button-outline-variant($btn-success-border, $btn-success-color);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="outline-info"] {
     @include button-outline-variant($btn-info-border, $btn-info-color);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="outline-warning"] {
     @include button-outline-variant($btn-warning-border, $btn-warning-color);
+
+    &.fb-ui-button-loading {
+      color: transparent;
+
+      .fb-ui-button__inner-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   &[data-variant="outline-danger"] {
