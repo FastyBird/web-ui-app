@@ -36,7 +36,10 @@
     >
       <slot name="form" />
 
-      <div class="fb-ui-modal-form__result">
+      <div
+        v-if="[resultTypes.WORKING, resultTypes.OK, resultTypes.ERROR].includes(state)"
+        class="fb-ui-modal-form__result"
+      >
         <fb-ui-spinner v-if="state === resultTypes.WORKING" />
         <fb-ui-result-ok v-if="state === resultTypes.OK" />
         <fb-ui-result-err v-if="state === resultTypes.ERROR" />

@@ -27,6 +27,7 @@
     &[data-size="lg"] {
       padding-right: 5px;
       padding-bottom: 2px;
+      line-height: $main-icon-size-lg;
 
       .fb-ui-icon-with-child {
         &__icon {
@@ -36,8 +37,8 @@
 
         &__child-icon {
           font-size: $child-icon-size-lg - (0.1rem * 6);
-          height: $child-icon-size-lg - (0.1rem * 2);
-          width: $child-icon-size-lg - (0.1rem * 2);
+          height: $child-icon-size-lg;
+          width: $child-icon-size-lg;
         }
       }
     }
@@ -45,6 +46,7 @@
     &[data-size="md"] {
       padding-right: 4px;
       padding-bottom: 2px;
+      line-height: $main-icon-size-md;
 
       .fb-ui-icon-with-child {
         &__icon {
@@ -54,8 +56,8 @@
 
         &__child-icon {
           font-size: $child-icon-size-md - (0.1rem * 6);
-          height: $child-icon-size-md - (0.1rem * 2);
-          width: $child-icon-size-md - (0.1rem * 2);
+          height: $child-icon-size-md;
+          width: $child-icon-size-md;
         }
       }
     }
@@ -63,6 +65,7 @@
     &[data-size="sm"] {
       padding-right: 3px;
       padding-bottom: 2px;
+      line-height: $main-icon-size-sm;
 
       .fb-ui-icon-with-child {
         &__icon {
@@ -72,8 +75,8 @@
 
         &__child-icon {
           font-size: $child-icon-size-sm - (0.1rem * 6);
-          height: $child-icon-size-sm - (0.1rem * 2);
-          width: $child-icon-size-sm - (0.1rem * 2);
+          height: $child-icon-size-sm;
+          width: $child-icon-size-sm;
         }
       }
     }
