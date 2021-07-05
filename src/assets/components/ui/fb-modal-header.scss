@@ -10,16 +10,16 @@ $header-line-height:                    5rem;
 $header-height:                         5rem;
 $header-padding:                        0 $padding-md;
 
-$header-color:                          $brand-primary-contrast;
-$header-bg-color:                       $brand-primary;
+$header-color:                          $color-primary-contrast;
+$header-bg-color:                       $color-primary;
 
 $header-heading-font-size:              $font-size-h4;
 $header-heading-font-weight:            $headings-font-weight;
 $header-heading-line-height:            $headings-line-height;
 $header-heading-margin:                 0;
 
-$header-heading-icon-background-color:  $brand-primary-contrast;
-$header-heading-icon-color:             $brand-primary;
+$header-heading-icon-background-color:  $color-primary-contrast;
+$header-heading-icon-color:             $color-primary;
 $header-heading-icon-margin:            $margin-sm;
 $header-heading-icon-size:              2.7rem;
 $header-heading-icon-font-size:         $font-size-h4;
@@ -30,15 +30,11 @@ $header-close-color:                    $gray-base;
 $header-close-shadow:                   0 1px 0 $white;
 
 @mixin header-flex-container {
-  @include flexRow;
-
-  flex-wrap: nowrap;
+  @include flexRow(nowrap);
 }
 
 @mixin header-flex-heading {
-  @include flexRow;
-
-  flex-wrap: nowrap;
+  @include flexRow(nowrap);
 }
 
 @mixin header-flex-title {
@@ -54,4 +50,8 @@ $header-close-shadow:                   0 1px 0 $white;
     opacity: 0.5;
     filter: alpha(opacity=50);
   }
+}
+
+@mixin header-shadow {
+  @include box-shadow(0 3px 9px rgba(0, 0, 0, 0.5));
 }

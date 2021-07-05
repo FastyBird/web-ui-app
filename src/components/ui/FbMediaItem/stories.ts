@@ -92,5 +92,5 @@ Default.args = {
   left: `<div style="font-size: 25px; margin-top: 10px;"><font-awesome-icon icon="magic" /></div>`,
   heading: 'All created items',
   description: 'Here could find all created items stored in database',
-  action: '<fb-ui-button @click="onClick">Reload</fb-ui-button>',
+  action: '<fb-ui-button @click.prevent="onClick">Reload</fb-ui-button>',
 }

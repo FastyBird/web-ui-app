@@ -124,7 +124,7 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiModalInfo, FbUiButton, FbUiModalHeader },
     template: `
       <div>
-        <fb-ui-button @click="() => { show = true }">Open modal info</fb-ui-button>
+        <fb-ui-button @click.prevent="() => { show = true }">Open modal info</fb-ui-button>
 
         <fb-ui-modal-info
           :show="show"

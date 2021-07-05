@@ -9,7 +9,7 @@
       :data-layout="layout"
       role="dialog"
       @keyup.esc="closeModal"
-      @click="clickOverlay"
+      @click.prevent="clickOverlay"
     >
       <div class="fb-ui-modal-window__window">
         <div

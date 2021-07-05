@@ -2,7 +2,7 @@
   <portal :to="portalName">
     <button
       role="button"
-      :class="['fb-layout-header-menu-button__container', {'fb-layout-header-menu-button__container-small': small}, {'fb-layout-header-menu-button__container-textual': !'icon' in $slots}, {'fb-layout-header-menu-button__container-left': left}, {'fb-layout-header-menu-button__container-right': right}]"
+      :class="['fb-layout-header-menu-button__container', {'fb-layout-header-menu-button__container-small': small}, {'fb-layout-header-menu-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-menu-button__container-left': left}, {'fb-layout-header-menu-button__container-right': right}]"
       @click.prevent="$emit('toggleMenu', $event)"
     >
       <template v-if="'icon' in $slots">

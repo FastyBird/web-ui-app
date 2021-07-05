@@ -16,9 +16,7 @@
       </div>
     </div>
 
-    <div class="fb-ui-items-container__items">
-      <slot />
-    </div>
+    <slot />
   </div>
 </template>
 

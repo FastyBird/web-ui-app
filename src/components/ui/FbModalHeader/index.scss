@@ -1,71 +1,149 @@
 @import "../../../assets/components/ui/fb-modal-header";
 
 .fb-ui-modal-header {
+  &__inner {
+    padding: $header-padding;
+    height: $header-height;
+    line-height: $header-line-height;
+    color: $header-color;
+
+    @include header-flex-container;
+  }
+
+  &__heading {
+    align-items: center;
+
+    @include header-flex-heading;
+
+    &-icon {
+      background-color: $header-heading-icon-background-color;
+      border-radius: 50%;
+      height: $header-heading-icon-size;
+      width: $header-heading-icon-size;
+      line-height: $header-heading-icon-size;
+      font-size: $header-heading-icon-font-size;
+      text-align: center;
+      margin-right: $header-heading-icon-margin;
+
+      svg {
+        color: $header-heading-icon-color;
+      }
+    }
+
+    &-title {
+      flex-grow: 2;
+      flex-direction: column;
+      justify-content: center;
+
+      @include header-flex-title;
+
+      &-heading {
+        width: 100%;
+        font-size: $header-heading-font-size;
+        font-weight: $header-heading-font-weight;
+        line-height: $header-heading-line-height;
+        margin: $header-heading-margin;
+      }
+
+      &-small {
+        display: block;
+        font-size: 75%;
+        color: $header-color;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: ($header-font-size * 1.5);
+    font-weight: bold;
+    line-height: 1;
+    color: $header-close-color;
+    text-shadow: $header-close-shadow;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+
+    @include header-close;
+
+    &:hover,
+    &:focus {
+      @media (hover: hover) and (pointer: fine) {
+        color: $header-close-color;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    &-text {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  }
+
+  &__description {
+    @include flexColumn(nowrap);
+
+    &-icon {
+      text-align: center;
+      margin-bottom: $margin-sm;
+
+      svg {
+        color: $header-color;
+      }
+    }
+
+    &-title {
+      text-align: center;
+
+      &-heading {
+        font-size: $header-heading-font-size;
+        font-weight: $header-heading-font-weight;
+        line-height: $header-heading-line-height;
+        margin: $header-heading-margin;
+      }
+
+      &-small {
+        display: block;
+        font-size: 75%;
+        color: $header-color;
+      }
+    }
+
+    &-content {
+      text-align: center;
+    }
+  }
+
   &__container {
     font-family: $header-font-family;
     font-size: $header-font-size;
-    line-height: $header-line-height;
-    padding: $header-padding;
     color: $header-color;
     background-color: $header-bg-color;
-    height: $header-height;
 
-    @include header-flex-container;
-
-    .fb-ui-modal-header {
-      &__heading {
-        align-items: center;
-
-        @include header-flex-heading;
-
-        &-icon {
-          background-color: $header-heading-icon-background-color;
-          border-radius: 50%;
-          height: $header-heading-icon-size;
-          width: $header-heading-icon-size;
-          line-height: $header-heading-icon-size;
-          font-size: $header-heading-icon-font-size;
-          text-align: center;
-          margin-right: $header-heading-icon-margin;
-
-          svg {
-            color: $header-heading-icon-color;
-          }
-        }
-
-        &-title {
-          flex-grow: 2;
-          flex-direction: column;
-          justify-content: center;
-
-          @include header-flex-title;
-
-          h4 {
-            font-size: $header-heading-font-size;
-            font-weight: $header-heading-font-weight;
-            line-height: $header-heading-line-height;
-            margin: $header-heading-margin;
-
-            small {
-              display: block;
-              font-size: 75%;
-            }
-          }
-        }
-      }
-    }
+    @include header-shadow;
 
     &[data-layout="phone"],
     &[data-layout="tablet"] {
       .fb-ui-modal-header {
+        &__inner {
+          padding: 0;
+        }
+
         &__heading {
           text-align: center;
           order: 2;
           flex-grow: 2;
-
-          h4 {
-            width: 100%;
-          }
         }
 
         &__left-button {
@@ -99,42 +177,6 @@
           }
         }
       }
-    }
-  }
-
-  &__close {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: ($header-font-size * 1.5);
-    font-weight: bold;
-    line-height: 1;
-    color: $header-close-color;
-    text-shadow: $header-close-shadow;
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    -webkit-appearance: none;
-
-    @include header-close;
-
-    &:hover,
-    &:focus {
-      color: $header-close-color;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    &-text {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
     }
   }
 }

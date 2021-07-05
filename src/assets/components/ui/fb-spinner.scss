@@ -1,19 +1,16 @@
 @import "../../variables/colors";
 @import "../../variables/sizes";
 
-$spinner-variant-default:             $brand-default;
-$spinner-variant-primary:             $brand-primary;
-$spinner-variant-success:             $brand-success;
-$spinner-variant-info:                $brand-info;
-$spinner-variant-warning:             $brand-warning;
-$spinner-variant-danger:              $brand-danger;
+$spinner-variant-default:             $color-default;
+$spinner-variant-primary:             $color-primary;
+$spinner-variant-success:             $color-success;
+$spinner-variant-info:                $color-info;
+$spinner-variant-warning:             $color-warning;
+$spinner-variant-danger:              $color-danger;
 
 $spinner-size-sm:                     $icon-height-sm;
 $spinner-size-sm-border:              0.2rem;
-$spinner-size-sm-inner:               $icon-height-sm - (2 * $spinner-size-sm-border);
 $spinner-size-md:                     $icon-height-md;
 $spinner-size-md-border:              0.2rem;
-$spinner-size-md-inner:               $icon-height-md - (2 * $spinner-size-md-border);
 $spinner-size-lg:                     $icon-height-lg;
 $spinner-size-lg-border:              0.3rem;
-$spinner-size-lg-inner:               $icon-height-lg - (2 * $spinner-size-lg-border);

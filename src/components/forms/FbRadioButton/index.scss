@@ -9,7 +9,7 @@
     font-size: $radio-indicator-font-size;
     font-weight: 400;
     height: $radio-indicator-size;
-    padding: $radio-padding;
+    min-width: $radio-indicator-size;
     cursor: pointer;
     vertical-align: middle;
     -webkit-user-select: text;
@@ -79,5 +79,9 @@
     &:disabled:checked ~ .fb-form-radio-button__indicator {
       background-color: $radio-indicator-disabled-bg-color;
     }
+  }
+
+  &__label {
+    padding: $radio-label-padding;
   }
 }

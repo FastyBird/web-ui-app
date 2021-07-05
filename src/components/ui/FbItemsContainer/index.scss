@@ -11,10 +11,10 @@
   }
 
   &__heading-container {
-    @include header-flex-box;
-
     height: $heading-container-height;
     border-bottom: 1px solid $heading-container-border-color;
+
+    @include flexRow;
   }
 
   &__heading {
@@ -43,15 +43,10 @@
   }
 
   &__buttons {
-    text-align: right;
-    padding-right: $heading-buttons-padding;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 $heading-buttons-width;
-    flex: 0 0 $heading-buttons-width;
-    max-width: $heading-buttons-width;
-  }
+    padding: $heading-buttons-padding;
+    align-items: center;
+    justify-content: flex-end;
 
-  &__items {
-    padding: $items-padding;
+    @include flexRow;
   }
 }

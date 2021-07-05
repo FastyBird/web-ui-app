@@ -6,37 +6,37 @@
 $btn-font-family:                     $font-family-base;
 $btn-font-weight:                     normal;
 
-$btn-default-color:                   $brand-default-contrast;
-$btn-default-bg:                      $brand-default;
+$btn-default-color:                   $color-default-contrast;
+$btn-default-bg:                      $color-default;
 $btn-default-border:                  $btn-default-bg;
 
-$btn-primary-color:                   $brand-primary-contrast;
-$btn-primary-bg:                      $brand-primary;
+$btn-primary-color:                   $color-primary-contrast;
+$btn-primary-bg:                      $color-primary;
 $btn-primary-border:                  $btn-primary-bg;
 
-$btn-success-color:                   $brand-success-contrast;
-$btn-success-bg:                      $brand-success;
+$btn-success-color:                   $color-success-contrast;
+$btn-success-bg:                      $color-success;
 $btn-success-border:                  $btn-success-bg;
 
-$btn-info-color:                      $brand-info-contrast;
-$btn-info-bg:                         $brand-info;
+$btn-info-color:                      $color-info-contrast;
+$btn-info-bg:                         $color-info;
 $btn-info-border:                     $btn-info-bg;
 
-$btn-warning-color:                   $brand-warning-contrast;
-$btn-warning-bg:                      $brand-warning;
+$btn-warning-color:                   $color-warning-contrast;
+$btn-warning-bg:                      $color-warning;
 $btn-warning-border:                  $btn-warning-bg;
 
-$btn-danger-color:                    $brand-danger-contrast;
-$btn-danger-bg:                       $brand-danger;
+$btn-danger-color:                    $color-danger-contrast;
+$btn-danger-bg:                       $color-danger;
 $btn-danger-border:                   $btn-danger-bg;
 
-$btn-link-color:                      $brand-primary;
-$btn-link-hover-color:                $brand-primary;
+$btn-link-color:                      $color-primary;
+$btn-link-hover-color:                $color-primary;
 $btn-link-hover-decoration:           underline;
 $btn-link-disabled-color:             $gray-light;
 
-$btn-link-default-color:              $brand-default;
-$btn-link-default-hover-color:        $brand-default;
+$btn-link-default-color:              $color-default;
+$btn-link-default-hover-color:        $color-default;
 $btn-link-default-hover-decoration:   underline;
 $btn-link-default-disabled-color:     $gray-lighter;
 
@@ -121,26 +121,30 @@ $btn-icon-lg-height:                  $icon-height-lg;
 
   &:focus,
   &.focus,
-  &:hover,
-  &:active,
-  &.active {
-    svg {
-      fill: $color;
-      color: $color;
+  &:hover {
+    @media (hover: hover) and (pointer: fine) {
+      svg {
+        fill: $color;
+        color: $color;
+      }
     }
   }
 
   &:focus,
   &.focus {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 25%);
+    @media (hover: hover) and (pointer: fine) {
+      color: $color;
+      background-color: darken($background, 10%);
+      border-color: darken($border, 25%);
+    }
   }
 
   &:hover {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
+    @media (hover: hover) and (pointer: fine) {
+      color: $color;
+      background-color: darken($background, 10%);
+      border-color: darken($border, 12%);
+    }
   }
 
   &:active,
@@ -153,14 +157,21 @@ $btn-icon-lg-height:                  $icon-height-lg;
     &:hover,
     &:focus,
     &.focus {
-      color: $color;
-      background-color: darken($background, 17%);
-      border-color: darken($border, 25%);
-
-      svg {
-        fill: $color;
+      @media (hover: hover) and (pointer: fine) {
         color: $color;
+        background-color: darken($background, 17%);
+        border-color: darken($border, 25%);
+
+        svg {
+          fill: $color;
+          color: $color;
+        }
       }
+    }
+
+    svg {
+      fill: $color;
+      color: $color;
     }
   }
 
@@ -169,8 +180,10 @@ $btn-icon-lg-height:                  $icon-height-lg;
     &:hover,
     &:focus,
     &.focus {
-      background-color: $background;
-      border-color: $border;
+      @media (hover: hover) and (pointer: fine) {
+        background-color: $background;
+        border-color: $border;
+      }
     }
   }
 }
@@ -197,10 +210,18 @@ $btn-icon-lg-height:                  $icon-height-lg;
   }
 
   &:hover,
-  &:active,
-  &.active,
   &:focus,
   &.focus {
+    @media (hover: hover) and (pointer: fine) {
+      svg {
+        fill: $color;
+        color: $color;
+      }
+    }
+  }
+
+  &:active,
+  &.active {
     svg {
       fill: $color;
       color: $color;
@@ -208,16 +229,20 @@ $btn-icon-lg-height:                  $icon-height-lg;
   }
 
   &:hover {
-    background-color: $border;
-    border-color: $border;
-    color: $color;
+    @media (hover: hover) and (pointer: fine) {
+      background-color: $border;
+      border-color: $border;
+      color: $color;
+    }
   }
 
   &:focus,
   &.focus {
-    background-color: transparent;
-    border-color: $border;
-    color: $border;
+    @media (hover: hover) and (pointer: fine) {
+      background-color: transparent;
+      border-color: $border;
+      color: $border;
+    }
   }
 
   &:active,
@@ -229,9 +254,11 @@ $btn-icon-lg-height:                  $icon-height-lg;
     &:hover,
     &:focus,
     &.focus {
-      background-color: darken($border, 15%);
-      border-color: darken($border, 15%);
-      color: $color;
+      @media (hover: hover) and (pointer: fine) {
+        background-color: darken($border, 15%);
+        border-color: darken($border, 15%);
+        color: $color;
+      }
     }
   }
 
@@ -240,13 +267,15 @@ $btn-icon-lg-height:                  $icon-height-lg;
     &:hover,
     &:focus,
     &.focus {
-      background-color: transparent;
-      border-color: $border;
-      color: $border;
-
-      svg {
-        fill: $border;
+      @media (hover: hover) and (pointer: fine) {
+        background-color: transparent;
+        border-color: $border;
         color: $border;
+
+        svg {
+          fill: $border;
+          color: $border;
+        }
       }
     }
   }
@@ -270,17 +299,21 @@ $btn-icon-lg-height:                  $icon-height-lg;
   &.active,
   &.disabled,
   &[disabled] {
+    text-decoration: none;
+
     @include button-disabled-shadow;
   }
 
   &:hover,
   &:focus {
-    color: $hoverColor;
-    text-decoration: $hoveDecoration;
-
-    svg {
-      fill: $hoverColor;
+    @media (hover: hover) and (pointer: fine) {
       color: $hoverColor;
+      text-decoration: $hoveDecoration;
+
+      svg {
+        fill: $hoverColor;
+        color: $hoverColor;
+      }
     }
   }
 
@@ -288,12 +321,14 @@ $btn-icon-lg-height:                  $icon-height-lg;
   &[disabled] {
     &:hover,
     &:focus {
-      color: $disabledColor;
-      text-decoration: none;
-
-      svg {
-        fill: $disabledColor;
+      @media (hover: hover) and (pointer: fine) {
         color: $disabledColor;
+        text-decoration: none;
+
+        svg {
+          fill: $disabledColor;
+          color: $disabledColor;
+        }
       }
     }
   }

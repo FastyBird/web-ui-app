@@ -50,17 +50,18 @@
     .fb-ui-modal-window {
       &__window {
         position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: $modal-top-offset;
-        padding-bottom: $modal-bottom-offset;
+        margin: $modal-top-offset auto $modal-bottom-offset auto;
         overflow: hidden;
         z-index: ($modal-z-index + 1);
+        display: flex;
+
+        @include modal-content-shadow;
       }
 
       &__dialog {
         position: relative;
         width: auto;
+        max-height: 100%;
       }
 
       &__content {
@@ -73,8 +74,6 @@
         max-height: 100%;
         display: flex;
         flex-direction: column;
-
-        @include modal-content-shadow;
       }
 
       &__body {
@@ -83,9 +82,13 @@
         display: flex;
         flex-direction: column;
         overflow-y: auto;
+        height: 100%;
+
+        @include modal-body-flex;
       }
 
       &__footer {
+        border-top: 1px solid $modal-footer-border-color;
         padding: $modal-footer-padding;
         text-align: right;
       }
@@ -123,11 +126,8 @@
     &[data-layout="phone"] {
       .fb-ui-modal-window {
         &__window {
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          height: 100%;
+          margin: 1.8vh auto 0 auto;
+          height: 98vh;
         }
 
         &__dialog {
@@ -149,11 +149,8 @@
     &[data-layout="tablet"] {
       .fb-ui-modal-window {
         &__window {
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          height: 100%;
+          margin: auto auto;
+          height: 98vh;
         }
 
         &__dialog {
@@ -166,6 +163,14 @@
 
         &__body {
           padding: 1rem;
+        }
+      }
+    }
+
+    &[data-layout="default"] {
+      .fb-ui-modal-window {
+        &__window {
+          max-height: calc(100vh - #{sum($modal-top-offset + $modal-bottom-offset)});
         }
       }
     }
@@ -191,7 +196,7 @@
 
       path {
         &.dark_color {
-          fill: $logo-color-dark;
+          fill: $logo-color-secondary;
           fill-rule: nonzero;
         }
 

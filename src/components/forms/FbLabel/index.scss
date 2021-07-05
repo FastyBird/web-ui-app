@@ -23,17 +23,11 @@
       padding: $label-horizontal-padding;
 
       @media (min-width: $screen-tablet-min) {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 25%;
-        flex: 0 0 25%;
-        max-width: 25%;
+        @include flexBoxWidth(25%);
       }
 
       @media (min-width: $screen-desktop-min) {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 33%;
-        flex: 0 0 33%;
-        max-width: 33%;
+        @include flexBoxWidth(33%);
       }
     }
 

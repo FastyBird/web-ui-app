@@ -21,7 +21,7 @@
         </div>
 
         <h3>
-          <slot name="header" />
+          <slot name="title" />
         </h3>
 
         <slot />

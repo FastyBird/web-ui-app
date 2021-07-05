@@ -3,5 +3,5 @@
 $z-index:                             1030 !default;
 
 @mixin flex-content {
-  @include flexColumn;
+  @include flexColumn(nowrap);
 }

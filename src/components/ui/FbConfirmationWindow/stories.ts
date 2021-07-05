@@ -18,10 +18,10 @@ export default {
         defaultValue: { summary: '-' },
       },
     },
-    header: {
+    title: {
       type: { name: 'string', required: false },
       control: { type: 'text' },
-      description: 'Confirmation header slot',
+      description: 'Confirmation title slot',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '-' },
@@ -136,7 +136,7 @@ interface TemplateArgs {
   transparentBg: boolean
   enableClosing: boolean
   icon?: string
-  header?: string
+  title?: string
   default?: string
 }
 
@@ -146,7 +146,7 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiConfirmationWindow, FbUiButton },
     template: `
       <div>
-        <fb-ui-button @click="() => { show = true }" variant="${args.variant}">Open confirmation window</fb-ui-button>
+        <fb-ui-button @click.prevent="() => { show = true }" variant="${args.variant}">Open confirmation window</fb-ui-button>
 
         <fb-ui-confirmation-window
           :show="show"
@@ -163,7 +163,7 @@ const Template: Story<TemplateArgs> = (args) => {
           @confirm="(e) => { show = false; onConfirmed(e) }"
         >
           <template v-if="${args.icon !== null}" slot="icon">${args.icon}</template>
-          <template v-if="${args.header !== null}" slot="header">${args.header}</template>
+          <template v-if="${args.title !== null}" slot="title">${args.title}</template>
           <template v-if="${args.default !== null}" slot="default">${args.default}</template>
         </fb-ui-confirmation-window>
       </div>
@@ -180,7 +180,7 @@ export const Default = Template.bind({})
 
 Default.args = {
   variant: FbUiVariantTypes.DEFAULT,
-  header: 'Delete articles',
+  title: 'Delete articles',
   default: 'Are you sure to delete selected items. This action can\'t be undone.',
   icon: `<font-awesome-icon icon="trash" size="6x" />`,
 }
@@ -189,7 +189,7 @@ export const Primary = Template.bind({})
 
 Primary.args = {
   variant: FbUiVariantTypes.PRIMARY,
-  header: 'Invite user',
+  title: 'Invite user',
   default: 'Are you sure to invite new user into application.',
   icon: `<font-awesome-icon icon="user" size="6x" />`,
   yesBtnLabel: 'Invite',
@@ -201,7 +201,7 @@ export const Success = Template.bind({})
 
 Success.args = {
   variant: FbUiVariantTypes.SUCCESS,
-  header: 'Article created',
+  title: 'Article created',
   default: 'New article was created. Would you like to navigate to detail?',
   icon: `<font-awesome-icon icon="newspaper" size="6x" />`,
   primaryButton: FbUiConfirmationWindowPrimaryButtonTypes.YES,
@@ -213,7 +213,7 @@ export const Danger = Template.bind({})
 
 Danger.args = {
   variant: FbUiVariantTypes.DANGER,
-  header: 'Delete articles',
+  title: 'Delete articles',
   default: 'Are you sure to delete selected items. This action can\'t be undone.',
   icon: `<font-awesome-icon icon="trash" size="6x" />`,
 }
@@ -222,7 +222,7 @@ export const Warning = Template.bind({})
 
 Warning.args = {
   variant: FbUiVariantTypes.WARNING,
-  header: 'Refresh page',
+  title: 'Refresh page',
   default: 'This page has to be refreshed.',
   icon: `<font-awesome-icon icon="paper-plane" size="6x" />`,
   showNo: false,
@@ -232,7 +232,7 @@ export const Info = Template.bind({})
 
 Info.args = {
   variant: FbUiVariantTypes.INFO,
-  header: 'Update was received',
+  title: 'Update was received',
   default: 'Your data are now fresh and updated from server.',
   icon: `<font-awesome-icon icon="info-circle" size="6x" />`,
   showNo: false,

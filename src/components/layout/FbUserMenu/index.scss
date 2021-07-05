@@ -4,12 +4,6 @@
   &__container {
     position: relative;
 
-    &-collapsed {
-      ul {
-        display: none;
-      }
-    }
-
     ul {
       z-index: $z-index;
       position: absolute;
@@ -25,6 +19,10 @@
       border: 1px solid $menu-border-color;
       border-radius: $menu-border-radius;
       background-clip: padding-box;
+
+      &[data-collapsed="true"] {
+        display: none;
+      }
 
       @include shadow;
 

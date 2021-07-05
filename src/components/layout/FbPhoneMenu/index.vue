@@ -43,7 +43,7 @@
             variant="link"
             size="lg"
             type="button"
-            @click="$emit('close', $event)"
+            @click.prevent="$emit('close', $event)"
           >
             {{ closeBtnText }}
           </fb-ui-button>

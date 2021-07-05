@@ -75,11 +75,15 @@
         position: relative;
 
         &-left-addon {
-          @include field-remove-left-border-radius;
+          .fb-form-input__control {
+            @include field-remove-left-border-radius;
+          }
         }
 
         &-right-addon {
-          @include field-remove-right-border-radius;
+          .fb-form-input__control {
+            @include field-remove-right-border-radius;
+          }
         }
       }
 

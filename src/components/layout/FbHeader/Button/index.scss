@@ -12,10 +12,10 @@
     text-transform: lowercase;
     color: $header-color;
     outline: none;
+    padding: 0 1rem;
 
     &-small {
       height: 3rem;
-      width: 4rem;
       line-height: 3rem;
       font-size: 1.5rem;
     }
@@ -23,7 +23,6 @@
     &-textual {
       font-size: 1.5rem;
       width: auto;
-      padding: 0 1rem;
     }
 
     &-left {

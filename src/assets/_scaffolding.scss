@@ -72,8 +72,10 @@ a {
 
   &:hover,
   &:focus {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+    @media (hover: hover) and (pointer: fine) {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
   }
 
   &:focus {
@@ -119,7 +121,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: $line-height-base;
-  background-color: $body-bg;
+  background-color: $bg-color-body;
   border: 1px solid $gray-lighter;
   border-radius: 3px;
   -webkit-transition: all 0.2s ease-in-out;

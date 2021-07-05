@@ -158,7 +158,7 @@ const Template: Story<TemplateArgs> = (args) => {
         :active="active"
         :loading="loading"
         :disabled="disabled"
-        @click="onClick"
+        @click.prevent="onClick"
       >
         <template v-if="${args.icon !== null}" slot="icon">${args.icon}</template>
         <template v-if="${args.default !== null}" slot="default">${args.default}</template>
@@ -242,19 +242,19 @@ export const Sizes: Story<TemplateArgs> = (args) => {
     template: `
       <div style="display: flex;">
         <div style="padding: 5px 15px 5px 0;">
-          <fb-ui-button size="${FbSizeTypes.LARGE}" @click="onClick">Large button
+          <fb-ui-button size="${FbSizeTypes.LARGE}" @click.prevent="onClick">Large button
           </fb-ui-button>
         </div>
         <div style="padding: 5px 15px 5px 0;">
-          <fb-ui-button size="${FbSizeTypes.MEDIUM}" @click="onClick">Medium button
+          <fb-ui-button size="${FbSizeTypes.MEDIUM}" @click.prevent="onClick">Medium button
           </fb-ui-button>
         </div>
         <div style="padding: 5px 15px 5px 0;">
-          <fb-ui-button size="${FbSizeTypes.SMALL}" @click="onClick">Small button
+          <fb-ui-button size="${FbSizeTypes.SMALL}" @click.prevent="onClick">Small button
           </fb-ui-button>
         </div>
         <div style="padding: 5px 15px 5px 0;">
-          <fb-ui-button size="${FbSizeTypes.EXTRA_SMALL}" @click="onClick">Extra small button
+          <fb-ui-button size="${FbSizeTypes.EXTRA_SMALL}" @click.prevent="onClick">Extra small button
           </fb-ui-button>
         </div>
       </div>

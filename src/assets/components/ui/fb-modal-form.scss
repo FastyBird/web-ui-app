@@ -1,3 +1,8 @@
 @import "../../variables/colors";
+@import "../../mixins/utilities";
 
-$result-background-color:             $white;
+$result-background-color:             $bg-color-body;
+
+@mixin form-flex {
+  @include flexColumn;
+}

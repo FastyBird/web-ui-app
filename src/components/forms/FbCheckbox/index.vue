@@ -19,7 +19,12 @@
 
     <span class="fb-form-checkbox__indicator" />
 
-    <slot>{{ label }}</slot>
+    <span
+      v-if="'default' in $slots"
+      class="fb-form-checkbox__label"
+    >
+      <slot>{{ label }}</slot>
+    </span>
   </label>
 </template>
 
@@ -81,7 +86,8 @@ export default defineComponent({
 
     value: {
       type: [String, Number, Boolean],
-      required: true,
+      required: false,
+      default: null,
     },
 
     id: {

@@ -17,7 +17,7 @@ $screen-tablet-min:                   $screen-sm-min;
 }
 
 @mixin flex-heading {
-  @include flexRow;
+  @include flexRow(nowrap);
 
   flex-wrap: nowrap;
 }

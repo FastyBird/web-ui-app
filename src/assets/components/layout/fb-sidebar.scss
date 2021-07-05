@@ -15,5 +15,5 @@ $screen-tablet-min:                   $screen-sm-min;
 $screen-desktop-max:                  $screen-md-max;
 
 @mixin flex-inner {
-  @include flexColumn;
+  @include flexColumn(nowrap);
 }

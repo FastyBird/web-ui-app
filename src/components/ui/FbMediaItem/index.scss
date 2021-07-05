@@ -12,10 +12,8 @@
   &__left,
   &__right {
     text-align: center;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 5.5rem;
-    flex: 0 0 5.5rem;
-    max-width: 5.5rem;
+
+    @include flexBoxWidth(5.5rem);
   }
 
   &__body {

@@ -1,7 +1,7 @@
 <template>
   <div
     v-click-outside="blur"
-    :class="['fb-layout-user-menu__container', {'fb-layout-user-menu__container-collapsed': collapsed}]"
+    class="fb-layout-user-menu__container"
   >
     <div
       class="fb-layout-user-menu__button"
@@ -35,6 +35,7 @@
     <ul
       v-if="'items' in $slots"
       ref="userNavigation"
+      :data-collapsed="collapsed"
       tabindex="0"
       @keydown.esc="blur"
     >

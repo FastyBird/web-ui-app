@@ -6,13 +6,14 @@
       </template>
 
       <template v-else>
-        <small>{{ copyright }}<a
+        {{ copyright }}
+        <a
           :href="website"
           target="_blank"
           rel="noreferrer"
         >
-          {{ author }}</a>
-        </small>
+          {{ author }}
+        </a>
       </template>
     </div>
   </div>
@@ -27,22 +28,26 @@ export default defineComponent({
 
   name: 'FbLayoutFooter',
 
-  copyright: {
-    type: String,
-    required: false,
-    default: '&copy; 2017',
-  },
+  props: {
 
-  author: {
-    type: String,
-    required: false,
-    default: 'FastyBird s.r.o.',
-  },
+    copyright: {
+      type: String,
+      required: false,
+      default: '© 2017',
+    },
 
-  website: {
-    type: String,
-    required: false,
-    default: 'https://www.fastybird.com',
+    author: {
+      type: String,
+      required: false,
+      default: 'FastyBird s.r.o.',
+    },
+
+    website: {
+      type: String,
+      required: false,
+      default: 'https://www.fastybird.com',
+    },
+
   },
 
 })

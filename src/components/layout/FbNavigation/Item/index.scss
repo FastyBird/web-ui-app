@@ -27,13 +27,15 @@
     }
 
     &:hover > a {
-      background-color: darken($item-hover-background-color, 3.5%);
-      color: $item-hover-color;
+      @media (hover: hover) and (pointer: fine) {
+        background-color: darken($item-hover-background-color, 3.5%);
+        color: $item-hover-color;
 
-      ::after {
-        @media (min-width: $screen-tablet-min) and (max-width: $screen-desktop-max) {
-          content: normal;
-          display: none;
+        ::after {
+          @media (min-width: $screen-tablet-min) and (max-width: $screen-desktop-max) {
+            content: normal;
+            display: none;
+          }
         }
       }
     }

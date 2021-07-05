@@ -7,10 +7,10 @@
     :data-size="size"
     :class="classNames"
     role="button"
-    @click.native="clickHandle($event)"
+    @click.prevent="clickHandle($event)"
   >
     <div
-      v-if="'icon' in $slots"
+      v-if="'icon' in $slots && 'default' in $slots"
       class="fb-ui-button__inner"
     >
       <div class="fb-ui-button__inner-icon">
@@ -22,6 +22,13 @@
       >
         <slot />
       </div>
+    </div>
+
+    <div
+      v-else-if="'icon' in $slots"
+      class="fb-ui-button__icon"
+    >
+      <slot name="icon" />
     </div>
 
     <template v-else>
@@ -47,10 +54,10 @@
     :data-size="size"
     :class="classNames"
     role="button"
-    @click.native="clickHandle($event)"
+    @click.prevent="clickHandle($event)"
   >
     <div
-      v-if="'icon' in $slots"
+      v-if="'icon' in $slots && 'default' in $slots"
       class="fb-ui-button__inner"
     >
       <div class="fb-ui-button__inner-icon">
@@ -62,6 +69,13 @@
       >
         <slot />
       </div>
+    </div>
+
+    <div
+      v-else-if="'icon' in $slots"
+      class="fb-ui-button__icon"
+    >
+      <slot name="icon" />
     </div>
 
     <template v-else>
@@ -80,7 +94,7 @@
   </a>
 
   <button
-    v-else
+    v-else-if="type === buttonTypes.SUBMIT"
     ref="element"
     :type="type"
     :data-variant="variant"
@@ -88,10 +102,9 @@
     :class="classNames"
     :disabled="disabled"
     role="button"
-    @click="clickHandle($event)"
   >
     <div
-      v-if="'icon' in $slots"
+      v-if="'icon' in $slots && 'default' in $slots"
       class="fb-ui-button__inner"
     >
       <div class="fb-ui-button__inner-icon">
@@ -103,6 +116,61 @@
       >
         <slot />
       </div>
+    </div>
+
+    <div
+      v-else-if="'icon' in $slots"
+      class="fb-ui-button__icon"
+    >
+      <slot name="icon" />
+    </div>
+
+    <template v-else>
+      <slot />
+    </template>
+
+    <span
+      v-if="loading"
+      class="fb-ui-button__loading"
+    >
+      <fb-ui-spinner
+        :size="size"
+        :variant="loader"
+      />
+    </span>
+  </button>
+
+  <button
+    v-else
+    ref="element"
+    :type="type"
+    :data-variant="variant"
+    :data-size="size"
+    :class="classNames"
+    :disabled="disabled"
+    role="button"
+    @click.prevent="clickHandle($event)"
+  >
+    <div
+      v-if="'icon' in $slots && 'default' in $slots"
+      class="fb-ui-button__inner"
+    >
+      <div class="fb-ui-button__inner-icon">
+        <slot name="icon" />
+      </div>
+      <div
+        v-if="'default' in $slots"
+        class="fb-ui-button__inner-label"
+      >
+        <slot />
+      </div>
+    </div>
+
+    <div
+      v-else-if="'icon' in $slots"
+      class="fb-ui-button__icon"
+    >
+      <slot name="icon" />
     </div>
 
     <template v-else>
@@ -281,7 +349,7 @@ export default defineComponent({
         computedClassnames.push('fb-ui-button-uppercase')
       }
 
-      if ('icon' in context.slots) {
+      if ('icon' in context.slots && !('default' in context.slots)) {
         computedClassnames.push('fb-ui-button-icon')
       }
 
@@ -347,6 +415,7 @@ export default defineComponent({
       classNames,
       clickHandle,
       loader: spinnerVariant,
+      buttonTypes: FbUiButtonButtonTypes,
     }
   },
 

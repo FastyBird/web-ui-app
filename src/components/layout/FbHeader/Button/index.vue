@@ -3,8 +3,8 @@
     <a
       v-if="type === menuItemTypes.LINK"
       :href="link"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !'icon' in $slots}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
-      @click.native="$emit('click', $event)"
+      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+      @click.prevent="$emit('click', $event)"
     >
       <template v-if="'icon' in $slots">
         <slot name="icon" />
@@ -18,8 +18,8 @@
     <nuxt-link
       v-else-if="type === menuItemTypes.NUXT_LINK"
       :to="link"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !'icon' in $slots}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
-      @click.native="$emit('click', $event)"
+      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+      @click.prevent="$emit('click', $event)"
     >
       <template v-if="'icon' in $slots">
         <slot name="icon" />
@@ -33,7 +33,7 @@
     <button
       v-else-if="type === menuItemTypes.BUTTON"
       role="button"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !'icon' in $slots}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
       @click.prevent="$emit('click', $event)"
     >
       <template v-if="'icon' in $slots">

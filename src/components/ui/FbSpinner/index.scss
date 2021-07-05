@@ -55,9 +55,9 @@
     &[data-size="lg"]::before,
     &[data-size="lg"]::after {
       border-width: $spinner-size-lg-border;
-      height: $spinner-size-lg-inner;
+      height: $spinner-size-lg;
+      width: $spinner-size-lg;
       margin: (($spinner-size-lg / 2) * -1) 0 0 (($spinner-size-lg / 2) * -1);
-      width: $spinner-size-lg-inner;
     }
 
     &[data-size="md"] {
@@ -68,9 +68,9 @@
     &[data-size="md"]::before,
     &[data-size="md"]::after {
       border-width: $spinner-size-md-border;
-      height: $spinner-size-md-inner;
+      height: $spinner-size-md;
+      width: $spinner-size-md;
       margin: (($spinner-size-md / 2) * -1) 0 0 (($spinner-size-md / 2) * -1);
-      width: $spinner-size-md-inner;
     }
 
     &[data-size="sm"] {
@@ -81,9 +81,9 @@
     &[data-size="sm"]::before,
     &[data-size="sm"]::after {
       border-width: $spinner-size-sm-border;
-      height: $spinner-size-sm-inner;
+      height: $spinner-size-sm;
+      width: $spinner-size-sm;
       margin: (($spinner-size-sm / 2) * -1) 0 0 (($spinner-size-sm / 2) * -1);
-      width: $spinner-size-sm-inner;
     }
   }
 }

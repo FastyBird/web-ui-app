@@ -22,27 +22,27 @@
       }
 
       &-primary {
-        background-color: $brand-primary;
+        background-color: $color-primary;
       }
 
       &-success {
-        background-color: $brand-success;
+        background-color: $color-success;
       }
 
       &-info {
-        background-color: $brand-info;
+        background-color: $color-info;
       }
 
       &-warning {
-        background-color: $brand-warning;
+        background-color: $color-warning;
       }
 
       &-danger {
-        background-color: $brand-danger;
+        background-color: $color-danger;
       }
 
       &-default {
-        background-color: $brand-default;
+        background-color: $color-default;
       }
     }
   }

@@ -9,7 +9,7 @@
     font-size: $checkbox-indicator-font-size;
     font-weight: 400;
     height: $checkbox-indicator-size;
-    padding: $checkbox-padding;
+    min-width: $checkbox-indicator-size;
     cursor: pointer;
     vertical-align: middle;
     -webkit-user-select: text;
@@ -71,5 +71,9 @@
     &:disabled:checked ~ .fb-form-checkbox__indicator {
       background-color: $checkbox-indicator-disabled-bg-color;
     }
+  }
+
+  &__label {
+    padding: $checkbox-label-padding;
   }
 }

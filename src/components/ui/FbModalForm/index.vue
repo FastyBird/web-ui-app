@@ -62,13 +62,13 @@
         slot="left-button"
         :disabled="lockButtons"
         :tabindex="(initialTabindex + 2)"
-        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.MEDIUM : sizeTypes.LARGE"
         :variant="buttonVariantTypes.LINK_DEFAULT"
         uppercase
         name="cancel"
         @click.prevent="$emit('cancel', $event)"
       >
-        {{ cancelBtnText }}
+        {{ cancelBtnLabel }}
       </fb-ui-button>
     </slot>
 
@@ -78,14 +78,14 @@
         slot="right-button"
         :disabled="lockButtons || lockSubmitButton"
         :tabindex="(initialTabindex + 1)"
-        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.EXTRA_SMALL : sizeTypes.LARGE"
+        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.MEDIUM : sizeTypes.LARGE"
         :variant="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? buttonVariantTypes.LINK_DEFAULT : buttonVariantTypes.OUTLINE_PRIMARY"
         :loading="state === resultTypes.WORKING"
         uppercase
         name="submit"
         @click.prevent="$emit('submit', $event)"
       >
-        {{ submitBtnText }}
+        {{ submitBtnLabel }}
       </fb-ui-button>
     </slot>
   </fb-ui-modal-window>
@@ -149,7 +149,7 @@ export default defineComponent({
       },
     },
 
-    submitBtnText: {
+    submitBtnLabel: {
       type: String,
       default: 'Save',
     },
@@ -159,7 +159,7 @@ export default defineComponent({
       default: true,
     },
 
-    cancelBtnText: {
+    cancelBtnLabel: {
       type: String,
       default: 'Close',
     },

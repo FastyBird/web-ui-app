@@ -7,19 +7,19 @@ $radio-font-family:                         $font-family-base;
 
 $radio-indicator-size:                      1.5rem !default;
 
-$radio-padding:                             0 2rem 0 sum($radio-indicator-size, 1rem);
-
 $radio-indicator-bg-color:                  $white;
 $radio-indicator-border-color:              $gray-lighter;
-$radio-indicator-checked-bg-color:          $brand-primary;
-$radio-indicator-checked-border-color:      $brand-primary;
+$radio-indicator-checked-bg-color:          $color-primary;
+$radio-indicator-checked-border-color:      $color-primary;
 $radio-indicator-disabled-bg-color:         $gray-lighter;
 
 $radio-indicator-margin:                    $margin-sm;
 $radio-indicator-font-size:                 $font-size-base;
 $radio-indicator-line-height:               $radio-indicator-size;
 
-$radio-error-color:                         $brand-danger;
+$radio-label-padding:                       0 0 0 sum($radio-indicator-size, 1rem);
+
+$radio-error-color:                         $color-danger;
 
 @mixin radio-indicator-radius {
   @include border-radius(50%);

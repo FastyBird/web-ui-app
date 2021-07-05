@@ -22,10 +22,7 @@
 
       .fb-ui-component-loading-error {
         &__icon {
-          -webkit-box-flex: 0;
-          -ms-flex: 0 0 $loader-icon-size-lg;
-          flex: 0 0 $loader-icon-size-lg;
-          max-width: $loader-icon-size-lg;
+          @include flexBoxWidth($loader-icon-size-lg);
 
           svg {
             margin: 0 auto;
@@ -47,10 +44,7 @@
 
       .fb-ui-component-loading-error {
         &__icon {
-          -webkit-box-flex: 0;
-          -ms-flex: 0 0 $loader-icon-size-md;
-          flex: 0 0 $loader-icon-size-md;
-          max-width: $loader-icon-size-md;
+          @include flexBoxWidth($loader-icon-size-md);
 
           svg {
             margin: 0 auto;
@@ -72,10 +66,7 @@
 
       .fb-ui-component-loading-error {
         &__icon {
-          -webkit-box-flex: 0;
-          -ms-flex: 0 0 $loader-icon-size-sm;
-          flex: 0 0 $loader-icon-size-sm;
-          max-width: $loader-icon-size-sm;
+          @include flexBoxWidth($loader-icon-size-sm);
 
           svg {
             margin: 0 auto;
