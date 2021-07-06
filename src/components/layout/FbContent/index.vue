@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <div class="fb-layout-content__container">
     <div
       v-if="'header' in $slots"
@@ -8,7 +8,7 @@
     </div>
 
     <div class="fb-layout-content__content">
-      <slot name="content" />
+      <slot />
     </div>
 
     <div

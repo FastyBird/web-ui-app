@@ -83,7 +83,7 @@ Default.args = {
   heading: 'List of awesome items',
   default: 'Some item content',
   buttons: `
-    <fb-ui-button size="${FbSizeTypes.SMALL}" @click.prevent="onClick">Add</fb-ui-button>
+    <fb-ui-button size="${FbSizeTypes.SMALL}" @click.prevent="onClick" style="margin-right: 5px">Add</fb-ui-button>
     <fb-ui-button size="${FbSizeTypes.SMALL}" variant="${FbUiButtonVariantTypes.WARNING}" :icon="true"  @click.prevent="onClick">
         <font-awesome-icon icon="cog" slot="icon" />
     </fb-ui-button>
@@ -97,7 +97,7 @@ WithSubheading.args = {
   subheading: 'List of awesome items',
   default: 'Some item content',
   buttons: `
-    <fb-ui-button size="${FbSizeTypes.SMALL}" @click.prevent="onClick">Add</fb-ui-button>
+    <fb-ui-button size="${FbSizeTypes.SMALL}" @click.prevent="onClick" style="margin-right: 5px">Add</fb-ui-button>
     <fb-ui-button size="${FbSizeTypes.SMALL}" variant="${FbUiButtonVariantTypes.WARNING}" :icon="true"  @click.prevent="onClick">
         <font-awesome-icon icon="cog" slot="icon" />
     </fb-ui-button>

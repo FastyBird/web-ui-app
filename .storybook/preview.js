@@ -11,9 +11,11 @@ import {
   faCog,
   faEnvelope,
   faExclamation,
+  faHeart,
   faInfo,
   faInfoCircle,
   faMagic,
+  faMugHot,
   faNewspaper,
   faPaperPlane,
   faTrash,
@@ -29,9 +31,11 @@ library.add(faChartBar)
 library.add(faCog)
 library.add(faEnvelope)
 library.add(faExclamation)
+library.add(faHeart)
 library.add(faInfo)
 library.add(faInfoCircle)
 library.add(faMagic)
+library.add(faMugHot)
 library.add(faNewspaper)
 library.add(faPaperPlane)
 library.add(faTrash)
