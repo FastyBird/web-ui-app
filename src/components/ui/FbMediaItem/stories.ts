@@ -89,7 +89,7 @@ const Template: Story<TemplateArgs> = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-  left: `<div style="font-size: 25px; margin-top: 10px;"><font-awesome-icon icon="magic" /></div>`,
+  left: `<div><font-awesome-icon icon="magic" size="2x" /></div>`,
   heading: 'All created items',
   description: 'Here could find all created items stored in database',
   action: '<fb-ui-button @click.prevent="onClick">Reload</fb-ui-button>',

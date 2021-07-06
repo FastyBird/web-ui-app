@@ -40,6 +40,10 @@
 
   &__icon {
     margin-bottom: $loading-icon-margin;
+    align-items: center;
+    justify-content: center;
+
+    @include flex-icon;
   }
 
   &__content {

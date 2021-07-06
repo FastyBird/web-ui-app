@@ -349,10 +349,6 @@ export default defineComponent({
         computedClassnames.push('fb-ui-button-uppercase')
       }
 
-      if ('icon' in context.slots && !('default' in context.slots)) {
-        computedClassnames.push('fb-ui-button-icon')
-      }
-
       if (props.active) {
         computedClassnames.push('active')
       }

@@ -17,7 +17,7 @@ $checkbox-indicator-margin:                     $margin-sm;
 $checkbox-indicator-font-size:                  $font-size-base;
 $checkbox-indicator-line-height:                $checkbox-indicator-size;
 
-$checkbox-label-padding:                        0 0 0 sum($checkbox-indicator-size, 1rem);
+$checkbox-label-padding:                        0 $padding-sm 0 sum($checkbox-indicator-size, 1rem);
 
 $checkbox-error-color:                          $color-danger;
 

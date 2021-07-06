@@ -76,16 +76,30 @@ $btn-line-height-sm:                  2.2rem;
 $btn-line-height-md:                  2.4rem;
 $btn-line-height-lg:                  3rem;
 
+$btn-icon-font-size-xs:               1.4rem;
+$btn-icon-font-size-sm:               1.8rem;
+$btn-icon-font-size-md:               2rem;
+$btn-icon-font-size-lg:               3rem;
+
+$btn-icon-line-height-xs:             1.2rem;
+$btn-icon-line-height-sm:             1.4rem;
+$btn-icon-line-height-md:             1.4rem;
+$btn-icon-line-height-lg:             2.4rem;
+
 $btn-padding-xs-vertical:             0.2rem;
+$btn-padding-xs-vertical-icon:        0.2rem;
 $btn-padding-xs-horizontal:           0.5rem;
 $btn-padding-xs-horizontal-icon:      0.3rem;
 $btn-padding-sm-vertical:             0.3rem;
+$btn-padding-sm-vertical-icon:        0.2rem;
 $btn-padding-sm-horizontal:           0.9rem;
 $btn-padding-sm-horizontal-icon:      0.4rem;
 $btn-padding-md-vertical:             0.5rem;
+$btn-padding-md-vertical-icon:        0.2rem;
 $btn-padding-md-horizontal:           1.5rem;
 $btn-padding-md-horizontal-icon:      1rem;
 $btn-padding-lg-vertical:             1.4rem;
+$btn-padding-lg-vertical-icon:        0;
 $btn-padding-lg-horizontal:           2.2rem;
 $btn-padding-lg-horizontal-icon:      1.2rem;
 
@@ -98,10 +112,6 @@ $btn-icon-lg-height:                  $icon-height-lg;
   font-size: $font-size;
   line-height: $line-height;
   border-radius: $border-radius;
-
-  &.fb-ui-button-icon {
-    padding: 0.5rem $padding-horizontal;
-  }
 }
 
 @mixin button-variant($color, $background, $border) {

@@ -20,7 +20,7 @@
     <span class="fb-form-checkbox__indicator" />
 
     <span
-      v-if="'default' in $slots"
+      v-if="'default' in $slots || label !== null"
       class="fb-form-checkbox__label"
     >
       <slot>{{ label }}</slot>

@@ -74,6 +74,12 @@
           padding-left: $btn-padding-lg-horizontal-icon;
         }
       }
+
+      &__icon {
+        font-size: $btn-icon-font-size-lg;
+        line-height: $btn-icon-line-height-lg;
+        padding: $btn-padding-lg-vertical-icon 0;
+      }
     }
   }
 
@@ -85,6 +91,12 @@
         &-label {
           padding-left: $btn-padding-md-horizontal-icon;
         }
+      }
+
+      &__icon {
+        font-size: $btn-icon-font-size-md;
+        line-height: $btn-icon-line-height-md;
+        padding: $btn-padding-md-vertical-icon 0;
       }
     }
   }
@@ -98,6 +110,12 @@
           padding-left: $btn-padding-sm-horizontal-icon;
         }
       }
+
+      &__icon {
+        font-size: $btn-icon-font-size-sm;
+        line-height: $btn-icon-line-height-sm;
+        padding: $btn-padding-sm-vertical-icon 0;
+      }
     }
   }
 
@@ -109,6 +127,12 @@
         &-label {
           padding-left: $btn-padding-xs-horizontal-icon;
         }
+      }
+
+      &__icon {
+        font-size: $btn-icon-font-size-xs;
+        line-height: $btn-icon-line-height-xs;
+        padding: $btn-padding-xs-vertical-icon 0;
       }
     }
   }
@@ -304,12 +328,8 @@
     text-transform: uppercase;
   }
 
-  // Button with icon
+  // Loading spinner
   // --------------------------------------------------
-
-  &.fb-ui-button-icon {
-    box-sizing: content-box;
-  }
 
   &__loading {
     position: absolute;

@@ -108,7 +108,7 @@ WithIcon.args = {
   icon: `<font-awesome-icon icon="chart-bar" size="6x" />`,
 }
 
-export const WithLogo: Story<TemplateArgs> = (args) => {
+export const WithCustomLogo: Story<TemplateArgs> = (args) => {
   return {
     props: args,
     components: { FbUiLoadingBox },

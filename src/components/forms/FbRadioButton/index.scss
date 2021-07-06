@@ -52,19 +52,8 @@
 
     &:checked ~ .fb-form-radio-button__indicator {
       border-color: $radio-indicator-checked-border-color;
+      border-width: 0.3rem;
       background-color: $radio-indicator-checked-bg-color;
-
-      &::after {
-        content: ' ';
-        width: ($radio-indicator-size * 0.75);
-        height: ($radio-indicator-size * 0.75);
-        display: block;
-        background-color: #fff;
-        border-radius: 50%;
-        position: absolute;
-        top: ($radio-indicator-size - ($radio-indicator-size * 0.75)) / 2 - 0.1rem;
-        left: ($radio-indicator-size - ($radio-indicator-size * 0.75)) / 2 - 0.1rem;
-      }
     }
 
     &:active ~ .fb-form-radio-button__indicator {

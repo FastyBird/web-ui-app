@@ -20,7 +20,7 @@
     <span class="fb-form-radio-button__indicator" />
 
     <span
-      v-if="'default' in $slots"
+      v-if="'default' in $slots || label !== null"
       class="fb-form-radio-button__label"
     >
       <slot>{{ label }}</slot>
