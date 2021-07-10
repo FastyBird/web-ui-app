@@ -77,5 +77,5 @@ export const WithCustomContent = Template.bind({})
 WithCustomContent.args = {
   default: `
     Made with lot of <font-awesome-icon icon="mug-hot" /> and <font-awesome-icon icon="heart" />
-  `
+  `,
 }
