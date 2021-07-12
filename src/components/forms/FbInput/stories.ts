@@ -184,9 +184,9 @@ const Template: Story<TemplateArgs> = (args) => {
         @blur="onBlur"
         @keydown="onKeydown"
       >
-        <template v-if="${args['left-addon'] !== null}" slot="left-addon">${args['left-addon']}</template>
-        <template v-if="${args['right-addon'] !== null}" slot="right-addon">${args['right-addon']}</template>
-        <template v-if="${args['help-line'] !== null}" slot="help-line">${args['help-line']}</template>
+        <template v-if="${args['left-addon'] !== null && typeof args['left-addon'] !== 'undefined'}" slot="left-addon">${args['left-addon']}</template>
+        <template v-if="${args['right-addon'] !== null && typeof args['right-addon'] !== 'undefined'}" slot="right-addon">${args['right-addon']}</template>
+        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" slot="help-line">${args['help-line']}</template>
       </fb-form-input>
     `,
     methods: {

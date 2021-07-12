@@ -145,7 +145,7 @@ const Template: Story<TemplateArgs> = (args) => {
         :disabled="disabled"
         @change="onChange"
       >
-        <template v-if="${args['help-line'] !== null}" slot="help-line">${args['help-line']}</template>
+        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" slot="help-line">${args['help-line']}</template>
       </fb-form-radio-buttons>
     `,
     methods: {
