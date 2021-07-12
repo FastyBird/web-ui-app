@@ -73,11 +73,11 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiMediaItem, FbUiButton },
     template: `
       <fb-ui-media-item>
-        <template v-if="${args.left !== null}" slot="left">${args.left}</template>
-        <template v-if="${args.right !== null}" slot="right">${args.right}</template>
-        <template v-if="${args.heading !== null}" slot="heading">${args.heading}</template>
-        <template v-if="${args.description !== null}" slot="description">${args.description}</template>
-        <template v-if="${args.action !== null}" slot="action">${args.action}</template>
+        <template v-if="${args.left !== null && typeof args.left !== 'undefined'}" slot="left">${args.left}</template>
+        <template v-if="${args.right !== null && typeof args.right !== 'undefined'}" slot="right">${args.right}</template>
+        <template v-if="${args.heading !== null && typeof args.heading !== 'undefined'}" slot="heading">${args.heading}</template>
+        <template v-if="${args.description !== null && typeof args.description !== 'undefined'}" slot="description">${args.description}</template>
+        <template v-if="${args.action !== null && typeof args.action !== 'undefined'}" slot="action">${args.action}</template>
       </fb-ui-media-item>
     `,
     methods: {

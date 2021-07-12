@@ -1,5 +1,9 @@
 @import "../../variables/colors";
+@import "../../variables/layout";
 @import "../../variables/sizes";
 
-$color:                               $color-success;
-$icon-width:                          $icon-height-lg;
+$result-color:                        $color-success;
+$result-icon-width:                   $icon-height-lg;
+
+$result-content-margin:               $margin-sm;
+

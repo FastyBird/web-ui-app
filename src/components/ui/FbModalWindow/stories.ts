@@ -239,15 +239,15 @@ const Template: Story<TemplateArgs> = (args) => {
           @leftSubmit="(e) => { show = false; onLeftSubmit(e) }"
           @rightSubmit="(e) => { show = false; onRightSubmit(e) }"
         >
-          <template v-if="${args.content !== null}" slot="content">${args.content}</template>
-          <template v-if="${args.header !== null}" slot="header">${args.header}</template>
-          <template v-if="${args.title !== null}" slot="title">${args.title}</template>
-          <template v-if="${args.subtitle !== null}" slot="subtitle">${args.subtitle}</template>
-          <template v-if="${args.icon !== null}" slot="icon">${args.icon}</template>
-          <template v-if="${args.body !== null}" slot="body">${args.body}</template>
-          <template v-if="${args.footer !== null}" slot="footer">${args.footer}</template>
-          <template v-if="${args['left-button'] !== null}" slot="left-button">${args['left-button']}</template>
-          <template v-if="${args['right-button'] !== null}" slot="right-button">${args['right-button']}</template>
+          <template v-if="${args.content !== null && typeof args.content !== 'undefined'}" slot="content">${args.content}</template>
+          <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" slot="header">${args.header}</template>
+          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" slot="title">${args.title}</template>
+          <template v-if="${args.subtitle !== null && typeof args.subtitle !== 'undefined'}" slot="subtitle">${args.subtitle}</template>
+          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
+          <template v-if="${args.body !== null && typeof args.body !== 'undefined'}" slot="body">${args.body}</template>
+          <template v-if="${args.footer !== null && typeof args.footer !== 'undefined'}" slot="footer">${args.footer}</template>
+          <template v-if="${args['left-button'] !== null && typeof args['left-button'] !== 'undefined'}" slot="left-button">${args['left-button']}</template>
+          <template v-if="${args['right-button'] !== null && typeof args['right-button'] !== 'undefined'}" slot="right-button">${args['right-button']}</template>
         </fb-ui-modal-window>
       </div>
     `,

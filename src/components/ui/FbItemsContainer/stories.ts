@@ -65,10 +65,10 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiItemsContainer, FbUiButton },
     template: `
       <fb-ui-items-container :size="size" :variant="variant">
-        <template v-if="${args.default !== null}" slot="default">${args.default}</template>
-        <template v-if="${args.heading !== null}" slot="heading">${args.heading}</template>
-        <template v-if="${args.subheading !== null}" slot="subheading">${args.subheading}</template>
-        <template v-if="${args.buttons !== null}" slot="buttons">${args.buttons}</template>
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+        <template v-if="${args.heading !== null && typeof args.heading !== 'undefined'}" slot="heading">${args.heading}</template>
+        <template v-if="${args.subheading !== null && typeof args.subheading !== 'undefined'}" slot="subheading">${args.subheading}</template>
+        <template v-if="${args.buttons !== null && typeof args.buttons !== 'undefined'}" slot="buttons">${args.buttons}</template>
       </fb-ui-items-container>
     `,
     methods: {

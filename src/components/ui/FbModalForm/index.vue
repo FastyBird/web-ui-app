@@ -40,10 +40,13 @@
         v-if="[resultTypes.WORKING, resultTypes.OK, resultTypes.ERROR].includes(state)"
         class="fb-ui-modal-form__result"
       >
-        <fb-ui-spinner
+        <fb-ui-loading-box
           v-if="state === resultTypes.WORKING"
           :size="sizeTypes.LARGE"
-        />
+        >
+          {{ processingText }}
+        </fb-ui-loading-box>
+
         <fb-ui-result-ok v-if="state === resultTypes.OK" />
         <fb-ui-result-err v-if="state === resultTypes.ERROR" />
       </div>
@@ -108,12 +111,14 @@ import FbUiModalWindow from './../FbModalWindow/index.vue'
 import FbUiResultErr from './../FbResultErr/index.vue'
 import FbUiResultOk from './../FbResultOk/index.vue'
 import FbUiSpinner from './../FbSpinner/index.vue'
+import FbUiLoadingBox from '@/components/ui/FbLoadingBox/index.vue'
 
 export default defineComponent({
 
   name: 'FbUiModalForm',
 
   components: {
+    FbUiLoadingBox,
     FbUiButton,
     FbUiModalWindow,
     FbUiResultErr,
@@ -192,6 +197,11 @@ export default defineComponent({
     state: {
       type: String as PropType<FbFormResultTypes>,
       default: FbFormResultTypes.NONE,
+    },
+
+    processingText: {
+      type: String,
+      default: null,
     },
 
   },

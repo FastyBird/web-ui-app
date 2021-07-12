@@ -93,8 +93,8 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiLoadingBox },
     template: `
       <fb-ui-loading-box :variant="variant" :size="size" :fullScreen="fullScreen" :animation="animation">
-        <template v-if="${args.default !== null}" slot="default">${args.default}</template>
-        <template v-if="${args.icon !== null}" slot="icon">${args.icon}</template>
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+        <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
       </fb-ui-loading-box>
     `,
   }

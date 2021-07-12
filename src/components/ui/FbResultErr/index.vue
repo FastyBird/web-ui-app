@@ -27,6 +27,13 @@
         y2="92.2"
       />
     </svg>
+
+    <div
+      v-if="'default' in $slots"
+      class="fb-ui-result-err__content"
+    >
+      <slot />
+    </div>
   </div>
 </template>
 

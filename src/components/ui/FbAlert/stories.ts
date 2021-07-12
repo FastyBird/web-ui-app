@@ -64,11 +64,8 @@ const Template: Story<TemplateArgs> = (args) => {
     props: args,
     components: { FbUiAlert },
     template: `
-      <fb-ui-alert :variant="variant"
-                   style="font-size: 14px; line-height: 20px;">
-      <template v-if="${args.icon !== null}"
-                slot="icon">${args.icon}
-      </template>
+      <fb-ui-alert :variant="variant" style="font-size: 14px; line-height: 20px;">
+      <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
       <p style="padding: 0; margin: 0;">${args.default}</p>
       </fb-ui-alert>
     `,

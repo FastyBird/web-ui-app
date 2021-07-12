@@ -16,6 +16,13 @@
         points="100.2,40.2 51.5,88.8 29.8,67.5"
       />
     </svg>
+
+    <div
+      v-if="'default' in $slots"
+      class="fb-ui-result-ok__content"
+    >
+      <slot />
+    </div>
   </div>
 </template>
 

@@ -44,8 +44,8 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiCardBox },
     template: `
       <fb-ui-card-box>
-        <template v-if="${args.header !== null}" slot="header">${args.header}</template>
-        <template v-if="${args.body !== null}" slot="body">${args.body}</template>
+        <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" slot="header">${args.header}</template>
+        <template v-if="${args.body !== null && typeof args.body !== 'undefined'}" slot="body">${args.body}</template>
       </fb-ui-card-box>
     `,
   }

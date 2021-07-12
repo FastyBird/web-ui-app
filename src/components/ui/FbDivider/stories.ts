@@ -49,7 +49,7 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiDivider },
     template: `
       <fb-ui-divider :type="type">
-      <template v-if="${args.default !== null}" slot="default">${args.default}</template>
+      <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
       </fb-ui-divider>
     `,
   }

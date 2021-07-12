@@ -160,8 +160,8 @@ const Template: Story<TemplateArgs> = (args) => {
         :disabled="disabled"
         @click.prevent="onClick"
       >
-        <template v-if="${args.icon !== null}" slot="icon">${args.icon}</template>
-        <template v-if="${args.default !== null}" slot="default">${args.default}</template>
+        <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
       </fb-ui-button>
     `,
     methods: {

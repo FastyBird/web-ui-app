@@ -14,11 +14,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $result-background-color;
+    background-color: $result-bg-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: $result-z-index;
 
     .fb-ui-spinner__container {
       width: 10rem;

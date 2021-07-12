@@ -135,10 +135,10 @@ const Template: Story<TemplateArgs> = (args) => {
           :transparentBg="transparentBg"
           @close="(e) => { show = false; onClose(e) }"
         >
-          <template v-if="${args.header !== null}" slot="header">${args.header}</template>
-          <template v-if="${args.title !== null}" slot="title">${args.title}</template>
-          <template v-if="${args.icon !== null}" slot="icon">${args.icon}</template>
-          <template v-if="${args.default !== null}" slot="default">${args.default}</template>
+          <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" slot="header">${args.header}</template>
+          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" slot="title">${args.title}</template>
+          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
+          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
         </fb-ui-modal-info>
       </div>
     `,

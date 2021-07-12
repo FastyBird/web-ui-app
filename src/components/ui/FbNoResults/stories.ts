@@ -89,9 +89,9 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiNoResults },
     template: `
       <fb-ui-no-results :variant="variant" :size="size">
-        <template v-if="${args.default !== null}" slot="default">${args.default}</template>
-        <template v-if="${args.icon !== null}" slot="icon">${args.icon}</template>
-        <template v-if="${args['second-icon'] !== null}" slot="second-icon">${args['second-icon']}</template>
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+        <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
+        <template v-if="${args['second-icon'] !== null && typeof args['second-icon'] !== 'undefined'}" slot="second-icon">${args['second-icon']}</template>
       </fb-ui-no-results>
     `,
   }

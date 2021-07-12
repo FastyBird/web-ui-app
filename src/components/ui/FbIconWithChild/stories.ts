@@ -79,8 +79,8 @@ const Template: Story<TemplateArgs> = (args) => {
     components: { FbUiIconWithChild },
     template: `
       <fb-ui-icon-with-child :size="size" :variant="variant">
-      <template v-if="${args.main !== null}" slot="main">${args.main}</template>
-      <template v-if="${args.child !== null}" slot="child">${args.child}</template>
+      <template v-if="${args.main !== null && typeof args.main !== 'undefined'}" slot="main">${args.main}</template>
+      <template v-if="${args.child !== null && typeof args.child !== 'undefined'}" slot="child">${args.child}</template>
       </fb-ui-icon-with-child>
     `,
   }
