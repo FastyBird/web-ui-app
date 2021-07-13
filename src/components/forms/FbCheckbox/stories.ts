@@ -58,7 +58,7 @@ export default {
     label: {
       type: { name: 'string', required: false },
       control: { type: 'text' },
-      defaultValue: 'Checkboxs field label',
+      defaultValue: 'Checkbox field label',
     },
     tabIndex: {
       type: { name: 'number', required: false },

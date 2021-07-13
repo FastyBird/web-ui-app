@@ -110,20 +110,18 @@ import FbUiButton from './../FbButton/index.vue'
 import FbUiModalWindow from './../FbModalWindow/index.vue'
 import FbUiResultErr from './../FbResultErr/index.vue'
 import FbUiResultOk from './../FbResultOk/index.vue'
-import FbUiSpinner from './../FbSpinner/index.vue'
-import FbUiLoadingBox from '@/components/ui/FbLoadingBox/index.vue'
+import FbUiLoadingBox from './../FbLoadingBox/index.vue'
 
 export default defineComponent({
 
   name: 'FbUiModalForm',
 
   components: {
-    FbUiLoadingBox,
     FbUiButton,
     FbUiModalWindow,
     FbUiResultErr,
     FbUiResultOk,
-    FbUiSpinner,
+    FbUiLoadingBox,
   },
 
   props: {
