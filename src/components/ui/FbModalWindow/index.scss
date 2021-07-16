@@ -177,22 +177,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-    &-logo {
-      width: $modal-loader-width;
-
-      path {
-        &.dark_color {
-          fill: $logo-color-secondary;
-          fill-rule: nonzero;
-        }
-
-        &.brand_color {
-          fill: $logo-color-primary;
-          fill-rule: nonzero;
-        }
-      }
-    }
   }
 }
 
