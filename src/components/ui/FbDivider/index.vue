@@ -12,6 +12,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
 
 import { FbUiDividerVariantTypes } from '@/types'
@@ -23,7 +24,7 @@ export default defineComponent({
   props: {
 
     type: {
-      type: String,
+      type: String as PropType<string>,
       default: FbUiDividerVariantTypes.HORIZONTAL,
       validator: (value: FbUiDividerVariantTypes) => {
         // The value must match one of these strings

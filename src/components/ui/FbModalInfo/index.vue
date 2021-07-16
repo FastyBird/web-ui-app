@@ -86,24 +86,24 @@ export default defineComponent({
     },
 
     enableClosing: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       required: false,
       default: true,
     },
 
     closeBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'Close',
     },
 
     transparentBg: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     show: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 

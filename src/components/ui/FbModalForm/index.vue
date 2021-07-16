@@ -153,42 +153,42 @@ export default defineComponent({
     },
 
     submitBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Save',
     },
 
     submitBtnShow: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     cancelBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Close',
     },
 
     cancelBtnShow: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     lockButtons: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     lockSubmitButton: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     transparentBg: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     show: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
@@ -198,7 +198,7 @@ export default defineComponent({
     },
 
     processingText: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 

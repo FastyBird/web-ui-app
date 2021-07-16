@@ -59,12 +59,12 @@ export default defineComponent({
     },
 
     label: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
     },
 
     link: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
   },

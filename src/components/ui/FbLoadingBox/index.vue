@@ -51,12 +51,12 @@ export default defineComponent({
   props: {
 
     fullScreen: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     animation: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

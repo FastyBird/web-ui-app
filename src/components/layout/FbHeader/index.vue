@@ -59,6 +59,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
   ref,
 } from '@vue/composition-api'
 
@@ -69,12 +70,12 @@ export default defineComponent({
   props: {
 
     menuHidden: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     menuCollapsed: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 

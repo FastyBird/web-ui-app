@@ -81,17 +81,17 @@ export default defineComponent({
     },
 
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
     link: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
     active: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

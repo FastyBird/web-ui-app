@@ -19,6 +19,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
 
 interface FbHeaderMenuButtonPropsInterface {
@@ -36,22 +37,22 @@ export default defineComponent({
   props: {
 
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Menu',
     },
 
     small: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     left: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     right: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

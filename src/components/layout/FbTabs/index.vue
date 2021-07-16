@@ -12,6 +12,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
 
 export default defineComponent({
@@ -21,7 +22,7 @@ export default defineComponent({
   props: {
 
     collapsed: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 

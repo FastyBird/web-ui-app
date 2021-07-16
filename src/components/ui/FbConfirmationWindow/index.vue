@@ -162,39 +162,39 @@ export default defineComponent({
     },
 
     showYes: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     yesBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'Yes',
     },
 
     showNo: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     noBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'No',
     },
 
     enableClosing: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     transparentBg: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     show: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 

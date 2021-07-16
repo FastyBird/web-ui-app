@@ -29,7 +29,7 @@ export default defineComponent({
   props: {
 
     id: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
     },
 
@@ -47,7 +47,7 @@ export default defineComponent({
     },
 
     size: {
-      type: String,
+      type: String as PropType<string>,
       default: FbSizeTypes.MEDIUM,
       validator: (value: FbSizeTypes) => {
         // The value must match one of these strings
@@ -60,12 +60,12 @@ export default defineComponent({
     },
 
     required: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     hasError: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

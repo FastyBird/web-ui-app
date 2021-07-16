@@ -9,7 +9,7 @@
       :data-layout="layout"
       role="dialog"
       @keyup.esc="closeModal"
-      @click.prevent="clickOverlay"
+      @click="clickOverlay"
     >
       <div class="fb-ui-modal-window__window">
         <div
@@ -241,57 +241,57 @@ export default defineComponent({
     },
 
     showHeader: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     showFooter: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     rightBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Ok',
     },
 
     showRightBtn: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     leftBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Close',
     },
 
     showLeftBtn: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     closeBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Close',
     },
 
     enableClosing: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     transparentBg: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     loader: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     show: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 

@@ -113,7 +113,7 @@ export default defineComponent({
     },
 
     name: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
     },
 
@@ -128,37 +128,37 @@ export default defineComponent({
     },
 
     id: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
     required: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     tabIndex: {
-      type: Number,
+      type: Number as PropType<number>,
       default: null,
     },
 
     error: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
     readonly: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     disabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

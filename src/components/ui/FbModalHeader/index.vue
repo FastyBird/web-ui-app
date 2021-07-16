@@ -165,32 +165,32 @@ export default defineComponent({
     },
 
     leftBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Close',
     },
 
     showLeftBtn: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     rightBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Ok',
     },
 
     showRightBtn: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     closeBtnLabel: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Close',
     },
 
     enableClosing: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 

@@ -13,6 +13,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
 
 export default defineComponent({
@@ -22,7 +23,7 @@ export default defineComponent({
   props: {
 
     name: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
     },
 

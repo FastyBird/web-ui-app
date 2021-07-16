@@ -57,6 +57,7 @@
 import {
   defineComponent,
   nextTick,
+  PropType,
   ref,
   watch,
 } from '@vue/composition-api'
@@ -68,12 +69,12 @@ export default defineComponent({
   props: {
 
     showClose: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
 
     closeBtnText: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'Close',
     },

@@ -30,12 +30,12 @@ export default defineComponent({
   props: {
 
     status: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     disabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

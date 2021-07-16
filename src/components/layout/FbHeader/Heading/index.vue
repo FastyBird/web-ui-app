@@ -37,12 +37,12 @@ export default defineComponent({
   props: {
 
     heading: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
     },
 
     subHeading: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 

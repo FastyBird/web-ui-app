@@ -7,6 +7,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
 
 export default defineComponent({
@@ -16,7 +17,7 @@ export default defineComponent({
   props: {
 
     closeBtnText: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'Close',
     },

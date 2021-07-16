@@ -228,7 +228,7 @@ export default defineComponent({
   props: {
 
     href: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
@@ -289,37 +289,37 @@ export default defineComponent({
     },
 
     block: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     uppercase: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     pill: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     thick: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     active: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     disabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     loading: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

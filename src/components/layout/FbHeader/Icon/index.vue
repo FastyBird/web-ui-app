@@ -11,6 +11,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
 
 import { FbMenuItemTypes } from '@/types'
@@ -27,12 +28,12 @@ export default defineComponent({
   props: {
 
     left: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     right: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 

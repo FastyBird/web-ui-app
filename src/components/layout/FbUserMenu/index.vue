@@ -48,6 +48,7 @@
 import {
   defineComponent,
   nextTick,
+  PropType,
   ref,
   watch,
 } from '@vue/composition-api'
@@ -59,7 +60,7 @@ export default defineComponent({
   props: {
 
     name: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 

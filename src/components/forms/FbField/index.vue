@@ -148,37 +148,37 @@ export default defineComponent({
     },
 
     name: {
-      type: String,
+      type: String as PropType<string>,
       required: true,
     },
 
     id: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 
     required: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     isFocused: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     hasValue: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
     error: {
-      type: String,
+      type: String as PropType<string>,
       default: null,
     },
 

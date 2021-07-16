@@ -22,6 +22,7 @@
 <script lang="ts">
 import {
   defineComponent,
+  PropType,
 } from '@vue/composition-api'
 
 export default defineComponent({
@@ -31,19 +32,19 @@ export default defineComponent({
   props: {
 
     copyright: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: '© 2017',
     },
 
     author: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'FastyBird s.r.o.',
     },
 
     website: {
-      type: String,
+      type: String as PropType<string>,
       required: false,
       default: 'https://www.fastybird.com',
     },
