@@ -9,13 +9,13 @@ export const Spacing: Story = () => {
   return {
     template: `
       <div class="fb-story-spacing__container">
-        <p>Extra small:</p>
+        <p>Extra small (5px):</p>
         <div class="fb-story-spacing__box-extra-small" />
-        <p>Small:</p>
+        <p>Small (10px):</p>
           <div class="fb-story-spacing__box-small" />
-        <p>Medium:</p>
+        <p>Medium (15px):</p>
         <div class="fb-story-spacing__box-medium" />
-        <p>Large:</p>
+        <p>Large (30px):</p>
         <div class="fb-story-spacing__box-large" />
       </div>
     `,
