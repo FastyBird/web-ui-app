@@ -181,33 +181,3 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm publish --access public
-
-  build-storybook:
-    name: "Build Storybook and publish it to Github pages"
-    runs-on: "${{ matrix.operating-system }}"
-    needs: ["jslint", "stylelint"]
-
-    strategy:
-      matrix:
-        operating-system: ["ubuntu-latest"]
-
-    if: github.event_name == 'push' && contains(github.ref, 'refs/heads/master')
-
-    steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2"
-        with:
-          persist-credentials: false
-
-      - name: "Setup node"
-        uses: "actions/setup-node@v1"
-        with:
-          node-version: "12"
-
-      - name: "Install dependencies"
-        run: yarn install
-
-      - name: "Deploy"
-        run: yarn storybook:deploy -- --ci
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
