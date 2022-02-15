@@ -8,17 +8,17 @@
   @return $result;
 }
 
-@mixin flexRow($wrap: wrap) {
+@mixin flex-row($wrap: wrap) {
   display: flex;
   flex-flow: row $wrap;
 }
 
-@mixin flexColumn($wrap: wrap) {
+@mixin flex-column($wrap: wrap) {
   display: flex;
   flex-flow: column $wrap;
 }
 
-@mixin flexBoxWidth($width) {
+@mixin flex-box-width($width) {
   -webkit-box-flex: 0;
   flex: 0 0 $width;
   max-width: $width;

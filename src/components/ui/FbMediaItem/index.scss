@@ -13,7 +13,7 @@
   &__right {
     text-align: center;
 
-    @include flexBoxWidth(5.5rem);
+    @include flex-box-width(5.5rem);
   }
 
   &__body {

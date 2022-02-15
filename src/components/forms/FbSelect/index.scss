@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../../assets/components/form/fb-select";
 
 .fb-form-select {
@@ -78,7 +79,7 @@
       @include select-error-shadow;
 
       &:focus {
-        border-color: darken($input-border-color-error, 10%);
+        border-color: color.adjust($input-border-color-error, $lightness: -10%);
 
         @include select-error-focus-shadow;
       }

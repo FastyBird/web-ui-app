@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../../../assets/components/layout/fb-navigation";
 
 .fb-layout-navigation-item {
@@ -28,7 +29,7 @@
 
     &:hover > a {
       @media (hover: hover) and (pointer: fine) {
-        background-color: darken($item-hover-background-color, 3.5%);
+        background-color: color.adjust($item-hover-background-color, $lightness: -3.5%);
         color: $item-hover-color;
 
         ::after {
@@ -43,7 +44,7 @@
 
   /* Active state */
   &__active.nuxt-link-exact-active {
-    background-color: darken($item-active-background-color, 3.5%);
+    background-color: color.adjust($item-active-background-color, $lightness: -3.5%);
     color: $item-active-color;
 
     /* Active indicator */

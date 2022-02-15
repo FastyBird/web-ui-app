@@ -1,5 +1,5 @@
 @use "sass:math";
-
+@use "sass:color";
 @import "../../../assets/components/form/fb-checkbox";
 
 .fb-form-checkbox {
@@ -60,7 +60,7 @@
 
     &:active ~ .fb-form-checkbox__indicator {
       border-color: $checkbox-indicator-checked-border-color;
-      background-color: lighten($checkbox-indicator-checked-bg-color, 25);
+      background-color: color.adjust($checkbox-indicator-checked-bg-color, $lightness: 25);
     }
 
     &:disabled ~ .fb-form-checkbox__indicator {

@@ -91,7 +91,7 @@
   }
 
   &__description {
-    @include flexColumn(nowrap);
+    @include flex-column(nowrap);
 
     &-icon {
       text-align: center;

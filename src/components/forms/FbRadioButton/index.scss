@@ -1,5 +1,5 @@
 @use "sass:math";
-
+@use "sass:color";
 @import "../../../assets/components/form/fb-radio-button";
 
 .fb-form-radio-button {
@@ -57,7 +57,7 @@
 
     &:active ~ .fb-form-radio-button__indicator {
       border-color: $radio-indicator-checked-border-color;
-      background-color: lighten($radio-indicator-checked-bg-color, 25);
+      background-color: color.adjust($radio-indicator-checked-bg-color, $lightness: 25);
     }
 
     &:disabled ~ .fb-form-radio-button__indicator {

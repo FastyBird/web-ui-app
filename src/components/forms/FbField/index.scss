@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../../assets/components/form/fb-field";
 
 .fb-form-field {
@@ -111,7 +112,7 @@
 
       &__help {
         display: block;
-        color: lighten($field-default-color, 25%); /* lighten the text some for contrast */
+        color: color.adjust($field-default-color, $lightness: 25%); /* lighten the text some for contrast */
         margin: 5px 0 10px;
         text-align: justify;
       }
