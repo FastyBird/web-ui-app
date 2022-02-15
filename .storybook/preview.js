@@ -21,7 +21,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { BodyScrollLock } from '@/directives'
+import { BodyScrollLock } from './../src/directives'
 
 library.add(faBell)
 library.add(faChartBar)
