@@ -60,7 +60,7 @@
 
     &:active ~ .fb-form-checkbox__indicator {
       border-color: $checkbox-indicator-checked-border-color;
-      background-color: color.adjust($checkbox-indicator-checked-bg-color, $lightness: 25);
+      background-color: color.adjust($checkbox-indicator-checked-bg-color, $lightness: 25%);
     }
 
     &:disabled ~ .fb-form-checkbox__indicator {

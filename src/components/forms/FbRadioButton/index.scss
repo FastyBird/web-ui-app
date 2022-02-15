@@ -57,7 +57,7 @@
 
     &:active ~ .fb-form-radio-button__indicator {
       border-color: $radio-indicator-checked-border-color;
-      background-color: color.adjust($radio-indicator-checked-bg-color, $lightness: 25);
+      background-color: color.adjust($radio-indicator-checked-bg-color, $lightness: 25%);
     }
 
     &:disabled ~ .fb-form-radio-button__indicator {
