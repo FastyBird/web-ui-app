@@ -95,7 +95,7 @@ jobs:
   publish-npmjs:
     name: "Build library and publish it to NPM"
     runs-on: "${{ matrix.operating-system }}"
-    needs: ["jslint", "tslint", "stylelint"]
+    needs: ["jslint", "stylelint"]
 
     strategy:
       matrix:
@@ -185,7 +185,7 @@ jobs:
   build-storybook:
     name: "Build Storybook and publish it to Github pages"
     runs-on: "${{ matrix.operating-system }}"
-    needs: ["jslint", "tslint", "stylelint"]
+    needs: ["jslint", "stylelint"]
 
     strategy:
       matrix:
