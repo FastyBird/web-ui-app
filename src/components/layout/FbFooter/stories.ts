@@ -1,5 +1,10 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
+import { IFbLayoutFooterProps } from './types'
 import FbLayoutFooter from './index.vue'
 
 export default {
@@ -47,24 +52,23 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbLayoutFooterProps, Args {
   default?: string
-  copyright?: string
-  author?: string
-  website?: string
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbLayoutFooter },
+    setup(): any {
+      return { args }
+    },
     template: `
-      <fb-layout-footer :copyright="copyright" :author="author" :website="website">
-        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+      <fb-layout-footer :copyright="args.copyright" :author="args.author" :website="args.website">
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
       </fb-layout-footer>
     `,
   }

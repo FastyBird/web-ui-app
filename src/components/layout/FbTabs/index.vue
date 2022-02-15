@@ -1,11 +1,11 @@
 <template>
   <div :class="['fb-layout-tabs__container', {'fb-layout-tabs__container-collapsed': collapsed}]">
-    <portal-target
+    <div
+      id="fb-layout-tabs-items"
       class="fb-layout-tabs__container-inner"
-      name="fb-layout-tabs-items"
     >
       <slot />
-    </portal-target>
+    </div>
   </div>
 </template>
 
@@ -13,7 +13,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 export default defineComponent({
 

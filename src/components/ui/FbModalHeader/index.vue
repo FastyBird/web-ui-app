@@ -85,15 +85,16 @@
           </div>
         </div>
 
-        <button
-          v-if="enableClosing"
-          type="button"
-          class="fb-ui-modal-header__close"
-          @click.prevent="$emit('close', $event)"
-        >
-          <span aria-hidden="true">×</span>
-          <span class="fb-ui-modal-header__close-text">{{ closeBtnLabel }}</span>
-        </button>
+        <template v-if="enableClosing">
+          <button
+            type="button"
+            class="fb-ui-modal-header__close"
+            @click.prevent="$emit('close', $event)"
+          >
+            <span aria-hidden="true">×</span>
+            <span class="fb-ui-modal-header__close-text">{{ closeBtnLabel }}</span>
+          </button>
+        </template>
       </template>
     </div>
 
@@ -135,11 +136,14 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbUiModalLayoutTypes, FbUiButtonVariantTypes, FbSizeTypes } from '@/types'
-
-import FbUiButton from './../FbButton/index.vue'
+import {
+  FbUiModalLayoutTypes,
+  FbUiButtonVariantTypes,
+  FbSizeTypes,
+} from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
 
 export default defineComponent({
 
@@ -195,6 +199,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['rightSubmit', 'leftSubmit', 'close'],
 
   setup() {
     return {

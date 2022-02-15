@@ -1,68 +1,83 @@
 <template>
-  <portal :to="portalName">
-    <a
-      v-if="type === menuItemTypes.LINK"
-      :href="link"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
-      @click.prevent="$emit('click', $event)"
-    >
-      <template v-if="'icon' in $slots">
-        <slot name="icon" />
-      </template>
+  <teleport
+    :to="`#${teleportTarget}`"
+    :disabled="!teleport"
+  >
+    <template v-if="type === menuItemTypes.LINK">
+      <a
+        :href="link"
+        :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+        @click.prevent="$emit('click', $event)"
+      >
+        <template v-if="'icon' in $slots">
+          <slot name="icon" />
+        </template>
 
-      <template v-else>
-        {{ label }}
-      </template>
-    </a>
+        <template v-else>
+          {{ label }}
+        </template>
+      </a>
+    </template>
 
-    <nuxt-link
-      v-else-if="type === menuItemTypes.NUXT_LINK"
-      :to="link"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
-      @click.prevent="$emit('click', $event)"
-    >
-      <template v-if="'icon' in $slots">
-        <slot name="icon" />
-      </template>
+    <template v-else-if="type === menuItemTypes.NUXT_LINK">
+      <nuxt-link
+        :to="link"
+        :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+        @click.prevent="$emit('click', $event)"
+      >
+        <template v-if="'icon' in $slots">
+          <slot name="icon" />
+        </template>
 
-      <template v-else>
-        {{ label }}
-      </template>
-    </nuxt-link>
+        <template v-else>
+          {{ label }}
+        </template>
+      </nuxt-link>
+    </template>
 
-    <button
-      v-else-if="type === menuItemTypes.BUTTON"
-      role="button"
-      :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
-      @click.prevent="$emit('click', $event)"
-    >
-      <template v-if="'icon' in $slots">
-        <slot name="icon" />
-      </template>
+    <template v-else-if="type === menuItemTypes.VUE_LINK">
+      <route-link
+        :to="link"
+        :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+        @click.prevent="$emit('click', $event)"
+      >
+        <template v-if="'icon' in $slots">
+          <slot name="icon" />
+        </template>
 
-      <template v-else>
-        {{ label }}
-      </template>
-    </button>
-  </portal>
+        <template v-else>
+          {{ label }}
+        </template>
+      </route-link>
+    </template>
+
+    <template v-else-if="type === menuItemTypes.BUTTON">
+      <button
+        role="button"
+        :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
+        @click.prevent="$emit('click', $event)"
+      >
+        <template v-if="'icon' in $slots">
+          <slot name="icon" />
+        </template>
+
+        <template v-else>
+          {{ label }}
+        </template>
+      </button>
+    </template>
+  </teleport>
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbMenuItemTypes } from '@/types'
 
-interface FbHeaderButtonPropsInterface {
-  type: FbMenuItemTypes
-  label?: string
-  link?: string
-  small: boolean
-  left: boolean
-  right: boolean
-}
+import { IFbLayoutHeaderButtonProps } from './types'
 
 export default defineComponent({
 
@@ -79,17 +94,18 @@ export default defineComponent({
           FbMenuItemTypes.BUTTON,
           FbMenuItemTypes.LINK,
           FbMenuItemTypes.NUXT_LINK,
+          FbMenuItemTypes.VUE_LINK,
         ].includes(value)
       },
     },
 
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     link: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -108,19 +124,26 @@ export default defineComponent({
       default: false,
     },
 
+    teleport: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+
   },
 
-  setup(props: FbHeaderButtonPropsInterface) {
-    let portalName = 'fb-layout-header-button'
+  emits: ['click'],
+
+  setup(props: IFbLayoutHeaderButtonProps) {
+    let teleportTarget = 'fb-layout-header-button'
 
     if (props.small) {
-      portalName = `${portalName}-small`
+      teleportTarget = `${teleportTarget}-small`
     } else {
-      portalName = `${portalName}-${props.left ? 'left' : ''}${props.right ? 'right' : ''}`
+      teleportTarget = `${teleportTarget}-${props.left ? 'left' : ''}${props.right ? 'right' : ''}`
     }
 
     return {
-      portalName,
+      teleportTarget,
       menuItemTypes: FbMenuItemTypes,
     }
   },

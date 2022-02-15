@@ -1,14 +1,14 @@
-<template functional>
+<template>
   <label
-    :data-variant="props.variant"
-    :data-size="props.size"
-    :class="[data.class, data.staticClass, 'fb-ui-switch-element__container']"
+    :data-variant="variant"
+    :data-size="size"
+    class="fb-ui-switch-element__container"
   >
     <input
-      :checked="props.status"
-      :disabled="props.disabled"
+      :checked="status"
+      :disabled="disabled"
       type="checkbox"
-      @change.prevent="listeners['change']()"
+      @change.prevent="$emit('change')"
     >
     <span class="fb-ui-switch-element__track" />
     <span class="fb-ui-switch-element__thumb" />
@@ -19,9 +19,12 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
 
 export default defineComponent({
 
@@ -69,6 +72,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['change'],
 
 })
 </script>

@@ -27,7 +27,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbUiVariantTypes } from '@/types'
 

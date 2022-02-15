@@ -1,20 +1,19 @@
 <template>
-  <portal :to="portalName">
+  <teleport
+    :to="`#${teleportTarget}`"
+    :disabled="!teleport"
+  >
     <div :class="['fb-layout-header__spacer', {'fb-layout-header__spacer-left': left}, {'fb-layout-header__spacer-right': right}, {'fb-layout-header__spacer-center': !right && !left}]" />
-  </portal>
+  </teleport>
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-interface FbHeaderSpacerPropsInterface {
-  left: boolean
-  right: boolean
-  small: boolean
-}
+import { IFbLayoutHeaderSpacerProps } from './types'
 
 export default defineComponent({
 
@@ -37,19 +36,24 @@ export default defineComponent({
       default: false,
     },
 
+    teleport: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+
   },
 
-  setup(props: FbHeaderSpacerPropsInterface) {
-    let portalName = 'fb-layout-header-button'
+  setup(props: IFbLayoutHeaderSpacerProps) {
+    let teleportTarget = 'fb-layout-header-button'
 
     if (props.small) {
-      portalName = `${portalName}-small`
+      teleportTarget = `${teleportTarget}-small`
     } else {
-      portalName = `${portalName}-${props.left ? 'left' : ''}${props.right ? 'right' : ''}`
+      teleportTarget = `${teleportTarget}-${props.left ? 'left' : ''}${props.right ? 'right' : ''}`
     }
 
     return {
-      portalName,
+      teleportTarget,
     }
   },
 

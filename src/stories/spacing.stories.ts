@@ -1,9 +1,9 @@
-import '!style-loader!css-loader!sass-loader!./spacing.scss'
-import { Story } from '@storybook/vue'
+import "!style-loader!css-loader!sass-loader!./spacing.scss";
+import { Story } from "@storybook/vue";
 
 export default {
-  title: 'About/Spacing',
-}
+  title: "About/Spacing",
+};
 
 export const Spacing: Story = () => {
   return {
@@ -19,5 +19,5 @@ export const Spacing: Story = () => {
         <div class="fb-story-spacing__box-large" />
       </div>
     `,
-  }
-}
+  };
+};

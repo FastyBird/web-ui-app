@@ -1,7 +1,12 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
 import { FbSizeTypes } from '@/types'
 
+import { IFbUiResultErrProps } from './types'
 import FbUiResultErr from './index.vue'
 
 export default {
@@ -25,21 +30,22 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
-  size: FbSizeTypes
+interface TemplateArgs extends IFbUiResultErrProps, Args {
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiResultErr },
+    setup(): any {
+      return { args }
+    },
     template: `
-      <fb-ui-result-err :size="size" />
+      <fb-ui-result-err :size="args.size" />
     `,
   }
 }

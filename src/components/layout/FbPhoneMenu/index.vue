@@ -6,7 +6,7 @@
   >
     <transition name="fb-phone-menu-backdrop">
       <div
-        v-if="show"
+        v-if="show || teleportHasContent"
         class="fb-layout-phone-menu__backdrop"
         @click.prevent="$emit('close', $event)"
       />
@@ -14,40 +14,43 @@
 
     <transition name="fb-phone-menu-content">
       <div
-        v-show="show"
+        v-if="show || teleportHasContent"
         class="fb-layout-phone-menu__inner"
       >
         <div class="fb-layout-phone-menu__content">
-          <portal-target
+          <h4
+            id="fb-layout-phone-menu-heading"
             class="fb-layout-phone-menu__heading"
-            name="fb-layout-phone-menu-heading"
-            tag="h4"
-          />
+          >
+            <slot name="heading" />
+          </h4>
 
-          <portal-target
+          <div
+            id="fb-layout-phone-menu-items"
             class="fb-layout-phone-menu__items"
-            name="fb-layout-phone-menu-items"
-            @change="itemsPortalChanged"
+            @change="itemsTeleportChanged"
           >
             <slot />
-          </portal-target>
+          </div>
         </div>
 
-        <portal-target
+        <div
           v-if="showClose"
+          id="fb-layout-phone-menu-button"
           class="fb-layout-phone-menu__footer"
-          name="fb-layout-phone-menu-button"
         >
-          <fb-ui-button
-            block
-            variant="link"
-            size="lg"
-            type="button"
-            @click.prevent="$emit('close', $event)"
-          >
-            {{ closeBtnText }}
-          </fb-ui-button>
-        </portal-target>
+          <slot name="close-button">
+            <fb-ui-button
+              block
+              variant="link"
+              size="lg"
+              type="button"
+              @click.prevent="$emit('close', $event)"
+            >
+              {{ closeBtnText }}
+            </fb-ui-button>
+          </slot>
+        </div>
       </div>
     </transition>
   </div>
@@ -60,13 +63,24 @@ import {
   PropType,
   ref,
   watch,
-} from '@vue/composition-api'
+} from 'vue'
+
+import FbUiButton from '@/components/ui/FbButton/index.vue'
 
 export default defineComponent({
 
   name: 'FbLayoutPhoneMenu',
 
+  components: {
+    FbUiButton,
+  },
+
   props: {
+
+    show: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
 
     showClose: {
       type: Boolean as PropType<boolean>,
@@ -75,23 +89,24 @@ export default defineComponent({
 
     closeBtnText: {
       type: String as PropType<string>,
-      required: false,
       default: 'Close',
     },
 
   },
 
+  emits: ['close'],
+
   setup() {
     const element = ref<HTMLElement | null>(null)
 
-    const show = ref<boolean>(false)
+    const teleportHasContent = ref<boolean>(false)
 
-    function itemsPortalChanged(newContent: boolean): void {
-      show.value = newContent
+    const itemsTeleportChanged = (newContent: boolean): void => {
+      teleportHasContent.value = newContent
     }
 
     watch(
-      () => show.value,
+      () => teleportHasContent.value,
       (val: boolean): void => {
         nextTick(() => {
           if (val && element.value !== null) {
@@ -103,8 +118,8 @@ export default defineComponent({
 
     return {
       element,
-      show,
-      itemsPortalChanged,
+      teleportHasContent,
+      itemsTeleportChanged,
     }
   },
 

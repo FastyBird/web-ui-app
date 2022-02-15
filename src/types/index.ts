@@ -1,102 +1,110 @@
-import { PluginFunction } from 'vue'
+import { Plugin } from "vue";
 
-interface PluginOptions {
-    directives?: boolean
-    mixins?: boolean
+export interface IPluginOptions {
+    directives?: boolean;
+    mixins?: boolean;
 }
 
-export interface InstallFunction extends PluginFunction<PluginOptions> {
-    installed?: boolean;
-}
+export type InstallFunction = Plugin & { installed?: boolean };
+
+export * from "../components/types";
 
 export enum FbMenuItemTypes {
-    LINK = 'link',
-    NUXT_LINK = 'nuxt_link',
-    BUTTON = 'button',
-    TEXT = 'text',
+    LINK = "link",
+    NUXT_LINK = "nuxt_link",
+    VUE_LINK = "vue_link",
+    BUTTON = "button",
+    TEXT = "text",
 }
 
 export enum FbSizeTypes {
-    EXTRA_SMALL = 'xs',
-    SMALL = 'sm',
-    MEDIUM = 'md',
-    LARGE = 'lg',
-    EXTRA_LARGE = 'xl',
-    NONE = 'none',
+    EXTRA_SMALL = "xs",
+    SMALL = "sm",
+    MEDIUM = "md",
+    LARGE = "lg",
+    EXTRA_LARGE = "xl",
+    NONE = "none",
 }
 
 export enum FbFormInputTypeTypes {
-    TEXT = 'text',
-    PASSWORD = 'password',
-    EMAIL = 'email',
-    NUMBER = 'number',
-    TEL = 'tel',
-    URL = 'url',
+    TEXT = "text",
+    PASSWORD = "password",
+    EMAIL = "email",
+    NUMBER = "number",
+    TEL = "tel",
+    URL = "url",
 }
 
 export enum FbFormOrientationTypes {
-    VERTICAL = 'vertical',
-    HORIZONTAL = 'horizontal',
-    INLINE = 'inline',
+    VERTICAL = "vertical",
+    HORIZONTAL = "horizontal",
+    INLINE = "inline",
 }
 
 export enum FbFormResultTypes {
-    NONE = 'none',
-    WORKING = 'working',
-    ERROR = 'error',
-    OK = 'ok',
+    NONE = "none",
+    WORKING = "working",
+    ERROR = "error",
+    OK = "ok",
 }
 
 export enum FbUiVariantTypes {
-  DEFAULT = 'default',
-  PRIMARY = 'primary',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  WARNING = 'warning',
-  INFO = 'info',
+  DEFAULT = "default",
+  PRIMARY = "primary",
+  SUCCESS = "success",
+  DANGER = "danger",
+  WARNING = "warning",
+  INFO = "info",
 }
 
 export enum FbUiModalLayoutTypes {
-    DEFAULT = 'default',
-    PHONE = 'phone',
-    TABLET = 'tablet',
+    DEFAULT = "default",
+    PHONE = "phone",
+    TABLET = "tablet",
+}
+
+export enum FbUiButtonActionsTypes {
+  LINK = "link",
+  NUXT_LINK = "nuxt_link",
+  VUE_LINK = "vue_link",
+  BUTTON = "button",
 }
 
 export enum FbUiButtonButtonTypes {
-    BUTTON = 'button',
-    SUBMIT = 'submit',
-    RESET = 'reset',
+    BUTTON = "button",
+    SUBMIT = "submit",
+    RESET = "reset",
 }
 
 export enum FbUiButtonVariantTypes {
-    DEFAULT = 'default',
-    PRIMARY = 'primary',
-    SUCCESS = 'success',
-    DANGER = 'danger',
-    WARNING = 'warning',
-    INFO = 'info',
-    OUTLINE_DEFAULT = 'outline-default',
-    OUTLINE_PRIMARY = 'outline-primary',
-    OUTLINE_SUCCESS = 'outline-success',
-    OUTLINE_DANGER = 'outline-danger',
-    OUTLINE_WARNING = 'outline-warning',
-    OUTLINE_INFO = 'outline-info',
-    LINK = 'link',
-    LINK_DEFAULT = 'link-default',
+    DEFAULT = "default",
+    PRIMARY = "primary",
+    SUCCESS = "success",
+    DANGER = "danger",
+    WARNING = "warning",
+    INFO = "info",
+    OUTLINE_DEFAULT = "outline-default",
+    OUTLINE_PRIMARY = "outline-primary",
+    OUTLINE_SUCCESS = "outline-success",
+    OUTLINE_DANGER = "outline-danger",
+    OUTLINE_WARNING = "outline-warning",
+    OUTLINE_INFO = "outline-info",
+    LINK = "link",
+    LINK_DEFAULT = "link-default",
 }
 
 export enum FbUiConfirmationWindowPrimaryButtonTypes {
-    YES = 'yes',
-    NO = 'no',
+    YES = "yes",
+    NO = "no",
 }
 
 export enum FbUiDividerVariantTypes {
-    HORIZONTAL = 'horizontal',
-    VERTICAL = 'vertical',
+    HORIZONTAL = "horizontal",
+    VERTICAL = "vertical",
 }
 
 export enum FbLayoutHeaderHeadingAlign {
-    LEFT = 'left',
-    RIGHT = 'right',
-    CENTER = 'center',
+    LEFT = "left",
+    RIGHT = "right",
+    CENTER = "center",
 }

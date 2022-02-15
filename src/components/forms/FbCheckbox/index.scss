@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../../assets/components/form/fb-checkbox";
 
 .fb-form-checkbox {
@@ -12,9 +14,6 @@
     min-width: $checkbox-indicator-size;
     cursor: pointer;
     vertical-align: middle;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text; // IE10+
     user-select: text;
 
     .fb-form-checkbox {
@@ -28,7 +27,7 @@
         display: inline-block;
         position: absolute;
         left: 0;
-        top: (($checkbox-indicator-size - $checkbox-indicator-font-size) / 2) * -1;
+        top: math.div(($checkbox-indicator-size - $checkbox-indicator-font-size), 2) * -1;
         width: $checkbox-indicator-size;
         height: $checkbox-indicator-size;
         background-size: 75% 75%;

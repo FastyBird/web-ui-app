@@ -14,26 +14,26 @@
   >
     <template
       v-if="'title' in $slots"
-      slot="title"
+      #title
     >
       <slot name="title" />
     </template>
 
     <template
       v-if="'icon' in $slots"
-      slot="icon"
+      #icon
     >
       <slot name="icon" />
     </template>
 
     <template
       v-if="'header' in $slots"
-      slot="header"
+      #header
     >
       <slot name="header" />
     </template>
 
-    <template slot="body">
+    <template #body>
       <slot />
     </template>
   </fb-ui-modal-window>
@@ -43,11 +43,13 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbUiModalLayoutTypes, FbSizeTypes } from '@/types'
-
-import FbUiModalWindow from './../FbModalWindow/index.vue'
+import {
+  FbUiModalLayoutTypes,
+  FbSizeTypes,
+} from '@/types'
+import FbUiModalWindow from '@/components/ui/FbModalWindow/index.vue'
 
 export default defineComponent({
 
@@ -87,13 +89,11 @@ export default defineComponent({
 
     enableClosing: {
       type: Boolean as PropType<boolean>,
-      required: false,
       default: true,
     },
 
     closeBtnLabel: {
       type: String as PropType<string>,
-      required: false,
       default: 'Close',
     },
 
@@ -108,6 +108,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['close'],
 
 })
 </script>

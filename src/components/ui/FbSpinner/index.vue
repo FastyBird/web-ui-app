@@ -1,7 +1,7 @@
-<template functional>
+<template>
   <span
-    :data-variant="props.variant"
-    :data-size="props.size"
+    :data-variant="variant"
+    :data-size="size"
     class="fb-ui-spinner__container"
   />
 </template>
@@ -10,9 +10,12 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
 
 export default defineComponent({
 

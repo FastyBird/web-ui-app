@@ -105,11 +105,10 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbFormOrientationTypes, FbSizeTypes } from '@/types'
-
-import FbFormLabel from './../FbLabel/index.vue'
+import FbFormLabel from '@/components/forms/FbLabel/index.vue'
 
 export default defineComponent({
 
@@ -153,12 +152,12 @@ export default defineComponent({
     },
 
     id: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -178,7 +177,7 @@ export default defineComponent({
     },
 
     error: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 

@@ -1,9 +1,15 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
+import { ref } from 'vue'
 
 import { FbFormOrientationTypes, FbSizeTypes } from '@/types'
 
-import FbFormSelect, { FbFormSelectItemGroupInterface, FbFormSelectItemInterface } from './index.vue'
+import { IFbFormSelectProps } from './types'
+import FbFormSelect from './index.vue'
 
 export default {
   component: FbFormSelect,
@@ -45,7 +51,6 @@ export default {
       defaultValue: 'field-name',
     },
     items: {
-      type: { name: 'array', required: true },
       control: { type: 'text' },
       defaultValue: [
         { name: 'Option one', value: 'one' },
@@ -130,54 +135,45 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbFormSelectProps, Args {
   'left-addon'?: string
   'right-addon'?: string
   'help-line'?: string
-  name: string
-  items: (FbFormSelectItemInterface | FbFormSelectItemGroupInterface)[]
-  value: string | number
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  id: string
-  label: string
-  required: boolean
-  tabIndex: number
-  error: string
-  blankSelect: string | null
-  readonly: boolean
-  disabled: boolean
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbFormSelect },
+    setup(): any {
+      const value = ref<string | null>(null)
+
+      return { args, value }
+    },
     template: `
       <fb-form-select
         v-model="value"
-        :orientation="orientation"
-        :size="size"
-        :name="name"
-        :id="id"
-        :label="label"
-        :items="items"
-        :required="required"
-        :tab-index="tabIndex"
-        :error="error"
-        :blank-select="blankSelect"
-        :readonly="readonly"
-        :disabled="disabled"
+        :orientation="args.orientation"
+        :size="args.size"
+        :name="args.name"
+        :id="args.id"
+        :label="args.label"
+        :items="args.items"
+        :required="args.required"
+        :tab-index="args.tabIndex"
+        :error="args.error"
+        :blank-select="args.blankSelect"
+        :readonly="args.readonly"
+        :disabled="args.disabled"
         @focus="onFocus"
         @blur="onBlur"
       >
-        <template v-if="${args['left-addon'] !== null && typeof args['left-addon'] !== 'undefined'}" slot="left-addon">${args['left-addon']}</template>
-        <template v-if="${args['right-addon'] !== null && typeof args['right-addon'] !== 'undefined'}" slot="right-addon">${args['right-addon']}</template>
-        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" slot="help-line">${args['help-line']}</template>
+        <template v-if="${args['left-addon'] !== null && typeof args['left-addon'] !== 'undefined'}" #left-addon>${args['left-addon']}</template>
+        <template v-if="${args['right-addon'] !== null && typeof args['right-addon'] !== 'undefined'}" #right-addon>${args['right-addon']}</template>
+        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" #help-line>${args['help-line']}</template>
       </fb-form-select>
     `,
     methods: {

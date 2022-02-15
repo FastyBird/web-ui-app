@@ -1,10 +1,16 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
+import { ref } from 'vue'
 
 import { FbSizeTypes } from '@/types'
+import FbFormRadioButtonsGroup from '@/components/forms/FbRadioButtonsGroup/index.vue'
 
+import { IFbFormRadioButtonProps } from './types'
 import FbFormRadioButton from './index.vue'
-import FbFormRadioButtonsGroup from './../FbRadioButtonsGroup/index.vue'
 
 export default {
   component: FbFormRadioButton,
@@ -82,43 +88,35 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbFormRadioButtonProps, Args {
   default?: string
-  name: string
-  option: string | number | boolean
-  value: string | number | boolean | null | (string | number)[]
-  size: FbSizeTypes
-  id: string | null
-  label: string | null
-  tabIndex: number
-  hasError: boolean
-  readonly: boolean
-  disabled: boolean
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbFormRadioButton },
+    setup(): any {
+      return { args }
+    },
     template: `
       <fb-form-radio-button
-        v-model="value"
-        :size="size"
-        :name="name"
-        :id="id"
-        :option="option"
-        :label="label"
-        :tab-index="tabIndex"
-        :has-error="hasError"
-        :readonly="readonly"
-        :disabled="disabled"
+        v-model="args.value"
+        :size="args.size"
+        :name="args.name"
+        :id="args.id"
+        :option="args.option"
+        :label="args.label"
+        :tab-index="args.tabIndex"
+        :has-error="args.hasError"
+        :readonly="args.readonly"
+        :disabled="args.disabled"
         @change="onChange"
       >
-        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
       </fb-form-radio-button>
     `,
     methods: {
@@ -137,17 +135,25 @@ WithCustomLabel.args = {
 
 export const InGroup: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbFormRadioButton, FbFormRadioButtonsGroup },
+    setup(): any {
+      const radioGroup = ref<HTMLElement | null>(null)
+      const value = ref(null)
+
+      return { args, radioGroup, value }
+    },
     template: `
-      <fb-form-radio-buttons-group>
+      <fb-form-radio-buttons-group
+        v-model="value"
+        ref="radioGroup"
+      >
         <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
           <div style="width: 100px; font-size: 13px;">
             Select this
           </div>
           <div>
             <fb-form-radio-button
-              v-model="value"
+              :group="radioGroup"
               name="option_one"
               option="option_one"
               @change="onChange"
@@ -160,7 +166,7 @@ export const InGroup: Story<TemplateArgs> = (args) => {
           </div>
           <div>
             <fb-form-radio-button
-              v-model="value"
+              :group="radioGroup"
               name="option_two"
               option="option_two"
               @change="onChange"
@@ -173,8 +179,4 @@ export const InGroup: Story<TemplateArgs> = (args) => {
       onChange: action('field-changed'),
     },
   }
-}
-
-InGroup.args = {
-  value: [],
 }

@@ -7,24 +7,24 @@
     :label="label"
     :required="required"
     :is-focused="isFocused"
-    :has-value="value !== '' && value !== null || placeholder !== null"
+    :has-value="modelValue !== '' && modelValue !== null || placeholder !== null"
     :error="error"
   >
     <template
       v-if="'left-addon' in $slots"
-      slot="left-addon"
+      #left-addon
     >
       <slot name="left-addon" />
     </template>
 
     <template
       v-if="'right-addon' in $slots"
-      slot="right-addon"
+      #right-addon
     >
       <slot name="right-addon" />
     </template>
 
-    <template slot="field">
+    <template #field>
       <textarea
         :id="id ? id : name"
         :ref="`field-${name}`"
@@ -34,7 +34,7 @@
         :tabindex="tabIndex"
         :disabled="disabled"
         :readonly="readonly"
-        :value="value"
+        :value="modelValue"
         :placeholder="error !== null && !isFocused ? error : placeholder"
         :rows="rows"
         class="fb-form-textarea__control"
@@ -47,7 +47,7 @@
 
     <template
       v-if="'help-line' in $slots"
-      slot="help-line"
+      #help-line
     >
       <slot name="help-line" />
     </template>
@@ -60,30 +60,15 @@ import {
   PropType,
   ref,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
 import {
   FbFormOrientationTypes,
   FbSizeTypes,
 } from '@/types'
+import FbFormField from '@/components/forms/FbField/index.vue'
 
-import FbFormField from './../FbField/index.vue'
-
-interface FbFormTextAreaPropsInterface {
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  name: string
-  value: string | number | null
-  id: string | null
-  label: string | null
-  rows: number
-  required: boolean
-  tabIndex: number | null
-  error: string | null
-  placeholder: string | null
-  readonly: boolean
-  disabled: boolean
-}
+import { IFbFormTextAreaProps } from './types'
 
 export default defineComponent({
 
@@ -126,18 +111,18 @@ export default defineComponent({
       required: true,
     },
 
-    value: {
-      type: [String, Number],
+    modelValue: {
+      type: [String, Number] as PropType<string | number | null>,
       default: null,
     },
 
     id: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -152,17 +137,17 @@ export default defineComponent({
     },
 
     tabIndex: {
-      type: Number as PropType<number>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
     error: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     placeholder: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -178,12 +163,14 @@ export default defineComponent({
 
   },
 
-  setup(_props: FbFormTextAreaPropsInterface, context: SetupContext) {
+  emits: ['update:modelValue', 'focus', 'blur', 'keydown'],
+
+  setup(_props: IFbFormTextAreaProps, context: SetupContext) {
     const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
     const handleUpdateValue = (value: string | number | null): void => {
-      context.emit('input', value)
+      context.emit('update:modelValue', value)
     }
 
     // Fire focus & blur events

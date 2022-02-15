@@ -1,9 +1,9 @@
-import '!style-loader!css-loader!sass-loader!./fonts.scss'
-import { Story } from '@storybook/vue'
+import "!style-loader!css-loader!sass-loader!./fonts.scss";
+import { Story } from "@storybook/vue";
 
 export default {
-  title: 'About/Fonts',
-}
+  title: "About/Fonts",
+};
 
 export const Fonts: Story = () => {
   return {
@@ -32,5 +32,5 @@ export const Fonts: Story = () => {
         </p>
       </div>
     `,
-  }
-}
+  };
+};

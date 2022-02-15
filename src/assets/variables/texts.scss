@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $font-family-sans-serif:                "Roboto", sans-serif;
 $font-family-serif:                     "Georgia", "Times New Roman", "Times", serif;
 
@@ -12,10 +14,10 @@ $font-weight-light:                     300 !default;
 $font-weight-normal:                    400 !default;
 $font-weight-bold:                      700 !default;
 
-$line-height-base:                      (2rem / $font-size-base);
+$line-height-base:                      math.div(2rem, $font-size-base);
 $line-height-computed:                  floor(($font-size-base * $line-height-base));
 
-$line-height-large:                     1.3333333;
+$line-height-large:                     1.3333;
 $line-height-small:                     1.5;
 
 $headings-font-family:                  inherit;
@@ -23,9 +25,9 @@ $headings-font-weight:                  500;
 $headings-line-height:                  1.1;
 $headings-color:                        inherit;
 
-$font-size-h1:                          floor($font-size-large * (6 / 3)); // 100% larger
-$font-size-h2:                          floor($font-size-large * (5 / 3)); //  66% larger
-$font-size-h3:                          floor($font-size-large * (4 / 3)); //  33% larger
+$font-size-h1:                          floor($font-size-large * math.div(6, 3)); /* 100% larger */
+$font-size-h2:                          floor($font-size-large * math.div(5, 3)); /*  66% larger */
+$font-size-h3:                          floor($font-size-large * math.div(4, 3)); /*  33% larger */
 $font-size-h4:                          $font-size-large;
 $font-size-h5:                          $font-size-base;
 $font-size-h6:                          $font-size-small;

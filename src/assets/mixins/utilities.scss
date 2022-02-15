@@ -9,40 +9,27 @@
 }
 
 @mixin flexRow($wrap: wrap) {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: $wrap;
-  flex-wrap: $wrap;
-  flex-direction: row;
+  flex-flow: row $wrap;
 }
 
 @mixin flexColumn($wrap: wrap) {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: $wrap;
-  flex-wrap: $wrap;
-  flex-direction: column;
+  flex-flow: column $wrap;
 }
 
 @mixin flexBoxWidth($width) {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 $width;
   flex: 0 0 $width;
   max-width: $width;
 }
 
 @mixin box-shadow($shadow...) {
-  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
   box-shadow: $shadow;
 }
 
 @mixin border-radius($radius) {
-  border-top-right-radius: $radius;
-  border-top-left-radius: $radius;
-  border-bottom-right-radius: $radius;
-  border-bottom-left-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin border-top-radius($radius) {

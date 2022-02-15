@@ -20,8 +20,9 @@
 
 <script lang="ts">
 import {
-  defineComponent, PropType,
-} from '@vue/composition-api'
+  defineComponent,
+  PropType,
+} from 'vue'
 
 import { FbSizeTypes } from '@/types'
 

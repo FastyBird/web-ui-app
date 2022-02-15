@@ -15,7 +15,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import {
   FbFormOrientationTypes,
@@ -47,7 +47,7 @@ export default defineComponent({
     },
 
     size: {
-      type: String as PropType<string>,
+      type: String as PropType<FbSizeTypes>,
       default: FbSizeTypes.MEDIUM,
       validator: (value: FbSizeTypes) => {
         // The value must match one of these strings

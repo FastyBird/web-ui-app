@@ -1,4 +1,8 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
 import FbLayoutContent from './index.vue'
 
@@ -35,11 +39,11 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends Args {
   default: string
   header?: string
   footer?: string
@@ -47,14 +51,16 @@ interface TemplateArgs {
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbLayoutContent },
+    setup(): any {
+      return { args }
+    },
     template: `
       <div style="height: 150px">
         <fb-layout-content>
-          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
-          <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" slot="header">${args.header}</template>
-          <template v-if="${args.footer !== null && typeof args.footer !== 'undefined'}" slot="footer">${args.footer}</template>
+          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
+          <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" #header>${args.header}</template>
+          <template v-if="${args.footer !== null && typeof args.footer !== 'undefined'}" #footer>${args.footer}</template>
         </fb-layout-content>
       </div>
     `,

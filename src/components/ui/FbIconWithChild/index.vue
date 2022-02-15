@@ -1,4 +1,4 @@
-<template>
+w<template>
   <span
     :data-variant="variant"
     :data-size="size"
@@ -18,9 +18,12 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
 
 export default defineComponent({
 

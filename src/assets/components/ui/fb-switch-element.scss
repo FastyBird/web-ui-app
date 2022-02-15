@@ -33,11 +33,11 @@ $thumb-background-color:              #fff;
 
       &:disabled {
         ~ .fb-ui-switch-element__track {
-          background-color: $color;
+          background-color: lighten($color, 30%);
         }
 
         ~ .fb-ui-switch-element__thumb {
-          border-color: $color;
+          border-color: lighten($color, 30%);
         }
       }
     }

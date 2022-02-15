@@ -1,4 +1,8 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
 import FbUiCardBox from './index.vue'
 
@@ -28,28 +32,29 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends Args {
   body?: string
   header?: string
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiCardBox },
+    setup(): any {
+      return { args }
+    },
     template: `
       <fb-ui-card-box>
-        <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" slot="header">${args.header}</template>
-        <template v-if="${args.body !== null && typeof args.body !== 'undefined'}" slot="body">${args.body}</template>
+        <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" #header>${args.header}</template>
+        <template v-if="${args.body !== null && typeof args.body !== 'undefined'}" #body>${args.body}</template>
       </fb-ui-card-box>
     `,
   }
 }
 
 export const Default = Template.bind({})
-

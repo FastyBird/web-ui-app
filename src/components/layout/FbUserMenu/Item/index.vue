@@ -1,28 +1,39 @@
 <template>
   <li class="fb-layout-user-menu-item__container">
-    <a
-      v-if="type === menuItemTypes.LINK"
-      :href="link"
-      @click.prevent="$emit('click', $event)"
-    >
-      {{ label }}
-    </a>
+    <template v-if="type === menuItemTypes.LINK">
+      <a
+        :href="link"
+        @click.prevent="$emit('click', $event)"
+      >
+        {{ label }}
+      </a>
+    </template>
 
-    <nuxt-link
-      v-else-if="type === menuItemTypes.NUXT_LINK"
-      :to="link"
-      active-class="fb-layout-user-menu-item__active"
-      @click.prevent="$emit('click', $event)"
-    >
-      {{ label }}
-    </nuxt-link>
+    <template v-else-if="type === menuItemTypes.NUXT_LINK">
+      <nuxt-link
+        :to="link"
+        active-class="fb-layout-user-menu-item__active"
+        @click.prevent="$emit('click', $event)"
+      >
+        {{ label }}
+      </nuxt-link>
+    </template>
 
-    <button
-      v-else-if="type === menuItemTypes.BUTTON"
-      @click.prevent="$emit('click', $event)"
-    >
-      {{ label }}
-    </button>
+    <template v-else-if="type === menuItemTypes.VUE_LINK">
+      <route-link
+        :to="link"
+        active-class="fb-layout-user-menu-item__active"
+        @click.prevent="$emit('click', $event)"
+      >
+        {{ label }}
+      </route-link>
+    </template>
+
+    <template v-else-if="type === menuItemTypes.BUTTON">
+      <button @click.prevent="$emit('click', $event)">
+        {{ label }}
+      </button>
+    </template>
 
     <span v-else>
       {{ label }}
@@ -34,7 +45,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbMenuItemTypes } from '@/types'
 
@@ -53,6 +64,7 @@ export default defineComponent({
           FbMenuItemTypes.BUTTON,
           FbMenuItemTypes.LINK,
           FbMenuItemTypes.NUXT_LINK,
+          FbMenuItemTypes.VUE_LINK,
           FbMenuItemTypes.TEXT,
         ].includes(value)
       },
@@ -68,6 +80,8 @@ export default defineComponent({
       default: null,
     },
   },
+
+  emits: ['click'],
 
   setup() {
     return {

@@ -1,25 +1,25 @@
 <template>
-  <portal :to="portalName">
+  <teleport
+    :to="`#${teleportTarget}`"
+    :disabled="!teleport"
+  >
     <div
       :class="['fb-layout-header-icon__container', {'fb-layout-header-icon__container-left': left}, {'fb-layout-header-icon__container-right': right}]"
     >
       <slot />
     </div>
-  </portal>
+  </teleport>
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbMenuItemTypes } from '@/types'
 
-interface FbHeaderIconPropsInterface {
-  left: boolean
-  right: boolean
-}
+import { IFbLayoutHeaderIconProps } from './types'
 
 export default defineComponent({
 
@@ -37,13 +37,18 @@ export default defineComponent({
       default: false,
     },
 
+    teleport: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+
   },
 
-  setup(props: FbHeaderIconPropsInterface) {
-    const portalName = `fb-layout-header-button-${props.left ? 'left' : ''}${props.right ? 'right' : ''}`
+  setup(props: IFbLayoutHeaderIconProps) {
+    const teleportTarget = `fb-layout-header-button-${props.left ? 'left' : ''}${props.right ? 'right' : ''}`
 
     return {
-      portalName,
+      teleportTarget,
       menuItemTypes: FbMenuItemTypes,
     }
   },

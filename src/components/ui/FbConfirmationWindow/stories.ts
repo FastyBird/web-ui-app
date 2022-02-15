@@ -1,9 +1,20 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
-import { FbSizeTypes, FbUiConfirmationWindowPrimaryButtonTypes, FbUiVariantTypes } from '@/types'
+import { ref } from 'vue'
 
+import {
+  FbSizeTypes,
+  FbUiConfirmationWindowPrimaryButtonTypes,
+  FbUiVariantTypes,
+} from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
+
+import { IFbUiConfirmationWindowProps } from './types'
 import FbUiConfirmationWindow from './index.vue'
-import FbUiButton from './../FbButton/index.vue'
 
 export default {
   component: FbUiConfirmationWindow,
@@ -120,21 +131,11 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
-  show: boolean
-  size: FbSizeTypes
-  variant: FbUiVariantTypes
-  primaryButton: FbUiConfirmationWindowPrimaryButtonTypes
-  yesBtnLabel: string
-  showYes: boolean
-  noBtnLabel: string
-  showNo: boolean
-  transparentBg: boolean
-  enableClosing: boolean
+interface TemplateArgs extends IFbUiConfirmationWindowProps, Args {
   icon?: string
   title?: string
   default?: string
@@ -142,29 +143,33 @@ interface TemplateArgs {
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiConfirmationWindow, FbUiButton },
+    setup(): any {
+      const show = ref<boolean>(false)
+
+      return { args, show }
+    },
     template: `
       <div>
         <fb-ui-button @click.prevent="() => { show = true }" variant="${args.variant}">Open confirmation window</fb-ui-button>
 
         <fb-ui-confirmation-window
           :show="show"
-          :size="size"
-          :variant="variant"
-          :primary-button="primaryButton"
-          :yes-btn-label="yesBtnLabel"
-          :show-yes="showYes"
-          :no-btn-label="noBtnLabel"
-          :show-no="showNo"
-          :transparent-bg="transparentBg"
-          :enable-closing="enableClosing"
+          :size="args.size"
+          :variant="args.variant"
+          :primary-button="args.primaryButton"
+          :yes-btn-label="args.yesBtnLabel"
+          :show-yes="args.showYes"
+          :no-btn-label="args.noBtnLabel"
+          :show-no="args.showNo"
+          :transparent-bg="args.transparentBg"
+          :enable-closing="args.enableClosing"
           @close="(e) => { show = false; onClosed(e) }"
           @confirm="(e) => { show = false; onConfirmed(e) }"
         >
-          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
-          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" slot="title">${args.title}</template>
-          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" #icon>${args.icon}</template>
+          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" #title>${args.title}</template>
+          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
         </fb-ui-confirmation-window>
       </div>
     `,

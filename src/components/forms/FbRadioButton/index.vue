@@ -35,25 +35,12 @@ import {
   nextTick,
   PropType,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbSizeTypes } from '@/types'
+import FbFormRadioButtonsGroup from '@/components/forms/FbRadioButtonsGroup/index.vue'
 
-import FbFormRadioButtons from './../FbRadioButtons/index.vue'
-
-interface FbFormRadioButtonPropsInterface {
-  size: FbSizeTypes
-  name: string
-  option: string | number | boolean
-  value: string | number | boolean | null
-  id: string | null
-  label: string | null
-  tabIndex: number | null
-  hasError: boolean
-  readonly: boolean
-  disabled: boolean
-  group: InstanceType<typeof FbFormRadioButtons> | null
-}
+import { IFbFormRadioButtonProps } from './types'
 
 export default defineComponent({
 
@@ -80,28 +67,27 @@ export default defineComponent({
     },
 
     option: {
-      type: [String, Number, Boolean],
+      type: [String, Number, Boolean] as PropType<string | number | boolean>,
       required: true,
     },
 
-    value: {
-      type: [String, Number, Boolean],
-      required: false,
+    modelValue: {
+      type: [String, Number, Boolean] as PropType<string | number | boolean | null>,
       default: null,
     },
 
     id: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     label: {
-      type: String as PropType<string>,
+      type: [String, Number, Boolean] as PropType<string | null>,
       default: null,
     },
 
     tabIndex: {
-      type: Number as PropType<number>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
@@ -121,22 +107,24 @@ export default defineComponent({
     },
 
     group: {
-      type: Object as PropType<InstanceType<typeof FbFormRadioButtons>>,
+      type: Object as PropType<InstanceType<typeof FbFormRadioButtonsGroup>>,
       default: null,
     },
 
   },
 
-  setup(props: FbFormRadioButtonPropsInterface, context: SetupContext) {
+  emits: ['update:modelValue', 'change'],
+
+  setup(props: IFbFormRadioButtonProps, context: SetupContext) {
     const model = computed<string | number | boolean | null>({
       get: (): string | number | boolean | null => {
-        return props.group !== null ? props.group.value : props.value
+        return props.group !== null ? props.group.modelValue : props.modelValue
       },
       set: (val) => {
         if (props.group !== null) {
-          props.group.$emit.apply(props.group, ['input', val])
+          props.group.$emit.apply(props.group, ['update:modelValue', val])
         } else {
-          context.emit('input', val)
+          context.emit('update:modelValue', val)
         }
       },
     })
@@ -144,9 +132,9 @@ export default defineComponent({
     const handleChange = (): void => {
       nextTick(() => {
         if (props.group !== null) {
-          props.group.$emit.apply(props.group, ['change', props.group.value])
+          props.group.$emit.apply(props.group, ['change', props.group.modelValue])
         } else {
-          context.emit('change', props.value)
+          context.emit('change', props.modelValue)
         }
       })
     }

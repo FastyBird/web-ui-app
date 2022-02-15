@@ -41,12 +41,12 @@
     }
   }
 
-  // Active state
+  /* Active state */
   &__active.nuxt-link-exact-active {
     background-color: darken($item-active-background-color, 3.5%);
     color: $item-active-color;
 
-    // Active indicator
+    /* Active indicator */
     &::after {
       border-color: transparent $item-active-color transparent transparent;
       border-style: solid;
@@ -73,7 +73,6 @@
 
   &__icon {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 4rem;
     flex: 0 0 4rem;
     max-width: 4rem;
     display: block;
@@ -83,7 +82,6 @@
 
     @media (min-width: $screen-tablet-min) and (max-width: $screen-desktop-max) {
       -webkit-box-flex: 0;
-      -ms-flex: 1 0 100%;
       flex: 1 0 100%;
       max-width: 100%;
       font-size: $item-sm-font-size;

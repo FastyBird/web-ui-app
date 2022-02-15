@@ -1,7 +1,15 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
 
+import { IFbUiNoResultsProps } from './types'
 import FbUiNoResults from './index.vue'
 
 export default {
@@ -70,28 +78,28 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbUiNoResultsProps, Args {
   default: string
   icon: string
   'second-icon'?: string
-  variant: FbUiVariantTypes
-  size: FbSizeTypes
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiNoResults },
+    setup(): any {
+      return { args }
+    },
     template: `
-      <fb-ui-no-results :variant="variant" :size="size">
-        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
-        <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
-        <template v-if="${args['second-icon'] !== null && typeof args['second-icon'] !== 'undefined'}" slot="second-icon">${args['second-icon']}</template>
+      <fb-ui-no-results :variant="args.variant" :size="args.size">
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
+        <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" #icon>${args.icon}</template>
+        <template v-if="${args['second-icon'] !== null && typeof args['second-icon'] !== 'undefined'}" #second-icon>${args['second-icon']}</template>
       </fb-ui-no-results>
     `,
   }

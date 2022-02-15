@@ -1,7 +1,12 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
 import { FbUiVariantTypes } from '@/types'
 
+import { IFbUiAlertProps } from './types'
 import FbUiAlert from './index.vue'
 
 export default {
@@ -48,24 +53,25 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbUiAlertProps, Args {
   default: string
   icon?: string
-  variant: FbUiVariantTypes
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiAlert },
+    setup(): any {
+      return { args }
+    },
     template: `
-      <fb-ui-alert :variant="variant" style="font-size: 14px; line-height: 20px;">
-      <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
+      <fb-ui-alert :variant="args.variant" style="font-size: 14px; line-height: 20px;">
+      <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" #icon>${args.icon}</template>
       <p style="padding: 0; margin: 0;">${args.default}</p>
       </fb-ui-alert>
     `,
@@ -122,9 +128,8 @@ WithIcon.args = {
   variant: FbUiVariantTypes.PRIMARY,
 }
 
-export const WithLink: Story<TemplateArgs> = (args) => {
+export const WithLink: Story<TemplateArgs> = () => {
   return {
-    props: args,
     components: { FbUiAlert },
     template: `
       <div>

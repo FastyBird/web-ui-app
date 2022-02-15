@@ -21,3 +21,7 @@ $heading-buttons-button-padding:                0 1rem;
 $heading-buttons-button-font-size:              1.2rem;
 
 $screen-tablet-min:                             $screen-sm-min;
+
+@mixin items-container-flex {
+  @include flexColumn;
+}

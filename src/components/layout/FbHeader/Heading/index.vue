@@ -1,5 +1,8 @@
 <template>
-  <portal to="fb-layout-header-heading">
+  <teleport
+    to="#fb-layout-header-heading"
+    :disabled="!teleport"
+  >
     <div class="fb-layout-phone-header-heading__container">
       <div :class="['fb-layout-phone-header-heading__heading', `fb-layout-phone-header-heading__heading-${align}`]">
         <h1 v-if="subHeading === null">
@@ -19,14 +22,14 @@
         <slot name="icon" />
       </div>
     </div>
-  </portal>
+  </teleport>
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbLayoutHeaderHeadingAlign } from '@/types'
 
@@ -42,7 +45,7 @@ export default defineComponent({
     },
 
     subHeading: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -53,6 +56,11 @@ export default defineComponent({
         // The value must match one of these strings
         return [FbLayoutHeaderHeadingAlign.LEFT, FbLayoutHeaderHeadingAlign.RIGHT, FbLayoutHeaderHeadingAlign.CENTER].includes(value)
       },
+    },
+
+    teleport: {
+      type: Boolean as PropType<boolean>,
+      default: true,
     },
 
   },

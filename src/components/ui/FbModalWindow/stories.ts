@@ -1,10 +1,19 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
+import { ref } from 'vue'
 
-import { FbSizeTypes, FbUiModalLayoutTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiModalLayoutTypes,
+} from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
 
+import { IFbUiModalWindowProps } from './types'
 import FbUiModalWindow from './index.vue'
-import FbUiButton from './../FbButton/index.vue'
 
 export default {
   component: FbUiModalWindow,
@@ -183,24 +192,11 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
-  show: boolean
-  size: FbSizeTypes
-  layout: FbUiModalLayoutTypes
-  width: string | number | null
-  showHeader: boolean
-  showFooter: boolean
-  enableClosing: boolean
-  rightBtnLabel: string
-  showRightBtn: boolean
-  leftBtnLabel: string
-  showLeftBtn: boolean
-  transparentBg: boolean
-  loader: boolean
+interface TemplateArgs extends IFbUiModalWindowProps, Args {
   content?: string
   header?: string
   title?: string
@@ -214,40 +210,43 @@ interface TemplateArgs {
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiModalWindow, FbUiButton },
+    setup(): any {
+      const show = ref<boolean>(false)
+
+      return { args, show }
+    },
     template: `
       <div>
         <fb-ui-button @click.prevent="() => { show = true }">Open modal</fb-ui-button>
 
         <fb-ui-modal-window
-          :size="size"
-          :layout="layout"
-          :width="width"
-          :showHeader="showHeader"
-          :showFooter="showFooter"
-          :close-btn-label="closeBtnLabel"
-          :enable-closing="enableClosing"
-          :right-btn-label="rightBtnLabel"
-          :show-right-btn="showRightBtn"
-          :left-btn-label="leftBtnLabel"
-          :show-left-btn="showLeftBtn"
-          :transparent-bg="transparentBg"
-          :loader="loader"
+          :size="args.size"
+          :layout="args.layout"
+          :width="args.width"
+          :showHeader="args.showHeader"
+          :showFooter="args.showFooter"
+          :close-btn-label="args.closeBtnLabel"
+          :enable-closing="args.enableClosing"
+          :right-btn-label="args.rightBtnLabel"
+          :show-right-btn="args.showRightBtn"
+          :left-btn-label="args.leftBtnLabel"
+          :show-left-btn="args.showLeftBtn"
+          :transparent-bg="args.transparentBg"
+          :loader="args.loader"
           :show="show"
           @close="(e) => { show = false; onClose(e) }"
           @leftSubmit="(e) => { show = false; onLeftSubmit(e) }"
           @rightSubmit="(e) => { show = false; onRightSubmit(e) }"
         >
-          <template v-if="${args.content !== null && typeof args.content !== 'undefined'}" slot="content">${args.content}</template>
-          <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" slot="header">${args.header}</template>
-          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" slot="title">${args.title}</template>
-          <template v-if="${args.subtitle !== null && typeof args.subtitle !== 'undefined'}" slot="subtitle">${args.subtitle}</template>
-          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
-          <template v-if="${args.body !== null && typeof args.body !== 'undefined'}" slot="body">${args.body}</template>
-          <template v-if="${args.footer !== null && typeof args.footer !== 'undefined'}" slot="footer">${args.footer}</template>
-          <template v-if="${args['left-button'] !== null && typeof args['left-button'] !== 'undefined'}" slot="left-button">${args['left-button']}</template>
-          <template v-if="${args['right-button'] !== null && typeof args['right-button'] !== 'undefined'}" slot="right-button">${args['right-button']}</template>
+          <template v-if="${args.content !== null && typeof args.content !== 'undefined'}" #content>${args.content}</template>
+          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" #title>${args.title}</template>
+          <template v-if="${args.subtitle !== null && typeof args.subtitle !== 'undefined'}" #subtitle>${args.subtitle}</template>
+          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" #icon>${args.icon}</template>
+          <template v-if="${args.body !== null && typeof args.body !== 'undefined'}" #body>${args.body}</template>
+          <template v-if="${args.footer !== null && typeof args.footer !== 'undefined'}" #footer>${args.footer}</template>
+          <template v-if="${args['left-button'] !== null && typeof args['left-button'] !== 'undefined'}" #left-button>${args['left-button']}</template>
+          <template v-if="${args['right-button'] !== null && typeof args['right-button'] !== 'undefined'}" #right-button>${args['right-button']}</template>
         </fb-ui-modal-window>
       </div>
     `,

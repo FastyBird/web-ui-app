@@ -9,8 +9,8 @@ $modal-font-size:                     $font-size-base;
 
 $modal-z-index:                       $zindex-modal;
 
-$modal-overlay-background:            rgba(0, 0, 0, 0.5);
-$modal-overlay-bg-transparent:        rgba(255, 255, 255, 0.5);
+$modal-overlay-background:            rgb(0 0 0 / 50%);
+$modal-overlay-bg-transparent:        rgb(255 255 255 / 50%);
 
 $modal-footer-padding:                $padding-md;
 

@@ -1,6 +1,10 @@
 @import "../../../assets/components/layout/fb-phone-menu";
 
 .fb-layout-phone-menu {
+  &__container {
+    position: relative;
+  }
+
   &__inner {
     padding: $inner-padding;
     position: fixed;
@@ -8,6 +12,7 @@
     bottom: 0;
     z-index: ($z-index + 1);
     width: 100%;
+    transition: all 0.5s ease-in-out;
   }
 
   &__content {
@@ -19,6 +24,9 @@
   }
 
   &__heading {
+    font-family: $heading-font-family;
+    font-size: $heading-font-size;
+    font-weight: normal;
     border-bottom: 1px solid $heading-border-color;
     line-height: $heading-line-height;
     padding: $heading-padding;
@@ -58,12 +66,7 @@
   opacity: 0;
 }
 
-.fb-phone-menu-content-enter-active,
-.fb-phone-menu-content-leave-active {
-  transition: all 0.35s;
-}
-
 .fb-phone-menu-content-enter,
-.fb-phone-menu-content-leave-to {
-  transform: translate3d(0, 100%, 0);
+.fb-phone-menu-content-leave-active {
+  bottom: -100%;
 }
