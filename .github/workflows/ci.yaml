@@ -207,14 +207,7 @@ jobs:
       - name: "Install dependencies"
         run: yarn install
 
-      - name: "Build"
-        run: yarn storybook:build
-
       - name: "Deploy"
-        uses: "JamesIves/github-pages-deploy-action@3.6.2"
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: master
-          FOLDER: storybook-static
-          CLEAN: true
-          TARGET_FOLDER: docs
+        run: yarn deploy-storybook -- --ci
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
