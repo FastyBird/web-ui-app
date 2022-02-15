@@ -1,3 +1,5 @@
+@use "sass:math";
+@use "sass:color";
 @import "../../../assets/components/ui/fb-switch-element";
 
 /* stylelint-disable no-descending-specificity */
@@ -68,7 +70,7 @@
       input {
         ~ .fb-ui-switch-element__track {
           background-color: $track-background-color;
-          border-radius: ceil($switch-height-lg / 2);
+          border-radius: math.ceil(math.div($switch-height-lg, 2));
         }
 
         ~ .fb-ui-switch-element__thumb {
@@ -85,7 +87,7 @@
 
         &:disabled {
           ~ .fb-ui-switch-element__track {
-            background-color: $gray-lighter;
+            background-color: color.adjust($track-background-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
@@ -109,7 +111,7 @@
       input {
         ~ .fb-ui-switch-element__track {
           background-color: $track-background-color;
-          border-radius: ceil($switch-height-md / 2);
+          border-radius: math.ceil(math.div($switch-height-md, 2));
         }
 
         ~ .fb-ui-switch-element__thumb {
@@ -126,12 +128,12 @@
 
         &:disabled {
           ~ .fb-ui-switch-element__track {
-            background-color: $gray-lighter;
+            background-color: color.adjust($track-background-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
           ~ .fb-ui-switch-element__thumb {
-            border-color: $gray-lighter;
+            border-color: color.adjust($thumb-border-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
@@ -151,7 +153,7 @@
       input {
         ~ .fb-ui-switch-element__track {
           background-color: $track-background-color;
-          border-radius: ceil($switch-height-sm / 2);
+          border-radius: math.ceil(math.div($switch-height-sm, 2));
         }
 
         ~ .fb-ui-switch-element__thumb {
@@ -168,12 +170,12 @@
 
         &:disabled {
           ~ .fb-ui-switch-element__track {
-            background-color: $gray-lighter;
+            background-color: color.adjust($track-background-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
           ~ .fb-ui-switch-element__thumb {
-            border-color: $gray-lighter;
+            border-color: color.adjust($thumb-border-color, $lightness: 30%);
             cursor: not-allowed;
           }
 

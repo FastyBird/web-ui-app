@@ -1,6 +1,6 @@
 <template>
   <div
-    v-click-outside="blur"
+    ref="container"
     class="fb-layout-user-menu__container"
   >
     <div
@@ -51,7 +51,9 @@ import {
   PropType,
   ref,
   watch,
-} from '@vue/composition-api'
+} from 'vue'
+
+import { onClickOutside } from '@vueuse/core'
 
 export default defineComponent({
 
@@ -67,16 +69,19 @@ export default defineComponent({
   },
 
   setup() {
+    const container = ref<HTMLElement | null>(null)
     const collapsed = ref<boolean>(true)
     const userNavigation = ref<HTMLElement | null>(null)
 
-    function blur(): void {
+    const blur = (): void => {
       collapsed.value = true
     }
 
-    function toggle(): void {
+    const toggle = (): void => {
       collapsed.value = !collapsed.value
     }
+
+    onClickOutside(container, () => blur())
 
     watch(
       (): boolean => collapsed.value,
@@ -92,6 +97,7 @@ export default defineComponent({
     )
 
     return {
+      container,
       collapsed,
       userNavigation,
       blur,

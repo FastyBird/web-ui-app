@@ -1,7 +1,7 @@
-<template functional>
+<template>
   <div
-    :data-type="props.type"
-    :class="[data.class, data.staticClass, 'fb-ui-divider__container']"
+    :data-type="type"
+    class="fb-ui-divider__container"
   >
     <div class="fb-ui-divider__content">
       <slot />
@@ -13,7 +13,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbUiDividerVariantTypes } from '@/types'
 
@@ -24,7 +24,7 @@ export default defineComponent({
   props: {
 
     type: {
-      type: String as PropType<string>,
+      type: String as PropType<FbUiDividerVariantTypes>,
       default: FbUiDividerVariantTypes.HORIZONTAL,
       validator: (value: FbUiDividerVariantTypes) => {
         // The value must match one of these strings

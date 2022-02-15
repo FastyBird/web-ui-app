@@ -1,55 +1,58 @@
 <template>
   <div :class="['fb-layout-tabs-item__container', {'fb-layout-tabs-item__container-active': active}]">
-    <fb-ui-button
-      v-if="type === menuItemTypes.LINK"
-      :href="link"
-      :active="active"
-      block
-      variant="link"
-      size="lg"
-    >
-      <span
-        v-if="'icon' in $slots"
-        class="fb-layout-tabs-item__icon"
+    <template v-if="type === menuItemTypes.LINK">
+      <fb-ui-button
+        :href="link"
+        :active="active"
+        block
+        variant="link"
+        size="lg"
       >
-        <slot name="icon" />
-      </span>
-      <span class="fb-layout-tabs-item__label">{{ label }}</span>
-    </fb-ui-button>
+        <span
+          v-if="'icon' in $slots"
+          class="fb-layout-tabs-item__icon"
+        >
+          <slot name="icon" />
+        </span>
+        <span class="fb-layout-tabs-item__label">{{ label }}</span>
+      </fb-ui-button>
+    </template>
 
-    <fb-ui-button
-      v-else-if="type === menuItemTypes.NUXT_LINK"
-      :to="link"
-      :active="active"
-      block
-      variant="link"
-      size="lg"
-    >
-      <span
-        v-if="'icon' in $slots"
-        class="fb-layout-tabs-item__icon"
+    <template v-else-if="type === menuItemTypes.NUXT_LINK">
+      <fb-ui-button
+        :to="link"
+        :active="active"
+        block
+        variant="link"
+        size="lg"
       >
-        <slot name="icon" />
-      </span>
-      <span class="fb-layout-tabs-item__label">{{ label }}</span>
-    </fb-ui-button>
+        <span
+          v-if="'icon' in $slots"
+          class="fb-layout-tabs-item__icon"
+        >
+          <slot name="icon" />
+        </span>
+        <span class="fb-layout-tabs-item__label">{{ label }}</span>
+      </fb-ui-button>
+    </template>
 
-    <fb-ui-button
-      v-else-if="type === menuItemTypes.BUTTON"
-      block
-      variant="link"
-      size="lg"
-      type="button"
-      @click.prevent="$emit('click', $event)"
-    >
-      <span
-        v-if="'icon' in $slots"
-        class="fb-layout-tabs-item__icon"
+    <template v-else-if="type === menuItemTypes.BUTTON">
+      <fb-ui-button
+        block
+        variant="link"
+        size="lg"
+        type="button"
+        @click.prevent="$emit('click', $event)"
       >
-        <slot name="icon" />
-      </span>
-      <span class="fb-layout-tabs-item__label">{{ label }}</span>
-    </fb-ui-button>
+        <span
+          v-if="'icon' in $slots"
+          class="fb-layout-tabs-item__icon"
+        >
+          <slot name="icon" />
+        </span>
+        <span class="fb-layout-tabs-item__label">{{ label }}</span>
+      </fb-ui-button>
+    </template>
   </div>
 </template>
 
@@ -57,13 +60,18 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbMenuItemTypes } from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
 
 export default defineComponent({
 
   name: 'FbLayoutTabsItem',
+
+  components: {
+    FbUiButton,
+  },
 
   props: {
 
@@ -76,6 +84,7 @@ export default defineComponent({
           FbMenuItemTypes.BUTTON,
           FbMenuItemTypes.LINK,
           FbMenuItemTypes.NUXT_LINK,
+          FbMenuItemTypes.VUE_LINK,
         ].includes(value)
       },
     },
@@ -96,6 +105,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['click'],
 
   setup() {
     return {

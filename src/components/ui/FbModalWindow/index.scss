@@ -5,7 +5,6 @@
   filter: alpha(opacity=0);
 
   .fb-ui-modal-window__dialog {
-    -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
 }
@@ -121,7 +120,7 @@
     &[data-layout="phone"] {
       .fb-ui-modal-window {
         &__window {
-          margin: 1.8vh auto 0 auto;
+          margin: 1.8vh auto 0;
           height: 98vh;
         }
 
@@ -140,7 +139,7 @@
     &[data-layout="tablet"] {
       .fb-ui-modal-window {
         &__window {
-          margin: auto auto;
+          margin: auto;
           height: 98vh;
         }
 

@@ -71,7 +71,6 @@
 
       @media (min-width: $screen-large) {
         -webkit-box-flex: 0;
-        -ms-flex: 0 0 6rem;
         flex: 0 0 6rem;
         max-width: 6rem;
       }
@@ -102,7 +101,6 @@
       line-height: 5rem;
       padding: $name-padding;
       -webkit-box-flex: 0;
-      -ms-flex: 1 0 0;
       flex: 1 0 0;
 
       @media (max-width: $screen-desktop-max) {
@@ -117,11 +115,11 @@
       margin-left: 2px;
       vertical-align: middle;
       border-top: 0;
-      border-top: 4px solid \9; // IE8
+      border-top: 4px solid \9; /* IE8 */
       border-right: 4px solid transparent;
       border-left: 4px solid transparent;
       border-bottom: 4px dashed;
-      border-bottom: 4px solid \9; // IE8
+      border-bottom: 4px solid \9; /* IE8 */
       content: "";
     }
   }

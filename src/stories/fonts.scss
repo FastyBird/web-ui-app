@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../assets/variables/colors";
 @import "../assets/variables/layout";
 @import "../assets/variables/texts";
@@ -9,8 +10,10 @@
     font-family: $font-family-base;
     font-size: $font-size-base;
 
-    // Headings
-    // -------------------------
+    /*
+     Headings
+     -------------------------
+     */
 
     h1,
     h2,
@@ -34,7 +37,7 @@
     h2,
     h3 {
       margin-top: $line-height-computed;
-      margin-bottom: ($line-height-computed / 2);
+      margin-bottom: math.div($line-height-computed, 2);
 
       small {
         font-size: 65%;
@@ -44,8 +47,8 @@
     h4,
     h5,
     h6 {
-      margin-top: ($line-height-computed / 2);
-      margin-bottom: ($line-height-computed / 2);
+      margin-top: math.div($line-height-computed, 2);
+      margin-bottom: math.div($line-height-computed, 2);
 
       small {
         font-size: 75%;
@@ -70,9 +73,11 @@
       }
 
       &:focus {
-        // WebKit-specific. Other browsers will keep their default outline style.
-        // (Initially tried to also force default via `outline: initial`,
-        // but that seems to erroneously remove the outline in Firefox altogether.)
+        /*
+         WebKit-specific. Other browsers will keep their default outline style.
+         (Initially tried to also force default via `outline: initial`,
+         but that seems to erroneously remove the outline in Firefox altogether.)
+         */
         outline: 5px auto -webkit-focus-ring-color;
         outline-offset: -2px;
       }

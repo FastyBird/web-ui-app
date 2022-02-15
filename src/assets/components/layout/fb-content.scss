@@ -1,7 +1,7 @@
 @import "../../mixins/utilities";
 
-$z-index:                             1030 !default;
+$z-index: 1030 !default;
 
 @mixin flex-content {
-  @include flexColumn(nowrap);
+  @include flex-column(nowrap);
 }

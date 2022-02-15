@@ -1,10 +1,17 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
 
-import { FbSizeTypes, FbUiButtonVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiButtonVariantTypes,
+} from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
 
 import FbUiItemsContainer from './index.vue'
-import FbUiButton from './../FbButton/index.vue'
 
 export default {
   component: FbUiItemsContainer,
@@ -48,11 +55,11 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends Args {
   default: string
   heading?: string
   subheading?: string
@@ -61,14 +68,13 @@ interface TemplateArgs {
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiItemsContainer, FbUiButton },
     template: `
-      <fb-ui-items-container :size="size" :variant="variant">
-        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
-        <template v-if="${args.heading !== null && typeof args.heading !== 'undefined'}" slot="heading">${args.heading}</template>
-        <template v-if="${args.subheading !== null && typeof args.subheading !== 'undefined'}" slot="subheading">${args.subheading}</template>
-        <template v-if="${args.buttons !== null && typeof args.buttons !== 'undefined'}" slot="buttons">${args.buttons}</template>
+      <fb-ui-items-container>
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
+        <template v-if="${args.heading !== null && typeof args.heading !== 'undefined'}" #heading>${args.heading}</template>
+        <template v-if="${args.subheading !== null && typeof args.subheading !== 'undefined'}" #subheading>${args.subheading}</template>
+        <template v-if="${args.buttons !== null && typeof args.buttons !== 'undefined'}" #buttons>${args.buttons}</template>
       </fb-ui-items-container>
     `,
     methods: {
@@ -85,7 +91,9 @@ Default.args = {
   buttons: `
     <fb-ui-button size="${FbSizeTypes.SMALL}" @click.prevent="onClick" style="margin-right: 5px">Add</fb-ui-button>
     <fb-ui-button size="${FbSizeTypes.SMALL}" variant="${FbUiButtonVariantTypes.WARNING}" :icon="true"  @click.prevent="onClick">
-        <font-awesome-icon icon="cog" slot="icon" />
+      <template #icon>
+        <font-awesome-icon icon="cog" />
+      </template>
     </fb-ui-button>
   `,
 }
@@ -99,7 +107,9 @@ WithSubheading.args = {
   buttons: `
     <fb-ui-button size="${FbSizeTypes.SMALL}" @click.prevent="onClick" style="margin-right: 5px">Add</fb-ui-button>
     <fb-ui-button size="${FbSizeTypes.SMALL}" variant="${FbUiButtonVariantTypes.WARNING}" :icon="true"  @click.prevent="onClick">
-        <font-awesome-icon icon="cog" slot="icon" />
+      <template #icon>
+        <font-awesome-icon icon="cog" />
+      </template>
     </fb-ui-button>
   `,
 }

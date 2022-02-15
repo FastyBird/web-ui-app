@@ -14,7 +14,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 export default defineComponent({
 

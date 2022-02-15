@@ -1,7 +1,13 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
-import FbUiDivider from './index.vue'
 import { FbUiDividerVariantTypes } from '@/types'
+
+import { IFbUiDividerProps } from './types'
+import FbUiDivider from './index.vue'
 
 export default {
   component: FbUiDivider,
@@ -33,23 +39,24 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbUiDividerProps, Args {
   default: string
-  type: FbUiDividerVariantTypes
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiDivider },
+    setup(): any {
+      return { args }
+    },
     template: `
-      <fb-ui-divider :type="type">
-      <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+      <fb-ui-divider :type="args.type">
+      <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
       </fb-ui-divider>
     `,
   }
@@ -61,9 +68,8 @@ Default.args = {
   default: 'Divider Space',
 }
 
-export const Horizontal: Story<TemplateArgs> = (args) => {
+export const Horizontal: Story<TemplateArgs> = () => {
   return {
-    props: args,
     components: { FbUiDivider },
     template: `
       <div style="display: flex; flex-direction: column;">
@@ -93,9 +99,8 @@ export const Horizontal: Story<TemplateArgs> = (args) => {
   }
 }
 
-export const Vertical: Story<TemplateArgs> = (args) => {
+export const Vertical: Story<TemplateArgs> = () => {
   return {
-    props: args,
     components: { FbUiDivider },
     template: `
       <div style="display: flex; flex-direction: row;">

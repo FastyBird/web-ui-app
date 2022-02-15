@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../../assets/components/form/fb-text-area";
 
 .fb-form-textarea {
@@ -11,24 +12,11 @@
     box-shadow: none;
     color: $input-color;
     border: 1px solid $input-border-color;
-    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     resize: vertical;
 
-    // Firefox
-    &::-moz-placeholder {
-      color: $input-color-placeholder;
-      opacity: 1;
-      filter: alpha(opacity=100);
-    }
-    &::-webkit-input-placeholder { color: $input-color-placeholder; } // Safari and Chrome
-    &:-ms-input-placeholder { color: $input-color-placeholder; } // Internet Explorer 10+
-
-    // Unstyle the caret on `<select>`s in IE10+.
+    /* Unstyle the caret on `<select>`s in IE10+ */
     &::-ms-expand {
       border: 0;
       background-color: transparent;
@@ -75,7 +63,7 @@
       @include textarea-error-shadow;
 
       &:focus {
-        border-color: darken($input-border-color-error, 10%);
+        border-color: color.adjust($input-border-color-error, $lightness: -10%);
 
         @include textarea-error-focus-shadow;
       }

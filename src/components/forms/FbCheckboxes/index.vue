@@ -9,33 +9,36 @@
     :has-value="true"
     :error="error"
   >
-    <div
-      slot="field"
-      role="group"
-      aria-label="checkboxes-group"
-      class="fb-form-checkboxes__control"
-    >
-      <template v-for="(option, index) in options">
-        <fb-form-checkbox
-          :id="options.length > 1 ? `${id ? id : name}_${index}` : `${id ? id : name}`"
+    <template #field>
+      <div
+        role="group"
+        aria-label="checkboxes-group"
+        class="fb-form-checkboxes__control"
+      >
+        <template
+          v-for="(option, index) in options"
           :key="index"
-          v-model="model"
-          :size="size"
-          :name="options.length > 1 ? `${name}[]` : name"
-          :label="option.name"
-          :option="option.value"
-          :tab-index="tabIndex ? tabIndex + index + 1 : null"
-          :has-error="error !== null"
-          :readonly="readonly"
-          :disabled="disabled"
-          @change="handleChange"
-        />
-      </template>
-    </div>
+        >
+          <fb-form-checkbox
+            :id="options.length > 1 ? `${id ? id : name}_${index}` : `${id ? id : name}`"
+            v-model="model"
+            :size="size"
+            :name="options.length > 1 ? `${name}[]` : name"
+            :label="option.name"
+            :option="option.value"
+            :tab-index="tabIndex ? tabIndex + index + 1 : null"
+            :has-error="error !== null"
+            :readonly="readonly"
+            :disabled="disabled"
+            @change="handleChange"
+          />
+        </template>
+      </div>
+    </template>
 
     <template
       v-if="'help-line' in $slots"
-      slot="help-line"
+      #help-line
     >
       <slot name="help-line" />
     </template>
@@ -48,32 +51,16 @@ import {
   defineComponent,
   PropType,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbFormOrientationTypes, FbSizeTypes } from '@/types'
+import FbFormField from '@/components/forms/FbField/index.vue'
+import FbFormCheckbox from '@/components/forms/FbCheckbox/index.vue'
 
-import FbFormField from './../FbField/index.vue'
-import FbFormCheckbox from './../FbCheckbox/index.vue'
-
-export interface FbFormCheckboxesItemInterface {
-  name: string
-  value: string | number | boolean
-}
-
-interface FbFormCheckboxesPropsInterface {
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  name: string
-  id: string | null
-  label: string | null
-  required: boolean
-  options: FbFormCheckboxesItemInterface[]
-  value: string | number | boolean | null | (string | number)[]
-  tabIndex: number | null
-  error: string | null
-  disabled: boolean
-  readonly: boolean
-}
+import {
+  IFbFormCheckboxesItem,
+  IFbFormCheckboxesProps,
+} from './types'
 
 export default defineComponent({
 
@@ -117,13 +104,23 @@ export default defineComponent({
       required: true,
     },
 
+    options: {
+      type: Array as PropType<IFbFormCheckboxesItem[]>,
+      required: true,
+    },
+
+    modelValue: {
+      type: [String, Number, Boolean, Array] as PropType<string | number | boolean | null | (string | number | boolean)[]>,
+      default: null,
+    },
+
     id: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -132,23 +129,13 @@ export default defineComponent({
       default: false,
     },
 
-    options: {
-      type: Array,
-      required: true,
-    },
-
-    value: {
-      type: [String, Number, Boolean, Array] as PropType<string | number | boolean | null | (string | number | boolean)[]>,
-      default: null,
-    },
-
     tabIndex: {
-      type: Number as PropType<number>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
     error: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -164,18 +151,20 @@ export default defineComponent({
 
   },
 
-  setup(props: FbFormCheckboxesPropsInterface, context: SetupContext) {
+  emits: ['update:modelValue', 'change'],
+
+  setup(props: IFbFormCheckboxesProps, context: SetupContext) {
     const model = computed<string | number | boolean | null | (string | number | boolean)[]>({
       get: (): string | number | boolean | null | (string | number | boolean)[] => {
-        return props.value
+        return props.modelValue
       },
       set: (val) => {
-        context.emit('input', val)
+        context.emit('update:modelValue', val)
       },
     })
 
     const handleChange = (): void => {
-      context.emit('change', props.value)
+      context.emit('change', props.modelValue)
     }
 
     return {

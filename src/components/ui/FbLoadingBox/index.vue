@@ -34,11 +34,13 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
-
-import FbUiSpinner from './../FbSpinner/index.vue'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
+import FbUiSpinner from '@/components/ui/FbSpinner/index.vue'
 
 export default defineComponent({
 

@@ -23,14 +23,12 @@
       }
 
       circle {
-        -webkit-animation: fb-ui-result-err-dash 0.9s ease-in-out;
         animation: fb-ui-result-err-dash 0.9s ease-in-out;
       }
 
       line {
         stroke-dashoffset: 1000;
         stroke-linecap: round;
-        -webkit-animation: fb-ui-result-err-dash 0.9s 0.35s ease-in-out forwards;
         animation: fb-ui-result-err-dash 0.9s 0.35s ease-in-out forwards;
       }
     }
@@ -38,16 +36,6 @@
 
   &__content {
     margin-top: $result-content-margin;
-  }
-}
-
-@-webkit-keyframes fb-ui-result-err-dash {
-  0% {
-    stroke-dashoffset: 1000;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
   }
 }
 

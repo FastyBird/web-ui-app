@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../../assets/components/form/fb-select";
 
 .fb-form-select {
@@ -10,11 +11,7 @@
     box-shadow: none;
     color: $input-color;
     border: 1px solid $input-border-color;
-    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     resize: vertical;
 
@@ -82,7 +79,7 @@
       @include select-error-shadow;
 
       &:focus {
-        border-color: darken($input-border-color-error, 10%);
+        border-color: color.adjust($input-border-color-error, $lightness: -10%);
 
         @include select-error-focus-shadow;
       }

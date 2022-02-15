@@ -10,87 +10,90 @@
   >
     <template
       v-if="'title' in $slots"
-      slot="title"
+      #title
     >
       <slot name="title" />
     </template>
 
     <template
       v-if="'icon' in $slots"
-      slot="icon"
+      #icon
     >
       <slot name="icon" />
     </template>
 
     <template
       v-if="'header' in $slots"
-      slot="header"
+      #header
     >
       <slot name="header" />
     </template>
 
-    <form
-      slot="body"
-      class="fb-ui-modal-form__form"
-      @submit.prevent="$emit('submit', $event)"
-    >
-      <slot name="form" />
-
-      <div
-        v-if="[resultTypes.WORKING, resultTypes.OK, resultTypes.ERROR].includes(state)"
-        class="fb-ui-modal-form__result"
+    <template #body>
+      <form
+        class="fb-ui-modal-form__form"
+        @submit.prevent="$emit('submit', $event)"
       >
-        <fb-ui-loading-box
-          v-if="state === resultTypes.WORKING"
-          :size="sizeTypes.LARGE"
-        >
-          {{ processingText }}
-        </fb-ui-loading-box>
+        <slot name="form" />
 
-        <fb-ui-result-ok v-if="state === resultTypes.OK" />
-        <fb-ui-result-err v-if="state === resultTypes.ERROR" />
-      </div>
-    </form>
+        <div
+          v-if="[resultTypes.WORKING, resultTypes.OK, resultTypes.ERROR].includes(state)"
+          class="fb-ui-modal-form__result"
+        >
+          <fb-ui-loading-box
+            v-if="state === resultTypes.WORKING"
+            :size="sizeTypes.LARGE"
+          >
+            {{ processingText }}
+          </fb-ui-loading-box>
+
+          <fb-ui-result-ok v-if="state === resultTypes.OK" />
+          <fb-ui-result-err v-if="state === resultTypes.ERROR" />
+        </div>
+      </form>
+    </template>
 
     <template
       v-if="'footer' in $slots"
-      slot="footer"
+      #footer
     >
       <slot name="footer" />
     </template>
 
-    <slot name="cancel-button">
-      <fb-ui-button
-        v-if="cancelBtnShow"
-        slot="left-button"
-        :disabled="lockButtons"
-        :tabindex="(initialTabindex + 2)"
-        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.MEDIUM : sizeTypes.LARGE"
-        :variant="buttonVariantTypes.LINK_DEFAULT"
-        uppercase
-        name="cancel"
-        @click.prevent="$emit('cancel', $event)"
-      >
-        {{ cancelBtnLabel }}
-      </fb-ui-button>
-    </slot>
+    <template #left-button>
+      <slot name="cancel-button">
+        <fb-ui-button
+          v-if="cancelBtnShow"
+          :disabled="lockButtons"
+          :tabindex="(initialTabindex + 2)"
+          :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.MEDIUM : sizeTypes.LARGE"
+          :variant="buttonVariantTypes.LINK_DEFAULT"
+          uppercase
+          name="cancel"
+          @click.prevent="$emit('cancel', $event)"
+        >
+          {{ cancelBtnLabel }}
+        </fb-ui-button>
+      </slot>
+    </template>
 
-    <slot name="submit-button">
-      <fb-ui-button
-        v-if="submitBtnShow"
-        slot="right-button"
-        :disabled="lockButtons || lockSubmitButton"
-        :tabindex="(initialTabindex + 1)"
-        :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.MEDIUM : sizeTypes.LARGE"
-        :variant="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? buttonVariantTypes.LINK_DEFAULT : buttonVariantTypes.OUTLINE_PRIMARY"
-        :loading="state === resultTypes.WORKING"
-        uppercase
-        name="submit"
-        @click.prevent="$emit('submit', $event)"
-      >
-        {{ submitBtnLabel }}
-      </fb-ui-button>
-    </slot>
+    <template #right-button>
+      <slot name="submit-button">
+        <fb-ui-button
+          v-if="submitBtnShow"
+          :disabled="lockButtons || lockSubmitButton"
+          :tabindex="(initialTabindex + 1)"
+          :size="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? sizeTypes.MEDIUM : sizeTypes.LARGE"
+          :variant="layout === modalLayoutTypes.PHONE || layout === modalLayoutTypes.TABLET ? buttonVariantTypes.LINK_DEFAULT : buttonVariantTypes.OUTLINE_PRIMARY"
+          :loading="state === resultTypes.WORKING"
+          uppercase
+          name="submit"
+          @click.prevent="$emit('submit', $event)"
+        >
+          {{ submitBtnLabel }}
+        </fb-ui-button>
+      </slot>
+    </template>
   </fb-ui-modal-window>
 </template>
 
@@ -100,17 +103,21 @@ import {
   PropType,
   ref,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
 import get from 'lodash/get'
 
-import { FbFormResultTypes, FbUiModalLayoutTypes, FbSizeTypes, FbUiButtonVariantTypes } from '@/types'
-
-import FbUiButton from './../FbButton/index.vue'
-import FbUiModalWindow from './../FbModalWindow/index.vue'
-import FbUiResultErr from './../FbResultErr/index.vue'
-import FbUiResultOk from './../FbResultOk/index.vue'
-import FbUiLoadingBox from './../FbLoadingBox/index.vue'
+import {
+  FbFormResultTypes,
+  FbUiModalLayoutTypes,
+  FbSizeTypes,
+  FbUiButtonVariantTypes,
+} from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
+import FbUiModalWindow from '@/components/ui/FbModalWindow/index.vue'
+import FbUiResultErr from '@/components/ui/FbResultErr/index.vue'
+import FbUiResultOk from '@/components/ui/FbResultOk/index.vue'
+import FbUiLoadingBox from '@/components/ui/FbLoadingBox/index.vue'
 
 export default defineComponent({
 
@@ -203,6 +210,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['submit', 'close', 'cancel'],
 
   setup(_props, context: SetupContext) {
     const initialTabindex = ref<number>(get(context, 'slots.form', []).length + 1)

@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v1"
+        uses: "actions/checkout@v2"
 
       - name: "Setup node"
         uses: "actions/setup-node@v1"
@@ -56,42 +56,6 @@ jobs:
       - name: "Check linter"
         run: 'yarn lint:js'
 
-  tslint:
-    name: "Typescript linting"
-    runs-on: "${{ matrix.operating-system }}"
-
-    strategy:
-      matrix:
-        operating-system: ["ubuntu-latest"]
-      fail-fast: false
-
-    steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v1"
-
-      - name: "Setup node"
-        uses: "actions/setup-node@v1"
-        with:
-          node-version: "12"
-
-      - name: "Get yarn cache directory path"
-        id: "yarn-cache-dir-path"
-        run: 'echo "::set-output name=dir::$(yarn cache dir)"'
-
-      - uses: "actions/cache@v1"
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
-            ${{ runner.os }}-
-      - name: "Install dependencies"
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: 'yarn install'
-
-      - name: "Check linter"
-        run: 'yarn lint:ts'
-
   stylelint:
     name: "Styles linting"
     runs-on: "${{ matrix.operating-system }}"
@@ -103,7 +67,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v1"
+        uses: "actions/checkout@v2"
 
       - name: "Setup node"
         uses: "actions/setup-node@v1"
@@ -131,7 +95,7 @@ jobs:
   publish-npmjs:
     name: "Build library and publish it to NPM"
     runs-on: "${{ matrix.operating-system }}"
-    needs: ["jslint", "tslint", "stylelint"]
+    needs: ["jslint", "stylelint"]
 
     strategy:
       matrix:
@@ -221,7 +185,7 @@ jobs:
   build-storybook:
     name: "Build Storybook and publish it to Github pages"
     runs-on: "${{ matrix.operating-system }}"
-    needs: ["jslint", "tslint", "stylelint"]
+    needs: ["jslint", "stylelint"]
 
     strategy:
       matrix:

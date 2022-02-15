@@ -1,6 +1,13 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
 
 import FbUiSpinner from './index.vue'
 
@@ -43,24 +50,26 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends Args {
   size: FbSizeTypes
   variant: FbUiVariantTypes
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiSpinner },
+    setup(): any {
+      return { args }
+    },
     template: `
       <fb-ui-spinner
-        :size="size"
-        :variant="variant"
+        :size="args.size"
+        :variant="args.variant"
       />
     `,
   }
@@ -102,9 +111,8 @@ Info.args = {
   variant: FbUiVariantTypes.INFO,
 }
 
-export const Sizes: Story<TemplateArgs> = (args) => {
+export const Sizes: Story<TemplateArgs> = () => {
   return {
-    props: args,
     components: { FbUiSpinner },
     template: `
       <div style="display: flex;">

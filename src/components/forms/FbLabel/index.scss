@@ -11,7 +11,7 @@
 
     &-required {
       &::after {
-        content: '*';
+        content: "*";
         display: inline-block;
         color: $label-required-color;
       }
@@ -23,11 +23,11 @@
       padding: $label-horizontal-padding;
 
       @media (min-width: $screen-tablet-min) {
-        @include flexBoxWidth(25%);
+        @include flex-box-width(25%);
       }
 
       @media (min-width: $screen-desktop-min) {
-        @include flexBoxWidth(33%);
+        @include flex-box-width(33%);
       }
     }
 

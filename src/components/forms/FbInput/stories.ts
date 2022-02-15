@@ -1,8 +1,18 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
+import { ref } from 'vue'
 
-import { FbFormInputTypeTypes, FbFormOrientationTypes, FbSizeTypes } from '@/types'
+import {
+  FbFormInputTypeTypes,
+  FbFormOrientationTypes,
+  FbSizeTypes,
+} from '@/types'
 
+import { IFbFormInputProps } from './types'
 import FbFormInput from './index.vue'
 
 export default {
@@ -44,7 +54,7 @@ export default {
       control: { type: 'text' },
       defaultValue: 'field-name',
     },
-    value: {
+    modelValue: {
       type: { name: 'string', required: true },
       control: { type: 'text' },
       defaultValue: null,
@@ -139,54 +149,45 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbFormInputProps, Args {
   'left-addon'?: string
   'right-addon'?: string
   'help-line'?: string
-  name: string
-  value: string | number
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  type: FbFormInputTypeTypes
-  id: string
-  label: string
-  required: boolean
-  tabIndex: number
-  error: string
-  placeholder: string
-  readonly: boolean
-  disabled: boolean
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbFormInput },
+    setup(): any {
+      const value = ref<string | null>(null)
+
+      return { args, value }
+    },
     template: `
       <fb-form-input
         v-model="value"
-        :orientation="orientation"
-        :size="size"
-        :name="name"
-        :id="id"
-        :label="label"
-        :required="required"
-        :tab-index="tabIndex"
-        :error="error"
-        :placeholder="placeholder"
-        :readonly="readonly"
-        :disabled="disabled"
+        :orientation="args.orientation"
+        :size="args.size"
+        :name="args.name"
+        :id="args.id"
+        :label="args.label"
+        :required="args.required"
+        :tab-index="args.tabIndex"
+        :error="args.error"
+        :placeholder="args.placeholder"
+        :readonly="args.readonly"
+        :disabled="args.disabled"
         @focus="onFocus"
         @blur="onBlur"
         @keydown="onKeydown"
       >
-        <template v-if="${args['left-addon'] !== null && typeof args['left-addon'] !== 'undefined'}" slot="left-addon">${args['left-addon']}</template>
-        <template v-if="${args['right-addon'] !== null && typeof args['right-addon'] !== 'undefined'}" slot="right-addon">${args['right-addon']}</template>
-        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" slot="help-line">${args['help-line']}</template>
+        <template v-if="${args['left-addon'] !== null && typeof args['left-addon'] !== 'undefined'}" #left-addon>${args['left-addon']}</template>
+        <template v-if="${args['right-addon'] !== null && typeof args['right-addon'] !== 'undefined'}" #right-addon>${args['right-addon']}</template>
+        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" #help-line>${args['help-line']}</template>
       </fb-form-input>
     `,
     methods: {

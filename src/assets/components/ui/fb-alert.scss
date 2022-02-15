@@ -1,38 +1,32 @@
+@use "sass:color";
 @import "../../mixins/utilities";
 @import "../../variables/colors";
 @import "../../variables/layout";
 @import "../../variables/screen";
 @import "../../variables/texts";
 
-$alert-font-family:                   $font-family-base;
-$alert-padding:                       0.5rem 1rem;
-$alert-border-radius:                 3px;
-
-$alert-default-color:                 $color-default-contrast;
-$alert-default-bg:                    $color-default;
-$alert-default-border:                $alert-default-bg;
-
-$alert-primary-color:                 $color-primary-contrast;
-$alert-primary-bg:                    $color-primary;
-$alert-primary-border:                $alert-primary-bg;
-
-$alert-success-color:                 $color-success-contrast;
-$alert-success-bg:                    $color-success;
-$alert-success-border:                $alert-success-bg;
-
-$alert-info-color:                    $color-info-contrast;
-$alert-info-bg:                       $color-info;
-$alert-info-border:                   $alert-info-bg;
-
-$alert-warning-color:                 $color-warning-contrast;
-$alert-warning-bg:                    $color-warning;
-$alert-warning-border:                $alert-warning-bg;
-
-$alert-danger-color:                  $color-danger-contrast;
-$alert-danger-bg:                     $color-danger;
-$alert-danger-border:                 $alert-danger-bg;
-
-$alert-icon-padding:                  $padding-xs;
+$alert-font-family: $font-family-base;
+$alert-padding: 0.5rem 1rem;
+$alert-border-radius: 3px;
+$alert-default-color: $color-default-contrast;
+$alert-default-bg: $color-default;
+$alert-default-border: $alert-default-bg;
+$alert-primary-color: $color-primary-contrast;
+$alert-primary-bg: $color-primary;
+$alert-primary-border: $alert-primary-bg;
+$alert-success-color: $color-success-contrast;
+$alert-success-bg: $color-success;
+$alert-success-border: $alert-success-bg;
+$alert-info-color: $color-info-contrast;
+$alert-info-bg: $color-info;
+$alert-info-border: $alert-info-bg;
+$alert-warning-color: $color-warning-contrast;
+$alert-warning-bg: $color-warning;
+$alert-warning-border: $alert-warning-bg;
+$alert-danger-color: $color-danger-contrast;
+$alert-danger-bg: $color-danger;
+$alert-danger-border: $alert-danger-bg;
+$alert-icon-padding: $padding-xs;
 
 @mixin alert-variant($background, $border, $color) {
   color: $color;
@@ -41,7 +35,7 @@ $alert-icon-padding:                  $padding-xs;
   border-color: $border;
 
   a {
-    color: darken($color, 10%);
+    color: color.adjust($color, $lightness: -10%);
   }
 
   hr {
@@ -58,5 +52,5 @@ $alert-icon-padding:                  $padding-xs;
 }
 
 @mixin flex-alert {
-  @include flexRow;
+  @include flex-row;
 }

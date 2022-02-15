@@ -1,8 +1,14 @@
-import { Meta, Story } from '@storybook/vue'
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 
 import { FbSizeTypes } from '@/types'
 
 import FbUiComponentLoadingError from './index.vue'
+
+import { IFbUiComponentLoadingErrorProps } from './types'
 
 export default {
   component: FbUiComponentLoadingError,
@@ -34,24 +40,24 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
-  text?: string
-  size: FbSizeTypes
+interface TemplateArgs extends IFbUiComponentLoadingErrorProps, Args {
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiComponentLoadingError },
+    setup(): any {
+      return { args }
+    },
     template: `
       <fb-ui-component-loading-error
-        :size="size"
-        :text="text"
+        :size="args.size"
+        :text="args.text"
       />
     `,
   }

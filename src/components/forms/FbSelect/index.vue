@@ -12,19 +12,19 @@
   >
     <template
       v-if="'left-addon' in $slots"
-      slot="left-addon"
+      #left-addon
     >
       <slot name="left-addon" />
     </template>
 
     <template
       v-if="'right-addon' in $slots"
-      slot="right-addon"
+      #right-addon
     >
       <slot name="right-addon" />
     </template>
 
-    <template slot="field">
+    <template #field>
       <select
         :id="id ? id : name"
         :ref="`field-${name}`"
@@ -50,7 +50,7 @@
         <template v-for="(item, index) in items">
           <optgroup
             v-if="Array.isArray(item.value) || typeof item.value === 'object'"
-            :key="index"
+            :key="`optgrp_${index}`"
             :label="item.name"
           >
             <option
@@ -77,7 +77,7 @@
 
     <template
       v-if="'help-line' in $slots"
-      slot="help-line"
+      #help-line
     >
       <slot name="help-line" />
     </template>
@@ -90,41 +90,19 @@ import {
   PropType,
   ref,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
 import {
   FbFormOrientationTypes,
   FbSizeTypes,
 } from '@/types'
+import FbFormField from '@/components/forms/FbField/index.vue'
 
-import FbFormField from './../FbField/index.vue'
-
-export interface FbFormSelectItemInterface {
-  name: string
-  value: string | number
-}
-
-export interface FbFormSelectItemGroupInterface {
-  name: string
-  items: FbFormSelectItemInterface[]
-}
-
-interface FbFormSelectPropsInterface {
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  name: string
-  items: (FbFormSelectItemInterface | FbFormSelectItemGroupInterface)[]
-  value: string | number | null
-  id: string | null
-  label: string | null
-  required: boolean
-  tabIndex: number | null
-  hasError: boolean
-  error: string | null
-  blankSelect: string | null
-  readonly: boolean
-  disabled: boolean
-}
+import {
+  IFbFormSelectProps,
+  IFbFormSelectItem,
+  IFbFormSelectItemGroup,
+} from './types'
 
 export default defineComponent({
 
@@ -168,22 +146,22 @@ export default defineComponent({
     },
 
     items: {
-      type: Array as PropType<(FbFormSelectItemInterface | FbFormSelectItemGroupInterface)[]>,
+      type: Array as PropType<(IFbFormSelectItem | IFbFormSelectItemGroup)[]>,
       required: true,
     },
 
-    value: {
-      type: [String, Number],
+    modelValue: {
+      type: [String, Number] as PropType<string | number | null>,
       default: null,
     },
 
     id: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -193,17 +171,17 @@ export default defineComponent({
     },
 
     tabIndex: {
-      type: Number as PropType<number>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
     error: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     blankSelect: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -219,12 +197,14 @@ export default defineComponent({
 
   },
 
-  setup(props: FbFormSelectPropsInterface, context: SetupContext) {
+  emits: ['update:modelValue', 'focus', 'blur', 'change'],
+
+  setup(props: IFbFormSelectProps, context: SetupContext) {
     const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
     const handleUpdateValue = (value: string | number | null): void => {
-      context.emit('input', value)
+      context.emit('update:modelValue', value)
     }
 
     // Fire focus & blur events
@@ -239,7 +219,7 @@ export default defineComponent({
     }
 
     const handleChange = (): void => {
-      context.emit('change', props.value)
+      context.emit('change', props.modelValue)
     }
 
     return {

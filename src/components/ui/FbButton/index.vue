@@ -1,192 +1,196 @@
 <template>
-  <nuxt-link
-    v-if="to !== null"
-    ref="element"
-    :to="to"
-    :data-variant="variant"
-    :data-size="size"
-    :class="classNames"
-    role="button"
-    @click.prevent="clickHandle($event)"
-  >
-    <div
-      v-if="'icon' in $slots && 'default' in $slots"
-      class="fb-ui-button__inner"
+  <template v-if="actionType === actionTypes.NUXT_LINK">
+    <nuxt-link
+      ref="element"
+      :to="action"
+      :data-variant="variant"
+      :data-size="size"
+      :class="classNames"
+      role="button"
+      @click.prevent="clickHandle($event)"
     >
-      <div class="fb-ui-button__inner-icon">
+      <div
+        v-if="'icon' in $slots && 'default' in $slots"
+        class="fb-ui-button__inner"
+      >
+        <div class="fb-ui-button__inner-icon">
+          <slot name="icon" />
+        </div>
+        <div
+          v-if="'default' in $slots"
+          class="fb-ui-button__inner-label"
+        >
+          <slot />
+        </div>
+      </div>
+
+      <div
+        v-else-if="'icon' in $slots"
+        class="fb-ui-button__icon"
+      >
         <slot name="icon" />
       </div>
-      <div
-        v-if="'default' in $slots"
-        class="fb-ui-button__inner-label"
-      >
+
+      <template v-else>
         <slot />
+      </template>
+
+      <span
+        v-if="loading"
+        class="fb-ui-button__loading"
+      >
+        <fb-ui-spinner
+          :size="size"
+          :variant="loader"
+        />
+      </span>
+    </nuxt-link>
+  </template>
+
+  <template v-else-if="actionType === actionTypes.VUE_LINK">
+    <route-link
+      ref="element"
+      :to="action"
+      :data-variant="variant"
+      :data-size="size"
+      :class="classNames"
+      role="button"
+      @click.prevent="clickHandle($event)"
+    >
+      <div
+        v-if="'icon' in $slots && 'default' in $slots"
+        class="fb-ui-button__inner"
+      >
+        <div class="fb-ui-button__inner-icon">
+          <slot name="icon" />
+        </div>
+        <div
+          v-if="'default' in $slots"
+          class="fb-ui-button__inner-label"
+        >
+          <slot />
+        </div>
       </div>
-    </div>
 
-    <div
-      v-else-if="'icon' in $slots"
-      class="fb-ui-button__icon"
-    >
-      <slot name="icon" />
-    </div>
-
-    <template v-else>
-      <slot />
-    </template>
-
-    <span
-      v-if="loading"
-      class="fb-ui-button__loading"
-    >
-      <fb-ui-spinner
-        :size="size"
-        :variant="loader"
-      />
-    </span>
-  </nuxt-link>
-
-  <a
-    v-else-if="href !== null"
-    ref="element"
-    :href="href"
-    :data-variant="variant"
-    :data-size="size"
-    :class="classNames"
-    role="button"
-    @click.prevent="clickHandle($event)"
-  >
-    <div
-      v-if="'icon' in $slots && 'default' in $slots"
-      class="fb-ui-button__inner"
-    >
-      <div class="fb-ui-button__inner-icon">
+      <div
+        v-else-if="'icon' in $slots"
+        class="fb-ui-button__icon"
+      >
         <slot name="icon" />
       </div>
-      <div
-        v-if="'default' in $slots"
-        class="fb-ui-button__inner-label"
-      >
+
+      <template v-else>
         <slot />
+      </template>
+
+      <span
+        v-if="loading"
+        class="fb-ui-button__loading"
+      >
+        <fb-ui-spinner
+          :size="size"
+          :variant="loader"
+        />
+      </span>
+    </route-link>
+  </template>
+
+  <template v-else-if="actionType === actionTypes.LINK">
+    <a
+      ref="element"
+      :href="action"
+      :data-variant="variant"
+      :data-size="size"
+      :class="classNames"
+      role="button"
+      @click.prevent="clickHandle($event)"
+    >
+      <div
+        v-if="'icon' in $slots && 'default' in $slots"
+        class="fb-ui-button__inner"
+      >
+        <div class="fb-ui-button__inner-icon">
+          <slot name="icon" />
+        </div>
+        <div
+          v-if="'default' in $slots"
+          class="fb-ui-button__inner-label"
+        >
+          <slot />
+        </div>
       </div>
-    </div>
 
-    <div
-      v-else-if="'icon' in $slots"
-      class="fb-ui-button__icon"
-    >
-      <slot name="icon" />
-    </div>
-
-    <template v-else>
-      <slot />
-    </template>
-
-    <span
-      v-if="loading"
-      class="fb-ui-button__loading"
-    >
-      <fb-ui-spinner
-        :size="size"
-        :variant="loader"
-      />
-    </span>
-  </a>
-
-  <button
-    v-else-if="type === buttonTypes.SUBMIT"
-    ref="element"
-    :type="type"
-    :data-variant="variant"
-    :data-size="size"
-    :class="classNames"
-    :disabled="disabled"
-    role="button"
-  >
-    <div
-      v-if="'icon' in $slots && 'default' in $slots"
-      class="fb-ui-button__inner"
-    >
-      <div class="fb-ui-button__inner-icon">
+      <div
+        v-else-if="'icon' in $slots"
+        class="fb-ui-button__icon"
+      >
         <slot name="icon" />
       </div>
-      <div
-        v-if="'default' in $slots"
-        class="fb-ui-button__inner-label"
-      >
+
+      <template v-else>
         <slot />
+      </template>
+
+      <span
+        v-if="loading"
+        class="fb-ui-button__loading"
+      >
+        <fb-ui-spinner
+          :size="size"
+          :variant="loader"
+        />
+      </span>
+    </a>
+  </template>
+
+  <template v-else-if="actionType === actionTypes.BUTTON">
+    <button
+      ref="element"
+      :type="type"
+      :data-variant="variant"
+      :data-size="size"
+      :class="classNames"
+      :disabled="disabled"
+      role="button"
+      @click.prevent="clickHandle($event)"
+    >
+      <div
+        v-if="'icon' in $slots && 'default' in $slots"
+        class="fb-ui-button__inner"
+      >
+        <div class="fb-ui-button__inner-icon">
+          <slot name="icon" />
+        </div>
+        <div
+          v-if="'default' in $slots"
+          class="fb-ui-button__inner-label"
+        >
+          <slot />
+        </div>
       </div>
-    </div>
 
-    <div
-      v-else-if="'icon' in $slots"
-      class="fb-ui-button__icon"
-    >
-      <slot name="icon" />
-    </div>
-
-    <template v-else>
-      <slot />
-    </template>
-
-    <span
-      v-if="loading"
-      class="fb-ui-button__loading"
-    >
-      <fb-ui-spinner
-        :size="size"
-        :variant="loader"
-      />
-    </span>
-  </button>
-
-  <button
-    v-else
-    ref="element"
-    :type="type"
-    :data-variant="variant"
-    :data-size="size"
-    :class="classNames"
-    :disabled="disabled"
-    role="button"
-    @click.prevent="clickHandle($event)"
-  >
-    <div
-      v-if="'icon' in $slots && 'default' in $slots"
-      class="fb-ui-button__inner"
-    >
-      <div class="fb-ui-button__inner-icon">
+      <div
+        v-else-if="'icon' in $slots"
+        class="fb-ui-button__icon"
+      >
         <slot name="icon" />
       </div>
-      <div
-        v-if="'default' in $slots"
-        class="fb-ui-button__inner-label"
-      >
+
+      <template v-else>
         <slot />
-      </div>
-    </div>
+      </template>
 
-    <div
-      v-else-if="'icon' in $slots"
-      class="fb-ui-button__icon"
-    >
-      <slot name="icon" />
-    </div>
-
-    <template v-else>
-      <slot />
-    </template>
-
-    <span
-      v-if="loading"
-      class="fb-ui-button__loading"
-    >
-      <fb-ui-spinner
-        :size="size"
-        :variant="loader"
-      />
-    </span>
-  </button>
+      <span
+        v-if="loading"
+        class="fb-ui-button__loading"
+      >
+        <fb-ui-spinner
+          :size="size"
+          :variant="loader"
+        />
+      </span>
+    </button>
+  </template>
 </template>
 
 <script lang="ts">
@@ -196,26 +200,18 @@ import {
   PropType,
   ref,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbSizeTypes, FbUiVariantTypes, FbUiButtonButtonTypes, FbUiButtonVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+  FbUiButtonButtonTypes,
+  FbUiButtonVariantTypes,
+  FbUiButtonActionsTypes,
+} from '@/types'
+import FbUiSpinner from '@/components/ui/FbSpinner/index.vue'
 
-import FbUiSpinner from './../FbSpinner/index.vue'
-
-interface FbUiButtonPropsInterface {
-  href: string | null
-  to: string | unknown | null
-  type: FbUiButtonButtonTypes
-  size: FbSizeTypes
-  variant: FbUiButtonVariantTypes
-  block: boolean
-  uppercase: boolean
-  pill: boolean
-  thick: boolean
-  active: boolean
-  disabled: boolean
-  loading: boolean
-}
+import { IFbUiButtonProps } from './types'
 
 export default defineComponent({
 
@@ -227,14 +223,23 @@ export default defineComponent({
 
   props: {
 
-    href: {
-      type: String as PropType<string>,
+    action: {
+      type: [String, Object] as PropType<string | { [key: string]: any } | null>,
       default: null,
     },
 
-    to: {
-      type: [String, Object],
-      default: null,
+    actionType: {
+      type: String as PropType<FbUiButtonActionsTypes>,
+      default: FbUiButtonActionsTypes.BUTTON,
+      validator: (value: FbUiButtonActionsTypes) => {
+        // The value must match one of these strings
+        return [
+          FbUiButtonActionsTypes.BUTTON,
+          FbUiButtonActionsTypes.LINK,
+          FbUiButtonActionsTypes.NUXT_LINK,
+          FbUiButtonActionsTypes.VUE_LINK,
+        ].includes(value)
+      },
     },
 
     type: {
@@ -325,7 +330,9 @@ export default defineComponent({
 
   },
 
-  setup(props: FbUiButtonPropsInterface, context: SetupContext) {
+  emits: ['click'],
+
+  setup(props: IFbUiButtonProps, context: SetupContext) {
     const element = ref<HTMLElement | null>(null)
 
     const classNames = computed<string[]>((): string[] => {
@@ -412,6 +419,7 @@ export default defineComponent({
       clickHandle,
       loader: spinnerVariant,
       buttonTypes: FbUiButtonButtonTypes,
+      actionTypes: FbUiButtonActionsTypes,
     }
   },
 

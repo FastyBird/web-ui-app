@@ -12,17 +12,11 @@
         <slot name="heading" />
       </h3>
 
-      <p
-        v-if="'description' in $slots"
-        class="fb-ui-media-item__description"
-      >
+      <p v-if="'description' in $slots">
         <slot name="description" />
       </p>
 
-      <p
-        v-if="'action' in $slots"
-        class="fb-ui-media-item__action"
-      >
+      <p v-if="'action' in $slots">
         <slot name="action" />
       </p>
     </div>
@@ -37,9 +31,7 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-} from '@vue/composition-api'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
 

@@ -2,14 +2,8 @@
 
 .fb-layout-sign-box {
   &__container {
-    -webkit-animation-duration: 1s;
-    -o-animation-duration: 1s;
     animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    -o-animation-fill-mode: both;
     animation-fill-mode: both;
-    -webkit-animation-name: fadeinup;
-    -o-animation-name: fadeinup;
     animation-name: fadeinup;
 
     &-inner {

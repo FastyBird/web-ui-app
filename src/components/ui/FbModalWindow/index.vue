@@ -28,7 +28,7 @@
                 <fb-ui-loading-box :size="sizeTypes.LARGE">
                   <template
                     v-if="'loading-icon' in $slots"
-                    slot="icon"
+                    #icon
                   >
                     <slot name="loading-icon" />
                   </template>
@@ -58,35 +58,35 @@
               >
                 <template
                   v-if="'title' in $slots"
-                  slot="title"
+                  #title
                 >
                   <slot name="title" />
                 </template>
 
                 <template
                   v-if="'subtitle' in $slots"
-                  slot="subtitle"
+                  #subtitle
                 >
                   <slot name="subtitle" />
                 </template>
 
                 <template
                   v-if="'icon' in $slots"
-                  slot="icon"
+                  #icon
                 >
                   <slot name="icon" />
                 </template>
 
                 <template
                   v-if="'left-button' in $slots"
-                  slot="left-button"
+                  #left-button
                 >
                   <slot name="left-button" />
                 </template>
 
                 <template
                   v-if="'right-button' in $slots"
-                  slot="right-button"
+                  #right-button
                 >
                   <slot name="right-button" />
                 </template>
@@ -151,33 +151,21 @@ import {
   PropType,
   ref,
   SetupContext,
-} from '@vue/composition-api'
-
-import { FbSizeTypes, FbUiModalLayoutTypes, FbUiButtonVariantTypes } from '@/types'
+} from 'vue'
 
 import get from 'lodash/get'
 
-import FbUiButton from './../FbButton/index.vue'
-import FbUiModalHeader from './../FbModalHeader/index.vue'
-import FbUiLoadingBox from './../FbLoadingBox/index.vue'
-import FbUiTransitionExpand from './../FbTransitionExpand/index.vue'
+import {
+  FbSizeTypes,
+  FbUiModalLayoutTypes,
+  FbUiButtonVariantTypes,
+} from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
+import FbUiModalHeader from '@/components/ui/FbModalHeader/index.vue'
+import FbUiLoadingBox from '@/components/ui/FbLoadingBox/index.vue'
+import FbUiTransitionExpand from '@/components/ui/FbTransitionExpand/index.vue'
 
-interface FbUiModalWindowPropsInterface {
-  size: FbSizeTypes
-  layout: FbUiModalLayoutTypes
-  width: string | number | null
-  showHeader: boolean
-  showFooter: boolean
-  rightBtnLabel: string
-  showRightBtn: boolean
-  leftBtnLabel: string
-  showLeftBtn: boolean
-  closeBtnLabel: string
-  enableClosing: boolean
-  transparentBg: boolean
-  loader: boolean
-  show: boolean
-}
+import { IFbUiModalWindowProps } from './types'
 
 export default defineComponent({
 
@@ -219,7 +207,7 @@ export default defineComponent({
     },
 
     width: {
-      type: [String, Number],
+      type: [String, Number] as PropType<string | number | null>,
       default: null,
     },
 
@@ -280,7 +268,9 @@ export default defineComponent({
 
   },
 
-  setup(props: FbUiModalWindowPropsInterface, context: SetupContext) {
+  emits: ['rightSubmit', 'leftSubmit', 'close'],
+
+  setup(props: IFbUiModalWindowProps, context: SetupContext) {
     const element = ref<HTMLElement | null>(null)
 
     const optionalWidth = computed<string | null>((): string | null => {
@@ -301,7 +291,7 @@ export default defineComponent({
       }
     }
 
-    const closeModal = (e): void => {
+    const closeModal = (e: Error): void => {
       if (props.enableClosing) {
         context.emit('close', e)
       }

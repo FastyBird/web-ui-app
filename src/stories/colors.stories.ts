@@ -1,9 +1,9 @@
-import '!style-loader!css-loader!sass-loader!./colors.scss'
-import { Story } from '@storybook/vue'
+import "!style-loader!css-loader!sass-loader!./colors.scss";
+import { Story } from "@storybook/vue";
 
 export default {
-  title: 'About/Colors',
-}
+  title: "About/Colors",
+};
 
 export const Colors: Story = () => {
   return {
@@ -19,5 +19,5 @@ export const Colors: Story = () => {
         </div>
       </div>
     `,
-  }
-}
+  };
+};

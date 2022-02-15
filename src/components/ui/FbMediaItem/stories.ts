@@ -1,8 +1,13 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
+
+import FbUiButton from '@/components/ui/FbButton/index.vue'
 
 import FbUiMediaItem from './index.vue'
-import FbUiButton from './../FbButton/index.vue'
 
 export default {
   component: FbUiMediaItem,
@@ -55,11 +60,11 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends Args {
   left?: string
   right?: string
   heading?: string
@@ -69,15 +74,14 @@ interface TemplateArgs {
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiMediaItem, FbUiButton },
     template: `
       <fb-ui-media-item>
-        <template v-if="${args.left !== null && typeof args.left !== 'undefined'}" slot="left">${args.left}</template>
-        <template v-if="${args.right !== null && typeof args.right !== 'undefined'}" slot="right">${args.right}</template>
-        <template v-if="${args.heading !== null && typeof args.heading !== 'undefined'}" slot="heading">${args.heading}</template>
-        <template v-if="${args.description !== null && typeof args.description !== 'undefined'}" slot="description">${args.description}</template>
-        <template v-if="${args.action !== null && typeof args.action !== 'undefined'}" slot="action">${args.action}</template>
+        <template v-if="${args.left !== null && typeof args.left !== 'undefined'}" #left>${args.left}</template>
+        <template v-if="${args.right !== null && typeof args.right !== 'undefined'}" #right>${args.right}</template>
+        <template v-if="${args.heading !== null && typeof args.heading !== 'undefined'}" #heading>${args.heading}</template>
+        <template v-if="${args.description !== null && typeof args.description !== 'undefined'}" #description>${args.description}</template>
+        <template v-if="${args.action !== null && typeof args.action !== 'undefined'}" #action>${args.action}</template>
       </fb-ui-media-item>
     `,
     methods: {

@@ -1,46 +1,63 @@
 <template>
   <li class="fb-layout-navigation-item__container">
-    <a
-      v-if="type === menuItemTypes.LINK"
-      :href="link"
-      @click.prevent="$emit('click', $event)"
-    >
-      <span
-        v-if="'icon' in $slots"
-        class="fb-layout-navigation-item__icon"
+    <template v-if="type === menuItemTypes.LINK">
+      <a
+        :href="link"
+        @click.prevent="$emit('click', $event)"
       >
-        <slot name="icon" />
-      </span>
-      <span class="fb-layout-navigation-item__label">{{ label }}</span>
-    </a>
+        <span
+          v-if="'icon' in $slots"
+          class="fb-layout-navigation-item__icon"
+        >
+          <slot name="icon" />
+        </span>
+        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+      </a>
+    </template>
 
-    <nuxt-link
-      v-else-if="type === menuItemTypes.NUXT_LINK"
-      :to="link"
-      active-class="fb-layout-navigation-item__active"
-      @click.prevent="$emit('click', $event)"
-    >
-      <span
-        v-if="'icon' in $slots"
-        class="fb-layout-navigation-item__icon"
+    <template v-else-if="type === menuItemTypes.NUXT_LINK">
+      <nuxt-link
+        :to="link"
+        active-class="fb-layout-navigation-item__active"
+        @click.prevent="$emit('click', $event)"
       >
-        <slot name="icon" />
-      </span>
-      <span class="fb-layout-navigation-item__label">{{ label }}</span>
-    </nuxt-link>
+        <span
+          v-if="'icon' in $slots"
+          class="fb-layout-navigation-item__icon"
+        >
+          <slot name="icon" />
+        </span>
+        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+      </nuxt-link>
+    </template>
 
-    <button
-      v-else-if="type === menuItemTypes.BUTTON"
-      @click.prevent="$emit('click', $event)"
-    >
-      <span
-        v-if="'icon' in $slots"
-        class="fb-layout-navigation-item__icon"
+    <template v-else-if="type === menuItemTypes.VUE_LINK">
+      <route-link
+        :to="link"
+        active-class="fb-layout-navigation-item__active"
+        @click.prevent="$emit('click', $event)"
       >
-        <slot name="icon" />
-      </span>
-      <span class="fb-layout-navigation-item__label">{{ label }}</span>
-    </button>
+        <span
+          v-if="'icon' in $slots"
+          class="fb-layout-navigation-item__icon"
+        >
+          <slot name="icon" />
+        </span>
+        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+      </route-link>
+    </template>
+
+    <template v-else-if="type === menuItemTypes.BUTTON">
+      <button @click.prevent="$emit('click', $event)">
+        <span
+          v-if="'icon' in $slots"
+          class="fb-layout-navigation-item__icon"
+        >
+          <slot name="icon" />
+        </span>
+        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+      </button>
+    </template>
   </li>
 </template>
 
@@ -48,7 +65,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbMenuItemTypes } from '@/types'
 
@@ -67,6 +84,7 @@ export default defineComponent({
           FbMenuItemTypes.BUTTON,
           FbMenuItemTypes.LINK,
           FbMenuItemTypes.NUXT_LINK,
+          FbMenuItemTypes.VUE_LINK,
         ].includes(value)
       },
     },
@@ -82,6 +100,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['click'],
 
   setup() {
     return {

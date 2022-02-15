@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../../assets/components/form/fb-input";
 
 .fb-form-input {
@@ -10,24 +11,11 @@
     box-shadow: none;
     color: $input-color;
     border: 1px solid $input-border-color;
-    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     resize: vertical;
 
-    // Firefox
-    &::-moz-placeholder {
-      color: $input-color-placeholder;
-      opacity: 1;
-      filter: alpha(opacity=100);
-    }
-    &::-webkit-input-placeholder { color: $input-color-placeholder; } // Safari and Chrome
-    &:-ms-input-placeholder { color: $input-color-placeholder; } // Internet Explorer 10+
-
-    // Unstyle the caret on `<select>`s in IE10+.
+    /* Unstyle the caret on `<select>`s in IE10+ */
     &::-ms-expand {
       border: 0;
       background-color: transparent;
@@ -63,7 +51,7 @@
       display: block;
     }
 
-    // Make range inputs behave like textual form controls
+    /* Make range inputs behave like textual form controls */
     &[type="range"] {
       display: block;
       width: 100%;
@@ -101,24 +89,8 @@
 
       @include input-error-shadow;
 
-      &[placeholder] {
-        &::-moz-placeholder {
-          color: $input-color-error;
-          opacity: 1;
-          filter: alpha(opacity=100);
-        }
-
-        &::-webkit-input-placeholder {
-          color: $input-color-error;
-        }
-
-        &:-ms-input-placeholder {
-          color: $input-color-error;
-        }
-      }
-
       &:focus {
-        border-color: darken($input-border-color-error, 10%);
+        border-color: color.adjust($input-border-color-error, $lightness: -10%);
 
         @include input-error-focus-shadow;
       }

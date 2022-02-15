@@ -1,7 +1,7 @@
 @import "../../../assets/components/ui/fb-content";
 
 .fb-ui-content {
-  // Margin from top
+  /* Margin from top */
   &-mt {
     &-lg {
       margin-top: $margin-lg;
@@ -20,7 +20,7 @@
     }
   }
 
-  // Margin from bottom
+  /* Margin from bottom */
   &-mb {
     &-lg {
       margin-bottom: $margin-lg;
@@ -39,7 +39,7 @@
     }
   }
 
-  // Margin from left
+  /* Margin from left */
   &-ml {
     &-lg {
       margin-left: $margin-lg;
@@ -58,7 +58,7 @@
     }
   }
 
-  // Margin from right
+  /* Margin from right */
   &-mr {
     &-lg {
       margin-right: $margin-lg;
@@ -77,7 +77,7 @@
     }
   }
 
-  // Margin from left & right
+  /* Margin from left & right */
   &-mh {
     &-lg {
       margin-left: $margin-lg;
@@ -100,7 +100,7 @@
     }
   }
 
-  // Margin from top & bottom
+  /* Margin from top & bottom */
   &-mv {
     &-lg {
       margin-top: $margin-lg;
@@ -123,7 +123,7 @@
     }
   }
 
-  // Padding from top
+  /* Padding from top */
   &-pt {
     &-lg {
       padding-top: $padding-lg;
@@ -142,7 +142,7 @@
     }
   }
 
-  // Padding from bottom
+  /* Padding from bottom */
   &-pb {
     &-lg {
       padding-bottom: $padding-lg;
@@ -161,7 +161,7 @@
     }
   }
 
-  // Padding from left
+  /* Padding from left */
   &-pl {
     &-lg {
       padding-left: $padding-lg;
@@ -180,7 +180,7 @@
     }
   }
 
-  // Padding from right
+  /* Padding from right */
   &-pr {
     &-lg {
       padding-right: $padding-lg;
@@ -199,7 +199,7 @@
     }
   }
 
-  // Padding from left & right
+  /* Padding from left & right */
   &-ph {
     &-lg {
       padding-left: $padding-lg;
@@ -222,7 +222,7 @@
     }
   }
 
-  // Padding from top & bottom
+  /* Padding from top & bottom */
   &-pv {
     &-lg {
       padding-top: $padding-lg;

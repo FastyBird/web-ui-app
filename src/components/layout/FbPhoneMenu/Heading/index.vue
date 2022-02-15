@@ -1,17 +1,30 @@
 <template>
-  <portal to="fb-layout-phone-menu-heading">
+  <teleport
+    to="#fb-layout-phone-menu-heading"
+    :disabled="!teleport"
+  >
     <slot />
-  </portal>
+  </teleport>
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
-} from '@vue/composition-api'
+  PropType,
+} from 'vue'
 
 export default defineComponent({
 
   name: 'FbLayoutPhoneMenuHeading',
+
+  props: {
+
+    teleport: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+
+  },
 
 })
 </script>

@@ -66,7 +66,6 @@
     cursor: pointer;
     background: transparent;
     border: 0;
-    -webkit-appearance: none;
 
     @include header-close;
 
@@ -92,7 +91,7 @@
   }
 
   &__description {
-    @include flexColumn(nowrap);
+    @include flex-column(nowrap);
 
     &-icon {
       text-align: center;

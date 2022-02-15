@@ -11,7 +11,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 export default defineComponent({
 
@@ -19,8 +19,8 @@ export default defineComponent({
 
   props: {
 
-    value: {
-      type: Array as PropType<(string | number)[]>,
+    modelValue: {
+      type: Array as PropType<(string | number | boolean)[]>,
       default: () => {
         return []
       },

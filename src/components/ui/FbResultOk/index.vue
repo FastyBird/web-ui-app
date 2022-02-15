@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div
     :data-size="size"
     class="fb-ui-result-ok__container"
@@ -30,7 +30,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import { FbSizeTypes } from '@/types'
 

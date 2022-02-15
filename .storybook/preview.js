@@ -1,8 +1,5 @@
 import '!style-loader!css-loader!sass-loader!./storybook-styles.css';
-
-import Vue from 'vue'
-
-import VueCompositionApi from '@vue/composition-api'
+import { app } from '@storybook/vue3';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -24,7 +21,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { BodyScrollLock } from '../src/directives'
+import { BodyScrollLock } from '@/directives'
 
 library.add(faBell)
 library.add(faChartBar)
@@ -42,11 +39,9 @@ library.add(faTrash)
 library.add(faUser)
 library.add(faUserSecret)
 
-Vue.use(VueCompositionApi)
+app.component('font-awesome-icon', FontAwesomeIcon)
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-Vue.directive('BodyScrollLock', BodyScrollLock)
+app.directive('BodyScrollLock', BodyScrollLock)
 
 export const parameters = {
   viewMode: 'docs',

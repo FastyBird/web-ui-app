@@ -9,11 +9,11 @@
       :variant="variant"
       :size="size"
     >
-      <template slot="main">
+      <template #main>
         <slot name="icon" />
       </template>
 
-      <template slot="child">
+      <template #child>
         <slot name="second-icon" />
       </template>
     </fb-ui-icon-with-child>
@@ -32,11 +32,13 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
-
-import FbUiIconWithChild from './../FbIconWithChild/index.vue'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
+import FbUiIconWithChild from '@/components/ui/FbIconWithChild/index.vue'
 
 export default defineComponent({
 

@@ -1,8 +1,17 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
+import { ref } from 'vue'
 
-import { FbSizeTypes, FbUiVariantTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiVariantTypes,
+} from '@/types'
 
+import { IFbUiSwitchElementProps } from './types'
 import FbUiSwitchElement from './index.vue'
 
 export default {
@@ -54,28 +63,28 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
     actions: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
-  size: FbSizeTypes
-  variant: FbUiVariantTypes
-  status: boolean
-  disabled: boolean
+interface TemplateArgs extends IFbUiSwitchElementProps, Args {
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiSwitchElement },
+    setup(): any {
+      const status = ref<boolean>(args.status)
+
+      return { args, status }
+    },
     template: `
       <fb-ui-switch-element
-        :size="size"
-        :variant="variant"
+        :size="args.size"
+        :variant="args.variant"
         :status="status"
-        :disabled="disabled"
+        :disabled="args.disabled"
         @change="onChange"
       />
     `,
@@ -126,9 +135,8 @@ Info.args = {
   status: true,
 }
 
-export const Sizes: Story<TemplateArgs> = (args) => {
+export const Sizes: Story<TemplateArgs> = () => {
   return {
-    props: args,
     components: { FbUiSwitchElement },
     template: `
       <div style="display: flex;">

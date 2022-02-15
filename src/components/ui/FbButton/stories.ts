@@ -1,8 +1,17 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
 
-import { FbSizeTypes, FbUiButtonButtonTypes, FbUiButtonVariantTypes } from '@/types'
+import {
+  FbSizeTypes, FbUiButtonActionsTypes,
+  FbUiButtonButtonTypes,
+  FbUiButtonVariantTypes,
+} from '@/types'
 
+import { IFbUiButtonProps } from './types'
 import FbUiButton from './index.vue'
 
 export default {
@@ -27,6 +36,27 @@ export default {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '-' },
+      },
+    },
+    action: {
+      type: { name: 'string', required: false },
+      control: { type: 'string' },
+      defaultValue: false,
+    },
+    actionType: {
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      defaultValue: FbUiButtonActionsTypes.BUTTON,
+      options: [
+        FbUiButtonActionsTypes.BUTTON,
+        FbUiButtonActionsTypes.LINK,
+        FbUiButtonActionsTypes.NUXT_LINK,
+        FbUiButtonActionsTypes.VUE_LINK,
+      ],
+      description: 'Button action type',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: FbUiButtonActionsTypes.BUTTON },
       },
     },
     type: {
@@ -123,45 +153,37 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbUiButtonProps, Args {
   default: string
   icon?: string
-  type: FbUiButtonButtonTypes
-  size: FbSizeTypes
-  variant: FbUiButtonVariantTypes
-  block: boolean
-  uppercase: boolean
-  pill: boolean
-  thick: boolean
-  active: boolean
-  loading: boolean
-  disabled: boolean
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiButton },
+    setup(): any {
+      return { args }
+    },
     template: `
       <fb-ui-button
-        :type="type"
-        :size="size"
-        :variant="variant"
-        :block="block"
-        :uppercase="uppercase"
-        :pill="pill"
-        :thick="thick"
-        :active="active"
-        :loading="loading"
-        :disabled="disabled"
+        :type="args.type"
+        :size="args.size"
+        :variant="args.variant"
+        :block="args.block"
+        :uppercase="args.uppercase"
+        :pill="args.pill"
+        :thick="args.thick"
+        :active="args.active"
+        :loading="args.loading"
+        :disabled="args.disabled"
         @click.prevent="onClick"
       >
-        <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
-        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+        <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" #icon>${args.icon}</template>
+        <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
       </fb-ui-button>
     `,
     methods: {
@@ -222,7 +244,7 @@ Link.args = {
 export const WithIcon = Template.bind({})
 
 WithIcon.args = {
-  default: '',
+  default: undefined,
   icon: `<font-awesome-icon icon="info-circle" />`,
   variant: FbUiButtonVariantTypes.PRIMARY,
 }
@@ -235,9 +257,8 @@ WithIconAndLabel.args = {
   variant: FbUiButtonVariantTypes.PRIMARY,
 }
 
-export const Sizes: Story<TemplateArgs> = (args) => {
+export const Sizes: Story<TemplateArgs> = () => {
   return {
-    props: args,
     components: { FbUiButton },
     template: `
       <div style="display: flex;">

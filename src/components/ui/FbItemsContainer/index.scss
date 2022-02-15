@@ -5,6 +5,8 @@
     font-family: $container-font-family;
     margin: $container-margin;
 
+    @include items-container-flex;
+
     &:first-child {
       margin-top: 0;
     }
@@ -14,7 +16,7 @@
     height: $heading-container-height;
     border-bottom: 1px solid $heading-container-border-color;
 
-    @include flexRow;
+    @include flex-row;
   }
 
   &__heading {
@@ -23,7 +25,6 @@
 
     @media (min-width: $screen-tablet-min) {
       -webkit-box-flex: 0;
-      -ms-flex: 4 0 0;
       flex: 4 0 0;
     }
 
@@ -47,6 +48,6 @@
     align-items: center;
     justify-content: flex-end;
 
-    @include flexRow;
+    @include flex-row;
   }
 }

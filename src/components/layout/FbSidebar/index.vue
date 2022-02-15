@@ -40,7 +40,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 export default defineComponent({
 
@@ -54,6 +54,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['collapse'],
 
 })
 </script>

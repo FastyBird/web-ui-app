@@ -1,11 +1,20 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
+import { ref } from 'vue'
 
-import { FbSizeTypes, FbUiModalLayoutTypes } from '@/types'
+import {
+  FbSizeTypes,
+  FbUiModalLayoutTypes,
+} from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
+import FbUiModalHeader from '@/components/ui/FbModalHeader/index.vue'
 
+import { IFbUiModalInfoProps } from './types'
 import FbUiModalInfo from './index.vue'
-import FbUiButton from './../FbButton/index.vue'
-import FbUiModalHeader from './../FbModalHeader/index.vue'
 
 export default {
   component: FbUiModalInfo,
@@ -101,17 +110,11 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
-  size: FbSizeTypes
-  layout: FbUiModalLayoutTypes
-  enableClosing: boolean
-  closeBtnLabel: string
-  transparentBg: boolean
-  show: boolean
+interface TemplateArgs extends IFbUiModalInfoProps, Args {
   header?: string
   title?: string
   icon?: string
@@ -120,25 +123,29 @@ interface TemplateArgs {
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbUiModalInfo, FbUiButton, FbUiModalHeader },
+    setup(): any {
+      const show = ref<boolean>(false)
+
+      return { args, show }
+    },
     template: `
       <div>
         <fb-ui-button @click.prevent="() => { show = true }">Open modal info</fb-ui-button>
 
         <fb-ui-modal-info
           :show="show"
-          :size="size"
-          :layout="layout"
-          :enableClosing="enableClosing"
-          :closeBtnLabel="closeBtnLabel"
-          :transparentBg="transparentBg"
+          :size="args.size"
+          :layout="args.layout"
+          :enableClosing="args.enableClosing"
+          :closeBtnLabel="args.closeBtnLabel"
+          :transparentBg="args.transparentBg"
           @close="(e) => { show = false; onClose(e) }"
         >
-          <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" slot="header">${args.header}</template>
-          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" slot="title">${args.title}</template>
-          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" slot="icon">${args.icon}</template>
-          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" slot="default">${args.default}</template>
+          <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" #header>${args.header}</template>
+          <template v-if="${args.title !== null && typeof args.title !== 'undefined'}" #title>${args.title}</template>
+          <template v-if="${args.icon !== null && typeof args.icon !== 'undefined'}" #icon>${args.icon}</template>
+          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
         </fb-ui-modal-info>
       </div>
     `,
@@ -181,9 +188,9 @@ export const WithCustomHeader = Template.bind({})
 WithCustomHeader.args = {
   header: `
     <fb-ui-modal-header>
-      <template slot="title">Modal info custom header</template>
-      <template slot="subtitle">With some fancy subtitle</template>
-      <template slot="icon"><font-awesome-icon icon="magic" /></template>
+      <template #title>Modal info custom header</template>
+      <template #subtitle>With some fancy subtitle</template>
+      <template #icon><font-awesome-icon icon="magic" /></template>
     </fb-ui-modal-header>
   `,
   default: `

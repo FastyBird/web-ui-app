@@ -7,24 +7,24 @@
     :label="label"
     :required="required"
     :is-focused="isFocused"
-    :has-value="value !== '' && value !== null || placeholder !== null"
+    :has-value="modelValue !== '' && modelValue !== null || placeholder !== null"
     :error="error"
   >
     <template
       v-if="'left-addon' in $slots"
-      slot="left-addon"
+      #left-addon
     >
       <slot name="left-addon" />
     </template>
 
     <template
       v-if="'right-addon' in $slots"
-      slot="right-addon"
+      #right-addon
     >
       <slot name="right-addon" />
     </template>
 
-    <template slot="field">
+    <template #field>
       <input
         :id="id ? id : name"
         :ref="`field-${name}`"
@@ -35,7 +35,7 @@
         :tabindex="tabIndex"
         :disabled="disabled"
         :readonly="readonly"
-        :value="value"
+        :value="modelValue"
         :placeholder="error !== null && !isFocused ? error : placeholder"
         class="fb-form-input__control"
         @input="handleUpdateValue($event.target.value)"
@@ -47,7 +47,7 @@
 
     <template
       v-if="'help-line' in $slots"
-      slot="help-line"
+      #help-line
     >
       <slot name="help-line" />
     </template>
@@ -60,31 +60,16 @@ import {
   PropType,
   ref,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
 import {
   FbFormInputTypeTypes,
   FbFormOrientationTypes,
   FbSizeTypes,
 } from '@/types'
+import FbFormField from '@/components/forms/FbField/index.vue'
 
-import FbFormField from './../FbField/index.vue'
-
-interface FbFormInputPropsInterface {
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  name: string
-  id: string | null
-  label: string | null
-  type: FbFormInputTypeTypes
-  required: boolean
-  value: string | number | null
-  tabIndex: number | null
-  error: string | null
-  placeholder: string | null
-  disabled: boolean
-  readonly: boolean
-}
+import { IFbFormInputProps } from './types'
 
 export default defineComponent({
 
@@ -128,12 +113,12 @@ export default defineComponent({
     },
 
     id: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -158,23 +143,23 @@ export default defineComponent({
       default: false,
     },
 
-    value: {
-      type: [String, Number],
+    modelValue: {
+      type: [String, Number] as PropType<string | number | null>,
       default: null,
     },
 
     tabIndex: {
-      type: Number as PropType<number>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
     error: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     placeholder: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -190,12 +175,14 @@ export default defineComponent({
 
   },
 
-  setup(_props: FbFormInputPropsInterface, context: SetupContext) {
+  emits: ['update:modelValue', 'focus', 'blur', 'keydown'],
+
+  setup(_props: IFbFormInputProps, context: SetupContext) {
     const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
     const handleUpdateValue = (value: string | number | null): void => {
-      context.emit('input', value)
+      context.emit('update:modelValue', value)
     }
 
     // Fire focus & blur events

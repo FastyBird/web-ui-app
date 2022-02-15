@@ -4,38 +4,29 @@
 @import "../../variables/texts";
 @import "../../mixins/utilities";
 
-$modal-font-family:                   $font-family-base;
-$modal-font-size:                     $font-size-base;
-
-$modal-z-index:                       $zindex-modal;
-
-$modal-overlay-background:            rgba(0, 0, 0, 0.5);
-$modal-overlay-bg-transparent:        rgba(255, 255, 255, 0.5);
-
-$modal-footer-padding:                $padding-md;
-
-$modal-content-border-radius:         4px;
-$modal-content-bg-color:              $bg-color-body;
-
-$modal-footer-border-color:           $gray-lighter;
-
-$modal-top-offset:                    7rem;
-$modal-bottom-offset:                 1rem;
-$modal-top-offset-phone:              1rem;
-$modal-bottom-offset-phone:           1rem;
-$modal-top-offset-tablet:             1rem;
-$modal-bottom-offset-tablet:          1rem;
-
-$modal-size-sm:                       30rem;
-$modal-size-md:                       60rem;
-$modal-size-lg:                       90rem;
-
-$modal-loader-bg-color:               $bg-color-body;
-
-$screen-tablet-min:                   $screen-sm-min;
+$modal-font-family: $font-family-base;
+$modal-font-size: $font-size-base;
+$modal-z-index: $zindex-modal;
+$modal-overlay-background: rgb(0 0 0 / 50%);
+$modal-overlay-bg-transparent: rgb(255 255 255 / 50%);
+$modal-footer-padding: $padding-md;
+$modal-content-border-radius: 4px;
+$modal-content-bg-color: $bg-color-body;
+$modal-footer-border-color: $gray-lighter;
+$modal-top-offset: 7rem;
+$modal-bottom-offset: 1rem;
+$modal-top-offset-phone: 1rem;
+$modal-bottom-offset-phone: 1rem;
+$modal-top-offset-tablet: 1rem;
+$modal-bottom-offset-tablet: 1rem;
+$modal-size-sm: 30rem;
+$modal-size-md: 60rem;
+$modal-size-lg: 90rem;
+$modal-loader-bg-color: $bg-color-body;
+$screen-tablet-min: $screen-sm-min;
 
 @mixin modal-body-flex {
-  @include flexColumn;
+  @include flex-column;
 }
 
 @mixin modal-content-shadow {

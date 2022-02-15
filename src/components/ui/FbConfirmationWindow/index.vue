@@ -8,7 +8,7 @@
     :enable-closing="enableClosing"
     @close="$emit('close', $event)"
   >
-    <template slot="body">
+    <template #body>
       <div
         :data-variant="variant"
         class="fb-ui-confirmation-window__container"
@@ -84,7 +84,7 @@
 import {
   defineComponent,
   PropType,
-} from '@vue/composition-api'
+} from 'vue'
 
 import {
   FbSizeTypes,
@@ -92,22 +92,10 @@ import {
   FbUiConfirmationWindowPrimaryButtonTypes,
   FbUiVariantTypes,
 } from '@/types'
+import FbUiButton from '@/components/ui/FbButton/index.vue'
+import FbUiModalWindow from '@/components/ui/FbModalWindow/index.vue'
 
-import FbUiButton from './../FbButton/index.vue'
-import FbUiModalWindow from './../FbModalWindow/index.vue'
-
-interface FbUiConfirmationWindowPropsInterface {
-  size: FbSizeTypes
-  primaryButton: FbUiConfirmationWindowPrimaryButtonTypes
-  variant: FbUiVariantTypes
-  showYes: boolean
-  yesBtnLabel: string
-  showNo: boolean
-  noBtnLabel: string
-  enableClosing: boolean
-  transparentBg: boolean
-  show: boolean
-}
+import { IFbUiConfirmationWindowProps } from './types'
 
 export default defineComponent({
 
@@ -168,7 +156,6 @@ export default defineComponent({
 
     yesBtnLabel: {
       type: String as PropType<string>,
-      required: false,
       default: 'Yes',
     },
 
@@ -179,7 +166,6 @@ export default defineComponent({
 
     noBtnLabel: {
       type: String as PropType<string>,
-      required: false,
       default: 'No',
     },
 
@@ -200,7 +186,9 @@ export default defineComponent({
 
   },
 
-  setup(props: FbUiConfirmationWindowPropsInterface) {
+  emits: ['confirm', 'close'],
+
+  setup(props: IFbUiConfirmationWindowProps) {
     let buttonVariant = FbUiButtonVariantTypes.DEFAULT
 
     switch (props.variant) {

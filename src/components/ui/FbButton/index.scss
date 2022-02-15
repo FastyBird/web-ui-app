@@ -1,7 +1,9 @@
 @import "../../../assets/components/ui/fb-button";
 
-// UI button
-// --------------------------------------------------
+/*
+  UI button
+  --------------------------------------------------
+ */
 
 .fb-ui-button {
   display: inline-block;
@@ -13,9 +15,6 @@
   cursor: pointer;
   border: 1px solid transparent;
   white-space: nowrap;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none; // IE10+
   user-select: none;
   background-image: none;
   background-position: $btn-background-position;
@@ -62,11 +61,19 @@
     align-items: center;
   }
 
-  // Buttons sizes
-  // --------------------------------------------------
+  /*
+    Buttons sizes
+    --------------------------------------------------
+   */
 
   &[data-size="lg"] {
-    @include button-size($btn-padding-lg-vertical, $btn-padding-lg-horizontal, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-large);
+    @include button-size(
+      $btn-padding-lg-vertical,
+      $btn-padding-lg-horizontal,
+      $btn-font-size-lg,
+      $btn-line-height-lg,
+      $btn-border-radius-large
+    );
 
     .fb-ui-button {
       &__inner {
@@ -84,7 +91,13 @@
   }
 
   &[data-size="md"] {
-    @include button-size($btn-padding-md-vertical, $btn-padding-md-horizontal, $btn-font-size-md, $btn-line-height-md, $btn-border-radius-base);
+    @include button-size(
+      $btn-padding-md-vertical,
+      $btn-padding-md-horizontal,
+      $btn-font-size-md,
+      $btn-line-height-md,
+      $btn-border-radius-base
+    );
 
     .fb-ui-button {
       &__inner {
@@ -102,7 +115,13 @@
   }
 
   &[data-size="sm"] {
-    @include button-size($btn-padding-sm-vertical, $btn-padding-sm-horizontal, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-small);
+    @include button-size(
+      $btn-padding-sm-vertical,
+      $btn-padding-sm-horizontal,
+      $btn-font-size-sm,
+      $btn-line-height-sm,
+      $btn-border-radius-small
+    );
 
     .fb-ui-button {
       &__inner {
@@ -120,7 +139,13 @@
   }
 
   &[data-size="xs"] {
-    @include button-size($btn-padding-xs-vertical, $btn-padding-xs-horizontal, $btn-font-size-xs, $btn-line-height-xs, $btn-border-radius-small);
+    @include button-size(
+      $btn-padding-xs-vertical,
+      $btn-padding-xs-horizontal,
+      $btn-font-size-xs,
+      $btn-line-height-xs,
+      $btn-border-radius-small
+    );
 
     .fb-ui-button {
       &__inner {
@@ -137,8 +162,10 @@
     }
   }
 
-  // Buttons variants
-  // --------------------------------------------------
+  /*
+    Buttons variants
+    --------------------------------------------------
+   */
 
   &[data-variant="default"] {
     @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
@@ -289,23 +316,37 @@
   }
 
   &[data-variant="link"] {
-    @include button-link-variant($btn-link-color, $btn-link-disabled-color, $btn-link-hover-color, $btn-link-hover-decoration);
+    @include button-link-variant(
+      $btn-link-color,
+      $btn-link-disabled-color,
+      $btn-link-hover-color,
+      $btn-link-hover-decoration
+    );
   }
 
   &[data-variant="link-default"] {
-    @include button-link-variant($btn-link-default-color, $btn-link-default-disabled-color, $btn-link-default-hover-color, $btn-link-default-hover-decoration);
+    @include button-link-variant(
+      $btn-link-default-color,
+      $btn-link-default-disabled-color,
+      $btn-link-default-hover-color,
+      $btn-link-default-hover-decoration
+    );
   }
 
-  // Block button
-  // --------------------------------------------------
+  /*
+    Block button
+    --------------------------------------------------
+   */
 
   &.fb-ui-button-block {
     display: block;
     width: 100%;
   }
 
-  // Pill button
-  // --------------------------------------------------
+  /*
+    Pill button
+    --------------------------------------------------
+   */
 
   &.fb-ui-button-pill {
     border-radius: $btn-pill-border-radius;
@@ -313,23 +354,29 @@
     padding-right: $btn-pill-padding-horizontal;
   }
 
-  // Thick button
-  // --------------------------------------------------
+  /*
+    Thick button
+    --------------------------------------------------
+   */
 
   &.fb-ui-button-thick {
     border-width: $btn-thick-border-width;
     font-weight: $btn-thick-font-weight;
   }
 
-  // Uppercased button
-  // --------------------------------------------------
+  /*
+    Uppercased button
+    --------------------------------------------------
+   */
 
   &.fb-ui-button-uppercase {
     text-transform: uppercase;
   }
 
-  // Loading spinner
-  // --------------------------------------------------
+  /*
+    Loading spinner
+    --------------------------------------------------
+   */
 
   &__loading {
     position: absolute;

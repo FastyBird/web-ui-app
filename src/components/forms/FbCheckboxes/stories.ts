@@ -1,9 +1,17 @@
+import {
+  Args,
+  Meta,
+  Story,
+} from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import { Meta, Story } from '@storybook/vue'
 
-import { FbFormOrientationTypes, FbSizeTypes } from '@/types'
+import {
+  FbFormOrientationTypes,
+  FbSizeTypes,
+} from '@/types'
 
-import FbFormCheckboxes, { FbFormCheckboxesItemInterface } from './index.vue'
+import { IFbFormCheckboxesProps } from './types'
+import FbFormCheckboxes  from './index.vue'
 
 export default {
   component: FbFormCheckboxes,
@@ -25,7 +33,6 @@ export default {
       defaultValue: 'field-name',
     },
     options: {
-      type: { name: 'array', required: true },
       control: { type: 'text' },
       defaultValue: [
         { name: 'Checkbox one', value: 'one' },
@@ -105,47 +112,37 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
+    controls: { disabled: true },
   },
 } as Meta
 
-interface TemplateArgs {
+interface TemplateArgs extends IFbFormCheckboxesProps, Args {
   'help-line'?: string
-  name: string
-  options: FbFormCheckboxesItemInterface[]
-  value: string | number | boolean | null | (string | number)[]
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  id: string
-  label: string
-  required: boolean
-  tabIndex: number
-  error: string
-  readonly: boolean
-  disabled: boolean
 }
 
 const Template: Story<TemplateArgs> = (args) => {
   return {
-    props: args,
     components: { FbFormCheckboxes },
+    setup(): any {
+      return { args }
+    },
     template: `
       <fb-form-checkboxes
-        v-model="value"
-        :orientation="orientation"
-        :size="size"
-        :name="name"
-        :id="id"
-        :label="label"
-        :options="options"
-        :required="required"
-        :tab-index="tabIndex"
-        :error="error"
-        :readonly="readonly"
-        :disabled="disabled"
+        v-model="args.value"
+        :orientation="args.orientation"
+        :size="args.size"
+        :name="args.name"
+        :id="args.id"
+        :label="args.label"
+        :options="args.options"
+        :required="args.required"
+        :tab-index="args.tabIndex"
+        :error="args.error"
+        :readonly="args.readonly"
+        :disabled="args.disabled"
         @change="onChange"
       >
-        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" slot="help-line">${args['help-line']}</template>
+        <template v-if="${args['help-line'] !== null && typeof args['help-line'] !== 'undefined'}" #help-line>${args['help-line']}</template>
       </fb-form-checkboxes>
     `,
     methods: {

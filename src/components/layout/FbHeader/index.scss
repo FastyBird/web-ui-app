@@ -27,9 +27,9 @@
       &-left,
       &-right {
         -webkit-box-flex: 0;
-        -ms-flex: 0 0 5rem;
         flex: 0 0 5rem;
         max-width: 5rem;
+        display: flex;
       }
     }
   }
@@ -51,6 +51,7 @@
   &__buttons-small {
     height: 0;
     transition: height 0.3s ease-in-out;
+    overflow: hidden;
 
     @include flex-heading;
 
@@ -62,11 +63,15 @@
 
   &__button {
     &-hamburger {
-      display: block;
+      display: flex;
+      flex-direction: column;
       background-color: transparent;
       border: none;
       position: relative;
       outline: none;
+      width: 5rem;
+      cursor: pointer;
+      justify-content: center;
 
       &-label {
         position: absolute;
@@ -80,71 +85,44 @@
       }
 
       &-bars {
-        display: block;
-        height: $hamburger-bar-line-height;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: $hamburger-bar-line-width;
+        background: #fff;
+        border-radius: 10px;
+        height: 4px;
+        margin: 3px 0;
+        transition: 0.4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
-        &-line {
-          background-color: $header-color;
-          border-radius: 1px;
-          display: block;
-          height: 100%;
-          position: absolute;
-          transition: all 0.1s ease-in-out 0s;
-          right: 0;
-          width: 0;
-
-          &-#{"1"}, &-#{"4"} {
-            top: - $hamburger-bar-line-distance - $hamburger-bar-line-height;
-          }
-
-          &-#{"3"}, &-#{"6"} {
-            top: $hamburger-bar-line-distance + $hamburger-bar-line-height;
-          }
+        &:nth-of-type(1) {
+          width: 50%;
         }
 
-        &-x {
-          height: $hamburger-bar-line-width;
-          transform: translate(-50%, -50%) rotate(45deg);
+        &:nth-of-type(2) {
+          width: 100%;
+        }
 
-          span:first-child {
-            height: $hamburger-bar-line-height;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-          }
-
-          span:last-child {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: $hamburger-bar-line-height;
-          }
+        &:nth-of-type(3) {
+          width: 75%;
         }
       }
 
-      &-collapsed {
+      &-opened {
         .fb-layout-header {
           &__button {
             &-hamburger {
               &-bars {
-                &-line {
-                  width: 100%;
+                &:nth-of-type(1) {
+                  transform-origin: bottom;
+                  transform: rotateZ(45deg) translate(4px, 0);
                 }
 
-                &-x {
-                  span:first-child {
-                    width: 0;
-                  }
+                &:nth-of-type(2) {
+                  transform-origin: top;
+                  transform: rotateZ(-45deg);
+                }
 
-                  span:last-child {
-                    height: 0;
-                  }
+                &:nth-of-type(3) {
+                  transform-origin: bottom;
+                  width: 50%;
+                  transform: translate(16px, -4px) rotateZ(45deg);
                 }
               }
             }

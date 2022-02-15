@@ -10,7 +10,8 @@
 <script lang="ts">
 import {
   defineComponent,
-} from '@vue/composition-api'
+  PropType,
+} from 'vue'
 
 export default defineComponent({
 
@@ -18,8 +19,8 @@ export default defineComponent({
 
   props: {
 
-    value: {
-      type: [String, Number, Boolean],
+    modelValue: {
+      type: [String, Number, Boolean] as PropType<string | number | boolean | null>,
       default: null,
     },
 

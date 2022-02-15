@@ -4,40 +4,54 @@
     "module": "esnext",
     "strict": true,
     "declaration": true,
-    "declarationDir": "dist/dts",
-    "emitDeclarationOnly": true,
+    "outDir": "dist",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "incremental": true,
     "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "lib": ["esnext", "dom"],
     "types": [
       "node",
       "vue",
-      "@nuxt/types",
+      "vite/client",
+      "vue-typescript-import-dts",
+      "@vueuse/core",
       "@types/body-scroll-lock",
-      "@types/jest",
-      "@types/lodash.get"
+      "@types/lodash.get",
     ],
     "paths": {
       "@/*": [
-        "src/*"
-      ]
+        "src/*",
+      ],
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
-  },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
-}
+    "plugins": [
+      // Transform paths in output .js files
+      { "transform": "typescript-transform-paths" },
 
+      // Transform paths for declarations files
+      { "transform": "typescript-transform-paths", "afterDeclarations": true },
+    ],
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+  ],
+  "exclude": [
+    "src/**/*.stories.ts",
+    "src/**/stories.ts",
+    "src/**/*.spec.ts",
+    "node_modules",
+    "dist",
+  ],
+}

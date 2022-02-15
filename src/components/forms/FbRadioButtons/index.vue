@@ -9,33 +9,36 @@
     :has-value="true"
     :error="error"
   >
-    <div
-      slot="field"
-      role="group"
-      aria-label="radiobutton-group"
-      class="fb-form-radio-buttons__control"
-    >
-      <template v-for="(option, index) in options">
-        <fb-form-radio-button
-          :id="`${id ? id : name}_${index}`"
+    <template #field>
+      <div
+        role="group"
+        aria-label="radiobutton-group"
+        class="fb-form-radio-buttons__control"
+      >
+        <template
+          v-for="(option, index) in options"
           :key="index"
-          v-model="model"
-          :name="name"
-          :option="option.value"
-          :size="size"
-          :label="option.name"
-          :tab-index="tabIndex ? tabIndex + index + 1 : null"
-          :has-error="error !== null"
-          :readonly="readonly"
-          :disabled="disabled"
-          @change="handleChange"
-        />
-      </template>
-    </div>
+        >
+          <fb-form-radio-button
+            :id="`${id ? id : name}_${index}`"
+            v-model="model"
+            :name="name"
+            :option="option.value"
+            :size="size"
+            :label="option.name"
+            :tab-index="tabIndex ? tabIndex + index + 1 : null"
+            :has-error="error !== null"
+            :readonly="readonly"
+            :disabled="disabled"
+            @change="handleChange"
+          />
+        </template>
+      </div>
+    </template>
 
     <template
       v-if="'help-line' in $slots"
-      slot="help-line"
+      #help-line
     >
       <slot name="help-line" />
     </template>
@@ -48,32 +51,19 @@ import {
   defineComponent,
   PropType,
   SetupContext,
-} from '@vue/composition-api'
+} from 'vue'
 
-import { FbFormOrientationTypes, FbSizeTypes } from '@/types'
+import {
+  FbFormOrientationTypes,
+  FbSizeTypes,
+} from '@/types'
+import FbFormField from '@/components/forms/FbField/index.vue'
+import FbFormRadioButton from '@/components/forms/FbRadioButton/index.vue'
 
-import FbFormField from './../FbField/index.vue'
-import FbFormRadioButton from './../FbRadioButton/index.vue'
-
-export interface FbFormRadioButtonsItemInterface {
-  name: string
-  value: string | number | boolean
-}
-
-interface FbFormRadioButtonsPropsInterface {
-  orientation: FbFormOrientationTypes
-  size: FbSizeTypes
-  name: string
-  id: string | null
-  options: FbFormRadioButtonsItemInterface[]
-  value: string | number | boolean | null
-  label: string | null
-  required: boolean
-  tabIndex: number | null
-  error: string
-  readonly: boolean
-  disabled: boolean
-}
+import {
+  IFbFormRadioButtonsItem,
+  IFbFormRadioButtonsProps,
+} from './types'
 
 export default defineComponent({
 
@@ -118,22 +108,22 @@ export default defineComponent({
     },
 
     options: {
-      type: Array,
+      type: Array as PropType<IFbFormRadioButtonsItem[]>,
       required: true,
     },
 
-    value: {
-      type: [String, Number, Boolean],
+    modelValue: {
+      type: [String, Number, Boolean] as PropType<string | number | boolean | null>,
       default: null,
     },
 
     id: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
     label: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
     },
 
@@ -143,18 +133,13 @@ export default defineComponent({
     },
 
     tabIndex: {
-      type: Number as PropType<number>,
+      type: Number as PropType<number | null>,
       default: null,
     },
 
     error: {
-      type: String as PropType<string>,
+      type: String as PropType<string | null>,
       default: null,
-    },
-
-    readonly: {
-      type: Boolean as PropType<boolean>,
-      default: false,
     },
 
     disabled: {
@@ -162,20 +147,27 @@ export default defineComponent({
       default: false,
     },
 
+    readonly: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+
   },
 
-  setup(props: FbFormRadioButtonsPropsInterface, context: SetupContext) {
-    const model = computed<string | number | boolean | null | (string | number | boolean)[]>({
-      get: (): string | number | boolean | null | (string | number | boolean)[] => {
-        return props.value
+  emits: ['update:modelValue', 'change'],
+
+  setup(props: IFbFormRadioButtonsProps, context: SetupContext) {
+    const model = computed<string | number | boolean | null>({
+      get: (): string | number | boolean | null => {
+        return props.modelValue
       },
       set: (val) => {
-        context.emit('input', val)
+        context.emit('update:modelValue', val)
       },
     })
 
     const handleChange = (): void => {
-      context.emit('change', props.value)
+      context.emit('change', props.modelValue)
     }
 
     return {
