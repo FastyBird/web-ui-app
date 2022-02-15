@@ -2,9 +2,12 @@ const path = require('path')
 
 module.exports = {
   stories: [
-    '../src/**/*.stories.@(js|ts|mdx)',
-    '../src/**/story.@(js|ts|mdx)',
-    '../src/**/stories.@(js|ts|mdx)',
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|ts)',
+    '../src/**/story.mdx',
+    '../src/**/stories.mdx',
+    '../src/**/story.@(js|ts)',
+    '../src/**/stories.@(js|ts)',
   ],
   addons: [
     '@storybook/addon-essentials',
