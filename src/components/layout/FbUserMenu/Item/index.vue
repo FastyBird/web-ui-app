@@ -20,13 +20,13 @@
     </template>
 
     <template v-else-if="type === menuItemTypes.VUE_LINK">
-      <route-link
+      <router-link
         :to="link"
         active-class="fb-layout-user-menu-item__active"
         @click.prevent="$emit('click', $event)"
       >
         {{ label }}
-      </route-link>
+      </router-link>
     </template>
 
     <template v-else-if="type === menuItemTypes.BUTTON">
