@@ -5,6 +5,9 @@ import { App, Component } from "vue";
 import * as components from "./components";
 import { InstallFunction } from "./types";
 
+// Import theme styles
+import '@/assets/theme.scss'
+
 export function createWebUiTheme(): InstallFunction {
     const plugin: InstallFunction = {
         install(app: App) {

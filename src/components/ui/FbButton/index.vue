@@ -48,7 +48,7 @@
   </template>
 
   <template v-else-if="actionType === actionTypes.VUE_LINK">
-    <route-link
+    <router-link
       ref="element"
       :to="action"
       :data-variant="variant"
@@ -92,7 +92,7 @@
           :variant="loader"
         />
       </span>
-    </route-link>
+    </router-link>
   </template>
 
   <template v-else-if="actionType === actionTypes.LINK">

@@ -32,7 +32,7 @@
     </template>
 
     <template v-else-if="type === menuItemTypes.VUE_LINK">
-      <route-link
+      <router-link
         :to="link"
         active-class="fb-layout-navigation-item__active"
         @click.prevent="$emit('click', $event)"
@@ -44,7 +44,7 @@
           <slot name="icon" />
         </span>
         <span class="fb-layout-navigation-item__label">{{ label }}</span>
-      </route-link>
+      </router-link>
     </template>
 
     <template v-else-if="type === menuItemTypes.BUTTON">

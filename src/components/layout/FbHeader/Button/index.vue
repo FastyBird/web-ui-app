@@ -36,7 +36,7 @@
     </template>
 
     <template v-else-if="type === menuItemTypes.VUE_LINK">
-      <route-link
+      <router-link
         :to="link"
         :class="['fb-layout-header-button__container', {'fb-layout-header-button__container-small': small}, {'fb-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-layout-header-button__container-left': left}, {'fb-layout-header-button__container-right': right}]"
         @click.prevent="$emit('click', $event)"
@@ -48,7 +48,7 @@
         <template v-else>
           {{ label }}
         </template>
-      </route-link>
+      </router-link>
     </template>
 
     <template v-else-if="type === menuItemTypes.BUTTON">
