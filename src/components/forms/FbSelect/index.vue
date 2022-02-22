@@ -26,6 +26,7 @@
 
     <template #field>
       <select
+        v-model="modelValue"
         :id="id ? id : name"
         :ref="`field-${name}`"
         :data-size="size"
@@ -49,7 +50,7 @@
 
         <template v-for="(item, index) in items">
           <optgroup
-            v-if="'items' in item"
+            v-if="'items' in item && item.items.length"
             :key="`optgrp_${index}`"
             :label="item.name"
           >
@@ -57,7 +58,6 @@
               v-for="(subitem, subindex) in item.items"
               :key="`${index}_${subindex}`"
               :value="subitem.value"
-              :selected="String(modelValue) === String(subitem.value) ? 'selected' : ''"
             >
               {{ subitem.name }}
             </option>
@@ -67,7 +67,6 @@
             v-else
             :key="index"
             :value="item.value"
-            :selected="String(modelValue) === String(item.value) ? 'selected' : ''"
           >
             {{ item.name }}
           </option>
