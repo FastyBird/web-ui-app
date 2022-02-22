@@ -49,15 +49,15 @@
 
         <template v-for="(item, index) in items">
           <optgroup
-            v-if="Array.isArray(item.value) || typeof item.value === 'object'"
+            v-if="'items' in item"
             :key="`optgrp_${index}`"
             :label="item.name"
           >
             <option
-              v-for="(subitem, subindex) in item.value"
+              v-for="(subitem, subindex) in item.items"
               :key="`${index}_${subindex}`"
               :value="subitem.value"
-              :selected="String(value) === String(item.value) ? 'selected' : ''"
+              :selected="String(modelValue) === String(subitem.value) ? 'selected' : ''"
             >
               {{ subitem.name }}
             </option>
@@ -67,7 +67,7 @@
             v-else
             :key="index"
             :value="item.value"
-            :selected="String(value) === String(item.value) ? 'selected' : ''"
+            :selected="String(modelValue) === String(item.value) ? 'selected' : ''"
           >
             {{ item.name }}
           </option>
