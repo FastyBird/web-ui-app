@@ -24,7 +24,7 @@
         &__icon {
           @include flex-box-width($loader-icon-size-lg);
 
-          svg {
+          :deep(svg) {
             margin: 0 auto;
             height: $loader-icon-size-lg;
             fill: $loader-error-color;
@@ -46,7 +46,7 @@
         &__icon {
           @include flex-box-width($loader-icon-size-md);
 
-          svg {
+          :deep(svg) {
             margin: 0 auto;
             height: $loader-icon-size-md;
             fill: $loader-error-color;
@@ -68,7 +68,7 @@
         &__icon {
           @include flex-box-width($loader-icon-size-sm);
 
-          svg {
+          :deep(svg) {
             margin: 0 auto;
             height: $loader-icon-size-sm;
             fill: $loader-error-color;

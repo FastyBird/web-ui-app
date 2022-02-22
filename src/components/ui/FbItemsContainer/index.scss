@@ -28,13 +28,13 @@
       flex: 4 0 0;
     }
 
-    h3 {
+    :deep(h3) {
       margin: 0;
       line-height: $heading-line-height;
       font-size: $heading-font-size;
       height: auto;
 
-      small {
+      :deep(small) {
         font-weight: normal;
         line-height: 1;
         color: $heading-small-color;

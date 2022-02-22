@@ -25,7 +25,7 @@
       text-align: center;
       margin-right: $header-heading-icon-margin;
 
-      svg {
+      :deep(svg) {
         color: $header-heading-icon-color;
       }
     }
@@ -97,7 +97,7 @@
       text-align: center;
       margin-bottom: $margin-sm;
 
-      svg {
+      :deep(svg) {
         color: $header-color;
       }
     }
@@ -169,7 +169,7 @@
               color: $header-color;
               text-decoration: none;
 
-              svg {
+              :deep(svg) {
                 color: $header-color;
               }
             }

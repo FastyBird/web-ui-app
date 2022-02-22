@@ -25,26 +25,26 @@
       text-align: right;
     }
 
-    h1 {
+    :deep(h1) {
       line-height: 6rem;
       font-size: 2.2rem;
       font-weight: $header-font-weight;
       color: $header-color;
       margin: 0;
 
-      span,
-      small {
+      :deep(span),
+      :deep(small) {
         color: $header-color;
       }
 
-      span {
+      :deep(span) {
         margin-top: 1rem;
         line-height: 2.5rem;
         font-size: 2rem;
         display: block;
       }
 
-      small {
+      :deep(small) {
         line-height: 2.5rem;
         font-size: 1.2rem;
         display: block;

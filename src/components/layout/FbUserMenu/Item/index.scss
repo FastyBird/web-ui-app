@@ -6,7 +6,7 @@
     padding: 0;
     line-height: $menu-item-line-height;
 
-    > span {
+    > :deep(span) {
       padding: $menu-item-padding;
       width: 100%;
       text-align: left;

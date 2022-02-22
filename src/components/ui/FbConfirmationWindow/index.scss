@@ -4,7 +4,7 @@
   &__container {
     text-align: center;
 
-    h3 {
+    :deep(h3) {
       font-size: $confirmation-heading-font-size;
       font-weight: $confirmation-heading-font-weight;
       line-height: $confirmation-heading-line-height;
@@ -13,7 +13,7 @@
     }
 
     &[data-variant="default"] {
-      h3 {
+      :deep(h3) {
         color: $confirmation-variant-default;
       }
 
@@ -25,7 +25,7 @@
     }
 
     &[data-variant="primary"] {
-      h3 {
+      :deep(h3) {
         color: $confirmation-variant-primary;
       }
 
@@ -37,7 +37,7 @@
     }
 
     &[data-variant="success"] {
-      h3 {
+      :deep(h3) {
         color: $confirmation-variant-success;
       }
 
@@ -49,7 +49,7 @@
     }
 
     &[data-variant="danger"] {
-      h3 {
+      :deep(h3) {
         color: $confirmation-variant-danger;
       }
 
@@ -61,7 +61,7 @@
     }
 
     &[data-variant="warning"] {
-      h3 {
+      :deep(h3) {
         color: $confirmation-variant-warning;
       }
 
@@ -73,7 +73,7 @@
     }
 
     &[data-variant="info"] {
-      h3 {
+      :deep(h3) {
         color: $confirmation-variant-info;
       }
 

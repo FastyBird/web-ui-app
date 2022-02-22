@@ -12,7 +12,7 @@
       font-size: $no-results-font-size-sm;
     }
 
-    p {
+    :deep(p) {
       margin: $no-results-text-margin;
     }
   }
