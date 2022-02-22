@@ -12,6 +12,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>
