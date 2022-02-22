@@ -1,17 +1,17 @@
 <template>
-  <div class="fb-layout-header__container">
+  <div class="fb-theme-layout-header__container">
     <div
       id="fb-layout-header-button-small"
       ref="buttonSmall"
-      :class="['fb-layout-header__buttons-small', {'fb-layout-header__buttons-small-expanded': hasSmallButtons}]"
+      :class="['fb-theme-layout-header__buttons-small', {'fb-theme-layout-header__buttons-small-expanded': hasSmallButtons}]"
     >
       <slot name="button-small" />
     </div>
 
-    <div class="fb-layout-header__heading">
+    <div class="fb-theme-layout-header__heading">
       <div
         id="fb-layout-header-heading"
-        class="fb-layout-header__heading-heading"
+        class="fb-theme-layout-header__heading-heading"
       >
         <slot name="heading">
           <slot name="logo" />
@@ -20,26 +20,26 @@
 
       <div
         id="fb-layout-header-button-left"
-        class="fb-layout-header__heading-button-left"
+        class="fb-theme-layout-header__heading-button-left"
       >
         <slot name="button-left" />
       </div>
 
       <div
         id="fb-layout-header-button-right"
-        class="fb-layout-header__heading-button-right"
+        class="fb-theme-layout-header__heading-button-right"
       >
         <slot name="button-right">
           <button
             v-if="!menuHidden"
-            :class="['fb-layout-header__button-hamburger', { 'fb-layout-header__button-hamburger-opened': !menuCollapsed }]"
+            :class="['fb-theme-layout-header__button-hamburger', { 'fb-theme-layout-header__button-hamburger-opened': !menuCollapsed }]"
             type="button"
             @click.prevent="$emit('toggleMenu', $event)"
           >
-            <span class="fb-layout-header__button-hamburger-bars" />
-            <span class="fb-layout-header__button-hamburger-bars" />
-            <span class="fb-layout-header__button-hamburger-bars" />
-            <span class="fb-layout-header__button-hamburger-label">Toggle navigation</span>
+            <span class="fb-theme-layout-header__button-hamburger-bars" />
+            <span class="fb-theme-layout-header__button-hamburger-bars" />
+            <span class="fb-theme-layout-header__button-hamburger-bars" />
+            <span class="fb-theme-layout-header__button-hamburger-label">Toggle navigation</span>
           </button>
         </slot>
       </div>
@@ -48,7 +48,7 @@
     <div
       id="fb-layout-header-sub-content"
       ref="subContent"
-      :class="['fb-layout-header__content', {'fb-layout-header__content-expanded': hasContent}]"
+      :class="['fb-theme-layout-header__content', {'fb-theme-layout-header__content-expanded': hasContent}]"
     >
       <slot name="sub-content" />
     </div>

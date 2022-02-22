@@ -3,7 +3,7 @@
     to="#fb-layout-header-sub-content"
     :disabled="!teleport"
   >
-    <div class="fb-layout-phone-header-content__container">
+    <div class="fb-theme-layout-phone-header-content__container">
       <slot />
     </div>
   </teleport>

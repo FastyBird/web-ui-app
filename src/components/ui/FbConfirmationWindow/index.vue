@@ -11,11 +11,11 @@
     <template #body>
       <div
         :data-variant="variant"
-        class="fb-ui-confirmation-window__container"
+        class="fb-theme-ui-confirmation-window__container"
       >
         <div
           v-if="'icon' in $slots"
-          class="fb-ui-confirmation-window__icon"
+          class="fb-theme-ui-confirmation-window__icon"
         >
           <slot name="icon" />
         </div>
@@ -26,7 +26,7 @@
 
         <slot />
 
-        <div class="fb-ui-confirmation-window__buttons">
+        <div class="fb-theme-ui-confirmation-window__buttons">
           <template v-if="primaryButton === 'no'">
             <fb-ui-button
               v-if="showYes"

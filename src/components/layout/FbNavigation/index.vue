@@ -1,7 +1,7 @@
 <template>
-  <nav class="fb-layout-navigation__container">
+  <nav class="fb-theme-layout-navigation__container">
     <ul>
-      <li class="fb-layout-navigation__heading">
+      <li class="fb-theme-layout-navigation__heading">
         {{ name }}
       </li>
 

@@ -2,7 +2,7 @@
   <span
     :data-variant="variant"
     :data-size="size"
-    class="fb-ui-spinner__container"
+    class="fb-theme-ui-spinner__container"
   />
 </template>
 

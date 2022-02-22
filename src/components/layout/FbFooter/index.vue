@@ -1,6 +1,6 @@
 <template>
-  <div class="fb-layout-footer__container">
-    <div class="fb-layout-footer__inner">
+  <div class="fb-theme-layout-footer__container">
+    <div class="fb-theme-layout-footer__inner">
       <template v-if="'default' in $slots">
         <slot />
       </template>

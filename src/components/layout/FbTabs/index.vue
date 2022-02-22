@@ -1,8 +1,8 @@
 <template>
-  <div :class="['fb-layout-tabs__container', {'fb-layout-tabs__container-collapsed': collapsed}]">
+  <div :class="['fb-theme-layout-tabs__container', {'fb-theme-layout-tabs__container-collapsed': collapsed}]">
     <div
       id="fb-layout-tabs-items"
-      class="fb-layout-tabs__container-inner"
+      class="fb-theme-layout-tabs__container-inner"
     >
       <slot />
     </div>

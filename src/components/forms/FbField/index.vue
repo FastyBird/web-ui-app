@@ -3,7 +3,7 @@
     :data-orientation="orientation"
     :data-size="size"
     :data-error="error !== null"
-    class="fb-form-field__container"
+    class="fb-theme-form-field__container"
   >
     <fb-form-label
       :id="id ? id : name"
@@ -15,24 +15,24 @@
       {{ label }}
     </fb-form-label>
 
-    <div class="fb-form-field__input-field">
+    <div class="fb-theme-form-field__input-field">
       <div
         v-if="'left-addon' in $slots || 'right-addon' in $slots"
-        class="fb-form-field__input-group"
+        class="fb-theme-form-field__input-group"
       >
         <span
           v-if="'left-addon' in $slots"
-          class="fb-form-field__input-group-addon fb-form-field__input-group-addon-left"
+          class="fb-theme-form-field__input-group-addon fb-theme-form-field__input-group-addon-left"
         >
           <slot name="left-addon" />
         </span>
 
-        <span :class="['fb-form-field__grouped-input-field', {'fb-form-field__grouped-input-field-left-addon': 'left-addon' in $slots}, {'fb-form-field__grouped-input-field-right-addon': 'right-addon' in $slots}]">
+        <span :class="['fb-theme-form-field__grouped-input-field', {'fb-theme-form-field__grouped-input-field-left-addon': 'left-addon' in $slots}, {'fb-theme-form-field__grouped-input-field-right-addon': 'right-addon' in $slots}]">
           <slot name="field" />
 
           <span
             v-if="error !== null"
-            class="fb-form-field__input-feedback"
+            class="fb-theme-form-field__input-feedback"
             aria-hidden="true"
           >
             <svg
@@ -57,7 +57,7 @@
 
         <span
           v-if="'right-addon' in $slots"
-          class="fb-form-field__input-group-addon fb-form-field__input-group-addon-right"
+          class="fb-theme-form-field__input-group-addon fb-theme-form-field__input-group-addon-right"
         >
           <slot name="right-addon" />
         </span>
@@ -68,7 +68,7 @@
 
         <span
           v-if="error !== null"
-          class="fb-form-field__input-feedback"
+          class="fb-theme-form-field__input-feedback"
           aria-hidden="true"
         >
           <svg
@@ -93,7 +93,7 @@
 
       <p
         v-if="'help-line' in $slots"
-        class="fb-form-field__help"
+        class="fb-theme-form-field__help"
       >
         <slot name="help-line" />
       </p>

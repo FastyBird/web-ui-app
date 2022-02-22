@@ -1,5 +1,5 @@
 <template>
-  <li class="fb-layout-sign-footer-item__container">
+  <li class="fb-theme-layout-sign-footer-item__container">
     <slot />
   </li>
 </template>

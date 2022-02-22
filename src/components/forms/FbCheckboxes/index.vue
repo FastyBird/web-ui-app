@@ -13,7 +13,7 @@
       <div
         role="group"
         aria-label="checkboxes-group"
-        class="fb-form-checkboxes__control"
+        class="fb-theme-form-checkboxes__control"
       >
         <template
           v-for="(option, index) in options"

@@ -2,13 +2,13 @@ w<template>
   <span
     :data-variant="variant"
     :data-size="size"
-    class="fb-ui-icon-with-child__container"
+    class="fb-theme-ui-icon-with-child__container"
   >
-    <span class="fb-ui-icon-with-child__icon">
+    <span class="fb-theme-ui-icon-with-child__icon">
       <slot name="main" />
     </span>
 
-    <span class="fb-ui-icon-with-child__child-icon">
+    <span class="fb-theme-ui-icon-with-child__child-icon">
       <slot name="child" />
     </span>
   </span>

@@ -1,5 +1,5 @@
 <template>
-  <li class="fb-layout-navigation-divider__container" />
+  <li class="fb-theme-layout-navigation-divider__container" />
 </template>
 
 <script lang="ts">

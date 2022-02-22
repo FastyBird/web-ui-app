@@ -1,6 +1,6 @@
 @import "../../../assets/components/ui/fb-result-err";
 
-.fb-ui-result-err {
+.fb-theme-ui-result-err {
   &__container {
     width: $result-icon-width;
     display: block;
@@ -23,13 +23,13 @@
       }
 
       circle {
-        animation: fb-ui-result-err-dash 0.9s ease-in-out;
+        animation: fb-theme-ui-result-err-dash 0.9s ease-in-out;
       }
 
       line {
         stroke-dashoffset: 1000;
         stroke-linecap: round;
-        animation: fb-ui-result-err-dash 0.9s 0.35s ease-in-out forwards;
+        animation: fb-theme-ui-result-err-dash 0.9s 0.35s ease-in-out forwards;
       }
     }
   }
@@ -39,7 +39,7 @@
   }
 }
 
-@keyframes fb-ui-result-err-dash {
+@keyframes fb-theme-ui-result-err-dash {
   0% {
     stroke-dashoffset: 1000;
   }

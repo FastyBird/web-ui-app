@@ -1,18 +1,18 @@
 <template>
   <div
     :data-variant="variant"
-    class="fb-ui-alert__container"
+    class="fb-theme-ui-alert__container"
     role="alert"
   >
     <div
       v-if="'icon' in $slots"
-      class="fb-ui-alert__with-icon"
+      class="fb-theme-ui-alert__with-icon"
     >
-      <div class="fb-ui-alert__with-icon-icon">
+      <div class="fb-theme-ui-alert__with-icon-icon">
         <slot name="icon" />
       </div>
 
-      <div class="fb-ui-alert__with-icon-content">
+      <div class="fb-theme-ui-alert__with-icon-content">
         <slot />
       </div>
     </div>

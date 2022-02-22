@@ -1,13 +1,13 @@
 <template>
   <div
     :data-size="size"
-    class="fb-ui-component-loading__container"
+    class="fb-theme-ui-component-loading__container"
   >
-    <div class="fb-ui-component-loading__icon">
+    <div class="fb-theme-ui-component-loading__icon">
       <fb-ui-spinner :size="size" />
     </div>
 
-    <p class="fb-ui-component-loading__text">
+    <p class="fb-theme-ui-component-loading__text">
       {{ text }}
     </p>
   </div>

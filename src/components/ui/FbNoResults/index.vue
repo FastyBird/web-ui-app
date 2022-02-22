@@ -2,7 +2,7 @@
   <div
     :data-size="size"
     :data-variant="variant"
-    class="fb-ui-no-results__container"
+    class="fb-theme-ui-no-results__container"
   >
     <fb-ui-icon-with-child
       v-if="'second-icon' in $slots"

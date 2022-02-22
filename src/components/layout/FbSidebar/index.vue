@@ -1,34 +1,34 @@
 <template>
   <div
     v-if="'header' in $slots || 'content' in $slots || 'footer' in $slots"
-    class="fb-layout-sidebar__container"
+    class="fb-theme-layout-sidebar__container"
   >
     <transition name="sidebar-overlay">
       <div
         v-if="!collapsed"
-        class="fb-layout-sidebar__overlay"
+        class="fb-theme-layout-sidebar__overlay"
         @click.prevent="$emit('collapse', $event)"
       />
     </transition>
 
-    <div :class="['fb-layout-sidebar__inner', {'fb-layout-sidebar__inner-open': !collapsed}]">
+    <div :class="['fb-theme-layout-sidebar__inner', {'fb-theme-layout-sidebar__inner-open': !collapsed}]">
       <div
         v-if="'header' in $slots"
-        class="fb-layout-sidebar__header"
+        class="fb-theme-layout-sidebar__header"
       >
         <slot name="header" />
       </div>
 
       <div
         v-if="'content' in $slots"
-        class="fb-layout-sidebar__content"
+        class="fb-theme-layout-sidebar__content"
       >
         <slot name="content" />
       </div>
 
       <div
         v-if="'footer' in $slots"
-        class="fb-layout-sidebar__footer"
+        class="fb-theme-layout-sidebar__footer"
       >
         <slot name="footer" />
       </div>

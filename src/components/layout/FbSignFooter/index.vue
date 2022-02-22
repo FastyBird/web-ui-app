@@ -1,5 +1,5 @@
 <template>
-  <div class="fb-layout-sign-footer__container">
+  <div class="fb-theme-layout-sign-footer__container">
     <slot name="info" />
 
     <ul>

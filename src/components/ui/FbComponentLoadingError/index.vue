@@ -1,9 +1,9 @@
 <template>
   <div
     :data-size="size"
-    class="fb-ui-component-loading-error__container"
+    class="fb-theme-ui-component-loading-error__container"
   >
-    <div class="fb-ui-component-loading-error__icon">
+    <div class="fb-theme-ui-component-loading-error__icon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 576 512"
@@ -12,7 +12,7 @@
       </svg>
     </div>
 
-    <p class="fb-ui-component-loading-error__text">
+    <p class="fb-theme-ui-component-loading-error__text">
       {{ text }}
     </p>
   </div>

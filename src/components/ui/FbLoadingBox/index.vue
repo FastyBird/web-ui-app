@@ -1,15 +1,15 @@
 <template>
-  <transition :name="animation ? 'fb-ui-loading-box-bounce' : 'none'">
+  <transition :name="animation ? 'fb-theme-ui-loading-box-bounce' : 'none'">
     <div
       :data-variant="variant"
       :data-size="size"
       :data-full-screen="fullScreen"
-      class="fb-ui-loading-box__container"
+      class="fb-theme-ui-loading-box__container"
     >
-      <div class="fb-ui-loading-box__inner">
+      <div class="fb-theme-ui-loading-box__inner">
         <div
           v-if="'icon' in $slots"
-          class="fb-ui-loading-box__icon"
+          class="fb-theme-ui-loading-box__icon"
         >
           <slot name="icon" />
         </div>
@@ -21,7 +21,7 @@
 
         <div
           v-if="'default' in $slots"
-          class="fb-ui-loading-box__content"
+          class="fb-theme-ui-loading-box__content"
         >
           <slot />
         </div>

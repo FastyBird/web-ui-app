@@ -1,21 +1,21 @@
 <template>
   <div
     :data-layout="layout"
-    class="fb-ui-modal-header__container"
+    class="fb-theme-ui-modal-header__container"
   >
-    <div class="fb-ui-modal-header__inner">
+    <div class="fb-theme-ui-modal-header__inner">
       <template v-if="layout === modalVariantTypes.PHONE || layout === modalVariantTypes.TABLET">
-        <div class="fb-ui-modal-header__heading">
+        <div class="fb-theme-ui-modal-header__heading">
           <div
             v-if="'title' in $slots && !('description' in $slots)"
-            class="fb-ui-modal-header__heading-title"
+            class="fb-theme-ui-modal-header__heading-title"
           >
-            <h4 class="fb-ui-modal-header__heading-title-heading">
+            <h4 class="fb-theme-ui-modal-header__heading-title-heading">
               <slot name="title" />
 
               <small
                 v-if="'subtitle' in $slots"
-                class="fb-ui-modal-header__heading-title-small"
+                class="fb-theme-ui-modal-header__heading-title-small"
               >
                 <slot name="subtitle" />
               </small>
@@ -23,7 +23,7 @@
           </div>
         </div>
 
-        <div class="fb-ui-modal-header__left-button">
+        <div class="fb-theme-ui-modal-header__left-button">
           <slot
             v-if="showLeftBtn"
             name="left-button"
@@ -39,7 +39,7 @@
           </slot>
         </div>
 
-        <div class="fb-ui-modal-header__right-button">
+        <div class="fb-theme-ui-modal-header__right-button">
           <slot
             v-if="showRightBtn"
             name="right-button"
@@ -59,25 +59,25 @@
       <template v-else>
         <div
           v-if="!('description' in $slots)"
-          class="fb-ui-modal-header__heading"
+          class="fb-theme-ui-modal-header__heading"
         >
           <div
             v-if="'icon' in $slots"
-            class="fb-ui-modal-header__heading-icon"
+            class="fb-theme-ui-modal-header__heading-icon"
           >
             <slot name="icon" />
           </div>
 
           <div
             v-if="'title' in $slots"
-            class="fb-ui-modal-header__heading-title"
+            class="fb-theme-ui-modal-header__heading-title"
           >
-            <h4 class="fb-ui-modal-header__heading-title-heading">
+            <h4 class="fb-theme-ui-modal-header__heading-title-heading">
               <slot name="title" />
 
               <small
                 v-if="'subtitle' in $slots"
-                class="fb-ui-modal-header__heading-title-small"
+                class="fb-theme-ui-modal-header__heading-title-small"
               >
                 <slot name="subtitle" />
               </small>
@@ -88,11 +88,11 @@
         <template v-if="enableClosing">
           <button
             type="button"
-            class="fb-ui-modal-header__close"
+            class="fb-theme-ui-modal-header__close"
             @click.prevent="$emit('close', $event)"
           >
             <span aria-hidden="true">×</span>
-            <span class="fb-ui-modal-header__close-text">{{ closeBtnLabel }}</span>
+            <span class="fb-theme-ui-modal-header__close-text">{{ closeBtnLabel }}</span>
           </button>
         </template>
       </template>
@@ -100,32 +100,32 @@
 
     <div
       v-if="'description' in $slots"
-      class="fb-ui-modal-header__description"
+      class="fb-theme-ui-modal-header__description"
     >
       <div
         v-if="'icon' in $slots"
-        class="fb-ui-modal-header__description-icon"
+        class="fb-theme-ui-modal-header__description-icon"
       >
         <slot name="icon" />
       </div>
 
       <div
         v-if="'title' in $slots"
-        class="fb-ui-modal-header__description-title"
+        class="fb-theme-ui-modal-header__description-title"
       >
-        <h4 class="fb-ui-modal-header__description-title-heading">
+        <h4 class="fb-theme-ui-modal-header__description-title-heading">
           <slot name="title" />
 
           <small
             v-if="'subtitle' in $slots"
-            class="fb-ui-modal-header__description-title-small"
+            class="fb-theme-ui-modal-header__description-title-small"
           >
             <slot name="subtitle" />
           </small>
         </h4>
       </div>
 
-      <div class="fb-ui-modal-header__description-content">
+      <div class="fb-theme-ui-modal-header__description-content">
         <slot name="description" />
       </div>
     </div>

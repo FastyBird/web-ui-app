@@ -1,7 +1,7 @@
 <template>
-  <div class="fb-ui-items-container__container">
-    <div class="fb-ui-items-container__heading-container">
-      <div class="fb-ui-items-container__heading">
+  <div class="fb-theme-ui-items-container__container">
+    <div class="fb-theme-ui-items-container__heading-container">
+      <div class="fb-theme-ui-items-container__heading">
         <h3>
           <slot name="heading" />
           <small v-if="'subheading' in $slots"><slot name="subheading" /></small>
@@ -10,7 +10,7 @@
 
       <div
         v-if="'buttons' in $slots"
-        class="fb-ui-items-container__buttons"
+        class="fb-theme-ui-items-container__buttons"
       >
         <slot name="buttons" />
       </div>

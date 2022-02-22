@@ -2,7 +2,7 @@
   <label
     :data-size="size"
     :data-error="hasError"
-    class="fb-form-checkbox__container"
+    class="fb-theme-form-checkbox__container"
   >
     <input
       :id="id ? id : name"
@@ -12,16 +12,16 @@
       :readonly="readonly"
       :disabled="disabled"
       :tabindex="tabIndex"
-      class="fb-form-checkbox__input"
+      class="fb-theme-form-checkbox__input"
       type="checkbox"
       @change="handleChange"
     >
 
-    <span class="fb-form-checkbox__indicator" />
+    <span class="fb-theme-form-checkbox__indicator" />
 
     <span
       v-if="'default' in $slots || label !== null"
-      class="fb-form-checkbox__label"
+      class="fb-theme-form-checkbox__label"
     >
       <slot>{{ label }}</slot>
     </span>

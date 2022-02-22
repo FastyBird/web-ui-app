@@ -1,13 +1,13 @@
 <template>
-  <div class="fb-ui-media-item__container">
+  <div class="fb-theme-ui-media-item__container">
     <div
       v-if="'left' in $slots"
-      class="fb-ui-media-item__left"
+      class="fb-theme-ui-media-item__left"
     >
       <slot name="left" />
     </div>
 
-    <div class="fb-ui-media-item__body">
+    <div class="fb-theme-ui-media-item__body">
       <h3>
         <slot name="heading" />
       </h3>
@@ -23,7 +23,7 @@
 
     <div
       v-if="'right' in $slots"
-      class="fb-ui-media-item__right"
+      class="fb-theme-ui-media-item__right"
     >
       <slot name="right" />
     </div>

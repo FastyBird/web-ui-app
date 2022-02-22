@@ -1,6 +1,6 @@
 @import "../../../assets/components/ui/fb-modal-form";
 
-.fb-ui-modal-form {
+.fb-theme-ui-modal-form {
   &__form {
     height: 100%;
     max-height: 100%;
@@ -21,21 +21,21 @@
     align-items: center;
     z-index: $result-z-index;
 
-    .fb-ui-spinner__container {
+    .fb-theme-ui-spinner__container {
       width: 10rem;
       height: 10rem;
     }
 
-    .fb-ui-spinner__container::before,
-    .fb-ui-spinner__container::after {
+    .fb-theme-ui-spinner__container::before,
+    .fb-theme-ui-spinner__container::after {
       width: 10rem;
       height: 10rem;
       margin: -5rem 0 0 -5rem;
       border-width: 4px;
     }
 
-    .fb-ui-result-ok__container,
-    .fb-ui-result-err__container {
+    .fb-theme-ui-result-ok__container,
+    .fb-theme-ui-result-err__container {
       width: 10rem;
       height: 10rem;
     }

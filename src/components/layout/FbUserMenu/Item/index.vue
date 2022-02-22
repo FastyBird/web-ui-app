@@ -1,5 +1,5 @@
 <template>
-  <li class="fb-layout-user-menu-item__container">
+  <li class="fb-theme-layout-user-menu-item__container">
     <template v-if="type === menuItemTypes.LINK">
       <a
         :href="link"
@@ -12,7 +12,7 @@
     <template v-else-if="type === menuItemTypes.NUXT_LINK">
       <nuxt-link
         :to="link"
-        active-class="fb-layout-user-menu-item__active"
+        active-class="fb-theme-layout-user-menu-item__active"
         @click.prevent="$emit('click', $event)"
       >
         {{ label }}
@@ -22,7 +22,7 @@
     <template v-else-if="type === menuItemTypes.VUE_LINK">
       <router-link
         :to="link"
-        active-class="fb-layout-user-menu-item__active"
+        active-class="fb-theme-layout-user-menu-item__active"
         @click.prevent="$emit('click', $event)"
       >
         {{ label }}

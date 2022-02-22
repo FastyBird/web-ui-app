@@ -5,7 +5,7 @@
   --------------------------------------------------
  */
 
-.fb-ui-button {
+.fb-theme-ui-button {
   display: inline-block;
   margin: 0;
   font-family: $btn-font-family;
@@ -75,7 +75,7 @@
       $btn-border-radius-large
     );
 
-    .fb-ui-button {
+    .fb-theme-ui-button {
       &__inner {
         &-label {
           padding-left: $btn-padding-lg-horizontal-icon;
@@ -99,7 +99,7 @@
       $btn-border-radius-base
     );
 
-    .fb-ui-button {
+    .fb-theme-ui-button {
       &__inner {
         &-label {
           padding-left: $btn-padding-md-horizontal-icon;
@@ -123,7 +123,7 @@
       $btn-border-radius-small
     );
 
-    .fb-ui-button {
+    .fb-theme-ui-button {
       &__inner {
         &-label {
           padding-left: $btn-padding-sm-horizontal-icon;
@@ -147,7 +147,7 @@
       $btn-border-radius-small
     );
 
-    .fb-ui-button {
+    .fb-theme-ui-button {
       &__inner {
         &-label {
           padding-left: $btn-padding-xs-horizontal-icon;
@@ -170,12 +170,12 @@
   &[data-variant="default"] {
     @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
       @include background-opacity($btn-default-bg, 0.65);
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -184,12 +184,12 @@
   &[data-variant="primary"] {
     @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
       @include background-opacity($btn-primary-bg, 0.65);
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -198,12 +198,12 @@
   &[data-variant="success"] {
     @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
       @include background-opacity($btn-success-bg, 0.65);
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -212,12 +212,12 @@
   &[data-variant="info"] {
     @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
       @include background-opacity($btn-info-bg, 0.65);
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -226,12 +226,12 @@
   &[data-variant="warning"] {
     @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
       @include background-opacity($btn-warning-bg, 0.65);
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -240,12 +240,12 @@
   &[data-variant="danger"] {
     @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
       @include background-opacity($btn-danger-bg, 0.65);
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -254,10 +254,10 @@
   &[data-variant="outline-default"] {
     @include button-outline-variant($btn-default-border, $btn-default-color);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -266,10 +266,10 @@
   &[data-variant="outline-primary"] {
     @include button-outline-variant($btn-primary-border, $btn-primary-color);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -278,10 +278,10 @@
   &[data-variant="outline-success"] {
     @include button-outline-variant($btn-success-border, $btn-success-color);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -290,10 +290,10 @@
   &[data-variant="outline-info"] {
     @include button-outline-variant($btn-info-border, $btn-info-color);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -302,10 +302,10 @@
   &[data-variant="outline-warning"] {
     @include button-outline-variant($btn-warning-border, $btn-warning-color);
 
-    &.fb-ui-button-loading {
+    &.fb-theme-ui-button-loading {
       color: transparent;
 
-      .fb-ui-button__inner-icon {
+      .fb-theme-ui-button__inner-icon {
         visibility: hidden;
       }
     }
@@ -338,7 +338,7 @@
     --------------------------------------------------
    */
 
-  &.fb-ui-button-block {
+  &.fb-theme-ui-button-block {
     display: block;
     width: 100%;
   }
@@ -348,7 +348,7 @@
     --------------------------------------------------
    */
 
-  &.fb-ui-button-pill {
+  &.fb-theme-ui-button-pill {
     border-radius: $btn-pill-border-radius;
     padding-left: $btn-pill-padding-horizontal;
     padding-right: $btn-pill-padding-horizontal;
@@ -359,7 +359,7 @@
     --------------------------------------------------
    */
 
-  &.fb-ui-button-thick {
+  &.fb-theme-ui-button-thick {
     border-width: $btn-thick-border-width;
     font-weight: $btn-thick-font-weight;
   }
@@ -369,7 +369,7 @@
     --------------------------------------------------
    */
 
-  &.fb-ui-button-uppercase {
+  &.fb-theme-ui-button-uppercase {
     text-transform: uppercase;
   }
 

@@ -1,9 +1,9 @@
 <template>
   <div
     :data-type="type"
-    class="fb-ui-divider__container"
+    class="fb-theme-ui-divider__container"
   >
-    <div class="fb-ui-divider__content">
+    <div class="fb-theme-ui-divider__content">
       <slot />
     </div>
   </div>

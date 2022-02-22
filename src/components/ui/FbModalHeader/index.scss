@@ -1,6 +1,6 @@
 @import "../../../assets/components/ui/fb-modal-header";
 
-.fb-ui-modal-header {
+.fb-theme-ui-modal-header {
   &__inner {
     padding: $header-padding;
     height: $header-height;
@@ -134,7 +134,7 @@
 
     &[data-layout="phone"],
     &[data-layout="tablet"] {
-      .fb-ui-modal-header {
+      .fb-theme-ui-modal-header {
         &__inner {
           padding: 0;
         }
@@ -160,7 +160,7 @@
           flex-grow: 1;
           flex-basis: 10%;
 
-          .fb-ui-button {
+          .fb-theme-ui-button {
             color: $header-color;
 
             &:hover,

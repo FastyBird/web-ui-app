@@ -2,7 +2,7 @@
 @use "sass:color";
 @import "../../../assets/components/form/fb-radio-button";
 
-.fb-form-radio-button {
+.fb-theme-form-radio-button {
   &__container {
     display: inline-block;
     position: relative;
@@ -16,7 +16,7 @@
     vertical-align: middle;
     user-select: text;
 
-    .fb-form-radio-button {
+    .fb-theme-form-radio-button {
       &__indicator {
         background-color: $radio-indicator-bg-color;
         border-color: $radio-indicator-border-color;
@@ -34,7 +34,7 @@
     }
 
     &[data-error="true"] {
-      .fb-form-radio-button {
+      .fb-theme-form-radio-button {
         &__indicator {
           border-color: $radio-error-color;
         }
@@ -49,22 +49,22 @@
   &__input {
     display: none;
 
-    &:checked ~ .fb-form-radio-button__indicator {
+    &:checked ~ .fb-theme-form-radio-button__indicator {
       border-color: $radio-indicator-checked-border-color;
       border-width: 0.3rem;
       background-color: $radio-indicator-checked-bg-color;
     }
 
-    &:active ~ .fb-form-radio-button__indicator {
+    &:active ~ .fb-theme-form-radio-button__indicator {
       border-color: $radio-indicator-checked-border-color;
       background-color: color.adjust($radio-indicator-checked-bg-color, $lightness: 25%);
     }
 
-    &:disabled ~ .fb-form-radio-button__indicator {
+    &:disabled ~ .fb-theme-form-radio-button__indicator {
       background-color: $radio-indicator-disabled-bg-color;
     }
 
-    &:disabled:checked ~ .fb-form-radio-button__indicator {
+    &:disabled:checked ~ .fb-theme-form-radio-button__indicator {
       background-color: $radio-indicator-disabled-bg-color;
     }
   }

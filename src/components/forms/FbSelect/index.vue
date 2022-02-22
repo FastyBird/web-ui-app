@@ -34,7 +34,7 @@
         :tabindex="tabIndex"
         :disabled="disabled"
         :readonly="readonly"
-        class="fb-form-select__control"
+        class="fb-theme-form-select__control"
         @input="handleUpdateValue($event.target.value)"
         @focus="handleSetFocus(true)"
         @blur="handleSetFocus(false)"

@@ -1,6 +1,6 @@
 @import "../../../assets/components/ui/fb-divider";
 
-.fb-ui-divider {
+.fb-theme-ui-divider {
   &__container {
     font-family: $divider-font-family;
     font-size: $divider-font-size;
@@ -19,7 +19,7 @@
         transform: translateX(-50%);
         z-index: 2;
 
-        .fb-ui-divider__content {
+        .fb-theme-ui-divider__content {
           padding: 0.5rem 0;
           top: 50%;
           transform: translateY(-50%);

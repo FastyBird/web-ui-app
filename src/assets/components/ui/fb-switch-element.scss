@@ -22,20 +22,20 @@ $thumb-background-color: #fff;
 @mixin switch-variant($color) {
   input {
     &:checked {
-      ~ .fb-ui-switch-element__track {
+      ~ .fb-theme-ui-switch-element__track {
         background-color: $color;
       }
 
-      ~ .fb-ui-switch-element__thumb {
+      ~ .fb-theme-ui-switch-element__thumb {
         border-color: $color;
       }
 
       &:disabled {
-        ~ .fb-ui-switch-element__track {
+        ~ .fb-theme-ui-switch-element__track {
           background-color: color.adjust($color, $lightness: 30%);
         }
 
-        ~ .fb-ui-switch-element__thumb {
+        ~ .fb-theme-ui-switch-element__thumb {
           border-color: color.adjust($color, $lightness: 30%);
         }
       }

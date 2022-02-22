@@ -1,5 +1,5 @@
 <template>
-  <li class="fb-layout-user-menu-divider__container" />
+  <li class="fb-theme-layout-user-menu-divider__container" />
 </template>
 
 <script lang="ts">

@@ -4,25 +4,25 @@
       v-show="show"
       id="fb-modal-container"
       v-body-scroll-lock="show"
-      :class="['fb-ui-modal-window__container', {'fb-ui-modal-window__container-transparent': transparentBg}]"
+      :class="['fb-theme-ui-modal-window__container', {'fb-theme-ui-modal-window__container-transparent': transparentBg}]"
       :data-size="size"
       :data-layout="layout"
       role="dialog"
       @keyup.esc="closeModal"
       @click="clickOverlay"
     >
-      <div class="fb-ui-modal-window__window">
+      <div class="fb-theme-ui-modal-window__window">
         <div
           ref="element"
           :style="{width: optionalWidth}"
-          class="fb-ui-modal-window__dialog"
+          class="fb-theme-ui-modal-window__dialog"
           role="document"
           tabindex="1"
         >
           <transition name="modal-bounce">
             <div
               v-if="loader"
-              class="fb-ui-modal-window__loading"
+              class="fb-theme-ui-modal-window__loading"
             >
               <slot name="loader">
                 <fb-ui-loading-box :size="sizeTypes.LARGE">
@@ -93,7 +93,7 @@
               </fb-ui-modal-header>
             </slot>
 
-            <div class="fb-ui-modal-window__body">
+            <div class="fb-theme-ui-modal-window__body">
               <fb-ui-transition-expand>
                 <slot name="body" />
               </fb-ui-transition-expand>
@@ -101,7 +101,7 @@
 
             <div
               v-if="showFooter && layout !== modalLayoutTypes.PHONE && layout !== modalLayoutTypes.TABLET"
-              class="fb-ui-modal-window__footer"
+              class="fb-theme-ui-modal-window__footer"
             >
               <slot name="footer">
                 <slot
