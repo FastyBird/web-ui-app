@@ -75,23 +75,6 @@
         }
       }
 
-      &__grouped-input-field {
-        display: table-cell;
-        position: relative;
-
-        &-left-addon {
-          :deep(.fb-theme-form-input__control) {
-            @include field-remove-left-border-radius;
-          }
-        }
-
-        &-right-addon {
-          :deep(.fb-theme-form-input__control) {
-            @include field-remove-right-border-radius;
-          }
-        }
-      }
-
       &__input-field {
         position: relative;
         flex-grow: 2;
@@ -107,6 +90,23 @@
 
         :deep(svg) {
           fill: $field-error-color;
+        }
+      }
+
+      &__grouped-input-field {
+        display: table-cell;
+        position: relative;
+
+        &-left-addon {
+          :deep(.fb-theme-form-input__control) {
+            @include field-remove-left-border-radius;
+          }
+        }
+
+        &-right-addon {
+          :deep(.fb-theme-form-input__control) {
+            @include field-remove-right-border-radius;
+          }
         }
       }
 

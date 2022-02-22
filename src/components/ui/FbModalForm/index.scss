@@ -26,18 +26,18 @@
       height: 10rem;
     }
 
+    :deep(.fb-theme-ui-result-ok__container),
+    :deep(.fb-theme-ui-result-err__container) {
+      width: 10rem;
+      height: 10rem;
+    }
+
     :deep(.fb-theme-ui-spinner__container::before),
     :deep(.fb-theme-ui-spinner__container::after) {
       width: 10rem;
       height: 10rem;
       margin: -5rem 0 0 -5rem;
       border-width: 4px;
-    }
-
-    :deep(.fb-theme-ui-result-ok__container),
-    :deep(.fb-theme-ui-result-err__container) {
-      width: 10rem;
-      height: 10rem;
     }
   }
 }
