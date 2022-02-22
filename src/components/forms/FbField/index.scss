@@ -1,13 +1,13 @@
 @use "sass:color";
 @import "../../../assets/components/form/fb-field";
 
-.fb-form-field {
+.fb-theme-form-field {
   &__container {
     font-family: $field-font-family;
     font-size: $field-font-size;
     position: relative;
 
-    .fb-form-field__input-group {
+    .fb-theme-form-field__input-group {
       position: relative;
       display: table;
       border-collapse: separate;
@@ -46,7 +46,7 @@
       }
     }
 
-    .fb-form-field {
+    .fb-theme-form-field {
       &__input-group-addon {
         display: table-cell;
         width: 1%;
@@ -80,13 +80,13 @@
         position: relative;
 
         &-left-addon {
-          .fb-form-input__control {
+          .fb-theme-form-input__control {
             @include field-remove-left-border-radius;
           }
         }
 
         &-right-addon {
-          .fb-form-input__control {
+          .fb-theme-form-input__control {
             @include field-remove-right-border-radius;
           }
         }
@@ -125,7 +125,7 @@
     }
 
     &[data-size="lg"] {
-      .fb-form-field__input-feedback {
+      .fb-theme-form-field__input-feedback {
         width: $field-size-lg-feedback-size;
         height: $field-size-lg-feedback-size;
         line-height: $field-size-lg-feedback-size;
@@ -134,7 +134,7 @@
     }
 
     &[data-size="md"] {
-      .fb-form-field__input-feedback {
+      .fb-theme-form-field__input-feedback {
         width: $field-size-md-feedback-size;
         height: $field-size-md-feedback-size;
         line-height: $field-size-md-feedback-size;
@@ -143,7 +143,7 @@
     }
 
     &[data-size="sm"] {
-      .fb-form-field__input-feedback {
+      .fb-theme-form-field__input-feedback {
         width: $field-size-sm-feedback-size;
         height: $field-size-sm-feedback-size;
         line-height: $field-size-sm-feedback-size;

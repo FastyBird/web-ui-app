@@ -1,7 +1,7 @@
 <template>
   <div
     :data-size="size"
-    class="fb-ui-result-err__container"
+    class="fb-theme-ui-result-err__container"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@
 
     <div
       v-if="'default' in $slots"
-      class="fb-ui-result-err__content"
+      class="fb-theme-ui-result-err__content"
     >
       <slot />
     </div>
@@ -69,6 +69,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

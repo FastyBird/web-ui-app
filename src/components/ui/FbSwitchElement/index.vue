@@ -2,7 +2,7 @@
   <label
     :data-variant="variant"
     :data-size="size"
-    class="fb-ui-switch-element__container"
+    class="fb-theme-ui-switch-element__container"
   >
     <input
       :checked="status"
@@ -10,8 +10,8 @@
       type="checkbox"
       @change.prevent="$emit('change')"
     >
-    <span class="fb-ui-switch-element__track" />
-    <span class="fb-ui-switch-element__thumb" />
+    <span class="fb-theme-ui-switch-element__track" />
+    <span class="fb-theme-ui-switch-element__thumb" />
   </label>
 </template>
 
@@ -78,6 +78,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

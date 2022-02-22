@@ -31,14 +31,14 @@
 
     <template #body>
       <form
-        class="fb-ui-modal-form__form"
+        class="fb-theme-ui-modal-form__form"
         @submit.prevent="$emit('submit', $event)"
       >
         <slot name="form" />
 
         <div
           v-if="[resultTypes.WORKING, resultTypes.OK, resultTypes.ERROR].includes(state)"
-          class="fb-ui-modal-form__result"
+          class="fb-theme-ui-modal-form__result"
         >
           <fb-ui-loading-box
             v-if="state === resultTypes.WORKING"
@@ -228,6 +228,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

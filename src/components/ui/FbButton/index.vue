@@ -11,14 +11,14 @@
     >
       <div
         v-if="'icon' in $slots && 'default' in $slots"
-        class="fb-ui-button__inner"
+        class="fb-theme-ui-button__inner"
       >
-        <div class="fb-ui-button__inner-icon">
+        <div class="fb-theme-ui-button__inner-icon">
           <slot name="icon" />
         </div>
         <div
           v-if="'default' in $slots"
-          class="fb-ui-button__inner-label"
+          class="fb-theme-ui-button__inner-label"
         >
           <slot />
         </div>
@@ -26,7 +26,7 @@
 
       <div
         v-else-if="'icon' in $slots"
-        class="fb-ui-button__icon"
+        class="fb-theme-ui-button__icon"
       >
         <slot name="icon" />
       </div>
@@ -37,7 +37,7 @@
 
       <span
         v-if="loading"
-        class="fb-ui-button__loading"
+        class="fb-theme-ui-button__loading"
       >
         <fb-ui-spinner
           :size="size"
@@ -59,14 +59,14 @@
     >
       <div
         v-if="'icon' in $slots && 'default' in $slots"
-        class="fb-ui-button__inner"
+        class="fb-theme-ui-button__inner"
       >
-        <div class="fb-ui-button__inner-icon">
+        <div class="fb-theme-ui-button__inner-icon">
           <slot name="icon" />
         </div>
         <div
           v-if="'default' in $slots"
-          class="fb-ui-button__inner-label"
+          class="fb-theme-ui-button__inner-label"
         >
           <slot />
         </div>
@@ -74,7 +74,7 @@
 
       <div
         v-else-if="'icon' in $slots"
-        class="fb-ui-button__icon"
+        class="fb-theme-ui-button__icon"
       >
         <slot name="icon" />
       </div>
@@ -85,7 +85,7 @@
 
       <span
         v-if="loading"
-        class="fb-ui-button__loading"
+        class="fb-theme-ui-button__loading"
       >
         <fb-ui-spinner
           :size="size"
@@ -107,14 +107,14 @@
     >
       <div
         v-if="'icon' in $slots && 'default' in $slots"
-        class="fb-ui-button__inner"
+        class="fb-theme-ui-button__inner"
       >
-        <div class="fb-ui-button__inner-icon">
+        <div class="fb-theme-ui-button__inner-icon">
           <slot name="icon" />
         </div>
         <div
           v-if="'default' in $slots"
-          class="fb-ui-button__inner-label"
+          class="fb-theme-ui-button__inner-label"
         >
           <slot />
         </div>
@@ -122,7 +122,7 @@
 
       <div
         v-else-if="'icon' in $slots"
-        class="fb-ui-button__icon"
+        class="fb-theme-ui-button__icon"
       >
         <slot name="icon" />
       </div>
@@ -133,7 +133,7 @@
 
       <span
         v-if="loading"
-        class="fb-ui-button__loading"
+        class="fb-theme-ui-button__loading"
       >
         <fb-ui-spinner
           :size="size"
@@ -156,14 +156,14 @@
     >
       <div
         v-if="'icon' in $slots && 'default' in $slots"
-        class="fb-ui-button__inner"
+        class="fb-theme-ui-button__inner"
       >
-        <div class="fb-ui-button__inner-icon">
+        <div class="fb-theme-ui-button__inner-icon">
           <slot name="icon" />
         </div>
         <div
           v-if="'default' in $slots"
-          class="fb-ui-button__inner-label"
+          class="fb-theme-ui-button__inner-label"
         >
           <slot />
         </div>
@@ -171,7 +171,7 @@
 
       <div
         v-else-if="'icon' in $slots"
-        class="fb-ui-button__icon"
+        class="fb-theme-ui-button__icon"
       >
         <slot name="icon" />
       </div>
@@ -182,7 +182,7 @@
 
       <span
         v-if="loading"
-        class="fb-ui-button__loading"
+        class="fb-theme-ui-button__loading"
       >
         <fb-ui-spinner
           :size="size"
@@ -426,6 +426,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

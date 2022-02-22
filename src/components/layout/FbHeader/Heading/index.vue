@@ -3,8 +3,8 @@
     to="#fb-layout-header-heading"
     :disabled="!teleport"
   >
-    <div class="fb-layout-phone-header-heading__container">
-      <div :class="['fb-layout-phone-header-heading__heading', `fb-layout-phone-header-heading__heading-${align}`]">
+    <div class="fb-theme-layout-phone-header-heading__container">
+      <div :class="['fb-theme-layout-phone-header-heading__heading', `fb-theme-layout-phone-header-heading__heading-${align}`]">
         <h1 v-if="subHeading === null">
           {{ heading }}
         </h1>
@@ -17,7 +17,7 @@
 
       <div
         v-if="'icon' in $slots"
-        class="fb-layout-phone-header-heading__icon"
+        class="fb-theme-layout-phone-header-heading__icon"
       >
         <slot name="icon" />
       </div>
@@ -68,6 +68,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

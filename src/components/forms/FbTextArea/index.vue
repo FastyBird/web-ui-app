@@ -37,7 +37,7 @@
         :value="modelValue"
         :placeholder="error !== null && !isFocused ? error : placeholder"
         :rows="rows"
-        class="fb-form-textarea__control"
+        class="fb-theme-form-textarea__control"
         @input="handleUpdateValue($event.target.value)"
         @focus="handleSetFocus(true)"
         @blur="handleSetFocus(false)"
@@ -199,6 +199,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

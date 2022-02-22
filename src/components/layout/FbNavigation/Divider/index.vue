@@ -1,5 +1,5 @@
 <template>
-  <li class="fb-layout-navigation-divider__container" />
+  <li class="fb-theme-layout-navigation-divider__container" />
 </template>
 
 <script lang="ts">
@@ -12,6 +12,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

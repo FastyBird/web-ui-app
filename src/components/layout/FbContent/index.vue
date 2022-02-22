@@ -1,19 +1,19 @@
 <template>
-  <div class="fb-layout-content__container">
+  <div class="fb-theme-layout-content__container">
     <div
       v-if="'header' in $slots"
-      class="fb-layout-content__header"
+      class="fb-theme-layout-content__header"
     >
       <slot name="header" />
     </div>
 
-    <div class="fb-layout-content__content">
+    <div class="fb-theme-layout-content__content">
       <slot />
     </div>
 
     <div
       v-if="'footer' in $slots"
-      class="fb-layout-content__footer"
+      class="fb-theme-layout-content__footer"
     >
       <slot name="footer" />
     </div>
@@ -30,6 +30,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

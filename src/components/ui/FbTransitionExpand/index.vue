@@ -68,11 +68,11 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>
 
-<style rel="stylesheet/scss" scoped>
+<style rel="stylesheet/scss" lang="scss" scoped>
 * {
   will-change: height;
   transform: translateZ(0);

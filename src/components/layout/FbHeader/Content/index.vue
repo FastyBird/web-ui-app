@@ -3,7 +3,7 @@
     to="#fb-layout-header-sub-content"
     :disabled="!teleport"
   >
-    <div class="fb-layout-phone-header-content__container">
+    <div class="fb-theme-layout-phone-header-content__container">
       <slot />
     </div>
   </teleport>
@@ -31,6 +31,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

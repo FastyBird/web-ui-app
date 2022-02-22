@@ -3,7 +3,7 @@
     :to="`#${teleportTarget}`"
     :disabled="!teleport"
   >
-    <div :class="['fb-layout-header__spacer', {'fb-layout-header__spacer-left': left}, {'fb-layout-header__spacer-right': right}, {'fb-layout-header__spacer-center': !right && !left}]" />
+    <div :class="['fb-theme-layout-header__spacer', {'fb-theme-layout-header__spacer-left': left}, {'fb-theme-layout-header__spacer-right': right}, {'fb-theme-layout-header__spacer-center': !right && !left}]" />
   </teleport>
 </template>
 
@@ -60,6 +60,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

@@ -1,11 +1,11 @@
 @import "../../../assets/components/ui/fb-icon-with-child";
 
-.fb-ui-icon-with-child {
+.fb-theme-ui-icon-with-child {
   &__container {
     display: inline-block;
     position: relative;
 
-    .fb-ui-icon-with-child {
+    .fb-theme-ui-icon-with-child {
       &__icon {
         display: block;
         color: $main-icon-color;
@@ -29,7 +29,7 @@
       padding-bottom: 2px;
       line-height: $main-icon-size-lg;
 
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__icon {
           font-size: $main-icon-size-lg;
           height: $main-icon-size-lg;
@@ -48,7 +48,7 @@
       padding-bottom: 2px;
       line-height: $main-icon-size-md;
 
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__icon {
           font-size: $main-icon-size-md;
           height: $main-icon-size-md;
@@ -67,7 +67,7 @@
       padding-bottom: 2px;
       line-height: $main-icon-size-sm;
 
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__icon {
           font-size: $main-icon-size-sm;
           height: $main-icon-size-sm;
@@ -82,7 +82,7 @@
     }
 
     &[data-variant="default"] {
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__child-icon {
           color: $child-icon-default-color;
           background-color: $child-icon-default-bg;
@@ -92,7 +92,7 @@
     }
 
     &[data-variant="primary"] {
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__child-icon {
           color: $child-icon-primary-color;
           background-color: $child-icon-primary-bg;
@@ -102,7 +102,7 @@
     }
 
     &[data-variant="success"] {
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__child-icon {
           color: $child-icon-success-color;
           background-color: $child-icon-success-bg;
@@ -112,7 +112,7 @@
     }
 
     &[data-variant="danger"] {
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__child-icon {
           color: $child-icon-danger-color;
           background-color: $child-icon-danger-bg;
@@ -122,7 +122,7 @@
     }
 
     &[data-variant="warning"] {
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__child-icon {
           color: $child-icon-warning-color;
           background-color: $child-icon-warning-bg;
@@ -132,7 +132,7 @@
     }
 
     &[data-variant="info"] {
-      .fb-ui-icon-with-child {
+      .fb-theme-ui-icon-with-child {
         &__child-icon {
           color: $child-icon-info-color;
           background-color: $child-icon-info-bg;

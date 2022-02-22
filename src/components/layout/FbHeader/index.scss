@@ -1,6 +1,6 @@
 @import "../../../assets/components/layout/fb-header";
 
-.fb-layout-header {
+.fb-theme-layout-header {
   &__container {
     background-color: $header-background-color;
     color: $header-color;
@@ -105,7 +105,7 @@
       }
 
       &-opened {
-        .fb-layout-header {
+        .fb-theme-layout-header {
           &__button {
             &-hamburger {
               &-bars {

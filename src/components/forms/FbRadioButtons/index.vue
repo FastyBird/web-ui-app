@@ -13,7 +13,7 @@
       <div
         role="group"
         aria-label="radiobutton-group"
-        class="fb-form-radio-buttons__control"
+        class="fb-theme-form-radio-buttons__control"
       >
         <template
           v-for="(option, index) in options"
@@ -179,6 +179,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

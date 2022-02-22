@@ -2,7 +2,7 @@
   <label
     :data-size="size"
     :data-error="hasError"
-    class="fb-form-radio-button__container"
+    class="fb-theme-form-radio-button__container"
   >
     <input
       :id="id ? id : name"
@@ -12,16 +12,16 @@
       :readonly="readonly"
       :disabled="disabled"
       :tabindex="tabIndex"
-      class="fb-form-radio-button__input"
+      class="fb-theme-form-radio-button__input"
       type="radio"
       @change="handleChange"
     >
 
-    <span class="fb-form-radio-button__indicator" />
+    <span class="fb-theme-form-radio-button__indicator" />
 
     <span
       v-if="'default' in $slots || label !== null"
-      class="fb-form-radio-button__label"
+      class="fb-theme-form-radio-button__label"
     >
       <slot>{{ label }}</slot>
     </span>
@@ -148,6 +148,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

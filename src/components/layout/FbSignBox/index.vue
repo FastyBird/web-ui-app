@@ -1,6 +1,6 @@
 <template>
-  <div class="fb-layout-sign-box__container">
-    <div class="fb-layout-sign-box__container-inner">
+  <div class="fb-theme-layout-sign-box__container">
+    <div class="fb-theme-layout-sign-box__container-inner">
       <slot name="logo" />
 
       <slot />
@@ -18,6 +18,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

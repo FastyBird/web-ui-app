@@ -1,5 +1,5 @@
 <template>
-  <div :class="['fb-layout-tabs-item__container', {'fb-layout-tabs-item__container-active': active}]">
+  <div :class="['fb-theme-layout-tabs-item__container', {'fb-theme-layout-tabs-item__container-active': active}]">
     <template v-if="type === menuItemTypes.LINK">
       <fb-ui-button
         :href="link"
@@ -10,11 +10,11 @@
       >
         <span
           v-if="'icon' in $slots"
-          class="fb-layout-tabs-item__icon"
+          class="fb-theme-layout-tabs-item__icon"
         >
           <slot name="icon" />
         </span>
-        <span class="fb-layout-tabs-item__label">{{ label }}</span>
+        <span class="fb-theme-layout-tabs-item__label">{{ label }}</span>
       </fb-ui-button>
     </template>
 
@@ -28,11 +28,11 @@
       >
         <span
           v-if="'icon' in $slots"
-          class="fb-layout-tabs-item__icon"
+          class="fb-theme-layout-tabs-item__icon"
         >
           <slot name="icon" />
         </span>
-        <span class="fb-layout-tabs-item__label">{{ label }}</span>
+        <span class="fb-theme-layout-tabs-item__label">{{ label }}</span>
       </fb-ui-button>
     </template>
 
@@ -46,11 +46,11 @@
       >
         <span
           v-if="'icon' in $slots"
-          class="fb-layout-tabs-item__icon"
+          class="fb-theme-layout-tabs-item__icon"
         >
           <slot name="icon" />
         </span>
-        <span class="fb-layout-tabs-item__label">{{ label }}</span>
+        <span class="fb-theme-layout-tabs-item__label">{{ label }}</span>
       </fb-ui-button>
     </template>
   </div>
@@ -117,6 +117,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

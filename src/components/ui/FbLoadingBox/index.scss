@@ -1,6 +1,6 @@
 @import "../../../assets/components/ui/fb-loading-box";
 
-.fb-ui-loading-box {
+.fb-theme-ui-loading-box {
   &__container {
     font-family: $loading-font-family;
     text-align: center;
@@ -51,15 +51,15 @@
   }
 }
 
-.fb-ui-loading-box-bounce-enter-active {
-  animation: fb-ui-loading-box-bounce-in 0.25s;
+.fb-theme-ui-loading-box-bounce-enter-active {
+  animation: fb-theme-ui-loading-box-bounce-in 0.25s;
 }
 
-.fb-ui-loading-box-bounce-leave-active {
-  animation: fb-ui-loading-box-bounce-in 0.25s reverse;
+.fb-theme-ui-loading-box-bounce-leave-active {
+  animation: fb-theme-ui-loading-box-bounce-in 0.25s reverse;
 }
 
-@keyframes fb-ui-loading-box-bounce-in {
+@keyframes fb-theme-ui-loading-box-bounce-in {
   0% {
     transform: scale(0);
   }

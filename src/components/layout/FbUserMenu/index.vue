@@ -1,14 +1,14 @@
 <template>
   <div
     ref="container"
-    class="fb-layout-user-menu__container"
+    class="fb-theme-layout-user-menu__container"
   >
     <div
-      class="fb-layout-user-menu__button"
+      class="fb-theme-layout-user-menu__button"
       @click.prevent="toggle"
     >
-      <div class="fb-layout-user-menu__button-avatar">
-        <div class="fb-layout-user-menu__button-avatar-inner">
+      <div class="fb-theme-layout-user-menu__button-avatar">
+        <div class="fb-theme-layout-user-menu__button-avatar-inner">
           <slot
             v-if="'avatar' in $slots"
             name="avatar"
@@ -26,9 +26,9 @@
         </div>
       </div>
 
-      <div class="fb-layout-user-menu__button-name">
+      <div class="fb-theme-layout-user-menu__button-name">
         {{ name }}
-        <span class="fb-layout-user-menu__button-caret" />
+        <span class="fb-theme-layout-user-menu__button-caret" />
       </div>
     </div>
 
@@ -108,6 +108,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

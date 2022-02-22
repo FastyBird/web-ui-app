@@ -1,5 +1,5 @@
 <template>
-  <li class="fb-layout-navigation-item__container">
+  <li class="fb-theme-layout-navigation-item__container">
     <template v-if="type === menuItemTypes.LINK">
       <a
         :href="link"
@@ -7,43 +7,43 @@
       >
         <span
           v-if="'icon' in $slots"
-          class="fb-layout-navigation-item__icon"
+          class="fb-theme-layout-navigation-item__icon"
         >
           <slot name="icon" />
         </span>
-        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+        <span class="fb-theme-layout-navigation-item__label">{{ label }}</span>
       </a>
     </template>
 
     <template v-else-if="type === menuItemTypes.NUXT_LINK">
       <nuxt-link
         :to="link"
-        active-class="fb-layout-navigation-item__active"
+        active-class="fb-theme-layout-navigation-item__active"
         @click.prevent="$emit('click', $event)"
       >
         <span
           v-if="'icon' in $slots"
-          class="fb-layout-navigation-item__icon"
+          class="fb-theme-layout-navigation-item__icon"
         >
           <slot name="icon" />
         </span>
-        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+        <span class="fb-theme-layout-navigation-item__label">{{ label }}</span>
       </nuxt-link>
     </template>
 
     <template v-else-if="type === menuItemTypes.VUE_LINK">
       <router-link
         :to="link"
-        active-class="fb-layout-navigation-item__active"
+        active-class="fb-theme-layout-navigation-item__active"
         @click.prevent="$emit('click', $event)"
       >
         <span
           v-if="'icon' in $slots"
-          class="fb-layout-navigation-item__icon"
+          class="fb-theme-layout-navigation-item__icon"
         >
           <slot name="icon" />
         </span>
-        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+        <span class="fb-theme-layout-navigation-item__label">{{ label }}</span>
       </router-link>
     </template>
 
@@ -51,11 +51,11 @@
       <button @click.prevent="$emit('click', $event)">
         <span
           v-if="'icon' in $slots"
-          class="fb-layout-navigation-item__icon"
+          class="fb-theme-layout-navigation-item__icon"
         >
           <slot name="icon" />
         </span>
-        <span class="fb-layout-navigation-item__label">{{ label }}</span>
+        <span class="fb-theme-layout-navigation-item__label">{{ label }}</span>
       </button>
     </template>
   </li>
@@ -112,6 +112,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

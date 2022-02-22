@@ -1,5 +1,5 @@
 <template>
-  <li class="fb-layout-sign-footer-item__container">
+  <li class="fb-theme-layout-sign-footer-item__container">
     <slot />
   </li>
 </template>
@@ -14,6 +14,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

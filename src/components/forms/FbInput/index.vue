@@ -37,7 +37,7 @@
         :readonly="readonly"
         :value="modelValue"
         :placeholder="error !== null && !isFocused ? error : placeholder"
-        class="fb-form-input__control"
+        class="fb-theme-form-input__control"
         @input="handleUpdateValue($event.target.value)"
         @focus="handleSetFocus(true)"
         @blur="handleSetFocus(false)"
@@ -211,6 +211,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
   @import 'index';
 </style>

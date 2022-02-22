@@ -1,12 +1,12 @@
 @import "../../../assets/components/ui/fb-component-loading-error";
 
-.fb-ui-component-loading-error {
+.fb-theme-ui-component-loading-error {
   &__container {
     font-family: $loader-font-family;
 
     @include flex-container;
 
-    .fb-ui-component-loading-error {
+    .fb-theme-ui-component-loading-error {
       &__icon {
         text-align: center;
       }
@@ -20,7 +20,7 @@
     &[data-size="lg"] {
       padding: $loader-padding-lg;
 
-      .fb-ui-component-loading-error {
+      .fb-theme-ui-component-loading-error {
         &__icon {
           @include flex-box-width($loader-icon-size-lg);
 
@@ -42,7 +42,7 @@
     &[data-size="md"] {
       padding: $loader-padding-md;
 
-      .fb-ui-component-loading-error {
+      .fb-theme-ui-component-loading-error {
         &__icon {
           @include flex-box-width($loader-icon-size-md);
 
@@ -64,7 +64,7 @@
     &[data-size="sm"] {
       padding: $loader-padding-sm;
 
-      .fb-ui-component-loading-error {
+      .fb-theme-ui-component-loading-error {
         &__icon {
           @include flex-box-width($loader-icon-size-sm);
 

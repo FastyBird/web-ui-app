@@ -1,13 +1,13 @@
 <template>
   <div
     ref="element"
-    class="fb-layout-phone-menu__container"
+    class="fb-theme-layout-phone-menu__container"
     @keyup.esc="$emit('close', $event)"
   >
     <transition name="fb-phone-menu-backdrop">
       <div
         v-if="show || teleportHasContent"
-        class="fb-layout-phone-menu__backdrop"
+        class="fb-theme-layout-phone-menu__backdrop"
         @click.prevent="$emit('close', $event)"
       />
     </transition>
@@ -15,19 +15,19 @@
     <transition name="fb-phone-menu-content">
       <div
         v-if="show || teleportHasContent"
-        class="fb-layout-phone-menu__inner"
+        class="fb-theme-layout-phone-menu__inner"
       >
-        <div class="fb-layout-phone-menu__content">
+        <div class="fb-theme-layout-phone-menu__content">
           <h4
             id="fb-layout-phone-menu-heading"
-            class="fb-layout-phone-menu__heading"
+            class="fb-theme-layout-phone-menu__heading"
           >
             <slot name="heading" />
           </h4>
 
           <div
             id="fb-layout-phone-menu-items"
-            class="fb-layout-phone-menu__items"
+            class="fb-theme-layout-phone-menu__items"
             @change="itemsTeleportChanged"
           >
             <slot />
@@ -37,7 +37,7 @@
         <div
           v-if="showClose"
           id="fb-layout-phone-menu-button"
-          class="fb-layout-phone-menu__footer"
+          class="fb-theme-layout-phone-menu__footer"
         >
           <slot name="close-button">
             <fb-ui-button
@@ -126,6 +126,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

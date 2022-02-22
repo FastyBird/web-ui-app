@@ -4,7 +4,7 @@
     :disabled="!teleport"
   >
     <div
-      :class="['fb-layout-header-icon__container', {'fb-layout-header-icon__container-left': left}, {'fb-layout-header-icon__container-right': right}]"
+      :class="['fb-theme-layout-header-icon__container', {'fb-theme-layout-header-icon__container-left': left}, {'fb-theme-layout-header-icon__container-right': right}]"
     >
       <slot />
     </div>
@@ -56,6 +56,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

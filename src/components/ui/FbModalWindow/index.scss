@@ -4,7 +4,7 @@
   opacity: 0;
   filter: alpha(opacity=0);
 
-  .fb-ui-modal-window__dialog {
+  .fb-theme-ui-modal-window__dialog {
     transform: scale(1.1);
   }
 }
@@ -22,7 +22,7 @@
   animation: modal-bounce-in 0.25s reverse;
 }
 
-.fb-ui-modal-window {
+.fb-theme-ui-modal-window {
   &__container {
     font-family: $modal-font-family;
     font-size: $modal-font-size;
@@ -46,7 +46,7 @@
       background-color: $modal-overlay-bg-transparent;
     }
 
-    .fb-ui-modal-window {
+    .fb-theme-ui-modal-window {
       &__window {
         position: relative;
         margin: $modal-top-offset auto $modal-bottom-offset auto;
@@ -89,7 +89,7 @@
     }
 
     &[data-size="sm"] {
-      .fb-ui-modal-window {
+      .fb-theme-ui-modal-window {
         &__dialog {
           @media (min-width: $screen-tablet-min) {
             width: $modal-size-sm;
@@ -100,7 +100,7 @@
     }
 
     &[data-size="md"] {
-      .fb-ui-modal-window {
+      .fb-theme-ui-modal-window {
         &__dialog {
           width: $modal-size-md;
           max-width: 90vw;
@@ -109,7 +109,7 @@
     }
 
     &[data-size="lg"] {
-      .fb-ui-modal-window {
+      .fb-theme-ui-modal-window {
         &__dialog {
           width: $modal-size-lg;
           max-width: 90vw;
@@ -118,7 +118,7 @@
     }
 
     &[data-layout="phone"] {
-      .fb-ui-modal-window {
+      .fb-theme-ui-modal-window {
         &__window {
           margin: 1.8vh auto 0;
           height: 98vh;
@@ -137,7 +137,7 @@
     }
 
     &[data-layout="tablet"] {
-      .fb-ui-modal-window {
+      .fb-theme-ui-modal-window {
         &__window {
           margin: auto;
           height: 98vh;
@@ -154,7 +154,7 @@
     }
 
     &[data-layout="default"] {
-      .fb-ui-modal-window {
+      .fb-theme-ui-modal-window {
         &__window {
           max-height: calc(100vh - #{sum($modal-top-offset + $modal-bottom-offset)});
         }

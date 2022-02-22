@@ -1,15 +1,15 @@
 <template>
-  <div class="fb-ui-card__container">
+  <div class="fb-theme-ui-card__container">
     <div
       v-if="'header' in $slots"
-      class="fb-ui-card__header"
+      class="fb-theme-ui-card__header"
     >
       <slot name="header" />
     </div>
 
     <div
       v-if="'body' in $slots"
-      class="fb-ui-card__body"
+      class="fb-theme-ui-card__body"
     >
       <slot name="body" />
     </div>
@@ -26,6 +26,6 @@ export default defineComponent({
 })
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 @import 'index';
 </style>

@@ -3,7 +3,7 @@
 @import "../../../assets/components/ui/fb-switch-element";
 
 /* stylelint-disable no-descending-specificity */
-.fb-ui-switch-element {
+.fb-theme-ui-switch-element {
   &__container {
     cursor: pointer;
     display: inline-block;
@@ -18,7 +18,7 @@
       position: absolute;
       z-index: -1;
 
-      ~ .fb-ui-switch-element__track {
+      ~ .fb-theme-ui-switch-element__track {
         height: 100%;
         width: 100%;
         position: absolute;
@@ -27,7 +27,7 @@
         transform: translateY(-50%);
       }
 
-      ~ .fb-ui-switch-element__thumb {
+      ~ .fb-theme-ui-switch-element__thumb {
         background-color: #fff;
         border-color: $thumb-border-color;
         border-radius: 50%;
@@ -68,35 +68,35 @@
       width: $switch-width-lg;
 
       input {
-        ~ .fb-ui-switch-element__track {
+        ~ .fb-theme-ui-switch-element__track {
           background-color: $track-background-color;
           border-radius: math.ceil(math.div($switch-height-lg, 2));
         }
 
-        ~ .fb-ui-switch-element__thumb {
+        ~ .fb-theme-ui-switch-element__thumb {
           border-width: 0.4rem;
           height: $switch-height-lg - 0.8rem + (2 * 0.4rem);
           width: $switch-height-lg - 0.8rem + (2 * 0.4rem);
         }
 
         &:checked {
-          ~ .fb-ui-switch-element__thumb {
+          ~ .fb-theme-ui-switch-element__thumb {
             left: sum($switch-width-lg, -$switch-height-lg);
           }
         }
 
         &:disabled {
-          ~ .fb-ui-switch-element__track {
+          ~ .fb-theme-ui-switch-element__track {
             background-color: color.adjust($track-background-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
-          ~ .fb-ui-switch-element__thumb {
+          ~ .fb-theme-ui-switch-element__thumb {
             cursor: not-allowed;
           }
 
           &:checked {
-            ~ .fb-ui-switch-element__track {
+            ~ .fb-theme-ui-switch-element__track {
               cursor: not-allowed;
             }
           }
@@ -109,36 +109,36 @@
       width: $switch-width-md;
 
       input {
-        ~ .fb-ui-switch-element__track {
+        ~ .fb-theme-ui-switch-element__track {
           background-color: $track-background-color;
           border-radius: math.ceil(math.div($switch-height-md, 2));
         }
 
-        ~ .fb-ui-switch-element__thumb {
+        ~ .fb-theme-ui-switch-element__thumb {
           border-width: 0.2rem;
           height: $switch-height-md - 0.4rem + (2 * 0.2rem);
           width: $switch-height-md - 0.4rem + (2 * 0.2rem);
         }
 
         &:checked {
-          ~ .fb-ui-switch-element__thumb {
+          ~ .fb-theme-ui-switch-element__thumb {
             left: sum($switch-width-md, -$switch-height-md);
           }
         }
 
         &:disabled {
-          ~ .fb-ui-switch-element__track {
+          ~ .fb-theme-ui-switch-element__track {
             background-color: color.adjust($track-background-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
-          ~ .fb-ui-switch-element__thumb {
+          ~ .fb-theme-ui-switch-element__thumb {
             border-color: color.adjust($thumb-border-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
           &:checked {
-            ~ .fb-ui-switch-element__track {
+            ~ .fb-theme-ui-switch-element__track {
               cursor: not-allowed;
             }
           }
@@ -151,36 +151,36 @@
       width: $switch-width-sm;
 
       input {
-        ~ .fb-ui-switch-element__track {
+        ~ .fb-theme-ui-switch-element__track {
           background-color: $track-background-color;
           border-radius: math.ceil(math.div($switch-height-sm, 2));
         }
 
-        ~ .fb-ui-switch-element__thumb {
+        ~ .fb-theme-ui-switch-element__thumb {
           border-width: 0.2rem;
           height: $switch-height-sm - 0.4rem + (2 * 0.2rem);
           width: $switch-height-sm - 0.4rem + (2 * 0.2rem);
         }
 
         &:checked {
-          ~ .fb-ui-switch-element__thumb {
+          ~ .fb-theme-ui-switch-element__thumb {
             left: sum($switch-width-sm, -$switch-height-sm);
           }
         }
 
         &:disabled {
-          ~ .fb-ui-switch-element__track {
+          ~ .fb-theme-ui-switch-element__track {
             background-color: color.adjust($track-background-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
-          ~ .fb-ui-switch-element__thumb {
+          ~ .fb-theme-ui-switch-element__thumb {
             border-color: color.adjust($thumb-border-color, $lightness: 30%);
             cursor: not-allowed;
           }
 
           &:checked {
-            ~ .fb-ui-switch-element__track {
+            ~ .fb-theme-ui-switch-element__track {
               cursor: not-allowed;
             }
           }

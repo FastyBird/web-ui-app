@@ -1,6 +1,6 @@
 @import "../../../assets/components/layout/fb-phone-menu";
 
-.fb-layout-phone-menu {
+.fb-theme-layout-phone-menu {
   &__container {
     position: relative;
   }
@@ -37,7 +37,7 @@
   &__footer {
     margin-top: $inner-padding;
 
-    .fb-ui-button {
+    .fb-theme-ui-button {
       text-align: center;
       background: $button-background-color;
 
