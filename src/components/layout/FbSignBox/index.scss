@@ -7,8 +7,6 @@
     animation-name: fadeinup;
 
     &-inner {
-      padding-top: 45px;
-
       @media (min-width: $screen-tablet-min) {
         border: 1px solid $inner-box-border-color;
         margin: $inner-box-margin;
