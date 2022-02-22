@@ -109,7 +109,7 @@ export default defineComponent({
   setup(props: IFbUiContentProps) {
     const classNames = []
 
-    classNames.push('fb-ui-content')
+    classNames.push('fb-theme-ui-content')
 
     const margins = ['mt', 'mb', 'ml', 'mr', 'mv', 'mh']
     const paddings = ['pt', 'pb', 'pl', 'pr', 'pv', 'ph']
@@ -117,11 +117,11 @@ export default defineComponent({
     Object.keys(props)
       .forEach((key: string): void => {
         if (margins.includes(key) && get(props, key) !== FbSizeTypes.NONE) {
-          classNames.push(`fb-ui-content-${key}-${get(props, key)}`)
+          classNames.push(`fb-theme-ui-content-${key}-${get(props, key)}`)
         }
 
         if (paddings.includes(key) && get(props, key) !== FbSizeTypes.NONE) {
-          classNames.push(`fb-ui-content-${key}-${get(props, key)}`)
+          classNames.push(`fb-theme-ui-content-${key}-${get(props, key)}`)
         }
       })
 
