@@ -26,9 +26,9 @@
 
     <template #field>
       <select
-        v-model="modelValue"
         :id="id ? id : name"
         :ref="`field-${name}`"
+        v-model="internalValue"
         :data-size="size"
         :data-error="error !== null"
         :name="name"
@@ -199,6 +199,7 @@ export default defineComponent({
   emits: ['update:modelValue', 'focus', 'blur', 'change'],
 
   setup(props: IFbFormSelectProps, context: SetupContext) {
+    const internalValue = ref<string | number | null>(props.modelValue)
     const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
@@ -222,6 +223,7 @@ export default defineComponent({
     }
 
     return {
+      internalValue,
       isFocused,
       handleUpdateValue,
       handleSetFocus,
