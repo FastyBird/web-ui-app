@@ -80,13 +80,13 @@
         position: relative;
 
         &-left-addon {
-          .fb-theme-form-input__control {
+          :deep(.fb-theme-form-input__control) {
             @include field-remove-left-border-radius;
           }
         }
 
         &-right-addon {
-          .fb-theme-form-input__control {
+          :deep(.fb-theme-form-input__control) {
             @include field-remove-right-border-radius;
           }
         }

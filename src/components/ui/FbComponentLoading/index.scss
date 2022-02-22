@@ -10,7 +10,7 @@
       &__icon {
         text-align: center;
 
-        .fb-theme-ui-spinner__container {
+        :deep(.fb-theme-ui-spinner__container) {
           margin: 0 auto;
         }
       }

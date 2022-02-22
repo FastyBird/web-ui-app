@@ -160,7 +160,7 @@
           flex-grow: 1;
           flex-basis: 10%;
 
-          .fb-theme-ui-button {
+          :deep(.fb-theme-ui-button) {
             color: $header-color;
 
             &:hover,
