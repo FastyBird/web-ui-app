@@ -4,7 +4,7 @@
     class="fb-theme-layout-phone-menu__container"
     @keyup.esc="$emit('close', $event)"
   >
-    <transition name="fb-phone-menu-backdrop">
+    <transition name="fb-theme-layout-phone-menu-backdrop">
       <div
         v-if="show || teleportHasContent"
         class="fb-theme-layout-phone-menu__backdrop"
@@ -12,7 +12,7 @@
       />
     </transition>
 
-    <transition name="fb-phone-menu-content">
+    <transition name="fb-theme-layout-phone-menu-content">
       <div
         v-if="show || teleportHasContent"
         class="fb-theme-layout-phone-menu__inner"
@@ -27,7 +27,6 @@
 
           <div
             id="fb-layout-phone-menu-items"
-            class="fb-theme-layout-phone-menu__items"
             @change="itemsTeleportChanged"
           >
             <slot />

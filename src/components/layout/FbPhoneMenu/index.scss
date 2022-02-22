@@ -56,17 +56,17 @@
   }
 }
 
-.fb-phone-menu-backdrop-enter-active,
-.fb-phone-menu-backdrop-leave-active {
+.fb-theme-layout-phone-menu-backdrop-enter-active,
+.fb-theme-layout-phone-menu-backdrop-leave-active {
   transition: all 0.35s;
 }
 
-.fb-phone-menu-backdrop-enter,
-.fb-phone-menu-backdrop-leave-to {
+.fb-theme-layout-phone-menu-backdrop-enter,
+.fb-theme-layout-phone-menu-backdrop-leave-to {
   opacity: 0;
 }
 
-.fb-phone-menu-content-enter,
-.fb-phone-menu-content-leave-active {
+.fb-theme-layout-phone-menu-content-enter,
+.fb-theme-layout-phone-menu-content-leave-active {
   bottom: -100%;
 }

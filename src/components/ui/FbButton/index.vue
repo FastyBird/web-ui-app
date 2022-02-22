@@ -338,22 +338,22 @@ export default defineComponent({
     const classNames = computed<string[]>((): string[] => {
       const computedClassnames = []
 
-      computedClassnames.push('fb-ui-button')
+      computedClassnames.push('fb-theme-ui-button')
 
       if (props.block) {
-        computedClassnames.push('fb-ui-button-block')
+        computedClassnames.push('fb-theme-ui-button-block')
       }
 
       if (props.pill) {
-        computedClassnames.push('fb-ui-button-pill')
+        computedClassnames.push('fb-theme-ui-button-pill')
       }
 
       if (props.thick) {
-        computedClassnames.push('fb-ui-button-thick')
+        computedClassnames.push('fb-theme-ui-button-thick')
       }
 
       if (props.uppercase) {
-        computedClassnames.push('fb-ui-button-uppercase')
+        computedClassnames.push('fb-theme-ui-button-uppercase')
       }
 
       if (props.active) {
@@ -361,7 +361,7 @@ export default defineComponent({
       }
 
       if (props.loading) {
-        computedClassnames.push('fb-ui-button-loading')
+        computedClassnames.push('fb-theme-ui-button-loading')
       }
 
       return computedClassnames
