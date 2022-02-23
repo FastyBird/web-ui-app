@@ -34,7 +34,7 @@
       font-size: $heading-font-size;
       height: auto;
 
-      :deep(small) {
+      small {
         font-weight: normal;
         line-height: 1;
         color: $heading-small-color;

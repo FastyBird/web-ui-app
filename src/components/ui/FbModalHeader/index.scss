@@ -169,7 +169,7 @@
               color: $header-color;
               text-decoration: none;
 
-              :deep(svg) {
+              svg {
                 color: $header-color;
               }
             }

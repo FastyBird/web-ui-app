@@ -32,19 +32,19 @@
       color: $header-color;
       margin: 0;
 
-      :deep(span),
-      :deep(small) {
+      span,
+      small {
         color: $header-color;
       }
 
-      :deep(span) {
+      span {
         margin-top: 1rem;
         line-height: 2.5rem;
         font-size: 2rem;
         display: block;
       }
 
-      :deep(small) {
+      small {
         line-height: 2.5rem;
         font-size: 1.2rem;
         display: block;
