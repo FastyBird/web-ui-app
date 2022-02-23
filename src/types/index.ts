@@ -103,6 +103,14 @@ export enum FbUiDividerVariantTypes {
     VERTICAL = "vertical",
 }
 
+export enum FbUiTextAlignTypes {
+    NONE = "none",
+    LEFT = "left",
+    RIGHT = "right",
+    CENTER = "center",
+    JUSTIFY = "justify",
+}
+
 export enum FbLayoutHeaderHeadingAlign {
     LEFT = "left",
     RIGHT = "right",

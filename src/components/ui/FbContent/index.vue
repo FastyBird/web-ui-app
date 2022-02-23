@@ -11,7 +11,7 @@ import {
 } from 'vue'
 import get from 'lodash/get'
 
-import { FbSizeTypes } from '@/types'
+import { FbSizeTypes, FbUiTextAlignTypes } from '@/types'
 
 import { IFbUiContentProps } from './types'
 
@@ -104,6 +104,21 @@ export default defineComponent({
       validator: sizeValidator,
     },
 
+    testAlign: {
+      type: String as PropType<FbUiTextAlignTypes>,
+      default: FbUiTextAlignTypes.NONE,
+      validator: (value: FbUiTextAlignTypes): boolean => {
+        // The value must match one of these strings
+        return [
+          FbUiTextAlignTypes.NONE,
+          FbUiTextAlignTypes.LEFT,
+          FbUiTextAlignTypes.RIGHT,
+          FbUiTextAlignTypes.CENTER,
+          FbUiTextAlignTypes.JUSTIFY,
+        ].includes(value)
+      },
+    },
+
   },
 
   setup(props: IFbUiContentProps) {
@@ -124,6 +139,10 @@ export default defineComponent({
           classNames.push(`fb-theme-ui-content-${key}-${get(props, key)}`)
         }
       })
+
+    if (props.textAlign !== FbUiTextAlignTypes.NONE) {
+      classNames.push(`fb-theme-ui-content-text-align-${props.textAlign}`)
+    }
 
     return {
       classNames,

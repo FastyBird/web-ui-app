@@ -12,7 +12,7 @@
     user-select: none;
     vertical-align: middle;
 
-    input {
+    :deep(input) {
       opacity: 0;
       filter: alpha(opacity=0);
       position: absolute;
@@ -67,7 +67,7 @@
       height: $switch-height-lg;
       width: $switch-width-lg;
 
-      input {
+      :deep(input) {
         ~ .fb-theme-ui-switch-element__track {
           background-color: $track-background-color;
           border-radius: math.ceil(math.div($switch-height-lg, 2));
@@ -108,7 +108,7 @@
       height: $switch-height-md;
       width: $switch-width-md;
 
-      input {
+      :deep(input) {
         ~ .fb-theme-ui-switch-element__track {
           background-color: $track-background-color;
           border-radius: math.ceil(math.div($switch-height-md, 2));
@@ -150,7 +150,7 @@
       height: $switch-height-sm;
       width: $switch-width-sm;
 
-      input {
+      :deep(input) {
         ~ .fb-theme-ui-switch-element__track {
           background-color: $track-background-color;
           border-radius: math.ceil(math.div($switch-height-sm, 2));

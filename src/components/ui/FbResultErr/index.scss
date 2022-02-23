@@ -12,8 +12,8 @@
       display: block;
       margin: 0;
 
-      circle,
-      line {
+      :deep(circle),
+      :deep(line) {
         fill: none;
         stroke-dasharray: 1000;
         stroke-dashoffset: 0;
@@ -22,11 +22,11 @@
         stroke-miterlimit: 10;
       }
 
-      circle {
+      :deep(circle) {
         animation: fb-theme-ui-result-err-dash 0.9s ease-in-out;
       }
 
-      line {
+      :deep(line) {
         stroke-dashoffset: 1000;
         stroke-linecap: round;
         animation: fb-theme-ui-result-err-dash 0.9s 0.35s ease-in-out forwards;

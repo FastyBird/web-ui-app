@@ -4,7 +4,7 @@
   &__container {
     position: relative;
 
-    ul {
+    :deep(ul) {
       z-index: $z-index;
       position: absolute;
       top: auto;
@@ -88,12 +88,14 @@
           border-radius: 50%;
         }
 
+        /* stylelint-disable */
         :deep(svg) {
           width: 3.6rem;
           height: 3.6rem;
           fill: $avatar-color;
           border-radius: 50%;
         }
+        /* stylelint-enable */
       }
     }
 

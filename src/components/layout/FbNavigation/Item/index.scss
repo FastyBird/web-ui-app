@@ -3,8 +3,8 @@
 
 .fb-theme-layout-navigation-item {
   &__container {
-    > a,
-    > button {
+    > :deep(a),
+    > :deep(button) {
       @include flex-item;
 
       background-color: transparent;
@@ -20,14 +20,14 @@
       }
     }
 
-    > button {
+    > :deep(button) {
       width: 100%;
       background-image: none;
       border: none;
       outline: none;
     }
 
-    &:hover > a {
+    &:hover > :deep(a) {
       @media (hover: hover) and (pointer: fine) {
         background-color: color.adjust($item-hover-background-color, $lightness: -3.5%);
         color: $item-hover-color;

@@ -3,9 +3,9 @@
     :to="`#${teleportTarget}`"
     :disabled="!teleport"
   >
-    <template v-if="type === menuItemTypes.LINK">
+    <template v-if="actionType === menuItemTypes.LINK">
       <a
-        :href="link"
+        :href="action"
         :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
         @click.prevent="$emit('click', $event)"
       >
@@ -19,9 +19,9 @@
       </a>
     </template>
 
-    <template v-else-if="type === menuItemTypes.NUXT_LINK">
+    <template v-else-if="actionType === menuItemTypes.NUXT_LINK">
       <nuxt-link
-        :to="link"
+        :to="action"
         :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
         @click.prevent="$emit('click', $event)"
       >
@@ -35,9 +35,9 @@
       </nuxt-link>
     </template>
 
-    <template v-else-if="type === menuItemTypes.VUE_LINK">
+    <template v-else-if="actionType === menuItemTypes.VUE_LINK">
       <router-link
-        :to="link"
+        :to="action"
         :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
         @click.prevent="$emit('click', $event)"
       >
@@ -51,7 +51,7 @@
       </router-link>
     </template>
 
-    <template v-else-if="type === menuItemTypes.BUTTON">
+    <template v-else-if="actionType === menuItemTypes.BUTTON">
       <button
         role="button"
         :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
@@ -85,9 +85,14 @@ export default defineComponent({
 
   props: {
 
-    type: {
+    action: {
+      type: [String, Object] as PropType<string | { [key: string]: any } | null>,
+      default: null,
+    },
+
+    actionType: {
       type: String as PropType<FbMenuItemTypes>,
-      required: true,
+      default: FbMenuItemTypes.BUTTON,
       validator: (value: FbMenuItemTypes) => {
         // The value must match one of these strings
         return [
@@ -100,11 +105,6 @@ export default defineComponent({
     },
 
     label: {
-      type: String as PropType<string | null>,
-      default: null,
-    },
-
-    link: {
       type: String as PropType<string | null>,
       default: null,
     },

@@ -5,7 +5,7 @@
     margin: $footer-margin;
     text-align: center;
 
-    ul {
+    :deep(ul) {
       list-style: none;
       padding: $footer-items-padding;
       margin: $footer-items-margin;

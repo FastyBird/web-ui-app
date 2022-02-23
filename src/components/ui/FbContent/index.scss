@@ -244,4 +244,23 @@
       padding-bottom: $padding-xs;
     }
   }
+
+  /* Text align */
+  &-text-align {
+    &-left {
+      text-align: left;
+    }
+
+    &-right {
+      text-align: right;
+    }
+
+    &-center {
+      text-align: center;
+    }
+
+    &-justify {
+      text-align: justify;
+    }
+  }
 }

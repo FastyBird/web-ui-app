@@ -1,17 +1,17 @@
 <template>
   <li class="fb-theme-layout-user-menu-item__container">
-    <template v-if="type === menuItemTypes.LINK">
+    <template v-if="actionType === menuItemTypes.LINK">
       <a
-        :href="link"
+        :href="action"
         @click.prevent="$emit('click', $event)"
       >
         {{ label }}
       </a>
     </template>
 
-    <template v-else-if="type === menuItemTypes.NUXT_LINK">
+    <template v-else-if="actionType === menuItemTypes.NUXT_LINK">
       <nuxt-link
-        :to="link"
+        :to="action"
         active-class="fb-theme-layout-user-menu-item__active"
         @click.prevent="$emit('click', $event)"
       >
@@ -19,9 +19,9 @@
       </nuxt-link>
     </template>
 
-    <template v-else-if="type === menuItemTypes.VUE_LINK">
+    <template v-else-if="actionType === menuItemTypes.VUE_LINK">
       <router-link
-        :to="link"
+        :to="action"
         active-class="fb-theme-layout-user-menu-item__active"
         @click.prevent="$emit('click', $event)"
       >
@@ -29,7 +29,7 @@
       </router-link>
     </template>
 
-    <template v-else-if="type === menuItemTypes.BUTTON">
+    <template v-else-if="actionType === menuItemTypes.BUTTON">
       <button @click.prevent="$emit('click', $event)">
         {{ label }}
       </button>
@@ -55,9 +55,14 @@ export default defineComponent({
 
   props: {
 
-    type: {
+    action: {
+      type: [String, Object] as PropType<string | { [key: string]: any } | null>,
+      default: null,
+    },
+
+    actionType: {
       type: String as PropType<FbMenuItemTypes>,
-      required: true,
+      default: FbMenuItemTypes.BUTTON,
       validator: (value: FbMenuItemTypes) => {
         // The value must match one of these strings
         return [
@@ -75,10 +80,6 @@ export default defineComponent({
       required: true,
     },
 
-    link: {
-      type: String as PropType<string>,
-      default: null,
-    },
   },
 
   emits: ['click'],
