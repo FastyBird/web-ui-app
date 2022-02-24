@@ -7,6 +7,7 @@ export { default as FbUiConfirmationWindow } from "./FbConfirmationWindow/index.
 export { default as FbUiContent } from "./FbContent/index.vue";
 export { default as FbUiDivider } from "./FbDivider/index.vue";
 export { default as FbUiIconWithChild } from "./FbIconWithChild/index.vue";
+export { default as FbUiItem } from "./FbItem/index.vue";
 export { default as FbUiItemsContainer } from "./FbItemsContainer/index.vue";
 export { default as FbUiLoadingBox } from "./FbLoadingBox/index.vue";
 export { default as FbUiMediaItem } from "./FbMediaItem/index.vue";
@@ -17,6 +18,7 @@ export { default as FbUiModalWindow } from "./FbModalWindow/index.vue";
 export { default as FbUiNoResults } from "./FbNoResults/index.vue";
 export { default as FbUiResultErr } from "./FbResultErr/index.vue";
 export { default as FbUiResultOk } from "./FbResultOk/index.vue";
+export { default as FbUiScrollShadow } from "./FbScrollShadow/index.vue";
 export { default as FbUiSpinner } from "./FbSpinner/index.vue";
 export { default as FbUiSwitchElement } from "./FbSwitchElement/index.vue";
 export { default as FbUiTransitionExpand } from "./FbTransitionExpand/index.vue";

@@ -1,3 +1,4 @@
+export * from "./FbExpandableBox/types";
 export * from "./FbFooter/types";
 export * from "./FbHeader/types";
 export * from "./FbNavigation/types";
