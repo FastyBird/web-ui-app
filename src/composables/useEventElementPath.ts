@@ -1,7 +1,7 @@
 import get from "lodash/get";
 
-export function useEventElementPath() {
-  const getPath = (event: Event): Array<EventTarget | Element> => {
+export function useEventElementPath(): { getPath: ((event: Event) => (EventTarget | Element)[]) } {
+  const getPath = (event: Event): (EventTarget | Element)[] => {
     if (get(event, "path") !== null) {
       return get(event, "path", []);
     } else if (get(event, "composedPath") !== null) {
