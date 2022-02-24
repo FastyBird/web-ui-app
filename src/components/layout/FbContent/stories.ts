@@ -10,7 +10,7 @@ export default {
   component: FbLayoutContent,
   title: 'Components/Layout/FB Content',
   argTypes: {
-    default: {
+    preview: {
       type: { name: 'string', required: true },
       control: { type: 'text' },
       description: 'Content body slot',
@@ -44,7 +44,7 @@ export default {
 } as Meta
 
 interface TemplateArgs extends Args {
-  default: string
+  preview: string
   header?: string
   footer?: string
 }
@@ -58,7 +58,7 @@ const Template: Story<TemplateArgs> = (args) => {
     template: `
       <div style="height: 150px">
         <fb-layout-content>
-          <template v-if="${args.default !== null && typeof args.default !== 'undefined'}" #default>${args.default}</template>
+          <template v-if="${args.preview !== null && typeof args.preview !== 'undefined'}" #preview>${args.preview}</template>
           <template v-if="${args.header !== null && typeof args.header !== 'undefined'}" #header>${args.header}</template>
           <template v-if="${args.footer !== null && typeof args.footer !== 'undefined'}" #footer>${args.footer}</template>
         </fb-layout-content>
@@ -70,7 +70,7 @@ const Template: Story<TemplateArgs> = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-  default: 'Full height content',
+  preview: 'Full height content',
   header: 'Content header slot placed on top',
   footer: 'Content footer slot placed on bottom',
 }
