@@ -24,6 +24,6 @@ export function createWebUiTheme(): InstallFunction {
 }
 
 export * from "./components";
-export * from "./types";
+export * from "./composables";
 export * from "./directives";
-export * from "./mixins";
+export * from "./types";
