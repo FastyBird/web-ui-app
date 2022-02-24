@@ -111,6 +111,11 @@ export enum FbUiTextAlignTypes {
     JUSTIFY = "justify",
 }
 
+export enum FbUiItemVariantTypes {
+    DEFAULT = 'default',
+    LIST = 'list',
+}
+
 export enum FbLayoutHeaderHeadingAlign {
     LEFT = "left",
     RIGHT = "right",
