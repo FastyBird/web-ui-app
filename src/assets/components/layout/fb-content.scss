@@ -14,3 +14,7 @@ $screen-tablet-max: $screen-sm-max;
 @mixin flex-content {
   @include flex-column(nowrap);
 }
+
+@mixin flex-inner {
+  @include flex-row(nowrap);
+}
