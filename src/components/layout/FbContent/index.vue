@@ -8,6 +8,10 @@
     </div>
 
     <div class="fb-theme-layout-content__content">
+      <template v-if="'content' in $slots">
+        <slot name="content" />
+      </template>
+
       <div
         v-if="'items' in $slots"
         class="fb-theme-layout-content__items"
