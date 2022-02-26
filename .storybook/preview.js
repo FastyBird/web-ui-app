@@ -3,6 +3,8 @@ import { app } from '@storybook/vue3';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
+  faAngleLeft,
+  faAngleRight,
   faBell,
   faChartBar,
   faCog,
@@ -15,6 +17,8 @@ import {
   faMugHot,
   faNewspaper,
   faPaperPlane,
+  faPencilAlt,
+  faTimes,
   faTrash,
   faUser,
   faUserSecret,
@@ -23,6 +27,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { BodyScrollLock } from './../src/directives'
 
+library.add(faAngleLeft)
+library.add(faAngleRight)
 library.add(faBell)
 library.add(faChartBar)
 library.add(faCog)
@@ -35,6 +41,8 @@ library.add(faMagic)
 library.add(faMugHot)
 library.add(faNewspaper)
 library.add(faPaperPlane)
+library.add(faPencilAlt)
+library.add(faTimes)
 library.add(faTrash)
 library.add(faUser)
 library.add(faUserSecret)

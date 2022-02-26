@@ -4,6 +4,8 @@ export { default as FbLayoutFooter } from "./FbFooter/index.vue";
 export * from "./FbHeader";
 export * from "./FbNavigation";
 export * from "./FbPhoneMenu";
+export { default as FbLayoutPreviewHeading } from "./FbPreviewHeading/index.vue";
+export { default as FbLayoutPreviewToolbar } from "./FbPreviewToolbar/index.vue";
 export { default as FbLayoutSidebar } from "./FbSidebar/index.vue";
 export { default as FbLayoutSignBox } from "./FbSignBox/index.vue";
 export * from "./FbSignFooter";
