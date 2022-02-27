@@ -14,4 +14,5 @@ export * from "./FbNoResults/types";
 export * from "./FbResultErr/types";
 export * from "./FbResultOk/types";
 export * from "./FbSpinner/types";
+export * from "./FbSwipeActions/types";
 export * from "./FbSwitchElement/types";

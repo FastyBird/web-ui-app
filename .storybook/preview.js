@@ -7,6 +7,7 @@ import {
   faAngleRight,
   faBell,
   faChartBar,
+  faClose,
   faCog,
   faEnvelope,
   faExclamation,
@@ -25,12 +26,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { BodyScrollLock } from './../src/directives'
-
 library.add(faAngleLeft)
 library.add(faAngleRight)
 library.add(faBell)
 library.add(faChartBar)
+library.add(faClose)
 library.add(faCog)
 library.add(faEnvelope)
 library.add(faExclamation)
@@ -48,8 +48,6 @@ library.add(faUser)
 library.add(faUserSecret)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
-
-app.directive('BodyScrollLock', BodyScrollLock)
 
 export const parameters = {
   viewMode: 'docs',
