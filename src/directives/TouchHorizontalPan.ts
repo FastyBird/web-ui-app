@@ -8,18 +8,20 @@ import {
   TTouchDirection,
 } from '@/components/ui/FbSwipeActions/types'
 
-const testPassive = () => {
-  let passive;
+const testPassive = (): boolean => {
+  let passive = false;
 
   try {
     const opts = Object.defineProperty({}, 'passive', {
       get() {
-        passive = { passive: true };
+        return { passive: true }
       },
     })
 
-    window.addEventListener('fb_test', () => {}, opts)
-    window.removeEventListener('fb_test', () => {}, opts)
+    window.addEventListener('fb_test', () => { return {} }, opts)
+    window.removeEventListener('fb_test', () => { return {} }, opts)
+
+    passive = true
   } catch (e) {
     // do nothing
   }
@@ -120,7 +122,7 @@ const processChanges = (evt: MouseEvent | TouchEvent, ctx: ITouchHorizontalDirec
   };
 }
 
-const shouldTrigger = (ctx: ITouchHorizontalDirectiveContext, changes: ITouchHorizontalChanges) => {
+const shouldTrigger = (ctx: ITouchHorizontalDirectiveContext, changes: ITouchHorizontalChanges): boolean | undefined => {
   if (ctx.direction.horizontal && ctx.direction.vertical)
     return true;
 
@@ -136,13 +138,13 @@ const shouldTrigger = (ctx: ITouchHorizontalDirectiveContext, changes: ITouchHor
 export default {
   name: 'touch-pan',
 
-  mounted(el: HTMLElement, binding: ITouchHorizontalDirectiveBinding) {
+  mounted(el: HTMLElement, binding: ITouchHorizontalDirectiveBinding): void {
     const mouse = binding.modifiers.mouse === true
     const mouseEvtPassive = binding.modifiers.mouseMightPrevent !== true && binding.modifiers.mousePrevent !== true
     const mouseEvtOpts = testPassive() ? true : { passive: mouseEvtPassive, capture: true }
     const touchEvtOpts = testPassive() ? true : { capture: true }
 
-    const handleEvent = (evt: MouseEvent | TouchEvent, mouseEvent: boolean) => {
+    const handleEvent = (evt: MouseEvent | TouchEvent, mouseEvent: boolean): void => {
       if (mouse && mouseEvent) {
         if (binding.modifiers.mouseStop) evt.stopPropagation()
         if (binding.modifiers.mousePrevent) evt.preventDefault()
@@ -285,7 +287,7 @@ export default {
     el.addEventListener('touchend', ctx.end, touchEvtOpts)
   },
 
-  updated(el: HTMLElement, { oldValue, value, modifiers }: ITouchHorizontalDirectiveBinding) {
+  updated(el: HTMLElement, { oldValue, value, modifiers }: ITouchHorizontalDirectiveBinding): void {
     const ctx = get(el, '__qtouchpan', null) as ITouchHorizontalDirectiveContext | null
 
     if (ctx === null) {
@@ -304,7 +306,7 @@ export default {
     }
   },
 
-  unmounted(el: HTMLElement, binding: ITouchHorizontalDirectiveBinding) {
+  unmounted(el: HTMLElement, binding: ITouchHorizontalDirectiveBinding): void {
     const ctx = get(el, '__qtouchpan_old') || get(el, '__qtouchpan')
 
     if (ctx !== undefined) {

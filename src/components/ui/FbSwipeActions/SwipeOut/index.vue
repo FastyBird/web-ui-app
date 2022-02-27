@@ -1,7 +1,7 @@
 <template>
   <div
     ref="element"
-    :data-disabled="this.disabled"
+    :data-disabled="disabled"
     class="fb-theme-ui-swipe-actions-out__container"
   >
     <template v-if="'left' in $slots">
@@ -153,7 +153,7 @@ export default defineComponent({
       swipeListener(pan)
     }
 
-    const startListener = ({ distance }: { distance: { x: number, y: number } }) => {
+    const startListener = ({ distance }: { distance: { x: number, y: number } }): void => {
       element.value?.classList.add('fb-theme-ui-swipe-actions-out__no-transition')
 
       if (distance.y <= 5) {
@@ -167,7 +167,7 @@ export default defineComponent({
       }
     }
 
-    const swipeListener = ({ offset }: { offset: { x: number, y: number } }) => {
+    const swipeListener = ({ offset }: { offset: { x: number, y: number } }): void => {
       const newX = offset.x + startLeft.value
 
       if (!('left' in context.slots) && newX > 0) {
@@ -181,7 +181,7 @@ export default defineComponent({
       return animateSlide(offset.x + startLeft.value)
     }
 
-    const stopListener = ({ offset, distance }: { distance: { x: number, y: number }, offset: { x: number, y: number } }) => {
+    const stopListener = ({ offset, distance }: { distance: { x: number, y: number }, offset: { x: number, y: number } }): void => {
       element.value?.classList.remove('fb-theme-ui-swipe-actions-out__no-transition')
 
       isActive.value = false
@@ -191,10 +191,12 @@ export default defineComponent({
       const newX = startLeft.value + offset.x
 
       if ((startLeft.value === 0 && Math.abs(newX) <= props.threshold) || (distance.x >= props.threshold && ((startLeft.value > 0 && distance.x < leftActionsWidth.value) || (startLeft.value < 0 && distance.x < rightActionsWidth.value)))) {
-        return reveal(false, false)
+        reveal(false, false)
+
+        return
       }
 
-      return reveal(newX > 0 ? 'left' : 'right', false)
+      reveal(newX > 0 ? 'left' : 'right', false)
     }
 
     const shiftLeftActions = (newX: number): void => {

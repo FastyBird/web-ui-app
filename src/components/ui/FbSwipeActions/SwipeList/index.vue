@@ -20,12 +20,12 @@
         @rightRevealed="$emit('rightRevealed', { index, item, close: $event.close })"
         @active="$emit('active', $event)"
       >
-        <template #content="{ revealed, disabled, revealLeft, revealRight, close }">
+        <template #content="{ revealed: rowRevealed, disabled: rowDisabled, revealLeft, revealRight, close }">
           <slot
             :item="item"
             :index="index"
-            :revealed="revealed"
-            :disabled="disabled"
+            :revealed="rowRevealed"
+            :disabled="rowDisabled"
             :revealLeft="revealLeft"
             :revealRight="revealRight"
             :close="close"
@@ -92,7 +92,7 @@ export default defineComponent({
 
     revealed: {
       type: Object as PropType<{ [key: number]: TFbUiSwipeActionsOutDir }>,
-      default: {},
+      default: () => { return {} },
     },
 
     disabled: {
@@ -106,6 +106,8 @@ export default defineComponent({
     },
 
   },
+
+  emits: ['update:revealed', 'active', 'closed', 'revealed', 'leftRevealed', 'rightRevealed'],
 
   setup(props: IFbUiSwipeActionsListProps, context: SetupContext) {
     const container = ref<HTMLElement | null>(null)
@@ -168,6 +170,7 @@ export default defineComponent({
         item,
       })
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { [index]: omit, ...newRevealed } = innerRevealed.value
 
       emitRevealed(newRevealed)
@@ -181,14 +184,14 @@ export default defineComponent({
       () => props.revealed,
       (val): void => {
         innerRevealed.value = val
-      }
+      },
     )
 
     watch(
       () => props.items,
       (): void => {
         emitRevealed({})
-      }
+      },
     )
 
     return {
