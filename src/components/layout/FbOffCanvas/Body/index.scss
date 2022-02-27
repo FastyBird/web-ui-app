@@ -1,0 +1,76 @@
+@import "../../../../assets/components/layout/fb-off-canvas";
+
+.fb-theme-layout-off-canvas-body {
+  &__container {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  &__header {
+    line-height: 5rem;
+    padding: $off-canvas-header-padding;
+    color: $off-canvas-header-color;
+    background-color: $off-canvas-header-bg-color;
+    height: $off-canvas-header-height;
+
+    @include flex-box;
+
+    &-heading {
+      align-items: center;
+      text-align: center;
+      order: 2;
+      flex-grow: 2;
+
+      @include flex-heading;
+
+      &-title {
+        flex-grow: 2;
+        flex-direction: column;
+        justify-content: center;
+
+        @include flex-heading-title;
+
+        h4 {
+          font-size: $off-canvas-header-font-size;
+          font-weight: $off-canvas-header-font-weight;
+          line-height: $off-canvas-header-line-height;
+          color: $off-canvas-header-color;
+          margin: 0;
+          width: 100%;
+
+          small {
+            display: block;
+            font-size: 75%;
+            color: $off-canvas-header-color;
+          }
+        }
+      }
+    }
+
+    &-left-button {
+      text-align: left;
+      order: 1;
+    }
+
+    &-right-button {
+      text-align: right;
+      order: 3;
+    }
+
+    &-left-button,
+    &-right-button {
+      flex-grow: 1;
+      flex-basis: 10%;
+    }
+  }
+
+  &__body {
+    position: absolute;
+    top: 5rem;
+    bottom: 0;
+    right: 0;
+    width: 450px;
+    overflow-y: auto;
+  }
+}
