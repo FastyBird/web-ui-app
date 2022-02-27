@@ -2,6 +2,7 @@ export * from "./FbContent/types";
 export * from "./FbExpandableBox/types";
 export * from "./FbFooter/types";
 export * from "./FbHeader/types";
+export * from "./FbOffCanvas/types";
 export * from "./FbNavigation/types";
 export * from "./FbPhoneMenu/types";
 export * from "./FbSidebar/types";

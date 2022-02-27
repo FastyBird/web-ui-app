@@ -1,0 +1,16 @@
+@import "../../../../assets/components/layout/fb-off-canvas";
+
+.fb-theme-layout-off-canvas-button {
+  &__container {
+    display: block;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    line-height: $off-canvas-button-line-height;
+    font-size: $off-canvas-button-font-size;
+    text-align: center;
+    text-transform: lowercase;
+    color: $off-canvas-button-color;
+    outline: none;
+  }
+}

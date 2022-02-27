@@ -1,0 +1,47 @@
+@import "../../../assets/components/layout/fb-off-canvas";
+
+.fb-theme-layout-off-canvas {
+  &__overlay {
+    background-color: $off-canvas-overlay-color;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $off-canvas-overlay-zindex;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+  }
+
+  &__body {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 450px;
+    background-color: $off-canvas-body-color;
+    font-family: $off-canvas-font-family;
+    z-index: $off-canvas-body-zindex;
+  }
+}
+
+.fb-theme-layout-off-canvas-overlay-enter-active,
+.fb-theme-layout-off-canvas-overlay-leave-active {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.fb-theme-layout-off-canvas-overlay-enter,
+.fb-theme-layout-off-canvas-overlay-leave-to {
+  opacity: 0;
+}
+
+.fb-theme-layout-off-canvas-body-enter-active,
+.fb-theme-layout-off-canvas-body-leave-active {
+  transition: all 300ms ease-in-out;
+}
+
+.fb-theme-layout-off-canvas-body-enter,
+.fb-theme-layout-off-canvas-body-leave-to {
+  transform: translateX(450px);
+}
