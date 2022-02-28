@@ -17,6 +17,22 @@
     </template>
 
     <div
+      v-if="disabled"
+      ref="content"
+      class="fb-theme-ui-swipe-actions-out__content"
+    >
+      <slot
+        :revealed="innerRevealed"
+        :disabled="disabled"
+        :revealLeft="onRevealLeft"
+        :revealRight="onRevealRight"
+        :close="onClose"
+        name="content"
+      />
+    </div>
+
+    <div
+      v-else
       ref="content"
       v-touch-pan.horizontal.mouse.prevent.mousePrevent="onPan"
       class="fb-theme-ui-swipe-actions-out__content"
