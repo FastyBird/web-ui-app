@@ -32,7 +32,10 @@
           />
         </template>
 
-        <template #left="{ close }">
+        <template
+          v-if="'left' in $slots"
+          #left="{ close }"
+        >
           <slot
             :item="item"
             :index="index"
@@ -41,7 +44,10 @@
           />
         </template>
 
-        <template #right="{ close }">
+        <template
+          v-if="'right' in $slots"
+          #right="{ close }"
+        >
           <slot
             :item="item"
             :index="index"
