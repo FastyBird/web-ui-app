@@ -25,6 +25,11 @@
   }
 
   &__items {
+    flex-grow: 1;
+    height: 100%;
+
+    @include flex-column(nowrap);
+
     @media (min-width: $screen-tablet-min) {
       border-right: $items-border;
 
@@ -34,10 +39,6 @@
         @include flex-box-width(28rem);
       }
     }
-
-    height: 100%;
-
-    @include flex-column(nowrap);
 
     &-search {
       padding: $search-padding;
