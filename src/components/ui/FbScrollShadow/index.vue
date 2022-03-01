@@ -6,7 +6,7 @@
     <div
       ref="shadowScrollContainerInner"
       :style="{ width, height }"
-      class="fb-scroll-shadow__inner"
+      class="fb-theme-ui-scroll-shadow__inner"
       @scroll.passive="handleToggleShadow"
     >
       <slot />
