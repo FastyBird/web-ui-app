@@ -104,7 +104,7 @@ export default defineComponent({
       validator: sizeValidator,
     },
 
-    testAlign: {
+    textAlign: {
       type: String as PropType<FbUiTextAlignTypes>,
       default: FbUiTextAlignTypes.NONE,
       validator: (value: FbUiTextAlignTypes): boolean => {
