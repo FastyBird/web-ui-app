@@ -1,5 +1,5 @@
 <template>
-  <transition name="modal">
+  <transition name="fb-theme-ui-modal">
     <section
       v-show="show"
       id="fb-modal-container"
@@ -19,7 +19,7 @@
           role="document"
           tabindex="1"
         >
-          <transition name="modal-bounce">
+          <transition name="fb-theme-ui-modal-bounce">
             <div
               v-if="loader"
               class="fb-theme-ui-modal-window__loading"

@@ -402,7 +402,7 @@ export default defineComponent({
 @import 'index';
 </style>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" scoped>
 .swipeout-non-selectable {
   user-select: none !important;
 }

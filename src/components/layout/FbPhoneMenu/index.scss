@@ -12,7 +12,7 @@
     bottom: 0;
     z-index: ($z-index + 1);
     width: 100%;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
   &__content {
@@ -58,15 +58,15 @@
 
 .fb-theme-layout-phone-menu-backdrop-enter-active,
 .fb-theme-layout-phone-menu-backdrop-leave-active {
-  transition: all 0.35s;
+  transition: all 0.25s;
 }
 
-.fb-theme-layout-phone-menu-backdrop-enter,
+.fb-theme-layout-phone-menu-backdrop-enter-from,
 .fb-theme-layout-phone-menu-backdrop-leave-to {
   opacity: 0;
 }
 
-.fb-theme-layout-phone-menu-content-enter,
+.fb-theme-layout-phone-menu-content-enter-from,
 .fb-theme-layout-phone-menu-content-leave-active {
   bottom: -100%;
 }
