@@ -50,7 +50,6 @@ export default {
       options: [
         FbUiButtonActionsTypes.BUTTON,
         FbUiButtonActionsTypes.LINK,
-        FbUiButtonActionsTypes.NUXT_LINK,
         FbUiButtonActionsTypes.VUE_LINK,
       ],
       description: 'Button action type',

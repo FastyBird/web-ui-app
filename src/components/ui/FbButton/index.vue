@@ -1,53 +1,5 @@
 <template>
-  <template v-if="actionType === actionTypes.NUXT_LINK">
-    <nuxt-link
-      ref="element"
-      :to="action"
-      :data-variant="variant"
-      :data-size="size"
-      :class="classNames"
-      role="button"
-      @click.prevent="clickHandle($event)"
-    >
-      <div
-        v-if="'icon' in $slots && 'default' in $slots"
-        class="fb-theme-ui-button__inner"
-      >
-        <div class="fb-theme-ui-button__inner-icon">
-          <slot name="icon" />
-        </div>
-        <div
-          v-if="'default' in $slots"
-          class="fb-theme-ui-button__inner-label"
-        >
-          <slot />
-        </div>
-      </div>
-
-      <div
-        v-else-if="'icon' in $slots"
-        class="fb-theme-ui-button__icon"
-      >
-        <slot name="icon" />
-      </div>
-
-      <template v-else>
-        <slot />
-      </template>
-
-      <span
-        v-if="loading"
-        class="fb-theme-ui-button__loading"
-      >
-        <fb-ui-spinner
-          :size="size"
-          :variant="loader"
-        />
-      </span>
-    </nuxt-link>
-  </template>
-
-  <template v-else-if="actionType === actionTypes.VUE_LINK">
+  <template if="actionType === actionTypes.VUE_LINK">
     <router-link
       ref="element"
       :to="action"
@@ -236,7 +188,6 @@ export default defineComponent({
         return [
           FbUiButtonActionsTypes.BUTTON,
           FbUiButtonActionsTypes.LINK,
-          FbUiButtonActionsTypes.NUXT_LINK,
           FbUiButtonActionsTypes.VUE_LINK,
         ].includes(value)
       },

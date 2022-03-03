@@ -11,7 +11,6 @@ export * from "../components/types";
 
 export enum FbMenuItemTypes {
     LINK = "link",
-    NUXT_LINK = "nuxt_link",
     VUE_LINK = "vue_link",
     BUTTON = "button",
     TEXT = "text",
@@ -65,7 +64,6 @@ export enum FbUiModalLayoutTypes {
 
 export enum FbUiButtonActionsTypes {
   LINK = "link",
-  NUXT_LINK = "nuxt_link",
   VUE_LINK = "vue_link",
   BUTTON = "button",
 }

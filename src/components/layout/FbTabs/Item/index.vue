@@ -18,24 +18,6 @@
       </fb-ui-button>
     </template>
 
-    <template v-else-if="type === menuItemTypes.NUXT_LINK">
-      <fb-ui-button
-        :to="link"
-        :active="active"
-        block
-        variant="link"
-        size="lg"
-      >
-        <span
-          v-if="'icon' in $slots"
-          class="fb-theme-layout-tabs-item__icon"
-        >
-          <slot name="icon" />
-        </span>
-        <span class="fb-theme-layout-tabs-item__label">{{ label }}</span>
-      </fb-ui-button>
-    </template>
-
     <template v-else-if="type === menuItemTypes.BUTTON">
       <fb-ui-button
         block
@@ -83,7 +65,6 @@ export default defineComponent({
         return [
           FbMenuItemTypes.BUTTON,
           FbMenuItemTypes.LINK,
-          FbMenuItemTypes.NUXT_LINK,
           FbMenuItemTypes.VUE_LINK,
         ].includes(value)
       },
