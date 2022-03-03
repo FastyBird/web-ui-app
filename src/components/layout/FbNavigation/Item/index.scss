@@ -43,7 +43,7 @@
   }
 
   /* Active state */
-  &__active.nuxt-link-exact-active {
+  &__active.link-exact-active {
     background-color: color.adjust($item-active-background-color, $lightness: -3.5%);
     color: $item-active-color;
 

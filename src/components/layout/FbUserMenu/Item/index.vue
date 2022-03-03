@@ -9,16 +9,6 @@
       </a>
     </template>
 
-    <template v-else-if="actionType === menuItemTypes.NUXT_LINK">
-      <nuxt-link
-        :to="action"
-        active-class="fb-theme-layout-user-menu-item__active"
-        @click.prevent="$emit('click', $event)"
-      >
-        {{ label }}
-      </nuxt-link>
-    </template>
-
     <template v-else-if="actionType === menuItemTypes.VUE_LINK">
       <router-link
         :to="action"
@@ -68,7 +58,6 @@ export default defineComponent({
         return [
           FbMenuItemTypes.BUTTON,
           FbMenuItemTypes.LINK,
-          FbMenuItemTypes.NUXT_LINK,
           FbMenuItemTypes.VUE_LINK,
           FbMenuItemTypes.TEXT,
         ].includes(value)

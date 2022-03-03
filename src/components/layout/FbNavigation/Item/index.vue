@@ -15,22 +15,6 @@
       </a>
     </template>
 
-    <template v-else-if="actionType === menuItemTypes.NUXT_LINK">
-      <nuxt-link
-        :to="action"
-        active-class="fb-theme-layout-navigation-item__active"
-        @click.prevent="$emit('click', $event)"
-      >
-        <span
-          v-if="'icon' in $slots"
-          class="fb-theme-layout-navigation-item__icon"
-        >
-          <slot name="icon" />
-        </span>
-        <span class="fb-theme-layout-navigation-item__label">{{ label }}</span>
-      </nuxt-link>
-    </template>
-
     <template v-else-if="actionType === menuItemTypes.VUE_LINK">
       <router-link
         :to="action"
@@ -88,7 +72,6 @@ export default defineComponent({
         return [
           FbMenuItemTypes.BUTTON,
           FbMenuItemTypes.LINK,
-          FbMenuItemTypes.NUXT_LINK,
           FbMenuItemTypes.VUE_LINK,
         ].includes(value)
       },
