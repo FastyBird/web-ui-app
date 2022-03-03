@@ -28,7 +28,7 @@
 
 .fb-theme-layout-off-canvas-overlay-enter-active,
 .fb-theme-layout-off-canvas-overlay-leave-active {
-  transition: opacity .25s ease-in-out
+  transition: opacity 0.25s ease-in-out;
 }
 
 .fb-theme-layout-off-canvas-overlay-enter-from,
@@ -42,7 +42,7 @@
 
 .fb-theme-layout-off-canvas-body-enter-active,
 .fb-theme-layout-off-canvas-body-leave-active {
-  transition: all .3s ease-in-out
+  transition: all 0.3s ease-in-out;
 }
 
 .fb-theme-layout-off-canvas-body-enter-from {
@@ -50,9 +50,9 @@
 }
 
 .fb-theme-layout-off-canvas-body-enter-to {
-  transform: translate(0px)
+  transform: translate(0);
 }
 
 .fb-theme-layout-off-canvas-body-leave-to {
-  transform: translate(450px)
+  transform: translate(450px);
 }
