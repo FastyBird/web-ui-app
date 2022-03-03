@@ -5,7 +5,7 @@
   >
     <transition name="fb-theme-layout-off-canvas-overlay">
       <div
-        v-if="show"
+        v-show="show"
         class="fb-theme-layout-off-canvas__overlay"
         @click.prevent="$emit('close')"
       />
@@ -13,7 +13,7 @@
 
     <transition name="fb-theme-layout-off-canvas-body">
       <div
-        v-if="show"
+        v-show="show"
         class="fb-theme-layout-off-canvas__body"
       >
         <slot />

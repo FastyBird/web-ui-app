@@ -5,7 +5,9 @@ $zindex-layout-content: 1000 !default;
 $zindex-layout-sidebar: 1000 !default;
 $zindex-sidenav-subnav: 1030 !default;
 $zindex-dropdown: 1000 !default;
-$zindex-modal-background: 1040 !default;
+$zindex-off-canvas-background: 1050 !default;
+$zindex-off-canvas: 9990 !default;
+$zindex-modal-background: 1060 !default;
 $zindex-modal: 9998 !default;
 
 /* sizes */
