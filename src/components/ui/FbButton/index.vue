@@ -1,5 +1,5 @@
 <template>
-  <template if="actionType === actionTypes.VUE_LINK">
+  <template v-if="actionType === actionTypes.VUE_LINK">
     <router-link
       ref="element"
       :to="action"
