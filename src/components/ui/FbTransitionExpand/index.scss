@@ -1,12 +1,12 @@
-.expand-enter-active,
-.expand-leave-active {
+.fb-ui-transition-expand-expand-enter-active,
+.fb-ui-transition-expand-expand-leave-active {
   transition: height 250ms ease-in-out;
   transition-property: opacity, height;
   overflow: hidden;
 }
 
-.expand-enter,
-.expand-leave-to {
+.fb-ui-transition-expand-expand-enter-from,
+.fb-ui-transition-expand-expand-leave-to {
   opacity: 0;
   height: 0;
 }

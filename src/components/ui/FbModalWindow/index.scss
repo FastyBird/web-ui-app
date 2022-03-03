@@ -1,27 +1,5 @@
 @import "../../../assets/components/ui/fb-modal-window";
 
-.modal-enter {
-  opacity: 0;
-  filter: alpha(opacity=0);
-
-  .fb-theme-ui-modal-window__dialog {
-    transform: scale(1.1);
-  }
-}
-
-.modal-leave-active {
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-
-.modal-bounce-enter-active {
-  animation: modal-bounce-in 0.25s;
-}
-
-.modal-bounce-leave-active {
-  animation: modal-bounce-in 0.25s reverse;
-}
-
 .fb-theme-ui-modal-window {
   &__container {
     font-family: $modal-font-family;
@@ -179,7 +157,29 @@
   }
 }
 
-@keyframes modal-bounce-in {
+.fb-theme-ui-modal-enter-active,
+.fb-theme-ui-modal-leave-active {
+  transition: opacity .25s ease-in-out
+}
+
+.fb-theme-ui-modal-enter-from,
+.fb-theme-ui-modal-leave-to {
+  opacity: 0;
+}
+
+.fb-theme-ui-modal-enter-to {
+  opacity: 1;
+}
+
+.fb-theme-ui-modal-bounce-enter-active {
+  animation: fb-theme-ui-modal-bounce-in 0.25s;
+}
+
+.fb-theme-ui-modal-bounce-leave-active {
+  animation: fb-theme-ui-modal-bounce-in 0.25s reverse;
+}
+
+@keyframes fb-theme-ui-modal-bounce-in {
   0% {
     transform: scale(0);
   }

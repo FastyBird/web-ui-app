@@ -77,12 +77,16 @@
   }
 }
 
-.sidebar-overlay-enter-active,
-.sidebar-overlay-leave-active {
-  transition: opacity 0.3s ease-in-out;
+.fb-theme-layout-sidebar-overlay-enter-active,
+.fb-theme-layout-sidebar-overlay-leave-active {
+  transition: opacity .25s ease-in-out
 }
 
-.sidebar-overlay-enter,
-.sidebar-overlay-leave-to {
+.fb-theme-layout-sidebar-overlay-enter-from,
+.fb-theme-layout-sidebar-overlay-leave-to {
   opacity: 0;
+}
+
+.fb-theme-layout-sidebar-overlay-enter-to {
+  opacity: 1;
 }

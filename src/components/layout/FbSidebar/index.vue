@@ -3,7 +3,7 @@
     v-if="'header' in $slots || 'content' in $slots || 'footer' in $slots"
     class="fb-theme-layout-sidebar__container"
   >
-    <transition name="sidebar-overlay">
+    <transition name="fb-theme-layout-sidebar-overlay">
       <div
         v-if="!collapsed"
         class="fb-theme-layout-sidebar__overlay"

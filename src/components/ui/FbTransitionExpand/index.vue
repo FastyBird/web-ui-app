@@ -1,6 +1,6 @@
 <template>
   <transition
-    name="expand"
+    name="fb-ui-transition-expand-expand"
     @enter="enter"
     @after-enter="afterEnter"
     @leave="leave"
