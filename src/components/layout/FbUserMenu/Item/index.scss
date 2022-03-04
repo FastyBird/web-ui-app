@@ -6,14 +6,14 @@
     padding: 0;
     line-height: $menu-item-line-height;
 
-    > :deep(span) {
+    > span {
       padding: $menu-item-padding;
       width: 100%;
       text-align: left;
     }
 
-    > :deep(a),
-    > :deep(button) {
+    > a,
+    > button {
       background-color: transparent;
       background-image: none;
       padding: $menu-item-padding;

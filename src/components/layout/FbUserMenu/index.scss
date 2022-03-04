@@ -4,7 +4,7 @@
   &__container {
     position: relative;
 
-    :deep(ul) {
+    ul {
       z-index: $z-index;
       position: absolute;
       top: auto;

@@ -4,8 +4,8 @@
   &__container {
     flex-grow: 1;
 
-    :deep(a),
-    :deep(button) {
+    a,
+    button {
       height: 6rem;
       position: relative;
       padding: $item-padding !important;

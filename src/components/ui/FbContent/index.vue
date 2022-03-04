@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import {
+  computed,
   defineComponent,
   PropType,
 } from 'vue'
@@ -122,27 +123,29 @@ export default defineComponent({
   },
 
   setup(props: IFbUiContentProps) {
-    const classNames = []
+    const classNames = computed<string[]>((): string[] => {
+      const values: string[] = ['fb-theme-ui-content']
 
-    classNames.push('fb-theme-ui-content')
+      const margins = ['mt', 'mb', 'ml', 'mr', 'mv', 'mh']
+      const paddings = ['pt', 'pb', 'pl', 'pr', 'pv', 'ph']
 
-    const margins = ['mt', 'mb', 'ml', 'mr', 'mv', 'mh']
-    const paddings = ['pt', 'pb', 'pl', 'pr', 'pv', 'ph']
+      Object.keys(props)
+        .forEach((key: string): void => {
+          if (margins.includes(key) && get(props, key) !== FbSizeTypes.NONE) {
+            values.push(`fb-theme-ui-content-${key}-${get(props, key)}`)
+          }
 
-    Object.keys(props)
-      .forEach((key: string): void => {
-        if (margins.includes(key) && get(props, key) !== FbSizeTypes.NONE) {
-          classNames.push(`fb-theme-ui-content-${key}-${get(props, key)}`)
-        }
+          if (paddings.includes(key) && get(props, key) !== FbSizeTypes.NONE) {
+            values.push(`fb-theme-ui-content-${key}-${get(props, key)}`)
+          }
+        })
 
-        if (paddings.includes(key) && get(props, key) !== FbSizeTypes.NONE) {
-          classNames.push(`fb-theme-ui-content-${key}-${get(props, key)}`)
-        }
-      })
+      if (props.textAlign !== FbUiTextAlignTypes.NONE) {
+        values.push(`fb-theme-ui-content-text-align-${props.textAlign}`)
+      }
 
-    if (props.textAlign !== FbUiTextAlignTypes.NONE) {
-      classNames.push(`fb-theme-ui-content-text-align-${props.textAlign}`)
-    }
+      return values
+    })
 
     return {
       classNames,

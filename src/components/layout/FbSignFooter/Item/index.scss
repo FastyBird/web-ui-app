@@ -12,7 +12,7 @@
       border-left: none;
     }
 
-    :deep(a) {
+    a {
       color: $item-color;
 
       &:hover,

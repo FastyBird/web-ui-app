@@ -20,7 +20,7 @@
     padding: $footer-padding;
     line-height: $footer-line-height;
 
-    :deep(a) {
+    a {
       color: $footer-link-color;
       text-decoration: none;
 
