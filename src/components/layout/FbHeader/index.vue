@@ -31,7 +31,7 @@
       >
         <slot name="button-right">
           <button
-            v-if="!menuHidden"
+            v-if="!menuButtonHidden"
             :class="['fb-theme-layout-header__button-hamburger', { 'fb-theme-layout-header__button-hamburger-opened': !menuCollapsed }]"
             type="button"
             @click.prevent="$emit('toggleMenu', $event)"
@@ -48,7 +48,7 @@
     <div
       id="fb-layout-header-sub-content"
       ref="subContent"
-      :class="['fb-theme-layout-header__content', {'fb-theme-layout-header__content-expanded': hasContent}]"
+      :class="['fb-theme-layout-header__content', {'fb-theme-layout-header__content-expanded': hasSubContent}]"
     >
       <slot name="sub-content" />
     </div>
@@ -59,10 +59,22 @@
 import {
   defineComponent,
   onMounted,
+  onUnmounted,
   PropType,
   ref,
-  watch,
 } from 'vue'
+
+const newMutationObserver = (callback: () => void): MutationObserver | null => {
+  // Skip this feature for browsers which
+  // do not support ResizeObserver
+  // https://caniuse.com/#search=mutationobserver
+  if (typeof MutationObserver === 'undefined') {
+    return null
+  }
+
+  // @ts-ignore
+  return new MutationObserver(callback)
+}
 
 export default defineComponent({
 
@@ -70,7 +82,7 @@ export default defineComponent({
 
   props: {
 
-    menuHidden: {
+    menuButtonHidden: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
@@ -89,33 +101,42 @@ export default defineComponent({
     const subContent = ref<HTMLElement | null>(null)
 
     const hasSmallButtons = ref<boolean>(false)
-    const hasContent = ref<boolean>(false)
+    const hasSubContent = ref<boolean>(false)
+
+    let mutationObserver: MutationObserver | null = null
+
+    const mutationObserverCallback = (): void => {
+      hasSmallButtons.value = buttonSmall.value !== null && buttonSmall.value?.children.length > 0
+      hasSubContent.value = subContent.value !== null && subContent.value?.children.length > 0
+    }
 
     onMounted((): void => {
       hasSmallButtons.value = buttonSmall.value !== null && buttonSmall.value?.children.length > 0
-      hasContent.value = subContent.value !== null && subContent.value?.children.length > 0
+      hasSubContent.value = subContent.value !== null && subContent.value?.children.length > 0
+
+      mutationObserver = newMutationObserver(mutationObserverCallback)
+
+      if (mutationObserver !== null && buttonSmall.value !== null) {
+        mutationObserver.observe(buttonSmall.value, { childList: true })
+      }
+
+      if (mutationObserver !== null && subContent.value !== null) {
+        mutationObserver.observe(subContent.value, { childList: true })
+      }
     })
 
-    watch(
-        () => buttonSmall.value,
-        (element: HTMLElement | null) => {
-          hasSmallButtons.value = element !== null && element?.children.length > 0
-        },
-    )
-
-    watch(
-        () => subContent.value,
-        (element: HTMLElement | null) => {
-          hasContent.value = element !== null && element?.children.length > 0
-        },
-    )
+    onUnmounted((): void => {
+      if (mutationObserver !== null) {
+        mutationObserver.disconnect()
+      }
+    })
 
     return {
       buttonSmall,
       subContent,
 
       hasSmallButtons,
-      hasContent,
+      hasSubContent,
     }
   },
 
