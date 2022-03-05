@@ -6,7 +6,7 @@
     overflow: hidden;
     flex-grow: 1;
 
-    @include flex-content;
+    @include flex-container;
   }
 
   &__header {
@@ -17,7 +17,13 @@
     overflow: hidden;
     flex-grow: 1;
 
-    @include flex-inner;
+    @include flex-content;
+
+    &-inner {
+      width: 100%;
+
+      @include flex-inner;
+    }
   }
 
   &__footer {

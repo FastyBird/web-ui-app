@@ -9,7 +9,9 @@
 
     <div class="fb-theme-layout-content__content">
       <template v-if="'content' in $slots">
-        <slot name="content" />
+        <div class="fb-theme-layout-content__content-inner">
+          <slot name="content" />
+        </div>
       </template>
 
       <div
