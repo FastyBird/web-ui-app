@@ -5,6 +5,6 @@ export * from "./Icon/types";
 export * from "./Spacer/types";
 
 export interface IFbLayoutHeaderProps {
-  menuHidden: boolean;
+  menuButtonHidden: boolean;
   menuCollapsed: boolean;
 }
