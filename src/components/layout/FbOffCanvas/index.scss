@@ -23,6 +23,8 @@
     background-color: $off-canvas-body-color;
     font-family: $off-canvas-font-family;
     z-index: $off-canvas-body-zindex;
+
+    @include off-canvas-body;
   }
 }
 
