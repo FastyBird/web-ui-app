@@ -1,8 +1,29 @@
 <template>
-  <teleport
-    to="#fb-layout-header-heading"
-    :disabled="!teleport"
-  >
+  <template v-if="teleport">
+    <teleport to="#fb-layout-header-heading">
+      <div class="fb-theme-layout-phone-header-heading__container">
+        <div :class="['fb-theme-layout-phone-header-heading__heading', `fb-theme-layout-phone-header-heading__heading-${align}`]">
+          <h1 v-if="subHeading === null">
+            {{ heading }}
+          </h1>
+
+          <h1 v-if="subHeading !== null">
+            <span>{{ heading }}</span>
+            <small>{{ subHeading }}</small>
+          </h1>
+        </div>
+
+        <div
+          v-if="'icon' in $slots"
+          class="fb-theme-layout-phone-header-heading__icon"
+        >
+          <slot name="icon" />
+        </div>
+      </div>
+    </teleport>
+  </template>
+
+  <template v-else>
     <div class="fb-theme-layout-phone-header-heading__container">
       <div :class="['fb-theme-layout-phone-header-heading__heading', `fb-theme-layout-phone-header-heading__heading-${align}`]">
         <h1 v-if="subHeading === null">
@@ -22,7 +43,7 @@
         <slot name="icon" />
       </div>
     </div>
-  </teleport>
+  </template>
 </template>
 
 <script lang="ts">

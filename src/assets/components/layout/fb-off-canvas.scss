@@ -1,20 +1,8 @@
 @import "../../variables/colors";
-@import "../../variables/layout";
 @import "../../variables/screen";
 @import "../../variables/texts";
 @import "../../mixins/utilities";
 
-$off-canvas-header-height: 5rem;
-$off-canvas-header-padding: 0 $padding-md;
-$off-canvas-header-color: $color-primary-contrast;
-$off-canvas-header-bg-color: $color-primary;
-$off-canvas-header-font-size: $font-size-h4;
-$off-canvas-header-font-weight: $headings-font-weight;
-$off-canvas-header-line-height: $headings-line-height;
-$off-canvas-header-color: $color-primary-contrast;
-$off-canvas-button-color: $color-primary-contrast;
-$off-canvas-button-font-size: 2.5rem;
-$off-canvas-button-line-height: 5rem;
 $off-canvas-overlay-color: rgb(0 0 0 / 50%);
 $off-canvas-overlay-zindex: $zindex-off-canvas-background;
 $off-canvas-body-color: $bg-color-body;

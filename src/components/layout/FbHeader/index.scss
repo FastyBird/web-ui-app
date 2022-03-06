@@ -7,10 +7,6 @@
     z-index: $z-index;
 
     @include shadow;
-
-    @media (min-width: $screen-tablet-min) {
-      display: none !important;
-    }
   }
 
   &__heading {

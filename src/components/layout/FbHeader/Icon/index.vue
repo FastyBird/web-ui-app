@@ -1,14 +1,21 @@
 <template>
-  <teleport
-    :to="`#${teleportTarget}`"
-    :disabled="!teleport"
-  >
+  <template v-if="teleport">
+    <teleport :to="`#${teleportTarget}`">
+      <div
+        :class="['fb-theme-layout-header-icon__container', {'fb-theme-layout-header-icon__container-left': left}, {'fb-theme-layout-header-icon__container-right': right}]"
+      >
+        <slot />
+      </div>
+    </teleport>
+  </template>
+
+  <template v-else>
     <div
       :class="['fb-theme-layout-header-icon__container', {'fb-theme-layout-header-icon__container-left': left}, {'fb-theme-layout-header-icon__container-right': right}]"
     >
       <slot />
     </div>
-  </teleport>
+  </template>
 </template>
 
 <script lang="ts">

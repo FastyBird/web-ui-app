@@ -1,9 +1,9 @@
 import { FbMenuItemTypes } from "@/types";
 
 export interface IFbLayoutHeaderButtonProps {
-  type: FbMenuItemTypes;
+  actionType: FbMenuItemTypes;
+  action: string | { [key: string]: any } | null;
   label: string | null;
-  link: string | null;
   small: boolean;
   left: boolean;
   right: boolean;
