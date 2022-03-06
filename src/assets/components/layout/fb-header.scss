@@ -10,7 +10,6 @@ $header-font-weight: normal;
 $hamburger-bar-line-height: 2px !default;
 $hamburger-bar-line-width: 22px !default;
 $hamburger-bar-line-distance: 5px !default;
-$screen-tablet-min: $screen-sm-min;
 
 @mixin shadow {
   @include box-shadow(0 3px 9px rgba(0, 0, 0, 0.5));

@@ -2,7 +2,7 @@ export { default as FbLayoutContent } from "./FbContent/index.vue";
 export { default as FbLayoutExpandableBox } from "./FbExpandableBox/index.vue";
 export { default as FbLayoutFooter } from "./FbFooter/index.vue";
 export * from "./FbHeader";
-export * from "./FbOffCanvas";
+export { default as FbOffCanvas } from "./FbOffCanvas/index.vue";
 export * from "./FbNavigation";
 export * from "./FbPhoneMenu";
 export { default as FbLayoutPreviewHeading } from "./FbPreviewHeading/index.vue";

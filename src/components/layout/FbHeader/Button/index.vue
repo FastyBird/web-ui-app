@@ -1,8 +1,57 @@
 <template>
-  <teleport
-    :to="`#${teleportTarget}`"
-    :disabled="!teleport"
-  >
+  <template v-if="teleport">
+    <teleport :to="`#${teleportTarget}`">
+      <template v-if="actionType === menuItemTypes.LINK">
+        <a
+          :href="action"
+          :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
+          @click.prevent="$emit('click', $event)"
+        >
+          <template v-if="'icon' in $slots">
+            <slot name="icon" />
+          </template>
+
+          <template v-else>
+            {{ label }}
+          </template>
+        </a>
+      </template>
+
+      <template v-else-if="actionType === menuItemTypes.VUE_LINK">
+        <router-link
+          :to="action"
+          :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
+          @click.prevent="$emit('click', $event)"
+        >
+          <template v-if="'icon' in $slots">
+            <slot name="icon" />
+          </template>
+
+          <template v-else>
+            {{ label }}
+          </template>
+        </router-link>
+      </template>
+
+      <template v-else-if="actionType === menuItemTypes.BUTTON">
+        <button
+          role="button"
+          :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
+          @click.prevent="$emit('click', $event)"
+        >
+          <template v-if="'icon' in $slots">
+            <slot name="icon" />
+          </template>
+
+          <template v-else>
+            {{ label }}
+          </template>
+        </button>
+      </template>
+    </teleport>
+  </template>
+
+  <template v-else>
     <template v-if="actionType === menuItemTypes.LINK">
       <a
         :href="action"
@@ -50,7 +99,7 @@
         </template>
       </button>
     </template>
-  </teleport>
+  </template>
 </template>
 
 <script lang="ts">

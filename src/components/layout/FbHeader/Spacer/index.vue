@@ -1,10 +1,13 @@
 <template>
-  <teleport
-    :to="`#${teleportTarget}`"
-    :disabled="!teleport"
-  >
+  <template v-if="teleport">
+    <teleport :to="`#${teleportTarget}`">
+      <div :class="['fb-theme-layout-header__spacer', {'fb-theme-layout-header__spacer-left': left}, {'fb-theme-layout-header__spacer-right': right}, {'fb-theme-layout-header__spacer-center': !right && !left}]" />
+    </teleport>
+  </template>
+
+  <template v-else>
     <div :class="['fb-theme-layout-header__spacer', {'fb-theme-layout-header__spacer-left': left}, {'fb-theme-layout-header__spacer-right': right}, {'fb-theme-layout-header__spacer-center': !right && !left}]" />
-  </teleport>
+  </template>
 </template>
 
 <script lang="ts">
