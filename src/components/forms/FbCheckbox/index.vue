@@ -14,7 +14,7 @@
       :tabindex="tabIndex"
       class="fb-theme-form-checkbox__input"
       type="checkbox"
-      @change="handleChange"
+      @change="onChange"
     >
 
     <span class="fb-theme-form-checkbox__indicator" />
@@ -129,7 +129,7 @@ export default defineComponent({
       },
     })
 
-    const handleChange = (): void => {
+    const onChange = (): void => {
       nextTick(() => {
         if (props.group !== null) {
           props.group.$emit.apply(props.group, ['change', props.group.modelValue])
@@ -141,7 +141,7 @@ export default defineComponent({
 
     return {
       model,
-      handleChange,
+      onChange,
     }
   },
 

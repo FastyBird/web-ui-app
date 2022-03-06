@@ -36,10 +36,10 @@
         :disabled="disabled"
         :readonly="readonly"
         class="fb-theme-form-select__control"
-        @input="handleUpdateValue($event.target.value)"
-        @focus="handleSetFocus(true)"
-        @blur="handleSetFocus(false)"
-        @change="handleChange"
+        @input="onUpdateValue($event.target.value)"
+        @focus="onSetFocus(true)"
+        @blur="onSetFocus(false)"
+        @change="onChange"
       >
         <option
           v-if="blankSelect !== null"
@@ -203,12 +203,12 @@ export default defineComponent({
     const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
-    const handleUpdateValue = (value: string | number | null): void => {
+    const onUpdateValue = (value: string | number | null): void => {
       context.emit('update:modelValue', value)
     }
 
     // Fire focus & blur events
-    const handleSetFocus = (value: boolean): void => {
+    const onSetFocus = (value: boolean): void => {
       isFocused.value = value
 
       if (value) {
@@ -218,16 +218,16 @@ export default defineComponent({
       }
     }
 
-    const handleChange = (): void => {
+    const onChange = (): void => {
       context.emit('change', props.modelValue)
     }
 
     return {
       internalValue,
       isFocused,
-      handleUpdateValue,
-      handleSetFocus,
-      handleChange,
+      onUpdateValue,
+      onSetFocus,
+      onChange,
     }
   },
 

@@ -38,10 +38,11 @@
         :value="modelValue"
         :placeholder="error !== null && !isFocused ? error : placeholder"
         class="fb-theme-form-input__control"
-        @input="handleUpdateValue($event.target.value)"
-        @focus="handleSetFocus(true)"
-        @blur="handleSetFocus(false)"
-        @keydown="handleKeyDown"
+        @input="onUpdateValue($event.target.value)"
+        @focus="onSetFocus(true)"
+        @blur="onSetFocus(false)"
+        @keydown="onKeyDown"
+        @keyup="onKeyUp"
       >
     </template>
 
@@ -175,18 +176,18 @@ export default defineComponent({
 
   },
 
-  emits: ['update:modelValue', 'focus', 'blur', 'keydown'],
+  emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'keyup'],
 
   setup(_props: IFbFormInputProps, context: SetupContext) {
     const isFocused = ref<boolean>(false)
 
     // Emit an input event up to the parent
-    const handleUpdateValue = (value: string | number | null): void => {
+    const onUpdateValue = (value: string | number | null): void => {
       context.emit('update:modelValue', value)
     }
 
     // Fire focus & blur events
-    const handleSetFocus = (value: boolean): void => {
+    const onSetFocus = (value: boolean): void => {
       isFocused.value = value
 
       if (value) {
@@ -196,15 +197,20 @@ export default defineComponent({
       }
     }
 
-    const handleKeyDown = (event: Event): void => {
+    const onKeyDown = (event: Event): void => {
       context.emit('keydown', event)
+    }
+
+    const onKeyUp = (event: Event): void => {
+      context.emit('keyup', event)
     }
 
     return {
       isFocused,
-      handleUpdateValue,
-      handleSetFocus,
-      handleKeyDown,
+      onUpdateValue,
+      onSetFocus,
+      onKeyDown,
+      onKeyUp,
     }
   },
 

@@ -3,7 +3,7 @@
     :data-variant="variant"
     :role="'button' in $slots ? 'button' : null"
     class="fb-theme-ui-item__container"
-    @click="handleClick"
+    @click="onClick"
   >
     <div
       v-if="'icon' in $slots"
@@ -72,7 +72,7 @@ export default defineComponent({
   setup(_props, context: SetupContext) {
     const { getPath } = useEventElementPath()
 
-    const handleClick = (event: UIEvent): void => {
+    const onClick = (event: UIEvent): void => {
       const path = getPath(event)
 
       if (path.length) {
@@ -103,7 +103,7 @@ export default defineComponent({
     }
 
     return {
-      handleClick,
+      onClick,
     }
   },
 

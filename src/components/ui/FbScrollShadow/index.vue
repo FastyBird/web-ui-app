@@ -7,7 +7,7 @@
       ref="shadowScrollContainerInner"
       :style="{ width, height }"
       class="fb-theme-ui-scroll-shadow__inner"
-      @scroll.passive="handleToggleShadow"
+      @scroll.passive="onToggleShadow"
     >
       <slot />
 
@@ -62,7 +62,7 @@ export default defineComponent({
     let shadowScrollContainerInnerObserver: ResizeObserver | undefined
     let wrapObserver: ResizeObserver | undefined
 
-    const handleToggleShadow = (): void => {
+    const onToggleShadow = (): void => {
       if (shadowScrollContainerInner.value !== null) {
         const hasHorizontalScrollbar = shadowScrollContainerInner.value.clientWidth < shadowScrollContainerInner.value.scrollWidth
         const hasVerticalScrollbar = shadowScrollContainerInner.value.clientHeight < shadowScrollContainerInner.value.scrollHeight
@@ -82,7 +82,7 @@ export default defineComponent({
       }
     }
 
-    const handleCalcDimensions = async(): Promise<void> => {
+    const onCalcDimensions = async(): Promise<void> => {
       // Reset dimensions for correctly recalculating parent dimensions
       width.value = undefined
       height.value = undefined
@@ -97,14 +97,14 @@ export default defineComponent({
 
     onMounted((): void => {
       // Check if shadows are necessary after the element is resized.
-      shadowScrollContainerInnerObserver = newResizeObserver(handleToggleShadow)
+      shadowScrollContainerInnerObserver = newResizeObserver(onToggleShadow)
 
       if (shadowScrollContainerInnerObserver && shadowScrollContainerInner.value !== null) {
         shadowScrollContainerInnerObserver.observe(shadowScrollContainerInner.value)
       }
 
       // Recalculate the container dimensions when the wrapper is resized.
-      wrapObserver = newResizeObserver(handleCalcDimensions)
+      wrapObserver = newResizeObserver(onCalcDimensions)
 
       if (wrapObserver && shadowScrollContainer.value !== null) {
         wrapObserver.observe(shadowScrollContainer.value)
@@ -129,7 +129,7 @@ export default defineComponent({
       shadow,
       shadowScrollContainer,
       shadowScrollContainerInner,
-      handleToggleShadow,
+      onToggleShadow,
     }
   },
 })

@@ -30,7 +30,7 @@
             :has-error="error !== null"
             :readonly="readonly"
             :disabled="disabled"
-            @change="handleChange"
+            @change="onChange"
           />
         </template>
       </div>
@@ -163,13 +163,13 @@ export default defineComponent({
       },
     })
 
-    const handleChange = (): void => {
+    const onChange = (): void => {
       context.emit('change', props.modelValue)
     }
 
     return {
       model,
-      handleChange,
+      onChange,
     }
   },
 

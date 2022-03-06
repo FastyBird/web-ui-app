@@ -7,7 +7,7 @@
       :data-size="size"
       :class="classNames"
       role="button"
-      @click.prevent="clickHandle($event)"
+      @click.prevent="onClick($event)"
     >
       <div
         v-if="'icon' in $slots && 'default' in $slots"
@@ -55,7 +55,7 @@
       :data-size="size"
       :class="classNames"
       role="button"
-      @click.prevent="clickHandle($event)"
+      @click.prevent="onClick($event)"
     >
       <div
         v-if="'icon' in $slots && 'default' in $slots"
@@ -104,7 +104,7 @@
       :class="classNames"
       :disabled="disabled"
       role="button"
-      @click.prevent="clickHandle($event)"
+      @click.prevent="onClick($event)"
     >
       <div
         v-if="'icon' in $slots && 'default' in $slots"
@@ -356,7 +356,7 @@ export default defineComponent({
       return FbUiVariantTypes.DEFAULT
     })
 
-    const clickHandle = (e: Event): void => {
+    const onClick = (e: Event): void => {
       context.emit('click', e)
 
       if (element.value !== null && typeof element.value.blur !== 'undefined') {
@@ -367,7 +367,7 @@ export default defineComponent({
     return {
       element,
       classNames,
-      clickHandle,
+      onClick,
       loader: spinnerVariant,
       buttonTypes: FbUiButtonButtonTypes,
       actionTypes: FbUiButtonActionsTypes,
