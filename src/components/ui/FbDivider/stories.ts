@@ -4,7 +4,7 @@ import {
   Story,
 } from '@storybook/vue3'
 
-import { FbUiDividerVariantTypes } from '@/types'
+import { FbUiDividerTypeTypes, FbUiDividerVariantTypes } from '@/types'
 
 import { IFbUiDividerProps } from './types'
 import FbUiDivider from './index.vue'
@@ -26,15 +26,29 @@ export default {
     type: {
       type: { name: 'string', required: false },
       control: { type: 'select' },
-      defaultValue: FbUiDividerVariantTypes.HORIZONTAL,
+      defaultValue: FbUiDividerTypeTypes.HORIZONTAL,
       options: [
-        FbUiDividerVariantTypes.HORIZONTAL,
-        FbUiDividerVariantTypes.VERTICAL,
+        FbUiDividerTypeTypes.HORIZONTAL,
+        FbUiDividerTypeTypes.VERTICAL,
       ],
       description: 'Divider type',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: FbUiDividerVariantTypes.HORIZONTAL },
+        defaultValue: { summary: FbUiDividerTypeTypes.HORIZONTAL },
+      },
+    },
+    variant: {
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      defaultValue: FbUiDividerVariantTypes.DEFAULT,
+      options: [
+        FbUiDividerVariantTypes.DEFAULT,
+        FbUiDividerVariantTypes.GRADIENT,
+      ],
+      description: 'Divider variant',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: FbUiDividerVariantTypes.DEFAULT },
       },
     },
   },
@@ -77,19 +91,19 @@ export const Horizontal: Story<TemplateArgs> = () => {
           <span>Content</span>
         </div>
         <div style="position: relative;">
-          <fb-ui-divider type="${FbUiDividerVariantTypes.HORIZONTAL}">AND</fb-ui-divider>
+          <fb-ui-divider type="${FbUiDividerTypeTypes.HORIZONTAL}">AND</fb-ui-divider>
         </div>
         <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
           <span>Content</span>
         </div>
         <div style="position: relative;">
-          <fb-ui-divider type="${FbUiDividerVariantTypes.HORIZONTAL}">AND</fb-ui-divider>
+          <fb-ui-divider type="${FbUiDividerTypeTypes.HORIZONTAL}">AND</fb-ui-divider>
         </div>
         <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
           <span>Content</span>
         </div>
         <div style="position: relative;">
-          <fb-ui-divider type="${FbUiDividerVariantTypes.HORIZONTAL}">=</fb-ui-divider>
+          <fb-ui-divider type="${FbUiDividerTypeTypes.HORIZONTAL}">=</fb-ui-divider>
         </div>
         <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
           <span>Content</span>
@@ -108,19 +122,81 @@ export const Vertical: Story<TemplateArgs> = () => {
           <span>Content</span>
         </div>
         <div style="position: relative; width: 50px;">
-          <fb-ui-divider type="${FbUiDividerVariantTypes.VERTICAL}">OR</fb-ui-divider>
+          <fb-ui-divider type="${FbUiDividerTypeTypes.VERTICAL}">OR</fb-ui-divider>
         </div>
         <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
           <span>Content</span>
         </div>
         <div style="position: relative; width: 50px;">
-          <fb-ui-divider type="${FbUiDividerVariantTypes.VERTICAL}">OR</fb-ui-divider>
+          <fb-ui-divider type="${FbUiDividerTypeTypes.VERTICAL}">OR</fb-ui-divider>
         </div>
         <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
           <span>Content</span>
         </div>
         <div style="position: relative; width: 50px;">
-          <fb-ui-divider type="${FbUiDividerVariantTypes.VERTICAL}">OR</fb-ui-divider>
+          <fb-ui-divider type="${FbUiDividerTypeTypes.VERTICAL}">OR</fb-ui-divider>
+        </div>
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+      </div>
+    `,
+  }
+}
+
+export const GradientHorizontal: Story<TemplateArgs> = () => {
+  return {
+    components: { FbUiDivider },
+    template: `
+      <div style="display: flex; flex-direction: column;">
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+        <div style="position: relative;">
+          <fb-ui-divider type="${FbUiDividerTypeTypes.HORIZONTAL}" variant="${FbUiDividerVariantTypes.GRADIENT}" />
+        </div>
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+        <div style="position: relative;">
+          <fb-ui-divider type="${FbUiDividerTypeTypes.HORIZONTAL}" variant="${FbUiDividerVariantTypes.GRADIENT}" />
+        </div>
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+        <div style="position: relative;">
+          <fb-ui-divider type="${FbUiDividerTypeTypes.HORIZONTAL}" variant="${FbUiDividerVariantTypes.GRADIENT}" />
+        </div>
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+      </div>
+    `,
+  }
+}
+
+export const GradientVertical: Story<TemplateArgs> = () => {
+  return {
+    components: { FbUiDivider },
+    template: `
+      <div style="display: flex; flex-direction: row;">
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+        <div style="position: relative; width: 50px;">
+          <fb-ui-divider type="${FbUiDividerTypeTypes.VERTICAL}" variant="${FbUiDividerVariantTypes.GRADIENT}" />
+        </div>
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+        <div style="position: relative; width: 50px;">
+          <fb-ui-divider type="${FbUiDividerTypeTypes.VERTICAL}" variant="${FbUiDividerVariantTypes.GRADIENT}" />
+        </div>
+        <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
+          <span>Content</span>
+        </div>
+        <div style="position: relative; width: 50px;">
+          <fb-ui-divider type="${FbUiDividerTypeTypes.VERTICAL}" variant="${FbUiDividerVariantTypes.GRADIENT}" />
         </div>
         <div style="border: 1px solid rgb(221, 221, 221);height: 100px;flex-grow: 2;display: flex;place-content: center;justify-content: center;align-items: center;">
           <span>Content</span>

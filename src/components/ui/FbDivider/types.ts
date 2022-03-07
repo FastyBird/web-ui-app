@@ -1,5 +1,9 @@
-import { FbUiDividerVariantTypes } from "@/types";
+import {
+  FbUiDividerTypeTypes,
+  FbUiDividerVariantTypes,
+} from '@/types'
 
 export interface IFbUiDividerProps {
-  type: FbUiDividerVariantTypes;
+  type?: FbUiDividerTypeTypes;
+  variant?: FbUiDividerVariantTypes;
 }

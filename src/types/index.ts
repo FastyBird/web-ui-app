@@ -8,6 +8,7 @@ export interface IPluginOptions {
 export type InstallFunction = Plugin & { installed?: boolean };
 
 export * from "../components/types";
+export * from "../directives/types";
 
 export enum FbMenuItemTypes {
     LINK = "link",
@@ -96,9 +97,14 @@ export enum FbUiConfirmationWindowPrimaryButtonTypes {
     NO = "no",
 }
 
-export enum FbUiDividerVariantTypes {
+export enum FbUiDividerTypeTypes {
     HORIZONTAL = "horizontal",
     VERTICAL = "vertical",
+}
+
+export enum FbUiDividerVariantTypes {
+    DEFAULT = "default",
+    GRADIENT = "gradient",
 }
 
 export enum FbUiTextAlignTypes {

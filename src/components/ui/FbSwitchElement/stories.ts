@@ -75,7 +75,7 @@ const Template: Story<TemplateArgs> = (args) => {
   return {
     components: { FbUiSwitchElement },
     setup(): any {
-      const status = ref<boolean>(args.status)
+      const status = ref<boolean>(args?.status ?? false)
 
       return { args, status }
     },
