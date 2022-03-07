@@ -46,6 +46,37 @@
         }
       }
     }
+
+    &[data-variant="gradient"] {
+      height: 1px;
+      border: 0;
+      background: $screen-gradient-color;
+      background:
+        -webkit-gradient(
+          linear,
+          0 0,
+          100% 0,
+          from($screen-gradient-bgcolor),
+          to($screen-gradient-bgcolor),
+          color-stop(50%, $screen-gradient-color)
+        );
+
+      &[data-type="vertical"] {
+        @media (min-width: $screen-tablet-min) {
+          height: 100%;
+          width: 1px;
+          background:
+            -webkit-gradient(
+              linear,
+              0 100%,
+              0 0,
+              from($screen-gradient-bgcolor),
+              to($screen-gradient-bgcolor),
+              color-stop(50%, $screen-gradient-color)
+            );
+        }
+      }
+    }
   }
 
   &__content {

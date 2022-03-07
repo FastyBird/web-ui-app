@@ -1,6 +1,15 @@
 <template>
-  <div
+  <hr
+    v-if="variant === variantTypes.GRADIENT"
     :data-type="type"
+    :data-variant="variant"
+    class="fb-theme-ui-divider__container"
+  >
+
+  <div
+    v-else
+    :data-type="type"
+    :data-variant="variant"
     class="fb-theme-ui-divider__container"
   >
     <div class="fb-theme-ui-divider__content">
@@ -15,7 +24,7 @@ import {
   PropType,
 } from 'vue'
 
-import { FbUiDividerVariantTypes } from '@/types'
+import { FbUiDividerTypeTypes, FbUiDividerVariantTypes } from '@/types'
 
 export default defineComponent({
 
@@ -24,17 +33,35 @@ export default defineComponent({
   props: {
 
     type: {
-      type: String as PropType<FbUiDividerVariantTypes>,
-      default: FbUiDividerVariantTypes.HORIZONTAL,
-      validator: (value: FbUiDividerVariantTypes) => {
+      type: String as PropType<FbUiDividerTypeTypes>,
+      default: FbUiDividerTypeTypes.HORIZONTAL,
+      validator: (value: FbUiDividerTypeTypes) => {
         // The value must match one of these strings
         return [
-          FbUiDividerVariantTypes.HORIZONTAL,
-          FbUiDividerVariantTypes.VERTICAL,
+          FbUiDividerTypeTypes.HORIZONTAL,
+          FbUiDividerTypeTypes.VERTICAL,
         ].includes(value)
       },
     },
 
+    variant: {
+      type: String as PropType<FbUiDividerVariantTypes>,
+      default: FbUiDividerVariantTypes.DEFAULT,
+      validator: (value: FbUiDividerVariantTypes) => {
+        // The value must match one of these strings
+        return [
+          FbUiDividerVariantTypes.DEFAULT,
+          FbUiDividerVariantTypes.GRADIENT,
+        ].includes(value)
+      },
+    },
+
+  },
+
+  setup() {
+    return {
+      variantTypes: FbUiDividerVariantTypes,
+    }
   },
 
 })

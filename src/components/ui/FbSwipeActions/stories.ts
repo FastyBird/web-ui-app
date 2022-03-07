@@ -26,7 +26,7 @@ export default {
   },
 } as Meta
 
-interface TemplateArgs extends IFbUiSwipeActionsListProps, Args {
+interface TemplateArgs extends IFbUiSwipeActionsListProps<any>, Args {
   default?: string
 }
 

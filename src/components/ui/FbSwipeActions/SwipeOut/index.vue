@@ -72,10 +72,10 @@ import {
 } from 'vue'
 
 import { TouchHorizontalPan } from '@/directives'
+import { ITouchHorizontalChanges } from '@/directives/types'
 import {
   IFbUiSwipeActionsOutProps,
   TFbUiSwipeActionsOutDir,
-  ITouchHorizontalChanges,
 } from '@/components/ui/FbSwipeActions/types'
 
 const translateX = (x: number): string => {
@@ -206,7 +206,7 @@ export default defineComponent({
 
       const newX = startLeft.value + offset.x
 
-      if ((startLeft.value === 0 && Math.abs(newX) <= props.threshold) || (distance.x >= props.threshold && ((startLeft.value > 0 && distance.x < leftActionsWidth.value) || (startLeft.value < 0 && distance.x < rightActionsWidth.value)))) {
+      if ((startLeft.value === 0 && Math.abs(newX) <= (props.threshold as number)) || (distance.x >= (props.threshold as number) && ((startLeft.value > 0 && distance.x < leftActionsWidth.value) || (startLeft.value < 0 && distance.x < rightActionsWidth.value)))) {
         reveal(false, false)
 
         return
@@ -375,7 +375,7 @@ export default defineComponent({
           return
         }
 
-        reveal(val, true)
+        reveal((val as boolean | TFbUiSwipeActionsOutDir), true)
       },
     )
 

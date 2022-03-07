@@ -14,7 +14,7 @@
         :threshold="threshold"
         :disabled="itemDisabled(item) || disabled"
         class="fb-theme-ui-swipe-actions-out__item"
-        @closed="onClosed(item, index, $event)"
+        @closed="onClosed(item, index)"
         @revealed="onRevealed(item, index, $event)"
         @leftRevealed="$emit('leftRevealed', { index, item, close: $event.close })"
         @rightRevealed="$emit('rightRevealed', { index, item, close: $event.close })"
@@ -115,7 +115,7 @@ export default defineComponent({
 
   emits: ['update:revealed', 'active', 'closed', 'revealed', 'leftRevealed', 'rightRevealed'],
 
-  setup(props: IFbUiSwipeActionsListProps, context: SetupContext) {
+  setup(props: IFbUiSwipeActionsListProps<any>, context: SetupContext) {
     const container = ref<HTMLElement | null>(null)
     const elements = ref<InstanceType<typeof FbUiSwipeActionsOut>[]>([])
     const innerRevealed = ref<{ [key: (number)]: TFbUiSwipeActionsOutDir }>(props.revealed || {})
@@ -189,7 +189,7 @@ export default defineComponent({
     watch(
       () => props.revealed,
       (val): void => {
-        innerRevealed.value = val
+        innerRevealed.value = val as { [key: (number)]: TFbUiSwipeActionsOutDir }
       },
     )
 

@@ -119,6 +119,8 @@ import FbUiResultErr from '@/components/ui/FbResultErr/index.vue'
 import FbUiResultOk from '@/components/ui/FbResultOk/index.vue'
 import FbUiLoadingBox from '@/components/ui/FbLoadingBox/index.vue'
 
+import { IFbUiModalFormProps } from './types'
+
 export default defineComponent({
 
   name: 'FbUiModalForm',
@@ -213,7 +215,7 @@ export default defineComponent({
 
   emits: ['submit', 'close', 'cancel'],
 
-  setup(_props, context: SetupContext) {
+  setup(_props: IFbUiModalFormProps, context: SetupContext) {
     const initialTabindex = ref<number>(get(context, 'slots.form', []).length + 1)
 
     return {

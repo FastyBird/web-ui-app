@@ -6,7 +6,7 @@ import {
   ITouchHorizontalDirectiveBindingModifiers,
   ITouchHorizontalDirectiveContext,
   TTouchDirection,
-} from '@/components/ui/FbSwipeActions/types'
+} from './types'
 
 const testPassive = (): boolean => {
   let passive = false;
