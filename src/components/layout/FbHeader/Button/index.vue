@@ -12,7 +12,7 @@
           </template>
 
           <template v-else>
-            {{ label }}
+            <slot />
           </template>
         </a>
       </template>
@@ -28,7 +28,7 @@
           </template>
 
           <template v-else>
-            {{ label }}
+            <slot />
           </template>
         </router-link>
       </template>
@@ -44,9 +44,29 @@
           </template>
 
           <template v-else>
-            {{ label }}
+            <slot />
           </template>
         </button>
+      </template>
+
+      <template v-else-if="actionType === menuItemTypes.TEXT">
+        <div
+          :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
+        >
+          <template v-if="'icon' in $slots">
+            <slot name="icon" />
+          </template>
+
+          <template v-else>
+            <slot />
+          </template>
+        </div>
+      </template>
+
+      <template v-else-if="actionType === menuItemTypes.BLANK">
+        <div
+          :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
+        />
       </template>
     </teleport>
   </template>
@@ -63,7 +83,7 @@
         </template>
 
         <template v-else>
-          {{ label }}
+          <slot />
         </template>
       </a>
     </template>
@@ -79,7 +99,7 @@
         </template>
 
         <template v-else>
-          {{ label }}
+          <slot />
         </template>
       </router-link>
     </template>
@@ -95,9 +115,29 @@
         </template>
 
         <template v-else>
-          {{ label }}
+          <slot />
         </template>
       </button>
+    </template>
+
+    <template v-else-if="actionType === menuItemTypes.TEXT">
+      <div
+        :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-textual': !('icon' in $slots)}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
+      >
+        <template v-if="'icon' in $slots">
+          <slot name="icon" />
+        </template>
+
+        <template v-else>
+          <slot />
+        </template>
+      </div>
+    </template>
+
+    <template v-else-if="actionType === menuItemTypes.BLANK">
+      <div
+        :class="['fb-theme-layout-header-button__container', {'fb-theme-layout-header-button__container-small': small}, {'fb-theme-layout-header-button__container-left': left}, {'fb-theme-layout-header-button__container-right': right}]"
+      />
     </template>
   </template>
 </template>
@@ -134,11 +174,6 @@ export default defineComponent({
           FbMenuItemTypes.VUE_LINK,
         ].includes(value)
       },
-    },
-
-    label: {
-      type: String as PropType<string | null>,
-      default: null,
     },
 
     small: {

@@ -10,7 +10,6 @@ import {
   FbLayoutHeaderButton,
   FbLayoutHeaderContent,
   FbLayoutHeaderHeading,
-  FbLayoutHeaderSpacer,
 } from "@/components/layout/FbHeader/index";
 import { FbMenuItemTypes } from "@/types";
 
@@ -63,7 +62,6 @@ const Template: Story<ITemplateArgs> = (args) => {
       FbLayoutHeader,
       FbLayoutHeaderHeading,
       FbLayoutHeaderButton,
-      FbLayoutHeaderSpacer,
       FbLayoutHeaderContent,
     },
     setup(): any {
@@ -87,14 +85,13 @@ const Template: Story<ITemplateArgs> = (args) => {
           </template>
 
           <template #button-small>
-            <fb-layout-header-spacer :teleport="false" />
-
             <fb-layout-header-button
-              :label="'Close'"
               :teleport="false"
               small
               type="${FbMenuItemTypes.BUTTON}"
-            />
+            >
+              Close
+            </fb-layout-header-button>
           </template>
 
           <template #sub-content>

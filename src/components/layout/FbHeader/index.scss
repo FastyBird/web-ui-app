@@ -50,7 +50,7 @@
     transition: height 0.3s ease-in-out;
     overflow: hidden;
 
-    @include flex-heading;
+    @include flex-buttons;
 
     &-expanded {
       height: 3rem;

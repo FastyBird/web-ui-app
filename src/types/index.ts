@@ -15,6 +15,7 @@ export enum FbMenuItemTypes {
     VUE_LINK = "vue_link",
     BUTTON = "button",
     TEXT = "text",
+    BLANK = "blank",
 }
 
 export enum FbSizeTypes {
