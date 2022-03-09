@@ -164,7 +164,7 @@ export default defineComponent({
 
   },
 
-  emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'keyup'],
+  emits: ['update:modelValue', 'change', 'focus', 'blur', 'keydown', 'keyup'],
 
   setup(_props: IFbFormTextAreaProps, context: SetupContext) {
     const isFocused = ref<boolean>(false)
@@ -172,6 +172,7 @@ export default defineComponent({
     // Emit an input event up to the parent
     const onUpdateValue = (value: string | number | null): void => {
       context.emit('update:modelValue', value)
+      context.emit('change', value)
     }
 
     // Fire focus & blur events

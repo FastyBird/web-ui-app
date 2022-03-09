@@ -196,7 +196,7 @@ export default defineComponent({
 
   },
 
-  emits: ['update:modelValue', 'focus', 'blur', 'change'],
+  emits: ['update:modelValue', 'change', 'focus', 'blur', 'change'],
 
   setup(props: IFbFormSelectProps, context: SetupContext) {
     const internalValue = ref<string | number | null>(props.modelValue)
@@ -205,6 +205,7 @@ export default defineComponent({
     // Emit an input event up to the parent
     const onUpdateValue = (value: string | number | null): void => {
       context.emit('update:modelValue', value)
+      context.emit('change', value)
     }
 
     // Fire focus & blur events
