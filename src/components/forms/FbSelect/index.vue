@@ -89,6 +89,7 @@ import {
   PropType,
   ref,
   SetupContext,
+  watch,
 } from 'vue'
 
 import {
@@ -222,6 +223,13 @@ export default defineComponent({
     const onChange = (): void => {
       context.emit('change', props.modelValue)
     }
+
+    watch(
+      (): string | number | null => props.modelValue,
+      (value) => {
+        internalValue.value = value
+      },
+    )
 
     return {
       internalValue,
