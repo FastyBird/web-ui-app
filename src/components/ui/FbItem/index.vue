@@ -2,6 +2,7 @@
   <div
     :data-variant="variant"
     :role="'button' in $slots ? 'button' : null"
+    data-element="list-item"
     class="fb-theme-ui-item__container"
     @click="onClick"
   >
