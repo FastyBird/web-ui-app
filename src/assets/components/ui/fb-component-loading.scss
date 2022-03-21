@@ -19,5 +19,5 @@ $loader-icon-size-md: $icon-height-md;
 $loader-icon-size-lg: $icon-height-lg;
 
 @mixin flex-container {
-  @include flex-row;
+  @include flex-row(nowrap);
 }

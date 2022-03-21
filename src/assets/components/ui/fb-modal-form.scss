@@ -6,5 +6,5 @@ $result-bg-color: $bg-color-body;
 $result-z-index: $zindex-modal;
 
 @mixin form-flex {
-  @include flex-column;
+  @include flex-column(nowrap);
 }

@@ -16,7 +16,7 @@
     height: $heading-container-height;
     border-bottom: 1px solid $heading-container-border-color;
 
-    @include flex-row;
+    @include flex-row(nowrap);
   }
 
   &__heading {
@@ -48,6 +48,6 @@
     align-items: center;
     justify-content: flex-end;
 
-    @include flex-row;
+    @include flex-row(nowrap);
   }
 }

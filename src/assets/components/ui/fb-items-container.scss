@@ -19,5 +19,5 @@ $heading-buttons-button-font-size: 1.2rem;
 $screen-tablet-min: $screen-sm-min;
 
 @mixin items-container-flex {
-  @include flex-column;
+  @include flex-column(nowrap);
 }

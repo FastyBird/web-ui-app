@@ -33,7 +33,7 @@ $header-close-shadow: 0 1px 0 $white;
 }
 
 @mixin header-flex-title {
-  @include flex-column;
+  @include flex-column(nowrap);
 }
 
 @mixin header-close {

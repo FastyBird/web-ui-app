@@ -52,5 +52,5 @@ $alert-icon-padding: $padding-xs;
 }
 
 @mixin flex-alert {
-  @include flex-row;
+  @include flex-row(nowrap);
 }
