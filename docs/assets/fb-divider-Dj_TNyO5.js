@@ -1,0 +1,17 @@
+import{j as e}from"./jsx-runtime-Cwi7KSeA.js";import{u as s}from"./index-BtdslvUy.js";import{M as r,C as d}from"./index-BwNQZ7yn.js";import{D as h,B as c,C as o,a as l,V as x}from"./fb-divider.stories-Ew-LxHS_.js";import"./iframe-C6g2oLdd.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-DXimoRZY.js";import"./index-Dv1YWgiV.js";import"./index-DrFu-skq.js";import"./index-Dg9quNvz.js";import"./vue.esm-bundler-DEpQrfwO.js";import"./web-ui-components.es-nLJZCm2K.js";function n(t){const i={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",hr:"hr",p:"p",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...s(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(r,{of:h}),`
+`,e.jsx(i.h1,{id:"divider",children:"Divider"}),`
+`,e.jsx(i.p,{children:"The dividing line that separates the content."}),`
+`,e.jsx(i.h2,{id:"basic-usage",children:"Basic Usage"}),`
+`,e.jsx(i.p,{children:"Divide the text of different paragraphs."}),`
+`,e.jsx(d,{of:c}),`
+`,e.jsx(i.h2,{id:"custom-content",children:"Custom Content"}),`
+`,e.jsx(i.p,{children:"You can customize the content on the divider line."}),`
+`,e.jsx(d,{of:o}),`
+`,e.jsx(i.h2,{id:"line-styles",children:"Line Styles"}),`
+`,e.jsx(i.p,{children:"You can set the style of divider."}),`
+`,e.jsx(d,{of:l}),`
+`,e.jsx(i.h2,{id:"vertical-divider",children:"Vertical divider"}),`
+`,e.jsx(d,{of:x}),`
+`,e.jsx(i.hr,{}),`
+`,e.jsx(i.h2,{id:"divider-api",children:"Divider API"}),`
+`,e.jsxs("div",{style:{marginTop:"30px"},children:[e.jsx(i.h3,{id:"attributes",children:"Attributes"}),e.jsxs(i.table,{children:[e.jsx(i.thead,{children:e.jsxs(i.tr,{children:[e.jsx(i.th,{children:"Name"}),e.jsx(i.th,{children:"Description"}),e.jsx(i.th,{children:"Type"}),e.jsx(i.th,{children:"Default"})]})}),e.jsxs(i.tbody,{children:[e.jsxs(i.tr,{children:[e.jsx(i.td,{children:"direction"}),e.jsx(i.td,{children:"set divider's direction"}),e.jsxs(i.td,{children:[e.jsx(i.code,{children:"horizontal"})," | ",e.jsx(i.code,{children:"vertical"})]}),e.jsx(i.td,{children:"horizontal"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{children:"border-style"}),e.jsx(i.td,{children:"set the style of divider"}),e.jsxs(i.td,{children:[e.jsx(i.code,{children:"none"})," | ",e.jsx(i.code,{children:"solid"})," | ",e.jsx(i.code,{children:"hidden"})," | ",e.jsx(i.code,{children:"dashed"})," | ... ",e.jsx(i.a,{href:"https://developer.mozilla.org/en-US/docs/Web/CSS/border-style",rel:"nofollow",children:"css/border-style"})]}),e.jsx(i.td,{children:"solid"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{children:"content-position"}),e.jsx(i.td,{children:"the position of the customized content on the divider line"}),e.jsxs(i.td,{children:[e.jsx(i.code,{children:"left"})," | ",e.jsx(i.code,{children:"right"})," | ",e.jsx(i.code,{children:"center"})]}),e.jsx(i.td,{children:"center"})]}),e.jsxs(i.tr,{children:[e.jsx(i.td,{children:"gradient"}),e.jsx(i.td,{children:"determine whether show divider with gradient effect"}),e.jsx(i.td,{children:e.jsx(i.code,{children:"boolean"})}),e.jsx(i.td,{children:"false"})]})]})]}),e.jsx(i.h3,{id:"slots",children:"Slots"}),e.jsxs(i.table,{children:[e.jsx(i.thead,{children:e.jsxs(i.tr,{children:[e.jsx(i.th,{children:"Name"}),e.jsx(i.th,{children:"Description"})]})}),e.jsx(i.tbody,{children:e.jsxs(i.tr,{children:[e.jsx(i.td,{children:"default"}),e.jsx(i.td,{children:"customized content on the divider line"})]})})]})]})]})}function M(t={}){const{wrapper:i}={...s(),...t.components};return i?e.jsx(i,{...t,children:e.jsx(n,{...t})}):n(t)}export{M as default};
