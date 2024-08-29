@@ -1,1 +1,0 @@
-const e={viewMode:"docs",controls:{matchers:{color:/(background|color)$/i,date:/Date$/}},backgrounds:{disable:!0},darkMode:{darkClass:"dark",lightClass:"light",stylePreview:!0,classTarget:"html"}};export{e as parameters};
